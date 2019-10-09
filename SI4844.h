@@ -134,8 +134,28 @@ public :
   si4844_status_response *getStatus(void);
   si4844_firmware_response *getFirmware(void);
 
-  String getFrequency(void);
+  float getFrequency(void);
   bool hasStatusChanged(void);
-  void resetStatus(void); 
-  
+  void resetStatus(void);
+
+  inline unsigned getStatusBCFG0() { return status_response.refined.BCFG0; };
+  inline unsigned getStatusBCFG1() { return status_response.refined.BCFG1; };
+  inline unsigned getStatusStereo() { return status_response.refined.STEREO; };
+  inline unsigned getStatusStationIndicator() { return status_response.refined.STATION; };
+  inline unsigned getStatusInformationReady() { return status_response.refined.INFORDY; };
+  inline unsigned getStatusHostPowerUp() { return status_response.refined.HOSTPWRUP; };
+  inline unsigned getStatusHostReset() { return status_response.refined.HOSTRST; };
+  inline unsigned getStatusBandMode() { return status_response.refined.BANDMODE; };
+  inline unsigned getStatusBandIndex() { return status_response.refined.BANDIDX; };
+  inline unsigned getStatusCTS() { return status_response.refined.CTS; };
+
+  inline unsigned getFirmwareReserved() { return firmware_response.refined.RESERVED; };
+  inline unsigned getFirmwareErr() { return firmware_response.refined.ERR; };
+  inline unsigned getFirmwareCTS() { return firmware_response.refined.CTS; };
+  inline unsigned getFirmwarePartNumber() { return firmware_response.refined.PN; };
+  inline unsigned getFirmwareMajorRevision() { return firmware_response.refined.FWMAJOR; };
+  inline unsigned getFirmwareMinorRevision() { return firmware_response.refined.FWMINOR; };
+  inline unsigned getFirmwareComponentMajorRevision() { return firmware_response.refined.CMPMAJOR; };
+  inline unsigned getFirmwareComponentMinorRevision() { return firmware_response.refined.CMPMINOR; };
+  inline unsigned getFirmwareChipRevision() { return firmware_response.refined.CHIPREV; };
 };

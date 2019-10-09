@@ -216,7 +216,7 @@ si4844_firmware_response *SI4844::getFirmware(void) {
 }
 
 
-String SI4844::getFrequency(void)
+float SI4844::getFrequency(void)
 {
 
     getStatus();
@@ -231,9 +231,16 @@ String SI4844::getFrequency(void)
 
     s.concat(status_response.refined.d4);
 
+    float f = s.toFloat();
+
+    if (this > status_response.refined.BANDMODE != 1) 
+    {
+        f *= 1000.0; // if not MW (AM)
+    }
+
     data_from_si4844 = false;
-    
-   return s;
+
+   return f;
 
 }
 
