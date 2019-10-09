@@ -1,10 +1,5 @@
 /*
- * It is a Proof of Concept (POC) of using Si4844  
- * 
- * To build this code I used the followed sources: 
- * 1. Radio project based on Si4844-A10: https://github.com/Derek123454
- * 2. How to Build an Arduino-Controlled AM/FM/SW Radio: https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/
- * 3. Silicon Labs; Si48XX ATDD PROGRAMMING GUIDE
+ * It is a Proof of Concept (POC) of using Si4844 with the Arduino Library for Si4844.
  * 
  * Author: Ricardo Lima Caratti (PU2CLR)
  * September, 2019
