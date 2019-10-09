@@ -1,7 +1,6 @@
 
 #include "SI4844.h"
 
-
 /*
 * interrupt_hundler
 * English: 
@@ -13,8 +12,7 @@
 *   estação, esta função será chamada
 */
 
-
-void SI4844::wait_atdd_iterrupt(void)  {
+void SI4844::waitInterrupr(void)  {
   while (!data_from_si4844);
 }
 
@@ -31,46 +29,46 @@ void SI4844::setup(void)
 
     data_from_si4844 = false;
     
-    atdd_reset();
+    reset();
 
     // FM is the default BAND
     // See pages 17 and 18 (Table 8. Pre-defined Band Table) for more details
-    atdd_change_band(4);
+    setBand(4);
 
     // This sketch is using the value 44.
-    sound_controll('?'); // Initiate with default volume control;
+    setVolume('?'); // Initiate with default volume control;
 
 }
 
 /*
- * atdd_reset
+ * reset
  * English
  * See pages 7, 8, 9 and 10 of the programming guide.
  * Portuguese
  * Veja as páginas 7, 8, 9 e 10 do guia de programação.
  */
-void SI4844::atdd_reset()
+void SI4844::reset()
 {
-    set_clock_low(); // See *Note on page 5
+    setClockLow(); // See *Note on page 5
     data_from_si4844 = false;
     digitalWrite(RESET_PIN, LOW);
     delayMicroseconds(200);
     digitalWrite(RESET_PIN, HIGH);
     delayMicroseconds(200);
-    wait_atdd_iterrupt();
+    waitInterrupr();
     delayMicroseconds(2500);
 }
 
 /*
- * atdd_change_band 
+ * setBand 
  * English...: change the band 
  * Portuguese: Altera a banda 
  * Reference.: Silicon Labs; Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
  */
-void SI4844::atdd_change_band(byte new_band)
+void SI4844::setBand(byte new_band)
 {
 
-    atdd_reset();
+    reset();
 
     // Assigning 1 to bit 7. It means we are using external crystal
     // Silicon Labs; Si48XX ATDD PROGRAMMING GUIDE; AN610; page 7
@@ -81,23 +79,23 @@ void SI4844::atdd_change_band(byte new_band)
     data_from_si4844 = false;
 
     // Wait until rady to send a command
-    this->atdd_wait_to_send_command();
+    this->waitToSend();
 
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_POWER_UP);
     Wire.write(new_band);
     Wire.endTransmission();
     delayMicroseconds(2500);
-    wait_atdd_iterrupt();
+    waitInterrupr();
 
     delayMicroseconds(2500);
-    atdd_get_status();
+    getStatus();
     delayMicroseconds(2500);
 }
 
 
 /*
- * atdd_clear_to_send_command
+ * isClearToSend
  * English:
  * Check if the ATDD (Si4844) is ready to receive the next command. 
  * See page 14 of the Program Guide.
@@ -105,22 +103,19 @@ void SI4844::atdd_change_band(byte new_band)
  * Verifica se o Si4844 está pronto para receber o próximo comando
  * Veja a página 14 do guia de programação
  */
-inline bool SI4844::atdd_clear_to_send_command(void)
+inline bool SI4844::isClearToSend(void)
 {
-
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_GET_STATUS);
     Wire.endTransmission();
     delayMicroseconds(2000);
     Wire.requestFrom(SI4844_ADDRESS, 0x01);
-
     status_response.raw[0] = Wire.read();
-
     return status_response.refined.CTS; // return 0 (false) or 1 (true)
 }
 
 /*
- * atdd_wait_to_send_command
+ * waitToSend
  * English:
  * Wait for the ATDD become Clear to Send. 
  * See page 14 of the Program Guide.
@@ -128,17 +123,17 @@ inline bool SI4844::atdd_clear_to_send_command(void)
  * Espera o Si4844 ficar pronto para receber comando
  * Veja a página 14 do guia de programação
  */
-inline void SI4844::atdd_wait_to_send_command()
+inline void SI4844::waitToSend()
 {
 
-    while (!atdd_clear_to_send_command())
+    while (!isClearToSend())
         ;
 }
 
 
 
 /*
- *  sound_controll 
+ *  setVolume 
  *  English
  *  Send a command to chenge the sound volume. 
  *  Parameter: Use '+' to increase and '-' to decrease. 
@@ -147,7 +142,7 @@ inline void SI4844::atdd_wait_to_send_command()
  *  Envia um comando para o ATDD. 
  *  Parâmetro: '+' aumenta o volume e '-' diminui o volume. 
  */
-void SI4844::sound_controll(char command)
+void SI4844::setVolume(char command)
 {
 
     // See global variable volume;
@@ -178,9 +173,9 @@ void SI4844::sound_controll(char command)
 }
 
 
-si4844_status_response *SI4844::atdd_get_status()
+si4844_status_response *SI4844::getStatus()
 {
-    set_clock_high();
+    setClockHigh();
     do
     {
         Wire.beginTransmission(SI4844_ADDRESS);
@@ -199,10 +194,10 @@ si4844_status_response *SI4844::atdd_get_status()
     return &status_response;
 }
 
-si4844_firmware_response *SI4844::atdd_get_firmware(void) {
+si4844_firmware_response *SI4844::getFirmware(void) {
   
   // Check and wait until the ATDD is ready to receive command
-  atdd_wait_to_send_command();
+  waitToSend();
 
   Wire.beginTransmission(SI4844_ADDRESS);
   Wire.write(GET_REV);
@@ -221,10 +216,10 @@ si4844_firmware_response *SI4844::atdd_get_firmware(void) {
 }
 
 
-String SI4844::get_frequency(void)
+String SI4844::getFrequency(void)
 {
 
-    atdd_get_status();
+    getStatus();
 
     String s;
     int d = 0;
@@ -242,11 +237,17 @@ String SI4844::get_frequency(void)
 
 }
 
-bool SI4844::status_changed(void) {
-
-  return data_from_si4844;
+/*
+*  hasStatusChanged
+*  Check if the SI4844 has its status changed. 
+*
+*  return true or false  
+*/
+bool SI4844::hasStatusChanged(void)
+{
+    return data_from_si4844;
 }
 
-void SI4844::reset_status() {
+void SI4844::resetStatus() {
       data_from_si4844 = false;
 }

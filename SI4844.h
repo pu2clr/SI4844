@@ -116,11 +116,11 @@ private:
   si4844_status_response status_response; 
   si4844_firmware_response firmware_response;
 
-  inline void set_clock_low(void) { Wire.setClock(100000); };
-  inline void set_clock_high(void) { Wire.setClock(500000); };
-  inline void wait_atdd_iterrupt(void);
-  inline bool atdd_clear_to_send_command(void);
-  inline void atdd_wait_to_send_command(void);
+  inline void setClockLow(void) { Wire.setClock(100000); };
+  inline void setClockHigh(void) { Wire.setClock(500000); };
+  inline void waitInterrupr(void);
+  inline bool isClearToSend(void);
+  inline void waitToSend(void);
 
   // SI4844 band description (FM = 0; AM = 1; SW = 2)
   const char *bandmode_table[3] = {"FM", "AM", "SW"};
@@ -128,14 +128,14 @@ private:
 
 public : 
   void setup(void);
-  void atdd_reset(void );
-  void atdd_change_band(byte);
-  void sound_controll(char );
-  si4844_status_response *atdd_get_status(void);
-  si4844_firmware_response *atdd_get_firmware(void);
+  void reset(void );
+  void setBand(byte);
+  void setVolume(char );
+  si4844_status_response *getStatus(void);
+  si4844_firmware_response *getFirmware(void);
 
-  String get_frequency(void);
-  bool status_changed(void);
-  void reset_status(void); 
+  String getFrequency(void);
+  bool hasStatusChanged(void);
+  void resetStatus(void); 
   
 };

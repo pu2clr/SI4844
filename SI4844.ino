@@ -12,7 +12,6 @@
 #include "SI4844.h"
 #include <Wire.h>
 
-
 SI4844 si4844; 
 
 void setup() {
@@ -54,8 +53,9 @@ void show_status() {
 
 void loop() {
 
-  if ( si4844.status_changed()  ) {
-    Serial.println(si4844.get_frequency());
+  if (si4844.hasStatusChanged())
+  {
+    Serial.println(si4844.getFrequency());
   }
 
 }
