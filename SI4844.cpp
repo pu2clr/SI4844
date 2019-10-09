@@ -230,22 +230,17 @@ float SI4844::getFrequency(void)
     getStatus();
 
     String s;
-    int d = 0;
-
-
+ 
+    // Check bit[15] of the CHFREQ. See Page 15 of Si48XX ATDD PROGRAMMING GUIDE
     if (status_response.refined.BANDMODE == 2 and (status_response.refined.d1 & B00001000))
       status_response.refined.d1 &=  B11110111;  
  
-
     s.concat(status_response.refined.d1);
     s.concat(status_response.refined.d2);
-
     s.concat(status_response.refined.d3);
-
     s.concat(status_response.refined.d4);
 
     float f = s.toFloat();
-
 
     if (status_response.refined.BANDMODE != 1) 
     {
