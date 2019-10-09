@@ -1,7 +1,0 @@
-{
-    "port": "/dev/cu.BTSLIDEBUD-JL_SPP",
-    "board": "arduino:avr:pro",
-    "configuration": "cpu=16MHzatmega328",
-    "programmer": "AVR ISP",
-    "sketch": "SI4844.ino"
-}
