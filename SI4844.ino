@@ -31,12 +31,19 @@ void show_firmware_information() {
 
   Serial.println("\nSI4844 -  Firmware information\n");
 
-  Serial.println("Final 2 digits of Part Number..: " + si4844.getFirmwarePartNumber());
-  Serial.println("Firmware Major Revision........: " + si4844.getFirmwareMajorRevision());
-  Serial.println("Firmware Minor Revision........: " + si4844.getFirmwareMinorRevision());
-  Serial.println("Component Major Revision.......: " + si4844.getFirmwareComponentMajorRevision());
-  Serial.println("Component Minor Revision.......: " + si4844.getFirmwareComponentMinorRevision());
-  Serial.println("Chip Revision..................: " + si4844.getFirmwareChipRevision());
+  si4844.getFirmware();
+  Serial.print("Final 2 digits of Part Number..: ");
+  Serial.println(si4844.getFirmwarePartNumber());
+  Serial.print("Firmware Major Revision........: ");
+  Serial.println(si4844.getFirmwareMajorRevision());
+  Serial.print("Firmware Minor Revision........: ");
+  Serial.println(si4844.getFirmwareMinorRevision());
+  Serial.print("Component Major Revision.......: ");
+  Serial.println(si4844.getFirmwareComponentMajorRevision());
+  Serial.print("Component Minor Revision.......: "); 
+  Serial.println(si4844.getFirmwareComponentMinorRevision());
+  Serial.print("Chip Revision..................: ");
+  Serial.println(si4844.getFirmwareChipRevision());
 
   Serial.println("*****************************");
 
@@ -115,8 +122,15 @@ void loop() {
 
   if (si4844.hasStatusChanged())
   {
+    Serial.print("Band Index: ");
+    Serial.print(si4844.getStatusBandIndex());
+    Serial.print(" - ");
+    Serial.print(si4844.getBandMode());
+    Serial.print(" - Frequency: ");    
     Serial.print(si4844.getFrequency());
-    Serial.println(" KHz")
+    Serial.print(" KHz");
+    Serial.print(" - Stereo ");
+    Serial.println(si4844.getStereoIndicator());
   }
 
 }

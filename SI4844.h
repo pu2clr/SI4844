@@ -132,6 +132,7 @@ private:
 
   // SI4844 band description (FM = 0; AM = 1; SW = 2)
   const char *bandmode_table[3] = {"FM", "AM", "SW"};
+  const char *stereo_indicator_table[2] = {"Off","On "};
   byte volume = 44;  
 
 public : 
@@ -146,6 +147,9 @@ public :
   bool hasStatusChanged(void);
   void resetStatus(void);
 
+  inline String getBandMode(){ return bandmode_table[status_response.refined.BANDMODE]; };
+  inline String getStereoIndicator(){ return stereo_indicator_table[status_response.refined.STATION]; };
+  
   inline unsigned getStatusBCFG0() { return status_response.refined.BCFG0; };
   inline unsigned getStatusBCFG1() { return status_response.refined.BCFG1; };
   inline unsigned getStatusStereo() { return status_response.refined.STEREO; };
@@ -156,6 +160,7 @@ public :
   inline unsigned getStatusBandMode() { return status_response.refined.BANDMODE; };
   inline unsigned getStatusBandIndex() { return status_response.refined.BANDIDX; };
   inline unsigned getStatusCTS() { return status_response.refined.CTS; };
+
 
   inline unsigned getFirmwareReserved() { return firmware_response.refined.RESERVED; };
   inline unsigned getFirmwareErr() { return firmware_response.refined.ERR; };

@@ -232,6 +232,11 @@ float SI4844::getFrequency(void)
     String s;
     int d = 0;
 
+
+    if (status_response.refined.BANDMODE == 2 and (status_response.refined.d1 & B00001000))
+      status_response.refined.d1 &=  B11110111;  
+ 
+
     s.concat(status_response.refined.d1);
     s.concat(status_response.refined.d2);
 
@@ -241,9 +246,10 @@ float SI4844::getFrequency(void)
 
     float f = s.toFloat();
 
-    if (this > status_response.refined.BANDMODE != 1) 
+
+    if (status_response.refined.BANDMODE != 1) 
     {
-        f *= 1000.0; // if not MW (AM)
+        f *= 100.0; // if not MW (AM)
     }
 
     data_from_si4844 = false;
