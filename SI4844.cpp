@@ -175,6 +175,7 @@ void SI4844::changeVolume(char command)
 
 }
 
+
 /*
  * Set the sound volume level. 
  * @param byte volumeLevel (domain: 0 to 63) 

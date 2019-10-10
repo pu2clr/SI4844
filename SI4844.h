@@ -25,6 +25,7 @@
 #define SET_PROPERTY 0x12
 #define RX_VOLUME 0x40
 
+
 /* 
  * The structure below represents the four bytes response got by command ATDD_GET_STATUS
  * See PROGRAMMING GUIDE, pages 14 and 15
