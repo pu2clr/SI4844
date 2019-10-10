@@ -1,6 +1,6 @@
 # Si4844 Library for Arduino
 
-This is a library for the SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER,  ICs from Silicon Labs for the Arduino development environment.  This library is intended to provide an easier interface for controlling the SI4844.
+This is a library for the SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER,  IC from Silicon Labs for the Arduino development environment.  This library is intended to provide an easier interface for controlling the SI4844.
 
 By Ricardo Lima Caratti, Oct, 2019. 
 
@@ -10,7 +10,7 @@ __Attention: Under construction.__
 ## Summary
 1. [Your support is important](https://github.com/pu2clr/SI4844#your-support-is-important)
 2. [About the SI4844 Architecture](https://github.com/pu2clr/SI4844#about-the-si4844-architecture)
-3. [Terminology]()
+3. [Terminology](https://github.com/pu2clr/SI4844#terminology)
 4. [Library Installation](https://github.com/pu2clr/SI4844#library-installation)
 5. [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup)
    1. [Schematic](https://github.com/pu2clr/SI4844#schematic)
@@ -43,7 +43,7 @@ See more about SI4844 on [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO
 |ATDD  |Analog Tune Digital Display. Sometimes used to refer the Si4844 device|
 |interrupt|In this context, it is a Arduino Resource. Allows important tasks to be performed regardless of the flow of your program|
 |C++| A object-oriented programming (OOP) language. It is a superset of the C language with an additional concept of "classes." |
-|programming guide| In this context it feres to [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)|
+|programming guide| In this context it refers to [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)|
 
 
 
