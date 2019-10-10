@@ -25,11 +25,10 @@
 #define SET_PROPERTY 0x12
 #define RX_VOLUME 0x40
 
-
-// English...: Four bytes response structure for command ATDD_GET_STATUS
-// Portuguese: Estrutura de dados correspondente a uma resposta do comando ATDD_GET_STATUS
-// Reference.: Si48XX ATDD PROGRAMMING GUIDE, pages 14 and 15
-
+/* 
+ * The structure below represents the four bytes response got by command ATDD_GET_STATUS
+ * See PROGRAMMING GUIDE, pages 14 and 15
+ */
 typedef struct
 {
   byte BCFG0 : 1;     // Bit 0
@@ -48,23 +47,20 @@ typedef struct
   byte d3 : 4;        // frequency digit 3
 } si4844_get_status;
 
-// English:
-// Uses a C language feature to represent the 4 response bytes (status) sent by the ATDD_GET_STATUS.
-// It is needed to undertand the C language union concept
-// Portuguese:
-// Usa um recurso da linguagem C para representar os 4 bytes de resposta (status) enviados pelo ATDD (SI4844).
-// É preciso entender o conceito de UNION da linguagem C.
+/*
+ * Uses a C language feature to represent two way for the 4 response bytes (status) sent by the ATDD_GET_STATUS.
+ * It is needed to undertand the C language union concept.
+ * See Si48XX ATDD PROGRAMMING GUIDE, pages 14 and 15 
+*/
 typedef union {
   si4844_get_status refined;
   byte raw[4];
 } si4844_status_response;
 
-// English:
-// GET_REV structure. The structure below represents 9 bytes response for GET_REV command.
-// STATUS and RESP1 to RESP8.  See Si48XX ATDD PROGRAMMING GUIDE; AN610, page 22.
-// Portuguese:
-// A estrutura de dados a seguir representa 9 bytes de resposta para o comando GET_REV.
-// Veja a página 22 do guia de programação (Si48XX ATDD PROGRAMMING GUIDE; AN610)
+/*
+ * The structure below represents 9 response bytes sent by GET_REV command (STATUS and RESP1 to RESP8).
+ * See Si48XX ATDD PROGRAMMING GUIDE, page 22.
+ */
 typedef struct
 {
   byte RESERVED : 6; // Bit 0 to 5
