@@ -24,28 +24,30 @@ void SI4844::waitInterrupr(void)  {
   while (!data_from_si4844);
 }
 
-void SI4844::setup(void)
+
+void SI4844::setup(unsigned int resetPin, unsigned int interruptPin, byte defaultBand) 
 {
+
+    this->resetPin = resetPin;
+    this->interruptPin = interruptPin;
+  
     // Arduino interrupt setup.
-    pinMode(INTERRUPT_PIN, INPUT);
-    attachInterrupt(digitalPinToInterrupt(INTERRUPT_PIN), interrupt_hundler, RISING);
+    pinMode(interruptPin, INPUT);
+    attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_hundler, RISING);
 
-    pinMode(RESET_PIN, OUTPUT);
-    digitalWrite(RESET_PIN, HIGH);
-
-    Serial.println("...setup 1");
+    pinMode(resetPin, OUTPUT);
+    digitalWrite(resetPin, HIGH);
 
     data_from_si4844 = false;
-    
+
     reset();
 
     // FM is the default BAND
     // See pages 17 and 18 (Table 8. Pre-defined Band Table) for more details
-    setBand(4);
+    setBand(defaultBand);
 
     // This sketch is using the value 44.
     setVolume('?'); // Initiate with default volume control;
-
 }
 
 /*
@@ -57,11 +59,13 @@ void SI4844::setup(void)
  */
 void SI4844::reset()
 {
+    waitToSend();
+    
     setClockLow(); // See *Note on page 5
     data_from_si4844 = false;
-    digitalWrite(RESET_PIN, LOW);
+    digitalWrite(resetPin, LOW);
     delayMicroseconds(200);
-    digitalWrite(RESET_PIN, HIGH);
+    digitalWrite(resetPin, HIGH);
     delayMicroseconds(200);
     waitInterrupr();
     delayMicroseconds(2500);
@@ -87,7 +91,7 @@ void SI4844::setBand(byte new_band)
     data_from_si4844 = false;
 
     // Wait until rady to send a command
-    this->waitToSend();
+    waitToSend();
 
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_POWER_UP);
@@ -150,7 +154,7 @@ inline void SI4844::waitToSend()
  *  Envia um comando para o ATDD. 
  *  Parâmetro: '+' aumenta o volume e '-' diminui o volume. 
  */
-void SI4844::setVolume(char command)
+void SI4844::changeVolume(char command)
 {
 
     // See global variable volume;
@@ -169,7 +173,16 @@ void SI4844::setVolume(char command)
     }
 
     // See: Table 4. Using the SET_PROPERTY Command; page 11 for more details
+    setVolume(volume);
 
+}
+
+void SI4844::setVolume(byte volumeLavel) {
+
+    if (volumeLavel > 63) return; 
+    
+    waitToSend();
+    
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(SET_PROPERTY);
     Wire.write(0x00);
@@ -178,18 +191,19 @@ void SI4844::setVolume(char command)
     Wire.write(0x00);
     Wire.write(volume);
     Wire.endTransmission();
+    delayMicroseconds(2500);
 }
 
-
-si4844_status_response *SI4844::getStatus()
+    si4844_status_response *SI4844::getStatus()
 {
+    waitToSend();
     setClockHigh();
     do
     {
         Wire.beginTransmission(SI4844_ADDRESS);
         Wire.write(ATDD_GET_STATUS);
         Wire.endTransmission();
-        delayMicroseconds(2000);
+        delayMicroseconds(2500);
         // request 4 bytes response from atdd (si4844)
         Wire.requestFrom(SI4844_ADDRESS, 0x04);
         for (int i = 0; i < 4; i++)
@@ -230,10 +244,24 @@ float SI4844::getFrequency(void)
     getStatus();
 
     String s;
+    int addFactor = 0;
+    int multFactor = 1;
  
-    // Check bit[15] of the CHFREQ. See Page 15 of Si48XX ATDD PROGRAMMING GUIDE
-    if (status_response.refined.BANDMODE == 2 and (status_response.refined.d1 & B00001000))
-      status_response.refined.d1 &=  B11110111;  
+    // Check CHFREQ bit[15] MSB = 1 
+    // See Page 15 of Si48XX ATDD PROGRAMMING GUIDE
+    if (status_response.refined.BANDMODE == 0 ) {
+        multFactor = 100;
+        if ( status_response.refined.d1 & B00001000 ) { 
+          status_response.refined.d1 &=  B11110111; 
+          addFactor = 50;
+        }
+    } else if (status_response.refined.BANDMODE == 2)   { 
+      multFactor = 10;
+      if (status_response.refined.d1 & B00001000) {
+         status_response.refined.d1 &=  B11110111; 
+         addFactor = 5;
+      }
+    }
  
     s.concat(status_response.refined.d1);
     s.concat(status_response.refined.d2);
@@ -242,14 +270,9 @@ float SI4844::getFrequency(void)
 
     float f = s.toFloat();
 
-    if (status_response.refined.BANDMODE != 1) 
-    {
-        f *= 100.0; // if not MW (AM)
-    }
-
     data_from_si4844 = false;
 
-   return f;
+   return (f * multFactor + addFactor);
 
 }
 

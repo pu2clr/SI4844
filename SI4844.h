@@ -25,9 +25,6 @@
 #define SET_PROPERTY 0x12
 #define RX_VOLUME 0x40
 
-// Arduino Pin (tested on pro mini)
-#define INTERRUPT_PIN 2
-#define RESET_PIN 12
 
 // English...: Four bytes response structure for command ATDD_GET_STATUS
 // Portuguese: Estrutura de dados correspondente a uma resposta do comando ATDD_GET_STATUS
@@ -123,6 +120,9 @@ private:
 
   si4844_status_response status_response; 
   si4844_firmware_response firmware_response;
+  unsigned int resetPin;
+  unsigned int interruptPin;
+  
 
   inline void setClockLow(void) { Wire.setClock(100000); };
   inline void setClockHigh(void) { Wire.setClock(500000); };
@@ -136,10 +136,11 @@ private:
   byte volume = 44;  
 
 public : 
-  void setup(void);
+  void setup(unsigned int, unsigned int, byte);
   void reset(void );
   void setBand(byte);
-  void setVolume(char );
+  void changeVolume(char);
+  void setVolume(byte);
   si4844_status_response *getStatus(void);
   si4844_firmware_response *getFirmware(void);
 

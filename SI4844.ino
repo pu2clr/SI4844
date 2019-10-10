@@ -7,6 +7,13 @@
 #include "SI4844.h"
 #include <Wire.h>
 
+// Arduino Pin (tested on pro mini)
+#define INTERRUPT_PIN 2
+#define RESET_PIN 12
+
+
+#define DEFAULT_BAND 4
+
 SI4844 si4844; 
 
 void setup() {
@@ -14,11 +21,11 @@ void setup() {
   Serial.begin(9600);
   delay(500);
 
-  attachInterrupt(digitalPinToInterrupt(INTERRUPT_PIN), interrupt_hundler, RISING);
-  
   Serial.println("Início");
-  
-  si4844.setup();
+
+  si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+
+  si4844.setVolume(55);
 
   Serial.println("Setup Concluído");
 
@@ -109,7 +116,7 @@ void loop() {
       break;
     case '+': // sound volume control
     case '-':
-      si4844.setVolume(key); // if key = '+' then up; if key = '-' then  down; other, default volume.
+      si4844.changeVolume(key); // if key = '+' then up; if key = '-' then  down; other, default volume.
       break;
     case 'I': 
     case 'i':
@@ -127,7 +134,7 @@ void loop() {
     Serial.print(" - ");
     Serial.print(si4844.getBandMode());
     Serial.print(" - Frequency: ");    
-    Serial.print(si4844.getFrequency());
+    Serial.print(si4844.getFrequency(),0);
     Serial.print(" KHz");
     Serial.print(" - Stereo ");
     Serial.println(si4844.getStereoIndicator());
