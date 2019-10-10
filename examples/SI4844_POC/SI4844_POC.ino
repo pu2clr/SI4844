@@ -11,7 +11,6 @@
 #define INTERRUPT_PIN 2
 #define RESET_PIN 12
 
-
 #define DEFAULT_BAND 4
 
 SI4844 si4844; 
