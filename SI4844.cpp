@@ -263,6 +263,13 @@ si4844_firmware_response *SI4844::getFirmware(void) {
 }
 
 
+/*
+ * Get the current frequency of the radio in KHz. 
+ * For example: FM, 103900 KHz (103.9 MHz);
+ *              SW, 7335 KHz (7.34 MHz, 41m)   
+ * 
+ * @return float current frequency in KHz.  
+ */
 float SI4844::getFrequency(void)
 {
 
@@ -302,8 +309,8 @@ float SI4844::getFrequency(void)
 }
 
 /*
-*  hasStatusChanged
-*  Check if the SI4844 has its status changed. 
+*  Check if the SI4844 has its status changed. If you move the tuner, for example,
+*  the status of the device is changed. 
 *
 *  return true or false  
 */

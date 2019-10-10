@@ -343,10 +343,50 @@ Exemple:
   si4844.getFirmware();
 ```
 
+#### getFrequency
+
+```cpp
+/*
+ * Get the current frequency of the radio in KHz. 
+ * For example: FM, 103900 KHz (103.9 MHz);
+ *              SW, 7335 KHz (7.34 MHz, 41m)   
+ * 
+ * @return float current frequency in KHz.  
+ */
 float getFrequency(void);
+```
 
+Exemple:
 
+```cpp 
+    Serial.print("Frequency: ");    
+    Serial.print(si4844.getFrequency(),0);
+```
+
+#### hasStatusChanged
+
+```cpp
+/*
+*  Check if the SI4844 has its status changed. If you move the tuner, for example,
+*  the status of the device is changed. 
+*
+*  return true or false  
+*/
 bool hasStatusChanged(void);
+```
+
+Exemple:
+
+```cpp 
+  if (si4844.hasStatusChanged())
+  {
+    Serial.print(" - Frequency: ");    
+    Serial.print(si4844.getFrequency(),0);
+    Serial.print(" KHz");
+    Serial.print(" - Stereo ");
+    Serial.println(si4844.getStereoIndicator());
+  }
+```
 
 
 void resetStatus(void);
