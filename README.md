@@ -16,6 +16,9 @@ __Attention: Under construction.__
    2. [Component Parts](https://github.com/pu2clr/SI4844#parts)
    3. [Photos](https://github.com/pu2clr/SI4844#photos)
 5. [API Documentation]()
+   1. [Overview]()
+   2. [Defined Data Types and Structures]()
+   3. [Public Methods]()
 6. [References](https://github.com/pu2clr/SI4844#references)
 7. [Videos](https://github.com/pu2clr/SI4844#videos) 
 
@@ -101,6 +104,7 @@ The table below is based on [Raymond Genovese, May 26, 2016 - How to Build an Ar
 2. (*2) - the value used is 4.7uF and not 47uF as suggested by the original circuit.
 
 
+
 ### Photos 
 
 ### SI4844 soldered on adapter
@@ -122,6 +126,195 @@ It was a bit hard to solder the Si4844 on adapter. However, by using a electroni
 ![SI4844 and Arduino on protoboard 02](./images/protoboard_02.png)
 
 ![SI4844 and Arduino on protoboard 03](./images/protoboard_04.png)
+
+
+
+## API Documentation
+
+
+### Overview
+
+
+### Defined Data Types and Structures
+
+
+```cpp
+// English...: Four bytes response structure for command ATDD_GET_STATUS
+// Reference.: Si48XX ATDD PROGRAMMING GUIDE, pages 14 and 15
+typedef struct
+{
+  byte BCFG0 : 1;     // Bit 0
+  byte BCFG1 : 1;     // bit 1
+  byte STEREO : 1;    // bit 2
+  byte STATION : 1;   // bit 3
+  byte INFORDY : 1;   // bit 4
+  byte HOSTPWRUP : 1; // bit 5
+  byte HOSTRST : 1;   // bit 6
+  byte CTS : 1;       // bit 7
+  byte BANDIDX : 6;   // Form bit 0 to 5
+  byte BANDMODE : 2;  // From bit 6 to 7
+  byte d2 : 4;        // Frequency digit 2
+  byte d1 : 4;        // Frequency digit 1
+  byte d4 : 4;        // Frequency digit 4
+  byte d3 : 4;        // frequency digit 3
+} si4844_get_status;
+```
+
+
+```cpp
+// English:
+// Uses a C language feature to represent the 4 response bytes (status) sent by the ATDD_GET_STATUS.
+// It is needed to undertand the C language union concept
+// Portuguese:
+// Usa um recurso da linguagem C para representar os 4 bytes de resposta (status) enviados pelo ATDD (SI4844).
+// É preciso entender o conceito de UNION da linguagem C.
+typedef union {
+  si4844_get_status refined;
+  byte raw[4];
+} si4844_status_response;
+```
+
+
+```cpp
+// English:
+// GET_REV structure. The structure below represents 9 bytes response for GET_REV command.
+// STATUS and RESP1 to RESP8.  See Si48XX ATDD PROGRAMMING GUIDE; AN610, page 22.
+// Portuguese:
+// A estrutura de dados a seguir representa 9 bytes de resposta para o comando GET_REV.
+// Veja a página 22 do guia de programação (Si48XX ATDD PROGRAMMING GUIDE; AN610)
+typedef struct
+{
+  byte RESERVED : 6; // Bit 0 to 5
+  byte ERR : 1;      // bit 6
+  byte CTS : 1;      // bit 2
+  byte PN;           // Final 2 digits of Part Number (HEX).
+  byte FWMAJOR;      // Firmware Major Revision (ASCII).
+  byte FWMINOR;      // Firmware Minor Revision (ASCII).
+  byte CMPMAJOR;     // Component Major Revision (ASCII).
+  byte CMPMINOR;     // Component Minor Revision (ASCII).
+  byte CHIPREV;      // Chip Revision (ASCII).
+} si4844_firmware_info;
+```
+
+
+```cpp
+typedef union {
+  si4844_firmware_info refined;
+  byte raw[9];
+} si4844_firmware_response;
+```
+
+
+
+### Public Methods
+
+
+void setup(unsigned int, unsigned int, byte)
+
+
+
+void reset(void )
+
+
+void setBand(byte);
+
+
+void changeVolume(char);
+
+
+void setVolume(byte);
+
+
+si4844_status_response *getStatus(void);
+
+
+si4844_firmware_response *getFirmware(void);
+
+
+float getFrequency(void);
+
+
+bool hasStatusChanged(void);
+
+
+void resetStatus(void);
+
+
+inline String getBandMode()
+
+
+
+inline String getStereoIndicator()
+
+
+inline unsigned getStatusBCFG0() 
+
+
+
+inline unsigned getStatusBCFG1() 
+
+
+
+inline unsigned getStatusStereo() 
+
+
+
+inline unsigned getStatusStationIndicator() 
+
+
+
+inline unsigned getStatusInformationReady() 
+
+
+
+inline unsigned getStatusHostPowerUp() 
+
+
+
+inline unsigned getStatusHostReset() 
+
+
+
+inline unsigned getStatusBandMode() 
+
+
+
+inline unsigned getStatusBandIndex() 
+
+
+
+inline unsigned getStatusCTS() 
+
+
+inline unsigned getFirmwareReserved() 
+
+
+inline unsigned getFirmwareErr()
+
+
+inline unsigned getFirmwareCTS()
+
+
+inline unsigned getFirmwarePartNumber() 
+
+
+inline unsigned getFirmwareMajorRevision() 
+
+
+inline unsigned getFirmwareMinorRevision() 
+
+
+inline unsigned getFirmwareComponentMajorRevision() 
+
+
+inline unsigned getFirmwareComponentMinorRevision() 
+
+
+inline unsigned getFirmwareChipRevision() 
+
+
+
+
 
 ## References
 
