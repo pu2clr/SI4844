@@ -50,11 +50,11 @@ This library has been written for the Arduino platform and has been successfully
 
 The SI4844 is a +3.3 V only part. If you are not using a +3.3 V version of Arduino, you have to use a converter.
 
-To use this labrary you need to build an radio based on SI4844 coneccted to Arduino. The schematic and photos below show the hardware and setup requirments for start using this library.
+To use this labrary you need to build a radio based on SI4844 coneccted to Arduino. The schematic and photos below show the hardware and setup requirments for start using this library.
 
 ### Schematic
 
-For this POC, the signal amplifier was not implemented as suggested by Raymond Genovese.
+The signal amplifier was not required fo test. 
 
 ![schematic](./images/SI4844_POC_01.png)
 __Original Source:__ [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/)
@@ -68,7 +68,7 @@ __Source: Silicon Labs (Si4840/44-A10)__
 
 ### Parts
 
-Parts list  used in this POC. 
+Parts list  used by the first schematic
 
 The table below is based on [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/) .  
 
