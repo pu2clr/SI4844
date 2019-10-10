@@ -275,8 +275,13 @@ typedef union {
 * @param defaultBand band that the radio should start
 */
 void setup(unsigned int, unsigned int, byte)
-
 ```
+Example:
+```cpp
+  si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+```
+
+#### reset
 
 ```cpp
 /*
@@ -286,25 +291,56 @@ void setup(unsigned int, unsigned int, byte)
  */
 void reset(void )
 ```
+Example:
+```cpp
+  si4844.reset();
+```
 
+
+#### setBand
+
+```cpp
+/*
+ * Set the radio to a new band. 
+ * See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
+ */
 void setBand(byte);
+```
+
+Example:
+```cpp
+  si4844.setBand(4); // FM
+```
 
 
+#### changeVolume
+
+```cpp
+/*
+ *  Up or down the sound volume level/  
+ *  @param char '+' up and '-' down 
+ */
 void changeVolume(char);
+```
+
+Example:
+```cpp
+  si4844.changeVolume('+'); 
+```
+
 
 
 #### setVolume
 
 ```cpp
 /*
-Set the volume level.
-Use vales between 0 and 63. 
-*/
+ * Set the sound volume level. 
+ * @param byte volumeLevel (domain: 0 to 63) 
+ */
 setVolume(byte level)
 ```
 
 Exemple:
-
 ```cpp 
   si4844.setVolume(55);
 ```
@@ -322,6 +358,10 @@ Exemple:
  */
 si4844_status_response *getStatus(void);
 ```
+Exemple:
+```cpp 
+  si4844.getStatus();
+```
 
 #### getFirmware
 
@@ -338,7 +378,6 @@ si4844_status_response *getStatus(void);
 si4844_firmware_response *getFirmware(void);
 ```
 Exemple:
-
 ```cpp 
   si4844.getFirmware();
 ```
@@ -357,7 +396,6 @@ float getFrequency(void);
 ```
 
 Exemple:
-
 ```cpp 
     Serial.print("Frequency: ");    
     Serial.print(si4844.getFrequency(),0);
@@ -376,7 +414,6 @@ bool hasStatusChanged(void);
 ```
 
 Exemple:
-
 ```cpp 
   if (si4844.hasStatusChanged())
   {

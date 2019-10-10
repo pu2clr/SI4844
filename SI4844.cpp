@@ -63,7 +63,6 @@ void SI4844::setup(unsigned int resetPin, unsigned int interruptPin, byte defaul
 
 /*
  * reset
- * English
  * See pages 7, 8, 9 and 10 of the programming guide.
  */
 void SI4844::reset()
@@ -81,10 +80,8 @@ void SI4844::reset()
 }
 
 /*
- * setBand 
- * English...: change the band 
- * Portuguese: Altera a banda 
- * Reference.: Silicon Labs; Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
+ * Set the radio to a new band. 
+ * See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
  */
 void SI4844::setBand(byte new_band)
 {
@@ -151,17 +148,9 @@ inline void SI4844::waitToSend()
         ;
 }
 
-
-
 /*
- *  setVolume 
- *  English
- *  Send a command to chenge the sound volume. 
- *  Parameter: Use '+' to increase and '-' to decrease. 
- * 
- *  Portuguese 
- *  Envia um comando para o ATDD. 
- *  Parâmetro: '+' aumenta o volume e '-' diminui o volume. 
+ *  Up or down the sound volume level/  
+ *  @param char '+' up and '-' down 
  */
 void SI4844::changeVolume(char command)
 {
@@ -186,6 +175,10 @@ void SI4844::changeVolume(char command)
 
 }
 
+/*
+ * Set the sound volume level. 
+ * @param byte volumeLevel (domain: 0 to 63) 
+ */
 void SI4844::setVolume(byte volumeLavel) {
 
     if (volumeLavel > 63) return; 
