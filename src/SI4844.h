@@ -1,6 +1,6 @@
 /*
  * This is a library for the SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER,
- * ICs from Silicon Labs for the Arduino development environment.  
+ * IC from Silicon Labs for the Arduino development environment.  
  * This library is intended to provide an easier interface for controlling the SI4844.
  * 
  * Author: Ricardo Lima Caratti (PU2CLR)
