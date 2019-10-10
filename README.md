@@ -138,8 +138,6 @@ It was a bit hard to solder the Si4844 on adapter. However, by using a electroni
 
 ![SI4844 and Arduino on protoboard 01](./extras/images/protoboard_01.png)
 
-![SI4844 and Arduino on protoboard 02](./extras/images/protoboard_02.png)
-
 ![SI4844 and Arduino on protoboard 03](./extras/images/protoboard_04.png)
 
 
