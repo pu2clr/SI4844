@@ -57,7 +57,7 @@ void SI4844::setup(unsigned int resetPin, unsigned int interruptPin, byte defaul
     setVolume('?'); // Initiate with default volume control;
 
     // You need call it just once.  
-    si4844.getFirmware();
+    getFirmware();
 
 }
 
