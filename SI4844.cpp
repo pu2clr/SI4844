@@ -24,7 +24,13 @@ void SI4844::waitInterrupr(void)  {
   while (!data_from_si4844);
 }
 
-
+/*
+* Initiate the SI4844 instance and connect the device (SI4844) to Arduino. 
+* Use of this method is required to handle ATDD.
+*
+* @param resetPin  arduino pin used to reset the device
+* @param interruprPin arduino pin used to handle interrupr      
+*/
 void SI4844::setup(unsigned int resetPin, unsigned int interruptPin, byte defaultBand) 
 {
 

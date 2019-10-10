@@ -10,17 +10,17 @@ __Attention: Under construction.__
 ## Summary
 1. [Your support is important](https://github.com/pu2clr/SI4844#your-support-is-important)
 2. [About the SI4844 Architecture](https://github.com/pu2clr/SI4844#about-the-si4844-architecture)
-3. [Library Installation](https://github.com/pu2clr/SI4844#library-installation)
-4. [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup)
+3. [Terminology]()
+4. [Library Installation](https://github.com/pu2clr/SI4844#library-installation)
+5. [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup)
    1. [Schematic](https://github.com/pu2clr/SI4844#schematic)
    2. [Component Parts](https://github.com/pu2clr/SI4844#parts)
    3. [Photos](https://github.com/pu2clr/SI4844#photos)
-5. [API Documentation]()
-   1. [Overview]()
-   2. [Defined Data Types and Structures]()
-   3. [Public Methods]()
-6. [References](https://github.com/pu2clr/SI4844#references)
-7. [Videos](https://github.com/pu2clr/SI4844#videos) 
+6. [API Documentation](https://github.com/pu2clr/SI4844#api-documentation)
+   1. [Defined Data Types and Structures](https://github.com/pu2clr/SI4844#defined-data-types-and-structures)
+   2. [Public Methods](https://github.com/pu2clr/SI4844#public-methods)
+7. [References](https://github.com/pu2clr/SI4844#references)
+8. [Videos](https://github.com/pu2clr/SI4844#videos) 
 
 
 ## Your support is important.
@@ -32,6 +32,17 @@ If you would like to support this library development, consider joining this pro
 The Si4844 is an analog-tuned digital-display AM/FM/SW radio receiver. It has an analog-tune while frequency, band, and setero/mono information can be displayed on LCD. It works with a I2C protocol that allows a microcontroller send command and receive data. 
 
 See more about SI4844 on [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf) 
+
+
+## Terminology
+
+|      |        |
+|------|--------|
+|IDE   |Integrated Development Enviromment|      
+|Sketch|Name that Arduino enviromment uses for a program|
+|ATDD  |Analog Tune Digital Display. Sometimes used to refer the Si4844 device|
+|interrupt|In this context, it is a Arduino Resource. Allows important tasks to be performed regardless of the flow of your program|
+
 
 
 ## Library Installation
@@ -132,7 +143,48 @@ It was a bit hard to solder the Si4844 on adapter. However, by using a electroni
 ## API Documentation
 
 
-### Overview
+This labrary was developed in C++.  To use it, you must declare in your Sketch a variable of the class SI4844.
+The code below show that. 
+
+```cpp
+#include "SI4844.h"
+#include <Wire.h>
+
+// Arduino Pin (tested on pro mini)
+#define INTERRUPT_PIN 2
+#define RESET_PIN 12
+
+
+#define DEFAULT_BAND 4
+
+SI4844 si4844; 
+
+void setup() {
+
+    // Initiate and connect the device ATDD (SI4844) to Arduino
+    si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+
+}
+
+void loop() {
+
+
+  // if something changed on ATDD (SI4844), do something  
+  if (si4844.hasStatusChanged())
+  {
+    Serial.print("Band Index: ");
+    Serial.print(si4844.getStatusBandIndex());
+    Serial.print(" - ");
+    Serial.print(si4844.getBandMode());
+    Serial.print(" - Frequency: ");    
+    Serial.print(si4844.getFrequency(),0);
+    Serial.print(" KHz");
+    Serial.print(" - Stereo ");
+    Serial.println(si4844.getStereoIndicator());
+  }
+
+}
+```
 
 
 ### Defined Data Types and Structures
@@ -180,8 +232,6 @@ typedef union {
 // GET_REV structure. The structure below represents 9 bytes response for GET_REV command.
 // STATUS and RESP1 to RESP8.  See Si48XX ATDD PROGRAMMING GUIDE; AN610, page 22.
 // Portuguese:
-// A estrutura de dados a seguir representa 9 bytes de resposta para o comando GET_REV.
-// Veja a página 22 do guia de programação (Si48XX ATDD PROGRAMMING GUIDE; AN610)
 typedef struct
 {
   byte RESERVED : 6; // Bit 0 to 5
@@ -209,9 +259,14 @@ typedef union {
 ### Public Methods
 
 
+#### setup
+
+```cpp
+/*
+
 void setup(unsigned int, unsigned int, byte)
 
-
+```
 
 void reset(void )
 
@@ -222,7 +277,21 @@ void setBand(byte);
 void changeVolume(char);
 
 
-void setVolume(byte);
+#### setVolume
+
+```cpp
+/*
+Set the volume level.
+Use vales between 0 and 63. 
+*/
+setVolume(byte level)
+```
+
+Exemple:
+
+```cpp 
+  si4844.setVolume(55);
+```
 
 
 si4844_status_response *getStatus(void);
