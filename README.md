@@ -308,11 +308,38 @@ Exemple:
 ```
 
 
+#### getStatus
+
+```cpp 
+/*
+ * Get tune freq, band, and others information, status of the device.
+ * Use this method only if you want to deal with that information by yourself. 
+ * This library has other methods to get that information easier. 
+ * 
+ * @return a pointer to a structure type si4844_status_response
+ */
 si4844_status_response *getStatus(void);
+```
 
+#### getFirmware
 
+```cpp
+/*
+ * Get part number, chip revision, firmware, patch, and component revision numbers.
+ * You do not need to call this method. It is executed just once at setup methos. 
+ * There are other methods that give you that information.   
+ * See page 22 of programming guide.
+ * 
+ * @return a pointer to a structure type  wirh the part number, chip revision, 
+ *         firmware revision, patch revision, and component revision numbers.
+ */
 si4844_firmware_response *getFirmware(void);
+```
+Exemple:
 
+```cpp 
+  si4844.getFirmware();
+```
 
 float getFrequency(void);
 

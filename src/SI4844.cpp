@@ -55,6 +55,10 @@ void SI4844::setup(unsigned int resetPin, unsigned int interruptPin, byte defaul
 
     // This sketch is using the value 44.
     setVolume('?'); // Initiate with default volume control;
+
+    // You need call it just once.  
+    si4844.getFirmware();
+
 }
 
 /*
@@ -199,7 +203,14 @@ void SI4844::setVolume(byte volumeLavel) {
     delayMicroseconds(2500);
 }
 
-    si4844_status_response *SI4844::getStatus()
+/*
+ * Get tune freq, band, and others information, status of the device.
+ * Use this method only if you want to deal with that information by yourself. 
+ * This library has other methods to get that information easier. 
+ * 
+ * @return a pointer to a structure type si4844_status_response
+ */
+si4844_status_response *SI4844::getStatus()
 {
     waitToSend();
     setClockHigh();
@@ -221,6 +232,15 @@ void SI4844::setVolume(byte volumeLavel) {
     return &status_response;
 }
 
+/*
+ * Get part number, chip revision, firmware, patch, and component revision numbers.
+ * You do not need to call this method. It is executed just once at setup methos. 
+ * There are other methods that give you that information.   
+ * See page 22 of programming guide.
+ * 
+ * @return a pointer to a structure type  wirh the part number, chip revision, 
+ *         firmware revision, patch revision, and component revision numbers.
+ */
 si4844_firmware_response *SI4844::getFirmware(void) {
   
   // Check and wait until the ATDD is ready to receive command
