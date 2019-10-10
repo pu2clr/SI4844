@@ -30,6 +30,7 @@ void SI4844::waitInterrupr(void)  {
 *
 * @param resetPin  arduino pin used to reset the device
 * @param interruprPin arduino pin used to handle interrupr      
+* @param defaultBand band that the radio should start
 */
 void SI4844::setup(unsigned int resetPin, unsigned int interruptPin, byte defaultBand) 
 {
@@ -60,8 +61,6 @@ void SI4844::setup(unsigned int resetPin, unsigned int interruptPin, byte defaul
  * reset
  * English
  * See pages 7, 8, 9 and 10 of the programming guide.
- * Portuguese
- * Veja as páginas 7, 8, 9 e 10 do guia de programação.
  */
 void SI4844::reset()
 {

@@ -42,6 +42,8 @@ See more about SI4844 on [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO
 |Sketch|Name that Arduino enviromment uses for a program|
 |ATDD  |Analog Tune Digital Display. Sometimes used to refer the Si4844 device|
 |interrupt|In this context, it is a Arduino Resource. Allows important tasks to be performed regardless of the flow of your program|
+|C++| A object-oriented programming (OOP) language. It is a superset of the C language with an additional concept of "classes." |
+|programming guide| In this context it feres to [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)|
 
 
 
@@ -263,13 +265,25 @@ typedef union {
 
 ```cpp
 /*
-
+* Initiate the SI4844 instance and connect the device (SI4844) to Arduino. 
+* Use of this method is required to handle ATDD.
+*
+* @param resetPin  arduino pin used to reset the device
+* @param interruprPin arduino pin used to handle interrupr      
+* @param defaultBand band that the radio should start
+*/
 void setup(unsigned int, unsigned int, byte)
 
 ```
 
+```cpp
+/*
+ * reset
+ * English
+ * See pages 7, 8, 9 and 10 of the programming guide.
+ */
 void reset(void )
-
+```
 
 void setBand(byte);
 
