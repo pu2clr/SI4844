@@ -434,82 +434,186 @@ Exemple:
   }
 ```
 
+#### resetStatus
 
+```cpp
 void resetStatus(void);
+```
 
 
+#### getBandMode
+
+```cpp
 inline String getBandMode()
+```
 
+#### getStereoIndicator
 
-
+```cpp
 inline String getStereoIndicator()
+```
 
+#### getStatusBCFG0
 
+```cpp
 inline unsigned getStatusBCFG0() 
+```
 
+#### getStatusBCFG1
 
-
+```cpp
 inline unsigned getStatusBCFG1() 
+```
 
+#### getStatusStereo
 
-
+```cpp
 inline unsigned getStatusStereo() 
+```
 
 
+#### getStatusStationIndicator
 
+```cpp
 inline unsigned getStatusStationIndicator() 
+```
 
 
+#### getStatusInformationReady
 
+```cpp
 inline unsigned getStatusInformationReady() 
+```
 
 
-
+#### getStatusHostPowerUp
+```cpp
 inline unsigned getStatusHostPowerUp() 
+```
 
+#### getStatusHostReset
 
-
+```cpp
 inline unsigned getStatusHostReset() 
+```
 
 
+#### getStatusBandMode
 
+```cpp
 inline unsigned getStatusBandMode() 
+```
 
+#### getStatusBandIndex
 
-
+```cpp
 inline unsigned getStatusBandIndex() 
+```
 
+#### getStatusCTS
 
-
+```cpp
 inline unsigned getStatusCTS() 
+```
 
 
-inline unsigned getFirmwareReserved() 
+#### getFirmwareErr
 
-
+```cpp 
 inline unsigned getFirmwareErr()
+```
 
-
+#### getFirmwareCTS
+```cpp
 inline unsigned getFirmwareCTS()
+```
 
+#### getFirmwarePartNumber
 
+```cpp
+/*
+ * Get Firmware Final 2 digits of Part Number (HEX).
+ */ 
 inline unsigned getFirmwarePartNumber() 
+```
+__See example below__
 
 
+#### getFirmwareMajorRevision
+
+```cpp
+/*
+ * Get Firmware Major Revision (ASCII).
+ */ 
 inline unsigned getFirmwareMajorRevision() 
+```
+__See example below__
 
 
+#### getFirmwareMinorRevision
+
+```cpp
+/*
+ * Get Firmware Minor Revision (ASCII).
+ */
 inline unsigned getFirmwareMinorRevision() 
+```
+__See example below__
 
 
+#### getFirmwareComponentMajorRevision
+
+```cpp
+/*
+ * Get Firmware Component Major Revision (ASCII).
+ */ 
 inline unsigned getFirmwareComponentMajorRevision() 
+```
+__See example below__
 
 
+#### getFirmwareComponentMinorRevision
+
+```cpp
+/* 
+ * Get Firmware Component Minor Revision (ASCII).
+ */
 inline unsigned getFirmwareComponentMinorRevision() 
+```
+__See example below__
 
 
+#### getFirmwareChipRevision
+
+```cpp
+/*
+ * Chip Revision (ASCII).
+ */
 inline unsigned getFirmwareChipRevision() 
+```
 
+Exmple:
+
+```cpp
+
+  Serial.println("\nSI4844 -  Firmware information\n");
+
+  si4844.getFirmware();
+  Serial.print("Final 2 digits of Part Number..: ");
+  Serial.println(si4844.getFirmwarePartNumber());
+  Serial.print("Firmware Major Revision........: ");
+  Serial.println(si4844.getFirmwareMajorRevision());
+  Serial.print("Firmware Minor Revision........: ");
+  Serial.println(si4844.getFirmwareMinorRevision());
+  Serial.print("Component Major Revision.......: ");
+  Serial.println(si4844.getFirmwareComponentMajorRevision());
+  Serial.print("Component Minor Revision.......: "); 
+  Serial.println(si4844.getFirmwareComponentMinorRevision());
+  Serial.print("Chip Revision..................: ");
+  Serial.println(si4844.getFirmwareChipRevision());
+
+  Serial.println("*****************************");
+  ```
 
 
 
