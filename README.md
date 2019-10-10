@@ -44,7 +44,7 @@ See more about SI4844 on [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO
 |interrupt|In this context, it is a Arduino Resource. Allows important tasks to be performed regardless of the flow of your program|
 |C++| A object-oriented programming (OOP) language. It is a superset of the C language with an additional concept of "classes." |
 |programming guide| In this context it refers to [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)|
-
+|POC| Proof of Concept|
 
 
 ## Library Installation
