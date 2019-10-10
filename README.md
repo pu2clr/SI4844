@@ -8,11 +8,16 @@ __Attention: Under construction.__
 
 
 ## Summary
-1. [Your support is important]()
-2. [About the SI4844 Architecture]()
-3. [Library Installation]()
-4. [Hardware Requirements and Setup]()
-5. 
+1. [Your support is important](https://github.com/pu2clr/SI4844#your-support-is-important)
+2. [About the SI4844 Architecture](https://github.com/pu2clr/SI4844#about-the-si4844-architecture)
+3. [Library Installation](https://github.com/pu2clr/SI4844#library-installation)
+4. [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup)
+   1. [Schematic](https://github.com/pu2clr/SI4844#schematic)
+   2. [Component Parts](https://github.com/pu2clr/SI4844#parts)
+   3. [Photos](https://github.com/pu2clr/SI4844#photos)
+5. [API Documentation]()
+6. [References](https://github.com/pu2clr/SI4844#references)
+7. [Videos](https://github.com/pu2clr/SI4844#videos) 
 
 
 ## Your support is important.
