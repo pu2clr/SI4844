@@ -36,7 +36,7 @@ See more about SI4844 on [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO
 
 ## Terminology
 
-|      |        |
+| Term | Description  |
 |------|--------|
 |IDE   |Integrated Development Enviromment|      
 |Sketch|Name that Arduino enviromment uses for a program|
