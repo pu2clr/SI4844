@@ -41,6 +41,10 @@ The images below show that actions
 
 ## Hardware Requirements and Setup
 
+This library has been written for the Arduino platform and has been successfully tested on Pro Mini. I beleave it will wotk on any other Arduino with I2C support.
+
+The SI4844 is a +3.3 V only part. If you are not using a +3.3 V version of Arduino, you have to use a converter.
+
 To use this labrary you need to build an radio based on SI4844 coneccted to Arduino. The schematic and photos below show the hardware and setup requirments for start using this library.
 
 ### Schematic
