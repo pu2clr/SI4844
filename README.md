@@ -55,11 +55,11 @@ You can install the library is via the Arduino Library Manager. Go to the menu _
 
 The images below show that actions
 
-![IDE 01](images/ide_01.png)
+![IDE 01](extras/images/ide_01.png)
 
-![IDE 01](images/ide_02.png)
+![IDE 01](extras/images/ide_02.png)
 
-![IDE 01](images/ide_03.png)
+![IDE 01](extras/images/ide_03.png)
 
 
 ## Hardware Requirements and Setup
@@ -74,14 +74,14 @@ To use this labrary you need to build a radio based on SI4844 coneccted to Ardui
 
 The signal amplifier was not required fo test. 
 
-![schematic](./images/SI4844_POC_01.png)
+![schematic](./extras/images/SI4844_POC_01.png)
 __Original Source:__ [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/)
  
 The document [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), chapter two, page 11,  has a typical application schematic. 
 
 The figure below shows that schematic
 
-![schematic](./images/SI4844_SILICON_LABS1.png)
+![schematic](./extras/images/SI4844_SILICON_LABS1.png)
 __Source: Silicon Labs (Si4840/44-A10)__
 
 ### Parts
@@ -127,20 +127,20 @@ The table below is based on [Raymond Genovese, May 26, 2016 - How to Build an Ar
 
 It was a bit hard to solder the Si4844 on adapter. However, by using a electronic magnifier it was possible.
 
-![SI4844 soldered on adapter 01](./images/si4844_board_01.png)
+![SI4844 soldered on adapter 01](./extras/images/si4844_board_01.png)
 
-![SI4844 soldered on adapter 02](./images/si4844_board_02.png)
+![SI4844 soldered on adapter 02](./extras/images/si4844_board_02.png)
 
-![SI4844 soldered on adapter 03](./images/si4844_board_03.png)
+![SI4844 soldered on adapter 03](./extras/images/si4844_board_03.png)
 
 
 #### Protoboard
 
-![SI4844 and Arduino on protoboard 01](./images/protoboard_01.png)
+![SI4844 and Arduino on protoboard 01](./extras/images/protoboard_01.png)
 
-![SI4844 and Arduino on protoboard 02](./images/protoboard_02.png)
+![SI4844 and Arduino on protoboard 02](./extras/images/protoboard_02.png)
 
-![SI4844 and Arduino on protoboard 03](./images/protoboard_04.png)
+![SI4844 and Arduino on protoboard 03](./extras/images/protoboard_04.png)
 
 
 
