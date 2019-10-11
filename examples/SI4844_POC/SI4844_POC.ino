@@ -29,9 +29,9 @@ void setup() {
 
   Serial.println("Setup Concluído");
 
-  Serial.println("-------------------------------------------------------------------------------");
+  Serial.println("-------------------------------------------------------------------------------------------");
   Serial.println("Type F to FM; A to AM; 1 to 7 to SW; + or - to sound volume; or I to firmware Information  ");
-  Serial.println("-------------------------------------------------------------------------------");
+  Serial.println("-------------------------------------------------------------------------------------------");
 }
 
 void show_firmware_information() {
