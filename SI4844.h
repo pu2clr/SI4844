@@ -144,8 +144,6 @@ public :
   float getFrequency(void);
   bool hasStatusChanged(void);
   void resetStatus(void);
-
-
   
   // return 0 = "FM mode"; 1 = "AM mode"; 2 = "SW mode".
   inline String getBandMode(){ return bandmode_table[status_response.refined.BANDMODE]; };
