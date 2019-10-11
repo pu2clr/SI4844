@@ -6,6 +6,7 @@
  * Author: Ricardo Lima Caratti (PU2CLR)
  * September, 2019
  */
+
 #include "SI4844.h"
 
 /*
