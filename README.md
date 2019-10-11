@@ -465,30 +465,46 @@ void resetStatus(void);
 #### getBandMode
 
 ```cpp
+/*
+ * Get the band mode (FM/AM/SW)
+ * @return 0 = "FM mode"; 1 = "AM mode"; 2 = "SW mode".
+ */ 
 inline String getBandMode()
 ```
 
 #### getStereoIndicator
 
 ```cpp
+/*
+ * return 0 = stereo off; 1 stereo on
+ */
 inline String getStereoIndicator()
 ```
 
 #### getStatusBCFG0
 
 ```cpp
+/*
+ * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
+ */
 inline unsigned getStatusBCFG0() 
 ```
 
 #### getStatusBCFG1
 
 ```cpp
+/*
+ * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
+ */
 inline unsigned getStatusBCFG1() 
 ```
 
 #### getStatusStereo
 
 ```cpp
+/*
+ * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
+ */
 inline unsigned getStatusStereo() 
 ```
 
@@ -496,6 +512,9 @@ inline unsigned getStatusStereo()
 #### getStatusStationIndicator
 
 ```cpp
+/*
+ * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
+ */
 inline unsigned getStatusStationIndicator() 
 ```
 
@@ -503,18 +522,27 @@ inline unsigned getStatusStationIndicator()
 #### getStatusInformationReady
 
 ```cpp
+/*
+ * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
+ */
 inline unsigned getStatusInformationReady() 
 ```
 
 
 #### getStatusHostPowerUp
 ```cpp
+/*
+ * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
+ */
 inline unsigned getStatusHostPowerUp() 
 ```
 
 #### getStatusHostReset
 
 ```cpp
+/*
+ * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
+ */
 inline unsigned getStatusHostReset() 
 ```
 
@@ -522,18 +550,27 @@ inline unsigned getStatusHostReset()
 #### getStatusBandMode
 
 ```cpp
+/*
+ * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
+ */
 inline unsigned getStatusBandMode() 
 ```
 
 #### getStatusBandIndex
 
 ```cpp
+/*
+ * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
+ */
 inline unsigned getStatusBandIndex() 
 ```
 
 #### getStatusCTS
 
 ```cpp
+/*
+ * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
+ */
 inline unsigned getStatusCTS() 
 ```
 

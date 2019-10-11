@@ -145,7 +145,11 @@ public :
   bool hasStatusChanged(void);
   void resetStatus(void);
 
+
+  
+  // return 0 = "FM mode"; 1 = "AM mode"; 2 = "SW mode".
   inline String getBandMode(){ return bandmode_table[status_response.refined.BANDMODE]; };
+  // return 0 = stereo off; 1 stereo on
   inline String getStereoIndicator(){ return stereo_indicator_table[status_response.refined.STATION]; };
   
   inline unsigned getStatusBCFG0() { return status_response.refined.BCFG0; };
