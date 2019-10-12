@@ -70,8 +70,8 @@ See more about SI4844 on [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO
 | Term | Description  |
 |------|--------|
 |Arduino Libraries|Libraries are files written in C or C++ (.c, .cpp) which provide your sketches with extra functionality. The SI4844 Library provides extra functionalities to make easier the Arduino deal with Si4844 device| 
-|IDE   |Integrated Development Enviromment|      
-|Sketch|Name that Arduino enviromment uses for a program|
+|IDE   |Integrated Development Environment|      
+|Sketch|Name that Arduino environment uses for a program|
 |ATDD  |Analog Tune Digital Display. Sometimes used to refer the Si4844 device|
 |interrupt|In this context, it is a Arduino Resource. Allows important tasks to be performed regardless of the flow of your program|
 |C++| A object-oriented programming (OOP) language. It is a superset of the C language with an additional concept of "classes." |
@@ -403,7 +403,7 @@ Exemple:
  * There are other methods that give you that information.   
  * See page 22 of programming guide.
  * 
- * @return a pointer to a structure type  wirh the part number, chip revision, 
+ * @return a pointer to a structure type  with the part number, chip revision, 
  *         firmware revision, patch revision, and component revision numbers.
  */
 si4844_firmware_response *getFirmware(void);

@@ -12,7 +12,7 @@
 #define INTERRUPT_PIN 2
 #define RESET_PIN 12
 
-#define DEFAULT_BAND 4
+#define DEFAULT_BAND 0
 
 SI4844 si4844; 
 
@@ -87,14 +87,14 @@ void loop() {
     {
     case 'f':
     case 'F':
-      si4844.setBand(4); // FM band
+      si4844.setBand(0); // FM band
       break;
     case 'a':
     case 'A':
-      si4844.setBand(23); // AM band
+      si4844.setBand(20); // AM band
       break;
     case '1':
-      si4844.setBand(27); // SW1 band
+      si4844.setBand(28); // SW1 band
       break;
     case '2':
       si4844.setBand(29); // SW2 band
