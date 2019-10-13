@@ -310,7 +310,7 @@ void setup(unsigned int, unsigned int, byte)
 ```
 Example:
 ```cpp
-  si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+  si4844.setup(12, 2, 4);
 ```
 
 #### reset
@@ -372,7 +372,7 @@ Example:
 setVolume(byte level)
 ```
 
-Exemple:
+Example:
 ```cpp 
   si4844.setVolume(55);
 ```
@@ -390,7 +390,7 @@ Exemple:
  */
 si4844_status_response *getStatus(void);
 ```
-Exemple:
+Example:
 ```cpp 
   si4844.getStatus();
 ```
@@ -409,7 +409,7 @@ Exemple:
  */
 si4844_firmware_response *getFirmware(void);
 ```
-Exemple:
+Example:
 ```cpp 
   si4844.getFirmware();
 ```
@@ -427,7 +427,7 @@ Exemple:
 float getFrequency(void);
 ```
 
-Exemple:
+Example:
 ```cpp 
     Serial.print("Frequency: ");    
     Serial.print(si4844.getFrequency(),0);
@@ -445,7 +445,7 @@ Exemple:
 bool hasStatusChanged(void);
 ```
 
-Exemple:
+Example:
 ```cpp 
   if (si4844.hasStatusChanged())
   {
@@ -652,7 +652,7 @@ __See example below__
 inline unsigned getFirmwareChipRevision() 
 ```
 
-Exmple:
+Example:
 
 ```cpp
 

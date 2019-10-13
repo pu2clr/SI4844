@@ -292,27 +292,25 @@ typedef union {
 
 ```cpp
 /*
-* Initiate the SI4844 instance and connect the device (SI4844) to Arduino. 
-* Calling this library should be the first thing to do to control the SI4844.
-*
-* @param resetPin  arduino pin used to reset the device
-* @param interruprPin arduino pin used to handle interrupr      
-* @param defaultBand band that the radio should start
+* Conecta o SI4844 ao Arduino e Instancia e configura alguns parâmetros necessários
+* para o funcionamento do rádio. Esta função deve ser a primeira a ser chamada.
+* @param resetPin  Pino do Arduino para executar a ação de reset do SI4844
+* @param interruprPin Pino do Arduino para executar uma interrupção    
+* @param defaultBand A banda que o rádio deve iniciar (Banda Padrão)
 */
 void setup(unsigned int, unsigned int, byte)
 ```
 Example:
 ```cpp
-  si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+  si4844.setup(12, 2, 4);
 ```
 
 #### reset
 
 ```cpp
 /*
- * reset
- * English
- * See pages 7, 8, 9 and 10 of the programming guide.
+ * Reinicia o SI4844.
+ * Veja as páginas 7, 8, 9 e 10 do Guia de Programação.
  */
 void reset(void )
 ```
@@ -326,8 +324,8 @@ Example:
 
 ```cpp
 /*
- * Set the radio to a new band. 
- * See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
+ * Muda a banda do rádio.
+ * Veja a tabela 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; páginas 17 and 18  
  */
 void setBand(byte);
 ```
@@ -342,8 +340,8 @@ Example:
 
 ```cpp
 /*
- *  Up or down the sound volume level/  
- *  @param char '+' up and '-' down 
+ *  Controla o nível do volume.
+ *  @param char '+' aumenta o volume do som e  '-' reduz o volume do som
  */
 void changeVolume(char);
 ```
@@ -358,8 +356,8 @@ Example:
 
 ```cpp
 /*
- * Set the sound volume level. 
- * @param byte volumeLevel (domain: 0 to 63) 
+ * Atribui um volume ao rádio, 0 é volume muito baixo e 63 é o volume mais alto possível. 
+ * @param byte volumeLevel (Domínio: 0 a 63) 
  */
 setVolume(byte level)
 ```
@@ -374,11 +372,11 @@ Exemple:
 
 ```cpp 
 /*
- * Get tune freq, band, and others information, status of the device.
- * Use this method only if you want to deal with that information by yourself. 
- * This library has other methods to get that information easier. 
+ * Obtem as informações corrente (atuais) do rádio. Exemplo: Frequência, banda etc.
+ * Use esta função se você desejar manipular os dados retornados diretamente.  
+ * Esta bibliotecas possui várias outras funções mais fáceis e diretas para obter informações do rádio. 
  * 
- * @return a pointer to a structure type si4844_status_response
+ * @return um ponteiro para a estrutura si4844_status_response
  */
 si4844_status_response *getStatus(void);
 ```
@@ -391,13 +389,13 @@ Exemple:
 
 ```cpp
 /*
- * Get part number, chip revision, firmware, patch, and component revision numbers.
- * You do not need to call this method. It is executed just once at setup methos. 
- * There are other methods that give you that information.   
- * See page 22 of programming guide.
+ * Obtem informações do Firmware. Por exemplo, part number, chip revision, patch e
+ * component revision numbers.
+ * Em geral, você não precisará executar este métodos. Há utros métodos nesta biblioteca 
+ * que poderá prover estas informações.   
+ * Veja a página 22 do Guia de Programação.
  * 
- * @return a pointer to a structure type  with the part number, chip revision, 
- *         firmware revision, patch revision, and component revision numbers.
+ * @return um ponteiro para a estrutura si4844_firmware_info
  */
 si4844_firmware_response *getFirmware(void);
 ```
@@ -410,16 +408,16 @@ Exemple:
 
 ```cpp
 /*
- * Get the current frequency of the radio in KHz. 
- * For example: FM, 103900 KHz (103.9 MHz);
+ * Obtem a frequência corrente do rádio em  KHz. 
+ * Por exemplo: FM, 103900 KHz (103.9 MHz);
  *              SW, 7335 KHz (7.34 MHz, 41m)   
  * 
- * @return float current frequency in KHz.  
+ * @return float Frequência em KHz.  
  */
 float getFrequency(void);
 ```
 
-Exemple:
+Exemplo:
 ```cpp 
     Serial.print("Frequency: ");    
     Serial.print(si4844.getFrequency(),0);
@@ -429,8 +427,8 @@ Exemple:
 
 ```cpp
 /*
-*  Check if the SI4844 has its status changed. If you move the tuner, for example,
-*  the status of the device is changed. 
+*  Verifica se o SI4844 teve seu estado mudado. Se voce mover os sintonizador, por exemplo, 
+*  o estado do dispositivo é alterado. 
 *
 *  return true or false  
 */
@@ -460,7 +458,7 @@ void resetStatus(void);
 
 ```cpp
 /*
- * Get the band mode (FM/AM/SW)
+ * Obtem a Banda Corrente (FM/AM/SW)
  * @return 0 = "FM mode"; 1 = "AM mode"; 2 = "SW mode".
  */ 
 inline String getBandMode()
@@ -644,7 +642,7 @@ __See example below__
 inline unsigned getFirmwareChipRevision() 
 ```
 
-Exmple:
+Exemplo:
 
 ```cpp
 
