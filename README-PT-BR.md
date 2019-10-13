@@ -4,7 +4,6 @@ Esta é uma bibnlioteca para o SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY A
 
 Por Ricardo Lima Caratti / PU2CLR, Outunro de 2019. 
 
-
 ## Summary
 1. [Seu suporte é importante](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#seu-suporte-%C3%A9-importante)
 2. [Sobre a Arquitetura do SI4844](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#sobre-a-arquitetura-do-si4844)
@@ -78,7 +77,6 @@ Conheça mais sobre a arquitetura do SI4844 na publicação da Silicon Labs [BRO
 |POC| Do Inglês, Proof of Concept ou em Português, Prova de Conceito. Trata-se de uma abordagem para avaliar um dado produto, modelo ou ideia |
 
 
-
 ## Instalação da Biblioteca
 
 É possível Instalar esta biblioteca em seu Ambienbte usando o proprio Gerenciador de Bibliotecas do Arduino. Para tanto, selecione a opção de menu __Sketch__ -> __Incluir Biblioteca__ -> Gerenciar Biblioteca. Por fim tecle na caixa de busca o texto PU2CLR Si4844.
@@ -139,7 +137,7 @@ A tabela a seguir é baseada na publicação de [Raymond Genovese, May 26, 2016 
 |L1	| 270 nH Indutor (0,270 uH) |
 |VR1 |	100K Poteciômetro Linear |
 |Y1	| 32.768 kHz crital |
-|ANT1 |	antena de ferrite |
+|ANT1 |	Antena de ferrite |
 |ANT2 | Antena telescópica |
 
 1. (*1) - Não utilizado neste projeto.
@@ -354,7 +352,6 @@ Example:
 ```cpp
   si4844.changeVolume('+'); 
 ```
-
 
 
 #### setVolume
@@ -669,7 +666,6 @@ Exmple:
 
   Serial.println("*****************************");
   ```
-
 
 
 
