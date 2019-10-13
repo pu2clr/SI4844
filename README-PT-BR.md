@@ -104,7 +104,7 @@ Note no esquema proposta a seguir, que o Amplificador de sinal não é necessár
 ![schematic](./extras/images/SI4844_POC_01.png)
 __Fonte:__ [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/)
  
-O documento [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), capítulo 2, página 11,  tem um esquema mais o simplificado ainda deste rádio. 
+O documento [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), capítulo 2, página 11,  tem um esquema mais simplificado ainda deste rádio. 
 
 A figura a segui apresenta este esquema
 
@@ -121,11 +121,11 @@ A tabela a seguir é baseada na publicação de [Raymond Genovese, May 26, 2016 
 |-------| ------------ |
 |(*1) B1 	| ferrite bead 2.5 kOhm (100 mHz) B1, ferrite bead 2.5 kOhm (100 mHz), 81-BLM18BD252SZ1D |
 |C1,C2,C5 |	4.7uF capacitor não  polarizado |
-|C3,C4 |	22 pf capacitor não  polarizado |
+|C3,C4 |	22pf capacitor não  polarizado |
 |C6,C7,C9 |	.1uF capacitor não  polarizado |
-|(*2) C8	| __4.7 uf capacitor não  polarizado__ (atenção: no esquema original, este valor é 47uF) |
+|(*2) C8	| __4.7uf capacitor não  polarizado__ (atenção: no esquema original, este valor é 47uF) |
 |C10, (*1) C11 |	.47uF capacitor não  polarizado |
-|(*1) C12, (*1) C14 |	33 nF capacitor não  polarizado |
+|(*1) C12, (*1) C14 |	33nF capacitor não  polarizado |
 |C13	| 33pF capacitor não  polarizado |
 |(*1) C15	| 10pF capacitor não  polarizado |
 |IC1	| Si4844-A10 radio receiver |
