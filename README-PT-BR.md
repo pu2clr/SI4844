@@ -1,24 +1,22 @@
-# Si4844 Library for Arduino
+# Biblioteca Arduino para o Si4844 
 
-This is a library for the SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER,  IC from Silicon Labs for the Arduino development environment.  This library is intended to provide an easier interface for controlling the SI4844.
+Esta é uma bibnlioteca para o SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER, uma Circuito Integrado fabricado pela Silicon Labs. É especialmente destinada aos interessados em controlar este dispositivo via o ambiente de desenvolvimento Arduino. 
 
-By Ricardo Lima Caratti, Oct, 2019. 
-
-__Attention: Documentation Under construction.__
+Por Ricardo Lima Caratti / PU2CLR, Outunro de 2019. 
 
 
 ## Summary
-1. [Your support is important](https://github.com/pu2clr/SI4844#your-support-is-important)
-2. [About the SI4844 Architecture](https://github.com/pu2clr/SI4844#about-the-si4844-architecture)
-3. [Terminology](https://github.com/pu2clr/SI4844#terminology)
-4. [Library Installation](https://github.com/pu2clr/SI4844#library-installation)
-5. [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup)
-   1. [Schematic](https://github.com/pu2clr/SI4844#schematic)
-   2. [Component Parts](https://github.com/pu2clr/SI4844#parts)
-   3. [Photos](https://github.com/pu2clr/SI4844#photos)
-6. [API Documentation](https://github.com/pu2clr/SI4844#api-documentation)
-   1. [Defined Data Types and Structures](https://github.com/pu2clr/SI4844#defined-data-types-and-structures)
-   2. [Public Methods](https://github.com/pu2clr/SI4844#public-methods)
+1. [Seu suporte é importante]()
+2. [Sobre a Arquitetura do SI4844]()
+3. [Terminologia]()
+4. [Instalação da Biblioteca]()
+5. [Requisitos de Hardware e Configuração]()
+   1. [Esquema]()
+   2. [COmponentes]()
+   3. [Fotos]()
+6. [Documentação da API]()
+   1. [Estruturas e Tipos Definidos de Dados]()
+   2. [Métodos Públicos]()
       *  [setup](https://github.com/pu2clr/SI4844#setup)
       * [reset](https://github.com/pu2clr/SI4844#reset)
       * [setBand](https://github.com/pu2clr/SI4844#setband)
@@ -49,88 +47,87 @@ __Attention: Documentation Under construction.__
       * [getFirmwareComponentMajorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentmajorrevision)
       * [getFirmwareComponentMinorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentminorrevision)
       * [getFirmwareChipRevision](https://github.com/pu2clr/SI4844#getfirmwarechiprevision) 
-7. [References](https://github.com/pu2clr/SI4844#references)
-8. [Videos](https://github.com/pu2clr/SI4844#videos) 
+7. [Referências]()
+8. [Vídeos]() 
 
 
-## Your support is important.
+## Seu suporte é importante
 
-If you would like to support this library development, consider joining this project via Github. Thank you!
-
-## About the SI4844 Architecture 
-
-The Si4844 is an analog-tuned digital-display AM/FM/SW radio receiver. It has an analog-tune while frequency, band, and setero/mono information can be displayed on LCD. It works with a I2C protocol that allows a microcontroller send command and receive data. 
-
-See more about SI4844 on [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf) 
+Se você tem interesse em fornecer suporte de desenvolvimento a esta biblioteca,junte-se a este projeto via Github.
 
 
-## Terminology
+## Sobre a Arquitetura do SI4844 
 
-| Term | Description  |
+O SI4844 um rádio receptor AM/FM/OC. Ele possui um Sintonizador Analógico que permite a seleção de estações por meio de um potenciômetro (resistor variável). O SI4844 permite também a execução de comandos enviados via um microcontrolador para executar tarefas como: mudança de banda, volume, obter a frequência corrente para ser exibida em display entre outras. Há várias informações importante que podem ser de interesse para um projetista de rádio e que pode ser obtida por meio desta biblioteca para o Arduino. 
+    
+
+Conheça mais sobre a arquitetura do SI4844 na publicação da Silicon Labs [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf) 
+
+
+## Terminologia
+
+| Termo | Descrição  |
 |------|--------|
-|Arduino Libraries|Libraries are files written in C or C++ (.c, .cpp) which provide your sketches with extra functionality. The SI4844 Library provides extra functionalities to make easier the Arduino deal with Si4844 device| 
-|IDE   |Integrated Development Environment|      
-|Sketch|Name that Arduino environment uses for a program|
-|ATDD  |Analog Tune Digital Display. Sometimes used to refer the Si4844 device|
-|interrupt|In this context, it is a Arduino Resource. Allows important tasks to be performed regardless of the flow of your program|
-|C++| A object-oriented programming (OOP) language. It is a superset of the C language with an additional concept of "classes." |
-|programming guide| In this context it refers to [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)|
-|POC| Proof of Concept|
+| Bibliotecas Arduino | Se referem a arquivos escritos em C or C++ (.c, .cpp) capazes de fornecer funcionalidades extras aos seu Sketch Arduino. Neste contexto, a Biblioteca para o SI4844  fornece funcionalidades extras para controlar um rádio baseado no SI4844 | 
+|IDE   |Ambiente integrado de Desenvolvimento (do Inglês: Integrated Development Environment)|      
+|Sketch|Um nome utilizado pelo ambiente Arduino para um programa. Basicamente é o arquivo principal de um programa Arduino|
+|ATDD  | Do Inglês, Analog Tune Digital Display. O termo ATDD é usado para se referir ao dispositivo (CI) SI4844 |
+|interrupt (interrupção| No contexto deste documento, uma interrupção é um recurso do Arduino que permite a execução de tarefas importantes independentemente do fluxo de execução corrente do seu programa |
+|C++| É uma linguagem de programação orientada a objetos. Pode ser entendida como uma extensão da linguagem C que permite o desenvolvimento de programas e bibliotecas usando a abordagem Orientada a Objetos.  |
+|Guia de Programação| Se refere ao manual da Silicon Labs [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)|
+|POC| Do Inglês, Proof of Concept ou em Português, Prova de Conceito. Trata-se de uma abordagem para avaliar um dado produto, modelo ou ideia |
 
 
 
-## Library Installation
+## Instalação da Biblioteca
 
-You can install the library is via the Arduino Library Manager. Go to the menu __Sketch__ > __Include Library__ > __Manage Libraries...__, and in the search box,  type __"PU2CLR SI4844"__.
+É possível Instalar esta biblioteca em seu Ambienbte usando o proprio Gerenciador de Bibliotecas do Arduino. Para tanto, selecione a opção de menu __Sketch__ -> __Incluir Biblioteca__ -> Gerenciar Biblioteca. Por fim tecle na caixa de busca o texto PU2CLR Si4844.
 
 The images below show that actions
 
-![IDE 01](extras/images/ide_01.png)
+![IDE 01](extras/images/idebr_01.png)
 
-![IDE 01](extras/images/ide_02.png)
-
-![IDE 01](extras/images/ide_03.png)
+![IDE 01](extras/images/idebr_03.png)
 
 
-## Hardware Requirements and Setup
+## Requisitos de Hardware e Configuração
 
-This library has been written for the Arduino platform and has been successfully tested on Pro Mini. I beleave it will work on any other Arduino with I2C support.
+Conforme dito anteriormente, esta biblioteca foi escrita para a Plataforma Arduino e foi testada com sucesso no Arduino Pro Mini. Acredito que ela também funcionará em outras placas Arduino diferentes do Pro Mini. Contudo, é importante ressaltar que o dispositivo SI4844 opera com +3.3V. Se você não estiver usando uma versão Arduino de 3.3 V, será necessário o uso de um conversor de 5V para 3.3V.
 
-The SI4844 is a +3.3 V only part. If you are not using a +3.3 V version of Arduino, you have to use a kind of converter.
+Por fim, para usar esta biblioteca, é necessário construir um rádio baseado no SI4844. 
+Os esquemas e fotos a seguir mostram como construir um rádio simples baseado no SI4844. 
 
-To use this labrary you need to build a radio based on SI4844 coneccted to Arduino. The schematic and photos below show the hardware and setup requirments for start using this library.
+### Esquema
 
-### Schematic
-
-The signal amplifier was not required for this test. 
+Note no esquema proposta a seguir, que o Amplificador de sinal não é necessário para elaboração de um teste. Esta parte do circúito está destacada em vermelho. 
 
 ![schematic](./extras/images/SI4844_POC_01.png)
-__Original Source:__ [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/)
+__Fonte:__ [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/)
  
-The document [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), chapter two, page 11,  has a typical application schematic. 
+O documento [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), capítulo 2, página 11,  tem um esquema mais o simplificado ainda deste rádio. 
 
-The figure below shows that schematic
+A figura a segui apresenta este esquema
 
 ![schematic](./extras/images/SI4844_SILICON_LABS1.png)
-__Source: Silicon Labs (Si4840/44-A10)__
+__Fonte: Silicon Labs (Si4840/44-A10)__
 
-### Parts
+### Componentes
 
-Parts list  used by the first schematic
+Listas de componentes utilizados 
 
-The table below is based on [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/) .  
+A tabela a seguir é baseada na publicação de [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/) .  
 
-|Part	| Description |
+|Componente	| Descrição |
 |-------| ------------ |
 |(*1) B1 	| ferrite bead 2.5 kOhm (100 mHz) B1, ferrite bead 2.5 kOhm (100 mHz), 81-BLM18BD252SZ1D |
-|C1,C2,C5 |	4.7 uf non polarized capacitor |
-|C3,C4 |	22 pf non polarized capacitor |
-|C6,C7,C9 |	.1 uf non polarized capacitor |
-|(*2) C8	| __4.7 uf non polarized capacitor__ (the orinal value is 47uF. I used 4.7uF) |
-|C10, (*1) C11 |	.47 uf non polarized capacitor |
-|(*1) C12, (*1) C14 |	33 nf non polarized capacitor |
-|C13	| 33 pf non polarized capacitor |
-|(*1) C15	| 10 pf non polarized capacitor |
+|C1,C2,C5 |	4.7uF capacitor não  polarizado |
+|C3,C4 |	22 pf capacitor não  polarizado |
+|C6,C7,C9 |	.1uF capacitor não  polarizado |
+|(*2) C8	| __4.7 uf capacitor não  polarizado__ (atenção: no esquema original, este valor é 47uF) |
+|C10, (*1) C11 |	.47uF capacitor não  polarizado |
+|(*1) C12, (*1) C14 |	33 nF capacitor não  polarizado |
+|C13	| 33pF capacitor não  polarizado |
+|(*1) C15	| 10pF capacitor não  polarizado |
 |IC1	| Si4844-A10 radio receiver |
 |(*1) Q1	| SS9018 NPN transistor |
 |R1, R2	| 2.2K |
@@ -139,23 +136,22 @@ The table below is based on [Raymond Genovese, May 26, 2016 - How to Build an Ar
 |(*1) R5	| 10 Ohms |
 |(*1) R6	| 120K |
 |R8	| 100 Ohms |
-|L1	| 270 nH Inductor (0,270 uH) |
-|VR1 |	100K linear potentiometer |
-|Y1	| 32.768 kHz crystal |
-|ANT1 |	ferrite antenna |
-|ANT2 | telescopic/whip antenna |
+|L1	| 270 nH Indutor (0,270 uH) |
+|VR1 |	100K Poteciômetro Linear |
+|Y1	| 32.768 kHz crital |
+|ANT1 |	antena de ferrite |
+|ANT2 | Antena telescópica |
 
-1. (*1) - not used for this project.
-2. (*2) - the value used is 4.7uF and not 47uF as suggested by the original circuit.
-
-
-
-### Photos 
-
-### SI4844 soldered on adapter
+1. (*1) - Não utilizado neste projeto.
+2. (*2) - O valor que utilizei foi 4.7uF e não o valor sugerido no esquema original (47uF).
 
 
-It was a bit hard to solder the Si4844 on adapter. However, by using a electronic magnifier it was possible.
+### Fotos 
+
+### Soldagem do SI4844 no adaptador
+
+Foi um pouco difícil fazer a soldagem de um componente tão pequeno no adaptador. Contudo, com o uso de uma lente de aumento eletrônica e uma caneta (ferro de solda) foi possível fazer o trabalho. 
+
 
 ![SI4844 soldered on adapter 01](./extras/images/si4844_board_01.png)
 
@@ -172,14 +168,15 @@ It was a bit hard to solder the Si4844 on adapter. However, by using a electroni
 
 
 
-## API Documentation
+## Documentação da API
 
 
-This labrary was developed in C++.  To use it, you must declare in your Sketch a variable of the class SI4844.
-The code below show that. 
+A Biblioteca SI4844 foi desenvolvida em C++.  Para utilizá-la, inclua o arquivo SI4844.h e declare em seu Sketch uma variável da classe SI4844. Após instalar a Biblioteca no Arduino, você deve incluí-la em seu código conforme apresentado no código a seguir.
+
 
 ```cpp
-#include "SI4844.h"
+// 
+#include <SI4844.h>   
 #include <Wire.h>
 
 // Arduino Pin (tested on pro mini)
