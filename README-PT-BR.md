@@ -2,9 +2,12 @@
 
 Esta é uma bibnlioteca para o SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER, uma Circuito Integrado fabricado pela Silicon Labs. É especialmente destinada aos interessados em controlar este dispositivo via o ambiente de desenvolvimento Arduino. 
 
+Há um [exemplo](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_POC/SI4844_POC.ino) nesta biblioteca que poderá auxiliá-lo na construção de seu projeto. Com este exemplo, é possível executar as principais funções do Si4844 via o Monitor Serial (Serial Monitor) do ambiente de desenvolvimento do Arduino (IDE).
+
+
 Por Ricardo Lima Caratti / PU2CLR, Outunro de 2019. 
 
-## Summary
+## Sumário
 1. [Seu suporte é importante](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#seu-suporte-%C3%A9-importante)
 2. [Sobre a Arquitetura do SI4844](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#sobre-a-arquitetura-do-si4844)
 3. [Terminologia](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#terminologia)
@@ -13,23 +16,24 @@ Por Ricardo Lima Caratti / PU2CLR, Outunro de 2019.
    1. [Esquema](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#esquema)
    2. [Componentes](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#componentes)
    3. [Fotos](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#fotos)
-6. [Documentação da API](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#documenta%C3%A7%C3%A3o-da-api)
+6. [Um exemplo usando esta Biblioteca Arduino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_POC/SI4844_POC.ino)
+7. [Documentação da API](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#documenta%C3%A7%C3%A3o-da-api)
    1. [Estruturas e Tipos Definidos de Dados](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#estruturas-e-tipos-definidos-de-dados)
    2. [Métodos Públicos](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#public-methods)
-      *  [setup](https://github.com/pu2clr/SI4844#setup)
-      * [reset](https://github.com/pu2clr/SI4844#reset)
-      * [setBand](https://github.com/pu2clr/SI4844#setband)
-      * [changeVolume](https://github.com/pu2clr/SI4844#changevolume)
-      * [setVolume](https://github.com/pu2clr/SI4844#setvolume)
-      * [getStatus](https://github.com/pu2clr/SI4844#getstatus)
-      * [getFirmware](https://github.com/pu2clr/SI4844#getfirmware)
-      * [getFrequency](https://github.com/pu2clr/SI4844#getfrequency)
-      * [hasStatusChanged](https://github.com/pu2clr/SI4844#hasstatuschanged)  
-      * [resetStatus](https://github.com/pu2clr/SI4844#resetstatus)
-      * [getBandMode](https://github.com/pu2clr/SI4844#getbandmode)
-      * [getStereoIndicator](https://github.com/pu2clr/SI4844#getstereoindicator)
-      * [getStatusBCFG0](https://github.com/pu2clr/SI4844#getstatusbcfg0)
-      * [getStatusBCFG1](https://github.com/pu2clr/SI4844#getstatusbcfg1)
+      * [setup](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setup)
+      * [reset](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#reset)
+      * [setBand](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setband)
+      * [changeVolume](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#changevolume)
+      * [setVolume](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setvolume)
+      * [getStatus](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#getstatus)
+      * [getFirmware](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#getfirmware)
+      * [getFrequency](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#getfrequency)
+      * [hasStatusChanged](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#hasstatuschanged)  
+      * [resetStatus](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#resetstatus)
+      * [getBandMode](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#getbandmode)
+      * [getStereoIndicator](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#getstereoindicator)
+      * [getStatusBCFG0](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#getstatusbcfg0)
+      * [getStatusBCFG1](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#getstatusbcfg1)
       * [getStatusStereo](https://github.com/pu2clr/SI4844#getstatusstereo)
       * [getStatusStationIndicator](https://github.com/pu2clr/SI4844#getstatusstationindicator)
       * [getStatusInformationReady](https://github.com/pu2clr/SI4844#getstatusinformationready)
@@ -46,8 +50,8 @@ Por Ricardo Lima Caratti / PU2CLR, Outunro de 2019.
       * [getFirmwareComponentMajorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentmajorrevision)
       * [getFirmwareComponentMinorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentminorrevision)
       * [getFirmwareChipRevision](https://github.com/pu2clr/SI4844#getfirmwarechiprevision) 
-7. [Referências]()
-8. [Vídeos]() 
+8. [Referências]()
+9. [Vídeos]() 
 
 
 ## Seu suporte é importante
@@ -666,17 +670,22 @@ Exemplo:
   Serial.println("*****************************");
   ```
 
+## Exemplos
+
+1. [Exemplos utilizando esta biblioteca](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_POC)
 
 
-## References
+## Referências
 
 1. [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)
 2. [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf)
 3. [Si4822/26/27/40/44 ANTENNA, SCHEMATIC, LAYOUT, AND DESIGN GUIDELINES](https://www.silabs.com/documents/public/application-notes/AN602.pdf)
 4. [How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/)
 
+
+
    
-## Videos
+## Vídeos
 
 1. [Prova de Conceito com SI4844 e Arduino (vídeo sobre este projeto)](https://youtu.be/DAQbXZZR7VQ)
 
