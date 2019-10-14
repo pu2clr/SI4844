@@ -136,8 +136,12 @@ void loop() {
     Serial.print(" - Frequency: ");    
     Serial.print(si4844.getFrequency(),0);
     Serial.print(" KHz");
-    Serial.print(" - Stereo ");
-    Serial.println(si4844.getStereoIndicator());
+    if (si4844.getStatusBandMode() == 0) {
+      Serial.print(" - Stereo ");
+      Serial.print(si4844.getStereoIndicator());
+    }
+    Serial.println("");
+    
   }
 
 }

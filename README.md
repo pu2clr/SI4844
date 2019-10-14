@@ -469,8 +469,8 @@ void resetStatus(void);
 
 ```cpp
 /*
- * Get the band mode (FM/AM/SW)
- * @return 0 = "FM mode"; 1 = "AM mode"; 2 = "SW mode".
+ * Obtem a Banda (FM/AM/SW)
+ * @return "FM", "AM" ou "SW".
  */ 
 inline String getBandMode()
 ```
@@ -479,7 +479,8 @@ inline String getBandMode()
 
 ```cpp
 /*
- * return 0 = stereo off; 1 stereo on
+ * Obtém a indicação de estéreo ou mono
+ * return char * "Off" se a recepção estiver estéreo ou On se for estéreo.
  */
 inline String getStereoIndicator()
 ```
@@ -506,7 +507,9 @@ inline unsigned getStatusBCFG1()
 
 ```cpp
 /*
- * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
+ * Retorna 0 para estéreo Off ou 1 para estéreo. 
+ * Similar a  getStereoIndicator só que retorna um número no lugar de string (char *)
+ * Vaja  o Guia de Programação, AN610, páginas 15 e 16
  */
 inline unsigned getStatusStereo() 
 ```
