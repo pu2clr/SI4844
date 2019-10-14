@@ -1,6 +1,7 @@
 # Si4844 Library for Arduino
 
-[Este Documento em Português](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md)
+[Leia este documento em Português](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md)
+
 
 This is a library for the SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER,  IC from Silicon Labs for the Arduino development environment.  This library is intended to provide an easier interface for controlling the SI4844.
 
