@@ -4,7 +4,6 @@ Esta é uma bibnlioteca para o SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY A
 
 Há um [exemplo](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_POC/SI4844_POC.ino) nesta biblioteca que poderá auxiliá-lo na construção de seu projeto. Com este exemplo, é possível executar as principais funções do Si4844 via o Monitor Serial (Serial Monitor) do ambiente de desenvolvimento do Arduino (IDE).
 
-
 Por Ricardo Lima Caratti / PU2CLR, Outunro de 2019. 
 
 ## Sumário
@@ -491,7 +490,7 @@ inline unsigned getStatusBCFG0()
 
 ```cpp
 /*
- * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
+ * Veja O guia de Programação, AN610, páginas 15 e 16
  */
 inline unsigned getStatusBCFG1() 
 ```
@@ -500,7 +499,8 @@ inline unsigned getStatusBCFG1()
 
 ```cpp
 /*
- * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
+ * Retorna um número inteiro indicado se a recepção está estéreo (0 = Não e 1 = Sim)
+ * Veja O guia de Programação, AN610, páginas 15 e 16
  */
 inline unsigned getStatusStereo() 
 ```
