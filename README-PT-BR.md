@@ -214,14 +214,15 @@ void loop() {
 ```
 
 
-### Defined Data Types and Structures
+### Estruturas e Tipos Definidos de Dados
 
-To make the SI4844 device easier to deal, some defined data types were built to handle byte and bits responses.
+O objetivo das estruturas de dados e tipos definidos apresentados a seguir é tornar a programação para o dispositivo SI4844 mais simples. 
+
 
 ```cpp
 /* 
- * The structure below represents the four bytes response got by command ATDD_GET_STATUS
- * See Si48XX ATDD PROGRAMMING GUIDE, pages 14 and 15
+ * A estrutura a seguir representa a resposta de 4 bytes obtida pelo comando ATDD_GET_STATUS
+ * Veja as páginas 14 e 15 do Guia de Programação 
  */
 typedef struct
 {
@@ -245,9 +246,9 @@ typedef struct
 
 ```cpp
 /*
- * Uses a C language feature to represent two way for the 4 response bytes (status) sent by the ATDD_GET_STATUS.
- * It is needed to undertand the C language union concept.
- * See Si48XX ATDD PROGRAMMING GUIDE, pages 14 and 15 
+ * A seguir tem-se um recurso da linguagem C (union) para representar os mesmos dados armazenados
+ * em uma dad posição de memória de duas formas diferentes. Desta forma, ao receber 4 bytes, será 
+ * possivel representá-los segundo a estrutura anterior.
 */
 typedef union {
   si4844_get_status refined;
@@ -257,10 +258,10 @@ typedef union {
 
 
 ```cpp
-// English:
-// GET_REV structure. The structure below represents 9 bytes response for GET_REV command.
-// STATUS and RESP1 to RESP8.  See Si48XX ATDD PROGRAMMING GUIDE; AN610, page 22.
-// Portuguese:
+/*
+ * A estrutura a seguir representa os 9 bytes obtidos pelo comando GET_REV.
+ * Veja a página 22 do Guia de Programação. 
+ */
 typedef struct
 {
   byte RESERVED : 6; // Bit 0 to 5
@@ -372,7 +373,7 @@ Exemple:
 
 ```cpp 
 /*
- * Obtem as informações corrente (atuais) do rádio. Exemplo: Frequência, banda etc.
+ * Obtém as informações corrente (atuais) do rádio. Exemplo: Frequência, banda etc.
  * Use esta função se você desejar manipular os dados retornados diretamente.  
  * Esta bibliotecas possui várias outras funções mais fáceis e diretas para obter informações do rádio. 
  * 
@@ -389,7 +390,7 @@ Exemple:
 
 ```cpp
 /*
- * Obtem informações do Firmware. Por exemplo, part number, chip revision, patch e
+ * Obtém informações do Firmware. Por exemplo, part number, chip revision, patch e
  * component revision numbers.
  * Em geral, você não precisará executar este métodos. Há utros métodos nesta biblioteca 
  * que poderá prover estas informações.   
@@ -408,7 +409,7 @@ Exemple:
 
 ```cpp
 /*
- * Obtem a frequência corrente do rádio em  KHz. 
+ * Obtém a frequência corrente do rádio em  KHz. 
  * Por exemplo: FM, 103900 KHz (103.9 MHz);
  *              SW, 7335 KHz (7.34 MHz, 41m)   
  * 
@@ -427,7 +428,7 @@ Exemplo:
 
 ```cpp
 /*
-*  Verifica se o SI4844 teve seu estado mudado. Se voce mover os sintonizador, por exemplo, 
+*  Verifica se o SI4844 teve seu estado mudado. Se você mover os sintonizador, por exemplo, 
 *  o estado do dispositivo é alterado. 
 *
 *  return true or false  
@@ -458,7 +459,7 @@ void resetStatus(void);
 
 ```cpp
 /*
- * Obtem a Banda Corrente (FM/AM/SW)
+ * Obtém a Banda Corrente (FM/AM/SW)
  * @return 0 = "FM mode"; 1 = "AM mode"; 2 = "SW mode".
  */ 
 inline String getBandMode()
