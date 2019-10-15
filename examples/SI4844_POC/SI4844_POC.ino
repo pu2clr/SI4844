@@ -21,17 +21,14 @@ void setup() {
   Serial.begin(9600);
   delay(500);
 
-  Serial.println("Início");
-
   si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
 
   si4844.setVolume(55);
 
-  Serial.println("Setup Concluído");
-
   Serial.println("-------------------------------------------------------------------------------------------");
   Serial.println("Type F to FM; A to AM; 1 to 7 to SW; + or - to sound volume; or I to firmware Information  ");
   Serial.println("-------------------------------------------------------------------------------------------");
+  delay(500);
 }
 
 void show_firmware_information() {
