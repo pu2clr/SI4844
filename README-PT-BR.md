@@ -111,12 +111,12 @@ __Atenção__:  Se você não estiver utilizando o Arduino Pro Mini, verifique a
 
 |Board | Interrupr (IRQ) Pins| I2C / TWI pins |
 |------|---------------------| ---------------|
-|328-based <br> (Nano, Mini or Uno) |	2 and 3 | A4 (SDA / SDIO), A5 (SCL / SCLK) |
-| Mega | 2, 3, 18, 19, 20 and  21 | 20 (SDA/SDIO), 21 (SCL/SCLK) |
-| 32u4-based <br> (Micro, Leonardo or Yum)	| 0, 1, 2, 3 and 7| 2 (SDA/SDIO), 3 (SCL/SCLK) |
-| Zero | todos os pinos exceto o 4 | D8 (SDA/SDIO) and D9 (SCL/SCLK) |
-| Due	| todos os pinos digitais | 20 (SDA/SDIO), 21 (SCL/SCLK) |
-| 101	| todos os pinos digitais. <br> Somente os pinos 2, 5, 7, 8, 10, 11, 12, 13 funcionam com CHANGE| ------ |
+|328-based <br> (Nano, Mini ou Uno) |	2 and 3 | A4 (SDA / SDIO), A5 (SCL / SCLK) |
+| Mega | 2, 3, 18, 19, 20 e  21 | 20 (SDA/SDIO) e 21 (SCL/SCLK) |
+| 32u4-based <br> (Micro, Leonardo or Yum)	| 0, 1, 2, 3 e 7| 2 (SDA/SDIO) e 3 (SCL/SCLK) |
+| Zero | todos os pinos exceto o 4 | D8 (SDA/SDIO) e D9 (SCL/SCLK) |
+| Due	| todos os pinos digitais | 20 (SDA/SDIO) e 21 (SCL/SCLK) |
+| 101	| todos os pinos digitais. <br> Somente os pinos 2, 5, 7, 8, 10, 11, 12 e 13 funcionam com CHANGE| ------ |
 
 
 A figura a segui apresenta este esquema
