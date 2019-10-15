@@ -106,6 +106,19 @@ __Fonte:__ [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled 
  
 O documento [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), capítulo 2, página 11,  tem um esquema mais simplificado ainda deste rádio. 
 
+
+__Atenção__:  Se você não tiver utilizando o Arduino Pro Mini, verifique a pinagem correta para interrupt (IRQ), RST, SDIO and  SCLK  do seu Arduino.  
+
+|Board | Interrupr (IRQ) Pins| I2C / TWI pins |
+|------|---------------------| ---------------|
+|328-based(Nano, Mini or Uno) |	2 and 3 | A4 (SDA / SDIO), A5 (SCL / SCLK) |
+| Mega | 2, 3, 18, 19, 20 and  21 | 20 (SDA/SDIO), 21 (SCL/SCLK) |
+| 32u4-based (Micro, Leonardo or Yum)	| 0, 1, 2, 3 and 7| 2 (SDA/SDIO), 3 (SCL/SCLK) |
+| Zero | todos os pinos exceto o 4 | -----  |
+| Due	| todos os pinos digitais | 20 (SDA/SDIO), 21 (SCL/SCLK) |
+| 101	| todos os pinos digitais. Somente os pinos 2, 5, 7, 8, 10, 11, 12, 13 funcionam com CHANGE| ------ |
+
+
 A figura a segui apresenta este esquema
 
 ![schematic](./extras/images/SI4844_SILICON_LABS1.png)
