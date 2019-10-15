@@ -141,7 +141,5 @@ void loop() {
       Serial.print(si4844.getStereoIndicator());
     }
     Serial.println("");
-    
   }
-
 }
