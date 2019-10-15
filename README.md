@@ -148,7 +148,7 @@ The table below is based on [Raymond Genovese, May 26, 2016 - How to Build an Ar
 |Y1	| 32.768 kHz crystal |
 |ANT1 |	ferrite antenna |
 |ANT2 | telescopic/whip antenna |
-|Notes| 1. not used for this project;<BR>2.the value used is 4.7uF and not 47uF as suggested by the original circuit.| 
+|Notes| *1. not used for this project;<BR> *2. the value used is 4.7uF and not 47uF as suggested by the original circuit.| 
 
 
 
