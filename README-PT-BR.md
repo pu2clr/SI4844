@@ -55,8 +55,7 @@ Por Ricardo Lima Caratti / PU2CLR, Outunro de 2019.
 
 ## Seu suporte é importante
 
-Se você tem interesse em fornecer suporte de desenvolvimento a esta biblioteca,junte-se a este projeto via Github.
-
+Se você tem interesse em fornecer suporte de desenvolvimento a esta biblioteca, junte-se a este projeto via Github. Se preferir, faça sugestões sobre funcionalidades que você gostaria que estivesse disponível nesta biblioteca. 
 
 ## Sobre a Arquitetura do SI4844 
 

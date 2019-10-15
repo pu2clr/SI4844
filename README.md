@@ -59,7 +59,7 @@ __Attention: Documentation Under construction.__
 
 ## Your support is important.
 
-If you would like to support this library development, consider joining this project via Github. Thank you!
+If you would like to support this library development, consider joining this project via Github. Alternatively, make suggestions on features you would like available in this library. Thank you!
 
 ## About the SI4844 Architecture 
 
@@ -112,6 +112,20 @@ The signal amplifier was not required for this test.
 __Original Source:__ [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/)
  
 The document [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), chapter two, page 11,  has a typical application schematic. 
+
+
+__Attention__: If you are not using an Arduino Pro Mini, pay attention on the appropriated Arduino pinout to select the correct interrupt (IRQ), RST, SDIO and  SCLK  pins. 
+
+|Board | Interrupr (IRQ) Pins| I2C / TWI pins |
+|------|---------------------| ---------------|
+|328-based(Nano, Mini or Uno) |	2 and 3 | A4 (SDA / SDIO), A5 (SCL / SCLK) |
+| Mega | 2, 3, 18, 19, 20 and  21 | 20 (SDA / SDIO), 21 (SCL / SCLK) |
+| 32u4-based (Micro, Leonardo or Yum)	| 0, 1, 2, 3 and 7| 2 (SDA / SDIO), 3 (SCL / SCLK) |
+| Zero | all digital pins except pin 4 | |
+| Due	| all digital pins | 20 (SDA / SDIO), 21 (SCL / SCLK) |
+| 101	| all digital pins. Only pins 2, 5, 7, 8, 10, 11, 12, 13 work with CHANGE| |
+
+
 
 The figure below shows that schematic
 
