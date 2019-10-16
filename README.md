@@ -114,9 +114,9 @@ __Original Source:__ [Raymond Genovese, May 26, 2016 - How to Build an Arduino-C
 The document [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), chapter two, page 11,  has a typical application schematic. 
 
 
-__Attention__: If you are not using an Arduino Pro Mini, pay attention on the appropriated Arduino pinout to select the correct interrupt (IRQ), RST, SDIO and  SCLK  pins. 
+__Attention__: If you are not using an Arduino Pro Mini, pay attention on the appropriated Arduino pinout to select the correct interrupt (IRQ), RST, SDIO and  SCLK  pins.  The table below shows some Arduino board pinout. 
 
-|Board | Interrupr (IRQ) Pins| I2C / TWI pins |
+|Board | InterrupT (IRQ) Pins| I2C / TWI pins |
 |------|---------------------| ---------------|
 |328-based <br> (Nano, Mini or Uno) |	D2 and D3 | A4 (SDA/SDIO), A5 (SCL/SCLK) |
 | Mega | 2, 3, 18, 19, 20 and  21 | 20 (SDA/SDIO), 21 (SCL/SCLK) |
