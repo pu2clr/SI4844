@@ -7,8 +7,6 @@ This is a library for the SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/
 
 By Ricardo Lima Caratti, Oct, 2019. 
 
-__Attention: Documentation Under construction.__
-
 
 ## Summary
 1. [Your support is important](https://github.com/pu2clr/SI4844#your-support-is-important)
