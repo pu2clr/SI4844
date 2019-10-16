@@ -21,7 +21,7 @@ void loop() {
   // If you move the tuner, hasStatusChanged returns true
   if (si4844.hasStatusChanged())
   {
-    Serial.print("Band..: ");
+    Serial.print("[Band..: ");
     Serial.print(si4844.getBandMode());
     Serial.print(" - Frequency: ");    
     Serial.print(si4844.getFrequency(),0);
@@ -30,6 +30,6 @@ void loop() {
       Serial.print(" - Stereo ");
       Serial.print(si4844.getStereoIndicator());
     }
-    Serial.println("");
+    Serial.println("]");
   }
 }
