@@ -110,8 +110,7 @@ The signal amplifier was not required for this test.
 
 ![schematic](./extras/images/SI4844_POC_01.png)
 __Original Source:__ [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/)
- 
-The document [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), chapter two, page 11,  has a typical application schematic. 
+
 
 
 __Attention__: If you are not using an Arduino Pro Mini, pay attention on the appropriated Arduino pinout to select the correct interrupt (IRQ), RST, SDIO and  SCLK  pins.  The table below shows some Arduino board pinout. 
@@ -127,10 +126,13 @@ __Attention__: If you are not using an Arduino Pro Mini, pay attention on the ap
 
 
 
+The document [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), chapter two, page 11,  has a typical application schematic. 
+
 The figure below shows that schematic
 
 ![schematic](./extras/images/SI4844_SILICON_LABS1.png)
 __Source: Silicon Labs (Si4840/44-A10)__
+
 
 ### Parts
 

@@ -104,8 +104,6 @@ Note no esquema proposta a seguir, que o Amplificador de sinal não é necessár
 ![schematic](./extras/images/SI4844_POC_01.png)
 __Fonte:__ [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/)
  
-O documento [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), capítulo 2, página 11,  tem um esquema mais simplificado ainda deste rádio. 
-
 
 __Atenção__:  Se você não estiver utilizando o Arduino Pro Mini, verifique a pinagem correta para interrupt (IRQ), RST, SDIO and  SCLK  do seu Arduino.  A tabela a seguir apresenta a pinagem de algumas placas de Arduinos.
 
@@ -118,6 +116,8 @@ __Atenção__:  Se você não estiver utilizando o Arduino Pro Mini, verifique a
 | Due	| todos os pinos digitais | 20 (SDA/SDIO) e 21 (SCL/SCLK) |
 | 101	| todos os pinos digitais. <br> Somente os pinos 2, 5, 7, 8, 10, 11, 12 e 13 funcionam com CHANGE| ------ |
 
+
+O documento [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), capítulo 2, página 11,  tem um esquema mais simplificado ainda deste rádio. 
 
 A figura a segui apresenta este esquema
 
