@@ -196,7 +196,7 @@ This labrary was developed in C++.  To use it, you must declare in your Sketch a
 The code below show that. 
 
 ```cpp
-#include "SI4844.h"
+#include <SI4844.h>
 #include <Wire.h>
 
 // Arduino Pin (tested on pro mini)
