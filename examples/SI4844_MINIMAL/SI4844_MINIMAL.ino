@@ -4,7 +4,6 @@
  */
 
 #include <SI4844.h>
-
 // Tested on Arduino Pro Mini
 #define INTERRUPT_PIN 2  
 #define RESET_PIN 12
