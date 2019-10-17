@@ -139,7 +139,7 @@ public :
   void setVolume(byte);
   si4844_status_response *getStatus(void);
   si4844_firmware_response *getFirmware(void);
-
+  // customize the frequency range of a band
   void setCustomBand(byte, unsigned, unsigned, byte);
 
 

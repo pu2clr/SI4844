@@ -322,8 +322,18 @@ void SI4844::resetStatus() {
 
 
 /* 
- * Custimize a band index. 
+ * This method allows you to customize the frequency range of a band.
+ * The SI4844 can work from 2.3–28.5 MHz on SW, 64.0–109.0MHz on FM
+ * You can configure the band index 40, for example, to work between 27 to 28 MHz.
+ * See Si48XX ATDD PROGRAMMING GUIDE, pages 17, 18, 19 and 20.
  * 
+ * (top – button)/(bandSpace) must be betwenn 50 and 230
+ * 
+ * @param byte bandIndes; Predefined band index 
+ * @param unsigned button; Band Bottom Frequency Limit
+ * @param unsigned top; Band Top Frequency Limit
+ * @param byte bandSpace; Channel Spacing (use 5 or 10 - On FM 10 = 100KHz)
+ * @return void
  */
 void SI4844::setCustomBand(byte bandIndex, unsigned botton, unsigned top, byte bandSpace) {
 
@@ -371,6 +381,4 @@ void SI4844::setCustomBand(byte bandIndex, unsigned botton, unsigned top, byte b
     delayMicroseconds(2500);
     getStatus();
     delayMicroseconds(2500);
-
-
  }
