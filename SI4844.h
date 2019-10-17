@@ -140,6 +140,9 @@ public :
   si4844_status_response *getStatus(void);
   si4844_firmware_response *getFirmware(void);
 
+  void setCustomBand(byte, unsigned, unsigned, byte);
+
+
   float getFrequency(void);
   bool hasStatusChanged(void);
   void resetStatus(void);

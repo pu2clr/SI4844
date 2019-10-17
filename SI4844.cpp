@@ -313,6 +313,64 @@ bool SI4844::hasStatusChanged(void)
     return data_from_si4844;
 }
 
+/*
+ * set the interrupr status to false. It will turn true after next interrupr  
+ */
 void SI4844::resetStatus() {
       data_from_si4844 = false;
 }
+
+
+/* 
+ * Custimize a band index. 
+ * 
+ */
+void SI4844::setCustomBand(byte bandIndex, unsigned botton, unsigned top, byte bandSpace) {
+
+    union { 
+        struct { 
+            byte bandindex:6;
+            byte xowait:1;
+            byte xoscen:1;
+            unsigned botton;
+            unsigned top;
+            byte bandspace;
+        } refined;
+        byte raw[6];
+    } customband; 
+
+    // The first thing that we have to do is switch to desired band 
+    setBand(bandIndex);
+
+    // Now we can customize the band. 
+    data_from_si4844 = false;
+    customband.refined.bandindex = bandIndex;
+    customband.refined.xowait = 0;
+    customband.refined.xoscen =1;
+    customband.refined.botton = botton;
+    customband.refined.top = top;
+    customband.refined.bandspace = bandSpace;
+
+    // Wait until rady to send a command
+    waitToSend();
+
+    Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(ATDD_POWER_UP);
+    Wire.write(customband.raw[0]);
+    Wire.write(customband.raw[2]);
+    Wire.write(customband.raw[1]);
+    Wire.write(customband.raw[4]);
+    Wire.write(customband.raw[3]);   
+    Wire.write(customband.raw[5]);  
+    Wire.write(0x00);
+               
+    Wire.endTransmission();
+    delayMicroseconds(2500);
+    waitInterrupr();
+
+    delayMicroseconds(2500);
+    getStatus();
+    delayMicroseconds(2500);
+
+
+ }
