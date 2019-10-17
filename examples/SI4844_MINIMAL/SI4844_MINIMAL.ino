@@ -8,7 +8,7 @@
 #define INTERRUPT_PIN 2  
 #define RESET_PIN 12
 // Pages 17 and 18 from Si48XX ATDD PROGRAMMING GUIDE
-#define DEFAULT_BAND 0   // FM => 0 to 19; AM => 20 to 24; SW => 25 to 40
+#define DEFAULT_BAND 4   // FM => 0 to 19; AM => 20 to 24; SW => 25 to 40
 
 SI4844 si4844; 
 

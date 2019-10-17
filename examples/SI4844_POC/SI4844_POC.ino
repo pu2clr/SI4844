@@ -37,7 +37,7 @@ void show_firmware_information() {
 
   si4844.getFirmware();
   Serial.print("Final 2 digits of Part Number..: ");
-  Serial.println(si4844.getFirmwarePartNumber());
+  Serial.println(si4844.getFirmwarePartNumber(), HEX);
   Serial.print("Firmware Major Revision........: ");
   Serial.println(si4844.getFirmwareMajorRevision());
   Serial.print("Firmware Minor Revision........: ");
