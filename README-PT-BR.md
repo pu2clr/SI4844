@@ -79,6 +79,17 @@ Conheça mais sobre a arquitetura do SI4844 na publicação da Silicon Labs [BRO
 |POC| Do Inglês, Proof of Concept ou em Português, Prova de Conceito. Trata-se de uma abordagem para avaliar um dado produto, modelo ou ideia |
 
 
+## Características da Biblioteca
+
+1. Open Source (Código Aberto)
+2. Totalmente construída baseada no [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)
+3. Mais de 30 funções (métodos) implementadas
+4. Linguagem C++ e Programação Orientada a Objetos
+5. Disponível no ambiente de desenvolvimento do Arduino (IDE)
+6. Simplifica projetos baseados no SI4844
+
+
+
 ## Instalação da Biblioteca
 
 É possível Instalar esta biblioteca em seu Ambienbte usando o proprio Gerenciador de Bibliotecas do Arduino. Para tanto, selecione a opção de menu __Sketch__ -> __Incluir Biblioteca__ -> Gerenciar Biblioteca. Por fim tecle na caixa de busca o texto PU2CLR Si4844.

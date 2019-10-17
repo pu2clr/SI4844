@@ -12,12 +12,13 @@ By Ricardo Lima Caratti, Oct, 2019.
 1. [Your support is important](https://github.com/pu2clr/SI4844#your-support-is-important)
 2. [About the SI4844 Architecture](https://github.com/pu2clr/SI4844#about-the-si4844-architecture)
 3. [Terminology](https://github.com/pu2clr/SI4844#terminology)
-4. [Library Installation](https://github.com/pu2clr/SI4844#library-installation)
-5. [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup)
+4. [Labrary Features]()
+5. [Library Installation](https://github.com/pu2clr/SI4844#library-installation)
+6. [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup)
    1. [Schematic](https://github.com/pu2clr/SI4844#schematic)
    2. [Component Parts](https://github.com/pu2clr/SI4844#parts)
    3. [Photos](https://github.com/pu2clr/SI4844#photos)
-6. [API Documentation](https://github.com/pu2clr/SI4844#api-documentation)
+7. [API Documentation](https://github.com/pu2clr/SI4844#api-documentation)
    1. [Defined Data Types and Structures](https://github.com/pu2clr/SI4844#defined-data-types-and-structures)
    2. [Public Methods](https://github.com/pu2clr/SI4844#public-methods)
       *  [setup](https://github.com/pu2clr/SI4844#setup)
@@ -50,9 +51,9 @@ By Ricardo Lima Caratti, Oct, 2019.
       * [getFirmwareComponentMajorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentmajorrevision)
       * [getFirmwareComponentMinorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentminorrevision)
       * [getFirmwareChipRevision](https://github.com/pu2clr/SI4844#getfirmwarechiprevision) 
-7. [References](https://github.com/pu2clr/SI4844#references)
-8. [Examples](https://github.com/pu2clr/SI4844#examples)
-9. [Videos](https://github.com/pu2clr/SI4844#videos) 
+8. [References](https://github.com/pu2clr/SI4844#references)
+9. [Examples](https://github.com/pu2clr/SI4844#examples)
+10. [Videos](https://github.com/pu2clr/SI4844#videos) 
 
 
 ## Your support is important.
@@ -78,6 +79,16 @@ See more about SI4844 on [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO
 |C++| A object-oriented programming (OOP) language. It is a superset of the C language with an additional concept of "classes." |
 |programming guide| In this context it refers to [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)|
 |POC| Proof of Concept|
+
+
+## Library Features
+
+1. Open Source 
+2. Built Based on [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)
+3. More than 30 functions (methods)
+4. C++ Lenguage and Object-oriented programming
+5. Available on Arduino IDE (Manage Libraries)
+6. Simplifies SI4844 based projects
 
 
 
