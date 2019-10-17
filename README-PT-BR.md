@@ -22,7 +22,8 @@ Por Ricardo Lima Caratti / PU2CLR, Outunro de 2019.
    2. [Métodos Públicos](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#public-methods)
       * [setup](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setup)
       * [reset](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#reset)
-      * [setBand](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setband)
+      * [setBand](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setCustomBand)
+      * [setCustomBand](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setband)
       * [changeVolume](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#changevolume)
       * [setVolume](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setvolume)
       * [getStatus](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#getstatus)
@@ -366,6 +367,43 @@ Example:
   si4844.setBand(4); // FM
 ```
 
+
+
+#### setCustomBand
+
+```cpp
+/* 
+ * This method allows you to customize the frequency range of a band.
+ * The SI4844 can work from 2.3–28.5 MHz on SW, 64.0–109.0MHz on FM
+ * You can configure the band index 40, for example, to work between 27 to 28 MHz.
+ * See Si48XX ATDD PROGRAMMING GUIDE, pages 17, 18, 19 and 20.
+ * 
+ * (top – button)/(bandSpace) must be betwenn 50 and 230
+ * 
+ * @param byte bandIndes; Predefined band index (valid values: betwenn 0 and 40)
+ * @param unsigned button; Band Bottom Frequency Limit
+ * @param unsigned top; Band Top Frequency Limit
+ * @param byte bandSpace; Channel Spacing (use 5 or 10 - On FM 10 = 100KHz)
+ * @return void
+ */
+void SI4844::setCustomBand(byte, unsigned, unsigned, byte ) 
+```
+
+Exemplo: 
+
+```cpp
+SI4844 si4844; 
+
+void setup() {
+  Serial.begin(9600);
+  delay(500);  
+  si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+  // Configure the Pre-defined Band (band index 40) to work between 27.0 to 27.5 MHz
+  // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
+  si4844.setCustomBand(40,27000,27500,5);  
+
+}
+```
 
 #### changeVolume
 
