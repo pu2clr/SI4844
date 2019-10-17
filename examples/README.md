@@ -1,4 +1,4 @@
-# Example using the SI4844 Library for Arduino
+# Examples of using the SI4844 Library for Arduino
 
 This folder has a set of examples that might help you in your project.
 
