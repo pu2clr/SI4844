@@ -51,7 +51,7 @@ By Ricardo Lima Caratti, Oct, 2019.
       * [getFirmwareComponentMinorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentminorrevision)
       * [getFirmwareChipRevision](https://github.com/pu2clr/SI4844#getfirmwarechiprevision) 
 7. [References](https://github.com/pu2clr/SI4844#references)
-8. [Examplel]()
+8. [Examples](https://github.com/pu2clr/SI4844#examples)
 9. [Videos](https://github.com/pu2clr/SI4844#videos) 
 
 
@@ -709,7 +709,19 @@ Example:
 
 ## Examples
 
-1. [POC using this Library](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_POC)
+In [examples folder](https://github.com/pu2clr/SI4844/tree/master/examples) you will find some sketch that might help you in your project.
+
+
+### Minimal Radio with SI4844 (SI4844_MINIMAL)
+
+The [SI4844_MINIMAL.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_MINIMAL/SI4844_MINIMAL.ino) is a sketch with just 35 lines. It is enough to make a simple radio based on SI4844.  
+
+
+### Proof of Concept
+
+The [SI4844_POC.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_POC/SI4844_POC.ino) is a proof of concept for SI4844 controlled by Arduino and the SI4844 Library. This Arduino Sketch only works on your IDE (Arduino IDE). However, you can replace the Serial Monitor functions that deal the SI4844 and arduino with functions that will manipulate the LCD, encoder and push buttons appropriated for your project.  
+
+There is extensive documentation in the sketch that can guide you on how to adapt the code to your own project.
    
 ## Videos
 
