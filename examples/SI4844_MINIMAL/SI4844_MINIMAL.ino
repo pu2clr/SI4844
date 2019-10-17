@@ -13,6 +13,8 @@
 SI4844 si4844; 
 
 void setup() {
+  Serial.begin(9600);
+  delay(500);  
   si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
   si4844.setVolume(55); // It can be from 0 to 63.
 }

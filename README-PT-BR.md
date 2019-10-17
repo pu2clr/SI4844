@@ -687,7 +687,20 @@ Exemplo:
 
 ## Exemplos
 
-1. [Exemplos utilizando esta biblioteca](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_POC)
+Na [pasta examples](https://github.com/pu2clr/SI4844/tree/master/examples) você encontrará alguns sketch que podem ser úteis para o seu projetos.
+
+### Informações do Firmware 
+
+O sketch [SI4844_FIRMWARE.ino]((https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_FIRMWARE/SI4844_FIRMWARE.ino)) inicia o rádio no modo FM e apresenta as informações do Firmware.
+
+### Um rádio mínimo com o SI4844
+
+O sketch [SI4844_MINIMAL.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_MINIMAL/SI4844_MINIMAL.ino) tem somente 35 linhas é pode ser usando como base para o seu projeto.  
+
+
+### Prova de Conceito
+
+O sketch [SI4844_POC.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_POC/SI4844_POC.ino) é uma prova de conceito do uso da biblioteca Arduino. Apresenta mais funcionalidades que os exemplos anteriores. 
 
 
 ## Referências
