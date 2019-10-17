@@ -329,7 +329,7 @@ void SI4844::resetStatus() {
  * 
  * (top – button)/(bandSpace) must be betwenn 50 and 230
  * 
- * @param byte bandIndes; Predefined band index 
+ * @param byte bandIndes; Predefined band index (valid values: betwenn 0 and 40)
  * @param unsigned button; Band Bottom Frequency Limit
  * @param unsigned top; Band Top Frequency Limit
  * @param byte bandSpace; Channel Spacing (use 5 or 10 - On FM 10 = 100KHz)
