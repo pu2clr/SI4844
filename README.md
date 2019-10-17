@@ -12,7 +12,7 @@ By Ricardo Lima Caratti, Oct, 2019.
 1. [Your support is important](https://github.com/pu2clr/SI4844#your-support-is-important)
 2. [About the SI4844 Architecture](https://github.com/pu2clr/SI4844#about-the-si4844-architecture)
 3. [Terminology](https://github.com/pu2clr/SI4844#terminology)
-4. [Labrary Features]()
+4. [Labrary Features](https://github.com/pu2clr/SI4844#library-features)
 5. [Library Installation](https://github.com/pu2clr/SI4844#library-installation)
 6. [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup)
    1. [Schematic](https://github.com/pu2clr/SI4844#schematic)
@@ -52,7 +52,7 @@ By Ricardo Lima Caratti, Oct, 2019.
       * [getFirmwareComponentMinorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentminorrevision)
       * [getFirmwareChipRevision](https://github.com/pu2clr/SI4844#getfirmwarechiprevision) 
 8. [References](https://github.com/pu2clr/SI4844#references)
-9. [Examples](https://github.com/pu2clr/SI4844#examples)
+9.  [Examples](https://github.com/pu2clr/SI4844#examples)
 10. [Videos](https://github.com/pu2clr/SI4844#videos) 
 
 
