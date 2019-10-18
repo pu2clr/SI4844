@@ -25,6 +25,7 @@ Por Ricardo Lima Caratti / PU2CLR, Outunro de 2019.
    2. [Métodos Públicos](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#public-methods)
       * [setup](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setup)
       * [reset](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#reset)
+      * [powerDown](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#powerdown)
       * [setBand](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setCustomBand)
       * [setCustomBand](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setband)
       * [changeVolume](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#changevolume)
@@ -355,6 +356,17 @@ Example:
 ```cpp
   si4844.reset();
 ```
+
+### powerDown
+
+```cpp
+/*
+ * Coloca o rádio em modo desligado. 
+ * See Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
+ */
+void SI4844::powerDown(void)
+```
+
 
 
 #### setBand

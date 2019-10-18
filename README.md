@@ -23,8 +23,9 @@ By Ricardo Lima Caratti, Oct, 2019.
 7. [API Documentation](https://github.com/pu2clr/SI4844#api-documentation)
    1. [Defined Data Types and Structures](https://github.com/pu2clr/SI4844#defined-data-types-and-structures)
    2. [Public Methods](https://github.com/pu2clr/SI4844#public-methods)
-      *  [setup](https://github.com/pu2clr/SI4844#setup)
+      * [setup](https://github.com/pu2clr/SI4844#setup)
       * [reset](https://github.com/pu2clr/SI4844#reset)
+      * [powerDown](https://github.com/pu2clr/SI4844#powerdown)
       * [setBand](https://github.com/pu2clr/SI4844#setband)
       * [setCustomBand](https://github.com/pu2clr/SI4844#setCustomBand)
       * [changeVolume](https://github.com/pu2clr/SI4844#changevolume)
@@ -362,6 +363,18 @@ Example:
 ```
 
 
+### powerDown
+
+```cpp
+/*
+ * Moves the device from power up to power down mode. 
+ * See Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
+ */
+void SI4844::powerDown(void)
+```
+
+
+
 #### setBand
 
 ```cpp
@@ -545,6 +558,9 @@ Example:
 #### resetStatus
 
 ```cpp
+/*
+ * Set the control variable to default status
+ */
 void resetStatus(void);
 ```
 
