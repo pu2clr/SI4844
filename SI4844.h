@@ -146,6 +146,7 @@ public :
   void setCustomBand(byte, unsigned, unsigned, byte);
 
   void powerDown(void);
+  void powerUp(void);
 
   float getFrequency(void);
   bool hasStatusChanged(void);

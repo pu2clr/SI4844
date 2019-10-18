@@ -95,6 +95,21 @@ void SI4844::powerDown(void) {
 
 
 /*
+ * Moves the device from power down to power up mode. 
+ * See Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
+ */
+void SI4844::powerUp(void) {
+    data_from_si4844 = false;
+    // Wait until rady to send a command
+    waitToSend();
+    Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(ATDD_POWER_UP);
+    Wire.endTransmission();
+    delayMicroseconds(2500);    
+}
+
+
+/*
  * Set the radio to a new band. 
  * See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
  */
@@ -103,9 +118,9 @@ void SI4844::setBand(byte new_band)
 
     reset();
 
+    // Just another way to deal with bytes and bits.
     // Assigning 1 to bit 7. It means we are using external crystal
     // Silicon Labs; Si48XX ATDD PROGRAMMING GUIDE; AN610; page 7
-
     new_band |= B10000000;
     new_band &= B10111111;
 
