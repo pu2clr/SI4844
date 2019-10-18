@@ -154,14 +154,14 @@ The table below is based on [Raymond Genovese, May 26, 2016 - How to Build an Ar
 |Part	| Description |
 |-------| ------------ |
 |(*1) B1 	| ferrite bead 2.5 kOhm (100 mHz) B1, ferrite bead 2.5 kOhm (100 mHz), 81-BLM18BD252SZ1D |
-|C1,C2,C5 |	4.7 uf non polarized capacitor |
-|C3,C4 |	22 pf non polarized capacitor |
-|C6,C7,C9 |	.1 uf non polarized capacitor |
-|(*2) C8	| __4.7 uf non polarized capacitor__ (the orinal value is 47uF. I used 4.7uF) |
-|C10, (*1) C11 |	.47 uf non polarized capacitor |
-|(*1) C12, (*1) C14 |	33 nf non polarized capacitor |
-|C13	| 33 pf non polarized capacitor |
-|(*1) C15	| 10 pf non polarized capacitor |
+|C1,C2,C5 |	4.7uF non polarized capacitor |
+|C3,C4 |	22pF non polarized capacitor |
+|C6,C7,C9 |	.1uf non polarized capacitor |
+|(*2) C8	| __4.7uF non polarized capacitor__ (the orinal value is 47uF. I used 4.7uF) |
+|C10, (*1) C11 |	.47uF non polarized capacitor |
+|(*1) C12, (*1) C14 |	33nF non polarized capacitor |
+|C13	| 33pF non polarized capacitor |
+|(*1) C15	| 10pF non polarized capacitor |
 |IC1	| Si4844-A10 radio receiver |
 |(*1) Q1	| SS9018 NPN transistor |
 |R1, R2	| 2.2K |

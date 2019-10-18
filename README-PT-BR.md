@@ -148,7 +148,7 @@ A tabela a seguir é baseada na publicação de [Raymond Genovese, May 26, 2016 
 |-------| ------------ |
 |(*1) B1 	| ferrite bead 2.5 kOhm (100 mHz) B1, ferrite bead 2.5 kOhm (100 mHz), 81-BLM18BD252SZ1D |
 |C1,C2,C5 |	4.7uF capacitor não  polarizado |
-|C3,C4 |	22pf capacitor não  polarizado |
+|C3,C4 |	22pF capacitor não  polarizado |
 |C6,C7,C9 |	.1uF capacitor não  polarizado |
 |(*2) C8	| __4.7uf capacitor não  polarizado__ (atenção: no esquema original, este valor é 47uF) |
 |C10, (*1) C11 |	.47uF capacitor não  polarizado |
