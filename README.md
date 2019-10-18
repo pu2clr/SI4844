@@ -757,7 +757,7 @@ Example:
 
 ## Examples
 
-In [examples folder](https://github.com/pu2clr/SI4844/tree/master/examples) you will find some sketch that might help you in your project.
+In [examples folder](https://github.com/pu2clr/SI4844/tree/master/examples) you will find some sketches that might help you in your project.
 
 ### Firmware Information
 
