@@ -2,7 +2,7 @@
 
 Esta é uma bibnlioteca para o SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER, uma Circuito Integrado fabricado pela Silicon Labs. É especialmente destinada aos interessados em controlar este dispositivo via o ambiente de desenvolvimento Arduino. 
 
-Há um [exemplo](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_POC/SI4844_POC.ino) nesta biblioteca que poderá auxiliá-lo na construção de seu projeto. Com este exemplo, é possível executar as principais funções do Si4844 via o Monitor Serial (Serial Monitor) do ambiente de desenvolvimento do Arduino (IDE).
+Há alguns [exemplos](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_POC/SI4844_POC.ino) nesta biblioteca que poderão auxiliá-lo na construção de seu projeto. Com estes exemplos, é possível executar as principais funções do Si4844 via o Monitor Serial (Serial Monitor) do ambiente de desenvolvimento do Arduino (IDE).
 
 Por Ricardo Lima Caratti / PU2CLR, Outunro de 2019. 
 
@@ -738,11 +738,11 @@ Exemplo:
 
 ## Exemplos
 
-Na [pasta examples](https://github.com/pu2clr/SI4844/tree/master/examples) você encontrará alguns sketch que podem ser úteis para o seu projetos.
+Na [pasta examples](https://github.com/pu2clr/SI4844/tree/master/examples) você encontrará alguns sketches que podem ser úteis para o seus projetos.
 
 ### Informações do Firmware 
 
-O sketch [SI4844_FIRMWARE.ino]((https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_FIRMWARE/SI4844_FIRMWARE.ino)) inicia o rádio no modo FM e apresenta as informações do Firmware.
+O sketch [SI4844_FIRMWARE.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_FIRMWARE/SI4844_FIRMWARE.ino) inicia o rádio no modo FM e apresenta as informações do Firmware.
 
 ### Um rádio mínimo com o SI4844
 
