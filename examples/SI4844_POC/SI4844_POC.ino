@@ -25,13 +25,19 @@ void setup() {
 
   si4844.setVolume(55);
 
+  instructions();
+
+}
+
+void instructions() {
   Serial.println("---------------------------------------------------------------");
-  Serial.println("Type F to FM; A to AM; 1 to 7 to SW");
-  Serial.println("Type + or - to sound volume or I to firmware Information  ");
-  Serial.println("Type C to CB (Custom Band 27.0 to 27.5 MHz)");
+  Serial.println("Type F - FM; A - AM; 1 to 7 - SW1 to SW7");
+  Serial.println("Type + or - to sound volume");
+  Serial.println("Type c - custom band 5.7 to 6.2 MHz");
+  Serial.println("Type C - CB (custom Band 27.0 to 27.5 MHz)");
   Serial.println("Type I to Firmware Information  ");
   Serial.println("----------------------------------------------------------------");
-  delay(500);
+  delay(2000);
 }
 
 void show_firmware_information() {
@@ -74,9 +80,7 @@ void show_atdd_status() {
 
 }
 
-
 void loop() {
-
   // Read from keyboar (Arduino Serial Monitor)
   // Band switch and sound volume control
   // It can be replaced by your keyboar, encoder or push button device.
@@ -118,18 +122,29 @@ void loop() {
     case '-':
       si4844.changeVolume(key); // if key = '+' then up; if key = '-' then  down; other, default volume.
       break;
+    case 'o':
+       Serial.println("Power Down");
+       delay(500); 
+      si4844.powerDown();
+      break;  
     case 'c':
+      // Configure the Pre-defined Band (band index 26) to work between 5.7 to 6.2 MHz
+      // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
+      Serial.println("Custom Band:  5.7 to 6.2 MHz");
+      si4844.setCustomBand(26,5700,6200,5);  
+      break;      
     case 'C': 
       // Configure the Pre-defined Band (band index 40) to work between 27.0 to 27.5 MHz
       // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
-      Serial.prinln("Custom Band: 27.0 to 27.5 MHz");
-      si4844.setCustomBand(40,27000,27500,5);    
+      Serial.println("Custom Band: 27.0 to 27.5 MHz");
+      si4844.setCustomBand(40,27000,27500,5);  
+      break;  
     case 'I': 
     case 'i':
       show_firmware_information();
       break;
     default:
-      Serial.println("Type F to FM; A to AM; 1 to 7 to SW; + or - to sound volume; or I to firmware Information  ");
+      instructions();    
     }
   }
 
