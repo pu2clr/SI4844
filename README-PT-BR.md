@@ -754,6 +754,10 @@ O sketch [SI4844_MINIMAL.ino](https://github.com/pu2clr/SI4844/blob/master/examp
 O sketch [SI4844_POC.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_POC/SI4844_POC.ino) é uma prova de conceito do uso da biblioteca Arduino. Apresenta mais funcionalidades que os exemplos anteriores. 
 
 
+### Extended SW band frequency ranges from 2.3–5.6 MHz and 22–28.5 MHz 
+
+O sketch [SI4844_CUSTOM_BAND.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_POC/SI4844_CUSTOM_BAND.ino) mostra como criar uma banda personalizada, não definida previamente na tabela de bandas do SI4844.
+
 
 ## Referências
 
