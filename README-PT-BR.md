@@ -29,6 +29,7 @@ Por Ricardo Lima Caratti / PU2CLR, Outunro de 2019.
       * [setCustomBand](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setband)
       * [changeVolume](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#changevolume)
       * [setVolume](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setvolume)
+      * [setAudioMode](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setaudiomode)
       * [getStatus](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#getstatus)
       * [getFirmware](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#getfirmware)
       * [getFrequency](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#getfrequency)
@@ -439,6 +440,25 @@ Exemple:
 ```cpp 
   si4844.setVolume(55);
 ```
+
+
+### setAudioMode
+
+```cpp
+/*
+ * Set audio mode 
+ * See Si48XX ATDD PROGRAMMING GUIDE; AN610; page 43
+ * @param byte opcode (0 = Set audio mode settings; 1 = Get current audio mode settings without setting)
+ * @param byte attenuation (0 => -2db; 1 => 0db)
+ */
+void setAudioMode(byte opcode, byte attenuation )
+```
+
+Example:
+```cpp 
+  si4844.setAudioMode(1,1);
+```
+
 
 
 #### getStatus
