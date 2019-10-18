@@ -86,9 +86,10 @@ Conheça mais sobre a arquitetura do SI4844 na publicação da Silicon Labs [BRO
 1. Open Source (Código Aberto)
 2. Totalmente construída baseada no [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)
 3. Mais de 30 funções (métodos) implementadas
-4. Linguagem C++ e Programação Orientada a Objetos
-5. Disponível no ambiente de desenvolvimento do Arduino (IDE)
-6. Simplifica projetos baseados no SI4844
+4. Definição de banda e faixas de frequências personalizada para OC (2.3–5.6 MHz e 22–28.5 MHz )
+5. Linguagem C++ e Programação Orientada a Objetos
+6. Disponível no ambiente de desenvolvimento do Arduino (IDE)
+7. Simplifica projetos baseados no SI4844
 
 
 

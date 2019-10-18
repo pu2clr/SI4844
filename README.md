@@ -87,9 +87,10 @@ See more about SI4844 on [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO
 1. Open Source 
 2. Built Based on [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)
 3. More than 30 functions (methods)
-4. C++ Lenguage and Object-oriented programming
-5. Available on Arduino IDE (Manage Libraries)
-6. Simplifies SI4844 based projects
+4. Extended SW band frequency ranges from 2.3–5.6 MHz and 22–28.5 MHz
+5. C++ Lenguage and Object-oriented programming
+6. Available on Arduino IDE (Manage Libraries)
+7. Simplifies SI4844 based projects
 
 
 
