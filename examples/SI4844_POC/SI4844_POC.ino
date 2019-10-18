@@ -25,9 +25,12 @@ void setup() {
 
   si4844.setVolume(55);
 
-  Serial.println("-------------------------------------------------------------------------------------------");
-  Serial.println("Type F to FM; A to AM; 1 to 7 to SW; + or - to sound volume; or I to firmware Information  ");
-  Serial.println("-------------------------------------------------------------------------------------------");
+  Serial.println("---------------------------------------------------------------");
+  Serial.println("Type F to FM; A to AM; 1 to 7 to SW");
+  Serial.println("Type + or - to sound volume or I to firmware Information  ");
+  Serial.println("Type C to CB (Custom Band 27.0 to 27.5 MHz)");
+  Serial.println("Type I to Firmware Information  ");
+  Serial.println("----------------------------------------------------------------");
   delay(500);
 }
 
@@ -115,6 +118,12 @@ void loop() {
     case '-':
       si4844.changeVolume(key); // if key = '+' then up; if key = '-' then  down; other, default volume.
       break;
+    case 'c':
+    case 'C': 
+      // Configure the Pre-defined Band (band index 40) to work between 27.0 to 27.5 MHz
+      // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
+      Serial.prinln("Custom Band: 27.0 to 27.5 MHz");
+      si4844.setCustomBand(40,27000,27500,5);    
     case 'I': 
     case 'i':
       show_firmware_information();
