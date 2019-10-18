@@ -80,6 +80,21 @@ void SI4844::reset()
 }
 
 /*
+ * Moves the device from power up to power down mode. 
+ * See Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
+ */
+void SI4844::powerDown(void) {
+    data_from_si4844 = false;
+    // Wait until rady to send a command
+    waitToSend();
+    Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(ATDD_POWER_DOWN);
+    Wire.endTransmission();
+    delayMicroseconds(2500);    
+}
+
+
+/*
  * Set the radio to a new band. 
  * See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
  */

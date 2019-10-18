@@ -145,6 +145,7 @@ public :
   // customize the frequency range of a band
   void setCustomBand(byte, unsigned, unsigned, byte);
 
+  void powerDown(void);
 
   float getFrequency(void);
   bool hasStatusChanged(void);
