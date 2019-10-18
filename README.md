@@ -761,7 +761,7 @@ In [examples folder](https://github.com/pu2clr/SI4844/tree/master/examples) you 
 
 ### Firmware Information
 
-The [SI4844_FIRMWARE.ino]((https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_FIRMWARE/SI4844_FIRMWARE.ino)) start the radio on FM Band and shows the SI4844 firmware information.
+The [SI4844_FIRMWARE.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_FIRMWARE/SI4844_FIRMWARE.ino) start the radio on FM Band and shows the SI4844 firmware information.
 
 ### Minimal Radio with SI4844 (SI4844_MINIMAL)
 
