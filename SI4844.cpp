@@ -54,7 +54,7 @@ void SI4844::setup(unsigned int resetPin, unsigned int interruptPin, byte defaul
     setBand(defaultBand);
 
     // This sketch is using the value 44.
-    setVolume('?'); // Initiate with default volume control;
+    setVolume(50); // Initiate with default volume control;
 
     // You need call it just once.  
     getFirmware();
@@ -196,6 +196,41 @@ void SI4844::setVolume(byte volumeLavel) {
     Wire.endTransmission();
     delayMicroseconds(2500);
 }
+
+
+/*
+ * Set audio mode 
+ * See Si48XX ATDD PROGRAMMING GUIDE; AN610; page 43
+ * @param byte opcode (0 = Set audio mode settings; 1 = Get current audio mode settings without setting)
+ * @param byte attenuation (0 => -2db; 1 => 0db)
+ */
+void SI4844::setAudioMode(byte opcode, byte attenuation ) {
+    
+    union {
+        struct {
+            byte reserved1: 3;
+            byte swadj_attn: 1;
+            byte reserved2: 3;
+            byte opcode:1;
+        } refined;
+        byte raw;
+    } audiomode;
+
+    audiomode.refined.opcode = opcode;
+    audiomode.refined.swadj_attn = attenuation;
+
+    // Wait until rady to send a command
+    waitToSend();
+
+    Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(ATDD_POWER_UP);
+    Wire.write(audiomode.raw);
+    Wire.endTransmission();
+    delayMicroseconds(2500);
+    waitInterrupr();
+}
+
+
 
 /*
  * Get tune freq, band, and others information, status of the device.

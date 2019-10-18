@@ -135,8 +135,11 @@ public :
   void setup(unsigned int, unsigned int, byte);
   void reset(void );
   void setBand(byte);
+  
   void changeVolume(char);
   void setVolume(byte);
+  void setAudioMode(byte opcode, byte attenuation );
+
   si4844_status_response *getStatus(void);
   si4844_firmware_response *getFirmware(void);
   // customize the frequency range of a band
