@@ -336,11 +336,27 @@ typedef union {
 * @param interruprPin Pino do Arduino para executar uma interrupção    
 * @param defaultBand A banda que o rádio deve iniciar (Banda Padrão)
 */
-void setup(unsigned int, unsigned int, byte)
+void SI4844::setup(unsigned int, unsigned int, byte)
 ```
 Example:
 ```cpp
   si4844.setup(12, 2, 4);
+```
+
+Exemplo: 
+
+```cpp
+SI4844 si4844; 
+
+void SI4844::setup() {
+  Serial.begin(9600);
+  delay(500);  
+  si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+  // Configure the Pre-defined Band (band index 40) to work between 27.0 to 27.5 MHz
+  // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
+  si4844.setCustomBand(40,27000,27500,5);  
+
+}
 ```
 
 #### reset
@@ -350,7 +366,7 @@ Example:
  * Reinicia o SI4844.
  * Veja as páginas 7, 8, 9 e 10 do Guia de Programação.
  */
-void reset(void )
+void SI4844::reset(void )
 ```
 Example:
 ```cpp
@@ -376,7 +392,7 @@ void SI4844::powerDown(void)
  * Muda a banda do rádio.
  * Veja a tabela 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; páginas 17 and 18  
  */
-void setBand(byte);
+void SI4844::setBand(byte);
 ```
 
 Example:
@@ -406,21 +422,7 @@ Example:
 void SI4844::setCustomBand(byte, unsigned, unsigned, byte ) 
 ```
 
-Exemplo: 
 
-```cpp
-SI4844 si4844; 
-
-void setup() {
-  Serial.begin(9600);
-  delay(500);  
-  si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
-  // Configure the Pre-defined Band (band index 40) to work between 27.0 to 27.5 MHz
-  // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
-  si4844.setCustomBand(40,27000,27500,5);  
-
-}
-```
 
 #### changeVolume
 
@@ -429,7 +431,7 @@ void setup() {
  *  Controla o nível do volume.
  *  @param char '+' aumenta o volume do som e  '-' reduz o volume do som
  */
-void changeVolume(char);
+void SI4844::changeVolume(char);
 ```
 
 Example:
@@ -445,7 +447,7 @@ Example:
  * Atribui um volume ao rádio, 0 é volume muito baixo e 63 é o volume mais alto possível. 
  * @param byte volumeLevel (Domínio: 0 a 63) 
  */
-setVolume(byte level)
+SI4844::setVolume(byte level)
 ```
 
 Exemple:
@@ -463,7 +465,7 @@ Exemple:
  * @param byte opcode (0 = Set audio mode settings; 1 = Get current audio mode settings without setting)
  * @param byte attenuation (0 => -2db; 1 => 0db)
  */
-void setAudioMode(byte opcode, byte attenuation )
+void SI4844::setAudioMode(byte opcode, byte attenuation )
 ```
 
 Example:
@@ -483,7 +485,7 @@ Example:
  * 
  * @return um ponteiro para a estrutura si4844_status_response
  */
-si4844_status_response *getStatus(void);
+si4844_status_response *SI4844::getStatus(void);
 ```
 Exemple:
 ```cpp 
@@ -502,7 +504,7 @@ Exemple:
  * 
  * @return um ponteiro para a estrutura si4844_firmware_info
  */
-si4844_firmware_response *getFirmware(void);
+si4844_firmware_response *SI4844::getFirmware(void);
 ```
 Exemple:
 ```cpp 
@@ -519,7 +521,7 @@ Exemple:
  * 
  * @return float Frequência em KHz.  
  */
-float getFrequency(void);
+float SI4844::getFrequency(void);
 ```
 
 Exemplo:
@@ -537,7 +539,7 @@ Exemplo:
 *
 *  return true or false  
 */
-bool hasStatusChanged(void);
+bool SI4844::hasStatusChanged(void);
 ```
 
 Exemple:
@@ -555,7 +557,7 @@ Exemple:
 #### resetStatus
 
 ```cpp
-void resetStatus(void);
+void SI4844::resetStatus(void);
 ```
 
 
@@ -566,7 +568,7 @@ void resetStatus(void);
  * Obtém a Banda Corrente (FM/AM/SW)
  * @return 0 = "FM mode"; 1 = "AM mode"; 2 = "SW mode".
  */ 
-inline String getBandMode()
+inline String SI4844::getBandMode()
 ```
 
 #### getStereoIndicator
@@ -575,7 +577,7 @@ inline String getBandMode()
 /*
  * return 0 = stereo off; 1 stereo on
  */
-inline String getStereoIndicator()
+inline String SI4844::getStereoIndicator()
 ```
 
 #### getStatusBCFG0
@@ -584,7 +586,7 @@ inline String getStereoIndicator()
 /*
  * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
  */
-inline unsigned getStatusBCFG0() 
+inline unsigned SI4844::getStatusBCFG0() 
 ```
 
 #### getStatusBCFG1
@@ -593,7 +595,7 @@ inline unsigned getStatusBCFG0()
 /*
  * Veja O guia de Programação, AN610, páginas 15 e 16
  */
-inline unsigned getStatusBCFG1() 
+inline unsigned SI4844::getStatusBCFG1() 
 ```
 
 #### getStatusStereo
@@ -603,7 +605,7 @@ inline unsigned getStatusBCFG1()
  * Retorna um número inteiro indicado se a recepção está estéreo (0 = Não e 1 = Sim)
  * Veja O guia de Programação, AN610, páginas 15 e 16
  */
-inline unsigned getStatusStereo() 
+inline unsigned SI4844::getStatusStereo() 
 ```
 
 
@@ -613,7 +615,7 @@ inline unsigned getStatusStereo()
 /*
  * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
  */
-inline unsigned getStatusStationIndicator() 
+inline unsigned SI4844::getStatusStationIndicator() 
 ```
 
 
@@ -623,7 +625,7 @@ inline unsigned getStatusStationIndicator()
 /*
  * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
  */
-inline unsigned getStatusInformationReady() 
+inline unsigned SI4844::getStatusInformationReady() 
 ```
 
 
@@ -632,7 +634,7 @@ inline unsigned getStatusInformationReady()
 /*
  * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
  */
-inline unsigned getStatusHostPowerUp() 
+inline unsigned SI4844::getStatusHostPowerUp() 
 ```
 
 #### getStatusHostReset
@@ -641,7 +643,7 @@ inline unsigned getStatusHostPowerUp()
 /*
  * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
  */
-inline unsigned getStatusHostReset() 
+inline unsigned SI4844::getStatusHostReset() 
 ```
 
 
@@ -651,7 +653,7 @@ inline unsigned getStatusHostReset()
 /*
  * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
  */
-inline unsigned getStatusBandMode() 
+inline unsigned SI4844::getStatusBandMode() 
 ```
 
 #### getStatusBandIndex
@@ -660,7 +662,7 @@ inline unsigned getStatusBandMode()
 /*
  * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
  */
-inline unsigned getStatusBandIndex() 
+inline unsigned SI4844::getStatusBandIndex() 
 ```
 
 #### getStatusCTS
@@ -669,19 +671,19 @@ inline unsigned getStatusBandIndex()
 /*
  * See Si48XX ATDD PROGRAMMING GUID, AN610, pages 15 and 16
  */
-inline unsigned getStatusCTS() 
+inline unsigned SI4844::getStatusCTS() 
 ```
 
 
 #### getFirmwareErr
 
 ```cpp 
-inline unsigned getFirmwareErr()
+inline unsigned SI4844::getFirmwareErr()
 ```
 
 #### getFirmwareCTS
 ```cpp
-inline unsigned getFirmwareCTS()
+inline unsigned SI4844::getFirmwareCTS()
 ```
 
 #### getFirmwarePartNumber
@@ -690,7 +692,7 @@ inline unsigned getFirmwareCTS()
 /*
  * Get Firmware Final 2 digits of Part Number (HEX).
  */ 
-inline unsigned getFirmwarePartNumber() 
+inline unsigned SI4844::getFirmwarePartNumber() 
 ```
 __See example below__
 
@@ -701,7 +703,7 @@ __See example below__
 /*
  * Get Firmware Major Revision (ASCII).
  */ 
-inline unsigned getFirmwareMajorRevision() 
+inline unsigned SI4844::getFirmwareMajorRevision() 
 ```
 __See example below__
 
@@ -712,7 +714,7 @@ __See example below__
 /*
  * Get Firmware Minor Revision (ASCII).
  */
-inline unsigned getFirmwareMinorRevision() 
+inline unsigned SI4844::getFirmwareMinorRevision() 
 ```
 __See example below__
 
@@ -723,7 +725,7 @@ __See example below__
 /*
  * Get Firmware Component Major Revision (ASCII).
  */ 
-inline unsigned getFirmwareComponentMajorRevision() 
+inline unsigned SI4844::getFirmwareComponentMajorRevision() 
 ```
 __See example below__
 
@@ -745,7 +747,7 @@ __See example below__
 /*
  * Chip Revision (ASCII).
  */
-inline unsigned getFirmwareChipRevision() 
+inline unsigned SI4844::getFirmwareChipRevision() 
 ```
 
 Exemplo:
