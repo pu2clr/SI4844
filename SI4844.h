@@ -118,7 +118,7 @@ private:
   si4844_firmware_response firmware_response;
   unsigned int resetPin;
   unsigned int interruptPin;
-  
+  byte currentBand; 
 
   inline void setClockLow(void) { Wire.setClock(100000); };
   inline void setClockHigh(void) { Wire.setClock(500000); };
