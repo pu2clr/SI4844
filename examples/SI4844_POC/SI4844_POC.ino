@@ -127,6 +127,10 @@ void loop() {
        delay(500); 
       si4844.powerDown();
       break;  
+    case 'O':
+       Serial.println("Power Up");
+       delay(500); 
+       si4844.powerUp();      
     case 'c':
       // Configure the Pre-defined Band (band index 26) to work between 5.7 to 6.2 MHz
       // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.

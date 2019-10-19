@@ -115,12 +115,11 @@ void SI4844::powerUp(void) {
  */
 void SI4844::setBand(byte new_band)
 {
-
     reset();
 
-    // Just another way to deal with bytes and bits.
     // Assigning 1 to bit 7. It means we are using external crystal
     // Silicon Labs; Si48XX ATDD PROGRAMMING GUIDE; AN610; page 7
+    // Just another way to deal with bytes and bits using C/C++.
     new_band |= B10000000;
     new_band &= B10111111;
 
