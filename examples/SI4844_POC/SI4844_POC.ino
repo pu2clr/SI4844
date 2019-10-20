@@ -30,7 +30,7 @@ void setup() {
 }
 
 void instructions() {
-  Serial.println("---------------------------------------------------------------");
+  Serial.println("---------------------------------------------------");
   Serial.println("Type F - FM; A - AM; 1 to 7 - SW1 to SW7");
   Serial.println("Type + or - to sound volume");
   Serial.println("Type B to Bass; T to Treeble and N to Normal");  
@@ -38,7 +38,7 @@ void instructions() {
   Serial.println("Type C - CB (custom Band 27.0 to 27.5 MHz)");
   Serial.println("Type o to Power Down");
   Serial.println("Type I to Firmware Information  ");
-  Serial.println("----------------------------------------------------------------");
+  Serial.println("---------------------------------------------------");
   delay(2000);
 }
 
@@ -141,10 +141,6 @@ void loop() {
        delay(500); 
       si4844.powerDown();
       break;  
-    case 'O':
-       Serial.println("Power Up");
-       delay(500); 
-       si4844.powerUp();      
     case 'c':
       // Configure the Pre-defined Band (band index 26) to work between 5.7 to 6.2 MHz
       // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
