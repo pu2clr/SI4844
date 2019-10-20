@@ -33,6 +33,7 @@ void instructions() {
   Serial.println("---------------------------------------------------------------");
   Serial.println("Type F - FM; A - AM; 1 to 7 - SW1 to SW7");
   Serial.println("Type + or - to sound volume");
+  Serial.println("Type B to Bass; T to Treeble and N to Normal");  
   Serial.println("Type c - custom band 5.7 to 6.2 MHz");
   Serial.println("Type C - CB (custom Band 27.0 to 27.5 MHz)");
   Serial.println("Type I to Firmware Information  ");
@@ -122,6 +123,18 @@ void loop() {
     case '-':
       si4844.changeVolume(key); // if key = '+' then up; if key = '-' then  down; other, default volume.
       break;
+    case 'B':
+    case 'b':
+      si4844.setBassTreeble('1'); 
+      break;  
+    case 'T': 
+    case 't': 
+      si4844.setBassTreeble('7');   
+      break;  
+    case 'N': 
+    case 'n': 
+      si4844.setBassTreeble('4');   
+      break;  
     case 'o':
        Serial.println("Power Down");
        delay(500); 

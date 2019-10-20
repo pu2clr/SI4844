@@ -215,15 +215,37 @@ void SI4844::setVolume(byte volumeLavel) {
     
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(SET_PROPERTY);
+    Wire.write(0x00);       // RX_VOLUME = 0X4000 (0x00 - 0x40)
+    Wire.write(RX_VOLUME);  // 
     Wire.write(0x00);
-    Wire.write(RX_VOLUME);
     Wire.write(0x00);
+    Wire.write(volumeLavel);
+    Wire.endTransmission();
+    delayMicroseconds(2500);
+
+    this->volume = volumeLavel;
+}
+
+
+/*
+ * Set the sound volume level, bass and treeble. 
+ * @param byte volumeLevel (domain: 0 to 63) 
+ * @param byte bass and treeble (domain: 0 to 8)
+ */
+void SI4844::setBassTreeble(byte bass_treeble) {
+
+    waitToSend();
+
+    Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(SET_PROPERTY);
+    Wire.write(0x02);
+    Wire.write(0x40); // RX_BASS_TREEBLE = 0x4002
+    Wire.write(0x00);  
     Wire.write(0x00);
-    Wire.write(volume);
+    Wire.write(bass_treeble);
     Wire.endTransmission();
     delayMicroseconds(2500);
 }
-
 
 /*
  * Set audio mode 

@@ -24,6 +24,7 @@
 
 #define SET_PROPERTY 0x12
 #define RX_VOLUME 0x40
+#define RX_BASS_TREEBLE 0x4002
 
 /* 
  * The structure below represents the four bytes response got by command ATDD_GET_STATUS
@@ -120,8 +121,8 @@ private:
   unsigned int interruptPin;
   byte currentBand; 
 
-  inline void setClockLow(void) { Wire.setClock(100000); };
-  inline void setClockHigh(void) { Wire.setClock(500000); };
+  inline void setClockLow(void) { Wire.setClock(10000); };
+  inline void setClockHigh(void) { Wire.setClock(50000); };
   inline void waitInterrupr(void);
   inline bool isClearToSend(void);
   inline void waitToSend(void);
@@ -139,6 +140,7 @@ public :
   void changeVolume(char);
   void setVolume(byte);
   void setAudioMode(byte opcode, byte attenuation );
+  void setBassTreeble(byte bass_treeble);
 
   si4844_status_response *getStatus(void);
   si4844_firmware_response *getFirmware(void);
