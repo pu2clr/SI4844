@@ -115,7 +115,7 @@ The images below show that actions
 
 This library has been written for the Arduino platform and has been successfully tested on Pro Mini. I beleave it will work on any other Arduino with I2C support.
 
-The SI4844 device  works with  +3.3V only. If you are not using a +3.3 V version of Arduino, you have to use a kind of converter. I have not tested the SI4844 with an Arduino working on 5V. If you get success with it, please, tell me. 
+The SI4844 device  works with  +3.3V only. If you are not using a +3.3 V version of Arduino, you have to use a kind of converter. I have not tested with success the SI4844 with an Arduino working on 5V. If you get success with it, please, tell me. 
 
 To use this labrary you need to build a radio based on SI4844 connected to Arduino. The schematic and photos below show the hardware and setup requirments for start using this library.
 
