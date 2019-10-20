@@ -117,7 +117,7 @@ This library has been written for the Arduino platform and has been successfully
 
 The SI4844 is a +3.3 V only part. If you are not using a +3.3 V version of Arduino, you have to use a kind of converter.
 
-To use this labrary you need to build a radio based on SI4844 coneccted to Arduino. The schematic and photos below show the hardware and setup requirments for start using this library.
+To use this labrary you need to build a radio based on SI4844 connected to Arduino. The schematic and photos below show the hardware and setup requirments for start using this library.
 
 ### Schematic
 
