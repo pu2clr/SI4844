@@ -36,6 +36,7 @@ void instructions() {
   Serial.println("Type B to Bass; T to Treeble and N to Normal");  
   Serial.println("Type c - custom band 5.7 to 6.2 MHz");
   Serial.println("Type C - CB (custom Band 27.0 to 27.5 MHz)");
+  Serial.println("Type o to Power Down");
   Serial.println("Type I to Firmware Information  ");
   Serial.println("----------------------------------------------------------------");
   delay(2000);
