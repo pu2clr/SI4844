@@ -170,7 +170,7 @@ The table below is based on [Raymond Genovese, May 26, 2016 - How to Build an Ar
 |(*1) Q1	| SS9018 NPN transistor |
 |R1, R2	| 2.2K |
 |(*1) R3	| 1K |
-|R4, (*1) R7	| 100K |
+|R4 (*1), (*1) R7	| 100K |
 |(*1) R5	| 10 Ohms |
 |(*1) R6	| 120K |
 |R8	| 100 Ohms |
