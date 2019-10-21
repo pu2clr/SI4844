@@ -796,6 +796,10 @@ O sketch [SI4844_POC.ino](https://github.com/pu2clr/SI4844/blob/master/examples/
 O sketch [SI4844_CUSTOM_BAND.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_POC/SI4844_CUSTOM_BAND.ino) mostra como criar uma banda personalizada, não definida previamente na tabela de bandas do SI4844.
 
 
+## SI4844 with OLED
+
+O sketch [SI4844_OLED.ino](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_OLED) apresenta u exemplo de uso da biblioteca com um display OLED I2C.
+
 ## Referências
 
 1. [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)

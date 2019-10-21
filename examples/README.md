@@ -27,7 +27,7 @@ The sketch [SI4844_CUSTOM_BAND.ino](https://github.com/pu2clr/SI4844/blob/master
 
 ## SI4844 with OLED
 
-The sketch [SI4844_OLED.ino](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_OLED) show an example of using an I2C OLED display.
+The sketch [SI4844_OLED.ino](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_OLED) shows an example of using an I2C OLED display.
 
 
 
