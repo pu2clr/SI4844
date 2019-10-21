@@ -16,7 +16,7 @@
 
 SI4844 si4844; 
 
-void setup() {
+void setup() 
   
   Serial.begin(9600);
   delay(500);
