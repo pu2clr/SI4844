@@ -64,24 +64,6 @@ void show_firmware_information() {
 
 }
 
-
-void show_atdd_status() {
-
-  Serial.println("\nStatus Atual do SI4844\n");
-
-  Serial.println("CTS..................: " + si4844.getStatusCTS());
-  Serial.println("Host Reset...........: " + si4844.getStatusHostReset());
-  Serial.println("Host Power Up........: " + si4844.getStatusHostPowerUp());
-  Serial.println("Information Ready....: " + si4844.getStatusInformationReady());
-  Serial.println("Station Indicator....: " + si4844.getStatusStationIndicator());
-  Serial.println("Stereo...............: " + si4844.getStatusStereo());
-  Serial.println("BCFG1................: " + si4844.getStatusBCFG1());
-  Serial.println("BCFG0................: " + si4844.getStatusBCFG0());
-
-  Serial.println("*****************************");
-
-}
-
 void loop() {
   // Read from keyboar (Arduino Serial Monitor)
   // Band switch and sound volume control
