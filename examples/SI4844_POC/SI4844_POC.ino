@@ -15,7 +15,7 @@
 
 SI4844 si4844; 
 
-void setup() 
+void setup() {
   Serial.begin(9600);
   delay(500);
   si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
