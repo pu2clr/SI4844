@@ -29,5 +29,9 @@ The sketch [SI4844_CUSTOM_BAND.ino](https://github.com/pu2clr/SI4844/blob/master
 
 The sketch [SI4844_OLED.ino](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_OLED) shows an example of using an I2C OLED display.
 
+The schematic below show how insert the OLED and button. 
+
+![OLED and Button with SI4844](https://github.com/pu2clr/SI4844/blob/master/extras/OLED_WITH_4844_schematic_atmega328.png)
+
 
 
