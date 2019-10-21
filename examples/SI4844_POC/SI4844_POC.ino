@@ -6,8 +6,6 @@
  */
 
 #include <SI4844.h>
-#include <Wire.h>
-
 // Arduino Pin (tested on pro mini)
 #define INTERRUPT_PIN 2
 #define RESET_PIN 12
