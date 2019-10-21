@@ -111,6 +111,9 @@ The images below show that actions
 ![IDE 01](extras/images/ide_03.png)
 
 
+You can also download this library or old version of it via this repositoty or via [Arduino Library List](https://www.arduinolibraries.info/libraries/pu2-clr-si4844).
+
+
 ## Hardware Requirements and Setup
 
 This library has been written for the Arduino platform and has been successfully tested on Pro Mini. I beleave it will work on any other Arduino with I2C support.

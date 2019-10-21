@@ -109,6 +109,9 @@ The images below show that actions
 ![IDE 01](extras/images/idebr_03.png)
 
 
+É possível também instalar a última versão e também anteriores  desta biblioteca obtendo diretamente os fontes deste repositório ou ainda por meio do site [Arduino Library List](https://www.arduinolibraries.info/libraries/pu2-clr-si4844)
+
+
 ## Requisitos de Hardware e Configuração
 
 Conforme dito anteriormente, esta biblioteca foi escrita para a Plataforma Arduino e foi testada com sucesso no Arduino Pro Mini. Acredito que ela também funcionará em outras placas Arduino diferentes do Pro Mini. Contudo, é importante ressaltar que o dispositivo SI4844 opera com +3.3V. Se você não estiver usando uma versão Arduino de 3.3 V, será necessário o uso de um conversor de 5V para 3.3V.
