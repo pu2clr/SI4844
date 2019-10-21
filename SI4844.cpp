@@ -14,10 +14,6 @@
 * English: 
 *   This function is called whenever the status of ATDD (SI4844) changes. 
 *   It can occur, for example, when you use the analog tuner.  
-* Portuguese:
-*   Esta função é executada toda vez que uma mudança de status ocorre no ATDD (SI4844).
-*   Se você mover o sintonizador analógico (potenciômetro), por exemplo, em busca de uma 
-*   estação, esta função será chamada
 */
 
 void SI4844::waitInterrupr(void)  {
@@ -93,7 +89,6 @@ void SI4844::powerDown(void) {
     delayMicroseconds(2500);    
 }
 
-
 /*
  * Moves the device from power down to power up mode. 
  * See Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
@@ -103,7 +98,6 @@ void SI4844::powerUp(void) {
     setBand(currentBand);
 
 }
-
 
 /*
  * Set the radio to a new band. 
@@ -138,15 +132,11 @@ void SI4844::setBand(byte new_band)
     delayMicroseconds(2500);
 }
 
-
 /*
  * isClearToSend
  * English:
  * Check if the ATDD (Si4844) is ready to receive the next command. 
  * See page 14 of the Program Guide.
- * Portuguese:
- * Verifica se o Si4844 está pronto para receber o próximo comando
- * Veja a página 14 do guia de programação
  */
 inline bool SI4844::isClearToSend(void)
 {
@@ -164,9 +154,6 @@ inline bool SI4844::isClearToSend(void)
  * English:
  * Wait for the ATDD become Clear to Send. 
  * See page 14 of the Program Guide.
- * Portuguese:
- * Espera o Si4844 ficar pronto para receber comando
- * Veja a página 14 do guia de programação
  */
 inline void SI4844::waitToSend()
 {
@@ -202,7 +189,6 @@ void SI4844::changeVolume(char command)
 
 }
 
-
 /*
  * Set the sound volume level. 
  * See Table 4, Si48XX ATDD PROGRAMMING GUIDE; AN610; page 11
@@ -226,7 +212,6 @@ void SI4844::setVolume(byte volumeLavel) {
 
     this->volume = volumeLavel;
 }
-
 
 /*
  * Set the sound volume level, bass and treeble. 
@@ -279,8 +264,6 @@ void SI4844::setAudioMode(byte opcode, byte attenuation ) {
     delayMicroseconds(2500);
     waitInterrupr();
 }
-
-
 
 /*
  * Get tune freq, band, and others information, status of the device.
@@ -341,7 +324,6 @@ si4844_firmware_response *SI4844::getFirmware(void) {
   
 }
 
-
 /*
  * Get the current frequency of the radio in KHz. 
  * For example: FM, 103900 KHz (103.9 MHz);
@@ -351,13 +333,10 @@ si4844_firmware_response *SI4844::getFirmware(void) {
  */
 float SI4844::getFrequency(void)
 {
-
     getStatus();
-
     String s;
     int addFactor = 0;
     int multFactor = 1;
- 
     // Check CHFREQ bit[15] MSB = 1 
     // See Page 15 of Si48XX ATDD PROGRAMMING GUIDE
     if (status_response.refined.BANDMODE == 0 ) {
