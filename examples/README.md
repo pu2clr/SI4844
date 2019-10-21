@@ -1,12 +1,6 @@
 # Examples of using the SI4844 Library for Arduino
 
-This folder has a set of examples that might help you in your project.
-
-
-## Examples Sumarry
-
-1. Minimal Radio with SI4844
-2. Proof of Concept
+This folder has a set of examples that might help you in your project with Si4844 and Arduino.
 
 
 ## Minimal Radio with SI4844 (SI4844_MINIMAL)
