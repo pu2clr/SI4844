@@ -810,7 +810,7 @@ The [SI4844_POC.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI484
 
 ### Extended SW band frequency ranges from 2.3–5.6 MHz and 22–28.5 MHz 
 
-The sketch [SI4844_CUSTOM_BAND.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_POC/SI4844_CUSTOM_BAND.ino) show how to extend a SW band frequency ranges. You can define band from from 2.3–5.6 MHz and 22–28.5 MHz. 
+The sketch [SI4844_CUSTOM_BAND.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_CUSTOM_BAND/SI4844_CUSTOM_BAND.ino) show how to extend a SW band frequency ranges. You can define band from from 2.3–5.6 MHz and 22–28.5 MHz. 
 
 
 ## SI4844 with OLED
