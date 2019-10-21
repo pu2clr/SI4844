@@ -11,24 +11,18 @@
 // Arduino Pin (tested on pro mini)
 #define INTERRUPT_PIN 2
 #define RESET_PIN 12
-
 #define DEFAULT_BAND 0
 
 SI4844 si4844; 
 
 void setup() 
-  
   Serial.begin(9600);
   delay(500);
-
   si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
-
   si4844.setVolume(55);
-
   instructions();
-
 }
-
+// Shows instruções
 void instructions() {
   Serial.println("---------------------------------------------------");
   Serial.println("Type F - FM; A - AM; 1 to 7 - SW1 to SW7");
@@ -41,11 +35,9 @@ void instructions() {
   Serial.println("---------------------------------------------------");
   delay(2000);
 }
-
+// Shows firmware information
 void show_firmware_information() {
-
   Serial.println("\nSI4844 -  Firmware information\n");
-
   si4844.getFirmware();
   Serial.print("Final 2 digits of Part Number..: ");
   Serial.println(si4844.getFirmwarePartNumber(), HEX);
@@ -59,11 +51,9 @@ void show_firmware_information() {
   Serial.println(si4844.getFirmwareComponentMinorRevision());
   Serial.print("Chip Revision..................: ");
   Serial.println(si4844.getFirmwareChipRevision());
-
   Serial.println("*****************************");
-
 }
-
+// Control
 void loop() {
   // Read from keyboar (Arduino Serial Monitor)
   // Band switch and sound volume control
