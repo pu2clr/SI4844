@@ -205,6 +205,7 @@ void SI4844::changeVolume(char command)
 
 /*
  * Set the sound volume level. 
+ * See Table 4, Si48XX ATDD PROGRAMMING GUIDE; AN610; page 11
  * @param byte volumeLevel (domain: 0 to 63) 
  */
 void SI4844::setVolume(byte volumeLavel) {
@@ -214,12 +215,12 @@ void SI4844::setVolume(byte volumeLavel) {
     waitToSend();
     
     Wire.beginTransmission(SI4844_ADDRESS);
-    Wire.write(SET_PROPERTY);
-    Wire.write(0x00);       // RX_VOLUME = 0X4000 (0x00 - 0x40)
-    Wire.write(RX_VOLUME);  // 
-    Wire.write(0x00);
-    Wire.write(0x00);
-    Wire.write(volumeLavel);
+    Wire.write(SET_PROPERTY);   // 
+    Wire.write(0x00);           // ARG1 (is always 0x00)
+    Wire.write(RX_VOLUME);      // ARG2 RX_VOLUME = 0X4000  (0x40)
+    Wire.write(0x00);           // ARG3 RX_VOLUME = 0X4000  (0x00)
+    Wire.write(0x00);           // ARG4
+    Wire.write(volumeLavel);    // ARG5
     Wire.endTransmission();
     delayMicroseconds(2500);
 

@@ -17,6 +17,7 @@
 // Reference.: Si48XX ATDD PROGRAMMING GUIDE, page 12
 #define ATDD_POWER_DOWN 0x11
 #define ATDD_POWER_UP 0xE1
+#define ATDD_AUDIO_MODE 0xE2
 #define GET_REV 0x10
 #define ATDD_XOSCEN 0x80
 #define ATDD_XOWAIT 0x40
