@@ -816,9 +816,13 @@ The [SI4844_POC.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI484
 The sketch [SI4844_CUSTOM_BAND.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_CUSTOM_BAND/SI4844_CUSTOM_BAND.ino) show how to extend a SW band frequency ranges. You can define band from from 2.3–5.6 MHz and 22–28.5 MHz. 
 
 
-## SI4844 with OLED
+## SI4844 with OLED and buttons
 
 The sketch [SI4844_OLED.ino](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_OLED) shows an example of using an I2C OLED display.
+
+The schematic below shows how to insert the OLED and button on the original schematic. 
+
+![OLED and Button with SI4844](https://github.com/pu2clr/SI4844/blob/master/extras/OLED_WITH_4844_schematic_atmega328.png)
 
    
 ## Videos
