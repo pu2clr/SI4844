@@ -1,5 +1,5 @@
 /*
- * SI4844 radio. Minimal Sketch.  
+ * SI4844 custom band
  * By Ricardo Lima Caratti (PU2CLR), Oct, 2019.
  */
 

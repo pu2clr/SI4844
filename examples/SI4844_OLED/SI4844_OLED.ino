@@ -1,5 +1,5 @@
 /*
- * It is a Proof of Concept (POC) of using Si4844 with the Arduino Library for Si4844.
+ * I2C OLED Display Example
  * 
  * Author: Ricardo Lima Caratti (PU2CLR)
  * September, 2019
