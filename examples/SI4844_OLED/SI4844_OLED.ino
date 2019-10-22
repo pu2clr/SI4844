@@ -84,7 +84,8 @@ void displayDial() {
           unit = "KHz";
           freqDisplay = String(freqSi4844,0); 
           if ( bandPlan[idxBand] == 40) { 
-            display.setCursor(5, 6);
+            display.setCursor(23, 6);
+            display.set1X();
             display.print("Custom Band");
           }       
       }
