@@ -215,8 +215,15 @@ void SI4844::setVolume(byte volumeLavel) {
 
 /*
  * Set the sound volume level, bass and treeble. 
- * @param byte volumeLevel (domain: 0 to 63) 
  * @param byte bass and treeble (domain: 0 to 8)
+ *      0 -Bass boost +4 (max)
+ *      1- Bass boost +3
+ *      2- Bass boost +2
+ *      3- Bass boost +1 (min)
+ *      4- Normal (No Bass/Treble effect) (Default) 5- Treble boost +1 (min)
+ *      6- Treble boost +2
+ *      7- Treble boost +3
+ *      8- Treble boost +4 (max)
  */
 void SI4844::setBassTreeble(byte bass_treeble) {
 
@@ -224,10 +231,9 @@ void SI4844::setBassTreeble(byte bass_treeble) {
 
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(SET_PROPERTY);
-    Wire.write(0x02);
     Wire.write(0x40); // RX_BASS_TREEBLE = 0x4002
+    Wire.write(0x02);
     Wire.write(0x00);  
-    Wire.write(0x00);
     Wire.write(bass_treeble);
     Wire.endTransmission();
     delayMicroseconds(2500);
@@ -235,24 +241,34 @@ void SI4844::setBassTreeble(byte bass_treeble) {
 
 /*
  * Set audio mode 
- * See Si48XX ATDD PROGRAMMING GUIDE; AN610; page 43
- * @param byte opcode (0 = Set audio mode settings; 1 = Get current audio mode settings without setting)
+ * See Si48XX ATDD PROGRAMMING GUIDE; AN610; page 21
+ * @param byte audio_mode 
+ *             0 = Digital volume mode (no bass/treble effect, volume levels from 0 to 63) 
+ *             1 = Bass/treble mode (no digital volume control, fixed volume level at 59)
+ *             2 = Mixed mode 1 (bass/treble and digital volume coexist, max volume = 59) 
+ *             3 = Mixed mode 2 (bass/treble and digital volume coexist, max volume = 63) 
+ *             Default is 3 (Mixed mode 2)
+ * @param byte opcode 
+ *             0 = Set audio mode and settings
+ *             1 = Get current audio mode and settings without setting
  * @param byte attenuation (0 => -2db; 1 => 0db)
  */
-void SI4844::setAudioMode(byte opcode, byte attenuation ) {
-    
+void SI4844::setAudioMode(byte audio_mode, byte opcode, byte attenuation ) {
     union {
         struct {
-            byte reserved1: 3;
-            byte swadj_attn: 1;
-            byte reserved2: 3;
-            byte opcode:1;
+            byte AUDIOMODE:2;
+            byte FM_MONO: 1;
+            byte ADJPT_ATTN: 1;
+            byte ADJPT_STEO: 1;
+            byte Reserved:2;
+            byte OPCODE:1;
         } refined;
         byte raw;
     } audiomode;
 
-    audiomode.refined.opcode = opcode;
-    audiomode.refined.swadj_attn = attenuation;
+    audiomode.refined.OPCODE = opcode;
+    audiomode.refined.AUDIOMODE = audio_mode;
+    audiomode.refined.ADJPT_ATTN = attenuation;
 
     // Wait until rady to send a command
     waitToSend();

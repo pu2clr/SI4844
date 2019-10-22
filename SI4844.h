@@ -140,7 +140,7 @@ public :
   
   void changeVolume(char);
   void setVolume(byte);
-  void setAudioMode(byte opcode, byte attenuation );
+  void setAudioMode(byte audio_mode, byte opcode, byte attenuation );
   void setBassTreeble(byte bass_treeble);
 
   si4844_status_response *getStatus(void);
