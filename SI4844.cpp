@@ -195,7 +195,7 @@ void SI4844::changeVolume(char command)
  */
 void SI4844::volumeUp()
 {
-    if (volume >= 58) volume += 4;
+    if (volume <= 58) volume += 4;
     setVolume(volume);
 }
 
@@ -249,10 +249,12 @@ void SI4844::setVolume(byte volumeLavel) {
 void SI4844::setBassTreble(byte bass_treble) {
     waitToSend();
     Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(0x00);
     Wire.write(SET_PROPERTY);
     Wire.write(0x40); // RX_BASS_TREBLE = 0x4002
     Wire.write(0x02);
-    Wire.write(bass_treble);
+    Wire.write(0x00);           // most significant byte
+    Wire.write(bass_treble);    // BASSTREBLE[4:0]
     Wire.endTransmission();
     delayMicroseconds(2500);
 }
@@ -311,6 +313,7 @@ si4844_audiomode_status_response SI4844::setAudioMode(byte audiomode, byte fm_mo
 
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_AUDIO_MODE);
+    Wire.write(0x00);
     Wire.write(am.raw);
     Wire.endTransmission();
     delayMicroseconds(2500);

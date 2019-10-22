@@ -8,7 +8,7 @@
 #define INTERRUPT_PIN 2  
 #define RESET_PIN 12
 // Pages 17 and 18 from Si48XX ATDD PROGRAMMING GUIDE
-#define DEFAULT_BAND 4   // FM => 0 to 19; AM => 20 to 24; SW => 25 to 40
+#define DEFAULT_BAND 4  // FM => 0 to 19; AM => 20 to 24; SW => 25 to 40
 
 SI4844 si4844; 
 
@@ -21,11 +21,28 @@ void setup() {
   si4844.setVolume(55); // It can be from 0 to 63.
 
   // See Si48XX ATDD PROGRAMMING GUIDE, page 21
-  // si4844.setAudioMode(2,0,0,0,0);
-
+  // 3 = Mixed mode 2 (bass/treble and digital volume coexist, max volume = 63) 
+  // 0 = Stereo audio output (default)
+  // 1 = {–0 dB, -0dB, –0 dB} i.e., adjacent points same volume levels
+  // 0 = Adjacent points allow stereo separation and stereo indicator on (default) 
+  // 0 = Set audio mode and settings
+  si4844.setAudioMode(3,0,1,0,0);
+  
+  instructions();
 }
 
+// Shows instruções
+void instructions() {
+  Serial.println("---------------------------------------------------");
+  Serial.println("Type + or - to sound volume");
+  Serial.println("Type B to Bass; T to Treeble");  
+  Serial.println("---------------------------------------------------");
+  delay(2000);
+}
+
+
 void loop() {
+ if (Serial.available() > 0) {
   char key = Serial.read();
   switch (key)
   {
@@ -44,8 +61,10 @@ void loop() {
       si4844.volumeDown();
       break;        
     default: 
+      instructions();
       break;  
   }
+ }
     
   // If you move the tuner, hasStatusChanged returns true
   if (si4844.hasStatusChanged())
