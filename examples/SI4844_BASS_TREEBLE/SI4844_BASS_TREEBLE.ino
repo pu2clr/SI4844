@@ -21,10 +21,19 @@ void setup() {
 }
 
 void loop() {
-   char key = Serial.read();
-    switch (key)
-    {
-    }
+  char key = Serial.read();
+  switch (key)
+  {
+    case 'b':
+    case 'B': 
+      // 
+      break;
+    case 't':
+    case 'T':
+      // 
+      break;
+        
+  }
     
   // If you move the tuner, hasStatusChanged returns true
   if (si4844.hasStatusChanged())
