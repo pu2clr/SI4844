@@ -26,13 +26,20 @@ void loop() {
   {
     case 'b':
     case 'B': 
-      // 
+      si4844.bassTrebleDown();
       break;
     case 't':
     case 'T':
-      // 
+      si4844.bassTrebleUp();
       break;
-
+    case '+': // sound volume control
+      si4844.volumeUp();
+      break;
+    case '-':
+      si4844.volumeDown();
+      break;        
+    default: 
+      break;  
   }
     
   // If you move the tuner, hasStatusChanged returns true

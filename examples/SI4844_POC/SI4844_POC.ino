@@ -121,7 +121,6 @@ void loop() {
       instructions();    
     }
   }
-
   if (si4844.hasStatusChanged())
   {
     Serial.print("Band Index: ");
