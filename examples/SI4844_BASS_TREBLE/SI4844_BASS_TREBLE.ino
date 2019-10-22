@@ -43,18 +43,18 @@ void instructions() {
 
 void loop() {
  if (Serial.available() > 0) {
-  char key = Serial.read();
-  switch (key)
-  {
-    case 'b':
-    case 'B': 
-      si4844.bassTrebleDown();
+    char key = Serial.read();
+    switch (key)
+    {
+      case 'b':
+      case 'B': 
+       si4844.bassTrebleDown();
       break;
-    case 't':
-    case 'T':
-      si4844.bassTrebleUp();
+      case 't':
+      case 'T':
+        si4844.bassTrebleUp();
       break;
-    case '+': // sound volume control
+      case '+': // sound volume control
       si4844.volumeUp();
       break;
     case '-':
@@ -63,9 +63,8 @@ void loop() {
     default: 
       instructions();
       break;  
+    }
   }
- }
-    
   // If you move the tuner, hasStatusChanged returns true
   if (si4844.hasStatusChanged())
   {

@@ -3,7 +3,6 @@
  * Author: Ricardo Lima Caratti (PU2CLR)
  * September, 2019
  */
-
 #include <SI4844.h>
 // Arduino Pin (tested on pro mini)
 #define INTERRUPT_PIN 2

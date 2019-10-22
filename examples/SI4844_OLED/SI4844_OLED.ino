@@ -4,9 +4,7 @@
  * Author: Ricardo Lima Caratti (PU2CLR)
  * Oct, 2019
  */
-
 #include <SI4844.h>
-
 #include "SSD1306Ascii.h"
 #include "SSD1306AsciiAvrI2c.h"
 #include <Wire.h>
