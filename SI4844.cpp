@@ -326,6 +326,26 @@ si4844_audiomode_status_response SI4844::setAudioMode(byte audiomode, byte fm_mo
     return resp;
 }
 
+
+/*
+ * Mutes the audio output.
+ */
+void SI4844::audioMute(void) {
+
+    waitToSend();
+    
+    Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(SET_PROPERTY);   // 
+    Wire.write(0x00);           // ARG1 (is always 0x00)
+    Wire.write(RX_VOLUME);      // ARG2 RX_HARD_MUTE = 0X4001  (0x40)
+    Wire.write(0x01);           // ARG3 RX_HARD_MUTE = 0X4001  (0x01)
+    Wire.write(0x00);           // ARG4
+    Wire.write(0x00);           // ARG5
+    Wire.endTransmission();
+    delayMicroseconds(2500);    
+}
+
+
 /*
  * Get tune freq, band, and others information, status of the device.
  * Use this method only if you want to deal with that information by yourself. 

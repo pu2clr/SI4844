@@ -174,6 +174,7 @@ public :
   void setBassTreble(byte bass_treble);
   void bassTrebleUp();
   void bassTrebleDown();  
+  void audioMute(void); 
  
   si4844_audiomode_status_response setAudioMode(byte audiomode, byte fm_mono, byte adjpt_attn, byte adjpt_steo, byte opcode);
 
