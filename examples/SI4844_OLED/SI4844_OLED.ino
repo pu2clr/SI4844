@@ -82,7 +82,11 @@ void displayDial() {
           display.print(si4844.getStereoIndicator());            
       } else {
           unit = "KHz";
-          freqDisplay = String(freqSi4844,0);        
+          freqDisplay = String(freqSi4844,0); 
+          if ( bandPlan[idxBand] == 40) { 
+            display.setCursor(5, 6);
+            display.print("Custom Band");
+          }       
       }
    
       display.set2X();
@@ -102,8 +106,14 @@ void setBand (byte cmd) {
      idxBand = ( idxBand < maxBand )? (idxBand + 1) : 0; 
   else
     idxBand =  ( idxBand > 0 )? (idxBand - 1) : maxBand;
-    
-  si4844.setBand(bandPlan[idxBand]);
+
+  if ( bandPlan[idxBand] == 40 ) { 
+    // Configure the Pre-defined Band (band index 40) to work between 27.0 to 27.5 MHz
+    // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
+    si4844.setCustomBand(40,27000,27500,5);      
+  } else {  
+    si4844.setBand(bandPlan[idxBand]);
+  }
   display.clear();
 }
 

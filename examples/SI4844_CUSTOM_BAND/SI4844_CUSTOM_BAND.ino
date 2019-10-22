@@ -2,7 +2,6 @@
  * SI4844 custom band example
  * By Ricardo Lima Caratti (PU2CLR), Oct, 2019.
  */
-
 #include <SI4844.h>
 // Tested on Arduino Pro Mini
 #define INTERRUPT_PIN 2  
