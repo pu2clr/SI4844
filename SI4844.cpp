@@ -163,12 +163,12 @@ inline void SI4844::waitToSend()
 }
 
 /*
+ *  Deprecated
  *  Up or down the sound volume level/  
  *  @param char '+' up and '-' down 
  */
 void SI4844::changeVolume(char command)
 {
-
     // See global variable volume;
     switch (command)
     {
@@ -188,6 +188,25 @@ void SI4844::changeVolume(char command)
     setVolume(volume);
 
 }
+
+/*
+ *  Set sound volume level Up   
+ *  
+ */
+void SI4844::volumeUp()
+{
+    if (volume >= 58) volume += 4;
+}
+
+/*
+ *  Set sound volume level Down   
+ *  
+ */
+void SI4844::volumeDown()
+{
+    if (volume >= 6) volume -= 4;
+}
+
 
 /*
  * Set the sound volume level. 
@@ -226,9 +245,7 @@ void SI4844::setVolume(byte volumeLavel) {
  *      8- Treble boost +4 (max)
  */
 void SI4844::setBassTreeble(byte bass_treeble) {
-
     waitToSend();
-
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(SET_PROPERTY);
     Wire.write(0x40); // RX_BASS_TREEBLE = 0x4002
@@ -236,6 +253,20 @@ void SI4844::setBassTreeble(byte bass_treeble) {
     Wire.write(bass_treeble);
     Wire.endTransmission();
     delayMicroseconds(2500);
+}
+
+/*
+ * Less treble, more bass.
+ */
+void SI4844::bassTreebleDown() {
+    if (bassTreeble < 8 ) bassTreeble++;
+}
+
+/*
+ * more treble, less bass
+ */
+void SI4844::bassTreebleUp() {
+    if (bassTreeble > 0 ) bassTreeble--;
 }
 
 /*

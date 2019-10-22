@@ -158,17 +158,25 @@ private:
   // SI4844 band description (FM = 0; AM = 1; SW = 2)
   const char *bandmode_table[3] = {"FM", "AM", "SW"};
   const char *stereo_indicator_table[2] = {"Off","On "};
-  byte volume = 44;  
+
+  byte volume = 48;
+  byte bassTreeble = 4;   
 
 public : 
   void setup(unsigned int, unsigned int, byte);
   void reset(void );
   void setBand(byte);
   
-  void changeVolume(char);
+  void changeVolume(char);  // deprecated
+  void volumeUp(void);
+  void volumeDown(void);
   void setVolume(byte);
-  si4844_audiomode_status_response setAudioMode(byte audiomode, byte fm_mono, byte adjpt_attn, byte adjpt_steo, byte opcode);
   void setBassTreeble(byte bass_treeble);
+  void bassTreebleUp();
+  void bassTreebleDown();  
+ 
+  si4844_audiomode_status_response setAudioMode(byte audiomode, byte fm_mono, byte adjpt_attn, byte adjpt_steo, byte opcode);
+
 
   si4844_status_response *getStatus(void);
   si4844_firmware_response *getFirmware(void);

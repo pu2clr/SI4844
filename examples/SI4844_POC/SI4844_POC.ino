@@ -91,20 +91,10 @@ void loop() {
       si4844.setBand(39); // SW7 band
       break;
     case '+': // sound volume control
-    case '-':
-      si4844.changeVolume(key); // if key = '+' then up; if key = '-' then  down; other, default volume.
+      si4844.volumeUp();
       break;
-    case 'B':
-    case 'b':
-      si4844.setBassTreeble('1'); 
-      break;  
-    case 'T': 
-    case 't': 
-      si4844.setBassTreeble('7');   
-      break;  
-    case 'N': 
-    case 'n': 
-      si4844.setBassTreeble('4');   
+    case '-':
+      si4844.volumeDown();
       break;  
     case 'o':
        Serial.println("Power Down");
