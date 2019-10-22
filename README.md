@@ -466,8 +466,16 @@ Example:
 ```cpp
 /*
  * Set audio mode 
- * See Si48XX ATDD PROGRAMMING GUIDE; AN610; page 43
- * @param byte opcode (0 = Set audio mode settings; 1 = Get current audio mode settings without setting)
+ * See Si48XX ATDD PROGRAMMING GUIDE; AN610; page 21
+ * @param byte audio_mode 
+ *             0 = Digital volume mode (no bass/treble effect, volume levels from 0 to 63) 
+ *             1 = Bass/treble mode (no digital volume control, fixed volume level at 59)
+ *             2 = Mixed mode 1 (bass/treble and digital volume coexist, max volume = 59) 
+ *             3 = Mixed mode 2 (bass/treble and digital volume coexist, max volume = 63) 
+ *             Default is 3 (Mixed mode 2)
+ * @param byte opcode 
+ *             0 = Set audio mode and settings
+ *             1 = Get current audio mode and settings without setting
  * @param byte attenuation (0 => -2db; 1 => 0db)
  */
 void setAudioMode(byte opcode, byte attenuation )
@@ -476,6 +484,31 @@ void setAudioMode(byte opcode, byte attenuation )
 Example:
 ```cpp 
   si4844.setAudioMode(1,1);
+```
+
+
+### setBassTreeble
+
+
+```cpp
+/*
+ * Set bass and treeble. 
+ * @param byte bass and treeble (domain: 0 to 8)
+ *      0 -Bass boost +4 (max)
+ *      1- Bass boost +3
+ *      2- Bass boost +2
+ *      3- Bass boost +1 (min)
+ *      4- Normal (No Bass/Treble effect) (Default) 5- Treble boost +1 (min)
+ *      6- Treble boost +2
+ *      7- Treble boost +3
+ *      8- Treble boost +4 (max)
+ */
+void setBassTreeble(byte bass_treeble) {
+```
+
+Example:
+```cpp 
+  si4844.setBassTreeble(2);
 ```
 
 
