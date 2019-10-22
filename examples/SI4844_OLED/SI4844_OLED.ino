@@ -29,7 +29,7 @@ long elapsedButton = millis();
 
 // SI4844 Band Plan
 // See Si48XX ATDD PROGRAMMING GUIDE, Table 8, pages 17 and 18
-byte bandPlan[] = {4,20,28,29,31,33,35,37,39};
+byte bandPlan[] = {4,20,28,29,31,33,35,37,39,40};
 const int maxBand =  (sizeof(bandPlan) / sizeof(byte))  - 1;
 int  idxBand = 0; 
 

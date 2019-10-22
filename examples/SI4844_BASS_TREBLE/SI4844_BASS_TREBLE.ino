@@ -59,7 +59,11 @@ void loop() {
       break;
     case '-':
       si4844.volumeDown();
-      break;        
+      break;  
+    case 'M':
+    case 'm': 
+      si4844.audioMute();   
+      break;     
     default: 
       instructions();
       break;  

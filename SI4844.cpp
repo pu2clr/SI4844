@@ -337,7 +337,7 @@ void SI4844::audioMute(void) {
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(SET_PROPERTY);   // 
     Wire.write(0x00);           // ARG1 (is always 0x00)
-    Wire.write(RX_VOLUME);      // ARG2 RX_HARD_MUTE = 0X4001  (0x40)
+    Wire.write(0x40);           // ARG2 RX_HARD_MUTE = 0X4001  (0x40)
     Wire.write(0x01);           // ARG3 RX_HARD_MUTE = 0X4001  (0x01)
     Wire.write(0x00);           // ARG4
     Wire.write(0x00);           // ARG5
