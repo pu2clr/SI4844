@@ -25,7 +25,7 @@
 #define VOL_UP     7    // Volume Volume Up 
 #define VOL_DOWN   8    // Volume Down 
 
-#define MIN_ELAPSED_TIME 200
+#define MIN_ELAPSED_TIME 100
 
 long elapsedButton = millis();
 
@@ -58,8 +58,9 @@ void setup() {
   delay(1000);
 
   si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
-
+  
   si4844.setVolume(55);
+  
 
   displayDial();
 

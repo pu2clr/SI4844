@@ -82,7 +82,34 @@ typedef union {
 } si4844_firmware_response;
 
 
+/*
+ * Structure for the command 0xE2 - ATDD_AUDIO_MODE
+ * 
+ */
+ typedef  union {
+    struct {
+          byte AUDIOMODE : 2;
+          byte FM_MONO : 1;
+          byte ADJPT_ATTN : 1;
+          byte ADJPT_STEO : 1;
+          byte Reserved : 2;
+          byte OPCODE : 1;
+    } arg1;
+    byte raw;
+} si4844_audiomode;
 
+typedef  union {
+        struct {
+          byte AUDIOMODE:2;
+          byte FM_MONO:1;
+          byte ADJPT_ATTN:1;
+          byte ADJPT_STEO:1;
+          byte Reserved:1;
+          byte ERR:1;
+          byte CTS:1;
+        } status;
+        byte raw;
+} si4844_audiomode_status_response;
 
 /* 
  * English:
@@ -140,7 +167,7 @@ public :
   
   void changeVolume(char);
   void setVolume(byte);
-  void setAudioMode(byte audio_mode, byte opcode, byte attenuation );
+  si4844_audiomode_status_response setAudioMode(byte audiomode, byte fm_mono, byte adjpt_attn, byte adjpt_steo, byte opcode);
   void setBassTreeble(byte bass_treeble);
 
   si4844_status_response *getStatus(void);

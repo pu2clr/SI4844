@@ -233,7 +233,6 @@ void SI4844::setBassTreeble(byte bass_treeble) {
     Wire.write(SET_PROPERTY);
     Wire.write(0x40); // RX_BASS_TREEBLE = 0x4002
     Wire.write(0x02);
-    Wire.write(0x00);  
     Wire.write(bass_treeble);
     Wire.endTransmission();
     delayMicroseconds(2500);
@@ -248,37 +247,45 @@ void SI4844::setBassTreeble(byte bass_treeble) {
  *             2 = Mixed mode 1 (bass/treble and digital volume coexist, max volume = 59) 
  *             3 = Mixed mode 2 (bass/treble and digital volume coexist, max volume = 63) 
  *             Default is 3 (Mixed mode 2)
+ * @param byte fm_mono
+ *             0 = Stereo audio output (default)
+ *             1 = Mono audio output
+ * @param byte adjpt_attn Audio attention of adjacent tune wheel positions of a station
+ *             0 = {–2 dB, -0dB, –2 dB} i.e., adjacent points volume levels –2 dB (default) 
+ *             1 = {–0 dB, -0dB, –0 dB} i.e., adjacent points same volume levels
+ * @param byte adjpt_steo
+ *             0 = Adjacent points allow stereo separation and stereo indicator on (default) 
+ *             1 = Adjacent points disable stereo separation and stereo indicator are off
  * @param byte opcode 
  *             0 = Set audio mode and settings
  *             1 = Get current audio mode and settings without setting
- * @param byte attenuation (0 => -2db; 1 => 0db)
  */
-void SI4844::setAudioMode(byte audio_mode, byte opcode, byte attenuation ) {
-    union {
-        struct {
-            byte AUDIOMODE:2;
-            byte FM_MONO: 1;
-            byte ADJPT_ATTN: 1;
-            byte ADJPT_STEO: 1;
-            byte Reserved:2;
-            byte OPCODE:1;
-        } refined;
-        byte raw;
-    } audiomode;
+si4844_audiomode_status_response SI4844::setAudioMode(byte audiomode, byte fm_mono, byte adjpt_attn, byte adjpt_steo, byte opcode) {
+    
+    si4844_audiomode am;
+    si4844_audiomode_status_response resp;
 
-    audiomode.refined.OPCODE = opcode;
-    audiomode.refined.AUDIOMODE = audio_mode;
-    audiomode.refined.ADJPT_ATTN = attenuation;
+    am.arg1.OPCODE = opcode;
+    am.arg1.AUDIOMODE = audiomode;
+    am.arg1.ADJPT_ATTN = adjpt_attn;
+    am.arg1.ADJPT_STEO = adjpt_steo;
+    am.arg1.FM_MONO = fm_mono;
 
     // Wait until rady to send a command
     waitToSend();
 
     Wire.beginTransmission(SI4844_ADDRESS);
-    Wire.write(ATDD_POWER_UP);
-    Wire.write(audiomode.raw);
+    Wire.write(ATDD_AUDIO_MODE);
+    Wire.write(am.raw);
     Wire.endTransmission();
     delayMicroseconds(2500);
-    waitInterrupr();
+    // Wait for CTS
+    do  { 
+        Wire.requestFrom(SI4844_ADDRESS, 0x01); // request 1 byte response
+        resp.raw = Wire.read();
+    } while (!resp.status.CTS);
+
+    return resp;
 }
 
 /*
