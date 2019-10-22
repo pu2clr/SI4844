@@ -1,5 +1,5 @@
 /*
- * SI4844 radio. Firmware information. 
+ * SI4844 radio. Firmware information example. 
  * This Sketch shows the use of SI4844 Library to extract the device firmware information. 
  * By Ricardo Lima Caratti (PU2CLR), Oct, 2019.
  */

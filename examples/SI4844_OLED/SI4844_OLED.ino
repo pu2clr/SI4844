@@ -1,8 +1,8 @@
 /*
- * I2C OLED Display Example
+ * I2C OLED Display and buttons Example
  * 
  * Author: Ricardo Lima Caratti (PU2CLR)
- * September, 2019
+ * Oct, 2019
  */
 
 #include <SI4844.h>

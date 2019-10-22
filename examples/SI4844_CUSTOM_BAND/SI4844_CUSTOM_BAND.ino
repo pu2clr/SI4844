@@ -1,5 +1,5 @@
 /*
- * SI4844 custom band
+ * SI4844 custom band example
  * By Ricardo Lima Caratti (PU2CLR), Oct, 2019.
  */
 
