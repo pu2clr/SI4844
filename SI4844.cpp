@@ -233,8 +233,8 @@ void SI4844::setVolume(byte volumeLavel) {
 }
 
 /*
- * Set the sound volume level, bass and treeble. 
- * @param byte bass and treeble (domain: 0 to 8)
+ * Set the sound volume level, bass and treble. 
+ * @param byte bass and treble (domain: 0 to 8)
  *      0 -Bass boost +4 (max)
  *      1- Bass boost +3
  *      2- Bass boost +2
@@ -244,13 +244,13 @@ void SI4844::setVolume(byte volumeLavel) {
  *      7- Treble boost +3
  *      8- Treble boost +4 (max)
  */
-void SI4844::setBassTreeble(byte bass_treeble) {
+void SI4844::setBassTreble(byte bass_treble) {
     waitToSend();
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(SET_PROPERTY);
-    Wire.write(0x40); // RX_BASS_TREEBLE = 0x4002
+    Wire.write(0x40); // RX_BASS_TREBLE = 0x4002
     Wire.write(0x02);
-    Wire.write(bass_treeble);
+    Wire.write(bass_treble);
     Wire.endTransmission();
     delayMicroseconds(2500);
 }
@@ -258,15 +258,15 @@ void SI4844::setBassTreeble(byte bass_treeble) {
 /*
  * Less treble, more bass.
  */
-void SI4844::bassTreebleDown() {
-    if (bassTreeble < 8 ) bassTreeble++;
+void SI4844::bassTrebleDown() {
+    if (bassTreble < 8 ) bassTreble++;
 }
 
 /*
  * more treble, less bass
  */
-void SI4844::bassTreebleUp() {
-    if (bassTreeble > 0 ) bassTreeble--;
+void SI4844::bassTrebleUp() {
+    if (bassTreble > 0 ) bassTreble--;
 }
 
 /*

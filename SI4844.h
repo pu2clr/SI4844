@@ -25,7 +25,7 @@
 
 #define SET_PROPERTY 0x12
 #define RX_VOLUME 0x40
-#define RX_BASS_TREEBLE 0x4002
+#define RX_BASS_TREBLE 0x4002
 
 /* 
  * The structure below represents the four bytes response got by command ATDD_GET_STATUS
@@ -160,7 +160,7 @@ private:
   const char *stereo_indicator_table[2] = {"Off","On "};
 
   byte volume = 48;
-  byte bassTreeble = 4;   
+  byte bassTreble = 4;   
 
 public : 
   void setup(unsigned int, unsigned int, byte);
@@ -171,9 +171,9 @@ public :
   void volumeUp(void);
   void volumeDown(void);
   void setVolume(byte);
-  void setBassTreeble(byte bass_treeble);
-  void bassTreebleUp();
-  void bassTreebleDown();  
+  void setBassTreble(byte bass_treble);
+  void bassTrebleUp();
+  void bassTrebleDown();  
  
   si4844_audiomode_status_response setAudioMode(byte audiomode, byte fm_mono, byte adjpt_attn, byte adjpt_steo, byte opcode);
 

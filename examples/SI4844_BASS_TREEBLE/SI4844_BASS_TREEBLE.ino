@@ -32,7 +32,7 @@ void loop() {
     case 'T':
       // 
       break;
-        
+
   }
     
   // If you move the tuner, hasStatusChanged returns true
