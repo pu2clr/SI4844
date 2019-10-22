@@ -196,6 +196,7 @@ void SI4844::changeVolume(char command)
 void SI4844::volumeUp()
 {
     if (volume >= 58) volume += 4;
+    setVolume(volume);
 }
 
 /*
@@ -205,6 +206,7 @@ void SI4844::volumeUp()
 void SI4844::volumeDown()
 {
     if (volume >= 6) volume -= 4;
+    setVolume(volume);
 }
 
 
@@ -260,6 +262,7 @@ void SI4844::setBassTreble(byte bass_treble) {
  */
 void SI4844::bassTrebleDown() {
     if (bassTreble < 8 ) bassTreble++;
+    setBassTreble(bassTreble);
 }
 
 /*
@@ -267,6 +270,7 @@ void SI4844::bassTrebleDown() {
  */
 void SI4844::bassTrebleUp() {
     if (bassTreble > 0 ) bassTreble--;
+    setBassTreble(bassTreble);
 }
 
 /*

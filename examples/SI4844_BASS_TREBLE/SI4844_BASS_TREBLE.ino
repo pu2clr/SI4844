@@ -1,5 +1,5 @@
 /*
- * SI4844 radio. Bass Treble test.
+ * SI4844 radio. Minimal Sketch.  
  * By Ricardo Lima Caratti (PU2CLR), Oct, 2019.
  */
 
@@ -14,10 +14,15 @@ SI4844 si4844;
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("Teste!!!!");
+  Serial.println("Bass, treble and volume test.");
   delay(500);  
+
   si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
   si4844.setVolume(55); // It can be from 0 to 63.
+
+  // See Si48XX ATDD PROGRAMMING GUIDE, page 21
+  // si4844.setAudioMode(2,0,0,0,0);
+
 }
 
 void loop() {
