@@ -165,7 +165,7 @@ A tabela a seguir é baseada na publicação de [Raymond Genovese, May 26, 2016 
 |(*1) C15	| 10pF capacitor não  polarizado |
 |IC1	| Si4844-A10 radio receiver |
 |(*1) Q1	| SS9018 NPN transistor |
-|R1, R2	| 2.2K |
+|R1, R2	(*3) | 10K |
 |(*1) R3	| 1K |
 |R4 (*1), (*1) R7	| 100K |
 |(*1) R5	| 10 Ohms |
@@ -179,7 +179,7 @@ A tabela a seguir é baseada na publicação de [Raymond Genovese, May 26, 2016 
 
 1. (*1) - Não utilizado neste projeto.
 2. (*2) - O valor que utilizei foi 4.7uF e não o valor sugerido no esquema original (47uF).
-
+3. (*3) - Valores entre 2,2K e 10K são aceitáveis.
 
 ### Fotos 
 

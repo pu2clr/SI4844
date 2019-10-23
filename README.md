@@ -171,7 +171,7 @@ The table below is based on [Raymond Genovese, May 26, 2016 - How to Build an Ar
 |(*1) C15	| 10pF non polarized capacitor |
 |IC1	| Si4844-A10 radio receiver |
 |(*1) Q1	| SS9018 NPN transistor |
-|R1, R2	| 2.2K |
+|R1, R2	(*3)| 10K |
 |(*1) R3	| 1K |
 |R4 (*1), (*1) R7	| 100K |
 |(*1) R5	| 10 Ohms |
@@ -182,7 +182,7 @@ The table below is based on [Raymond Genovese, May 26, 2016 - How to Build an Ar
 |Y1	| 32.768 kHz crystal |
 |ANT1 |	ferrite antenna |
 |ANT2 | telescopic/whip antenna |
-|__Notes__| *1. not used for this project;<BR> *2. the value used is 4.7uF and not 47uF as suggested by the original circuit.| 
+|__Notes__| *1. not used for this project;<BR> *2. the value used is 4.7uF and not 47uF as suggested by the original circuit.<br> *3. between 2,2K and 10K will work.| 
 
 
 
