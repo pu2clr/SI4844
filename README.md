@@ -487,6 +487,7 @@ Example:
   si4844.setAudioMode(1,1);
 ```
 
+
 ### setAudioMute
 
 ```cpp
