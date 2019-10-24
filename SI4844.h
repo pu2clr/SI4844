@@ -173,11 +173,11 @@ public :
   void setVolume(byte);
   void setBassTreble(byte bass_treble);
   void bassTrebleUp();
-  void bassTrebleDown();  
-  void audioMute(void); 
- 
-  si4844_audiomode_status_response setAudioMode(byte audiomode, byte fm_mono, byte adjpt_attn, byte adjpt_steo, byte opcode);
+  void bassTrebleDown();
+  void audioMute(byte value);
+  void setAudioMute(bool on)
 
+  si4844_audiomode_status_response setAudioMode(byte audiomode, byte fm_mono, byte adjpt_attn, byte adjpt_steo, byte opcode);
 
   si4844_status_response *getStatus(void);
   si4844_firmware_response *getFirmware(void);

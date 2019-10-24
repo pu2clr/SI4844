@@ -31,6 +31,7 @@ Por Ricardo Lima Caratti / PU2CLR, Outunro de 2019.
       * [changeVolume](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#changevolume)
       * [setVolume](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setvolume)
       * [setAudioMode](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setaudiomode)
+      * [setAudioMute](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setaudiomute)
       * [getStatus](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#getstatus)
       * [getFirmware](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#getfirmware)
       * [getFrequency](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#getfrequency)
@@ -482,6 +483,17 @@ void setAudioMode(byte opcode, byte attenuation )
 Example:
 ```cpp 
   si4844.setAudioMode(1,1);
+```
+
+### setAudioMute
+
+```cpp
+/*
+ * Silencia a saída de audio.
+ * 
+ * @param bool on - false = normal; true = silêncio 
+ */
+void setAudioMute(bool on)
 ```
 
 

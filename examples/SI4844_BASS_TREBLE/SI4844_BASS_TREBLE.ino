@@ -35,6 +35,7 @@ void instructions() {
   Serial.println("---------------------------------------------------");
   Serial.println("Type + or - to sound volume");
   Serial.println("Type B to Bass; T to Treeble");  
+  Serial.println("Type M to mute; U to unmute");
   Serial.println("---------------------------------------------------");
   delay(2000);
 }
@@ -61,8 +62,12 @@ void loop() {
       break;  
     case 'M':
     case 'm': 
-      si4844.audioMute();   
-      break;     
+      si4844.setAudioMute(true);  
+      break;
+    case 'U':
+    case 'u':
+      si4844.setAudioMute(false);
+      break;
     default: 
       instructions();
       break;  

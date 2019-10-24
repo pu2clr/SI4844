@@ -329,8 +329,10 @@ si4844_audiomode_status_response SI4844::setAudioMode(byte audiomode, byte fm_mo
 
 /*
  * Mutes the audio output.
+ * 
+ * @param byte value 0 = normal (no mute); 1 = Right side mute; 2; Left side mute; 3 = both side 
  */
-void SI4844::audioMute(void) {
+void SI4844::audioMute(byte value) {
 
     waitToSend();
     
@@ -340,42 +342,54 @@ void SI4844::audioMute(void) {
     Wire.write(0x40);           // ARG2 RX_HARD_MUTE = 0X4001  (0x40)
     Wire.write(0x01);           // ARG3 RX_HARD_MUTE = 0X4001  (0x01)
     Wire.write(0x00);           // ARG4
-    Wire.write(0x00);           // ARG5
+    Wire.write(value);          // ARG5
     Wire.endTransmission();
     delayMicroseconds(2500);    
 }
 
-
 /*
+ * Mutes the audio output.
+ * 
+ * @param bool on false = normal (no mute); true = mute 
+ */
+void SI4844::setAudioMute(bool on)
+{
+    if ( on )
+        audioMute(3);
+    else 
+        audioMute(0);    
+}
+
+    /*
  * Get tune freq, band, and others information, status of the device.
  * Use this method only if you want to deal with that information by yourself. 
  * This library has other methods to get that information easier. 
  * 
  * @return a pointer to a structure type si4844_status_response
  */
-si4844_status_response *SI4844::getStatus()
-{
-    waitToSend();
-    setClockHigh();
-    do
+    si4844_status_response *SI4844::getStatus()
     {
-        Wire.beginTransmission(SI4844_ADDRESS);
-        Wire.write(ATDD_GET_STATUS);
-        Wire.endTransmission();
-        delayMicroseconds(2500);
-        // request 4 bytes response from atdd (si4844)
-        Wire.requestFrom(SI4844_ADDRESS, 0x04);
-        for (int i = 0; i < 4; i++)
-            status_response.raw[i] = Wire.read();
-        // check response error. Exit when no error found. See page 7.
-        // if INFORDY is 0 or CHFREQ is 0, not ready yet
+        waitToSend();
+        setClockHigh();
+        do
+        {
+            Wire.beginTransmission(SI4844_ADDRESS);
+            Wire.write(ATDD_GET_STATUS);
+            Wire.endTransmission();
+            delayMicroseconds(2500);
+            // request 4 bytes response from atdd (si4844)
+            Wire.requestFrom(SI4844_ADDRESS, 0x04);
+            for (int i = 0; i < 4; i++)
+                status_response.raw[i] = Wire.read();
+            // check response error. Exit when no error found. See page 7.
+            // if INFORDY is 0 or CHFREQ is 0, not ready yet
 
-    } while (status_response.refined.INFORDY == 0 || (status_response.raw[2] == 0 && status_response.raw[3] == 0));
+        } while (status_response.refined.INFORDY == 0 || (status_response.raw[2] == 0 && status_response.raw[3] == 0));
 
-    return &status_response;
-}
+        return &status_response;
+    }
 
-/*
+    /*
  * Get part number, chip revision, firmware, patch, and component revision numbers.
  * You do not need to call this method. It is executed just once at setup methos. 
  * There are other methods that give you that information.   
@@ -384,89 +398,93 @@ si4844_status_response *SI4844::getStatus()
  * @return a pointer to a structure type  wirh the part number, chip revision, 
  *         firmware revision, patch revision, and component revision numbers.
  */
-si4844_firmware_response *SI4844::getFirmware(void) {
-  
-  // Check and wait until the ATDD is ready to receive command
-  waitToSend();
+    si4844_firmware_response *SI4844::getFirmware(void)
+    {
 
-  Wire.beginTransmission(SI4844_ADDRESS);
-  Wire.write(GET_REV);
-  Wire.endTransmission();
+        // Check and wait until the ATDD is ready to receive command
+        waitToSend();
 
-  // Request for 9 bytes response
-  Wire.requestFrom(SI4844_ADDRESS, 0x09);
+        Wire.beginTransmission(SI4844_ADDRESS);
+        Wire.write(GET_REV);
+        Wire.endTransmission();
 
-  for (int i = 0; i < 9; i++)
-    firmware_response.raw[i] = Wire.read();
+        // Request for 9 bytes response
+        Wire.requestFrom(SI4844_ADDRESS, 0x09);
 
-  data_from_si4844 = false;
+        for (int i = 0; i < 9; i++)
+            firmware_response.raw[i] = Wire.read();
 
-  return &firmware_response;
-  
-}
+        data_from_si4844 = false;
 
-/*
+        return &firmware_response;
+    }
+
+    /*
  * Get the current frequency of the radio in KHz. 
  * For example: FM, 103900 KHz (103.9 MHz);
  *              SW, 7335 KHz (7.34 MHz, 41m)   
  * 
  * @return float current frequency in KHz.  
  */
-float SI4844::getFrequency(void)
-{
-    getStatus();
-    String s;
-    int addFactor = 0;
-    int multFactor = 1;
-    // Check CHFREQ bit[15] MSB = 1 
-    // See Page 15 of Si48XX ATDD PROGRAMMING GUIDE
-    if (status_response.refined.BANDMODE == 0 ) {
-        multFactor = 100;
-        if ( status_response.refined.d1 & B00001000 ) { 
-          status_response.refined.d1 &=  B11110111; 
-          addFactor = 50;
+    float SI4844::getFrequency(void)
+    {
+        getStatus();
+        String s;
+        int addFactor = 0;
+        int multFactor = 1;
+        // Check CHFREQ bit[15] MSB = 1
+        // See Page 15 of Si48XX ATDD PROGRAMMING GUIDE
+        if (status_response.refined.BANDMODE == 0)
+        {
+            multFactor = 100;
+            if (status_response.refined.d1 & B00001000)
+            {
+                status_response.refined.d1 &= B11110111;
+                addFactor = 50;
+            }
         }
-    } else if (status_response.refined.BANDMODE == 2)   { 
-      multFactor = 10;
-      if (status_response.refined.d1 & B00001000) {
-         status_response.refined.d1 &=  B11110111; 
-         addFactor = 5;
-      }
+        else if (status_response.refined.BANDMODE == 2)
+        {
+            multFactor = 10;
+            if (status_response.refined.d1 & B00001000)
+            {
+                status_response.refined.d1 &= B11110111;
+                addFactor = 5;
+            }
+        }
+
+        s.concat(status_response.refined.d1);
+        s.concat(status_response.refined.d2);
+        s.concat(status_response.refined.d3);
+        s.concat(status_response.refined.d4);
+
+        float f = s.toFloat();
+
+        data_from_si4844 = false;
+
+        return (f * multFactor + addFactor);
     }
- 
-    s.concat(status_response.refined.d1);
-    s.concat(status_response.refined.d2);
-    s.concat(status_response.refined.d3);
-    s.concat(status_response.refined.d4);
 
-    float f = s.toFloat();
-
-    data_from_si4844 = false;
-
-   return (f * multFactor + addFactor);
-
-}
-
-/*
+    /*
 *  Check if the SI4844 has its status changed. If you move the tuner, for example,
 *  the status of the device is changed. 
 *
 *  return true or false  
 */
-bool SI4844::hasStatusChanged(void)
-{
-    return data_from_si4844;
-}
+    bool SI4844::hasStatusChanged(void)
+    {
+        return data_from_si4844;
+    }
 
-/*
+    /*
  * set the interrupr status to false. It will turn true after next interrupr  
  */
-void SI4844::resetStatus() {
-      data_from_si4844 = false;
-}
+    void SI4844::resetStatus()
+    {
+        data_from_si4844 = false;
+    }
 
-
-/* 
+    /* 
  * This method allows you to customize the frequency range of a band.
  * The SI4844 can work from 2.3–28.5 MHz on SW, 64.0–109.0MHz on FM
  * You can configure the band index 40, for example, to work between 27 to 28 MHz.
@@ -480,50 +498,52 @@ void SI4844::resetStatus() {
  * @param byte bandSpace; Channel Spacing (use 5 or 10 - On FM 10 = 100KHz)
  * @return void
  */
-void SI4844::setCustomBand(byte bandIndex, unsigned botton, unsigned top, byte bandSpace) {
+    void SI4844::setCustomBand(byte bandIndex, unsigned botton, unsigned top, byte bandSpace)
+    {
 
-    union { 
-        struct { 
-            byte bandindex:6;
-            byte xowait:1;
-            byte xoscen:1;
-            unsigned botton;
-            unsigned top;
-            byte bandspace;
-        } refined;
-        byte raw[6];
-    } customband; 
+        union {
+            struct
+            {
+                byte bandindex : 6;
+                byte xowait : 1;
+                byte xoscen : 1;
+                unsigned botton;
+                unsigned top;
+                byte bandspace;
+            } refined;
+            byte raw[6];
+        } customband;
 
-    // The first thing that we have to do is switch to desired band 
-    setBand(bandIndex);
+        // The first thing that we have to do is switch to desired band
+        setBand(bandIndex);
 
-    // Now we can customize the band. 
-    data_from_si4844 = false;
-    customband.refined.bandindex = bandIndex;
-    customband.refined.xowait = 0;
-    customband.refined.xoscen =1;
-    customband.refined.botton = botton;
-    customband.refined.top = top;
-    customband.refined.bandspace = bandSpace;
+        // Now we can customize the band.
+        data_from_si4844 = false;
+        customband.refined.bandindex = bandIndex;
+        customband.refined.xowait = 0;
+        customband.refined.xoscen = 1;
+        customband.refined.botton = botton;
+        customband.refined.top = top;
+        customband.refined.bandspace = bandSpace;
 
-    // Wait until rady to send a command
-    waitToSend();
+        // Wait until rady to send a command
+        waitToSend();
 
-    Wire.beginTransmission(SI4844_ADDRESS);
-    Wire.write(ATDD_POWER_UP);
-    Wire.write(customband.raw[0]);
-    Wire.write(customband.raw[2]);
-    Wire.write(customband.raw[1]);
-    Wire.write(customband.raw[4]);
-    Wire.write(customband.raw[3]);   
-    Wire.write(customband.raw[5]);  
-    Wire.write(0x00);
-               
-    Wire.endTransmission();
-    delayMicroseconds(2500);
-    waitInterrupr();
+        Wire.beginTransmission(SI4844_ADDRESS);
+        Wire.write(ATDD_POWER_UP);
+        Wire.write(customband.raw[0]);
+        Wire.write(customband.raw[2]);
+        Wire.write(customband.raw[1]);
+        Wire.write(customband.raw[4]);
+        Wire.write(customband.raw[3]);
+        Wire.write(customband.raw[5]);
+        Wire.write(0x00);
 
-    delayMicroseconds(2500);
-    getStatus();
-    delayMicroseconds(2500);
- }
+        Wire.endTransmission();
+        delayMicroseconds(2500);
+        waitInterrupr();
+
+        delayMicroseconds(2500);
+        getStatus();
+        delayMicroseconds(2500);
+    }

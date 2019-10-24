@@ -31,6 +31,7 @@ By Ricardo Lima Caratti, Oct, 2019.
       * [changeVolume](https://github.com/pu2clr/SI4844#changevolume)
       * [setVolume](https://github.com/pu2clr/SI4844#setvolume)
       * [setAudioMode](https://github.com/pu2clr/SI4844#setaudiomode)
+      * [setAudioMute](https://github.com/pu2clr/SI4844#setaudiomute)
       * [getStatus](https://github.com/pu2clr/SI4844#getstatus)
       * [getFirmware](https://github.com/pu2clr/SI4844#getfirmware)
       * [getFrequency](https://github.com/pu2clr/SI4844#getfrequency)
@@ -485,6 +486,18 @@ Example:
 ```cpp 
   si4844.setAudioMode(1,1);
 ```
+
+### setAudioMute
+
+```cpp
+/*
+ * Mutes the audio output.
+ * 
+ * @param bool on - false = normal (no mute); true = mute 
+ */
+void setAudioMute(bool on)
+```
+
 
 
 ### setBassTreeble
