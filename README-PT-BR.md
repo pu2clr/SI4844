@@ -855,6 +855,10 @@ Com isso, alterar a banda bem como ajustar o volume.
 ![OLED and Button with SI4844](https://github.com/pu2clr/SI4844/blob/master/extras/OLED_WITH_4844_schematic_atmega328.png)
 
 
+## Sound Control
+
+The sketch [SI4844_BASS_TREBLE](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_BASS_TREBLE) shows how to use sound control (treble, bass, mute etc).
+
 
 ## Referências
 
