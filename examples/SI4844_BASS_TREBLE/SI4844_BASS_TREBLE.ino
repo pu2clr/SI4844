@@ -40,7 +40,6 @@ void instructions() {
   delay(2000);
 }
 
-
 void loop() {
  if (Serial.available() > 0) {
     char key = Serial.read();
