@@ -845,7 +845,7 @@ O sketch [SI4844_POC.ino](https://github.com/pu2clr/SI4844/blob/master/examples/
 O sketch [SI4844_CUSTOM_BAND.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_CUSTOM_BAND/SI4844_CUSTOM_BAND.ino) mostra como criar uma banda personalizada, não definida previamente na tabela de bandas do SI4844.
 
 
-## SI4844 with OLED
+## SI4844 com OLED
 
 O sketch [SI4844_OLED.ino](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_OLED) apresenta u exemplo de uso da biblioteca com um display OLED I2C.
 
@@ -855,9 +855,9 @@ Com isso, alterar a banda bem como ajustar o volume.
 ![OLED and Button with SI4844](https://github.com/pu2clr/SI4844/blob/master/extras/OLED_WITH_4844_schematic_atmega328.png)
 
 
-## Sound Control
+## Controle do Som
 
-The sketch [SI4844_BASS_TREBLE](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_BASS_TREBLE) shows how to use sound control (treble, bass, mute etc).
+The sketch [SI4844_BASS_TREBLE.ino](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_BASS_TREBLE) shows how to use sound control (treble, bass, mute etc).
 
 
 ## Referências

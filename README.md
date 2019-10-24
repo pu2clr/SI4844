@@ -874,7 +874,7 @@ The schematic below shows how to insert the OLED and button on the original sche
 
 ## Sound Control
 
-The sketch [SI4844_BASS_TREBLE](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_BASS_TREBLE) shows how to use sound control (treble, bass, mute etc).
+The sketch [SI4844_BASS_TREBLE.ino](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_BASS_TREBLE) shows how to use sound control (treble, bass, mute etc).
    
 
 ## Videos
