@@ -49,9 +49,6 @@ void SI4844::setup(unsigned int resetPin, unsigned int interruptPin, byte defaul
     // See pages 17 and 18 (Table 8. Pre-defined Band Table) for more details
     setBand(defaultBand);
 
-    // This sketch is using the value 44.
-    setVolume(50); // Initiate with default volume control;
-
     // You need call it just once.  
     getFirmware();
 
