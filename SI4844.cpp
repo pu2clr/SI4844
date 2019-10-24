@@ -390,14 +390,14 @@ void SI4844::setAudioMute(bool on)
     }
 
     /*
- * Get part number, chip revision, firmware, patch, and component revision numbers.
- * You do not need to call this method. It is executed just once at setup methos. 
- * There are other methods that give you that information.   
- * See page 22 of programming guide.
- * 
- * @return a pointer to a structure type  wirh the part number, chip revision, 
- *         firmware revision, patch revision, and component revision numbers.
- */
+     * Get part number, chip revision, firmware, patch, and component revision numbers.
+     * You do not need to call this method. It is executed just once at setup methos. 
+     * There are other methods that give you that information.   
+     * See page 22 of programming guide.
+     * 
+     * @return a pointer to a structure type  wirh the part number, chip revision, 
+     *         firmware revision, patch revision, and component revision numbers.
+     */
     si4844_firmware_response *SI4844::getFirmware(void)
     {
 
