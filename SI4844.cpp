@@ -360,7 +360,7 @@ void SI4844::setAudioMute(bool on)
         audioMute(0);    
 }
 
-    /*
+/*
  * Get tune freq, band, and others information, status of the device.
  * Use this method only if you want to deal with that information by yourself. 
  * This library has other methods to get that information easier. 
