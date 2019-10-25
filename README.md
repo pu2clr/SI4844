@@ -19,7 +19,8 @@ By Ricardo Lima Caratti, Oct, 2019.
 6. [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup)
    1. [Schematic](https://github.com/pu2clr/SI4844#schematic)
    2. [Component Parts](https://github.com/pu2clr/SI4844#parts)
-   3. [Photos](https://github.com/pu2clr/SI4844#photos)
+   3. [Playing with Arduino UNO or Pro Mini 5v and SI4844]()
+   4. [Photos](https://github.com/pu2clr/SI4844#photos)
 7. [API Documentation](https://github.com/pu2clr/SI4844#api-documentation)
    1. [Defined Data Types and Structures](https://github.com/pu2clr/SI4844#defined-data-types-and-structures)
    2. [Public Methods](https://github.com/pu2clr/SI4844#public-methods)
@@ -188,7 +189,6 @@ The table below is based on [Raymond Genovese, May 26, 2016 - How to Build an Ar
 
 
 
-
 ### Photos 
 
 ### SI4844 soldered on adapter
@@ -208,6 +208,33 @@ It was a bit hard to solder the Si4844 on adapter. However, by using a electroni
 ![SI4844 and Arduino on protoboard 01](./extras/images/protoboard_01.png)
 
 ![SI4844 and Arduino on protoboard 03](./extras/images/protoboard_04.png)
+
+
+
+## Playing with Arduino UNO or Pro Mini 5v and SI4844
+
+ During my tests, I tried to work with regular voltage level converter also known as logic level converter. However, I had no success with these devices due to I2C communication.
+
+ Some device that I tried to use can be seen below. 
+
+ To make the Arduino 5V play with SI4844 I used the TCA9548A. It is an I2C Multiplexer Breakout Board 8 Channel Expansion Board. 
+
+1. 1-to-8 Bidirectional Translating Switches 
+2. I2C Bus and SMBus Compatible
+3. Active-Low Reset Input
+4. Three Address Pins, Allowing up to Eight TCA9548A Devices on the I2C Bus
+5. Channel Selection Through an I2C Bus, In Any Combination
+6. Power Up With All Switch Channels Deselected
+7. Low RON Switches
+8. __Allows Voltage-Level Translation Between 1.8-V, 2.5-V, 3.3-V, and 5-V Buses__
+9.  Supports Hot Insertion
+10. Low Standby Current
+11. Operating Power-Supply Voltage Range of 1.65 V to 5.5 V
+12. 5-V Tolerant Inputs
+13. 0- to 400-kHz Clock Frequency
+    
+
+
 
 
 
