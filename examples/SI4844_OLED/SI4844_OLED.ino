@@ -28,7 +28,7 @@ long elapsedButton = millis();
 
 // SI4844 Band Plan
 // See Si48XX ATDD PROGRAMMING GUIDE, Table 8, pages 17 and 18
-byte bandPlan[] = {4, 20, 26, 28, 29, 31, 33, 35, 37, 39, 40};
+byte bandPlan[] = {4, 20, 26, 27, 28, 29, 31, 33, 35, 37, 39, 40};
 const int maxBand = (sizeof(bandPlan) / sizeof(byte)) - 1;
 int idxBand = 0;
 
@@ -79,9 +79,8 @@ void displayDial()
   else
   {
     unit = "KHz";
-    // Formatting the frequency to show on display
-    freqDisplay = String((freqSi4844 / 1000.0), 3);
-    if (bandPlan[idxBand] == 40 || bandPlan[idxBand] == 26)
+    freqDisplay = (bandMode == 2) ? String((freqSi4844 / 1000.0), 3) : String(freqSi4844, 0);
+    if (bandPlan[idxBand] == 40 || bandPlan[idxBand] == 26 || bandPlan[idxBand] == 27)
     {
       display.setCursor(23, 6);
       display.set1X();
@@ -114,9 +113,13 @@ void setBand(byte cmd)
   }
   else if (bandPlan[idxBand] == 26)
   {
-    // Configure the Pre-defined Band (band index 26) to work between 5.7 to 6.3 MHz
-    // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
+    // Configure the Pre-defined Band (band index 26) to work between 4.5 to 5.2 MHz
     si4844.setCustomBand(26, 4500, 5200, 5);
+  }
+  else if (bandPlan[idxBand] == 27)
+  {
+    // Configure the Pre-defined Band (band index 27) to work between 5.7 to 6.3 MHz
+    si4844.setCustomBand(27, 5700, 6300, 5);
   }
   else
   {
