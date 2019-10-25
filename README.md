@@ -147,7 +147,8 @@ __Attention__: If you are not using an Arduino Pro Mini, pay attention on the ap
 
 The document [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), chapter two, page 11,  has a typical application schematic. 
 
-The figure below shows that schematic
+The figure below shows that schematic. 
+__It is a good idea to put pull-up resistors on slave SDIO and SCLK pins (from 2,2 to 10K).__ The schematic below does not show that. 
 
 ![schematic](./extras/images/SI4844_SILICON_LABS1.png)
 __Source: Silicon Labs (Si4840/44-A10)__

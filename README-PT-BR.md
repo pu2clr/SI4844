@@ -143,7 +143,8 @@ __Atenção__:  Se você não estiver utilizando o Arduino Pro Mini, verifique a
 
 O documento [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), capítulo 2, página 11,  tem um esquema mais simplificado ainda deste rádio. 
 
-A figura a segui apresenta este esquema
+A figura a segui apresenta este esquema.
+__É uma boa ideia implementar "put pull-up" nos pinos SDIO and SCLK (pode usar um resistor entre 2,2K e  10K).__ Isso não está mostrado no esquema a seguir.
 
 ![schematic](./extras/images/SI4844_SILICON_LABS1.png)
 __Fonte: Silicon Labs (Si4840/44-A10)__
