@@ -218,7 +218,6 @@ The code below show that.
 
 ```cpp
 #include <SI4844.h>
-#include <Wire.h>
 
 // Arduino Pin (tested on pro mini)
 #define INTERRUPT_PIN 2

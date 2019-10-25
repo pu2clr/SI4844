@@ -214,7 +214,6 @@ A Biblioteca SI4844 foi desenvolvida em C++.  Para utilizá-la, inclua o arquivo
 ```cpp
 // 
 #include <SI4844.h>   
-#include <Wire.h>
 
 // Arduino Pin (tested on pro mini)
 #define INTERRUPT_PIN 2
