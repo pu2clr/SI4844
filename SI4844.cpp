@@ -233,6 +233,7 @@ void SI4844::setVolume(byte volumeLavel) {
 
 /*
  * Set the sound volume level, bass and treble. 
+ * See Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 29, 35, 65 and 67
  * @param byte bass and treble (domain: 0 to 8)
  *      0 -Bass boost +4 (max)
  *      1- Bass boost +3
@@ -246,12 +247,12 @@ void SI4844::setVolume(byte volumeLavel) {
 void SI4844::setBassTreble(byte bass_treble) {
     waitToSend();
     Wire.beginTransmission(SI4844_ADDRESS);
-    Wire.write(0x00);
-    Wire.write(SET_PROPERTY);
-    Wire.write(0x40); // RX_BASS_TREBLE = 0x4002
+    Wire.write(0x00);           // ARG1 - Always  0.
+    Wire.write(SET_PROPERTY);   
+    Wire.write(0x40);           // RX_BASS_TREBLE = 0x4002
     Wire.write(0x02);
-    Wire.write(0x00);           // most significant byte
-    Wire.write(bass_treble);    // BASSTREBLE[4:0]
+    Wire.write(0x00);           // ARG4
+    Wire.write(bass_treble);    // ARG5 BASSTREBLE[4:0]
     Wire.endTransmission();
     delayMicroseconds(2500);
 }
@@ -356,6 +357,8 @@ void SI4844::setAudioMute(bool on)
     else 
         audioMute(0);    
 }
+
+
 
 /*
  * Get tune freq, band, and others information, status of the device.
