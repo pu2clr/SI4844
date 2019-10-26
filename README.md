@@ -213,11 +213,11 @@ It was a bit hard to solder the Si4844 on adapter. However, by using a electroni
 
 ## Playing with Arduino UNO or Pro Mini 5v and SI4844
 
- During my tests, I tried to work with regular voltage level converter also known as logic level converter. However, I had no success with these devices due to I2C communication.
+ During my tests, I tried to work with regular voltage level converter also known as logic level converter. However, I had no success with these devices due to I2C communication incompatibility .
 
  Some device that I tried to use can be seen below. 
 
- To make the Arduino 5V play with SI4844 I used the TCA9548A. It is an I2C Multiplexer Breakout Board 8 Channel Expansion Board. 
+ To make the Arduino 5V play with SI4844 I used the __TCA9548A__. It is an I2C Multiplexer Breakout Board 8 Channel Expansion Board. 
 
 1. 1-to-8 Bidirectional Translating Switches 
 2. I2C Bus and SMBus Compatible
@@ -233,7 +233,7 @@ It was a bit hard to solder the Si4844 on adapter. However, by using a electroni
 12. 5-V Tolerant Inputs
 13. 0- to 400-kHz Clock Frequency
     
-
+The final solution in my experiment was using the __TCA9548A__ and regular level converter to RESET and INTERRUPR pins.  
 
 
 
