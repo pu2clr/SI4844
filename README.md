@@ -126,7 +126,7 @@ This library has been written for the Arduino platform and has been successfully
 
 ### Arduino 5V and Si4844
 
-The SI4844 device  works with  +3.3V only. If you are not using a +3.3V version of Arduino, you have to use a kind of converter. I have tested with success the SI4844 with an Arduino working on 5V using the I2C Multiplexer TCA9548A. However, during my attempts, just using a regular bidirectional voltage converter was not enough. I mean, It has not worked  properly due to I2C communication requirement (I guess). So I have used the TCA9548A as a I2C bidirectional converter and a regular voltage converter to the digital pins, RESET and INTERRUPT.   
+The SI4844 device  works with  +3.3V only. If you are not using a +3.3V version of Arduino, you have to use a kind of converter. I have tested it with success the SI4844 with an Arduino working on 5V using the I2C Multiplexer TCA9548A. However, during my attempts, just using a regular bidirectional voltage converter was not enough. I mean, It has not worked  properly due to I2C communication requirement (I guess). So I have used the TCA9548A as a I2C bidirectional converter and a regular voltage converter to the digital pins, RESET and INTERRUPT.   
 
 See that approach [here](https://github.com/pu2clr/SI4844/tree/master/extras/5V_to_3V3_CONVERTER). 
 
