@@ -5,7 +5,11 @@
 
 This is a Arduino library for the SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER,  IC from Silicon Labs.  It is available on Arduino IDE. This library is intended to provide an easier interface for controlling the SI4844.
 
-__The SI4844 is a +3.3V part. If you are not using a +3.3V version of Arduino, you have to use a kind of 5V to 3.3V converter.__ See [I2C bi-directional level shifter](https://playground.arduino.cc/Main/I2CBi-directionalLevelShifter/) for more details.
+__The SI4844 is a +3.3V part. If you are not using a +3.3V version of Arduino, you have to use a kind of 5V to 3.3V converter.__ 
+
+
+See [I2C bi-directional level shifter](https://playground.arduino.cc/Main/I2CBi-directionalLevelShifter/) for more details.
+
 
 By Ricardo Lima Caratti, Oct 2019. 
 
@@ -120,7 +124,9 @@ You can also download this library or old version of it via this repository or v
 
 This library has been written for the Arduino platform and has been successfully tested on Pro Mini. I beleave it will work on any other Arduino with I2C support.
 
-The SI4844 device  works with  +3.3V only. If you are not using a +3.3 V version of Arduino, you have to use a kind of converter. I have not tested with success the SI4844 with an Arduino working on 5V. If you get success with it, please, tell me. 
+The SI4844 device  works with  +3.3V only. If you are not using a +3.3 V version of Arduino, you have to use a kind of converter. I have tested with success the SI4844 with an Arduino working on 5V using the I2C Multiplexer TCA9548A. However, i my case, with just a regular bidirectional voltage converter it did not worked properly due to I2C communication requirement (I guess). So I have used the TCA9548A as a I2C bidirectional converter and a regular voltage converter to the digital pins, RESET and INTERRUPT.   
+See that approach [here](). 
+
 
 To use this labrary you need to build a radio based on SI4844 connected to Arduino. The schematic and photos below show the hardware and setup requirments for start using this library.
 
