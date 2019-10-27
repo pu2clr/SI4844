@@ -13,15 +13,15 @@ The schematic below shows that approach.
 
 
 __IMPORTANT__:
-You have to include the 3 lines code below in your sketch.
+You have to include the 3 lines code below in your sketch (setup function).
 
 ```cpp
-  Wire.beginTransmission(TCAADDR);
+  Wire.beginTransmission(0x70);
   Wire.write(1 << channel);
   Wire.endTransmission(); 
 ```
 
-where ```cpp channel``` is the port that you choose to connect the arduino to the Si4844. The schematic above show channel (port) 0.
+where __channel__ is the port that you have choosen to connect the arduino to the Si4844. The schematic above show channel (port) 0.
 
 
 
