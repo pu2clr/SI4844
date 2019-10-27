@@ -25,14 +25,14 @@ where __channel__ is the port that you have choosen to connect the arduino to th
 
 ```cpp
   Wire.beginTransmission(0x70);
-  Wire.write(0); // Yes. In this particular case just Wire.write(0). See the C/C++ "<<" for more detail.
+  Wire.write(1); // Yes. In this particular case just Wire.write(1). See the C/C++ "<<" for more detail.
   Wire.endTransmission(); 
 ```
 
 if you choose the port 7 
 ```cpp
   Wire.beginTransmission(0x70);
-  Wire.write(1 << 7); // Yes. In this particular case just Wire.write(0). See the C/C++ "<<" for more detail.
+  Wire.write(1 << 7); 
   Wire.endTransmission(); 
 ```
 
