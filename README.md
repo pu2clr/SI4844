@@ -7,7 +7,7 @@ This is a Arduino library for the SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLA
 
 __The SI4844 is a +3.3V part. If you are not using a +3.3V version of Arduino, you have to use a kind of 5V to 3.3V converter.__ See [I2C bi-directional level shifter](https://playground.arduino.cc/Main/I2CBi-directionalLevelShifter/) for more details.
 
-By Ricardo Lima Caratti, Oct, 2019. 
+By Ricardo Lima Caratti, Oct 2019. 
 
 
 ## Summary
@@ -113,7 +113,7 @@ The images below show that actions
 ![IDE 01](extras/images/ide_03.png)
 
 
-You can also download this library or old version of it via this repositoty or via [Arduino Library List](https://www.arduinolibraries.info/libraries/pu2-clr-si4844).
+You can also download this library or old version of it via this repository or via [Arduino Library List](https://www.arduinolibraries.info/libraries/pu2-clr-si4844).
 
 
 ## Hardware Requirements and Setup
@@ -163,7 +163,7 @@ The table below is based on [Raymond Genovese, May 26, 2016 - How to Build an Ar
 
 |Part	| Description |
 |-------| ------------ |
-|(*1) B1 	| ferrite bead 2.5 kOhm (100 mHz) B1, ferrite bead 2.5 kOhm (100 mHz), 81-BLM18BD252SZ1D |
+|(*1) B1 	| ferrite bead 2.5 kOhm (100 mHz) B1, ferrite bead 2.5 kOhm (100 MHz), 81-BLM18BD252SZ1D |
 |C1,C2,C5 |	4.7uF non polarized capacitor |
 |C3,C4 |	22pF non polarized capacitor |
 |C6,C7,C9 |	.1uf non polarized capacitor |
@@ -242,7 +242,7 @@ The final solution in my experiment was using the __TCA9548A__ and regular level
 
 
 This labrary was developed in C++.  To use it, you must declare in your Sketch a variable of the class SI4844.
-The code below show that. 
+The code below shows that. 
 
 ```cpp
 #include <SI4844.h>
@@ -426,7 +426,7 @@ Example:
 ```cpp
 /* 
  * This method allows you to customize the frequency range of a band.
- * The SI4844 can work from 2.3–28.5 MHz on SW, 64.0–109.0MHz on FM
+ * The SI4844 can work from 2.3–28.5 MHz on SW, 64.0–109.0 MHz on FM
  * You can configure the band index 40, for example, to work between 27 to 28 MHz.
  * See Si48XX ATDD PROGRAMMING GUIDE, pages 17, 18, 19 and 20.
  * 
@@ -887,7 +887,7 @@ The [SI4844_POC.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI484
 
 ### Extended SW band frequency ranges from 2.3–5.6 MHz and 22–28.5 MHz 
 
-The sketch [SI4844_CUSTOM_BAND.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_CUSTOM_BAND/SI4844_CUSTOM_BAND.ino) show how to extend a SW band frequency ranges. You can define band from from 2.3–5.6 MHz and 22–28.5 MHz. 
+The sketch [SI4844_CUSTOM_BAND.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_CUSTOM_BAND/SI4844_CUSTOM_BAND.ino) shows how to extend a SW band frequency ranges. You can define band from from 2.3–5.6 MHz and 22–28.5 MHz. 
 
 
 ## SI4844 with OLED and buttons
