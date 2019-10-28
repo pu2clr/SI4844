@@ -16,9 +16,10 @@ Por Ricardo Lima Caratti / PU2CLR, Outubro de 2019.
 4. [Características da Biblioteca](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#caracter%C3%ADsticas-da-biblioteca)
 5. [Instalação da Biblioteca](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#instala%C3%A7%C3%A3o-da-biblioteca)
 6. [Requisitos de Hardware e Configuração](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#requisitos-de-hardware-e-configura%C3%A7%C3%A3o)
-   1. [Esquema](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#esquema)
-   2. [Componentes](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#componentes)
-   3. [Fotos](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#fotos)
+   1. [Arduino 5V e o SI4844](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#arduino-5v-e-o-si4844)
+   2. [Esquema](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#esquema)
+   3. [Componentes](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#componentes)
+   4. [Fotos](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#fotos)
 7. [Um exemplo usando esta Biblioteca Arduino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_POC/SI4844_POC.ino)
 8. [Documentação da API](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#documenta%C3%A7%C3%A3o-da-api)
    1. [Estruturas e Tipos Definidos de Dados](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#estruturas-e-tipos-definidos-de-dados)
@@ -57,7 +58,7 @@ Por Ricardo Lima Caratti / PU2CLR, Outubro de 2019.
       * [getFirmwareComponentMajorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentmajorrevision)
       * [getFirmwareComponentMinorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentminorrevision)
       * [getFirmwareChipRevision](https://github.com/pu2clr/SI4844#getfirmwarechiprevision) 
-9. [Referências]()
+9.  [Referências]()
 10. [Vídeos]() 
 
 
