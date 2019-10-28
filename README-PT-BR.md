@@ -82,7 +82,7 @@ Conheça mais sobre a arquitetura do SI4844 na publicação da Silicon Labs [BRO
 |IDE   |Ambiente integrado de Desenvolvimento (do Inglês: Integrated Development Environment)|      
 |Sketch|Um nome utilizado pelo ambiente Arduino para um programa. Basicamente é o arquivo principal de um programa Arduino|
 |ATDD  | Do Inglês, Analog Tune Digital Display. O termo ATDD é usado para se referir ao dispositivo (CI) SI4844 |
-|interrupt (interrupção| No contexto deste documento, uma interrupção é um recurso do Arduino que permite a execução de tarefas importantes independentemente do fluxo de execução corrente do seu programa |
+|interrupt (interrupção)| No contexto deste documento, uma interrupção é um recurso do Arduino que permite a execução de tarefas importantes independentemente do fluxo de execução corrente do seu programa |
 |C++| É uma linguagem de programação orientada a objetos. Pode ser entendida como uma extensão da linguagem C que permite o desenvolvimento de programas e bibliotecas usando a abordagem Orientada a Objetos.  |
 |Guia de Programação| Se refere ao manual da Silicon Labs [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)|
 |POC| Do Inglês, Proof of Concept ou em Português, Prova de Conceito. Trata-se de uma abordagem para avaliar um dado produto, modelo ou ideia |
@@ -116,7 +116,16 @@ As imagens a seguir ilustram esta ação.
 
 ## Requisitos de Hardware e Configuração
 
-Conforme dito anteriormente, esta biblioteca foi escrita para a Plataforma Arduino e foi testada com sucesso no Arduino Pro Mini. Acredito que ela também funcionará em outras placas Arduino diferentes do Pro Mini. Contudo, é importante ressaltar que o dispositivo SI4844 opera com +3.3V. Se você não estiver usando uma versão Arduino de 3.3 V, será necessário o uso de um conversor de 5V para 3.3V.
+Conforme dito anteriormente, esta biblioteca foi escrita para a Plataforma Arduino e foi testada com sucesso no Arduino Pro Mini 3.3V 8MHZ.  
+
+### Arduino 5V e o SI4844
+
+O dispositivo SI4844 trabalha com +3.3V. Se você não estiver usando uma versão do Arduino Pro Mini de 3.3V, recomendo utilizar uma abordagem de conversão de nível de tensão.  Eu testei alguns conversores bidirecionais de tensão vendidos no eBay e não tive sucesso. Creio que devido a comunicação I2C. Como __solução__, utilizei um multiplexador  I2C, o __TCA9548A__, que além da função de multiplexador, também permite a conversão de nível de tensão no barramento I2C. Com o __TCA9548A__, consegui fazer o Arduino UNO se comunicar com o SI4844. Para os pinos de RESET e o de Interrupção, utilizei um conversor de nível de tensão adquirido na SparkFun. 
+
+É importante ressaltar que usei os componentes que tinha em minhas mão. Creio que com componentes mais adequados, essa solução poderá ser bem mais simples. [Veja a minha abordagem clicando aqui.](https://github.com/pu2clr/SI4844/tree/master/extras/5V_to_3V3_CONVERTER).  
+
+
+###  Montagem do protótipo do rádio 
 
 Por fim, para usar esta biblioteca, é necessário construir um rádio baseado no SI4844. 
 Os esquemas e fotos a seguir mostram como construir um rádio simples baseado no SI4844. 
