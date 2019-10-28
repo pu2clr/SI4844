@@ -31,8 +31,8 @@ Por Ricardo Lima Caratti / PU2CLR, Outubro de 2019.
       * [setCustomBand](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setband)
       * [changeVolume](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#changevolume)
       * [setVolume](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setvolume)
-      * [setVolumeUp](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setvolumeup)
-      * [setVolumeDown](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setvolumedown)
+      * [volumeUp](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#volumeup)
+      * [volumeDown](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#volumedown)
       * [setAudioMode](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setaudiomode)
       * [setAudioMute](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setaudiomute)
       * [getStatus](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#getstatus)
@@ -484,7 +484,7 @@ void SI4844::volumeUp()
 
 Example:
 ```cpp 
-  si4844.setVolumeUp();
+  si4844.volumeUp();
 ```
 
 
@@ -500,7 +500,7 @@ void SI4844::volumeDown()
 
 Example:
 ```cpp 
-  si4844.setVolumeDown();
+  si4844.volumeDown();
 ```
 
 
