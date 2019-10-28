@@ -35,6 +35,8 @@ By Ricardo Lima Caratti, Oct 2019.
       * [setCustomBand](https://github.com/pu2clr/SI4844#setCustomBand)
       * [changeVolume](https://github.com/pu2clr/SI4844#changevolume)
       * [setVolume](https://github.com/pu2clr/SI4844#setvolume)
+      * [setVolumeUp](https://github.com/pu2clr/SI4844#setvolumeup)
+      * [setVolumeDown](https://github.com/pu2clr/SI4844#setvolumedown)
       * [setAudioMode](https://github.com/pu2clr/SI4844#setaudiomode)
       * [setAudioMute](https://github.com/pu2clr/SI4844#setaudiomute)
       * [getStatus](https://github.com/pu2clr/SI4844#getstatus)
@@ -482,8 +484,6 @@ Example:
   si4844.changeVolume('+'); 
 ```
 
-
-
 #### setVolume
 
 ```cpp
@@ -498,6 +498,38 @@ Example:
 ```cpp 
   si4844.setVolume(55);
 ```
+
+### volumeUp
+
+```cpp
+/*
+ *  Set sound volume level Up   
+ *  
+ */
+void SI4844::volumeUp()
+```
+
+Example:
+```cpp 
+  si4844.setVolumeUp();
+```
+
+
+### volumeDown
+
+```cpp
+/*
+ *  Set sound volume level Down   
+ *  
+ */
+void SI4844::volumeDown()
+```
+
+Example:
+```cpp 
+  si4844.setVolumeDown();
+```
+
 
 ### setAudioMode
 

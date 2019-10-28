@@ -31,6 +31,8 @@ Por Ricardo Lima Caratti / PU2CLR, Outubro de 2019.
       * [setCustomBand](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setband)
       * [changeVolume](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#changevolume)
       * [setVolume](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setvolume)
+      * [setVolumeUp](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setvolumeup)
+      * [setVolumeDown](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setvolumedown)
       * [setAudioMode](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setaudiomode)
       * [setAudioMute](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setaudiomute)
       * [getStatus](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#getstatus)
@@ -469,6 +471,38 @@ Exemple:
 ```cpp 
   si4844.setVolume(55);
 ```
+
+### volumeUp
+
+```cpp
+/*
+ *  Aumenta o voume do rádio  
+ *  
+ */
+void SI4844::volumeUp()
+```
+
+Example:
+```cpp 
+  si4844.setVolumeUp();
+```
+
+
+### volumeDown
+
+```cpp
+/*
+ *  Diminiu o volume do rádio
+ *  
+ */
+void SI4844::volumeDown()
+```
+
+Example:
+```cpp 
+  si4844.setVolumeDown();
+```
+
 
 
 ### setAudioMode
