@@ -37,5 +37,19 @@ if you choose the port 7
 ```
 
 
+## References
+
+* [TCA9548ALow-Voltage8-ChannelI2C Switchwith Reset](http://www.ti.com/lit/ds/symlink/tca9548a.pdf)
+* [TCA9548A Wiring & Test](https://learn.adafruit.com/adafruit-tca9548a-1-to-8-i2c-multiplexer-breakout/wiring-and-test)
+* [Adafruit TCA9548A 1-to-8 I2C Multiplexer Breakout](https://learn.adafruit.com/adafruit-tca9548a-1-to-8-i2c-multiplexer-breakout)
+  
+  
+
+## Video about TCA9548A
+
+* [TCA9548A I2C Multiplexer Module - With Arduino and NodeMCU](https://www.youtube.com/watch?v=XWQsqPQOW-U)
+* [TCA9548A I2C MULTIPLEXER (& Voltage Shifter)](https://www.youtube.com/watch?v=LowMKYcBxNg)
+  
+
 
 
