@@ -5,7 +5,7 @@ Esta é uma biblioteca para o SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM
 __É importante ressaltar que o dispositivo SI4844 opera com +3.3V. Se você pretende usar uma versão do Arduino de 5V, será necessário o uso de um conversor de 5V para 3.3V.__ Veja [Making the Si4844 works with 5V Arduino UNO or similar](https://github.com/pu2clr/SI4844/tree/master/extras/5V_to_3V3_CONVERTER) 
 
 
-Há alguns [exemplos](https://github.com/pu2clr/SI4844/tree/master/examples) nesta biblioteca que poderão auxiliá-lo na construção de seu projeto. Com estes exemplos, é possível executar as principais funções do Si4844 via o Monitor Serial (Serial Monitor) do ambiente de desenvolvimento do Arduino (IDE).
+Há alguns [exemplos](https://github.com/pu2clr/SI4844/tree/master/Exemplos) nesta biblioteca que poderão auxiliá-lo na construção de seu projeto. Com estes exemplos, é possível executar as principais funções do Si4844 via o Monitor Serial (Serial Monitor) do ambiente de desenvolvimento do Arduino (IDE).
 
 Por Ricardo Lima Caratti / PU2CLR, Outubro de 2019. 
 
@@ -20,7 +20,7 @@ Por Ricardo Lima Caratti / PU2CLR, Outubro de 2019.
    2. [Esquema](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#esquema)
    3. [Componentes](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#componentes)
    4. [Fotos](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#fotos)
-7. [Um exemplo usando esta Biblioteca Arduino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_POC/SI4844_POC.ino)
+7. [Um exemplo usando esta Biblioteca Arduino](https://github.com/pu2clr/SI4844/blob/master/Exemplos/SI4844_POC/SI4844_POC.ino)
 8. [Documentação da API](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#documenta%C3%A7%C3%A3o-da-api)
    1. [Estruturas e Tipos Definidos de Dados](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#estruturas-e-tipos-definidos-de-dados)
    2. [Métodos Públicos](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#public-methods)
@@ -265,7 +265,7 @@ void loop() {
 ```
 
 
-Veja um exemplo compreto em  [Proof of Concept for SI4844 Arduino Library](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_POC). 
+Veja um exemplo compreto em  [Proof of Concept for SI4844 Arduino Library](https://github.com/pu2clr/SI4844/tree/master/Exemplos/SI4844_POC). 
 
 
 ### Estruturas e Tipos Definidos de Dados
@@ -355,7 +355,7 @@ typedef union {
 */
 void SI4844::setup(unsigned int, unsigned int, byte)
 ```
-Example:
+Exemplo:
 ```cpp
   si4844.setup(12, 2, 4);
 ```
@@ -385,7 +385,7 @@ void SI4844::setup() {
  */
 void SI4844::reset(void )
 ```
-Example:
+Exemplo:
 ```cpp
   si4844.reset();
 ```
@@ -412,7 +412,7 @@ void SI4844::powerDown(void)
 void SI4844::setBand(byte);
 ```
 
-Example:
+Exemplo:
 ```cpp
   si4844.setBand(4); // FM
 ```
@@ -425,7 +425,7 @@ Example:
 /* 
  * This method allows you to customize the frequency range of a band.
  * The SI4844 can work from 2.3–28.5 MHz on SW, 64.0–109.0MHz on FM
- * You can configure the band index 40, for example, to work between 27 to 28 MHz.
+ * You can configure the band index 40, for Exemplo, to work between 27 to 28 MHz.
  * See Si48XX ATDD PROGRAMMING GUIDE, pages 17, 18, 19 and 20.
  * 
  * (top – button)/(bandSpace) must be betwenn 50 and 230
@@ -451,7 +451,7 @@ void SI4844::setCustomBand(byte, unsigned, unsigned, byte )
 void SI4844::changeVolume(char);
 ```
 
-Example:
+Exemplo:
 ```cpp
   si4844.changeVolume('+'); 
 ```
@@ -482,7 +482,7 @@ Exemple:
 void SI4844::volumeUp()
 ```
 
-Example:
+Exemplo:
 ```cpp 
   si4844.volumeUp();
 ```
@@ -498,7 +498,7 @@ Example:
 void SI4844::volumeDown()
 ```
 
-Example:
+Exemplo:
 ```cpp 
   si4844.volumeDown();
 ```
@@ -525,7 +525,7 @@ Example:
 void setAudioMode(byte opcode, byte attenuation )
 ```
 
-Example:
+Exemplo:
 ```cpp 
   si4844.setAudioMode(1,1);
 ```
@@ -561,7 +561,7 @@ void setAudioMute(bool on)
 void setBassTreeble(byte bass_treeble) {
 ```
 
-Example:
+Exemplo:
 ```cpp 
   si4844.setBassTreeble(2);
 ```
@@ -787,7 +787,7 @@ inline unsigned SI4844::getFirmwareCTS()
  */ 
 inline unsigned SI4844::getFirmwarePartNumber() 
 ```
-__See example below__
+__See Exemplo below__
 
 
 #### getFirmwareMajorRevision
@@ -798,7 +798,7 @@ __See example below__
  */ 
 inline unsigned SI4844::getFirmwareMajorRevision() 
 ```
-__See example below__
+__See Exemplo below__
 
 
 #### getFirmwareMinorRevision
@@ -809,7 +809,7 @@ __See example below__
  */
 inline unsigned SI4844::getFirmwareMinorRevision() 
 ```
-__See example below__
+__See Exemplo below__
 
 
 #### getFirmwareComponentMajorRevision
@@ -820,7 +820,7 @@ __See example below__
  */ 
 inline unsigned SI4844::getFirmwareComponentMajorRevision() 
 ```
-__See example below__
+__See Exemplo below__
 
 
 #### getFirmwareComponentMinorRevision
@@ -831,7 +831,7 @@ __See example below__
  */
 inline unsigned getFirmwareComponentMinorRevision() 
 ```
-__See example below__
+__See Exemplo below__
 
 
 #### getFirmwareChipRevision
@@ -868,30 +868,30 @@ Exemplo:
 
 ## Exemplos
 
-Na [pasta examples](https://github.com/pu2clr/SI4844/tree/master/examples) você encontrará alguns sketches que podem ser úteis para o seus projetos.
+Na [pasta Exemplos](https://github.com/pu2clr/SI4844/tree/master/Exemplos) você encontrará alguns sketches que podem ser úteis para o seus projetos.
 
 ### Informações do Firmware 
 
-O sketch [SI4844_FIRMWARE.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_FIRMWARE/SI4844_FIRMWARE.ino) inicia o rádio no modo FM e apresenta as informações do Firmware.
+O sketch [SI4844_FIRMWARE.ino](https://github.com/pu2clr/SI4844/blob/master/Exemplos/SI4844_FIRMWARE/SI4844_FIRMWARE.ino) inicia o rádio no modo FM e apresenta as informações do Firmware.
 
 ### Um rádio mínimo com o SI4844
 
-O sketch [SI4844_MINIMAL.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_MINIMAL/SI4844_MINIMAL.ino) tem somente 35 linhas é pode ser usando como base para o seu projeto.  
+O sketch [SI4844_MINIMAL.ino](https://github.com/pu2clr/SI4844/blob/master/Exemplos/SI4844_MINIMAL/SI4844_MINIMAL.ino) tem somente 35 linhas é pode ser usando como base para o seu projeto.  
 
 
 ### Prova de Conceito
 
-O sketch [SI4844_POC.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_POC/SI4844_POC.ino) é uma prova de conceito do uso da biblioteca Arduino. Apresenta mais funcionalidades que os exemplos anteriores. 
+O sketch [SI4844_POC.ino](https://github.com/pu2clr/SI4844/blob/master/Exemplos/SI4844_POC/SI4844_POC.ino) é uma prova de conceito do uso da biblioteca Arduino. Apresenta mais funcionalidades que os exemplos anteriores. 
 
 
 ### Extended SW band frequency ranges from 2.3–5.6 MHz and 22–28.5 MHz 
 
-O sketch [SI4844_CUSTOM_BAND.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_CUSTOM_BAND/SI4844_CUSTOM_BAND.ino) mostra como criar uma banda personalizada, não definida previamente na tabela de bandas do SI4844.
+O sketch [SI4844_CUSTOM_BAND.ino](https://github.com/pu2clr/SI4844/blob/master/Exemplos/SI4844_CUSTOM_BAND/SI4844_CUSTOM_BAND.ino) mostra como criar uma banda personalizada, não definida previamente na tabela de bandas do SI4844.
 
 
 ## SI4844 com OLED
 
-O sketch [SI4844_OLED.ino](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_OLED) apresenta u exemplo de uso da biblioteca com um display OLED I2C.
+O sketch [SI4844_OLED.ino](https://github.com/pu2clr/SI4844/tree/master/Exemplos/SI4844_OLED) apresenta u exemplo de uso da biblioteca com um display OLED I2C.
 
 O esquema a seguir mostra como inserir um display OLED e 4 botões no esquema original.
 Com isso, é possível alterar a banda bem como ajustar o volume. 
@@ -901,7 +901,7 @@ Com isso, é possível alterar a banda bem como ajustar o volume.
 
 ## Controle do Som
 
-The sketch [SI4844_BASS_TREBLE.ino](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_BASS_TREBLE) shows how to use sound control (treble, bass, mute etc).
+The sketch [SI4844_BASS_TREBLE.ino](https://github.com/pu2clr/SI4844/tree/master/Exemplos/SI4844_BASS_TREBLE) shows how to use sound control (treble, bass, mute etc).
 
 
 ## Referências
