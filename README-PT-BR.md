@@ -1,13 +1,13 @@
 # Biblioteca Arduino para o Si4844 
 
-Esta é uma bibnlioteca para o SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER, uma Circuito Integrado fabricado pela Silicon Labs. É especialmente destinada aos interessados em controlar este dispositivo via o ambiente de desenvolvimento Arduino. 
+Esta é uma biblioteca para o SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER, uma Circuito Integrado fabricado pela Silicon Labs. É especialmente destinada aos interessados em controlar este dispositivo via o ambiente de desenvolvimento Arduino. 
 
 __É importante ressaltar que o dispositivo SI4844 opera com +3.3V. Se você pretende usar uma versão do Arduino de 5V, será necessário o uso de um conversor de 5V para 3.3V.__ Veja [I2C bi-directional level shifter](https://playground.arduino.cc/Main/I2CBi-directionalLevelShifter/) para mais detalhes. 
 
 
 Há alguns [exemplos](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_POC/SI4844_POC.ino) nesta biblioteca que poderão auxiliá-lo na construção de seu projeto. Com estes exemplos, é possível executar as principais funções do Si4844 via o Monitor Serial (Serial Monitor) do ambiente de desenvolvimento do Arduino (IDE).
 
-Por Ricardo Lima Caratti / PU2CLR, Outunro de 2019. 
+Por Ricardo Lima Caratti / PU2CLR, Outubro de 2019. 
 
 ## Sumário
 1. [Seu suporte é importante](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#seu-suporte-%C3%A9-importante)
@@ -63,11 +63,11 @@ Por Ricardo Lima Caratti / PU2CLR, Outunro de 2019.
 
 ## Seu suporte é importante
 
-Se você tem interesse em fornecer suporte de desenvolvimento a esta biblioteca, junte-se à este projeto via Github. Se preferir, faça sugestões sobre funcionalidades que você gostaria que estivesse disponível nesta biblioteca. 
+Se você tem interesse em fornecer suporte de desenvolvimento a esta biblioteca, junte-se a este projeto via Github. Se preferir, faça sugestões sobre funcionalidades que você gostaria que estivesse disponível nesta biblioteca. 
 
 ## Sobre a Arquitetura do SI4844 
 
-O SI4844 um rádio receptor AM/FM/OC. Ele possui um Sintonizador Analógico que permite a seleção de estações por meio de um potenciômetro (resistor variável). O SI4844 permite também a execução de comandos enviados via um microcontrolador para executar tarefas como: mudança de banda, volume, obter a frequência corrente para ser exibida em display entre outras. Há várias informações importante que podem ser de interesse para um projetista de rádio e que pode ser obtida por meio desta biblioteca para o Arduino. 
+O SI4844 um rádio receptor AM/FM/OC. Ele possui um Sintonizador Analógico que permite a seleção de estações por meio de um potenciômetro (resistor variável). O SI4844 permite também a execução de comandos enviados via um microcontrolador para executar tarefas como: mudança de banda, volume, obter a frequência corrente para ser exibida em display entre outras. Há várias informações importantes que podem ser de interesse para um projetista de rádio e que pode ser obtida por meio desta biblioteca para o Arduino. 
     
 
 Conheça mais sobre a arquitetura do SI4844 na publicação da Silicon Labs [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf) 
@@ -78,7 +78,7 @@ Conheça mais sobre a arquitetura do SI4844 na publicação da Silicon Labs [BRO
 
 | Termo | Descrição  |
 |------|--------|
-| Bibliotecas Arduino | Se referem a arquivos escritos em C or C++ (.c, .cpp) capazes de fornecer funcionalidades extras aos seu Sketch Arduino. Neste contexto, a Biblioteca para o SI4844  fornece funcionalidades extras para controlar um rádio baseado no SI4844 | 
+| Bibliotecas Arduino | Se referem a arquivos escritos em C or C++ (.c, .cpp) capazes de fornecer funcionalidades extras aos seus Sketches Arduino. Neste contexto, a Biblioteca para o SI4844  fornece funcionalidades extras para controlar um rádio baseado no SI4844 | 
 |IDE   |Ambiente integrado de Desenvolvimento (do Inglês: Integrated Development Environment)|      
 |Sketch|Um nome utilizado pelo ambiente Arduino para um programa. Basicamente é o arquivo principal de um programa Arduino|
 |ATDD  | Do Inglês, Analog Tune Digital Display. O termo ATDD é usado para se referir ao dispositivo (CI) SI4844 |
@@ -93,7 +93,7 @@ Conheça mais sobre a arquitetura do SI4844 na publicação da Silicon Labs [BRO
 1. Open Source (Código Aberto)
 2. Totalmente construída baseada no [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)
 3. Mais de 30 funções (métodos) implementadas
-4. Definição de banda e faixas de frequências personalizada para OC (2.3–5.6 MHz e 22–28.5 MHz )
+4. Definição de banda e faixas de frequências personalizada para OC (2.3–5.6 MHz e 22–28.5 MHz)
 5. Linguagem C++ e Programação Orientada a Objetos
 6. Disponível no ambiente de desenvolvimento do Arduino (IDE)
 7. Simplifica projetos baseados no SI4844
@@ -102,9 +102,9 @@ Conheça mais sobre a arquitetura do SI4844 na publicação da Silicon Labs [BRO
 
 ## Instalação da Biblioteca
 
-É possível Instalar esta biblioteca em seu Ambienbte usando o proprio Gerenciador de Bibliotecas do Arduino. Para tanto, selecione a opção de menu __Sketch__ -> __Incluir Biblioteca__ -> Gerenciar Biblioteca. Por fim tecle na caixa de busca o texto PU2CLR Si4844.
+É possível Instalar esta biblioteca em seu Ambiente usando o próprio Gerenciador de Bibliotecas do Arduino. Para tanto, selecione a opção de menu __Sketch__ -> __Incluir Biblioteca__ -> Gerenciar Biblioteca. Por fim tecle na caixa de busca o texto PU2CLR Si4844.
 
-The images below show that actions
+As imagens a seguir ilustram esta ação.
 
 ![IDE 01](extras/images/idebr_01.png)
 
@@ -123,7 +123,7 @@ Os esquemas e fotos a seguir mostram como construir um rádio simples baseado no
 
 ### Esquema
 
-Note no esquema proposta a seguir, que o Amplificador de sinal não é necessário para elaboração de um teste. Esta parte do circúito está destacada em vermelho. 
+Note no esquema proposta a seguir, que o Amplificador de sinal não é necessário para elaboração de um teste. Esta parte do circuito está destacada em vermelho. 
 
 ![schematic](./extras/images/SI4844_POC_01.png)
 __Fonte:__ [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/)
@@ -175,8 +175,8 @@ A tabela a seguir é baseada na publicação de [Raymond Genovese, May 26, 2016 
 |(*1) R6	| 120K |
 |R8	| 100 Ohms |
 |L1	| 270 nH Indutor (0,270 uH) |
-|VR1 |	100K Poteciômetro Linear |
-|Y1	| 32.768 kHz crital |
+|VR1 |	100K Potenciômetro Linear |
+|Y1	| cristal de 32.768 kHz |
 |ANT1 |	Antena de ferrite |
 |ANT2 | Antena telescópica |
 
