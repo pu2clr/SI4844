@@ -1,6 +1,6 @@
 # Making the Si4844 works with 5V Arduino UNO or similar
 
-The SI4844 device works with  +3.3V only. If you are not using a +3.3V version of Arduino, you have to use a kind of converter. I have tested it with success the SI4844 with 5V Arduino using the I2C Multiplexer TCA9548A. However, during my attempts, just using a regular bidirectional voltage converter was not enough. I mean, It has not worked  properly due to I2C communication requirement (I guess). So I have used the TCA9548A as a I2C bidirectional converter and a regular voltage converter to the digital pins, RESET and INTERRUPT. If you follow the idea of the schematic below you will get success.   
+The SI4844 device works with  +3.3V only. If you are not using a +3.3V version of Arduino, you have to use a kind of converter. I have tested it with success by using the I2C Multiplexer TCA9548A and Arduino UNO. However, during my attempts, just using a regular bidirectional voltage converter was not enough. I mean, It has not worked  properly due to I2C communication requirement (I guess). So I have used the TCA9548A as a I2C bidirectional converter and a regular voltage converter to the digital pins, RESET and INTERRUPT. If you follow the idea of the schematic below you will get success.   
 
 
 __I used what I had in my hands. However, I think there are other kind of components or methods that can be better than my approach__. 
