@@ -35,7 +35,8 @@ if you choose the port 7
   Wire.endTransmission(); 
 ```
 
-The table below show the possibilities to select an I2C channel on TCA9548A.
+
+#### The table below show the possibilities to select an I2C channel on TCA9548A.
 
 | channel / port | byte to send |  
 | ---------------| ---- | 
