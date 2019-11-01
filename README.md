@@ -10,6 +10,7 @@ By Ricardo Lima Caratti, Oct 2019.
 
 
 ## Summary
+
 1. [Your support is important](https://github.com/pu2clr/SI4844#your-support-is-important)
 2. [About the SI4844 Architecture](https://github.com/pu2clr/SI4844#about-the-si4844-architecture)
 3. [Terminology](https://github.com/pu2clr/SI4844#terminology)
