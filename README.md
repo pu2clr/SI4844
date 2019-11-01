@@ -6,7 +6,6 @@ This is a Arduino library for the SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLA
 
 __The SI4844 is a +3.3V part. If you are not using a +3.3V version of Arduino, you have to use a kind of 5V to 3.3V converter.__ See [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup).
 
-
 By Ricardo Lima Caratti, Oct 2019. 
 
 
@@ -121,6 +120,7 @@ You can also download this library or old version of it via this repository or v
 ## Hardware Requirements and Setup
 
 This library has been written for the Arduino platform and has been successfully tested on Pro Mini. I beleave it will work on any other Arduino with I2C support.
+
 
 ### Arduino 5V and Si4844
 
@@ -245,7 +245,6 @@ The final solution in my experiment was using the __TCA9548A__ and regular level
 
 
 
-
 ## API Documentation
 
 
@@ -272,7 +271,6 @@ void setup() {
 }
 
 void loop() {
-
 
   // if something changed on ATDD (SI4844), do something  
   if (si4844.hasStatusChanged())
@@ -905,6 +903,8 @@ Example:
 3. [Si4822/26/27/40/44 ANTENNA, SCHEMATIC, LAYOUT, AND DESIGN GUIDELINES](https://www.silabs.com/documents/public/application-notes/AN602.pdf)
 4. [How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/)
 5. [I2C bi-directional level shifter](https://playground.arduino.cc/Main/I2CBi-directionalLevelShifter/)
+6. [Making the Si4844 works with 5V Arduino UNO or similar](https://github.com/pu2clr/SI4844/tree/master/extras/5V_to_3V3_CONVERTER)
+
 
 
 
@@ -915,6 +915,7 @@ In [examples folder](https://github.com/pu2clr/SI4844/tree/master/examples) you 
 ### Firmware Information
 
 The [SI4844_FIRMWARE.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_FIRMWARE/SI4844_FIRMWARE.ino) start the radio on FM Band and shows the SI4844 firmware information.
+
 
 ### Minimal Radio with SI4844 (SI4844_MINIMAL)
 
