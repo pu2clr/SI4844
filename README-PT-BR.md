@@ -9,6 +9,9 @@ __ATENÇÃO__
 
 Copyright (c) [2019] [Ricardo Lima Caratti]
 
+Este Biblioteca pode ser distribuída seguindo a Licença de Software Livre do MIT. 
+
+
 
 __É importante ressaltar que o dispositivo SI4844 opera com +3.3V. Se você pretende usar uma versão do Arduino de 5V, será necessário o uso de um conversor de 5V para 3.3V.__ Veja [Making the Si4844 works with 5V Arduino UNO or similar](https://github.com/pu2clr/SI4844/tree/master/extras/5V_to_3V3_CONVERTER) 
 
