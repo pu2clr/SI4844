@@ -16,7 +16,6 @@ Há alguns [exemplos](https://github.com/pu2clr/SI4844/tree/master/Exemplos) nes
 
 
 
-
 ## Sumário
 1. [Licença de uso desta biblioteca](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#licen%C3%A7a-de-uso-desta-biblioteca)
 2. [Seu suporte é importante](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#seu-suporte-%C3%A9-importante)
