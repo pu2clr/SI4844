@@ -9,7 +9,7 @@ __ATENÇÃO__
 
 Copyright (c) [2019] [Ricardo Lima Caratti]
 
-Este Biblioteca pode ser distribuída seguindo a ]Licença de Software Livre do MIT](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#licen%C3%A7a-de-uso-desta-biblioteca). 
+Este Biblioteca pode ser distribuída seguindo a [Licença de Software Livre do MIT](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#licen%C3%A7a-de-uso-desta-biblioteca). 
 
 
 
