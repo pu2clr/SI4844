@@ -6,14 +6,14 @@ This is a Arduino library for the SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLA
 
 By Ricardo Lima Caratti, Oct 2019. 
 
-[License Copyright: MIT]() 
+[License Copyright: MIT](https://github.com/pu2clr/SI4844#mit-licence) 
 
 __The SI4844 is a +3.3V part. If you are not using a +3.3V version of Arduino, you have to use a kind of 5V to 3.3V converter.__ See [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup).
 
 
 ## Summary
 
-1. [License Copyright]()
+1. [License Copyright](https://github.com/pu2clr/SI4844#mit-licence)
 2. [Your support is important](https://github.com/pu2clr/SI4844#your-support-is-important)
 3. [About the SI4844 Architecture](https://github.com/pu2clr/SI4844#about-the-si4844-architecture)
 4. [Terminology](https://github.com/pu2clr/SI4844#terminology)
@@ -68,7 +68,7 @@ __The SI4844 is a +3.3V part. If you are not using a +3.3V version of Arduino, y
 11. [Videos](https://github.com/pu2clr/SI4844#videos) 
 
 
-## MIT Licence 
+## MIT License 
 
 Copyright (c) [2019] [Ricardo Lima Caratti]
 
