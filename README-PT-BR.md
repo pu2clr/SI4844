@@ -2,26 +2,36 @@
 
 Esta é uma biblioteca para o SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER, um Circuito Integrado fabricado pela Silicon Labs. Esta biblioteca é especialmente destinada aos interessados em controlar este dispositivo usando o a plataforma Arduino com o seu ambiente de desenvolvimento (IDE). 
 
+Por Ricardo Lima Caratti / PU2CLR, Outubro de 2019. 
+
+
+__ATENÇÃO__
+
+Copyright (c) [2019] [Ricardo Lima Caratti]
+
+
 __É importante ressaltar que o dispositivo SI4844 opera com +3.3V. Se você pretende usar uma versão do Arduino de 5V, será necessário o uso de um conversor de 5V para 3.3V.__ Veja [Making the Si4844 works with 5V Arduino UNO or similar](https://github.com/pu2clr/SI4844/tree/master/extras/5V_to_3V3_CONVERTER) 
 
 
 Há alguns [exemplos](https://github.com/pu2clr/SI4844/tree/master/Exemplos) nesta biblioteca que poderão auxiliá-lo na construção de seu projeto. Com estes exemplos, é possível executar as principais funções do Si4844 via o Monitor Serial (Serial Monitor) do ambiente de desenvolvimento do Arduino (IDE).
 
-Por Ricardo Lima Caratti / PU2CLR, Outubro de 2019. 
+
+
 
 ## Sumário
-1. [Seu suporte é importante](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#seu-suporte-%C3%A9-importante)
-2. [Sobre a Arquitetura do SI4844](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#sobre-a-arquitetura-do-si4844)
-3. [Terminologia](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#terminologia)
-4. [Características da Biblioteca](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#caracter%C3%ADsticas-da-biblioteca)
-5. [Instalação da Biblioteca](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#instala%C3%A7%C3%A3o-da-biblioteca)
-6. [Requisitos de Hardware e Configuração](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#requisitos-de-hardware-e-configura%C3%A7%C3%A3o)
+1. [Licença de uso desta biblioteca]()
+2. [Seu suporte é importante](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#seu-suporte-%C3%A9-importante)
+3. [Sobre a Arquitetura do SI4844](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#sobre-a-arquitetura-do-si4844)
+4. [Terminologia](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#terminologia)
+5. [Características da Biblioteca](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#caracter%C3%ADsticas-da-biblioteca)
+6. [Instalação da Biblioteca](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#instala%C3%A7%C3%A3o-da-biblioteca)
+7. [Requisitos de Hardware e Configuração](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#requisitos-de-hardware-e-configura%C3%A7%C3%A3o)
    1. [Arduino 5V e o SI4844](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#arduino-5v-e-o-si4844)
    2. [Esquema](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#esquema)
    3. [Componentes](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#componentes)
    4. [Fotos](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#fotos)
-7. [Um exemplo usando esta Biblioteca Arduino](https://github.com/pu2clr/SI4844/blob/master/Exemplos/SI4844_POC/SI4844_POC.ino)
-8. [Documentação da API](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#documenta%C3%A7%C3%A3o-da-api)
+8. [Um exemplo usando esta Biblioteca Arduino](https://github.com/pu2clr/SI4844/blob/master/Exemplos/SI4844_POC/SI4844_POC.ino)
+9. [Documentação da API](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#documenta%C3%A7%C3%A3o-da-api)
    1. [Estruturas e Tipos Definidos de Dados](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#estruturas-e-tipos-definidos-de-dados)
    2. [Métodos Públicos](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#public-methods)
       * [setup](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#setup)
@@ -60,8 +70,21 @@ Por Ricardo Lima Caratti / PU2CLR, Outubro de 2019.
       * [getFirmwareComponentMajorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentmajorrevision)
       * [getFirmwareComponentMinorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentminorrevision)
       * [getFirmwareChipRevision](https://github.com/pu2clr/SI4844#getfirmwarechiprevision) 
-9.  [Referências]()
-10. [Vídeos]() 
+10. [Referências]()
+11. [Vídeos]() 
+
+
+## Licença de uso desta biblioteca
+
+Esta biblioteca pode ser utilizada seguindo a licença de Software Livre do MIT, cujo texto traduzido de forma livre pode ser conferido a seguir:
+
+A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cópia deste software e dos arquivos, incluindo a documentação, associados a esta biblioteca. É permitido usar, modificar, distribuir, juntar com outro software, publicar, fazer sublicença e negociar, sob as seguintes condições: 
+
+Os Direitos Autorais e as permissões supracitadas devem ser incluídos em todas as cópias ou partes copiadas desta biblioteca. 
+
+IMPORTANTE: 
+
+ESTA BIBLIOTECA É FORNECIDA "TAL COMO ESTÁ", SEM QUALQUER TIPO DE GARANTIA, EXPRESSA OU IMPLÍCITA. EM NENHUM CASO O AUTOR OU TITULAR DOS DIREITOS AUTORAIS SERÁ RESPONSÁVEL POR QUALQUER REIVINDICAÇÃO, DANOS OU OUTRA RESPONSABILIDADE. 
 
 
 ## Seu suporte é importante
