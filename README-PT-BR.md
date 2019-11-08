@@ -9,7 +9,7 @@ __ATENÇÃO__
 
 Copyright (c) [2019] [Ricardo Lima Caratti]
 
-Este Biblioteca pode ser distribuída seguindo a Licença de Software Livre do MIT. 
+Este Biblioteca pode ser distribuída seguindo a ]Licença de Software Livre do MIT](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#licen%C3%A7a-de-uso-desta-biblioteca). 
 
 
 
@@ -22,7 +22,7 @@ Há alguns [exemplos](https://github.com/pu2clr/SI4844/tree/master/Exemplos) nes
 
 
 ## Sumário
-1. [Licença de uso desta biblioteca]()
+1. [Licença de uso desta biblioteca](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#licen%C3%A7a-de-uso-desta-biblioteca)
 2. [Seu suporte é importante](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#seu-suporte-%C3%A9-importante)
 3. [Sobre a Arquitetura do SI4844](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#sobre-a-arquitetura-do-si4844)
 4. [Terminologia](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#terminologia)
