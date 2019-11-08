@@ -4,24 +4,27 @@
 
 This is a Arduino library for the SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER,  IC from Silicon Labs.  It is available on Arduino IDE. This library is intended to provide an easier interface for controlling the SI4844.
 
-__The SI4844 is a +3.3V part. If you are not using a +3.3V version of Arduino, you have to use a kind of 5V to 3.3V converter.__ See [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup).
-
 By Ricardo Lima Caratti, Oct 2019. 
+
+[License Copyright: MIT]() 
+
+__The SI4844 is a +3.3V part. If you are not using a +3.3V version of Arduino, you have to use a kind of 5V to 3.3V converter.__ See [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup).
 
 
 ## Summary
 
-1. [Your support is important](https://github.com/pu2clr/SI4844#your-support-is-important)
-2. [About the SI4844 Architecture](https://github.com/pu2clr/SI4844#about-the-si4844-architecture)
-3. [Terminology](https://github.com/pu2clr/SI4844#terminology)
-4. [Labrary Features](https://github.com/pu2clr/SI4844#library-features)
-5. [Library Installation](https://github.com/pu2clr/SI4844#library-installation)
-6. [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup)
+1. [License Copyright]()
+2. [Your support is important](https://github.com/pu2clr/SI4844#your-support-is-important)
+3. [About the SI4844 Architecture](https://github.com/pu2clr/SI4844#about-the-si4844-architecture)
+4. [Terminology](https://github.com/pu2clr/SI4844#terminology)
+5. [Labrary Features](https://github.com/pu2clr/SI4844#library-features)
+6. [Library Installation](https://github.com/pu2clr/SI4844#library-installation)
+7. [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup)
    1. [Schematic](https://github.com/pu2clr/SI4844#schematic)
    2. [Component Parts](https://github.com/pu2clr/SI4844#parts)
    3. [Playing with Arduino UNO or Pro Mini 5v and SI4844]()
    4. [Photos](https://github.com/pu2clr/SI4844#photos)
-7. [API Documentation](https://github.com/pu2clr/SI4844#api-documentation)
+8. [API Documentation](https://github.com/pu2clr/SI4844#api-documentation)
    1. [Defined Data Types and Structures](https://github.com/pu2clr/SI4844#defined-data-types-and-structures)
    2. [Public Methods](https://github.com/pu2clr/SI4844#public-methods)
       * [setup](https://github.com/pu2clr/SI4844#setup)
@@ -60,9 +63,20 @@ By Ricardo Lima Caratti, Oct 2019.
       * [getFirmwareComponentMajorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentmajorrevision)
       * [getFirmwareComponentMinorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentminorrevision)
       * [getFirmwareChipRevision](https://github.com/pu2clr/SI4844#getfirmwarechiprevision) 
-8. [References](https://github.com/pu2clr/SI4844#references)
-9.  [Examples](https://github.com/pu2clr/SI4844#examples)
-10. [Videos](https://github.com/pu2clr/SI4844#videos) 
+9. [References](https://github.com/pu2clr/SI4844#references)
+10. [Examples](https://github.com/pu2clr/SI4844#examples)
+11. [Videos](https://github.com/pu2clr/SI4844#videos) 
+
+
+## MIT Licence 
+
+Copyright (c) [2019] [Ricardo Lima Caratti]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE ARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 ## Your support is important.
