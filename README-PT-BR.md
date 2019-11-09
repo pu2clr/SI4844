@@ -2,7 +2,7 @@
 
 Esta é uma biblioteca para o SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER, um Circuito Integrado fabricado pela Silicon Labs. Esta biblioteca é especialmente destinada aos interessados em controlar este dispositivo usando o a plataforma Arduino com o seu ambiente de desenvolvimento (IDE). 
 
-Copyright (c) [2019] [Ricardo Lima Caratti]
+Copyright (c) 2019] [Ricardo Lima Caratti
 
 Esta Biblioteca pode ser distribuída livrimente seguindo a [Licença de Software Livre MIT](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#licen%C3%A7a-de-uso-desta-biblioteca). 
 
