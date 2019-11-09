@@ -68,8 +68,8 @@ Há alguns [exemplos](https://github.com/pu2clr/SI4844/tree/master/Exemplos) nes
       * [getFirmwareComponentMajorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentmajorrevision)
       * [getFirmwareComponentMinorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentminorrevision)
       * [getFirmwareChipRevision](https://github.com/pu2clr/SI4844#getfirmwarechiprevision) 
-10. [Referências]()
-11. [Vídeos]() 
+10. [Referências](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#refer%C3%AAncias)
+11. [Vídeos](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#v%C3%ADdeos) 
 
 
 ## Licença de uso desta biblioteca
