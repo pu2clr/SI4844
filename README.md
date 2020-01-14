@@ -158,7 +158,7 @@ __Original Source:__ [Raymond Genovese, May 26, 2016 - How to Build an Arduino-C
 
 
 
-__Attention__: If you are not using an Arduino Pro Mini, pay attention on the appropriated Arduino pinout to select the correct interrupt (IRQ), RST, SDIO and  SCLK  pins.  The table below shows some Arduino board pinout. 
+__Attention__: If you are not using an Arduino Pro Mini, pay attention to the appropriated Arduino pinout to select the correct interrupt (IRQ), RST, SDIO and  SCLK  pins.  The table below shows some Arduino board pinout. 
 
 |Board | InterrupT (IRQ) Pins| I2C / TWI pins |
 |------|---------------------| ---------------|
