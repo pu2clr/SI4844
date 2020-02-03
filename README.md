@@ -6,6 +6,9 @@ This is an Arduino library for the SI4844, BROADCAST ANALOG TUNING DIGITAL DISPL
 
 This library can be freely distributed using the MIT Free Software model. [Copyright (c) 2019 Ricardo Lima Caratti](https://github.com/pu2clr/SI4735#mit-licence)  
 
+See also "Si4735 Library for Arduino" on https://github.com/pu2clr/SI4735.
+
+
 Contact: pu2clr@gmail.com
 
 By Ricardo Lima Caratti, Oct 2019. 
