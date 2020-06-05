@@ -6,17 +6,20 @@ This is an Arduino library for the SI4844, BROADCAST ANALOG TUNING DIGITAL DISPL
 
 This library can be freely distributed using the MIT Free Software model. [Copyright (c) 2019 Ricardo Lima Caratti](https://github.com/pu2clr/SI4735#mit-licence)  
 
-See also [Si4735 Library for Arduino](https://github.com/pu2clr/SI4735). Unlike SI4844, the Si4735 has more features and can operate on SSB mode via patch application. This library was built based on “Si47XX PROGRAMMING GUIDE; AN332 ”. It also can be used on all members of the SI47XX family respecting, of course, the features available for each IC version. These functionalities can be seen in the comparison matrix shown in table 1 (Product Family Function); pages 2 and 3 of the programming guide.
-
 Contact: pu2clr@gmail.com
 
 By Ricardo Lima Caratti, Oct 2019. 
 
+## See also 
+
+1. [PU2CLR Si4735 Library for Arduino](https://pu2clr.github.io/SI4735/). Unlike SI4844, the Si4735 has more features and can operate on SSB mode via patch application. This library was built based on “Si47XX PROGRAMMING GUIDE; AN332 ”. It also can be used on all members of the SI47XX family respecting, of course, the features available for each IC version. These functionalities can be seen in the comparison matrix shown in table 1 (Product Family Function); pages 2 and 3 of the programming guide;
+2. [PU2CLR AKC695X Arduino Library](https://pu2clr.github.io/AKC695X/). The AKC695X is a family of IC DSP receiver from AKC technology. The AKC6955 and AKC6959sx support AM and FM modes. On AM mode the AKC6955 and AKC6959sx work on LW, MW and SW. On FM mode they work from 64MHz to 222MHz;
+3. [PU2CLR KT0915 Arduino Library](https://pu2clr.github.io/KT0915/). The KT0915 is a DSP integrated circuit that provides full band receiver on FM and AM (MW/SW/LW).
 
 __The SI4844 is a 3.3V part. If you are not using a 3.3V version of Arduino, you have to use a kind of 5V to 3.3V converter.__ See [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup).
 
 
-## Summary
+## Contents
 
 1. [License Copyright](https://github.com/pu2clr/SI4844#mit-licence)
 2. [Your support is important](https://github.com/pu2clr/SI4844#your-support-is-important)
@@ -27,7 +30,6 @@ __The SI4844 is a 3.3V part. If you are not using a 3.3V version of Arduino, you
 7. [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup)
    * [Schematic](https://github.com/pu2clr/SI4844#schematic)
    * [Component Parts](https://github.com/pu2clr/SI4844#parts)
-   * [Playing with Arduino UNO or Pro Mini 5v and SI4844]()
    * [Photos](https://github.com/pu2clr/SI4844#photos)
 8. [API Documentation](https://github.com/pu2clr/SI4844#api-documentation)
    * [Defined Data Types and Structures](https://github.com/pu2clr/SI4844#defined-data-types-and-structures)
@@ -100,21 +102,25 @@ See more about SI4844 on [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO
 | Term | Description  |
 |------|--------|
 |Arduino Libraries|Libraries are files written in C or C++ (.c, .cpp) which provide your sketches with extra functionality. The SI4844 Library provides extra functionalities to make easier the Arduino deal with Si4844 device| 
-|IDE   |Integrated Development Environment|      
+| CTS | Clear to send |
+|IDE   |Integrated Development Environment|   
+| I²C  | [I²C - Inter-Integrated Circuit](https://pt.wikipedia.org/wiki/I²C)|    
 |Sketch|Name that Arduino environment uses for a program|
 |ATDD  |Analog Tune Digital Display. Sometimes used to refer the Si4844 device|
 |interrupt|In this context, it is a Arduino Resource. Allows important tasks to be performed regardless of the flow of your program|
 |C++| A object-oriented programming (OOP) language. It is a superset of the C language with an additional concept of "classes." |
 |programming guide| In this context it refers to [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)|
 |POC| Proof of Concept|
+| SDIO / SDA | Serial data in/data out pin|
+| SCLK / SCL | Serial clock pin |
 
 
 ## Library Features
 
-1. Open Source 
+1. Open Source. It is free. You can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software. See [MIT License](https://github.com/pu2clr/SI4844#mit-licence) to know more.   
 2. Built Based on [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)
-3. More than 30 functions (methods)
-4. Extended SW band frequency ranges from 2.3–5.6 MHz and 22–28.5 MHz
+3. More than 30 Si48XX functions (methods)
+4. Extended SW band frequency ranges: 2.3–5.6 MHz and 22–28.5 MHz
 5. C++ Lenguage and Object-oriented programming
 6. Available on Arduino IDE (Manage Libraries)
 7. Simplifies SI4844 based projects
@@ -139,12 +145,14 @@ You can also download this library or old version of it via this repository or v
 
 ## Hardware Requirements and Setup
 
-This library has been written for the Arduino platform and has been successfully tested on Pro Mini. I beleave it will work on any other Arduino with I2C support.
+This library has been written for the Arduino platform and has been successfully tested on Pro Mini 3.3V (8MHz). I beleave it will work on any other Arduino with I2C support.
 
 
 ### Arduino 5V and Si4844
 
-The SI4844 device  works with  +3.3V only. If you are not using a +3.3V version of Arduino, you have to use a kind of converter. I have tested it with success the SI4844 with an Arduino working on 5V using the I2C Multiplexer TCA9548A. However, during my attempts, just using a regular bidirectional voltage converter was not enough. I mean, It has not worked  properly due to I2C communication requirement (I guess). So I have used the TCA9548A as a I2C bidirectional converter and a regular voltage converter to the digital pins, RESET and INTERRUPT.   
+__The Si4844 is a 3.3V part. If you are not using a 3.3V version of Arduino, you have to use a kind of 5V to 3.3V bidirectional converter. It is important to say that just power the Si4844 device with 3.3V from Arduino board is not enough. You have to be aware that the Arduino that operates with 5V, the digital pins and the I2C bus will send 5V signals to the Si4844 device. That configuration can make the system unstable or damage the device__.
+
+I have tested it with success the SI4844 with a 5V Arduino using the I2C Multiplexer TCA9548A, that also can work as a bidirectional converter.
 
 See that approach [here](https://github.com/pu2clr/SI4844/tree/master/extras/5V_to_3V3_CONVERTER). 
 

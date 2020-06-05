@@ -3,6 +3,9 @@
 This folder has a set of examples that might help you in your project with Si4844 and Arduino.
 
 
+__This project is about a library to control the SI4844 device and the focus of this project is the library and its functionalities. Please, don't ask me to assist you in your: displays (LCD, OLED, TFT etc), encoders, buttons or something else out the library scope. Thanks.__
+
+
 ## Minimal Radio with SI4844 (SI4844_MINIMAL)
 
 The [SI4844_MINIMAL.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_MINIMAL/SI4844_MINIMAL.ino) is a sketch with just 35 lines. It is enough to make a simple radio based on SI4844.  
