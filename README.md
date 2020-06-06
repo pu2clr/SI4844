@@ -165,9 +165,7 @@ To use this labrary you need to build a radio based on SI4844 connected to Ardui
 
 ![schematic](https://github.com/pu2clr/SI4844/blob/master/extras/images/OLED_WITH_4844_schematic_atmega328.png)
 
-
-As you can see above, that is a very simple circuit with minumum component parts. 
-
+As you can see above, that is a very simple circuit with minumum component parts. The push button are used with the internal Arduino pull-up resistors. No front-en was added to this receiver. However, you will be surprised with the its performance. You can connect a mono or stereo amplifier or an earphone to listen to the radio. 
 
 
 
@@ -185,47 +183,31 @@ __Attention__: If you are not using an Arduino Pro Mini, pay attention to the ap
 
 __Again, pay attention to the operating voltage of the Arduino that you will use. The SI4844 device  works with  +3.3V. See  [Making the Si4844 works with 5V Arduino UNO or similar](https://github.com/pu2clr/SI4844/tree/master/extras/5V_to_3V3_CONVERTER) if you itend to use a 5V Arduino board__.  
 
-The document [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), chapter two, page 11,  has a typical application schematic. 
-
-The figure below shows that schematic. 
-__It is a good idea to put pull-up resistors on slave SDIO and SCLK pins (from 2,2 to 10K).__ The schematic below does not show that. 
-
-![schematic](./extras/images/SI4844_SILICON_LABS1.png)
-__Source: Silicon Labs (Si4840/44-A10)__
+The document [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), chapter two, page 11,  has a typical application schematic.  This documentation can help you to improve the prototype shown here. 
 
 
 ### Parts
 
 Parts list  used by the first schematic
 
-The table below is based on [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/) .  
-
 |Part	| Description |
 |-------  | ------------ |
-|(*1) L1 	| ferrite bead 2.5 kOhm (100 mHz) | 
-|C1,      |	100nF ceramic capacitor |
-| 
-|C3,C4 |	4.7uF Electrolytic or ceramic capacitor|
-|C6,C7,C9 |	.1uf non polarized capacitor |
-|(*2) C8	| __4.7uF non polarized capacitor__ (the orinal value is 47uF. I used 4.7uF) |
-|C10, (*1) C11 |	.47uF non polarized capacitor |
-|(*1) C12, (*1) C14 |	33nF non polarized capacitor |
-|C13	| 33pF non polarized capacitor |
-|(*1) C15	| 10pF non polarized capacitor |
-|IC1	| Si4844-A10 radio receiver |
-|(*1) Q1	| SS9018 NPN transistor |
-|R1, R2	(*3)| 10K |
-|(*1) R3	| 1K |
-|R4 (*1), (*1) R7	| 100K |
-|(*1) R5	| 10 Ohms |
-|(*1) R6	| 120K |
-|R8	| 100 Ohms |
-|L1	| 270 nH Inductor (0,270 uH) |
-|VR1 |	100K linear potentiometer |
-|Y1	| 32.768 kHz crystal |
-|ANT1 |	ferrite antenna |
-|ANT2 | telescopic/whip antenna |
-|__Notes__| *1. not used for this project;<BR> *2. the value used is 4.7uF and not 47uF as suggested by the original circuit.<br> *3. between 2,2K and 10K will work.| 
+| IC1	    | Si4844-A10 radio receiver |
+| Arduino | Arduino Pro Mini, 3.3V, 8MHz |
+| C1      |	22pF ceramic capacitor |
+| C2      | 22pF ceramic capacitor |
+| C3      | 100nF ceramic capacitor |
+| C4      | 4.7uF Electrolytic or ceramic capacitor |
+| C5      | 4.7uF Electrolytic or ceramic capacitor | 
+| C6      | 100nF  ceramic capacitor |
+| C7      | 470nF  ceramic capacitor | 
+| R1      | 3.3K ~ 10K resistor |
+| R2      | 3.3K ~ 10K resistor |
+| R3      |	100K linear potentiometer |
+| L1    	| ferrite AM antenna | 
+| L2      | 100mH |
+|Y1	      | 32.768 kHz crystal |
+| S1...S4 | 4 push buttons |  
 
 
 
