@@ -165,8 +165,23 @@ To use this labrary you need to build a radio based on SI4844 connected to Ardui
 
 ![schematic](https://github.com/pu2clr/SI4844/blob/master/extras/images/OLED_WITH_4844_schematic_atmega328.png)
 
-As you can see above, that is a very simple circuit with minumum component parts. The push button are used with the internal Arduino pull-up resistors. No front-en was added to this receiver. However, you will be surprised with the its performance. You can connect a mono or stereo amplifier or an earphone to listen to the radio. 
+As you can see above, that is a very simple circuit with minumum component parts. The push button are used with the internal Arduino pull-up resistors. The OLED display and the SI4844 are connected on the A4 (SDA) and A5 (SCL) Arduino Pro Mini pins. Pay attention to the I2C bus pull up resistors. This experiment used 10K pull up resistors. However, you can use lower values. 
 
+No front-end was added to this receiver. However, you will be surprised with the its performance. You can connect a mono or stereo amplifier or an earphone to listen to the radio. 
+
+
+#### Arduino and SI4844 connections
+
+The table below shows the pin connections between the Si4844 and Arduino Pro Mini.
+
+
+| SI4844 pin |  Arduino pin |  Description                                       |  
+| ---------  | ------------ | ------------ ------------------------------------- |
+|    2       |   2          | Arduino interrupt pin                              |
+|   15       |  12          | Regurlar arduino digital pin used to RESET control |
+|   16       |  A4 (SDA)    | I2C bus (Data)                                     |
+|   17       |  A5 (SCL)    | I2C bus (Clock)                                    | 
+  
 
 
 __Attention__: If you are not using an Arduino Pro Mini, pay attention to the appropriated Arduino pinout to select the correct interrupt (IRQ), RST, SDIO and  SCLK  pins.  The table below shows some Arduino board pinout. 
