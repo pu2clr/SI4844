@@ -1,19 +1,19 @@
 /*
- * I2C OLED Display and buttons Example
- * 
- * 
- * Arduino Pro Mini 3.3V (8MHz) and SI4844 pin connections
- * 
- * | SI4844 pin |  Arduino pin |  Description                                       |  
- * | ---------  | ------------ | ------------ ------------------------------------- |
- * |    2       |   2          | Arduino interrupt pin                              |
- * |   15       |  12          | Regurlar arduino digital pin used to RESET control |
- * |   16       |  A4 (SDA)    | I2C bus (Data)                                     |
- * |   17       |  A5 (SCL)    | I2C bus (Clocl)                                    | 
- *  
- * Author: Ricardo Lima Caratti (PU2CLR)
- * Oct, 2019
- */
+   I2C OLED Display and buttons Example
+
+
+   Arduino Pro Mini 3.3V (8MHz) and SI4844 pin connections
+
+   | SI4844 pin |  Arduino pin |  Description                                       |
+   | ---------  | ------------ | ------------ ------------------------------------- |
+   |    2       |   2          | Arduino interrupt pin                              |
+   |   15       |  12          | Regurlar arduino digital pin used to RESET control |
+   |   16       |  A4 (SDA)    | I2C bus (Data)                                     |
+   |   17       |  A5 (SCL)    | I2C bus (Clocl)                                    |
+
+   Author: Ricardo Lima Caratti (PU2CLR)
+   Oct, 2019
+*/
 #include <SI4844.h>
 #include "SSD1306Ascii.h"
 #include "SSD1306AsciiAvrI2c.h"
@@ -136,28 +136,30 @@ void setBand(byte cmd)
     si4844.setBand(bandPlan[idxBand]);
   }
   display.clear();
+  elapsedButton = millis();
+}
+
+void setVolume( char v) {
+  si4844.changeVolume(v);
+  elapsedButton = millis();
 }
 
 void loop()
 {
-  if (digitalRead(BAND_UP) | digitalRead(BAND_DOWN) | digitalRead(VOL_UP) | digitalRead(VOL_DOWN))
-  {
+  if ( (millis() - elapsedButton) > MIN_ELAPSED_TIME ) {
     // check if some button is pressed
-    if (digitalRead(BAND_UP) == HIGH && (millis() - elapsedButton) > MIN_ELAPSED_TIME)
+    if (digitalRead(BAND_UP) == LOW )
       setBand('+');
-    else if (digitalRead(BAND_DOWN) == HIGH && (millis() - elapsedButton) > MIN_ELAPSED_TIME)
+    else if (digitalRead(BAND_DOWN) == LOW )
       setBand('-');
-    else if (digitalRead(VOL_UP) == HIGH && (millis() - elapsedButton) > MIN_ELAPSED_TIME)
-      si4844.changeVolume('+');
-    else if (digitalRead(VOL_DOWN) == HIGH && (millis() - elapsedButton) > MIN_ELAPSED_TIME)
-      si4844.changeVolume('-');
-
-    elapsedButton = millis();
+    else if (digitalRead(VOL_UP) == LOW )
+      setVolume('+');
+    else if (digitalRead(VOL_DOWN) == LOW )
+      setVolume('-');
   }
 
   if (si4844.hasStatusChanged())
-  {
     displayDial();
-  }
-  delay(5);
+  
+  delay(10);
 }
