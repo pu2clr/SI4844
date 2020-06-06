@@ -161,10 +161,13 @@ See that approach [here](https://github.com/pu2clr/SI4844/tree/master/extras/5V_
 
 To use this labrary you need to build a radio based on SI4844 connected to Arduino. The schematic and photos below show the hardware and setup requirments for start using this library.
 
-The signal amplifier was not required for this test. 
 
-![schematic](./extras/images/SI4844_POC_01.png)
-__Original Source:__ [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/)
+
+![schematic](https://github.com/pu2clr/SI4844/blob/master/extras/images/OLED_WITH_4844_schematic_atmega328.png)
+
+
+As you can see above, that is a very simple circuit with minumum component parts. 
+
 
 
 
@@ -198,10 +201,11 @@ Parts list  used by the first schematic
 The table below is based on [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/) .  
 
 |Part	| Description |
-|-------| ------------ |
-|(*1) B1 	| ferrite bead 2.5 kOhm (100 mHz) B1, ferrite bead 2.5 kOhm (100 MHz), 81-BLM18BD252SZ1D |
-|C1,C2,C5 |	4.7uF non polarized capacitor |
-|C3,C4 |	22pF non polarized capacitor |
+|-------  | ------------ |
+|(*1) L1 	| ferrite bead 2.5 kOhm (100 mHz) | 
+|C1,      |	100nF ceramic capacitor |
+| 
+|C3,C4 |	4.7uF Electrolytic or ceramic capacitor|
 |C6,C7,C9 |	.1uf non polarized capacitor |
 |(*2) C8	| __4.7uF non polarized capacitor__ (the orinal value is 47uF. I used 4.7uF) |
 |C10, (*1) C11 |	.47uF non polarized capacitor |
