@@ -23,60 +23,24 @@ By Ricardo Lima Caratti, Oct 2019.
 __The SI4844 is a 3.3V part. If you are not using a 3.3V version of Arduino, you have to use a kind of 5V to 3.3V converter.__ See [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup).
 
 
+https://pu2clr.github.io/SI4735/#mit-license
+
 ## Contents
 
-1. [License Copyright](https://github.com/pu2clr/SI4844#mit-licence)
-2. [Your support is important](https://github.com/pu2clr/SI4844#your-support-is-important)
-3. [About the SI4844 Architecture](https://github.com/pu2clr/SI4844#about-the-si4844-architecture)
-4. [Terminology](https://github.com/pu2clr/SI4844#terminology)
-5. [Labrary Features](https://github.com/pu2clr/SI4844#library-features)
-6. [Library Installation](https://github.com/pu2clr/SI4844#library-installation)
-7. [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup)
-   * [Schematic](https://github.com/pu2clr/SI4844#schematic)
-   * [Component Parts](https://github.com/pu2clr/SI4844#parts)
-   * [Photos](https://github.com/pu2clr/SI4844#photos)
-8. [API Documentation](https://github.com/pu2clr/SI4844#api-documentation)
-   * [Defined Data Types and Structures](https://github.com/pu2clr/SI4844#defined-data-types-and-structures)
-   * [Public Methods](https://github.com/pu2clr/SI4844#public-methods)
-      * [setup](https://github.com/pu2clr/SI4844#setup)
-      * [reset](https://github.com/pu2clr/SI4844#reset)
-      * [powerDown](https://github.com/pu2clr/SI4844#powerdown)
-      * [setBand](https://github.com/pu2clr/SI4844#setband)
-      * [setCustomBand](https://github.com/pu2clr/SI4844#setCustomBand)
-      * [changeVolume](https://github.com/pu2clr/SI4844#changevolume)
-      * [setVolume](https://github.com/pu2clr/SI4844#setvolume)
-      * [volumeUp](https://github.com/pu2clr/SI4844#volumeup)
-      * [volumeDown](https://github.com/pu2clr/SI4844#volumedown)
-      * [setAudioMode](https://github.com/pu2clr/SI4844#setaudiomode)
-      * [setAudioMute](https://github.com/pu2clr/SI4844#setaudiomute)
-      * [getStatus](https://github.com/pu2clr/SI4844#getstatus)
-      * [getFirmware](https://github.com/pu2clr/SI4844#getfirmware)
-      * [getFrequency](https://github.com/pu2clr/SI4844#getfrequency)
-      * [hasStatusChanged](https://github.com/pu2clr/SI4844#hasstatuschanged)  
-      * [resetStatus](https://github.com/pu2clr/SI4844#resetstatus)
-      * [getBandMode](https://github.com/pu2clr/SI4844#getbandmode)
-      * [getStereoIndicator](https://github.com/pu2clr/SI4844#getstereoindicator)
-      * [getStatusBCFG0](https://github.com/pu2clr/SI4844#getstatusbcfg0)
-      * [getStatusBCFG1](https://github.com/pu2clr/SI4844#getstatusbcfg1)
-      * [getStatusStereo](https://github.com/pu2clr/SI4844#getstatusstereo)
-      * [getStatusStationIndicator](https://github.com/pu2clr/SI4844#getstatusstationindicator)
-      * [getStatusInformationReady](https://github.com/pu2clr/SI4844#getstatusinformationready)
-      * [getStatusHostPowerUp](https://github.com/pu2clr/SI4844#getstatushostpowerup)
-      * [getStatusHostReset](https://github.com/pu2clr/SI4844#getstatushostreset)
-      * [getStatusBandMode](https://github.com/pu2clr/SI4844#getstatusbandmode)
-      * [getStatusBandIndex](https://github.com/pu2clr/SI4844#getstatusbandindex)
-      * [getStatusCTS](https://github.com/pu2clr/SI4844#getstatuscts)
-      * [getFirmwareErr](https://github.com/pu2clr/SI4844#getfirmwareerr)
-      * [getFirmwareCTS](https://github.com/pu2clr/SI4844#getfirmwarects)
-      * [getFirmwarePartNumber](https://github.com/pu2clr/SI4844#getfirmwarepartnumber)
-      * [getFirmwareMajorRevision](https://github.com/pu2clr/SI4844#getfirmwaremajorrevision)
-      * [getFirmwareMinorRevision](https://github.com/pu2clr/SI4844#getfirmwareminorrevision)
-      * [getFirmwareComponentMajorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentmajorrevision)
-      * [getFirmwareComponentMinorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentminorrevision)
-      * [getFirmwareChipRevision](https://github.com/pu2clr/SI4844#getfirmwarechiprevision) 
-9.  [References](https://github.com/pu2clr/SI4844#references)
-10. [Examples](https://github.com/pu2clr/SI4844#examples)
-11. [Videos](https://github.com/pu2clr/SI4844#videos) 
+1. [License Copyright](https://pu2clr.github.io/SI4844/#mit-licence)
+2. [Your support is important](https://pu2clr.github.io/SI4844/#your-support-is-important)
+3. [About the SI4844 Architecture](https://pu2clr.github.io/SI4844/#about-the-si4844-architecture)
+4. [Terminology](https://pu2clr.github.io/SI4844/#terminology)
+5. [Labrary Features](https://pu2clr.github.io/SI4844/#library-features)
+6. [Library Installation](https://pu2clr.github.io/SI4844/#library-installation)
+7. [Hardware Requirements and Setup](https://pu2clr.github.io/SI4844/#hardware-requirements-and-setup)
+   * [Schematic](https://pu2clr.github.io/SI4844/#schematic)
+   * [Component Parts](https://pu2clr.github.io/SI4844/#parts)
+   * [Photos](https://pu2clr.github.io/SI4844/#photos)
+8. [API Documentation](https://pu2clr.github.io/SI4844/#api-documentation)
+9.  [References](https://pu2clr.github.io/SI4844/#references)
+10. [Examples](https://pu2clr.github.io/SI4844/#examples)
+11. [Videos](https://pu2clr.github.io/SI4844/#videos) 
 
 
 ## MIT License 
@@ -137,11 +101,11 @@ You can install the library via the Arduino Library Manager. Go to the menu __Sk
 
 The images below show that actions
 
-![IDE 01](extras/images/ide_01.png)
+![IDE 01](./extras/images/ide_01.png)
 
-![IDE 01](extras/images/ide_02.png)
+![IDE 01](./extras/images/ide_02.png)
 
-![IDE 01](extras/images/ide_03.png)
+![IDE 01](./extras/images/ide_03.png)
 
 
 You can also download this library or old version of it via this repository or via [Arduino Library List](https://www.arduinolibraries.info/libraries/pu2-clr-si4844).
@@ -158,7 +122,7 @@ __The Si4844 is a 3.3V part. If you are not using a 3.3V version of Arduino, you
 
 I have tested it with success the SI4844 with a 5V Arduino using the I2C Multiplexer TCA9548A, that also can work as a bidirectional converter.
 
-See that approach [here](https://github.com/pu2clr/SI4844/tree/master/extras/5V_to_3V3_CONVERTER). 
+See that approach [here](./extras/5V_to_3V3_CONVERTER). 
 
 
 ### Schematic
@@ -168,11 +132,11 @@ To use this labrary you need to build a radio based on SI4844 connected to Ardui
 
 #### Arduino and OLED circuit
 
-![schematic Arduino and OLED](https://github.com/pu2clr/SI4844/blob/master/extras/images/schematic_Arduino_circuit.png)
+![schematic Arduino and OLED](./extras/images/schematic_Arduino_circuit.png)
 
 #### SI4844 minimal circuit
 
-![schematic SI4844 minimal circuit](https://github.com/pu2clr/SI4844/blob/master/extras/images/schematic_SI4844_minimal_circuit.png)
+![schematic SI4844 minimal circuit](./extras/images/schematic_SI4844_minimal_circuit.png)
 
 
 
@@ -287,8 +251,49 @@ It was a bit hard to solder the Si4844 on adapter. However, by using a electroni
 The final solution in my experiment was using the __TCA9548A__ and regular level converter to RESET and INTERRUPR pins.  
 
 
-
 ## API Documentation
+
+### Index 
+
+   * [Defined Data Types and Structures](https://github.com/pu2clr/SI4844#defined-data-types-and-structures)
+   * [Public Methods](https://github.com/pu2clr/SI4844#public-methods)
+      * [setup](https://github.com/pu2clr/SI4844#setup)
+      * [reset](https://github.com/pu2clr/SI4844#reset)
+      * [powerDown](https://github.com/pu2clr/SI4844#powerdown)
+      * [setBand](https://github.com/pu2clr/SI4844#setband)
+      * [setCustomBand](https://github.com/pu2clr/SI4844#setCustomBand)
+      * [changeVolume](https://github.com/pu2clr/SI4844#changevolume)
+      * [setVolume](https://github.com/pu2clr/SI4844#setvolume)
+      * [volumeUp](https://github.com/pu2clr/SI4844#volumeup)
+      * [volumeDown](https://github.com/pu2clr/SI4844#volumedown)
+      * [setAudioMode](https://github.com/pu2clr/SI4844#setaudiomode)
+      * [setAudioMute](https://github.com/pu2clr/SI4844#setaudiomute)
+      * [getStatus](https://github.com/pu2clr/SI4844#getstatus)
+      * [getFirmware](https://github.com/pu2clr/SI4844#getfirmware)
+      * [getFrequency](https://github.com/pu2clr/SI4844#getfrequency)
+      * [hasStatusChanged](https://github.com/pu2clr/SI4844#hasstatuschanged)  
+      * [resetStatus](https://github.com/pu2clr/SI4844#resetstatus)
+      * [getBandMode](https://github.com/pu2clr/SI4844#getbandmode)
+      * [getStereoIndicator](https://github.com/pu2clr/SI4844#getstereoindicator)
+      * [getStatusBCFG0](https://github.com/pu2clr/SI4844#getstatusbcfg0)
+      * [getStatusBCFG1](https://github.com/pu2clr/SI4844#getstatusbcfg1)
+      * [getStatusStereo](https://github.com/pu2clr/SI4844#getstatusstereo)
+      * [getStatusStationIndicator](https://github.com/pu2clr/SI4844#getstatusstationindicator)
+      * [getStatusInformationReady](https://github.com/pu2clr/SI4844#getstatusinformationready)
+      * [getStatusHostPowerUp](https://github.com/pu2clr/SI4844#getstatushostpowerup)
+      * [getStatusHostReset](https://github.com/pu2clr/SI4844#getstatushostreset)
+      * [getStatusBandMode](https://github.com/pu2clr/SI4844#getstatusbandmode)
+      * [getStatusBandIndex](https://github.com/pu2clr/SI4844#getstatusbandindex)
+      * [getStatusCTS](https://github.com/pu2clr/SI4844#getstatuscts)
+      * [getFirmwareErr](https://github.com/pu2clr/SI4844#getfirmwareerr)
+      * [getFirmwareCTS](https://github.com/pu2clr/SI4844#getfirmwarects)
+      * [getFirmwarePartNumber](https://github.com/pu2clr/SI4844#getfirmwarepartnumber)
+      * [getFirmwareMajorRevision](https://github.com/pu2clr/SI4844#getfirmwaremajorrevision)
+      * [getFirmwareMinorRevision](https://github.com/pu2clr/SI4844#getfirmwareminorrevision)
+      * [getFirmwareComponentMajorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentmajorrevision)
+      * [getFirmwareComponentMinorRevision](https://github.com/pu2clr/SI4844#getfirmwarecomponentminorrevision)
+      * [getFirmwareChipRevision](https://github.com/pu2clr/SI4844#getfirmwarechiprevision) 
+
 
 
 This labrary was developed in C++.  To use it, you must declare in your Sketch a variable of the class SI4844.
