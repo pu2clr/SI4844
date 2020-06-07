@@ -185,7 +185,7 @@ The table below shows the pin connections between the Si4844 and Arduino Pro Min
 
 
 | SI4844 pin |  Arduino pin |  Description                                       |  
-| ---------  | ------------ | ------------ ------------------------------------- |
+| ---------  | ------------ | -------------------------------------------------  |
 |    2       |   2          | Arduino interrupt pin                              |
 |   15       |  12          | Regurlar arduino digital pin used to RESET control |
 |   16       |  A4 (SDA)    | I2C bus (Data)                                     |
