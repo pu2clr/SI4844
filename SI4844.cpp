@@ -9,25 +9,24 @@
 
 #include "SI4844.h"
 
-/*
-* interrupt_hundler
-* English: 
-*   This function is called whenever the status of ATDD (SI4844) changes. 
-*   It can occur, for example, when you use the analog tuner.  
-*/
 
+/**
+ * @brief   Waiting for an external interrupt
+ * @details This function is called whenever the status of ATDD (SI4844) changes. 
+ * @details It can occur, for example, when you use the analog tuner.  
+ */
 void SI4844::waitInterrupr(void)  {
   while (!data_from_si4844);
 }
 
-/*
-* Initiate the SI4844 instance and connect the device (SI4844) to Arduino. 
-* Calling this library should be the first thing to do to control the SI4844.
-*
-* @param resetPin  arduino pin used to reset the device
-* @param interruprPin arduino pin used to handle interrupr      
-* @param defaultBand band that the radio should start
-*/
+
+/**
+ * @brief Initiates the SI4844 instance and connect the device (SI4844) to Arduino. 
+ * @details Calling this library should be the first thing to do to control the SI4844.
+ * @param resetPin      arduino pin used to reset the device
+ * @param interruptPin  interruprPin arduino pin used to handle interrupt 
+ * @param defaultBand   band that the radio should start 
+ */
 void SI4844::setup(unsigned int resetPin, unsigned int interruptPin, byte defaultBand) 
 {
 
@@ -58,6 +57,12 @@ void SI4844::setup(unsigned int resetPin, unsigned int interruptPin, byte defaul
  * reset
  * See pages 7, 8, 9 and 10 of the programming guide.
  */
+
+/**
+ * @brief Resets the SI4844 device
+ * @details Prepares the system  to be started.
+ * 
+ */
 void SI4844::reset()
 {
     waitToSend();
@@ -73,8 +78,13 @@ void SI4844::reset()
 }
 
 /*
- * Moves the device from power up to power down mode. 
+ * 
  * See Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
+ */
+
+/**
+ * @brief  Power the device down
+ * @details Moves the SI4844 device from power up to power down mode. 
  */
 void SI4844::powerDown(void) {
     data_from_si4844 = false;
@@ -90,15 +100,25 @@ void SI4844::powerDown(void) {
  * Moves the device from power down to power up mode. 
  * See Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
  */
+
+/**
+ * @brief Power the device up
+ * @details Moves the SI4844 device from power down to power up 
+ */
 void SI4844::powerUp(void) {
 
     setBand(currentBand);
 
 }
 
-/*
- * Set the radio to a new band. 
- * See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
+
+/**
+ * @brief Sets a new band to the device 
+ * @details This method is used to select a band 
+ * 
+ * @see See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
+ * 
+ * @param new_band  band number. 
  */
 void SI4844::setBand(byte new_band)
 {
@@ -135,6 +155,13 @@ void SI4844::setBand(byte new_band)
  * Check if the ATDD (Si4844) is ready to receive the next command. 
  * See page 14 of the Program Guide.
  */
+
+/**
+ * @brief Checks the CTS status.
+ * @details Checks whether the device is ready to receive a new command. 
+ * @return true 
+ * @return false 
+ */
 inline bool SI4844::isClearToSend(void)
 {
     Wire.beginTransmission(SI4844_ADDRESS);
@@ -146,11 +173,10 @@ inline bool SI4844::isClearToSend(void)
     return status_response.refined.CTS; // return 0 (false) or 1 (true)
 }
 
-/*
- * waitToSend
- * English:
- * Wait for the ATDD become Clear to Send. 
- * See page 14 of the Program Guide.
+
+/**
+ * @brief Wait for the ATDD become Clear to Send. 
+ * @details Waits for CTS status
  */
 inline void SI4844::waitToSend()
 {
@@ -159,10 +185,13 @@ inline void SI4844::waitToSend()
         ;
 }
 
-/*
- *  Deprecated
- *  Up or down the sound volume level/  
- *  @param char '+' up and '-' down 
+
+
+/**
+ * @deprecated 
+ * @brief Up or down the sound volume level
+ * 
+ * @param command '+' up and '-' down 
  */
 void SI4844::changeVolume(char command)
 {
@@ -190,15 +219,21 @@ void SI4844::changeVolume(char command)
  *  Set sound volume level Up   
  *  
  */
+
+/**
+ * @brief Increases the volume level
+ * 
+ */
 void SI4844::volumeUp()
 {
     if (volume <= 58) volume += 4;
     setVolume(volume);
 }
 
-/*
- *  Set sound volume level Down   
- *  
+
+/**
+ * @brief Decreases the volume level
+ * 
  */
 void SI4844::volumeDown()
 {
@@ -207,9 +242,10 @@ void SI4844::volumeDown()
 }
 
 
-/*
- * Set the sound volume level. 
- * See Table 4, Si48XX ATDD PROGRAMMING GUIDE; AN610; page 11
+/**
+ * @brief Sets the volume level. 
+ * @details Sets a value to the audio volume.
+ * @see Table 4, Si48XX ATDD PROGRAMMING GUIDE; AN610; page 11
  * @param byte volumeLevel (domain: 0 to 63) 
  */
 void SI4844::setVolume(byte volumeLavel) {
