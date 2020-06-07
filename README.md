@@ -163,11 +163,13 @@ To use this labrary you need to build a radio based on SI4844 connected to Ardui
 
 
 
-![schematic](https://github.com/pu2clr/SI4844/blob/master/extras/images/OLED_WITH_4844_schematic_atmega328.png)
+![schematic](https://github.com/pu2clr/SI4844/blob/master/extras/images/schematic_OLED_WITH_4844_atmega328.png)
 
-As you can see above, that is a very simple circuit with minumum component parts. The push button are used with the internal Arduino pull-up resistors. The OLED display and the SI4844 are connected on the A4 (SDA) and A5 (SCL) Arduino Pro Mini pins. Pay attention to the I2C bus pull up resistors. This experiment used 10K pull up resistors. However, you can use lower values. 
+As you can see above, that is a very simple circuit with minumum component parts. The push button are used with the internal Arduino pull up resistors. The OLED display and the SI4844 are connected on the A4 (SDA) and A5 (SCL) Arduino Pro Mini pins. Pay attention to the I2C bus pull up resistors. This experiment used 10K pull up resistors. However, you can use lower values. 
 
-No front-end was added to this receiver. However, you will be surprised with the its performance. You can connect a mono or stereo amplifier or an earphone to listen to the radio. 
+No front-end was added to this receiver. However, you will be surprised with the its performance. You can connect to the audio output a mono or stereo amplifier or an earphone to listen to the radio. On article [How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/) [May 26, 2016], Mr. Raymond Genovese, suggests a better SI4844 setup, including a RF amplifier. 
+
+__Another good source is the Silicon Labs Document AN602 "Si4822/26/27/40/44 ANTENNA, SCHEMATIC, LAYOUT, AND DESIGN GUIDELINES" Rev 0.3. This document also suggests better circuits. Check the AN602 pages: 8, 9 and 10__ .    
 
 
 #### Arduino and SI4844 connections
