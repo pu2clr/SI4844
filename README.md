@@ -212,7 +212,7 @@ The document [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](h
 
 ### Parts
 
-Parts list  used by the first schematic
+Parts list  used by the minimal schematic
 
 |Part	| Description |
 |-------  | ------------ |
@@ -249,11 +249,18 @@ It was a bit hard to solder the Si4844 on adapter. However, by using a electroni
 ![SI4844 soldered on adapter 03](./extras/images/si4844_board_03.png)
 
 
-#### Protoboard
+#### prototyping 
+
+![SI4844 soldered on adapter 04](./extras/images/SI4844_F00.png.png)
+
+![SI4844 soldered on adapter 05](./extras/images/SI4844_F01.png.png)
+
+![SI4844 soldered on adapter 06](./extras/images/SI4844_F02.png.png)
+
+
+##### Another suggestion
 
 ![SI4844 and Arduino on protoboard 01](./extras/images/protoboard_01.png)
-
-![SI4844 and Arduino on protoboard 03](./extras/images/protoboard_04.png)
 
 
 
