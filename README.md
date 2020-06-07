@@ -162,8 +162,15 @@ See that approach [here](https://github.com/pu2clr/SI4844/tree/master/extras/5V_
 To use this labrary you need to build a radio based on SI4844 connected to Arduino. The schematic and photos below show the hardware and setup requirments for start using this library.
 
 
+#### Arduino and OLED circuit
 
-![schematic](https://github.com/pu2clr/SI4844/blob/master/extras/images/schematic_OLED_WITH_4844_atmega328.png)
+![schematic Arduino and OLED](https://github.com/pu2clr/SI4844/blob/master/extras/images/schematic_Arduino_circuit.png)
+
+#### SI4844 minimal circuit
+
+![schematic SI4844 minimal circuit](https://github.com/pu2clr/SI4844/blob/master/extras/images/schematic_SI4844_minimal_circuit.png)
+
+
 
 As you can see above, that is a very simple circuit with minumum component parts. The push button are used with the internal Arduino pull up resistors. The OLED display and the SI4844 are connected on the A4 (SDA) and A5 (SCL) Arduino Pro Mini pins. Pay attention to the I2C bus pull up resistors. This experiment used 10K pull up resistors. However, you can use lower values. 
 
