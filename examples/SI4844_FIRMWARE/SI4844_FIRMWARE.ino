@@ -1,7 +1,17 @@
 /*
  * SI4844 radio. Firmware information example. 
  * This Sketch shows the use of SI4844 Library to extract the device firmware information. 
- * By Ricardo Lima Caratti (PU2CLR), Oct, 2019.
+ * 
+ *  SI4844 and Arduino Pro Mini connections
+ *  
+ *  | SI4844 pin |  Arduino pin |  Description                                       |
+ *  | ---------  | ------------ | -------------------------------------------------  |
+ *  |    2       |   2          | Arduino interrupt pin                              |
+ *  |   15       |  12          | Regurlar arduino digital pin used to RESET control |
+ *  |   16       |  A4 (SDA)    | I2C bus (Data)                                     |
+ *  |   17       |  A5 (SCL)    | I2C bus (Clocl)                                    |
+ * 
+ *  By Ricardo Lima Caratti (PU2CLR), Oct, 2019.
  */
 
 #include <SI4844.h>

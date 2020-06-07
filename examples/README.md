@@ -25,9 +25,17 @@ The sketch [SI4844_CUSTOM_BAND.ino](https://github.com/pu2clr/SI4844/blob/master
 
 The sketch [SI4844_OLED.ino](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_OLED) shows an example of using an I2C OLED display. __This sketch uses the SSD1306Ascii Arduino Library by Bill Greiman__. You must install SSD1306Ascii via Manage Libraries on your Arduino IDE.
 
-The schematic below shows how to insert the OLED and button. 
+The schematics below show how to add the OLED and buttons. 
 
-![OLED and Button with SI4844](https://github.com/pu2clr/SI4844/blob/master/extras/images/OLED_WITH_4844_schematic_atmega328.png)
+
+#### Arduino and OLED circuit
+
+![schematic Arduino and OLED](https://github.com/pu2clr/SI4844/blob/master/extras/images/schematic_Arduino_circuit.png)
+
+#### SI4844 minimal circuit
+
+![schematic SI4844 minimal circuit](https://github.com/pu2clr/SI4844/blob/master/extras/images/schematic_SI4844_minimal_circuit.png)
+
 
 
 ## Sound Control

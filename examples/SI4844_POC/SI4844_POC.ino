@@ -1,5 +1,15 @@
 /*
  * It is a Proof of Concept (POC) of using Si4844 with the Arduino Library for Si4844.
+ * 
+ *  SI4844 and Arduino Pro Mini connections
+ *  
+ *  | SI4844 pin |  Arduino pin |  Description                                       |
+ *  | ---------  | ------------ | -------------------------------------------------  |
+ *  |    2       |   2          | Arduino interrupt pin                              |
+ *  |   15       |  12          | Regurlar arduino digital pin used to RESET control |
+ *  |   16       |  A4 (SDA)    | I2C bus (Data)                                     |
+ *  |   17       |  A5 (SCL)    | I2C bus (Clocl)                                    |
+ * 
  * Author: Ricardo Lima Caratti (PU2CLR)
  * September, 2019
  */
