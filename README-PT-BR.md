@@ -9,7 +9,9 @@ Copyright (c) 2019 Ricardo Lima Caratti
 
 __ATENÇÃO__
 
-__É importante ressaltar que o dispositivo SI4844 opera com +3.3V. Se você pretende usar uma versão do Arduino de 5V, será necessário o uso de um conversor de 5V para 3.3V.__ Veja [Making the Si4844 works with 5V Arduino UNO or similar](https://github.com/pu2clr/SI4844/tree/master/extras/5V_to_3V3_CONVERTER) 
+__É importante ressaltar que o dispositivo SI4844 opera com +3.3V. Se você pretende usar uma versão do Arduino de 5V, será necessário o uso de um conversor bidirecional de 5V e 3.3V. Também é importante saber que a simples alimentação do SI4844 com a tensão de 3.3V do Arduino não é suficiente. Isso porque o Arduino que opera com 5V prover 5V em seus pinos digitais bem como no barramento I2C (A4 e A5)__.  
+
+Veja [Making the Si4844 works with 5V Arduino UNO or similar](https://github.com/pu2clr/SI4844/tree/master/extras/5V_to_3V3_CONVERTER) 
 
 
 Há alguns [exemplos](https://github.com/pu2clr/SI4844/tree/master/Exemplos) nesta biblioteca que poderão auxiliá-lo na construção de seu projeto. Com estes exemplos, é possível executar as principais funções do Si4844 via o Monitor Serial (Serial Monitor) do ambiente de desenvolvimento do Arduino (IDE).
