@@ -7,6 +7,11 @@ Esta Biblioteca pode ser distribuída livrimente seguindo a [Licença de Softwar
 
 Copyright (c) 2019 Ricardo Lima Caratti
 
+
+{% include libhistory.html %}
+
+
+
 __ATENÇÃO__
 
 __É importante ressaltar que o dispositivo SI4844 opera com +3.3V. Se você pretende usar uma versão do Arduino de 5V, será necessário o uso de um conversor bidirecional de 5V e 3.3V. Também é importante saber que a simples alimentação do SI4844 com a tensão de 3.3V do Arduino não é suficiente. Isso porque o Arduino que opera com 5V prover 5V em seus pinos digitais bem como no barramento I2C (A4 e A5)__.  

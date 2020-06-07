@@ -10,6 +10,10 @@ Contact: pu2clr@gmail.com
 
 By Ricardo Lima Caratti, Oct 2019. 
 
+
+{% include libhistory.html %}
+
+
 ## See also 
 
 1. [PU2CLR Si4735 Library for Arduino](https://pu2clr.github.io/SI4735/). Unlike SI4844, the Si4735 has more features and can operate on SSB mode via patch application. This library was built based on “Si47XX PROGRAMMING GUIDE; AN332 ”. It also can be used on all members of the SI47XX family respecting, of course, the features available for each IC version. These functionalities can be seen in the comparison matrix shown in table 1 (Product Family Function); pages 2 and 3 of the programming guide;
