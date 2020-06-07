@@ -244,8 +244,6 @@ It was a bit hard to solder the Si4844 on adapter. However, by using a electroni
 
 ![SI4844 soldered on adapter 01](./extras/images/si4844_board_01.png)
 
-![SI4844 soldered on adapter 02](./extras/images/si4844_board_02.png)
-
 ![SI4844 soldered on adapter 03](./extras/images/si4844_board_03.png)
 
 
