@@ -2,10 +2,10 @@
 
 Esta é uma biblioteca para o SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER, um Circuito Integrado fabricado pela Silicon Labs. Esta biblioteca é especialmente destinada aos interessados em controlar este dispositivo usando o a plataforma Arduino com o seu ambiente de desenvolvimento (IDE). 
 
-Copyright (c) 2019 Ricardo Lima Caratti
 
 Esta Biblioteca pode ser distribuída livrimente seguindo a [Licença de Software Livre MIT](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md#licen%C3%A7a-de-uso-desta-biblioteca). 
 
+Copyright (c) 2019 Ricardo Lima Caratti
 
 __ATENÇÃO__
 
@@ -156,11 +156,40 @@ Os esquemas e fotos a seguir mostram como construir um rádio simples baseado no
 
 ### Esquema
 
-Note no esquema proposta a seguir, que o Amplificador de sinal não é necessário para elaboração de um teste. Esta parte do circuito está destacada em vermelho. 
+Embora o esquema a seguir apresente a instalação do dispositivo OLED e notões, você poderá ignorá-los para fazer os primeiros testes do seu circuito.  Para tanto, você deverá selecionar os exemplos que vem junto com esta biblioteca  e que não utilizam estes componentes. Procure na pasta “Examples”, os sketches com exibição para “Serial Monitor”. Estes exemplos permitem visualizar e operar o receptor pelo computador.    
 
-![schematic](./extras/images/SI4844_POC_01.png)
-__Fonte:__ [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/)
- 
+
+#### Arduino and OLED circuit
+
+![schematic Arduino and OLED](https://github.com/pu2clr/SI4844/blob/master/extras/images/schematic_Arduino_circuit.png)
+
+#### SI4844 circuito mínimo
+
+![schematic SI4844 minimal circuit](https://github.com/pu2clr/SI4844/blob/master/extras/images/schematic_SI4844_minimal_circuit.png)
+
+
+
+
+Conforme pode ser verificado, o esquema acima é muito simples e utiliza pouquíssimos componentes.  Os botões estão configurados para usar o recurso de “pull up” interno do Arduino. O display OLED e o SI4844 estão conectados no barramento I2C conforme apresenta a tabela a seguir.  Observe também os resistores de “pull up” no barramento I2C. Os valores destes resistores podem depender dos dispositivos conectados ao barramento. Recomendo iniciar com resistores de 10K. No entanto, é provável que você resultados melhores com resistores mais baixos (exemplo: 3.3K).
+
+#### Conexões Arduino and SI4844
+
+The table below shows the pin connections between the Si4844 and Arduino Pro Mini.
+
+
+| SI4844 pin |  Arduino pin |  Description                                       |  
+| ---------  | ------------ | -------------------------------------------------  |
+|    2       |   2          | Arduino interrupt pin                              |
+|   15       |  12          | Regurlar arduino digital pin used to RESET control |
+|   16       |  A4 (SDA)    | I2C bus (Data)                                     |
+|   17       |  A5 (SCL)    | I2C bus (Clock)                                    | 
+  
+
+No front-end was added to this receiver. However, you will be surprised with the its performance. You can connect to the audio output a mono or stereo amplifier or an earphone to listen to the radio. On article [How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/) [May 26, 2016], Mr. Raymond Genovese, suggests a better SI4844 setup, including a RF amplifier.
+
+Outra configuração pode ser encontrada no documento da Silicon Labs "Si4822/26/27/40/44 ANTENNA, SCHEMATIC, LAYOUT, AND DESIGN GUIDELINES" Rev 0.3. Este documento também sugere um circuito com amplificador de RF. Confira as páginas 8, 9 and 10.
+
+
 
 __Atenção__:  Se você não estiver utilizando o Arduino Pro Mini, verifique a pinagem correta para interrupt (IRQ), RST, SDIO and  SCLK  do seu Arduino.  A tabela a seguir apresenta a pinagem de algumas placas de Arduinos.
 
@@ -174,48 +203,30 @@ __Atenção__:  Se você não estiver utilizando o Arduino Pro Mini, verifique a
 | 101	| todos os pinos digitais. <br> Somente os pinos 2, 5, 7, 8, 10, 11, 12 e 13 funcionam com CHANGE| ------ |
 
 
-O documento [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf), capítulo 2, página 11,  tem um esquema mais simplificado ainda deste rádio. 
-
-A figura a segui apresenta este esquema.
-__É uma boa ideia implementar "put pull-up" nos pinos SDIO and SCLK (pode usar um resistor entre 2,2K e  10K).__ Isso não está mostrado no esquema a seguir.
-
-![schematic](./extras/images/SI4844_SILICON_LABS1.png)
-__Fonte: Silicon Labs (Si4840/44-A10)__
-
 ### Componentes
 
 Listas de componentes utilizados 
 
-A tabela a seguir é baseada na publicação de [Raymond Genovese, May 26, 2016 - How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/) .  
+|Part	| Description |
+|-------  | ------------ |
+| IC1	    | Si4844-A10 radio receiver |
+| Arduino | Arduino Pro Mini, 3.3V, 8MHz |
+| C1      |	22pF ceramic capacitor |
+| C2      | 22pF ceramic capacitor |
+| C3      | 100nF ceramic capacitor |
+| C4      | 4.7uF Electrolytic or ceramic capacitor |
+| C5      | 4.7uF Electrolytic or ceramic capacitor | 
+| C6      | 100nF  ceramic capacitor |
+| C7      | 470nF  ceramic capacitor | 
+| R1      | 3.3K ~ 10K resistor |
+| R2      | 3.3K ~ 10K resistor |
+| R3      |	100K linear potentiometer |
+| L1    	| ferrite AM antenna | 
+| L2      | 100mH |
+|Y1	      | 32.768 kHz crystal |
+| S1...S4 | 4 push buttons |  
 
-|Componente	| Descrição |
-|-------| ------------ |
-|(*1) B1 	| ferrite bead 2.5 kOhm (100 mHz) B1, ferrite bead 2.5 kOhm (100 mHz), 81-BLM18BD252SZ1D |
-|C1,C2,C5 |	4.7uF capacitor não  polarizado |
-|C3,C4 |	22pF capacitor não  polarizado |
-|C6,C7,C9 |	.1uF capacitor não  polarizado |
-|(*2) C8	| __4.7uf capacitor não  polarizado__ (atenção: no esquema original, este valor é 47uF) |
-|C10, (*1) C11 |	.47uF capacitor não  polarizado |
-|(*1) C12, (*1) C14 |	33nF capacitor não  polarizado |
-|C13	| 33pF capacitor não  polarizado |
-|(*1) C15	| 10pF capacitor não  polarizado |
-|IC1	| Si4844-A10 radio receiver |
-|(*1) Q1	| SS9018 NPN transistor |
-|R1, R2	(*3) | 10K |
-|(*1) R3	| 1K |
-|R4 (*1), (*1) R7	| 100K |
-|(*1) R5	| 10 Ohms |
-|(*1) R6	| 120K |
-|R8	| 100 Ohms |
-|L1	| 270 nH Indutor (0,270 uH) |
-|VR1 |	100K Potenciômetro Linear |
-|Y1	| cristal de 32.768 kHz |
-|ANT1 |	Antena de ferrite |
-|ANT2 | Antena telescópica |
 
-1. (*1) - Não utilizado neste projeto.
-2. (*2) - O valor que utilizei foi 4.7uF e não o valor sugerido no esquema original (47uF).
-3. (*3) - Valores entre 2,2K e 10K são aceitáveis.
 
 ### Fotos 
 
@@ -223,20 +234,21 @@ A tabela a seguir é baseada na publicação de [Raymond Genovese, May 26, 2016 
 
 Foi um pouco difícil fazer a soldagem de um componente tão pequeno no adaptador. Contudo, com o uso de uma lente de aumento eletrônica e uma caneta (ferro de solda) foi possível fazer o trabalho. 
 
-
 ![SI4844 soldered on adapter 01](./extras/images/si4844_board_01.png)
-
-![SI4844 soldered on adapter 02](./extras/images/si4844_board_02.png)
 
 ![SI4844 soldered on adapter 03](./extras/images/si4844_board_03.png)
 
 
-#### Protoboard
+#### Protótipo
 
-![SI4844 and Arduino on protoboard 01](./extras/images/protoboard_01.png)
+![SI4844 soldered on adapter 04](./extras/images/SI4844_F00.png)
 
-![SI4844 and Arduino on protoboard 03](./extras/images/protoboard_04.png)
+![SI4844 soldered on adapter 05](./extras/images/SI4844_F01.png)
 
+![SI4844 soldered on adapter 06](./extras/images/SI4844_F02.png)
+
+
+#### Outra abordagem de protótipo.
 
 
 ## Documentação da API
