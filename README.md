@@ -23,8 +23,6 @@ By Ricardo Lima Caratti, Oct 2019.
 __The SI4844 is a 3.3V part. If you are not using a 3.3V version of Arduino, you have to use a kind of 5V to 3.3V converter.__ See [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup).
 
 
-https://pu2clr.github.io/SI4735/#mit-license
-
 ## Contents
 
 1. [License Copyright](https://pu2clr.github.io/SI4844/#mit-licence)
