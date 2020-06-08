@@ -91,7 +91,7 @@ uint16_t SI4844::getProperty(uint16_t propertyNumber)
  *  
  * @param cmd command number (see PROGRAMMING GUIDE)
  * @param parameter_size Parameter size in bytes. Tell the number of argument used by the command.
- * @param parameter unsigned byte array with the arguments of the command  
+ * @param parameter uint16_t  byte array with the arguments of the command  
  */
 void SI4844::sendCommand(uint8_t cmd, int parameter_size, const uint8_t *parameter)
 {
@@ -130,8 +130,9 @@ void SI4844::getCommandResponse(int response_size, uint8_t *response)
  * @details This function is called whenever the status of ATDD (SI4844) changes. 
  * @details It can occur, for example, when you use the analog tuner.  
  */
-void SI4844::waitInterrupr(void)
+void SI4844::waitInterrupt(void)
 {
+    
     while (!data_from_si4844)
         ;
 }
@@ -144,7 +145,7 @@ void SI4844::waitInterrupr(void)
  * @param interruptPin  interruprPin arduino pin used to handle interrupt 
  * @param defaultBand   band that the radio should start 
  */
-void SI4844::setup(unsigned int resetPin, unsigned int interruptPin, byte defaultBand)
+void SI4844::setup(uint16_t resetPin, uint16_t interruptPin, byte defaultBand)
 {
 
     this->resetPin = resetPin;
@@ -169,6 +170,53 @@ void SI4844::setup(unsigned int resetPin, unsigned int interruptPin, byte defaul
     getFirmware();
 }
 
+
+/**
+ * @brief Used to debug  
+ * @details use this function instead setup to check your implementation
+ *  
+ * @param resetPin          same call setup;
+ * @param interruptPin      same call setup    
+ * @param defaultBand       same call setup  
+ * @param showFunc          function of your sketch that will be called to show something
+ */
+void SI4844::debugDevice(uint16_t resetPin, uint16_t interruptPin, byte defaultBand, void (*showFunc)(char *msg))
+{
+
+    if ( showFunc == NULL ) return;
+
+    this->resetPin = resetPin;
+    this->interruptPin = interruptPin;
+
+    // Arduino interrupt setup.
+    pinMode(interruptPin, INPUT);
+
+    attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_hundler, RISING);
+    // attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_hundler, RISING);
+    // attachInterrupt(0, interrupt_hundler, CHANGE);
+    
+    // showFunc("So far so good 1");
+    // delay(1000);
+
+    data_from_si4844 = false;
+    reset();
+
+    // showFunc("So far so good 2");
+    // delay(1000);
+
+    // FM is the default BAND
+    // See pages 17 and 18 (Table 8. Pre-defined Band Table) for more details
+    setBand(defaultBand);
+
+    // showFunc("So far so good 3");
+    // delay(1000);
+
+    // You need call it just once.
+    getFirmware();
+
+    // showFunc("So far so good 3");
+}
+
 /**
  * @ingroup GB
  * @brief Resets the SI4844 device
@@ -177,7 +225,7 @@ void SI4844::setup(unsigned int resetPin, unsigned int interruptPin, byte defaul
  */
 void SI4844::reset()
 {
-    waitToSend();
+    // waitToSend();
 
     setClockLow(); // See *Note on page 5
     data_from_si4844 = false;
@@ -185,7 +233,7 @@ void SI4844::reset()
     delayMicroseconds(200);
     digitalWrite(resetPin, HIGH);
     delayMicroseconds(200);
-    waitInterrupr();
+    waitInterrupt();
     delayMicroseconds(2500);
 }
 
@@ -250,7 +298,7 @@ void SI4844::setBand(byte new_band)
     Wire.write(new_band);
     Wire.endTransmission();
     delayMicroseconds(2500);
-    waitInterrupr();
+    waitInterrupt();
 
     delayMicroseconds(2500);
     getStatus();
@@ -265,13 +313,13 @@ void SI4844::setBand(byte new_band)
  * @return true 
  * @return false 
  */
-inline bool SI4844::isClearToSend(void)
+bool SI4844::isClearToSend(void)
 {
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_GET_STATUS);
     Wire.endTransmission();
     delayMicroseconds(2000);
-    Wire.requestFrom(SI4844_ADDRESS, 0x01);
+    Wire.requestFrom(SI4844_ADDRESS, 1);
     status_response.raw[0] = Wire.read();
     return status_response.refined.CTS; // return 0 (false) or 1 (true)
 }
@@ -565,7 +613,6 @@ si4844_firmware_response *SI4844::getFirmware(void)
 float SI4844::getFrequency(void)
 {
     getStatus();
-    String s;
     int addFactor = 0;
     int multFactor = 1;
     // Check CHFREQ bit[15] MSB = 1
@@ -573,28 +620,28 @@ float SI4844::getFrequency(void)
     if (status_response.refined.BANDMODE == 0)
     {
         multFactor = 100;
-        if (status_response.refined.d1 & B00001000)
+        if (status_response.refined.d1 & 0b00001000)
         {
-            status_response.refined.d1 &= B11110111;
+            status_response.refined.d1 &= 0b11110111;
             addFactor = 50;
         }
     }
     else if (status_response.refined.BANDMODE == 2)
     {
         multFactor = 10;
-        if (status_response.refined.d1 & B00001000)
+        if (status_response.refined.d1 & 0b00001000)
         {
-            status_response.refined.d1 &= B11110111;
+            status_response.refined.d1 &= 0b11110111;
             addFactor = 5;
         }
     }
 
-    s.concat(status_response.refined.d1);
-    s.concat(status_response.refined.d2);
-    s.concat(status_response.refined.d3);
-    s.concat(status_response.refined.d4);
+    float f;
 
-    float f = s.toFloat();
+    f = (status_response.refined.d4);
+    f += (status_response.refined.d3) * 10;
+    f += (status_response.refined.d2) * 100;
+    f += (status_response.refined.d1) * 1000;
 
     data_from_si4844 = false;
 
@@ -638,7 +685,7 @@ void SI4844::resetStatus()
  * @param  top Band Top Frequency Limit
  * @param  bandSpace Channel Spacing (use 5 or 10 - On FM 10 = 100KHz)
  */
-void SI4844::setCustomBand(byte bandIndex, unsigned botton, unsigned top, byte bandSpace)
+void SI4844::setCustomBand(byte bandIndex, uint16_t  botton, uint16_t  top, byte bandSpace)
 {
 
     union {
@@ -647,8 +694,8 @@ void SI4844::setCustomBand(byte bandIndex, unsigned botton, unsigned top, byte b
             byte bandindex : 6;
             byte xowait : 1;
             byte xoscen : 1;
-            unsigned botton;
-            unsigned top;
+            uint16_t  botton;
+            uint16_t  top;
             byte bandspace;
         } refined;
         byte raw[6];
@@ -681,7 +728,7 @@ void SI4844::setCustomBand(byte bandIndex, unsigned botton, unsigned top, byte b
 
     Wire.endTransmission();
     delayMicroseconds(2500);
-    waitInterrupr();
+    waitInterrupt();
 
     delayMicroseconds(2500);
     getStatus();

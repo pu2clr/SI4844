@@ -77,20 +77,20 @@ typedef union {
  */
 typedef struct
 {
-  byte BCFG0 : 1;     // Bit 0
-  byte BCFG1 : 1;     // bit 1
-  byte STEREO : 1;    // bit 2
-  byte STATION : 1;   // bit 3
-  byte INFORDY : 1;   // bit 4
-  byte HOSTPWRUP : 1; // bit 5
-  byte HOSTRST : 1;   // bit 6
-  byte CTS : 1;       // bit 7
-  byte BANDIDX : 6;   // Form bit 0 to 5
-  byte BANDMODE : 2;  // From bit 6 to 7
-  byte d2 : 4;        // Frequency digit 2
-  byte d1 : 4;        // Frequency digit 1
-  byte d4 : 4;        // Frequency digit 4
-  byte d3 : 4;        // frequency digit 3
+  uint8_t BCFG0 : 1;     // Bit 0
+  uint8_t BCFG1 : 1;     // bit 1
+  uint8_t STEREO : 1;    // bit 2
+  uint8_t STATION : 1;   // bit 3
+  uint8_t INFORDY : 1;   // bit 4
+  uint8_t HOSTPWRUP : 1; // bit 5
+  uint8_t HOSTRST : 1;   // bit 6
+  uint8_t CTS : 1;       // bit 7
+  uint8_t BANDIDX : 6;   // Form bit 0 to 5
+  uint8_t BANDMODE : 2;  // From bit 6 to 7
+  uint8_t d2 : 4;        // Frequency digit 2
+  uint8_t d1 : 4;        // Frequency digit 1
+  uint8_t d4 : 4;        // Frequency digit 4
+  uint8_t d3 : 4;        // frequency digit 3
 } si4844_get_status;
 
 /**
@@ -100,7 +100,7 @@ typedef struct
 */
 typedef union {
   si4844_get_status refined;
-  byte raw[4];
+  uint8_t raw[4];
 } si4844_status_response;
 
 /**
@@ -110,15 +110,15 @@ typedef union {
  */
 typedef struct
 {
-  byte RESERVED : 6; // Bit 0 to 5
-  byte ERR : 1;      // bit 6
-  byte CTS : 1;      // bit 2
-  byte PN;           // Final 2 digits of Part Number (HEX).
-  byte FWMAJOR;      // Firmware Major Revision (ASCII).
-  byte FWMINOR;      // Firmware Minor Revision (ASCII).
-  byte CMPMAJOR;     // Component Major Revision (ASCII).
-  byte CMPMINOR;     // Component Minor Revision (ASCII).
-  byte CHIPREV;      // Chip Revision (ASCII).
+  uint8_t RESERVED : 6; // Bit 0 to 5
+  uint8_t ERR : 1;      // bit 6
+  uint8_t CTS : 1;      // bit 2
+  uint8_t PN;           // Final 2 digits of Part Number (HEX).
+  uint8_t FWMAJOR;      // Firmware Major Revision (ASCII).
+  uint8_t FWMINOR;      // Firmware Minor Revision (ASCII).
+  uint8_t CMPMAJOR;     // Component Major Revision (ASCII).
+  uint8_t CMPMINOR;     // Component Minor Revision (ASCII).
+  uint8_t CHIPREV;      // Chip Revision (ASCII).
 } si4844_firmware_info;
 
 /**
@@ -127,7 +127,7 @@ typedef struct
  */
 typedef union {
   si4844_firmware_info refined;
-  byte raw[9];
+  uint8_t raw[9];
 } si4844_firmware_response;
 
 /**
@@ -137,14 +137,14 @@ typedef union {
 typedef union {
   struct
   {
-    byte AUDIOMODE : 2;
-    byte FM_MONO : 1;
-    byte ADJPT_ATTN : 1;
-    byte ADJPT_STEO : 1;
-    byte Reserved : 2;
-    byte OPCODE : 1;
+    uint8_t AUDIOMODE : 2;
+    uint8_t FM_MONO : 1;
+    uint8_t ADJPT_ATTN : 1;
+    uint8_t ADJPT_STEO : 1;
+    uint8_t Reserved : 2;
+    uint8_t OPCODE : 1;
   } arg1;
-  byte raw;
+  uint8_t raw;
 } si4844_audiomode;
 
 /**
@@ -153,15 +153,15 @@ typedef union {
  */
 typedef  union {
         struct {
-          byte AUDIOMODE:2;
-          byte FM_MONO:1;
-          byte ADJPT_ATTN:1;
-          byte ADJPT_STEO:1;
-          byte Reserved:1;
-          byte ERR:1;
-          byte CTS:1;
+          uint8_t AUDIOMODE:2;
+          uint8_t FM_MONO:1;
+          uint8_t ADJPT_ATTN:1;
+          uint8_t ADJPT_STEO:1;
+          uint8_t Reserved:1;
+          uint8_t ERR:1;
+          uint8_t CTS:1;
         } status;
-        byte raw;
+        uint8_t raw;
 } si4844_audiomode_status_response;
 
 /**
@@ -209,13 +209,13 @@ private:
 
   si4844_status_response status_response; 
   si4844_firmware_response firmware_response;
-  unsigned int resetPin;
-  unsigned int interruptPin;
-  byte currentBand; 
+  uint16_t resetPin;
+  uint16_t interruptPin;
+  uint8_t currentBand; 
 
   inline void setClockLow(void) { Wire.setClock(10000); };
   inline void setClockHigh(void) { Wire.setClock(50000); };
-  inline void waitInterrupr(void);
+  inline void waitInterrupt(void);
   inline bool isClearToSend(void);
   inline void waitToSend(void);
 
@@ -223,8 +223,8 @@ private:
   const char *bandmode_table[3] = {"FM", "AM", "SW"};
   const char *stereo_indicator_table[2] = {"Off","On "};
 
-  byte volume = 48;
-  byte bassTreble = 4;   
+  uint8_t volume = 48;
+  uint8_t bassTreble = 4;   
 
 public :
   void setProperty(uint16_t propertyNumber, uint16_t parameter);
@@ -232,7 +232,8 @@ public :
   void sendCommand(uint8_t cmd, int parameter_size, const uint8_t *parameter);
   void getCommandResponse(int response_size, uint8_t *response);
 
-  void setup(unsigned int, unsigned int, byte);
+  void setup(uint16_t, uint16_t, byte);
+  void debugDevice(uint16_t resetPin, uint16_t interruptPin, uint8_t defaultBand, void (*showFunc)(char *msg));
   void reset(void );
   void setBand(byte);
   
@@ -240,10 +241,10 @@ public :
   void volumeUp(void);
   void volumeDown(void);
   void setVolume(byte);
-  void setBassTreble(byte bass_treble);
+  void setBassTreble(uint8_t bass_treble);
   void bassTrebleUp();
   void bassTrebleDown();
-  void audioMute(byte value);
+  void audioMute(uint8_t value);
   void setAudioMute(bool on);
 
   void setAmSoftMuteMaxAttenuation(uint8_t value);
@@ -252,12 +253,12 @@ public :
 
 
   si4844_audiomode_status_response
-  setAudioMode(byte audiomode, byte fm_mono, byte adjpt_attn, byte adjpt_steo, byte opcode);
+  setAudioMode(uint8_t audiomode, uint8_t fm_mono, uint8_t adjpt_attn, uint8_t adjpt_steo, uint8_t opcode);
 
   si4844_status_response *getStatus(void);
   si4844_firmware_response *getFirmware(void);
   // customize the frequency range of a band
-  void setCustomBand(byte, unsigned, unsigned, byte);
+  void setCustomBand(byte, uint16_t , uint16_t , byte);
  
   void powerDown(void);
   void powerUp(void);
@@ -270,38 +271,38 @@ public :
   /**
    * @brief Gets the current audio volume level
    * 
-   * @return byte 
+   * @return uint8_t 
    */
-  inline byte getVolume() {return volume; };
-  byte getVolumeProperty();
+  inline uint8_t getVolume() {return volume; };
+  uint8_t getVolumeProperty();
 
   // return 0 = "FM mode"; 1 = "AM mode"; 2 = "SW mode".
-  inline String getBandMode(){ return bandmode_table[status_response.refined.BANDMODE]; };
+  inline char * getBandMode(){ return (char *) bandmode_table[status_response.refined.BANDMODE]; };
   // return char * "Off" or stereo "On"
-  inline String getStereoIndicator(){ return stereo_indicator_table[status_response.refined.STATION]; };
+  inline char * getStereoIndicator(){ return (char *) stereo_indicator_table[status_response.refined.STATION]; };
   
  
-  inline unsigned getStatusBCFG0() { return status_response.refined.BCFG0; };
-  inline unsigned getStatusBCFG1() { return status_response.refined.BCFG1; };
-  inline unsigned getStatusStereo() { return status_response.refined.STEREO; };
-  inline unsigned getStatusStationIndicator() { return status_response.refined.STATION; };
-  inline unsigned getStatusInformationReady() { return status_response.refined.INFORDY; };
-  inline unsigned getStatusHostPowerUp() { return status_response.refined.HOSTPWRUP; };
-  inline unsigned getStatusHostReset() { return status_response.refined.HOSTRST; };
-  inline unsigned getStatusBandMode() { return status_response.refined.BANDMODE; };
-  inline unsigned getStatusBandIndex() { return status_response.refined.BANDIDX; };
-  inline unsigned getStatusCTS() { return status_response.refined.CTS; };
+  inline uint16_t  getStatusBCFG0() { return status_response.refined.BCFG0; };
+  inline uint16_t  getStatusBCFG1() { return status_response.refined.BCFG1; };
+  inline uint16_t  getStatusStereo() { return status_response.refined.STEREO; };
+  inline uint16_t  getStatusStationIndicator() { return status_response.refined.STATION; };
+  inline uint16_t  getStatusInformationReady() { return status_response.refined.INFORDY; };
+  inline uint16_t  getStatusHostPowerUp() { return status_response.refined.HOSTPWRUP; };
+  inline uint16_t  getStatusHostReset() { return status_response.refined.HOSTRST; };
+  inline uint16_t  getStatusBandMode() { return status_response.refined.BANDMODE; };
+  inline uint16_t  getStatusBandIndex() { return status_response.refined.BANDIDX; };
+  inline uint16_t  getStatusCTS() { return status_response.refined.CTS; };
 
 
-  inline unsigned getFirmwareReserved() { return firmware_response.refined.RESERVED; };
-  inline unsigned getFirmwareErr() { return firmware_response.refined.ERR; };
-  inline unsigned getFirmwareCTS() { return firmware_response.refined.CTS; };
-  inline unsigned getFirmwarePartNumber() { return firmware_response.refined.PN; };
-  inline unsigned getFirmwareMajorRevision() { return firmware_response.refined.FWMAJOR; };
-  inline unsigned getFirmwareMinorRevision() { return firmware_response.refined.FWMINOR; };
-  inline unsigned getFirmwareComponentMajorRevision() { return firmware_response.refined.CMPMAJOR; };
-  inline unsigned getFirmwareComponentMinorRevision() { return firmware_response.refined.CMPMINOR; };
-  inline unsigned getFirmwareChipRevision() { return firmware_response.refined.CHIPREV; };
+  inline uint16_t  getFirmwareReserved() { return firmware_response.refined.RESERVED; };
+  inline uint16_t  getFirmwareErr() { return firmware_response.refined.ERR; };
+  inline uint16_t  getFirmwareCTS() { return firmware_response.refined.CTS; };
+  inline uint16_t  getFirmwarePartNumber() { return firmware_response.refined.PN; };
+  inline uint16_t  getFirmwareMajorRevision() { return firmware_response.refined.FWMAJOR; };
+  inline uint16_t  getFirmwareMinorRevision() { return firmware_response.refined.FWMINOR; };
+  inline uint16_t  getFirmwareComponentMajorRevision() { return firmware_response.refined.CMPMAJOR; };
+  inline uint16_t  getFirmwareComponentMinorRevision() { return firmware_response.refined.CMPMINOR; };
+  inline uint16_t  getFirmwareChipRevision() { return firmware_response.refined.CHIPREV; };
 };
 
 

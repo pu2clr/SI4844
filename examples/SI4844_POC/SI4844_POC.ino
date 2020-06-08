@@ -59,6 +59,24 @@ void show_firmware_information() {
   Serial.println(si4844.getFirmwareChipRevision());
   Serial.println("*****************************");
 }
+
+void showStatus() {
+    Serial.print("Band Index: ");
+    Serial.print(si4844.getStatusBandIndex());
+    Serial.print(" - ");
+    Serial.print(si4844.getBandMode());
+    Serial.print(" - Frequency: ");    
+    Serial.print(si4844.getFrequency(),0);
+    Serial.print(" KHz");
+    if (si4844.getStatusBandMode() == 0) {
+      Serial.print(" - Stereo ");
+      Serial.print(si4844.getStereoIndicator());
+    }
+    Serial.print(" - Volume: ");
+    Serial.print(si4844.getVolume());
+    Serial.println("");  
+}
+
 // Control
 void loop() {
   // Read from keyboar (Arduino Serial Monitor)
@@ -129,19 +147,6 @@ void loop() {
   }
   if (si4844.hasStatusChanged())
   {
-    Serial.print("Band Index: ");
-    Serial.print(si4844.getStatusBandIndex());
-    Serial.print(" - ");
-    Serial.print(si4844.getBandMode());
-    Serial.print(" - Frequency: ");    
-    Serial.print(si4844.getFrequency(),0);
-    Serial.print(" KHz");
-    if (si4844.getStatusBandMode() == 0) {
-      Serial.print(" - Stereo ");
-      Serial.print(si4844.getStereoIndicator());
-    }
-    Serial.print(" - Volume: ");
-    Serial.print(si4844.getVolume());
-    Serial.println("");
+    showStatus();
   }
 }
