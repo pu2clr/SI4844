@@ -170,8 +170,8 @@ void SI4844::setup(uint16_t resetPin, uint16_t interruptPin, byte defaultBand)
     getFirmware();
 }
 
-
 /**
+ * @ingroup GB
  * @brief Used to debug  
  * @details use this function instead setup to check your implementation
  *  

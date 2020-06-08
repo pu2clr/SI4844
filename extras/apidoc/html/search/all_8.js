@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['infordy_63',['INFORDY',['../group___g_a1.html#a5f0a9c05677de849659ed0993fea10e3',1,'si4844_get_status']]]
+  ['infordy_64',['INFORDY',['../group___g_a1.html#ae1ae8b6bb0181cbfef784799bcffdf8f',1,'si4844_get_status']]]
 ];

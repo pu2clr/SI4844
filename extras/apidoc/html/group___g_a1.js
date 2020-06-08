@@ -14,43 +14,43 @@ var group___g_a1 =
       [ "CTS", "group___g_a1.html#ae16433ffd3adc248f0ce2608a95c3c76", null ]
     ] ],
     [ "si4844_get_status", "group___g_a1.html#structsi4844__get__status", [
-      [ "BCFG0", "group___g_a1.html#a3a953e22367e037359b4d136ff724189", null ],
-      [ "BCFG1", "group___g_a1.html#af7ba8dd3dda6266c915c62ccb81a8e55", null ],
-      [ "STEREO", "group___g_a1.html#a1fcdf8cd7f35908a3341ccec73f55a56", null ],
-      [ "STATION", "group___g_a1.html#a044ed178e62e7ec3c4f4566cd831ea73", null ],
-      [ "INFORDY", "group___g_a1.html#a5f0a9c05677de849659ed0993fea10e3", null ],
-      [ "HOSTPWRUP", "group___g_a1.html#a57e8c5771e5981aac29a90c2fef0c368", null ],
-      [ "HOSTRST", "group___g_a1.html#ab4295a29819d7ddb2ddb371c863f7354", null ],
-      [ "CTS", "group___g_a1.html#a7df3def5721b3913719a02b7818b1fa0", null ],
-      [ "BANDIDX", "group___g_a1.html#a1ee18d65e9258c61afec3aa370100148", null ],
-      [ "BANDMODE", "group___g_a1.html#ad89755212da9692a0134886607630cac", null ],
-      [ "d2", "group___g_a1.html#a7e35fdc2be4ce79eaf0dcfb8c6f2b03e", null ],
-      [ "d1", "group___g_a1.html#a0ff3bad4ce20dc80513ed1d46a463b6b", null ],
-      [ "d4", "group___g_a1.html#ae973391daf1e44157b626a51ec333edf", null ],
-      [ "d3", "group___g_a1.html#a753b39376dbdba32b7d20ccfa2f62537", null ]
+      [ "BCFG0", "group___g_a1.html#aff584d438d22709c99c17537cd4d19c2", null ],
+      [ "BCFG1", "group___g_a1.html#a24ef7906bfcaa071dfd99c2e198920f1", null ],
+      [ "STEREO", "group___g_a1.html#a53c1d3a240cae390999bc4c19fbdb2c5", null ],
+      [ "STATION", "group___g_a1.html#ac4e7f2a1aca868f7a81407203f178b62", null ],
+      [ "INFORDY", "group___g_a1.html#ae1ae8b6bb0181cbfef784799bcffdf8f", null ],
+      [ "HOSTPWRUP", "group___g_a1.html#a414758a90fbf84493eb83e700f93359b", null ],
+      [ "HOSTRST", "group___g_a1.html#a890ef3067527c2ea5cab4d9233d04ed4", null ],
+      [ "CTS", "group___g_a1.html#af18d45c20fb48cb9dd8f9c8cb3095c9d", null ],
+      [ "BANDIDX", "group___g_a1.html#accef4d7acfdc14530807bdc3d50b858e", null ],
+      [ "BANDMODE", "group___g_a1.html#a8b05b194c7ea1fc89fa6379f8168e738", null ],
+      [ "d2", "group___g_a1.html#ad368cfe6179539e7dfd006ee324433ec", null ],
+      [ "d1", "group___g_a1.html#a78214f521fdcea2bc5150f369013beed", null ],
+      [ "d4", "group___g_a1.html#a8f030b65865691709646e1f42272e329", null ],
+      [ "d3", "group___g_a1.html#a8656d167864559e12a343ddff53b6532", null ]
     ] ],
     [ "si4844_status_response", "group___g_a1.html#unionsi4844__status__response", [
       [ "refined", "group___g_a1.html#a91cf8272340013b6c5f447e7e6a17d17", null ],
-      [ "raw", "group___g_a1.html#ab6264450d7b1c973b29215eefe9e8815", null ]
+      [ "raw", "group___g_a1.html#a6c85033999395aa3fabf31f13418476b", null ]
     ] ],
     [ "si4844_firmware_info", "group___g_a1.html#structsi4844__firmware__info", [
-      [ "RESERVED", "group___g_a1.html#acf05e571dad0fafdb751d8e9b455e8d9", null ],
-      [ "ERR", "group___g_a1.html#a1d0e19644693d80716edae81e885a54e", null ],
-      [ "CTS", "group___g_a1.html#ad9852dddb568c679b73f14dfeb13a4c6", null ],
-      [ "PN", "group___g_a1.html#a32d140a1adcd08e9c6828af0e9ef1a36", null ],
-      [ "FWMAJOR", "group___g_a1.html#ad1891709e6ff24c4a37a3c35f16b6762", null ],
-      [ "FWMINOR", "group___g_a1.html#adf08b4a0d60cc34efb4d46ca793c6bf3", null ],
-      [ "CMPMAJOR", "group___g_a1.html#aaf83c2679cc43dbae95f4adf31920785", null ],
-      [ "CMPMINOR", "group___g_a1.html#a689f010bf4278ce1d84c5efa57b3b5c6", null ],
-      [ "CHIPREV", "group___g_a1.html#ac59d087f3d650d52bae3e53a8392db73", null ]
+      [ "RESERVED", "group___g_a1.html#a813254eb8f7c2e88227154157933195e", null ],
+      [ "ERR", "group___g_a1.html#a7ea267acad0f48227da2f83aaeae435d", null ],
+      [ "CTS", "group___g_a1.html#ace0a4304f15f347ec4723988a9e788a0", null ],
+      [ "PN", "group___g_a1.html#a5dfb75c114db5f902068198b4f7634a2", null ],
+      [ "FWMAJOR", "group___g_a1.html#a4339bbc73cadc9361d059ae5d5fdd5f7", null ],
+      [ "FWMINOR", "group___g_a1.html#ad1eae282a38604cdcc0ba18ecdc66473", null ],
+      [ "CMPMAJOR", "group___g_a1.html#a6c58e4f3caee874e9bd64dd45ec7fe1b", null ],
+      [ "CMPMINOR", "group___g_a1.html#a3d543270b50f739debc5405a54ef4116", null ],
+      [ "CHIPREV", "group___g_a1.html#a38dcd6fd63f9a040ba68c5266b676105", null ]
     ] ],
     [ "si4844_audiomode", "group___g_a1.html#unionsi4844__audiomode", [
       [ "arg1", "group___g_a1.html#a65f069eb4d4d47b3a096af3dbf6c4202", null ],
-      [ "raw", "group___g_a1.html#a222bda1f63a07befcfa698d14f32c9ab", null ]
+      [ "raw", "group___g_a1.html#a1b3bf3ecc88e2d010fafd4d70076ae42", null ]
     ] ],
     [ "si4844_audiomode_status_response", "group___g_a1.html#unionsi4844__audiomode__status__response", [
       [ "status", "group___g_a1.html#a8776d87c488659994fdb4983290f437b", null ],
-      [ "raw", "group___g_a1.html#a73c4a74e91a42484942bb85337ca34c3", null ]
+      [ "raw", "group___g_a1.html#a920ce348cf43defb095ad6c9d1d7b25a", null ]
     ] ],
     [ "si4844_audiomode_status_response.status", "group___g_a1.html#structsi4844__audiomode__status__response_8status", [
       [ "AUDIOMODE", "group___g_a1.html#afaf623e55cfa92657ab1a9f6bc4c206e", null ],

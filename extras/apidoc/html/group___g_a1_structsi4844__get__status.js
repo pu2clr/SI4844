@@ -1,17 +1,17 @@
 var group___g_a1_structsi4844__get__status =
 [
-    [ "BCFG0", "group___g_a1.html#a3a953e22367e037359b4d136ff724189", null ],
-    [ "BCFG1", "group___g_a1.html#af7ba8dd3dda6266c915c62ccb81a8e55", null ],
-    [ "STEREO", "group___g_a1.html#a1fcdf8cd7f35908a3341ccec73f55a56", null ],
-    [ "STATION", "group___g_a1.html#a044ed178e62e7ec3c4f4566cd831ea73", null ],
-    [ "INFORDY", "group___g_a1.html#a5f0a9c05677de849659ed0993fea10e3", null ],
-    [ "HOSTPWRUP", "group___g_a1.html#a57e8c5771e5981aac29a90c2fef0c368", null ],
-    [ "HOSTRST", "group___g_a1.html#ab4295a29819d7ddb2ddb371c863f7354", null ],
-    [ "CTS", "group___g_a1.html#a7df3def5721b3913719a02b7818b1fa0", null ],
-    [ "BANDIDX", "group___g_a1.html#a1ee18d65e9258c61afec3aa370100148", null ],
-    [ "BANDMODE", "group___g_a1.html#ad89755212da9692a0134886607630cac", null ],
-    [ "d2", "group___g_a1.html#a7e35fdc2be4ce79eaf0dcfb8c6f2b03e", null ],
-    [ "d1", "group___g_a1.html#a0ff3bad4ce20dc80513ed1d46a463b6b", null ],
-    [ "d4", "group___g_a1.html#ae973391daf1e44157b626a51ec333edf", null ],
-    [ "d3", "group___g_a1.html#a753b39376dbdba32b7d20ccfa2f62537", null ]
+    [ "BCFG0", "group___g_a1.html#aff584d438d22709c99c17537cd4d19c2", null ],
+    [ "BCFG1", "group___g_a1.html#a24ef7906bfcaa071dfd99c2e198920f1", null ],
+    [ "STEREO", "group___g_a1.html#a53c1d3a240cae390999bc4c19fbdb2c5", null ],
+    [ "STATION", "group___g_a1.html#ac4e7f2a1aca868f7a81407203f178b62", null ],
+    [ "INFORDY", "group___g_a1.html#ae1ae8b6bb0181cbfef784799bcffdf8f", null ],
+    [ "HOSTPWRUP", "group___g_a1.html#a414758a90fbf84493eb83e700f93359b", null ],
+    [ "HOSTRST", "group___g_a1.html#a890ef3067527c2ea5cab4d9233d04ed4", null ],
+    [ "CTS", "group___g_a1.html#af18d45c20fb48cb9dd8f9c8cb3095c9d", null ],
+    [ "BANDIDX", "group___g_a1.html#accef4d7acfdc14530807bdc3d50b858e", null ],
+    [ "BANDMODE", "group___g_a1.html#a8b05b194c7ea1fc89fa6379f8168e738", null ],
+    [ "d2", "group___g_a1.html#ad368cfe6179539e7dfd006ee324433ec", null ],
+    [ "d1", "group___g_a1.html#a78214f521fdcea2bc5150f369013beed", null ],
+    [ "d4", "group___g_a1.html#a8f030b65865691709646e1f42272e329", null ],
+    [ "d3", "group___g_a1.html#a8656d167864559e12a343ddff53b6532", null ]
 ];

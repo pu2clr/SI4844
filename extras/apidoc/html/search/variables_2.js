@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['chiprev_185',['CHIPREV',['../group___g_a1.html#ac59d087f3d650d52bae3e53a8392db73',1,'si4844_firmware_info']]],
-  ['cmpmajor_186',['CMPMAJOR',['../group___g_a1.html#aaf83c2679cc43dbae95f4adf31920785',1,'si4844_firmware_info']]],
-  ['cmpminor_187',['CMPMINOR',['../group___g_a1.html#a689f010bf4278ce1d84c5efa57b3b5c6',1,'si4844_firmware_info']]],
-  ['cts_188',['CTS',['../group___g_a1.html#a7df3def5721b3913719a02b7818b1fa0',1,'si4844_get_status::CTS()'],['../group___g_a1.html#ad9852dddb568c679b73f14dfeb13a4c6',1,'si4844_firmware_info::CTS()']]]
+  ['chiprev_187',['CHIPREV',['../group___g_a1.html#a38dcd6fd63f9a040ba68c5266b676105',1,'si4844_firmware_info']]],
+  ['cmpmajor_188',['CMPMAJOR',['../group___g_a1.html#a6c58e4f3caee874e9bd64dd45ec7fe1b',1,'si4844_firmware_info']]],
+  ['cmpminor_189',['CMPMINOR',['../group___g_a1.html#a3d543270b50f739debc5405a54ef4116',1,'si4844_firmware_info']]],
+  ['cts_190',['CTS',['../group___g_a1.html#af18d45c20fb48cb9dd8f9c8cb3095c9d',1,'si4844_get_status::CTS()'],['../group___g_a1.html#ace0a4304f15f347ec4723988a9e788a0',1,'si4844_firmware_info::CTS()']]]
 ];

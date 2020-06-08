@@ -8,5 +8,5 @@ var searchData=
   ['atdd_5fpower_5fup_5',['ATDD_POWER_UP',['../_s_i4844_8h.html#a9fce44b312bbb4dbca1a0d951a0a7c8d',1,'SI4844.h']]],
   ['atdd_5fxoscen_6',['ATDD_XOSCEN',['../_s_i4844_8h.html#a15334ea9808ed9e355d8bc6bb3b43fcf',1,'SI4844.h']]],
   ['atdd_5fxowait_7',['ATDD_XOWAIT',['../_s_i4844_8h.html#a775e42f41cc53c1f6ce0b30bfa5e6902',1,'SI4844.h']]],
-  ['audiomute_8',['audioMute',['../group___g_b.html#gada146e7f245e103494ea40df051c0a63',1,'SI4844']]]
+  ['audiomute_8',['audioMute',['../group___g_b.html#gacd7984bdca51c53082ab0a67b00244aa',1,'SI4844']]]
 ];

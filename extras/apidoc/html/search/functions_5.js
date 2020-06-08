@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['powerdown_162',['powerDown',['../group___g_b.html#gaff14988c6be8a5fb9d1a5e6934dcff47',1,'SI4844']]],
-  ['powerup_163',['powerUp',['../group___g_b.html#gab19b2ce04e07e23275fea5889b87a201',1,'SI4844']]]
+  ['hasstatuschanged_163',['hasStatusChanged',['../group___g_b.html#gae362404004bde2ed561a0c34604e0254',1,'SI4844']]]
 ];

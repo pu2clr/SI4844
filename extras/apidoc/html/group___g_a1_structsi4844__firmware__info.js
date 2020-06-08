@@ -1,12 +1,12 @@
 var group___g_a1_structsi4844__firmware__info =
 [
-    [ "RESERVED", "group___g_a1.html#acf05e571dad0fafdb751d8e9b455e8d9", null ],
-    [ "ERR", "group___g_a1.html#a1d0e19644693d80716edae81e885a54e", null ],
-    [ "CTS", "group___g_a1.html#ad9852dddb568c679b73f14dfeb13a4c6", null ],
-    [ "PN", "group___g_a1.html#a32d140a1adcd08e9c6828af0e9ef1a36", null ],
-    [ "FWMAJOR", "group___g_a1.html#ad1891709e6ff24c4a37a3c35f16b6762", null ],
-    [ "FWMINOR", "group___g_a1.html#adf08b4a0d60cc34efb4d46ca793c6bf3", null ],
-    [ "CMPMAJOR", "group___g_a1.html#aaf83c2679cc43dbae95f4adf31920785", null ],
-    [ "CMPMINOR", "group___g_a1.html#a689f010bf4278ce1d84c5efa57b3b5c6", null ],
-    [ "CHIPREV", "group___g_a1.html#ac59d087f3d650d52bae3e53a8392db73", null ]
+    [ "RESERVED", "group___g_a1.html#a813254eb8f7c2e88227154157933195e", null ],
+    [ "ERR", "group___g_a1.html#a7ea267acad0f48227da2f83aaeae435d", null ],
+    [ "CTS", "group___g_a1.html#ace0a4304f15f347ec4723988a9e788a0", null ],
+    [ "PN", "group___g_a1.html#a5dfb75c114db5f902068198b4f7634a2", null ],
+    [ "FWMAJOR", "group___g_a1.html#a4339bbc73cadc9361d059ae5d5fdd5f7", null ],
+    [ "FWMINOR", "group___g_a1.html#ad1eae282a38604cdcc0ba18ecdc66473", null ],
+    [ "CMPMAJOR", "group___g_a1.html#a6c58e4f3caee874e9bd64dd45ec7fe1b", null ],
+    [ "CMPMINOR", "group___g_a1.html#a3d543270b50f739debc5405a54ef4116", null ],
+    [ "CHIPREV", "group___g_a1.html#a38dcd6fd63f9a040ba68c5266b676105", null ]
 ];
