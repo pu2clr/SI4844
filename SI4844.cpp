@@ -141,19 +141,23 @@ void SI4844::waitInterrupt(void)
  * @ingroup GB
  * @brief Initiates the SI4844 instance and connect the device (SI4844) to Arduino. 
  * @details Calling this library should be the first thing to do to control the SI4844.
+ * @details If interruptPin is -1, it means you will control interrupt in your sketch. 
+ * @details In this case, you have to call interrupt_hundler() (see SI4844.h)   
  * @param resetPin      arduino pin used to reset the device
  * @param interruptPin  interruprPin arduino pin used to handle interrupt 
  * @param defaultBand   band that the radio should start 
  */
-void SI4844::setup(uint16_t resetPin, uint16_t interruptPin, byte defaultBand)
+void SI4844::setup(uint16_t resetPin, int interruptPin, byte defaultBand)
 {
 
     this->resetPin = resetPin;
     this->interruptPin = interruptPin;
 
     // Arduino interrupt setup.
-    pinMode(interruptPin, INPUT);
-    attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_hundler, RISING);
+    if (interruptPin != -1 ) {
+        pinMode(interruptPin, INPUT);
+        attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_hundler, RISING);
+    }
 
     pinMode(resetPin, OUTPUT);
     digitalWrite(resetPin, HIGH);

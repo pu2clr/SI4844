@@ -232,7 +232,7 @@ public :
   void sendCommand(uint8_t cmd, int parameter_size, const uint8_t *parameter);
   void getCommandResponse(int response_size, uint8_t *response);
 
-  void setup(uint16_t, uint16_t, byte);
+  void setup(uint16_t resetPin, int interruptPin, byte defaultBand);
   void debugDevice(uint16_t resetPin, uint16_t interruptPin, uint8_t defaultBand, void (*showFunc)(char *msg));
   void reset(void );
   void setBand(byte);

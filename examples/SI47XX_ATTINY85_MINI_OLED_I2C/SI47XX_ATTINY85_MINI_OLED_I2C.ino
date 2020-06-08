@@ -1,5 +1,7 @@
 /*
-  Test and validation of the SI4735 Arduino Library on ATtiny85.
+  ATTENTION: Under construction...... 
+  
+  Test and validation of the SI4844 Arduino Library with ATtiny85.
   It is a simple AM/FM radio implementation.
 
   Prototype documentation : https://pu2clr.github.io/SI4735/
@@ -37,7 +39,7 @@ void setup()
   oled.on();
   oled.setFont(FONT8X16);
   oled.setCursor(0, 0);
-  oled.print("Si4735-Attiny85");
+  oled.print("Si4844-Attiny85");
   oled.setCursor(0, 2);
   oled.print("   By PU2CLR   ");
   delay(2000);
