@@ -1,0 +1,3285 @@
+AutoGen Definitions dummy;
+class = {
+  cp-id     = 'class_s_i4844';
+  cp-name   = 'SI4844';
+  cp-section = {
+    sec-kind = 'public-func';
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1ac080ba62ed2de41f80c1fe08135362a3';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'setProperty';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+uint16_t
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'propertyNumber';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+uint16_t
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'parameter';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '213';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Sends (sets) property to the SI48XX.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+This method is used for others to send generic properties and params to SI4844
+
+
+@param propertyNumber property number (example: RX_VOLUME)
+@param parameter   property value that will be seted
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1af4b90cf2e7a654718e2c65de5def0928';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+uint16_t
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getProperty';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+uint16_t
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'propertyNumber';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '214';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Gets a given property from the SI4844.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+ \xrefitem todo 1.
+
+This method is used to get a given property from SI47XX
+
+
+You might need to extract set of bits information from the returned value to know the real value
+
+@param propertyNumber property number (example: RX_VOLUME)
+@return property value  (the content of the property)
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a8b2c96a6126110589a403751ec12631c';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'sendCommand';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+uint8_t
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'cmd';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'parameter_size';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+const uint8_t *
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'parameter';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '215';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Sends a given command to the SI4844 device.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+This function can be useful when you want to execute a SI4844 device command and it was not implemented by this library.
+
+
+Also, you need to work with bit operators to compose the parameters of the command [ &(and), ˆ(xor), |(or) etc ].   
+<br>
+
+@see getCommandResponse, setProperty, getProperty
+
+@param cmd command number (see PROGRAMMING GUIDE)
+@param parameter_size Parameter size in bytes. Tell the number of argument used by the command.
+@param parameter unsigned byte array with the arguments of the command  
+<br>
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1aca88698cca086f09f23d29734132bfec';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getCommandResponse';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'response_size';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+uint8_t *
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'response';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '216';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Returns with the command response.  
+<br>
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+After a command is executed by the device, you can get the result (response) of the command by calling this method.
+
+@see sendCommand, setProperty
+
+@param response_size  num of bytes returned by the command.
+@param response  byte array where the response will be stored.     
+<br>
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1afab714d67c16075cfa70e95dc9fa9201';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'setup';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+unsigned int
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-defname = 'resetPin';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+unsigned int
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-defname = 'interruptPin';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-defname = 'defaultBand';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '218';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Initiates the SI4844 instance and connect the device (SI4844) to Arduino.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Calling this library should be the first thing to do to control the SI4844.
+@param resetPin      arduino pin used to reset the device
+@param interruptPin  interruprPin arduino pin used to handle interrupt 
+@param defaultBand   band that the radio should start 
+_EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1a1d119d683bed417b108ef1ccf3a2d20c';
+        sec-mem-ref-line = '531';
+        sec-mem-ref-name = 'getFirmware';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1a683a81897fe79e6909817aab36622684';
+        sec-mem-ref-line = '176';
+        sec-mem-ref-name = 'reset';
+    };
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a683a81897fe79e6909817aab36622684';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'reset';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '219';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Resets the SI4844 device.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Prepares the system  to be started.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1a3de561a939b708030dae788781adf7e0';
+        sec-mem-ref-line = '230';
+        sec-mem-ref-name = 'setBand';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1afab714d67c16075cfa70e95dc9fa9201';
+        sec-mem-ref-line = '141';
+        sec-mem-ref-name = 'setup';
+    };
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a3de561a939b708030dae788781adf7e0';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'setBand';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-defname = 'new_band';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '220';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Sets a new band to the device.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+This method is used to select a band 
+
+@see See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
+<br>
+
+@param new_band  band number. 
+_EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1a3437ce047c5649597e1bccfb8c42cd5b';
+        sec-mem-ref-line = '499';
+        sec-mem-ref-name = 'getStatus';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1a683a81897fe79e6909817aab36622684';
+        sec-mem-ref-line = '176';
+        sec-mem-ref-name = 'reset';
+    };
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a184362ec07964aaf36d27304437fac08';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'changeVolume';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+char
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-defname = 'command';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '222';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Up or down the sound volume level.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+ \xrefitem deprecated 1.@param command '+' up and '-' down 
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1ab48b1d3c4c87d120de56d3195fa071cc';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'volumeUp';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '223';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Increases the volume level.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+ 
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1ab6f68232b768a6c257940407c32be77f';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'volumeDown';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '224';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Decreases the volume level.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+ 
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a65eab6c860e3e11c5d3726144dd3b73d';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'setVolume';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-defname = 'volumeLavel';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '225';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Sets the volume level.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Sets a value to the audio volume.
+@see Table 4, Si48XX ATDD PROGRAMMING GUIDE; AN610; page 11
+@param byte volumeLevel (domain: 0 to 63) 
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a47991ab6d429da93ae3f5fa4dc21c1a5';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'setBassTreble';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'bass_treble';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '226';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Set the sound volume level, bass and treble.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+<table class="markdownTable">  <tr class="markdownTableHead">    <th class="markdownTableHeadNone"> bass_treble</th>    <th class="markdownTableHeadNone"> Description</th>  </tr>
+<tr class="markdownTableRowOdd">    <td class="markdownTableBodyNone"> 0</td>    <td class="markdownTableBodyNone"> Bass boost +4 (max)</td>  </tr>
+<tr class="markdownTableRowEven">    <td class="markdownTableBodyNone"> 1</td>    <td class="markdownTableBodyNone"> Bass boost +3</td>  </tr>
+<tr class="markdownTableRowOdd">    <td class="markdownTableBodyNone"> 2</td>    <td class="markdownTableBodyNone"> Bass boost +2</td>  </tr>
+<tr class="markdownTableRowEven">    <td class="markdownTableBodyNone"> 3</td>    <td class="markdownTableBodyNone"> Bass boost +1 (min)</td>  </tr>
+<tr class="markdownTableRowOdd">    <td class="markdownTableBodyNone"> 4</td>    <td class="markdownTableBodyNone"> Normal (No Bass/Treble effect) (Default) 5- Treble boost +1 (min)</td>  </tr>
+<tr class="markdownTableRowEven">    <td class="markdownTableBodyNone"> 6</td>    <td class="markdownTableBodyNone"> Treble boost +2</td>  </tr>
+<tr class="markdownTableRowOdd">    <td class="markdownTableBodyNone"> 7</td>    <td class="markdownTableBodyNone"> Treble boost +3</td>  </tr>
+<tr class="markdownTableRowEven">    <td class="markdownTableBodyNone"> 8</td>    <td class="markdownTableBodyNone"> Treble boost +4 (max)</td>  </tr>
+</table>
+
+@see Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 29, 35, 65 and 67
+
+@param bass_treble bass and treble (domain: 0 to 8). See table above
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a374db2d27ad97a0a59ebbc6255ea5707';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'bassTrebleUp';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '227';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+More treble, less bass.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+ 
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1ad45a8797518a831c0320edb9fe9ec1d1';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'bassTrebleDown';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '228';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Less treble, more bass.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+ 
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1ada146e7f245e103494ea40df051c0a63';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'audioMute';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'value';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '229';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Mutes the audio output.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+@param value value 0 = normal (no mute); 1 = Right side mute; 2; Left side mute; 3 = both side 
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1aede56f3b80857296a85ba4613bc87459';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'setAudioMute';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+bool
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'on';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '230';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Mutes the audio output.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+@param bool on false = normal (no mute); true = mute 
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a013c13629b964df2f0023dd0cfee5dfc';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'setAmSoftMuteMaxAttenuation';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+uint8_t
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'value';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '232';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Sets AM Soft Mute Max Attenuation..  
+<br>
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Maximum attenuation to apply when in soft mute. Specified in units of dB. Default maximum attenuation is 16 dB.
+
+
+Set to 0 to disable soft mute. Valid range: 0 - 63. 
+@param value  number between 0 and 63
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1ad5698ef9798d03188738f89dc7940050';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'setFmSoftMuteMaxAttenuation';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+uint8_t
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'value';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '233';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+FM Soft Mute Maximum Attenuation.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Maximum attenuation to apply when in soft mute. Specified in units of dB. Default maximum attenuation is 16 dB.
+
+
+Set to 0 to disable soft mute. Valid range: 0 - 31. 
+@param value  number between 0 and 31
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a184028717d17cde7ef9993ab967afef5';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'setFmDeemphasis';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+uint8_t
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'value';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '234';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Sets de-emphasis time constant.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Sets the FM Receive de-emphasis to 50 or 75 μs. Default is 75 μs.
+
+@param value  1 = 50 μs. Used in Europe, Australia, Japan, China; 2 = 75 μs. Used in USA
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1afe780283a6726f00501db804e064c86f';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+si4844_audiomode_status_response
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'setAudioMode';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'audiomode';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'fm_mono';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'adjpt_attn';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'adjpt_steo';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'opcode';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '238';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Set audio mode.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+@see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 21
+
+@param byte audio_mode 
+            0 = Digital volume mode (no bass/treble effect, volume levels from 0 to 63) 
+            1 = Bass/treble mode (no digital volume control, fixed volume level at 59)
+            2 = Mixed mode 1 (bass/treble and digital volume coexist, max volume = 59) 
+            3 = Mixed mode 2 (bass/treble and digital volume coexist, max volume = 63) 
+            Default is 3 (Mixed mode 2).
+@param byte fm_mono
+            0 = Stereo audio output (default)
+            1 = Mono audio output
+@param byte adjpt_attn Audio attention of adjacent tune wheel positions of a station
+            0 = {–2 dB, -0dB, –2 dB} i.e., adjacent points volume levels –2 dB (default) 
+            1 = {–0 dB, -0dB, –0 dB} i.e., adjacent points same volume levels
+@param byte adjpt_steo
+            0 = Adjacent points allow stereo separation and stereo indicator on (default) 
+            1 = Adjacent points disable stereo separation and stereo indicator are off
+@param byte opcode 
+            0 = Set audio mode and settings
+            1 = Get current audio mode and settings without setting
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a3437ce047c5649597e1bccfb8c42cd5b';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+si4844_status_response *
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getStatus';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '240';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Get tune freq, band, and others information, status of the device.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Use this method only if you want to deal with that information by yourself. 
+
+
+This library has other methods to get that information easier. 
+
+@return a pointer to a structure type si4844_status_response
+_EnD_oF_dEf_TeXt_;
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1a0404927e7414a32125e32ff508bd450e';
+        sec-mem-ref-line = '558';
+        sec-mem-ref-name = 'getFrequency';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1a3de561a939b708030dae788781adf7e0';
+        sec-mem-ref-line = '230';
+        sec-mem-ref-name = 'setBand';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1aea71aa74f8afe0c7c3b35bc4f523c1a9';
+        sec-mem-ref-line = '631';
+        sec-mem-ref-name = 'setCustomBand';
+    };
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a1d119d683bed417b108ef1ccf3a2d20c';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+si4844_firmware_response *
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getFirmware';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '241';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Get part number, chip revision, firmware, patch, and component revision numbers.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+You do not need to call this method. It is executed just once at setup methos. 
+
+
+There are other methods that give you that information.   
+<br>
+
+@see  Si48XX ATDD PROGRAMMING GUIDE; AN610;  page 22 
+
+@return a pointer to a structure type  wirh the part number, chip revision, 
+        firmware revision, patch revision, and component revision numbers.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1afab714d67c16075cfa70e95dc9fa9201';
+        sec-mem-ref-line = '141';
+        sec-mem-ref-name = 'setup';
+    };
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1aea71aa74f8afe0c7c3b35bc4f523c1a9';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'setCustomBand';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-defname = 'bandIndex';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-defname = 'botton';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-defname = 'top';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-defname = 'bandSpace';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '243';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+This method allows you to customize the frequency range of a band.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+The SI4844 can work from 2.3–28.5 MHz on SW, 64.0–109.0MHz on FM
+
+
+You can configure the band index 40, for example, to work between 27 to 28 MHz.
+
+@see Si48XX ATDD PROGRAMMING GUIDE, pages 17, 18, 19 and 20.
+
+(top – button)/(bandSpace) must be betwenn 50 and 230
+
+@param bandIndes Predefined band index (valid values: betwenn 0 and 40)
+@param button Band Bottom Frequency Limit
+@param top Band Top Frequency Limit
+@param bandSpace Channel Spacing (use 5 or 10 - On FM 10 = 100KHz)
+_EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1a3437ce047c5649597e1bccfb8c42cd5b';
+        sec-mem-ref-line = '499';
+        sec-mem-ref-name = 'getStatus';
+    };
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1aff14988c6be8a5fb9d1a5e6934dcff47';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'powerDown';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '245';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Power the device down.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Moves the SI4844 device from power up to power down mode. 
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1ab19b2ce04e07e23275fea5889b87a201';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'powerUp';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '246';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Power the device up.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Moves the SI4844 device from power down to power up 
+@see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a0404927e7414a32125e32ff508bd450e';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+float
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getFrequency';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '248';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Get the current frequency of the radio in KHz.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+For example: FM, 103900 KHz (103.9 MHz); SW, 7335 KHz (7.34 MHz, 41m)   
+<br>
+
+@return float current frequency in KHz.  
+<br>
+_EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1a3437ce047c5649597e1bccfb8c42cd5b';
+        sec-mem-ref-line = '499';
+        sec-mem-ref-name = 'getStatus';
+    };
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1ae362404004bde2ed561a0c34604e0254';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+bool
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'hasStatusChanged';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '249';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Checks whether the SI4844 has its status changed.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Actually it checks if the device triggered an external interruption due to some internal event. 
+
+
+For example: If you move the tuner, the status of the device is changed. 
+
+@return true or false  
+<br>
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a2f14c89d348c5e3214615258b8f9c918';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'resetStatus';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '250';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+set the interrupr status to false. It will turn true after next interrupr  
+<br>
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a16ee98fba377e11c5e7338d66e27926f';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getVolume';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '258';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Gets the current audio volume level.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+@return byte 
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a44f5b3d8746dc30922cc92e778e98f16';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getVolumeProperty';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '259';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Gets the current volume value stored in SI4844 device.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Use getVolume instead. 
+@return byte 
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1ad00bd9467569391af7beb7fdbafb0638';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+String
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getBandMode';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '262';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a8ef8a19b9d69a14af06a367ff22a18ba';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+String
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getStereoIndicator';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '264';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1ae2d727e794b0eb3284e9f9702ee797c5';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getStatusBCFG0';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '267';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1aab8f2c597b14f5187144697aa6cb774b';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getStatusBCFG1';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '268';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1abd21c3642ce4652e3ebfebc5133084c6';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getStatusStereo';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '269';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a729fdcf1dd20bb44b960e9bbbcc1a7db';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getStatusStationIndicator';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '270';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a1b147bc9ec7e38b31eace83b985e114a';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getStatusInformationReady';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '271';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1af564466339e870341090b91355236127';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getStatusHostPowerUp';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '272';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a3c295c312e3d6aeba2c92ff99c48dd24';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getStatusHostReset';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '273';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a4fc87e671528c55d22fe192aea720446';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getStatusBandMode';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '274';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a59d77b4fffd60347d9585c8a4bed6897';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getStatusBandIndex';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '275';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1abd321b2cffa3492e303fd2d5d9267f4d';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getStatusCTS';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '276';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1ab801655ced7c824fe331393879d29e22';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getFirmwareReserved';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '279';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a380aff0cb5fea036e8463bf788a8e215';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getFirmwareErr';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '280';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a408129cef16c25040877f10389a6cf84';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getFirmwareCTS';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '281';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a0dbd58367b7b476a6dcaf038877161c3';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getFirmwarePartNumber';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '282';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a9fe315dfae710b08f975263f860702db';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getFirmwareMajorRevision';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '283';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1adae72c7e6e69d562bc1edbb6812938da';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getFirmwareMinorRevision';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '284';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a195da822f24d2c1c2e9b1a219a9c5c85';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getFirmwareComponentMajorRevision';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '285';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a3842ee93cdbba78d4a7a13b1afe333b5';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getFirmwareComponentMinorRevision';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '286';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a12655adaaf2badb2b3a36141edc3bf36';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getFirmwareChipRevision';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '287';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-section = {
+    sec-kind = 'private-func';
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a3d3d37fdaa1cd64c0bd2c6178c72c80a';
+      sec-mem-virt = normal;
+      sec-mem-prot = private;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'setClockLow';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '199';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1abcbf796a90cbaa65bd965aa5d6db3cdb';
+      sec-mem-virt = normal;
+      sec-mem-prot = private;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'setClockHigh';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '200';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1aec3559360cb8a6dc7d7cdaa266fdbcc2';
+      sec-mem-virt = normal;
+      sec-mem-prot = private;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'waitInterrupr';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '201';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Waiting for an external interrupt.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+This function is called whenever the status of ATDD (SI4844) changes. 
+
+
+It can occur, for example, when you use the analog tuner.  
+<br>
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a5b2ae6cf8a96c47b8725e6a1615e7b45';
+      sec-mem-virt = normal;
+      sec-mem-prot = private;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+bool
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'isClearToSend';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '202';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Checks the CTS status.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Checks whether the device is ready to receive a new command. 
+@return true 
+@return false 
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'class_s_i4844_1a7e14f020d74ec2492070e84cb24a68c3';
+      sec-mem-virt = normal;
+      sec-mem-prot = private;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'waitToSend';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '203';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Wait for the ATDD become Clear to Send.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+Waits for CTS status
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-section = {
+    sec-kind = 'private-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'class_s_i4844_1acb2ff21937180e3fa9e4233d17d401d9';
+      sec-mem-virt = normal;
+      sec-mem-prot = private;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+si4844_status_response
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'status_response';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '193';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'class_s_i4844_1a922ebce59e4a056154d330ea0a787b6e';
+      sec-mem-virt = normal;
+      sec-mem-prot = private;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+si4844_firmware_response
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'firmware_response';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '194';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'class_s_i4844_1ae3b60b24824e82fa17ef0a579ef00eb6';
+      sec-mem-virt = normal;
+      sec-mem-prot = private;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned int
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'resetPin';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '195';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'class_s_i4844_1ad774410b02f468b4da9e02685a1a01a9';
+      sec-mem-virt = normal;
+      sec-mem-prot = private;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+unsigned int
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'interruptPin';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '196';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'class_s_i4844_1aad3088c8179ee7a43ad3ad647a71a200';
+      sec-mem-virt = normal;
+      sec-mem-prot = private;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'currentBand';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '197';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'class_s_i4844_1a58f6f54e07e18c5f670f49ce37e34761';
+      sec-mem-virt = normal;
+      sec-mem-prot = private;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+const char *
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'bandmode_table';
+      sec-mem-initializer = <<_EnD_oF_dEf_TeXt_
+= {"FM", "AM", "SW"}
+_EnD_oF_dEf_TeXt_;
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '206';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'class_s_i4844_1a0478b2b7d471e5cfaeb50d82bb7b722c';
+      sec-mem-virt = normal;
+      sec-mem-prot = private;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+const char *
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'stereo_indicator_table';
+      sec-mem-initializer = <<_EnD_oF_dEf_TeXt_
+= {"Off","On "}
+_EnD_oF_dEf_TeXt_;
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '207';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'class_s_i4844_1addc70e28004b8bc5b879ca1d9a3f7bf3';
+      sec-mem-virt = normal;
+      sec-mem-prot = private;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'volume';
+      sec-mem-initializer = <<_EnD_oF_dEf_TeXt_
+= 48
+_EnD_oF_dEf_TeXt_;
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '209';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'class_s_i4844_1aaceb6b8d8df7e20f60ec7e564c2075e0';
+      sec-mem-virt = normal;
+      sec-mem-prot = private;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'bassTreble';
+      sec-mem-initializer = <<_EnD_oF_dEf_TeXt_
+= 4
+_EnD_oF_dEf_TeXt_;
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '210';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+  cp-fileline  = '189';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+union = {
+  cp-id     = '_s_i4844_8h';
+  cp-name   = 'si4844_audiomode';
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a65f069eb4d4d47b3a096af3dbf6c4202';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+struct si4844_audiomode::__anonymous__
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'arg1';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '130';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a222bda1f63a07befcfa698d14f32c9ab';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'raw';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '131';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+  cp-fileline  = '122';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* union */
+struct = {
+  cp-id     = '_s_i4844_8h';
+  cp-name   = 'si4844_audiomode.arg1';
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1afaf623e55cfa92657ab1a9f6bc4c206e';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'AUDIOMODE';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '124';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a05bb6702f87c323d31dad58d632dff6c';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'FM_MONO';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '125';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1ad1ebb7e9f4dcea346301d305f4833489';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'ADJPT_ATTN';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '126';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a1aa3dfe92d675084fa850b44aabccc8c';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'ADJPT_STEO';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '127';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a942d4e37dd5607ab68e54755540d4a47';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'Reserved';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '128';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a11bdee9fdefbd8d33a25257557bddbef';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'OPCODE';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '129';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+  cp-fileline  = '123';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* struct */
+union = {
+  cp-id     = '_s_i4844_8h';
+  cp-name   = 'si4844_audiomode_status_response';
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a8776d87c488659994fdb4983290f437b';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+struct si4844_audiomode_status_response::__anonymous__
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'status';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '143';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a73c4a74e91a42484942bb85337ca34c3';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'raw';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '144';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+  cp-fileline  = '134';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* union */
+struct = {
+  cp-id     = '_s_i4844_8h';
+  cp-name   = 'si4844_audiomode_status_response.status';
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1afaf623e55cfa92657ab1a9f6bc4c206e';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'AUDIOMODE';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '136';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a05bb6702f87c323d31dad58d632dff6c';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'FM_MONO';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '137';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1ad1ebb7e9f4dcea346301d305f4833489';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'ADJPT_ATTN';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '138';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a1aa3dfe92d675084fa850b44aabccc8c';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'ADJPT_STEO';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '139';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a942d4e37dd5607ab68e54755540d4a47';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'Reserved';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '140';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1acd22bad976363fdd1bfbf6759fede482';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'ERR';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '141';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1ae16433ffd3adc248f0ce2608a95c3c76';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'CTS';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '142';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+  cp-fileline  = '135';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* struct */
+struct = {
+  cp-id     = '_s_i4844_8h';
+  cp-name   = 'si4844_firmware_info';
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1acf05e571dad0fafdb751d8e9b455e8d9';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'RESERVED';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '101';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a1d0e19644693d80716edae81e885a54e';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'ERR';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '102';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1ad9852dddb568c679b73f14dfeb13a4c6';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'CTS';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '103';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a32d140a1adcd08e9c6828af0e9ef1a36';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'PN';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '104';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1ad1891709e6ff24c4a37a3c35f16b6762';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'FWMAJOR';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '105';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1adf08b4a0d60cc34efb4d46ca793c6bf3';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'FWMINOR';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '106';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1aaf83c2679cc43dbae95f4adf31920785';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'CMPMAJOR';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '107';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a689f010bf4278ce1d84c5efa57b3b5c6';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'CMPMINOR';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '108';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1ac59d087f3d650d52bae3e53a8392db73';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'CHIPREV';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '109';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+  cp-fileline  = '100';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* struct */
+union = {
+  cp-id     = '_s_i4844_8h';
+  cp-name   = 'si4844_firmware_response';
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a88c3f7f813f5e6c249de39f37793687d';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+si4844_firmware_info
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'refined';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '113';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1abc5c87ff26dacd5f4d88e51b414bdac0';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'raw';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '114';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+  cp-fileline  = '112';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 2;
+        node-label = 'si4844_firmware_info';
+        node-link = {
+          node-link-id = '_s_i4844_8h#structsi4844__firmware__info';
+        };
+      }; /* node */
+      node = {
+        node-id    = 1;
+        node-label = 'si4844_firmware_response';
+        node-link = {
+          node-link-id = '_s_i4844_8h#unionsi4844__firmware__response';
+        };
+        node-child = {
+          child-id = '2';
+          relation = usage;
+          edgelabel = <<_EnD_oF_dEf_TeXt_
+refined
+_EnD_oF_dEf_TeXt_;
+        }; /* node-child */
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+}; /* union */
+struct = {
+  cp-id     = '_s_i4844_8h';
+  cp-name   = 'si4844_get_status';
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a3a953e22367e037359b4d136ff724189';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'BCFG0';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '69';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1af7ba8dd3dda6266c915c62ccb81a8e55';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'BCFG1';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '70';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a1fcdf8cd7f35908a3341ccec73f55a56';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'STEREO';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '71';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a044ed178e62e7ec3c4f4566cd831ea73';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'STATION';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '72';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a5f0a9c05677de849659ed0993fea10e3';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'INFORDY';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '73';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a57e8c5771e5981aac29a90c2fef0c368';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'HOSTPWRUP';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '74';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1ab4295a29819d7ddb2ddb371c863f7354';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'HOSTRST';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '75';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a7df3def5721b3913719a02b7818b1fa0';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'CTS';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '76';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a1ee18d65e9258c61afec3aa370100148';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'BANDIDX';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '77';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1ad89755212da9692a0134886607630cac';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'BANDMODE';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '78';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a7e35fdc2be4ce79eaf0dcfb8c6f2b03e';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'd2';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '79';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a0ff3bad4ce20dc80513ed1d46a463b6b';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'd1';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '80';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1ae973391daf1e44157b626a51ec333edf';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'd4';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '81';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a753b39376dbdba32b7d20ccfa2f62537';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'd3';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '82';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+  cp-fileline  = '68';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* struct */
+union = {
+  cp-id     = '_s_i4844_8h';
+  cp-name   = 'si4844_property';
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1ab04cb2b509eabe95ce109dc2289f0e28';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+struct si4844_property::__anonymous__
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'raw';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '157';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a2f87d941759c895e3e1d671b56a9e444';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+uint16_t
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'value';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '158';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+  cp-fileline  = '152';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+Data type to deal with SET_PROPERTY command.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+Property Data type (help to deal with SET_PROPERTY command on si473X)
+_EnD_oF_dEf_TeXt_;
+}; /* union */
+struct = {
+  cp-id     = '_s_i4844_8h';
+  cp-name   = 'si4844_property.raw';
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a1f3859652867ab4a967c5caa3e2ab353';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+uint8_t
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'byteLow';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '155';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a7b280732d6c370d505d537b0ab9f7e30';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+uint8_t
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'byteHigh';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '156';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+  cp-fileline  = '154';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* struct */
+union = {
+  cp-id     = '_s_i4844_8h';
+  cp-name   = 'si4844_status';
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1aa11edfc05598063032a94c4f0275f7bc';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+struct si4844_status::__anonymous__
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'refined';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '59';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a362f396c4c762ad401e2e5ec79cb4eac';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+uint8_t
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'raw';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '60';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+  cp-fileline  = '49';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+Status.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+Represents searching for a valid frequency data type.
+_EnD_oF_dEf_TeXt_;
+}; /* union */
+struct = {
+  cp-id     = '_s_i4844_8h';
+  cp-name   = 'si4844_status.refined';
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a0e3e06c992d1ead056a6861bb46b28a8';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+uint8_t
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'D0';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '52';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a4a4079e06eb2f7ba7a12821c7c58a3f6';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+uint8_t
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'D1';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '53';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1ac4d62b6dcca08e5caf06c01889282859';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+uint8_t
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'D2';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '54';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1aa3deb6e481689f1d3303caecb8a6c401';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+uint8_t
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'D3';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '55';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a2521dc256a4368da87585c936b451dd7';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+uint8_t
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'D4';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '56';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1acd22bad976363fdd1bfbf6759fede482';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+uint8_t
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'ERR';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '57';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+1 = Error.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1ae16433ffd3adc248f0ce2608a95c3c76';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+uint8_t
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'CTS';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '58';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+0 = Wait before sending next command; 1 = Clear to send next command.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+  cp-fileline  = '51';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* struct */
+union = {
+  cp-id     = '_s_i4844_8h';
+  cp-name   = 'si4844_status_response';
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1a91cf8272340013b6c5f447e7e6a17d17';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+si4844_get_status
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'refined';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '91';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = '_s_i4844_8h_1ab6264450d7b1c973b29215eefe9e8815';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+byte
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'raw';
+      sec-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      sec-mem-desc-line = '92';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+  cp-fileline  = '90';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 2;
+        node-label = 'si4844_get_status';
+        node-link = {
+          node-link-id = '_s_i4844_8h#structsi4844__get__status';
+        };
+      }; /* node */
+      node = {
+        node-id    = 1;
+        node-label = 'si4844_status_response';
+        node-link = {
+          node-link-id = '_s_i4844_8h#unionsi4844__status__response';
+        };
+        node-child = {
+          child-id = '2';
+          relation = usage;
+          edgelabel = <<_EnD_oF_dEf_TeXt_
+refined
+_EnD_oF_dEf_TeXt_;
+        }; /* node-child */
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+}; /* union */
+file = {
+  file-id   = '_s_i4844_8cpp';
+  file-name = 'SI4844.cpp';
+  file-full-name  = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.cpp';
+  file-first-line = '1';
+  file-briefdesc  = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  file-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* file */
+file = {
+  file-id   = '_s_i4844_8h';
+  file-name = 'SI4844.h';
+    define = {
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1acc6be0457e695b1458f3d016ef10faeb';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'SI4844_ADDRESS';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0x11
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '19';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+SI4844 ARDUINO LIBRARY  
+<br>
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+This is an Arduino library for the SI4844, BROADCAST AM/FM/SW RADIO RECEIVER IC family from Silicon Labs. 
+
+
+This library is intended to provide an easier interface for controlling the SI47XX by using Arduino platform. 
+
+
+The communication used by this library is I2C.
+
+
+This file contains: const (#define), Defined Data type and Methods declarations
+
+
+You can see a complete documentation on <https://github.com/pu2clr/SI4844>
+
+@see https://pu2clr.github.io/SI4844/
+
+@author PU2CLR - Ricardo Lima Caratti 
+@date  2019-2020
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1a7aac914d9a51da255a2e19fb1f889d99';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'ATDD_POWER_DOWN';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0x11
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '24';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1a9fce44b312bbb4dbca1a0d951a0a7c8d';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'ATDD_POWER_UP';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0xE1
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '25';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1aff9a7b619bbeff035b8f6e25ae58ab24';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'ATDD_AUDIO_MODE';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0xE2
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '26';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1a9fbb31eec68a8b17895fd18640296013';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'GET_REV';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0x10
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '27';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1a15334ea9808ed9e355d8bc6bb3b43fcf';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'ATDD_XOSCEN';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0x80
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '28';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1a775e42f41cc53c1f6ce0b30bfa5e6902';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'ATDD_XOWAIT';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0x40
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '29';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1a70824a2c88feb88faf6f55f8a83c10cf';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'ATDD_GET_STATUS';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0xE0
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '30';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1a92cfecd26935c8864d65bbdc6031acb0';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'SET_PROPERTY';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0x12
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '32';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1acf7a3971c551fcdf7ae16bb0f31c149d';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'GET_PROPERTY';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0x13
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '33';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1aeb1de40ffb7cb51cf4a151f5d1b746d7';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'RX_VOLUME';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0x4000
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '34';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1a5d8cbc8d5c6630e874f1f8b14b897be2';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'RX_HARD_MUTE';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0x4001
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '35';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1aebddd417b9ac0f8a00231504a40dd71d';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'RX_BASS_TREBLE';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0x4002
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '36';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1a6f6ab2088a67fe3ae967956424b43f87';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'RX_ACTUAL_VOLUME';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0x4003
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '37';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1a8befb9228ad41e2baa0e69411e0f5108';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'FM_SOFT_MUTE_MAX_ATTENUATION';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0x1302
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '39';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1a57030e143a5efa06b9b9cc21b63d0b70';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'AM_SOFT_MUTE_MAX_ATTENUATION';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0x3302
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '40';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    define-member = {
+      define-mem-kind = 'define';
+      define-mem-id   = '_s_i4844_8h_1a9fe700fb45d6e08e177da6fdc208fa05';
+      define-mem-virt = normal;
+      define-mem-prot = public;
+      define-mem-name = 'FM_DEEMPHASIS';
+      define-mem-initializer = <<_EnD_oF_dEf_TeXt_
+0x1100
+_EnD_oF_dEf_TeXt_;
+      define-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      define-mem-desc-line = '41';
+      define-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      define-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* define-member */
+    };
+    func = {
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = '_s_i4844_8h_1a01f69d5bf584f94eabd1b113579b2c1e';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+static void
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'interrupt_hundler';
+      func-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      func-mem-desc-line = '181';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* func-member */
+    };
+    var = {
+    var-member = {
+      var-mem-kind = 'variable';
+      var-mem-id   = '_s_i4844_8h_1a621f69097e05ef5a71d2ad5051835846';
+      var-mem-virt = normal;
+      var-mem-prot = public;
+      var-mem-type = <<_EnD_oF_dEf_TeXt_
+static volatile bool
+_EnD_oF_dEf_TeXt_;
+      var-mem-name = 'data_from_si4844';
+      var-mem-desc-file = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+      var-mem-desc-line = '179';
+      var-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      var-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* var-member */
+    };
+  file-full-name  = '/Users/rcaratti/OneDrive/Radioamador/Projetos/Arduino/RadioDSP/SI4844/SI4844/SI4844.h';
+  file-first-line = '1';
+  file-briefdesc  = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  file-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* file */

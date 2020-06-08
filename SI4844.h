@@ -40,10 +40,19 @@
 #define AM_SOFT_MUTE_MAX_ATTENUATION 0x3302
 #define FM_DEEMPHASIS 0x1100
 
+/** @defgroup GA1 Union and Structures 
+ * @section GA1
+ *  
+ * @brief SI4844 data representation
+ * 
+ * @details The goal of this approach is separating data from code. 
+ * The SI4844  works with many internal data that can be represented by data structure 
+ * or defined data type in C/C++. 
+ */
 
 /** 
+ * @ingroup GA1
  * @brief Status 
- * 
  * @details Represents searching for a valid frequency data type.
  */
 typedef union {
@@ -60,9 +69,11 @@ typedef union {
   uint8_t raw;
 } si4844_status;
 
-/* 
- * The structure below represents the four bytes response got by command ATDD_GET_STATUS
- * See PROGRAMMING GUIDE, pages 14 and 15
+/**
+ * @ingroup GA1 
+ * @brief Device Status 
+ * @details The structure below represents the four bytes response got by command ATDD_GET_STATUS
+ * @see PROGRAMMING GUIDE, pages 14 and 15
  */
 typedef struct
 {
@@ -82,19 +93,20 @@ typedef struct
   byte d3 : 4;        // frequency digit 3
 } si4844_get_status;
 
-/*
- * Uses a C language feature to represent two way for the 4 response bytes (status) sent by the ATDD_GET_STATUS.
- * It is needed to undertand the C language union concept.
- * See Si48XX ATDD PROGRAMMING GUIDE, pages 14 and 15 
+/**
+ * @ingroup GA1
+ * @brief Status response 
+ * @see See Si48XX ATDD PROGRAMMING GUIDE, pages 14 and 15 
 */
 typedef union {
   si4844_get_status refined;
   byte raw[4];
 } si4844_status_response;
 
-/*
- * The structure below represents 9 response bytes sent by GET_REV command (STATUS and RESP1 to RESP8).
- * See Si48XX ATDD PROGRAMMING GUIDE, page 22.
+/**
+ * @ingroup GA1
+ * @brief Firmware Information 
+ * @see Si48XX ATDD PROGRAMMING GUIDE, page 22.
  */
 typedef struct
 {
@@ -109,28 +121,36 @@ typedef struct
   byte CHIPREV;      // Chip Revision (ASCII).
 } si4844_firmware_info;
 
+/**
+ * @brief Firmware Response 
+ * 
+ */
 typedef union {
   si4844_firmware_info refined;
   byte raw[9];
 } si4844_firmware_response;
 
-
-/*
- * Structure for the command 0xE2 - ATDD_AUDIO_MODE
- * 
+/**
+ * @ingroup GA1
+ * @brief Audio Mode
  */
- typedef  union {
-    struct {
-          byte AUDIOMODE : 2;
-          byte FM_MONO : 1;
-          byte ADJPT_ATTN : 1;
-          byte ADJPT_STEO : 1;
-          byte Reserved : 2;
-          byte OPCODE : 1;
-    } arg1;
-    byte raw;
+typedef union {
+  struct
+  {
+    byte AUDIOMODE : 2;
+    byte FM_MONO : 1;
+    byte ADJPT_ATTN : 1;
+    byte ADJPT_STEO : 1;
+    byte Reserved : 2;
+    byte OPCODE : 1;
+  } arg1;
+  byte raw;
 } si4844_audiomode;
 
+/**
+ * @ingroup GA1
+ * @brief Audio Status Response
+ */
 typedef  union {
         struct {
           byte AUDIOMODE:2;
@@ -158,24 +178,15 @@ typedef union {
   uint16_t value;
 } si4844_property;
 
-/* 
- * English:
+/**
+ * @brief 
+ * 
  * Handling interruptions.
  * Whenever the status of the ATDD changes, a hardware interrupt is triggered. For example, when you move the tuner
  * potenciometer, the ATDD sends a signal to the Arduino pin (INTERRUPT_PIN). The same is true when the ATDD is capturing 
  * mono FM signal and has switched to stereo. The variable below indicates a change of the ATDD status. It will need to  
  * process some action (for example show on LCD this changes).   
- * 
- * Portuguese:
- * Manipulando Interrupções
- * Sempre que o estado do ATDD é modificado, uma interrupção de hardware é disparada. Esta interrupção é manipulada por
- * uma função implementada neste sketch, que nada mais faz que dizer que isso ocorreu para que algumas ações seja executadas adiante. 
- * Por exemplo: Qundo potenciômetro do sintonizador for girado, o ATDD envia um sinal para o pino do Arduino, no nosso caso, o
- * pino 2 do mini pro (INTERRUPT_PIN). Da mesma forma, quando um sinal de FM está sendo capturado no modo MONO e o sinal, por 
- * alguma razão, melhora e passa para FM, esta interrupção ocorre indicando que devemos apresentar FM Estéreo. 
- * 
  */
-
 volatile static bool data_from_si4844;
 
 static void interrupt_hundler()
@@ -184,6 +195,12 @@ static void interrupt_hundler()
   data_from_si4844 = true;
 }
 
+
+/**
+ * @brief SI4844 Class 
+ * 
+ * @details This class implements all functions to help you to control the Si4844 devices. 
+ */
 
 class SI4844
 {

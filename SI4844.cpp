@@ -11,7 +11,10 @@
 
 #include "SI4844.h"
 
+/** @defgroup GB  Member Functions */
+
 /**
+ * @ingroup GB
  * @brief Sends (sets) property to the SI48XX
  * 
  * @details This method is used for others to send generic properties and params to SI4844
@@ -40,7 +43,7 @@ void SI4844::setProperty(uint16_t propertyNumber, uint16_t parameter)
 }
 
 /**
- * @todo  
+ * @ingroup GB 
  * @brief Gets a given property from the SI4844
  * 
  * @details This method is used to get a given property from SI47XX
@@ -80,6 +83,7 @@ uint16_t SI4844::getProperty(uint16_t propertyNumber)
 }
 
 /**
+ * @ingroup GB
  * @brief Sends a given command to the SI4844 device. 
  * @details This function can be useful when you want to execute a SI4844 device command and it was not implemented by this library.
  * @details Also, you need to work with bit operators to compose the parameters of the command [ &(and), ˆ(xor), |(or) etc ].   
@@ -103,6 +107,7 @@ void SI4844::sendCommand(uint8_t cmd, int parameter_size, const uint8_t *paramet
 }
 
 /**
+ * @ingroup GB
  * @brief   Returns with the command response.  
  * @details After a command is executed by the device, you can get the result (response) of the command by calling this method.
  * 
@@ -121,6 +126,7 @@ void SI4844::getCommandResponse(int response_size, uint8_t *response)
 }
 
 /**
+ * @ingroup GB
  * @brief   Waiting for an external interrupt
  * @details This function is called whenever the status of ATDD (SI4844) changes. 
  * @details It can occur, for example, when you use the analog tuner.  
@@ -132,6 +138,7 @@ void SI4844::waitInterrupr(void)
 }
 
 /**
+ * @ingroup GB
  * @brief Initiates the SI4844 instance and connect the device (SI4844) to Arduino. 
  * @details Calling this library should be the first thing to do to control the SI4844.
  * @param resetPin      arduino pin used to reset the device
@@ -163,15 +170,11 @@ void SI4844::setup(unsigned int resetPin, unsigned int interruptPin, byte defaul
     getFirmware();
 }
 
-/*
- * reset
- * See pages 7, 8, 9 and 10 of the programming guide.
- */
-
 /**
+ * @ingroup GB
  * @brief Resets the SI4844 device
  * @details Prepares the system  to be started.
- * 
+ * @see pages 7, 8, 9 and 10 of the programming guide.
  */
 void SI4844::reset()
 {
@@ -187,14 +190,12 @@ void SI4844::reset()
     delayMicroseconds(2500);
 }
 
-/*
- * 
- * See Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
- */
 
 /**
+ * @ingroup GB
  * @brief  Power the device down
  * @details Moves the SI4844 device from power up to power down mode. 
+ * @see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
  */
 void SI4844::powerDown(void)
 {
@@ -207,8 +208,8 @@ void SI4844::powerDown(void)
     delayMicroseconds(2500);
 }
 
-
 /**
+ * @ingroup GB
  * @brief Power the device up
  * @details Moves the SI4844 device from power down to power up 
  * @see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
@@ -220,6 +221,7 @@ void SI4844::powerUp(void)
 }
 
 /**
+ * @ingroup GB
  * @brief Sets a new band to the device 
  * @details This method is used to select a band 
  * 
@@ -256,14 +258,9 @@ void SI4844::setBand(byte new_band)
     delayMicroseconds(2500);
 }
 
-/*
- * isClearToSend
- * English:
- * Check if the ATDD (Si4844) is ready to receive the next command. 
- * See page 14 of the Program Guide.
- */
 
 /**
+ * @ingroup GB 
  * @brief Checks the CTS status.
  * @details Checks whether the device is ready to receive a new command. 
  * @return true 
@@ -281,6 +278,7 @@ inline bool SI4844::isClearToSend(void)
 }
 
 /**
+ * @ingroup GB
  * @brief Wait for the ATDD become Clear to Send. 
  * @details Waits for CTS status
  */
@@ -292,6 +290,7 @@ inline void SI4844::waitToSend()
 }
 
 /**
+ * @ingroup GB
  * @deprecated 
  * @brief Up or down the sound volume level
  * 
@@ -319,8 +318,8 @@ void SI4844::changeVolume(char command)
 }
 
 /**
+ * @ingroup GB
  * @brief Increases the volume level
- * 
  */
 void SI4844::volumeUp()
 {
@@ -330,8 +329,8 @@ void SI4844::volumeUp()
 }
 
 /**
+ * @ingroup GB
  * @brief Decreases the volume level
- * 
  */
 void SI4844::volumeDown()
 {
@@ -341,6 +340,7 @@ void SI4844::volumeDown()
 }
 
 /**
+ * @ingroup GB
  * @brief Sets the volume level. 
  * @details Sets a value to the audio volume.
  * @see Table 4, Si48XX ATDD PROGRAMMING GUIDE; AN610; page 11
@@ -358,16 +358,18 @@ void SI4844::setVolume(byte volumeLavel)
 }
 
 /**
-   * @brief Gets the current volume value stored in SI4844 device. 
-   * @details Use getVolume instead. 
-   * @return byte 
-   */
+ * @ingroup GB
+ * @brief Gets the current volume value stored in SI4844 device. 
+ * @details Use getVolume instead. 
+ * @return byte 
+ */
 byte SI4844::getVolumeProperty() {
     uint16_t volumeProperty = getProperty(RX_ACTUAL_VOLUME);
     return (byte)volumeProperty;
 }
 
 /**
+ * @ingroup GB
  * @brief Set the sound volume level, bass and treble.
  * 
  * | bass_treble | Description |
@@ -390,8 +392,8 @@ void SI4844::setBassTreble(byte bass_treble) {
 }
 
 /**
+ * @ingroup GB
  * @brief Less treble, more bass.
- * 
  */
 void SI4844::bassTrebleDown()
 {
@@ -401,8 +403,8 @@ void SI4844::bassTrebleDown()
 }
 
 /**
+ * @ingroup GB
  * @brief More treble, less bass
- * 
  */
 void SI4844::bassTrebleUp()
 {
@@ -412,6 +414,7 @@ void SI4844::bassTrebleUp()
 }
 
 /**
+ * @ingroup GB
  * @brief Set audio mode 
  * 
  * @see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 21
@@ -467,6 +470,7 @@ si4844_audiomode_status_response SI4844::setAudioMode(byte audiomode, byte fm_mo
 }
 
 /**
+ * @ingroup GB
  * @brief  Mutes the audio output.
  * 
  * @param value value 0 = normal (no mute); 1 = Right side mute; 2; Left side mute; 3 = both side 
@@ -477,6 +481,7 @@ void SI4844::audioMute(byte value)
 }
 
 /**
+ * @ingroup GB
  * @brief Mutes the audio output.
  * 
  * @param bool on false = normal (no mute); true = mute 
@@ -490,6 +495,7 @@ void SI4844::setAudioMute(bool on)
 }
 
 /**
+ * @ingroup GB
  * @brief Get tune freq, band, and others information, status of the device.
  * @details Use this method only if you want to deal with that information by yourself. 
  * @details This library has other methods to get that information easier. 
@@ -519,6 +525,7 @@ si4844_status_response *SI4844::getStatus()
 }
 
 /** 
+ * @ingroup GB
  * @brief Get part number, chip revision, firmware, patch, and component revision numbers.
  * @details You do not need to call this method. It is executed just once at setup methos. 
  * @details There are other methods that give you that information.   
@@ -550,6 +557,7 @@ si4844_firmware_response *SI4844::getFirmware(void)
 }
 
 /**
+ * @ingroup GB
  * @brief Get the current frequency of the radio in KHz. 
  * @details For example: FM, 103900 KHz (103.9 MHz); SW, 7335 KHz (7.34 MHz, 41m)   
  * 
@@ -595,18 +603,20 @@ float SI4844::getFrequency(void)
 }
 
 /** 
-*  @brief Checks whether the SI4844 has its status changed. 
-*  @details Actually it checks if the device triggered an external interruption due to some internal event. 
-*  @details For example: If you move the tuner, the status of the device is changed. 
-*
-*  @return true or false  
-*/
+ * @ingroup GB 
+ * @brief Checks whether the SI4844 has its status changed. 
+ *  @details Actually it checks if the device triggered an external interruption due to some internal event. 
+ *  @details For example: If you move the tuner, the status of the device is changed. 
+ *
+ *  @return true or false  
+ */
 bool SI4844::hasStatusChanged(void)
 {
     return data_from_si4844;
 }
 
 /**
+ * @ingroup GB
  * @brief set the interrupr status to false. It will turn true after next interrupr  
  */
 void SI4844::resetStatus()
@@ -615,6 +625,7 @@ void SI4844::resetStatus()
 }
 
 /** 
+ * @ingroup GB
  * @brief This method allows you to customize the frequency range of a band.
  * @details The SI4844 can work from 2.3–28.5 MHz on SW, 64.0–109.0MHz on FM
  * @details You can configure the band index 40, for example, to work between 27 to 28 MHz.
@@ -679,6 +690,7 @@ void SI4844::setCustomBand(byte bandIndex, unsigned botton, unsigned top, byte b
 }
 
 /**
+ * @ingroup GB
  * @brief Sets AM Soft Mute Max Attenuation..  
  * @details Maximum attenuation to apply when in soft mute. Specified in units of dB. Default maximum attenuation is 16 dB.
  * @details Set to 0 to disable soft mute. Valid range: 0 - 63. 
@@ -689,6 +701,7 @@ void SI4844::setAmSoftMuteMaxAttenuation(uint8_t value) {
 }
 
 /**
+ * @ingroup GB
  * @brief FM Soft Mute Maximum Attenuation. 
  * @details Maximum attenuation to apply when in soft mute. Specified in units of dB. Default maximum attenuation is 16 dB.
  * @details Set to 0 to disable soft mute. Valid range: 0 - 31. 
@@ -700,6 +713,7 @@ void SI4844::setFmSoftMuteMaxAttenuation(uint8_t value)
 }
 
 /**
+ * @ingroup GB
  * @brief Sets de-emphasis time constant. 
  * @details Sets the FM Receive de-emphasis to 50 or 75 μs. Default is 75 μs.
  * 
