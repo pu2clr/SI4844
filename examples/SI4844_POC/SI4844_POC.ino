@@ -141,8 +141,6 @@ void loop() {
       Serial.print(si4844.getStereoIndicator());
     }
     Serial.print(" - Volume: ");
-    Serial.print(si4844.getVolumeProperty());
-    Serial.print(" - Volume2: ");
     Serial.print(si4844.getVolume());
     Serial.println("");
   }
