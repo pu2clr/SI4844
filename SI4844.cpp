@@ -2,7 +2,7 @@
  * @mainpage SI48XX Arduino Library implementation
  * This is a library for the SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER,
  * ICs from Silicon Labs.  
- * This library is intended to provide an easier interface for controlling the SI4844.
+ * This library is intended to provide an easier interface to control the SI4844.
  * 
  * This library can be freely distributed using the MIT Free Software model.
  * 
