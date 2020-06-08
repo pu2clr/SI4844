@@ -24,8 +24,8 @@ var NAVTREE =
 [
   [ "PU2CLR SI4844 Arduino Library", "index.html", [
     [ "SI48XX Arduino Library implementation", "index.html", null ],
-    [ "Todo List", "todo.html", null ],
     [ "Deprecated List", "deprecated.html", null ],
+    [ "Modules", "modules.html", "modules" ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],

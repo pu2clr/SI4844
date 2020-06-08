@@ -3,8 +3,8 @@ var searchData=
   ['get_5fproperty_30',['GET_PROPERTY',['../_s_i4844_8h.html#acf7a3971c551fcdf7ae16bb0f31c149d',1,'SI4844.h']]],
   ['get_5frev_31',['GET_REV',['../_s_i4844_8h.html#a9fbb31eec68a8b17895fd18640296013',1,'SI4844.h']]],
   ['getbandmode_32',['getBandMode',['../class_s_i4844.html#ad00bd9467569391af7beb7fdbafb0638',1,'SI4844']]],
-  ['getcommandresponse_33',['getCommandResponse',['../class_s_i4844.html#aca88698cca086f09f23d29734132bfec',1,'SI4844']]],
-  ['getfirmware_34',['getFirmware',['../class_s_i4844.html#a1d119d683bed417b108ef1ccf3a2d20c',1,'SI4844']]],
+  ['getcommandresponse_33',['getCommandResponse',['../group___g_b.html#gaca88698cca086f09f23d29734132bfec',1,'SI4844']]],
+  ['getfirmware_34',['getFirmware',['../group___g_b.html#ga1d119d683bed417b108ef1ccf3a2d20c',1,'SI4844']]],
   ['getfirmwarechiprevision_35',['getFirmwareChipRevision',['../class_s_i4844.html#a12655adaaf2badb2b3a36141edc3bf36',1,'SI4844']]],
   ['getfirmwarecomponentmajorrevision_36',['getFirmwareComponentMajorRevision',['../class_s_i4844.html#a195da822f24d2c1c2e9b1a219a9c5c85',1,'SI4844']]],
   ['getfirmwarecomponentminorrevision_37',['getFirmwareComponentMinorRevision',['../class_s_i4844.html#a3842ee93cdbba78d4a7a13b1afe333b5',1,'SI4844']]],
@@ -14,9 +14,9 @@ var searchData=
   ['getfirmwareminorrevision_41',['getFirmwareMinorRevision',['../class_s_i4844.html#adae72c7e6e69d562bc1edbb6812938da',1,'SI4844']]],
   ['getfirmwarepartnumber_42',['getFirmwarePartNumber',['../class_s_i4844.html#a0dbd58367b7b476a6dcaf038877161c3',1,'SI4844']]],
   ['getfirmwarereserved_43',['getFirmwareReserved',['../class_s_i4844.html#ab801655ced7c824fe331393879d29e22',1,'SI4844']]],
-  ['getfrequency_44',['getFrequency',['../class_s_i4844.html#a0404927e7414a32125e32ff508bd450e',1,'SI4844']]],
-  ['getproperty_45',['getProperty',['../class_s_i4844.html#af4b90cf2e7a654718e2c65de5def0928',1,'SI4844']]],
-  ['getstatus_46',['getStatus',['../class_s_i4844.html#a3437ce047c5649597e1bccfb8c42cd5b',1,'SI4844']]],
+  ['getfrequency_44',['getFrequency',['../group___g_b.html#ga0404927e7414a32125e32ff508bd450e',1,'SI4844']]],
+  ['getproperty_45',['getProperty',['../group___g_b.html#gaf4b90cf2e7a654718e2c65de5def0928',1,'SI4844']]],
+  ['getstatus_46',['getStatus',['../group___g_b.html#ga3437ce047c5649597e1bccfb8c42cd5b',1,'SI4844']]],
   ['getstatusbandindex_47',['getStatusBandIndex',['../class_s_i4844.html#a59d77b4fffd60347d9585c8a4bed6897',1,'SI4844']]],
   ['getstatusbandmode_48',['getStatusBandMode',['../class_s_i4844.html#a4fc87e671528c55d22fe192aea720446',1,'SI4844']]],
   ['getstatusbcfg0_49',['getStatusBCFG0',['../class_s_i4844.html#ae2d727e794b0eb3284e9f9702ee797c5',1,'SI4844']]],
@@ -29,5 +29,5 @@ var searchData=
   ['getstatusstereo_56',['getStatusStereo',['../class_s_i4844.html#abd21c3642ce4652e3ebfebc5133084c6',1,'SI4844']]],
   ['getstereoindicator_57',['getStereoIndicator',['../class_s_i4844.html#a8ef8a19b9d69a14af06a367ff22a18ba',1,'SI4844']]],
   ['getvolume_58',['getVolume',['../class_s_i4844.html#a16ee98fba377e11c5e7338d66e27926f',1,'SI4844']]],
-  ['getvolumeproperty_59',['getVolumeProperty',['../class_s_i4844.html#a44f5b3d8746dc30922cc92e778e98f16',1,'SI4844']]]
+  ['getvolumeproperty_59',['getVolumeProperty',['../group___g_b.html#ga44f5b3d8746dc30922cc92e778e98f16',1,'SI4844']]]
 ];
