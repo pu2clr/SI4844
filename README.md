@@ -35,10 +35,11 @@ __The SI4844 is a 3.3V part. If you are not using a 3.3V version of Arduino, you
    * [Schematic](https://pu2clr.github.io/SI4844/#schematic)
    * [Component Parts](https://pu2clr.github.io/SI4844/#parts)
    * [Photos](https://pu2clr.github.io/SI4844/#photos)
-8. [API Documentation](https://pu2clr.github.io/SI4844/#api-documentation)
-9.  [References](https://pu2clr.github.io/SI4844/#references)
-10. [Examples](https://pu2clr.github.io/SI4844/#examples)
-11. [Videos](https://pu2clr.github.io/SI4844/#videos) 
+8. [API Documentation](https://pu2clr.github.io/SI4844/extras/apidoc/html/)
+9. [API Documentation Legacy](https://pu2clr.github.io/SI4844/#api-documentation)
+10. [References](https://pu2clr.github.io/SI4844/#references)
+11. [Examples](https://pu2clr.github.io/SI4844/#examples)
+12. [Videos](https://pu2clr.github.io/SI4844/#videos) 
 
 
 ## MIT License 
