@@ -19,7 +19,6 @@
  * 
  * @details This method is used for others to send generic properties and params to SI4844
  * 
- * 
  * @param propertyNumber property number (example: RX_VOLUME)
  * @param parameter   property value that will be seted
  */
