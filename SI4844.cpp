@@ -4,9 +4,9 @@
  * ICs from Silicon Labs.  
  * This library is intended to provide an easier interface for controlling the SI4844.
  * 
- * This library can be freely distributed using the MIT Free Software model
+ * This library can be freely distributed using the MIT Free Software model.
+ * 
  * Copyright (c) 2019 Ricardo Lima Caratti
- * September, 2019
  */
 
 #include "SI4844.h"
