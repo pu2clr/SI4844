@@ -27,6 +27,12 @@ float currentFrequency;
 
 SI4844 radio;
 
+// interrupt service routine for PCINT3
+ISR(PCINT3_vect)
+{
+  interrupt_hundler(); // See SI4844.h
+}
+
 void setup()
 {
 
@@ -40,15 +46,22 @@ void setup()
   oled.setFont(FONT8X16);
   oled.setCursor(0, 0);
   oled.print("Si4844-Attiny85");
+  /*
   oled.setCursor(0, 2);
   oled.print("   By PU2CLR   ");
   delay(2000);
   oled.clear();
+  */
 
-  // radio.setup(INT_PIN, RST_PIN, currentBand);
+  GIMSK = 1 << PCIE;   // turn on pin change interrupts
+  PCMSK = 1 << PCINT3; // unmask PCINT3 pin change interrupt
+
+  sei();
+
+  radio.setup(RST_PIN, -1, currentBand);
   
   // Comment the line above and uncomment the line bellow to debug. See the function debugDevice dicumentation
-  radio.debugDevice(RST_PIN, INT_PIN, 0, showMsg);
+  // radio.debugDevice(RST_PIN, INT_PIN, 0, showMsg);
 
   
   radio.setVolume(30);
