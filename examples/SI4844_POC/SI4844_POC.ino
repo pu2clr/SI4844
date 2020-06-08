@@ -26,7 +26,7 @@ void setup() {
   instructions();
   delay(500);
   si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
-  si4844.setVolume(55);
+  si4844.setVolume(40);
 }
 // Shows instruções
 void instructions() {
@@ -125,8 +125,6 @@ void loop() {
     case 'i':
       show_firmware_information();
       break;
-    default:
-      instructions();    
     }
   }
   if (si4844.hasStatusChanged())
@@ -142,6 +140,10 @@ void loop() {
       Serial.print(" - Stereo ");
       Serial.print(si4844.getStereoIndicator());
     }
+    Serial.print(" - Volume: ");
+    Serial.print(si4844.getVolumeProperty());
+    Serial.print(" - Volume2: ");
+    Serial.print(si4844.getVolume());
     Serial.println("");
   }
 }

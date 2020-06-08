@@ -12,6 +12,115 @@
 #include "SI4844.h"
 
 /**
+ * @brief Sends (sets) property to the SI48XX
+ * 
+ * @details This method is used for others to send generic properties and params to SI4844
+ * 
+ * 
+ * @param propertyNumber property number (example: RX_VOLUME)
+ * @param parameter   property value that will be seted
+ */
+void SI4844::setProperty(uint16_t propertyNumber, uint16_t parameter)
+{
+    si4844_property property;
+    si4844_property param;
+
+    property.value = propertyNumber;
+    param.value = parameter;
+    waitToSend();
+    Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(SET_PROPERTY);
+    Wire.write(0x00);
+    Wire.write(property.raw.byteHigh); // Send property - High byte - most significant first
+    Wire.write(property.raw.byteLow);  // Send property - Low byte - less significant after
+    Wire.write(param.raw.byteHigh);    // Send the argments. High Byte - Most significant first
+    Wire.write(param.raw.byteLow);     // Send the argments. Low Byte - Less significant after
+    Wire.endTransmission();
+    delayMicroseconds(550);
+}
+
+/**
+ * @todo  
+ * @brief Gets a given property from the SI4844
+ * 
+ * @details This method is used to get a given property from SI47XX
+ * @details You might need to extract set of bits information from the returned value to know the real value
+ * 
+ * @param propertyNumber property number (example: RX_VOLUME)
+ * @return property value  (the content of the property)
+ */
+uint16_t SI4844::getProperty(uint16_t propertyNumber)
+{
+    si4844_property property;
+    si4844_status status;
+
+    property.value = propertyNumber;
+    waitToSend();
+    Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(GET_PROPERTY);
+    Wire.write(0x00);
+    Wire.write(property.raw.byteHigh); // Send property - High byte - most significant first
+    Wire.write(property.raw.byteLow);  // Send property - Low byte - less significant after
+    Wire.endTransmission();
+
+    delayMicroseconds(550);
+
+    Wire.requestFrom(SI4844_ADDRESS, 4);
+    status.raw = Wire.read();
+
+    if (status.refined.ERR == 1)
+        return 0;
+
+    Wire.read(); // resp1 is always 0
+
+    property.raw.byteHigh = Wire.read();
+    property.raw.byteLow = Wire.read();
+
+    return property.value;
+}
+
+/**
+ * @brief Sends a given command to the SI4844 device. 
+ * @details This function can be useful when you want to execute a SI4844 device command and it was not implemented by this library.
+ * @details Also, you need to work with bit operators to compose the parameters of the command [ &(and), ˆ(xor), |(or) etc ].   
+ *
+ * @see getCommandResponse, setProperty, getProperty
+ *  
+ * @param cmd command number (see PROGRAMMING GUIDE)
+ * @param parameter_size Parameter size in bytes. Tell the number of argument used by the command.
+ * @param parameter unsigned byte array with the arguments of the command  
+ */
+void SI4844::sendCommand(uint8_t cmd, int parameter_size, const uint8_t *parameter)
+{
+    waitToSend();
+    Wire.beginTransmission(SI4844_ADDRESS);
+    // Sends the command to the device
+    Wire.write(cmd);
+    // Sends the argments (parameters) of the command
+    for (byte i = 0; i < parameter_size; i++)
+        Wire.write(parameter[i]);
+    Wire.endTransmission();
+}
+
+/**
+ * @brief   Returns with the command response.  
+ * @details After a command is executed by the device, you can get the result (response) of the command by calling this method.
+ * 
+ * @see sendCommand, setProperty
+ * 
+ * @param response_size  num of bytes returned by the command.
+ * @param response  byte array where the response will be stored.     
+ */
+void SI4844::getCommandResponse(int response_size, uint8_t *response)
+{
+    // Asks the device to return a given number o bytes response
+    Wire.requestFrom(SI4844_ADDRESS, response_size);
+    // Gets response information
+    for (byte i = 0; i < response_size; i++)
+        response[i] = Wire.read();
+}
+
+/**
  * @brief   Waiting for an external interrupt
  * @details This function is called whenever the status of ATDD (SI4844) changes. 
  * @details It can occur, for example, when you use the analog tuner.  
@@ -127,8 +236,8 @@ void SI4844::setBand(byte new_band)
     // Assigning 1 to bit 7. It means we are using external crystal
     // Silicon Labs; Si48XX ATDD PROGRAMMING GUIDE; AN610; page 7
     // Just another way to deal with bytes and bits using C/C++.
-    new_band |= B10000000;
-    new_band &= B10111111;
+    new_band |= 0b10000000;
+    new_band &= 0b10111111;
 
     data_from_si4844 = false;
 
@@ -215,8 +324,8 @@ void SI4844::changeVolume(char command)
  */
 void SI4844::volumeUp()
 {
-    if (volume <= 58)
-        volume += 4;
+    if (volume < 63)
+        volume++;
     setVolume(volume);
 }
 
@@ -227,7 +336,7 @@ void SI4844::volumeUp()
 void SI4844::volumeDown()
 {
     if (volume >= 6)
-        volume -= 4;
+        volume--;
     setVolume(volume);
 }
 
@@ -239,23 +348,23 @@ void SI4844::volumeDown()
  */
 void SI4844::setVolume(byte volumeLavel)
 {
-
     if (volumeLavel > 63)
         return;
 
     waitToSend();
-
-    Wire.beginTransmission(SI4844_ADDRESS);
-    Wire.write(SET_PROPERTY); //
-    Wire.write(0x00);         // ARG1 (is always 0x00)
-    Wire.write(RX_VOLUME);    // ARG2 RX_VOLUME = 0X4000  (0x40)
-    Wire.write(0x00);         // ARG3 RX_VOLUME = 0X4000  (0x00)
-    Wire.write(0x00);         // ARG4
-    Wire.write(volumeLavel);  // ARG5
-    Wire.endTransmission();
-    delayMicroseconds(2500);
+    setProperty(RX_VOLUME, volumeLavel);
 
     this->volume = volumeLavel;
+}
+
+/**
+   * @brief Gets the current volume value stored in SI4844 device. 
+   * @details Use getVolume instead. 
+   * @return byte 
+   */
+byte SI4844::getVolumeProperty() {
+    uint16_t volumeProperty = getProperty(RX_ACTUAL_VOLUME);
+    return (byte)volumeProperty;
 }
 
 /**
@@ -276,18 +385,8 @@ void SI4844::setVolume(byte volumeLavel)
  * 
  * @param bass_treble bass and treble (domain: 0 to 8). See table above
  */
-void SI4844::setBassTreble(byte bass_treble)
-{
-    waitToSend();
-    Wire.beginTransmission(SI4844_ADDRESS);
-    Wire.write(0x00); // ARG1 - Always  0.
-    Wire.write(SET_PROPERTY);
-    Wire.write(0x40); // RX_BASS_TREBLE = 0x4002
-    Wire.write(0x02);
-    Wire.write(0x00);        // ARG4
-    Wire.write(bass_treble); // ARG5 BASSTREBLE[4:0]
-    Wire.endTransmission();
-    delayMicroseconds(2500);
+void SI4844::setBassTreble(byte bass_treble) {
+        setProperty(RX_BASS_TREBLE, bass_treble);
 }
 
 /**
@@ -374,18 +473,7 @@ si4844_audiomode_status_response SI4844::setAudioMode(byte audiomode, byte fm_mo
  */
 void SI4844::audioMute(byte value)
 {
-
-    waitToSend();
-
-    Wire.beginTransmission(SI4844_ADDRESS);
-    Wire.write(SET_PROPERTY); //
-    Wire.write(0x00);         // ARG1 (is always 0x00)
-    Wire.write(0x40);         // ARG2 RX_HARD_MUTE = 0X4001  (0x40)
-    Wire.write(0x01);         // ARG3 RX_HARD_MUTE = 0X4001  (0x01)
-    Wire.write(0x00);         // ARG4
-    Wire.write(value);        // ARG5
-    Wire.endTransmission();
-    delayMicroseconds(2500);
+    setProperty(RX_HARD_MUTE, value);
 }
 
 /**
@@ -589,3 +677,35 @@ void SI4844::setCustomBand(byte bandIndex, unsigned botton, unsigned top, byte b
     getStatus();
     delayMicroseconds(2500);
 }
+
+/**
+ * @brief Sets AM Soft Mute Max Attenuation..  
+ * @details Maximum attenuation to apply when in soft mute. Specified in units of dB. Default maximum attenuation is 16 dB.
+ * @details Set to 0 to disable soft mute. Valid range: 0 - 63. 
+ * @param value  number between 0 and 63
+ */
+void SI4844::setAmSoftMuteMaxAttenuation(uint8_t value) {
+    setProperty(AM_SOFT_MUTE_MAX_ATTENUATION, value);
+}
+
+/**
+ * @brief FM Soft Mute Maximum Attenuation. 
+ * @details Maximum attenuation to apply when in soft mute. Specified in units of dB. Default maximum attenuation is 16 dB.
+ * @details Set to 0 to disable soft mute. Valid range: 0 - 31. 
+ * @param value  number between 0 and 31
+ */
+void SI4844::setFmSoftMuteMaxAttenuation(uint8_t value)
+{
+    setProperty(FM_SOFT_MUTE_MAX_ATTENUATION, value);
+}
+
+/**
+ * @brief Sets de-emphasis time constant. 
+ * @details Sets the FM Receive de-emphasis to 50 or 75 μs. Default is 75 μs.
+ * 
+ * @param value  1 = 50 μs. Used in Europe, Australia, Japan, China; 2 = 75 μs. Used in USA
+ */
+void SI4844::setFmDeemphasis(uint8_t value) {
+    setProperty(FM_DEEMPHASIS, value);
+}
+

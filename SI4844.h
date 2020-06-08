@@ -1,10 +1,16 @@
-/*
- * This is a library for the SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER,
- * IC from Silicon Labs for the Arduino development environment.  
- * This library is intended to provide an easier interface for controlling the SI4844.
+/**
+ * @brief SI4844 ARDUINO LIBRARY  
  * 
- * Author: Ricardo Lima Caratti (PU2CLR)
- * September, 2019
+ * @details This is an Arduino library for the SI4844, BROADCAST AM/FM/SW RADIO RECEIVER IC family from Silicon Labs. 
+ * @details This library is intended to provide an easier interface for controlling the SI47XX by using Arduino platform. 
+ * @details The communication used by this library is I2C.
+ * @details This file contains: const (#define), Defined Data type and Methods declarations
+ * @details You can see a complete documentation on <https://github.com/pu2clr/SI4844>
+ *   
+ * @see https://pu2clr.github.io/SI4844/
+ *  
+ * @author PU2CLR - Ricardo Lima Caratti 
+ * @date  2019-2020
  */
 
 #include <Arduino.h>
@@ -24,8 +30,35 @@
 #define ATDD_GET_STATUS 0xE0
 
 #define SET_PROPERTY 0x12
-#define RX_VOLUME 0x40
+#define GET_PROPERTY 0x13
+#define RX_VOLUME 0x4000
+#define RX_HARD_MUTE 0x4001
 #define RX_BASS_TREBLE 0x4002
+#define RX_ACTUAL_VOLUME 0x4003
+
+#define FM_SOFT_MUTE_MAX_ATTENUATION 0x1302
+#define AM_SOFT_MUTE_MAX_ATTENUATION 0x3302
+#define FM_DEEMPHASIS 0x1100
+
+
+/** 
+ * @brief Status 
+ * 
+ * @details Represents searching for a valid frequency data type.
+ */
+typedef union {
+  struct
+  {
+    uint8_t D0 : 1; 
+    uint8_t D1 : 1; 
+    uint8_t D2 : 1; 
+    uint8_t D3 : 1; 
+    uint8_t D4 : 1; 
+    uint8_t ERR : 1;    //!< 1 = Error.
+    uint8_t CTS : 1;    //!< 0 = Wait before sending next command; 1 = Clear to send next command.
+  } refined;
+  uint8_t raw;
+} si4844_status;
 
 /* 
  * The structure below represents the four bytes response got by command ATDD_GET_STATUS
@@ -111,6 +144,20 @@ typedef  union {
         byte raw;
 } si4844_audiomode_status_response;
 
+/**
+ * @brief Data type to deal with SET_PROPERTY command
+ * 
+ * @details Property Data type (help to deal with SET_PROPERTY command on si473X)
+ */
+typedef union {
+  struct
+  {
+    uint8_t byteLow;
+    uint8_t byteHigh;
+  } raw;
+  uint16_t value;
+} si4844_property;
+
 /* 
  * English:
  * Handling interruptions.
@@ -162,7 +209,12 @@ private:
   byte volume = 48;
   byte bassTreble = 4;   
 
-public : 
+public :
+  void setProperty(uint16_t propertyNumber, uint16_t parameter);
+  uint16_t getProperty(uint16_t propertyNumber);
+  void sendCommand(uint8_t cmd, int parameter_size, const uint8_t *parameter);
+  void getCommandResponse(int response_size, uint8_t *response);
+
   void setup(unsigned int, unsigned int, byte);
   void reset(void );
   void setBand(byte);
@@ -177,25 +229,41 @@ public :
   void audioMute(byte value);
   void setAudioMute(bool on);
 
-  si4844_audiomode_status_response setAudioMode(byte audiomode, byte fm_mono, byte adjpt_attn, byte adjpt_steo, byte opcode);
+  void setAmSoftMuteMaxAttenuation(uint8_t value);
+  void setFmSoftMuteMaxAttenuation(uint8_t value);
+  void setFmDeemphasis(uint8_t value);
+
+
+  si4844_audiomode_status_response
+  setAudioMode(byte audiomode, byte fm_mono, byte adjpt_attn, byte adjpt_steo, byte opcode);
 
   si4844_status_response *getStatus(void);
   si4844_firmware_response *getFirmware(void);
   // customize the frequency range of a band
   void setCustomBand(byte, unsigned, unsigned, byte);
-
+ 
   void powerDown(void);
   void powerUp(void);
 
   float getFrequency(void);
   bool hasStatusChanged(void);
   void resetStatus(void);
-  
+
+
+  /**
+   * @brief Gets the current audio volume level
+   * 
+   * @return byte 
+   */
+  inline byte getVolume() {return volume; };
+  byte getVolumeProperty();
+
   // return 0 = "FM mode"; 1 = "AM mode"; 2 = "SW mode".
   inline String getBandMode(){ return bandmode_table[status_response.refined.BANDMODE]; };
   // return char * "Off" or stereo "On"
   inline String getStereoIndicator(){ return stereo_indicator_table[status_response.refined.STATION]; };
   
+ 
   inline unsigned getStatusBCFG0() { return status_response.refined.BCFG0; };
   inline unsigned getStatusBCFG1() { return status_response.refined.BCFG1; };
   inline unsigned getStatusStereo() { return status_response.refined.STEREO; };
@@ -218,3 +286,6 @@ public :
   inline unsigned getFirmwareComponentMinorRevision() { return firmware_response.refined.CMPMINOR; };
   inline unsigned getFirmwareChipRevision() { return firmware_response.refined.CHIPREV; };
 };
+
+
+
