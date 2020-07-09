@@ -4,20 +4,25 @@
   Test and validation of the SI4844 Arduino Library with ATtiny85.
   It is a simple AM/FM radio implementation.
 
+  This sketch uses the PinChangeInterrupt Library to deal with interrupt with Attiny devices.
+  Know more on https://github.com/NicoHood/PinChangeInterrupt
+
   Prototype documentation : https://pu2clr.github.io/SI4735/
   PU2CLR Si47XX API documentation: https://pu2clr.github.io/SI4735/extras/apidoc/html/
 
   By Ricardo Lima Caratti, Jan 2020.
 */
 
+#include <PinChangeInterrupt.h>
+
 #include <SI4844.h>
 #include <Tiny4kOLED.h>
 
 
-#define INT_PIN     PB3     // Pin 2 is used to control interrupt.
+#define INT_PIN     PCINT3   // Physical pin 2 is used to control interrupt.
 
-#define RST_PIN     PB4     // Pin 3 is used to control the RESET of the device. 
-#define BAND_SWITC  PB1     // Pin 6 is used to switch the band. 
+#define RST_PIN     PB4     // Physical Pin 3 is used to control the RESET of the device. 
+#define BAND_SWITC  PB1     // Physical Pin 6 is used to switch the band. 
 
 #define AM 20
 #define FM  0
@@ -27,11 +32,10 @@ float currentFrequency;
 
 SI4844 radio;
 
-// interrupt service routine for PCINT3
-ISR(PCINT3_vect)
-{
-  interrupt_hundler(); // See SI4844.h
+void handle_interrupt() {
+  radio.setStatusInterruptFromDevice(true);
 }
+
 
 void setup()
 {
@@ -53,11 +57,9 @@ void setup()
   oled.clear();
   */
 
-  GIMSK = 1 << PCIE;   // turn on pin change interrupts
-  PCMSK = 1 << PCINT3; // unmask PCINT3 pin change interrupt
+  attachPCINT(digitalPinToPCINT(INT_PIN), handle_interrupt, CHANGE);
 
-  sei();
-
+  // -1 means this sketch will handle the interrupt. 
   radio.setup(RST_PIN, -1, currentBand);
   
   // Comment the line above and uncomment the line bellow to debug. See the function debugDevice dicumentation

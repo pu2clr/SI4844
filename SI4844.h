@@ -187,12 +187,12 @@ typedef union {
  * mono FM signal and has switched to stereo. The variable below indicates a change of the ATDD status. It will need to  
  * process some action (for example show on LCD this changes).   
  */
-volatile static bool data_from_si4844;
+volatile static bool data_from_device;
 
 static void interrupt_hundler()
 {
  
-  data_from_si4844 = true;
+  data_from_device = true;
 }
 
 
@@ -227,6 +227,24 @@ private:
   uint8_t bassTreble = 4;   
 
 public :
+  /**
+   * @ingroup GB
+   * @brief Set the Data Status From Device 
+   * @details It is a flag that means the device triggered an interrupt.
+   * @details You can use this function to back the flag status to false. This way you can check when the device triggers the next interrupt.
+   * @details It is very useful when the user wants to control the interrupt instead of give this control to the library. 
+   * @param value true or false
+   */
+  inline void setStatusInterruptFromDevice( bool value ) { data_from_device = value; };
+  /**
+   * @ingroup GB 
+   * @brief Get the Data Status From Device 
+   * @details It returns true when the device has triggered an interrupt. 
+   * @return true or false
+   */
+  inline bool getDataStatusInterruptFromDevice() { return data_from_device; };
+
+
   void setProperty(uint16_t propertyNumber, uint16_t parameter);
   uint16_t getProperty(uint16_t propertyNumber);
   void sendCommand(uint8_t cmd, int parameter_size, const uint8_t *parameter);
@@ -267,18 +285,27 @@ public :
   bool hasStatusChanged(void);
   void resetStatus(void);
 
-
   /**
+   * @ingroup GB 
    * @brief Gets the current audio volume level
    * 
-   * @return uint8_t 
+   * @return Volume level 
    */
   inline uint8_t getVolume() {return volume; };
   uint8_t getVolumeProperty();
 
-  // return 0 = "FM mode"; 1 = "AM mode"; 2 = "SW mode".
+  /**
+   * @ingroup GB 
+   * @brief Get the Band Mode 
+   * @return char*   "FM", "AM" or "SW"
+   */
   inline char * getBandMode(){ return (char *) bandmode_table[status_response.refined.BANDMODE]; };
-  // return char * "Off" or stereo "On"
+
+  /**
+   * @ingroup GB 
+   * @brief Get the Stereo Indicator 
+   * @return char* "ON" or "OFF" 
+   */
   inline char * getStereoIndicator(){ return (char *) stereo_indicator_table[status_response.refined.STATION]; };
   
  

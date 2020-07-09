@@ -133,7 +133,7 @@ void SI4844::getCommandResponse(int response_size, uint8_t *response)
 void SI4844::waitInterrupt(void)
 {
     
-    while (!data_from_si4844)
+    while (!data_from_device)
         ;
 }
 
@@ -154,6 +154,7 @@ void SI4844::setup(uint16_t resetPin, int interruptPin, byte defaultBand)
     this->interruptPin = interruptPin;
 
     // Arduino interrupt setup.
+    // if interruptPin parameter is < 0, it means the interrupt is being controlled by the user of this library
     if (interruptPin != -1 ) {
         pinMode(interruptPin, INPUT);
         attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_hundler, RISING);
@@ -162,7 +163,7 @@ void SI4844::setup(uint16_t resetPin, int interruptPin, byte defaultBand)
     pinMode(resetPin, OUTPUT);
     digitalWrite(resetPin, HIGH);
 
-    data_from_si4844 = false;
+    data_from_device = false;
 
     reset();
 
@@ -202,7 +203,7 @@ void SI4844::debugDevice(uint16_t resetPin, uint16_t interruptPin, byte defaultB
     // showFunc("So far so good 1");
     // delay(1000);
 
-    data_from_si4844 = false;
+    data_from_device = false;
     reset();
 
     // showFunc("So far so good 2");
@@ -232,7 +233,7 @@ void SI4844::reset()
     // waitToSend();
 
     setClockLow(); // See *Note on page 5
-    data_from_si4844 = false;
+    data_from_device = false;
     digitalWrite(resetPin, LOW);
     delayMicroseconds(200);
     digitalWrite(resetPin, HIGH);
@@ -250,7 +251,7 @@ void SI4844::reset()
  */
 void SI4844::powerDown(void)
 {
-    data_from_si4844 = false;
+    data_from_device = false;
     // Wait until rady to send a command
     waitToSend();
     Wire.beginTransmission(SI4844_ADDRESS);
@@ -292,7 +293,7 @@ void SI4844::setBand(byte new_band)
     new_band |= 0b10000000;
     new_band &= 0b10111111;
 
-    data_from_si4844 = false;
+    data_from_device = false;
 
     // Wait until rady to send a command
     waitToSend();
@@ -602,7 +603,7 @@ si4844_firmware_response *SI4844::getFirmware(void)
     for (int i = 0; i < 9; i++)
         firmware_response.raw[i] = Wire.read();
 
-    data_from_si4844 = false;
+    data_from_device = false;
 
     return &firmware_response;
 }
@@ -647,7 +648,7 @@ float SI4844::getFrequency(void)
     f += (status_response.refined.d2) * 100;
     f += (status_response.refined.d1) * 1000;
 
-    data_from_si4844 = false;
+    data_from_device = false;
 
     return (f * multFactor + addFactor);
 }
@@ -662,7 +663,7 @@ float SI4844::getFrequency(void)
  */
 bool SI4844::hasStatusChanged(void)
 {
-    return data_from_si4844;
+    return data_from_device;
 }
 
 /**
@@ -671,7 +672,7 @@ bool SI4844::hasStatusChanged(void)
  */
 void SI4844::resetStatus()
 {
-    data_from_si4844 = false;
+    data_from_device = false;
 }
 
 /** 
@@ -709,7 +710,7 @@ void SI4844::setCustomBand(byte bandIndex, uint16_t  botton, uint16_t  top, byte
     setBand(bandIndex);
 
     // Now we can customize the band.
-    data_from_si4844 = false;
+    data_from_device = false;
     customband.refined.bandindex = bandIndex;
     customband.refined.xowait = 0;
     customband.refined.xoscen = 1;
