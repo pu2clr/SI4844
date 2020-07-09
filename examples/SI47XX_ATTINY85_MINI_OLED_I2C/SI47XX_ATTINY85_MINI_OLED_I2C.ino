@@ -32,11 +32,6 @@ float currentFrequency;
 
 SI4844 radio;
 
-void handle_interrupt() {
-  radio.setStatusInterruptFromDevice(true);
-}
-
-
 void setup()
 {
 
@@ -57,9 +52,10 @@ void setup()
   oled.clear();
   */
 
-  attachPCINT(digitalPinToPCINT(INT_PIN), handle_interrupt, CHANGE);
+  // interrupt_hundler is an static void function implemented into the library to deal with device control interrupt.
+  attachPCINT(digitalPinToPCINT(INT_PIN), interrupt_hundler, CHANGE);
 
-  // -1 means this sketch will handle the interrupt. 
+  // -1 means this sketch will handle the interrupt instead the library. 
   radio.setup(RST_PIN, -1, currentBand);
   
   // Comment the line above and uncomment the line bellow to debug. See the function debugDevice dicumentation
