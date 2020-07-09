@@ -98,6 +98,12 @@ $(document).ready(function(){initNavTree('class_s_i4844.html',''); initResizable
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ga1a00037a2cedbe25d1d53716a1c20c00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#ga1a00037a2cedbe25d1d53716a1c20c00">setStatusInterruptFromDevice</a> (bool value)</td></tr>
+<tr class="memdesc:ga1a00037a2cedbe25d1d53716a1c20c00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Data Status From Device.  <a href="group___g_b.html#ga1a00037a2cedbe25d1d53716a1c20c00">More...</a><br /></td></tr>
+<tr class="separator:ga1a00037a2cedbe25d1d53716a1c20c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga28ec82cb2fd02a0422e8ef3858e5ddcb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#ga28ec82cb2fd02a0422e8ef3858e5ddcb">getDataStatusInterruptFromDevice</a> ()</td></tr>
+<tr class="memdesc:ga28ec82cb2fd02a0422e8ef3858e5ddcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Data Status From Device.  <a href="group___g_b.html#ga28ec82cb2fd02a0422e8ef3858e5ddcb">More...</a><br /></td></tr>
+<tr class="separator:ga28ec82cb2fd02a0422e8ef3858e5ddcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac080ba62ed2de41f80c1fe08135362a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#gac080ba62ed2de41f80c1fe08135362a3">setProperty</a> (uint16_t propertyNumber, uint16_t parameter)</td></tr>
 <tr class="memdesc:gac080ba62ed2de41f80c1fe08135362a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends (sets) property to the SI48XX.  <a href="group___g_b.html#gac080ba62ed2de41f80c1fe08135362a3">More...</a><br /></td></tr>
 <tr class="separator:gac080ba62ed2de41f80c1fe08135362a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,9 +117,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:gaca88698cca086f09f23d29734132bfec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns with the command response. <br  />
   <a href="group___g_b.html#gaca88698cca086f09f23d29734132bfec">More...</a><br /></td></tr>
 <tr class="separator:gaca88698cca086f09f23d29734132bfec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5953aaaf33a040259ab0fe9edb1f5c4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#ga5953aaaf33a040259ab0fe9edb1f5c4b">setup</a> (uint16_t, uint16_t, byte)</td></tr>
-<tr class="memdesc:ga5953aaaf33a040259ab0fe9edb1f5c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> instance and connect the device (<a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a>) to Arduino.  <a href="group___g_b.html#ga5953aaaf33a040259ab0fe9edb1f5c4b">More...</a><br /></td></tr>
-<tr class="separator:ga5953aaaf33a040259ab0fe9edb1f5c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f4d244f654ac20f2e26508f6a8269ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#ga9f4d244f654ac20f2e26508f6a8269ce">setup</a> (uint16_t resetPin, int interruptPin, byte defaultBand)</td></tr>
+<tr class="memdesc:ga9f4d244f654ac20f2e26508f6a8269ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> instance and connect the device (<a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a>) to Arduino.  <a href="group___g_b.html#ga9f4d244f654ac20f2e26508f6a8269ce">More...</a><br /></td></tr>
+<tr class="separator:ga9f4d244f654ac20f2e26508f6a8269ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacd42a278c3304a591d80ae7ab351b87a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#gacd42a278c3304a591d80ae7ab351b87a">debugDevice</a> (uint16_t resetPin, uint16_t interruptPin, uint8_t defaultBand, void(*showFunc)(char *msg))</td></tr>
 <tr class="memdesc:gacd42a278c3304a591d80ae7ab351b87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to debug <br  />
   <a href="group___g_b.html#gacd42a278c3304a591d80ae7ab351b87a">More...</a><br /></td></tr>
@@ -189,16 +195,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ga2f14c89d348c5e3214615258b8f9c918"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the interrupr status to false. It will turn true after next interrupr <br  />
   <a href="group___g_b.html#ga2f14c89d348c5e3214615258b8f9c918">More...</a><br /></td></tr>
 <tr class="separator:ga2f14c89d348c5e3214615258b8f9c918"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35aa33472f9d23986457ce7850b8175f"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_i4844.html#a35aa33472f9d23986457ce7850b8175f">getVolume</a> ()</td></tr>
-<tr class="memdesc:a35aa33472f9d23986457ce7850b8175f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current audio volume level.  <a href="class_s_i4844.html#a35aa33472f9d23986457ce7850b8175f">More...</a><br /></td></tr>
-<tr class="separator:a35aa33472f9d23986457ce7850b8175f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35aa33472f9d23986457ce7850b8175f"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#ga35aa33472f9d23986457ce7850b8175f">getVolume</a> ()</td></tr>
+<tr class="memdesc:ga35aa33472f9d23986457ce7850b8175f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current audio volume level.  <a href="group___g_b.html#ga35aa33472f9d23986457ce7850b8175f">More...</a><br /></td></tr>
+<tr class="separator:ga35aa33472f9d23986457ce7850b8175f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga44f5b3d8746dc30922cc92e778e98f16"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#ga44f5b3d8746dc30922cc92e778e98f16">getVolumeProperty</a> ()</td></tr>
 <tr class="memdesc:ga44f5b3d8746dc30922cc92e778e98f16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current volume value stored in <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> device.  <a href="group___g_b.html#ga44f5b3d8746dc30922cc92e778e98f16">More...</a><br /></td></tr>
 <tr class="separator:ga44f5b3d8746dc30922cc92e778e98f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a179ed56010a980a09fce35da92576793"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_i4844.html#a179ed56010a980a09fce35da92576793">getBandMode</a> ()</td></tr>
-<tr class="separator:a179ed56010a980a09fce35da92576793"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2429b3d5dffbf52b24792857063ed506"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_i4844.html#a2429b3d5dffbf52b24792857063ed506">getStereoIndicator</a> ()</td></tr>
-<tr class="separator:a2429b3d5dffbf52b24792857063ed506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga179ed56010a980a09fce35da92576793"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#ga179ed56010a980a09fce35da92576793">getBandMode</a> ()</td></tr>
+<tr class="memdesc:ga179ed56010a980a09fce35da92576793"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Band Mode.  <a href="group___g_b.html#ga179ed56010a980a09fce35da92576793">More...</a><br /></td></tr>
+<tr class="separator:ga179ed56010a980a09fce35da92576793"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2429b3d5dffbf52b24792857063ed506"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#ga2429b3d5dffbf52b24792857063ed506">getStereoIndicator</a> ()</td></tr>
+<tr class="memdesc:ga2429b3d5dffbf52b24792857063ed506"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Stereo Indicator.  <a href="group___g_b.html#ga2429b3d5dffbf52b24792857063ed506">More...</a><br /></td></tr>
+<tr class="separator:ga2429b3d5dffbf52b24792857063ed506"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1107f15e0f83e4d4f1746086cfd94deb"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_i4844.html#a1107f15e0f83e4d4f1746086cfd94deb">getStatusBCFG0</a> ()</td></tr>
 <tr class="separator:a1107f15e0f83e4d4f1746086cfd94deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac64e61270ae4b824f5ebdd5deb7b9547"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_i4844.html#ac64e61270ae4b824f5ebdd5deb7b9547">getStatusBCFG1</a> ()</td></tr>
@@ -242,84 +250,6 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p><a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> Class. </p>
 <p>This class implements all functions to help you to control the Si4844 devices. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a35aa33472f9d23986457ce7850b8175f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35aa33472f9d23986457ce7850b8175f">&#9670;&nbsp;</a></span>getVolume()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t SI4844::getVolume </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the current audio volume level. </p>
-<dl class="section return"><dt>Returns</dt><dd>uint8_t </dd></dl>
-
-</div>
-</div>
-<a id="a179ed56010a980a09fce35da92576793"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a179ed56010a980a09fce35da92576793">&#9670;&nbsp;</a></span>getBandMode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* SI4844::getBandMode </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2429b3d5dffbf52b24792857063ed506"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2429b3d5dffbf52b24792857063ed506">&#9670;&nbsp;</a></span>getStereoIndicator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* SI4844::getStereoIndicator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a1107f15e0f83e4d4f1746086cfd94deb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1107f15e0f83e4d4f1746086cfd94deb">&#9670;&nbsp;</a></span>getStatusBCFG0()</h2>
 

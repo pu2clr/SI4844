@@ -1,10 +1,15 @@
 var group___g_b =
 [
+    [ "setStatusInterruptFromDevice", "group___g_b.html#ga1a00037a2cedbe25d1d53716a1c20c00", null ],
+    [ "getDataStatusInterruptFromDevice", "group___g_b.html#ga28ec82cb2fd02a0422e8ef3858e5ddcb", null ],
+    [ "getVolume", "group___g_b.html#ga35aa33472f9d23986457ce7850b8175f", null ],
+    [ "getBandMode", "group___g_b.html#ga179ed56010a980a09fce35da92576793", null ],
+    [ "getStereoIndicator", "group___g_b.html#ga2429b3d5dffbf52b24792857063ed506", null ],
     [ "setProperty", "group___g_b.html#gac080ba62ed2de41f80c1fe08135362a3", null ],
     [ "getProperty", "group___g_b.html#gaf4b90cf2e7a654718e2c65de5def0928", null ],
     [ "sendCommand", "group___g_b.html#ga8b2c96a6126110589a403751ec12631c", null ],
     [ "getCommandResponse", "group___g_b.html#gaca88698cca086f09f23d29734132bfec", null ],
-    [ "setup", "group___g_b.html#ga5953aaaf33a040259ab0fe9edb1f5c4b", null ],
+    [ "setup", "group___g_b.html#ga9f4d244f654ac20f2e26508f6a8269ce", null ],
     [ "debugDevice", "group___g_b.html#gacd42a278c3304a591d80ae7ab351b87a", null ],
     [ "reset", "group___g_b.html#ga683a81897fe79e6909817aab36622684", null ],
     [ "powerDown", "group___g_b.html#gaff14988c6be8a5fb9d1a5e6934dcff47", null ],
