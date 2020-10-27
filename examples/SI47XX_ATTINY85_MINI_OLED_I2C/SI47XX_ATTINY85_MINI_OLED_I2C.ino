@@ -52,7 +52,7 @@ void setup()
   oled.clear();
   */
 
-  // interrupt_hundler is an static void function implemented into the library to deal with device control interrupt.
+  // interrupt_hundler is an static void function implemented into the SI4844 library to deal with device control interrupt.
   attachPCINT(digitalPinToPCINT(INT_PIN), interrupt_hundler, CHANGE);
 
   // -1 means this sketch will handle the interrupt instead the library. 

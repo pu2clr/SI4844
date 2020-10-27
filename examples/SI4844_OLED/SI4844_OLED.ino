@@ -8,7 +8,7 @@
  *  |    2       |   2          | Arduino interrupt pin                              |
  *  |   15       |  12          | Regurlar arduino digital pin used to RESET control |
  *  |   16       |  A4 (SDA)    | I2C bus (Data)                                     |
- *  |   17       |  A5 (SCL)    | I2C bus (Clocl)                                    |
+ *  |   17       |  A5 (SCL)    | I2C bus (Clock)                                    |
  *
  *  Author: Ricardo Lima Caratti (PU2CLR)
  *  Oct, 2019
