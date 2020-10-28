@@ -246,11 +246,7 @@ It was a bit hard to solder the Si4844 on adapter. However, by using a electroni
 
 ## Playing with Arduino UNO or Pro Mini 5v and SI4844
 
- During my tests, I tried to work with regular voltage level converter also known as logic level converter. However, I had no success with these devices due to I2C communication incompatibility .
-
- Some device that I tried to use can be seen below. 
-
- To make the Arduino 5V play with SI4844 I used the __TCA9548A__. It is an I2C Multiplexer Breakout Board 8 Channel Expansion Board. 
+ During my tests, I have used the __TCA9548A__ as an alternative to regular bi-directional converter on I2C bus. Actually the __TCA9548A__  is an I2C Multiplexer Breakout Board 8 Channel Expansion Board, but you can use it as a bi-directional converter for I2C bus.  Some features:   
 
 1. 1-to-8 Bidirectional Translating Switches 
 2. I2C Bus and SMBus Compatible
@@ -266,7 +262,7 @@ It was a bit hard to solder the Si4844 on adapter. However, by using a electroni
 12. 5-V Tolerant Inputs
 13. 0- to 400-kHz Clock Frequency
     
-The final solution in my experiment was using the __TCA9548A__ and regular level converter to RESET and INTERRUPR pins.  
+You can use a voltage divider for reset (RST) and connect the IRQ direct to the Arduino pin 2 (configures as input).
 
 
 ## API Documentation
@@ -985,25 +981,34 @@ The [SI4844_FIRMWARE.ino](https://github.com/pu2clr/SI4844/blob/master/examples/
 
 ### Minimal Radio with SI4844 (SI4844_MINIMAL)
 
-The [SI4844_MINIMAL.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_MINIMAL/SI4844_MINIMAL.ino) is a sketch with just 35 lines. It is enough to make a simple radio based on SI4844.  
+The [SI4844_MINIMAL.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_00_MINIMAL/SI4844_00_MINIMAL.ino) is a sketch with just 35 lines. It is enough to make a simple radio based on SI4844.  
 
 
 ### Proof of Concept
 
-The [SI4844_POC.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_POC/SI4844_POC.ino) is a proof of concept for SI4844 controlled by Arduino and the SI4844 Library. This Arduino Sketch only works on your IDE (Arduino IDE). However, you can replace the Serial Monitor functions that deal the SI4844 and arduino with functions that will manipulate the LCD, encoder and push buttons appropriated for your project.  
+The [SI4844_POC.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_00_POC/SI4844_00_POC.ino) is a proof of concept for SI4844 controlled by Arduino and the SI4844 Library. This Arduino Sketch only works on your IDE (Arduino IDE). However, you can replace the Serial Monitor functions that deal the SI4844 and arduino with functions that will manipulate the LCD, encoder and push buttons appropriated for your project.  
 
 ### Extended SW band frequency ranges from 2.3–5.6 MHz and 22–28.5 MHz 
 
-The sketch [SI4844_CUSTOM_BAND.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI4844_CUSTOM_BAND/SI4844_CUSTOM_BAND.ino) shows how to extend a SW band frequency ranges. You can define band from from 2.3–5.6 MHz and 22–28.5 MHz. 
+The sketch [SI4844_CUSTOM_BAND.ino](https://github.com/pu2clr/SI4844/blob/master/examples/TEST/SI4844_CUSTOM_BAND/SI4844_CUSTOM_BAND.ino) shows how to extend a SW band frequency ranges. You can define band from from 2.3–5.6 MHz and 22–28.5 MHz. 
 
 
 ## SI4844 with OLED and buttons
 
-The sketch [SI4844_OLED.ino](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_OLED) shows an example of using an I2C OLED display.
+The sketch [SI4844_01_OLED.ino](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_01_OLED) shows an example of using an I2C OLED display.
 
 The schematic below shows how to insert the OLED and button on the original schematic. 
 
 ![OLED and Button with SI4844](https://github.com/pu2clr/SI4844/blob/master/extras/OLED_WITH_4844_schematic_atmega328.png)
+
+
+## SI4844 with Nano and LCD16x02
+
+The sketch [SI4844_02_LCD16x02.ino](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_02_LCD16x02) shows an example of using the traditional LCD16x02.
+
+The schematic below shows the circuit used with this sketch.
+
+![Schematic LCD16x02](https://github.com/pu2clr/SI4844/blob/master/extras/schematic_lcd_16x02_nano.png)
 
 
 ## Sound Control
