@@ -124,7 +124,7 @@ I have tested it with success the SI4844 with a 5V Arduino using the I2C Multipl
 See that approach [here](./extras/5V_to_3V3_CONVERTER). 
 
 
-### Schematic
+### Schematic with Arduino Pro Mini 3.3V and OLED
 
 To use this labrary you need to build a radio based on SI4844 connected to Arduino. The schematic and photos below show the hardware and setup requirments for start using this library.
 
@@ -146,7 +146,7 @@ No front-end was added to this receiver. However, you will be surprised with the
 __Another good source is the Silicon Labs Document AN602 "Si4822/26/27/40/44 ANTENNA, SCHEMATIC, LAYOUT, AND DESIGN GUIDELINES" Rev 0.3. This document also suggests better circuits. Check the AN602 pages: 8, 9 and 10__ .    
 
 
-#### Arduino and SI4844 connections
+#### Arduino Pro Mini 3.3V  and SI4844 connections
 
 The table below shows the pin connections between the Si4844 and Arduino Pro Mini.
 
@@ -158,6 +158,20 @@ The table below shows the pin connections between the Si4844 and Arduino Pro Min
 |   16       |  A4 (SDA)    | I2C bus (Data)                                     |
 |   17       |  A5 (SCL)    | I2C bus (Clock)                                    | 
   
+
+
+### Schematic with Arduino Nano 5V and LCD16x02
+
+This circuit uses the Arduino Nano or UNO with SI4844 device. Arduino Nano operates with 5V and the LCD16x02 as well.
+So, these two device can be connected direct. However, you need a bi-directonal logic converter to connect the Arduino Nano or UNO to the SI4844 device. The schematic below show the circuit with Arduino Nano 5V and LCD16x02.
+
+
+
+![schematic SI4844 LCD16x02](./extras/images/schematic_lcd_16x02_nano.png)
+
+
+
+
 
 
 __Attention__: If you are not using an Arduino Pro Mini, pay attention to the appropriated Arduino pinout to select the correct interrupt (IRQ), RST, SDIO and  SCLK  pins.  The table below shows some Arduino board pinout. 
@@ -173,14 +187,17 @@ __Attention__: If you are not using an Arduino Pro Mini, pay attention to the ap
 
 __Again, pay attention to the operating voltage of the Arduino that you will use. The SI4844 device  works with  +3.3V. See  [Making the Si4844 works with 5V Arduino UNO or similar](https://github.com/pu2clr/SI4844/tree/master/extras/5V_to_3V3_CONVERTER) if you itend to use a 5V Arduino board__.  
 
-### Parts
+
+
+### Parts (for OLED and LCD16x02 versions)
 
 Parts list  used by the minimal schematic
 
 |Part	| Description |
 |-------  | ------------ |
 | IC1	    | Si4844-A10 radio receiver |
-| Arduino | Arduino Pro Mini, 3.3V, 8MHz |
+| Arduino | Arduino Pro Mini, 3.3V, 8MHz for OLED version or  Nano for LCD16x02 version|
+| Bi-Directional module | Only if you are using the Arduino Nano or Uno | 
 | C1      |	22pF ceramic capacitor |
 | C2      | 22pF ceramic capacitor |
 | C3      | 100nF ceramic capacitor |
@@ -193,7 +210,7 @@ Parts list  used by the minimal schematic
 | R3      |	100K linear potentiometer |
 | L1    	| ferrite AM antenna | 
 | L2      | 100mH |
-|Y1	      | 32.768 kHz crystal |
+| Y1      | 32.768 kHz crystal |
 | S1...S4 | 4 push buttons |  
 
 
