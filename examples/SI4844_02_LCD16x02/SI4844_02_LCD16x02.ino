@@ -6,7 +6,7 @@
  *  | SI4844 pin |  Arduino pin |  Description                                       |
  *  | ---------  | ------------ | -------------------------------------------------  |
  *  |    2       |   2          | Arduino interrupt pin                              |
- *  |   15       |   14/A0      | Arduino A0 (Digital pin 14) for SI4844 RESET       |
+ *  |   15       |   12/A0      | Arduino A0 (Digital pin 14) for SI4844 RESET       |
  *  |   16       |  A4 (SDA)    | I2C bus (Data)                                     |
  *  |   17       |  A5 (SCL)    | I2C bus (Clock)                                    | 
  *  | -----------| -------------| ---------------------------------------------------|
@@ -16,7 +16,7 @@
  *  |      D5    |     D6       | Arduino Digital Pin 6                              | 
  *  |      D6    |     D5       | Arduino Digital pin 5                              |
  *  |      D7    |     D4       | Arduino Digital Pin 4                              | 
- *  |      RS    |     D12      | Arduino Digital Pin 12                             | 
+ *  |      RS    |     D3       | Arduino Digital Pin 3 for LCD RESET controle       | 
  *  |      E/ENA |     D13      | Arduino Digital Pin 13                             |
  *  |RW & VSS & K|     GND      |                                                    |
  *  | A & VDD    |    +Vcc      |                                                    |
