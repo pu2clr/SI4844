@@ -166,8 +166,10 @@ This circuit uses the Arduino Nano or UNO with SI4844 device. Arduino Nano and t
 So, these two devices can be connected direct. However, you need a bi-directonal logic converter to connect the Arduino Nano or UNO to the SI4844 device. The schematic below show the circuit with Arduino Nano 5V and LCD16x02.
 
 
-![schematic SI4844 LCD16x02](./extras/images/schematic_lcd_16x02_nano.png)
+See [Bi-Directional Logic Level Converter Hookup Guide ](https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide/all) for more details.
 
+
+![schematic SI4844 LCD16x02](./extras/images/schematic_lcd_16x02_nano.png)
 
 
 __Attention__: If you are not using an Arduino Pro Mini, pay attention to the appropriated Arduino pinout to select the correct interrupt (IRQ), RST, SDIO and  SCLK  pins.  The table below shows some Arduino board pinout. 
