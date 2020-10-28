@@ -162,15 +162,11 @@ The table below shows the pin connections between the Si4844 and Arduino Pro Min
 
 ### Schematic with Arduino Nano 5V and LCD16x02
 
-This circuit uses the Arduino Nano or UNO with SI4844 device. Arduino Nano operates with 5V and the LCD16x02 as well.
-So, these two device can be connected direct. However, you need a bi-directonal logic converter to connect the Arduino Nano or UNO to the SI4844 device. The schematic below show the circuit with Arduino Nano 5V and LCD16x02.
-
+This circuit uses the Arduino Nano or UNO with SI4844 device. Arduino Nano and the  LCD16x02 operate with 5V.
+So, these two devices can be connected direct. However, you need a bi-directonal logic converter to connect the Arduino Nano or UNO to the SI4844 device. The schematic below show the circuit with Arduino Nano 5V and LCD16x02.
 
 
 ![schematic SI4844 LCD16x02](./extras/images/schematic_lcd_16x02_nano.png)
-
-
-
 
 
 
