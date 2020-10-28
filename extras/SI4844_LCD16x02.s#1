@@ -5436,12 +5436,6 @@ See the follwing turorial for more information on this type of special footprint
 <wire x1="43.18" y1="198.12" x2="43.18" y2="208.28" width="0.1524" layer="91"/>
 <junction x="43.18" y="208.28"/>
 </segment>
-<segment>
-<pinref part="SI1" gate="G$1" pin="BAND"/>
-<wire x1="-10.16" y1="142.24" x2="-10.16" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="SUPPLY7" gate="G$1" pin="VCC"/>
-<wire x1="-7.62" y1="129.54" x2="-10.16" y2="129.54" width="0.1524" layer="91"/>
-</segment>
 </net>
 <net name="N$6" class="0">
 <segment>
@@ -5696,6 +5690,12 @@ See the follwing turorial for more information on this type of special footprint
 <pinref part="SI1" gate="G$1" pin="TUNE2"/>
 <pinref part="R3" gate="G$1" pin="S"/>
 <wire x1="-15.24" y1="142.24" x2="-15.24" y2="124.46" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$30" class="0">
+<segment>
+<pinref part="SI1" gate="G$1" pin="BAND"/>
+<wire x1="-10.16" y1="142.24" x2="-10.16" y2="129.54" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$32" class="0">

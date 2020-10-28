@@ -124,6 +124,9 @@ I have tested it with success the SI4844 with a 5V Arduino using the I2C Multipl
 See that approach [here](./extras/5V_to_3V3_CONVERTER). 
 
 
+### Schematic
+
+
 ### Schematic with Arduino Pro Mini 3.3V and OLED
 
 To use this labrary you need to build a radio based on SI4844 connected to Arduino. The schematic and photos below show the hardware and setup requirments for start using this library.
@@ -144,6 +147,7 @@ As you can see above, that is a very simple circuit with minumum component parts
 No front-end was added to this receiver. However, you will be surprised with the its performance. You can connect to the audio output a mono or stereo amplifier or an earphone to listen to the radio. On article [How to Build an Arduino-Controlled AM/FM/SW Radio](https://www.allaboutcircuits.com/projects/build-an-arduino-controlled-am-fm-sw-radio/) [May 26, 2016], Mr. Raymond Genovese, suggests a better SI4844 setup, including a RF amplifier. 
 
 __Another good source is the Silicon Labs Document AN602 "Si4822/26/27/40/44 ANTENNA, SCHEMATIC, LAYOUT, AND DESIGN GUIDELINES" Rev 0.3. This document also suggests better circuits. Check the AN602 pages: 8, 9 and 10__ .    
+
 
 
 #### Arduino Pro Mini 3.3V  and SI4844 connections
