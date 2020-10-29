@@ -2401,6 +2401,7 @@ Also note, the SNAP packages are for using a snappable style connector. We sell 
 <text x="-40.64" y="236.22" size="1.778" layer="91">SI4844 SCLK</text>
 <text x="-38.1" y="210.82" size="1.778" layer="91">SI4844 SDIO</text>
 <text x="-121.92" y="256.54" size="1.778" layer="91">SI4844 IRQ</text>
+<text x="-165.1" y="160.02" size="1.778" layer="91">Use a bidirectional logical conversion strategy (between Arduino Nano and SI4844</text>
 </plain>
 <instances>
 <instance part="M1" gate="G$1" x="-91.44" y="228.6" smashed="yes">
@@ -2635,6 +2636,11 @@ Also note, the SNAP packages are for using a snappable style connector. We sell 
 <pinref part="M1" gate="G$1" pin="D3"/>
 <wire x1="-111.76" y1="233.68" x2="-127" y2="233.68" width="0.1524" layer="91"/>
 <wire x1="-127" y1="233.68" x2="-127" y2="213.36" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$25" class="0">
+<segment>
+<wire x1="58.42" y1="96.52" x2="58.42" y2="251.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$12" class="0">
