@@ -36,11 +36,6 @@
 #include <SI4844.h>
 #include <LiquidCrystal.h>
 
-
-// OLED Diaplay constants
-#define I2C_ADDRESS 0x3C
-#define RST_PIN -1 // Define proper RST_PIN if required.
-
 // Arduino Pin (tested on pro mini)
 #define INTERRUPT_PIN 2
 #define RESET_PIN 12
@@ -51,7 +46,7 @@
 #define LCD_D6 5
 #define LCD_D5 6
 #define LCD_D4 7
-#define LCD_RS 12
+#define LCD_RS 3
 #define LCD_E  13
 
 
@@ -83,6 +78,8 @@ void setup()
   pinMode(VOL_UP, INPUT_PULLUP);
   pinMode(VOL_DOWN, INPUT_PULLUP);
 
+  pinMode(INTERRUPT_PIN, INPUT);
+
   display.begin(16, 2);
   // Splash
   display.clear();
@@ -101,6 +98,7 @@ void setup()
 
   si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
   si4844.setVolume(55);
+  
   displayDial();
 }
 
