@@ -72,7 +72,7 @@ You can use the SI4844 minimal circuit as SI4844 setup reference.
 
 
 
-![schematic SI4844 LCD16x02](..SI/extras/images/schematic_lcd_16x02_nano.png)
+![schematic SI4844 LCD16x02](../extras/images/schematic_lcd_16x02_nano.png)
 
 
 #### The schematic below shows a suggestion to the bi-directional converter strategy.
