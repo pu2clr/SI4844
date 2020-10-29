@@ -170,10 +170,15 @@ This circuit uses the Arduino Nano or UNO, LCD16-02 with SI4844 device. Arduino 
 You can use the SI4844 minimal circuit as SI4844 setup reference.
 
 
-See [Bi-Directional Logic Level Converter Hookup Guide ](https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide/all) for more details.
-
 
 ![schematic SI4844 LCD16x02](./extras/images/schematic_lcd_16x02_nano.png)
+
+
+#### The schematic below shows a suggestion to the bi-directional converter strategy.
+
+![schematic SI4844 LCD16x02](./extras/images/BI_DIRECTIONAL_CONVERTER.png)
+
+See also: [Bi-Directional Logic Level Converter Hookup Guide ](https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide/all) for more details.
 
 
 
