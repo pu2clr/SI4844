@@ -166,14 +166,49 @@ The table below shows the pin connections between the Si4844 and Arduino Pro Min
 
 ### Schematic with Arduino Nano 5V and LCD16x02
 
-This circuit uses the Arduino Nano or UNO with SI4844 device. Arduino Nano and the  LCD16x02 operate with 5V.
-So, these two devices can be connected direct. However, you need a bi-directonal logic converter to connect the Arduino Nano or UNO to the SI4844 device. The schematic below show the circuit with Arduino Nano 5V and LCD16x02.
+This circuit uses the Arduino Nano or UNO, LCD16-02 with SI4844 device. Arduino Nano and the  LCD16x02 operate with 5V. So, these two devices can be connected direct. However, __you need a bi-directonal logic converter to connect the Arduino Nano or UNO to the SI4844 device__. The schematic below show the circuit with Arduino Nano 5V and LCD16x02.
+You can use the SI4844 minimal circuit as SI4844 setup reference.
 
 
 See [Bi-Directional Logic Level Converter Hookup Guide ](https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide/all) for more details.
 
 
 ![schematic SI4844 LCD16x02](./extras/images/schematic_lcd_16x02_nano.png)
+
+
+
+#### Arduino Nano, LCD16x02, Push Buttons and SI4844 pin connections
+ 
+ 
+| SI4844 pin |  Arduino pin |  Description                                       |
+| ---------  | ------------ | -------------------------------------------------  |
+|    2       |   2          | Arduino interrupt pin                              |
+|   15       |   12/A0      | Arduino A0 (Digital pin 14) for SI4844 RESET       |
+|   16       |  A4 (SDA)    | I2C bus (Data)                                     |
+|   17       |  A5 (SCL)    | I2C bus (Clock)                                    | 
+
+
+|  LCD 16x02 | Arduino pin  |                                                    |
+| -----------| -------------| ---------------------------------------------------|                        
+|      D4    |     D7       | Arduino Digital Pin 7                              |
+|      D5    |     D6       | Arduino Digital Pin 6                              | 
+|      D6    |     D5       | Arduino Digital pin 5                              |
+|      D7    |     D4       | Arduino Digital Pin 4                              | 
+|      RS    |     D3       | Arduino Digital Pin 3 for LCD RESET controle       | 
+|      E/ENA |     D13      | Arduino Digital Pin 13                             |
+|RW & VSS & K|     GND      |                                                    |
+| A & VDD    |    +Vcc      |                                                    |
+|      VO    |              | (see 10K tripot connection)                        |
+
+
+| Buttons    | Arduino pin  |                 
+| -----------| -------------|
+|  BAND_UP   |     8        |                          
+|  BAND_DOWN |     9        | 
+|  VOL_UP    |    10        | 
+|  VOL_DOWN  |    11        |  
+
+
 
 
 __Attention__: If you are not using an Arduino Pro Mini, pay attention to the appropriated Arduino pinout to select the correct interrupt (IRQ), RST, SDIO and  SCLK  pins.  The table below shows some Arduino board pinout. 
