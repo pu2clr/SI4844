@@ -154,13 +154,28 @@ __Another good source is the Silicon Labs Document AN602 "Si4822/26/27/40/44 ANT
 
 The table below shows the pin connections between the Si4844 and Arduino Pro Mini.
 
-
 | SI4844 pin |  Arduino pin |  Description                                       |  
 | ---------  | ------------ | -------------------------------------------------  |
 |    2       |   2          | Arduino interrupt pin                              |
 |   15       |  12          | Regurlar arduino digital pin used to RESET control |
 |   16       |  A4 (SDA)    | I2C bus (Data)                                     |
 |   17       |  A5 (SCL)    | I2C bus (Clock)                                    | 
+
+
+
+|   OLED     | Arduino pin  |                                                    
+| -----------| -------------|                       
+|    SDA     |  A4          | 
+|    CLK     |  D5          | 
+
+
+| Buttons    | Arduino pin  |                 
+| -----------| -------------|
+|  BAND_UP   |     8        |                          
+|  BAND_DOWN |     9        | 
+|  VOL_UP    |    10        | 
+|  VOL_DOWN  |    11        |  
+
   
 
 
