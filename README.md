@@ -193,6 +193,8 @@ You can use the SI4844 minimal circuit as SI4844 setup reference.
 
 ![schematic SI4844 LCD16x02](./extras/images/BI_DIRECTIONAL_CONVERTER.png)
 
+It is important to say that a voltage divider will work for the Si4844 RST pin. However, for the I2C bus as well as the SI4844 IRQ pin, this approach may not work.  
+
 See also: [Bi-Directional Logic Level Converter Hookup Guide ](https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide/all) for more details.
 
 
