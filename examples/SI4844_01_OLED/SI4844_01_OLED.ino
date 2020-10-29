@@ -3,12 +3,26 @@
  *
  *  Arduino Pro Mini 3.3V (8MHz) and SI4844 pin connections
  *
+ *  Arduino Nano and SI4844 pin connections
+ *
  *  | SI4844 pin |  Arduino pin |  Description                                       |
  *  | ---------  | ------------ | -------------------------------------------------  |
  *  |    2       |   2          | Arduino interrupt pin                              |
- *  |   15       |  12          | Regurlar arduino digital pin used to RESET control |
+ *  |   15       |   12         | Arduino A0 (Digital pin 14) for SI4844 RESET       |
  *  |   16       |  A4 (SDA)    | I2C bus (Data)                                     |
- *  |   17       |  A5 (SCL)    | I2C bus (Clock)                                    |
+ *  |   17       |  A5 (SCL)    | I2C bus (Clock)                                    | 
+ *  | -----------| -------------| ---------------------------------------------------|
+ *  |  OLED      |              |                                                    |
+ *  | -----------| -------------| ---------------------------------------------------|                        
+ *  |   SDA      |  A4          | It shares the I2C bus with the SI4844              |
+ *  |   CLK      |  A5          | It shares the I2C bus with the SI4844              |       
+ *  | -----------| -------------| ---------------------------------------------------|
+ *  |Push Buttons|                                                                   |                                                                     |
+ *  | -----------| -------------| ---------------------------------------------------| 
+ *  |  BAND_UP   |     8        |                                                    |                          
+ *  |  BAND_DOWN |     9        |                                                    | 
+ *  |  VOL_UP    |    10        |                                                    | 
+ *  |  VOL_DOWN  |    11        |                                                    |  
  *
  *  Author: Ricardo Lima Caratti (PU2CLR)
  *  Oct, 2019
@@ -27,10 +41,10 @@
 #define RESET_PIN 12
 #define DEFAULT_BAND 0
 
-#define BAND_UP 5   // Next Band
-#define BAND_DOWN 6 // Previous Band
-#define VOL_UP 7    // Volume Volume Up
-#define VOL_DOWN 8  // Volume Down
+#define BAND_UP 8    // Next Band
+#define BAND_DOWN 9  // Previous Band
+#define VOL_UP 10    // Volume Volume Up
+#define VOL_DOWN 11  // Volume Down
 
 #define MIN_ELAPSED_TIME 100
 
