@@ -183,7 +183,7 @@ See [Bi-Directional Logic Level Converter Hookup Guide ](https://learn.sparkfun.
 | SI4844 pin |  Arduino pin |  Description                                       |
 | ---------  | ------------ | -------------------------------------------------  |
 |    2       |   2          | Arduino interrupt pin                              |
-|   15       |   12/A0      | Arduino A0 (Digital pin 14) for SI4844 RESET       |
+|   15       |   12         | Arduino A0 (Digital pin 14) for SI4844 RESET       |
 |   16       |  A4 (SDA)    | I2C bus (Data)                                     |
 |   17       |  A5 (SCL)    | I2C bus (Clock)                                    | 
 
