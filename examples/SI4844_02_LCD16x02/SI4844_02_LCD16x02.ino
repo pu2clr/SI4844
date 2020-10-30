@@ -73,6 +73,7 @@ SI4844 si4844;
 
 void setup()
 {
+  
   pinMode(BAND_UP, INPUT_PULLUP);
   pinMode(BAND_DOWN, INPUT_PULLUP);
   pinMode(VOL_UP, INPUT_PULLUP);
@@ -121,17 +122,18 @@ void displayDial()
   char tmp[15];
   char bufferDisplay[15];
   char * unit;
-  uint16_t currentFrequency = si4844.getStatusBandMode();
-  
+  byte bandMode = si4844.getStatusBandMode();
+  uint32_t currentFrequency = (bandMode == 0)? (uint32_t) si4844.getFrequency()/10 : (uint32_t) si4844.getFrequency();
+
   sprintf(tmp, "%5.5u", currentFrequency);
   bufferDisplay[0] = (tmp[0] == '0') ? ' ' : tmp[0];
   bufferDisplay[1] = tmp[1];
-  if (si4844.getStatusBandMode())
+  if (bandMode == 0)
   {
     bufferDisplay[2] = tmp[2];
     bufferDisplay[3] = '.';
     bufferDisplay[4] = tmp[3];
-    unit = (char *) "MHz";
+    unit = (char *) " MHz";
     display.setCursor(10, 0);
     display.print((si4844.getStatusStationIndicator()) ? "STEREO" : "  MONO");    
   }
@@ -148,7 +150,7 @@ void displayDial()
       bufferDisplay[4] = tmp[4];
     }
     
-    unit = (char *) "KHz";
+    unit = (char *) " KHz";
   }
   bufferDisplay[5] = '\0';
   strcat(bufferDisplay, unit);
