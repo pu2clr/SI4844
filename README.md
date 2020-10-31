@@ -294,7 +294,7 @@ It was a bit hard to solder the Si4844 on adapter. However, by using a electroni
 
 ![SI4844 soldered on adapter 06](./extras/images/SI4844_F02.png)
 
-![SI4844 soldered on adapter 06](./extras/images/SI4844__LCD16x02.png)
+![SI4844 and LCD16x02 devices](./extras/images/SI4844__LCD16x02.png)
 
 
 
