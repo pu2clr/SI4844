@@ -11,6 +11,28 @@ Contact: pu2clr@gmail.com
 By Ricardo Lima Caratti, Oct 2019. 
 
 
+
+## Contents
+
+1. [License Copyright](https://pu2clr.github.io/SI4844/#mit-licence)
+2. [Your support is important](https://pu2clr.github.io/SI4844/#your-support-is-important)
+3. [About the SI4844 Architecture](https://pu2clr.github.io/SI4844/#about-the-si4844-architecture)
+4. [Terminology](https://pu2clr.github.io/SI4844/#terminology)
+5. [Labrary Features](https://pu2clr.github.io/SI4844/#library-features)
+6. [Library Installation](https://pu2clr.github.io/SI4844/#library-installation)
+7. [Hardware Requirements and Setup](https://pu2clr.github.io/SI4844/#hardware-requirements-and-setup)
+   * [Schematic](https://pu2clr.github.io/SI4844/#schematic)
+   * [Component Parts](https://pu2clr.github.io/SI4844/#parts)
+   * [Photos](https://pu2clr.github.io/SI4844/#photos)
+8. [API Documentation](https://pu2clr.github.io/SI4844/extras/apidoc/html/)
+9. [API Documentation Legacy](https://pu2clr.github.io/SI4844/#api-documentation)
+10. [References](https://pu2clr.github.io/SI4844/#references)
+11. [Source code - Arduino Examples](https://pu2clr.github.io/SI4844/#examples)
+12. [Videos](https://pu2clr.github.io/SI4844/#videos) 
+
+
+
+
 {% include libhistory.html %}
 
 
@@ -37,25 +59,6 @@ Cordova provides an easy way to develop for iOS and Android.
 ## Important
 
 __The SI4844 is a 3.3V part. If you are not using a 3.3V version of Arduino, you have to use a kind of 5V to 3.3V converter.__ See [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup).
-
-
-## Contents
-
-1. [License Copyright](https://pu2clr.github.io/SI4844/#mit-licence)
-2. [Your support is important](https://pu2clr.github.io/SI4844/#your-support-is-important)
-3. [About the SI4844 Architecture](https://pu2clr.github.io/SI4844/#about-the-si4844-architecture)
-4. [Terminology](https://pu2clr.github.io/SI4844/#terminology)
-5. [Labrary Features](https://pu2clr.github.io/SI4844/#library-features)
-6. [Library Installation](https://pu2clr.github.io/SI4844/#library-installation)
-7. [Hardware Requirements and Setup](https://pu2clr.github.io/SI4844/#hardware-requirements-and-setup)
-   * [Schematic](https://pu2clr.github.io/SI4844/#schematic)
-   * [Component Parts](https://pu2clr.github.io/SI4844/#parts)
-   * [Photos](https://pu2clr.github.io/SI4844/#photos)
-8. [API Documentation](https://pu2clr.github.io/SI4844/extras/apidoc/html/)
-9. [API Documentation Legacy](https://pu2clr.github.io/SI4844/#api-documentation)
-10. [References](https://pu2clr.github.io/SI4844/#references)
-11. [Examples](https://pu2clr.github.io/SI4844/#examples)
-12. [Videos](https://pu2clr.github.io/SI4844/#videos) 
 
 
 ## MIT License 
