@@ -19,8 +19,8 @@
  *  |      RS    |     D3       | Arduino Digital Pin 3 for LCD RESET controle       | 
  *  |      E/ENA |     D13      | Arduino Digital Pin 13                             |
  *  |RW & VSS & K|     GND      |                                                    |
- *  | A & VDD    |    +Vcc      | Better if you use a 3.3V version of LCD16x2                                                   |
- *  |      VO    |              | (see 5K tripot connection)                        |
+ *  | A & VDD    |    +Vcc      |                                                    |
+ *  |      VO    |              | (see 5K tripot connection)                         |
  *  | -----------| -------------| ---------------------------------------------------|
  *  |Push Buttons|                                                                   |                                                                     |
  *  | -----------| -------------| ---------------------------------------------------| 

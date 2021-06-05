@@ -220,7 +220,9 @@ See also: [Bi-Directional Logic Level Converter Hookup Guide ](https://learn.spa
 
 #### Arduino Nano, LCD16x02, Push Buttons and SI4844 pin connections
  
- 
+You will find two versions of LCD16x2 on the market. The most common 5V version and the 3.3V version. The most direct way to use the SI4844 is to select the components that operate with the same working voltage. Otherwise, you must use some type of voltage conversion strategy. 
+
+
 | SI4844 pin |  Arduino pin |  Description                                       |
 | ---------  | ------------ | -------------------------------------------------  |
 |    2       |   2          | Arduino interrupt pin                              |
