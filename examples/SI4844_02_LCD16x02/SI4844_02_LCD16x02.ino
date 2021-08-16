@@ -2,6 +2,8 @@
  *  LCD16x02 example
  *
  *  Arduino Nano and SI4844 pin connections
+ *  You can find LCD20x2 3.3V version on AliExpress, eBay etc. 
+ *  If you are using an LCD 5V version, you will need a bidirectional voltage converter. 
  *
  *  | SI4844 pin |  Arduino pin |  Description                                       |
  *  | ---------  | ------------ | -------------------------------------------------  |
