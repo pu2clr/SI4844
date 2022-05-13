@@ -8,6 +8,7 @@
  * @details You can see a complete documentation on <https://github.com/pu2clr/SI4844>
  *   
  * @see https://pu2clr.github.io/SI4844/
+ * @see github.com 
  *  
  * @author PU2CLR - Ricardo Lima Caratti 
  * @date  2019-2020
