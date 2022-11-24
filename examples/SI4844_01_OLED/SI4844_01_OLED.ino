@@ -129,7 +129,7 @@ void setBand(byte cmd)
   else
     idxBand = (idxBand > 0) ? (idxBand - 1) : maxBand;
 
-  if (bandPlan[idxBand] == 40)
+  if (bandPlan[idxBand] == 40) // See bandPlan array declared at the begin of this sketch
   {
     // Configure the Pre-defined Band (band index 40) to work between 27.0 to 27.5 MHz
     // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
@@ -163,9 +163,9 @@ void loop()
   if ( (millis() - elapsedButton) > MIN_ELAPSED_TIME ) {
     // check if some button is pressed
     if (digitalRead(BAND_UP) == LOW )
-      setBand('+');
+      setBand('+'); // goes to the next band. 
     else if (digitalRead(BAND_DOWN) == LOW )
-      setBand('-');
+      setBand('-'); // goes to the previous band. 
     else if (digitalRead(VOL_UP) == LOW )
       setVolume('+');
     else if (digitalRead(VOL_DOWN) == LOW )
