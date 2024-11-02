@@ -26,25 +26,7 @@ void setup() {
   delay(1000);
 
   Serial.print("\nBegin...\n");
-  /* 
-  si4844.setResetPin(RESET_PIN);
-  si4844.setInterruptPin(INTERRUPT_PIN);
-  si4844.reset();
-
-  if (!si4844.detectDevice()) {
-    Serial.print("\nSI4844 not detected at address 0x11!");
-    uint8_t device[5];
-    uint8_t ndev =  si4844.scanI2CBus(device, 5); 
-    char str[80];
-    for (int i = 0; i < ndev; i++ ) {
-       sprintf(str,"\nA device found at %x", device[i] );
-       Serial.print(str); 
-    }
-    Serial.flush();
-    while(1);
-  }
-  */
-  
+ 
   instructions();
 
   delay(500);
