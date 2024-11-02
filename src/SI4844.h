@@ -59,11 +59,11 @@
 typedef union {
   struct
   {
-    uint8_t D0 : 1; 
-    uint8_t D1 : 1; 
-    uint8_t D2 : 1; 
-    uint8_t D3 : 1; 
-    uint8_t D4 : 1; 
+    uint8_t D_0 : 1; 
+    uint8_t D_1 : 1; 
+    uint8_t D_2 : 1; 
+    uint8_t D_3 : 1; 
+    uint8_t D_4 : 1; 
     uint8_t ERR : 1;    //!< 1 = Error.
     uint8_t CTS : 1;    //!< 0 = Wait before sending next command; 1 = Clear to send next command.
   } refined;

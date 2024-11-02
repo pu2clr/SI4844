@@ -153,6 +153,7 @@ void SI4844::setup(uint16_t resetPin, int interruptPin, byte defaultBand)
     this->resetPin = resetPin;
     this->interruptPin = interruptPin;
 
+
     // Arduino interrupt setup.
     // if interruptPin parameter is < 0, it means the interrupt is being controlled by the user of this library
     if (interruptPin != -1 ) {
@@ -235,11 +236,11 @@ void SI4844::reset()
     setClockLow(); // See *Note on page 5
     data_from_device = false;
     digitalWrite(resetPin, LOW);
-    delayMicroseconds(200);
+    delayMicroseconds(500);
     digitalWrite(resetPin, HIGH);
-    delayMicroseconds(200);
+    delayMicroseconds(500);
     waitInterrupt();
-    delayMicroseconds(2500);
+    delayMicroseconds(5500);
 }
 
 

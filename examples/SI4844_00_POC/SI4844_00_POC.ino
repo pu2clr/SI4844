@@ -26,6 +26,7 @@ void setup() {
   instructions();
   delay(500);
   si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+  Serial.println("Started...");
   si4844.setVolume(40);
 }
 // Shows instruções
