@@ -23,10 +23,26 @@ SI4844 si4844;
 
 void setup() {
   Serial.begin(9600);
+  delay(1000);
+
+  if (!si4844.detectDevice()) {
+    Serial.print("\nSI4844 not detected at address 0x11!");
+    uint8_t device[5];
+    uint8_t ndev =  si4844.scanI2CBus(device, 5); 
+    char str[80];
+    for (int i = 0; i < ndev; i++ ) {
+       sprintf(str,"\nA device found at %x", device[i] );
+       Serial.print(str); 
+    }
+    Serial.flush();
+    while(1);
+  }
+
   instructions();
+
   delay(500);
   si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
-  Serial.println("Started...");
+  showStatus();
   si4844.setVolume(40);
 }
 // Shows instruções

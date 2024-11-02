@@ -775,3 +775,52 @@ void SI4844::setFmDeemphasis(uint8_t value) {
     setProperty(FM_DEEMPHASIS, value);
 }
 
+
+
+
+/** @defgroup TOOLS Device Checking*/
+
+/**
+ * @ingroup TOOLS Detect Device
+ * @brief   Checks communication with SI4844 via I2C
+ * @details Checks if the SI4844 is available on the I2C bus. Remember that the SI4844 responds to the address 0x11
+ * @return  true or false
+ */
+bool SI4844::detectDevice() {
+
+  Wire.begin();
+  // check 0x11 I2C address
+  Wire.beginTransmission(SI4844_ADDRESS);
+  return !Wire.endTransmission();
+}
+
+
+/**
+ * @ingroup TOOLS Scan I2C Devices
+ * @brief  Scans the I2C bus and returns the addresses of the devices found.
+ * @details Searches for devices connected to the I2C bus. The addresses of the devices found are stored in the "device" array.
+ * @param device array of device addresses found.
+ * @return uint8_t number of devices found or 0 if no device found or error.
+ */
+uint8_t SI4844::scanI2CBus(uint8_t *device, uint8_t limit) {
+
+  uint8_t error, address;
+  uint8_t idxDevice = 0;
+
+  Wire.begin();
+
+  for (address = 1; address < 127; address++) {
+    Wire.beginTransmission(address);
+    error = Wire.endTransmission();
+
+    if (error == 0) {
+      device[idxDevice] = address;
+      idxDevice++;
+      if ( idxDevice > limit ) break;
+    } else if (error == 4) {
+      return 0;
+    }
+  }
+  return idxDevice;
+}
+

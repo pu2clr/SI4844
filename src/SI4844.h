@@ -335,6 +335,10 @@ public :
   inline uint16_t  getFirmwareComponentMajorRevision() { return firmware_response.refined.CMPMAJOR; };
   inline uint16_t  getFirmwareComponentMinorRevision() { return firmware_response.refined.CMPMINOR; };
   inline uint16_t  getFirmwareChipRevision() { return firmware_response.refined.CHIPREV; };
+
+  uint8_t scanI2CBus(uint8_t *device, uint8_t limit);
+  bool detectDevice();
+
 };
 
 
