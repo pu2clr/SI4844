@@ -25,6 +25,12 @@ void setup() {
   Serial.begin(9600);
   delay(1000);
 
+  Serial.print("\nBegin...\n");
+  /* 
+  si4844.setResetPin(RESET_PIN);
+  si4844.setInterruptPin(INTERRUPT_PIN);
+  si4844.reset();
+
   if (!si4844.detectDevice()) {
     Serial.print("\nSI4844 not detected at address 0x11!");
     uint8_t device[5];
@@ -37,11 +43,13 @@ void setup() {
     Serial.flush();
     while(1);
   }
-
+  */
+  
   instructions();
 
   delay(500);
   si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+  digitalWrite(RESET_PIN, HIGH);
   showStatus();
   si4844.setVolume(40);
 }

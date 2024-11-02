@@ -163,7 +163,7 @@ void SI4844::setup(uint16_t resetPin, int interruptPin, byte defaultBand)
 
     pinMode(resetPin, OUTPUT);
     digitalWrite(resetPin, HIGH);
-
+    delay(1);    
     data_from_device = false;
 
     reset();
@@ -174,6 +174,17 @@ void SI4844::setup(uint16_t resetPin, int interruptPin, byte defaultBand)
 
     // You need call it just once.
     getFirmware();
+}
+
+void SI4844::setResetPin(uint16_t resetPin) {
+    this->resetPin = resetPin;
+    pinMode(resetPin, OUTPUT);
+    digitalWrite(resetPin, HIGH);
+    delay(1);
+}
+
+void SI4844::setInterruptPin(int interruptPin) {
+    this->interruptPin = interruptPin;
 }
 
 /**

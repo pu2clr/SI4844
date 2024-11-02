@@ -336,6 +336,9 @@ public :
   inline uint16_t  getFirmwareComponentMinorRevision() { return firmware_response.refined.CMPMINOR; };
   inline uint16_t  getFirmwareChipRevision() { return firmware_response.refined.CHIPREV; };
 
+  void setResetPin(uint16_t resetPin);
+  void setInterruptPin(int interruptPin);
+
   uint8_t scanI2CBus(uint8_t *device, uint8_t limit);
   bool detectDevice();
 
