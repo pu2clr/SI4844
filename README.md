@@ -1114,3 +1114,11 @@ The sketch [SI4844_BASS_TREBLE.ino](https://github.com/pu2clr/SI4844/tree/master
 1. [Biblioteca Arduino para o Rádio SI4844 FM AM SW da Silicon Labs](https://youtu.be/ZRDuRV25zmY)
 2. [Prova de Conceito com SI4844 e Arduino (vídeo sobre este projeto)](https://youtu.be/DAQbXZZR7VQ)
 
+
+
+## Projects in which this library is used
+
+* [si4844 机械调谐 数字显示全波段收音机](https://oshwhub.com/xxdz12345/si4844-ji-xie-diao-xie-shuo-zi-xian-shi-quan-bo-duan-shou-yin-ji)
+
+
+
