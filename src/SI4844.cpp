@@ -302,8 +302,11 @@ void SI4844::setBand(byte new_band)
     // Assigning 1 to bit 7. It means we are using external crystal
     // Silicon Labs; Si48XX ATDD PROGRAMMING GUIDE; AN610; page 7
     // Just another way to deal with bytes and bits using C/C++.
-    new_band |= 0b10000000;
-    new_band &= 0b10111111;
+
+    si4844_arg_band_index rxBandSetup; 
+    rxBandSetup.refined.XOSCEN = 1;
+    rxBandSetup.refined.XOWAIT = 0;
+    rxBandSetup.refined.BANDIDX = currentBand;
 
     data_from_device = false;
 
@@ -312,7 +315,7 @@ void SI4844::setBand(byte new_band)
 
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_POWER_UP);
-    Wire.write(new_band);
+    Wire.write(rxBandSetup.raw);
     Wire.endTransmission();
     delayMicroseconds(2500);
     waitInterrupt();

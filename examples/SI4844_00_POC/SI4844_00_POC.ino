@@ -46,7 +46,7 @@ void instructions() {
   Serial.println("Type o to Power Down");
   Serial.println("Type I to Firmware Information  ");
   Serial.println("---------------------------------------------------");
-  delay(2000);
+  delay(500);
 }
 // Shows firmware information
 void show_firmware_information() {
