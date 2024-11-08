@@ -51,6 +51,16 @@
  * or defined data type in C/C++. 
  */
 
+typedef union {
+  struct {
+    uint8_t BANDIDX:5; // Band Index to Set. See Table 8. Pre-defined Band Table
+    uint8_t XOWAIT: 1; // Crystal Oscillator Stabilization Wait Time After Reset. 0 = 600 ms; 1 = 900 ms
+    uint8_t XOSCEN: 1; // Crystal Oscillator Enable. 0 = Use external RCLK; 1 = Use crystal oscillator (XTALI and XTALO with external 32.768 kHz crystal).
+  } refined;
+  uint8_t raw;
+} si4844_arg_band_index;
+
+
 /** 
  * @ingroup GA1
  * @brief Status 
