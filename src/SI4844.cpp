@@ -171,6 +171,7 @@ void SI4844::setup(uint16_t resetPin, int interruptPin, byte defaultBand)
     // FM is the default BAND
     // See pages 17 and 18 (Table 8. Pre-defined Band Table) for more details
     setBand(defaultBand);
+    setVolume(30);
 
     // You need call it just once.
     getFirmware();
@@ -272,6 +273,10 @@ void SI4844::powerDown(void)
     delayMicroseconds(2500);
 }
 
+void SI4844::setDefaultBandIndx( uint8_t bandidx) {
+    this->currentBand = bandidx;
+}
+
 /**
  * @ingroup GB
  * @brief Power the device up
@@ -280,8 +285,7 @@ void SI4844::powerDown(void)
  */
 void SI4844::powerUp(void)
 {
-
-    setBand(currentBand);
+    setBand(this->currentBand);
 }
 
 /**
@@ -297,7 +301,7 @@ void SI4844::setBand(byte new_band)
 {
     reset();
 
-    currentBand = new_band;
+    this->currentBand = new_band;
 
     // Assigning 1 to bit 7. It means we are using external crystal
     // Silicon Labs; Si48XX ATDD PROGRAMMING GUIDE; AN610; page 7
@@ -323,6 +327,8 @@ void SI4844::setBand(byte new_band)
     delayMicroseconds(2500);
     getStatus();
     delayMicroseconds(2500);
+
+    this->setVolume(this->volume);
 }
 
 
@@ -705,7 +711,7 @@ void SI4844::resetStatus()
  * @param  top Band Top Frequency Limit
  * @param  bandSpace Channel Spacing (use 5 or 10 - On FM 10 = 100KHz)
  */
-void SI4844::setCustomBand(byte bandIndex, uint16_t  botton, uint16_t  top, byte bandSpace)
+void SI4844::setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, uint8_t bandSpace)
 {
     SI4844_arg_band customband;
 
@@ -741,8 +747,73 @@ void SI4844::setCustomBand(byte bandIndex, uint16_t  botton, uint16_t  top, byte
     delayMicroseconds(2500);
     getStatus();
     delayMicroseconds(2500);
+    
+    this->setVolume(this->volume);
+}
+
+/** 
+ * @ingroup GB
+ * @brief This method allows you to customize the frequency range of a band.
+ * @details The SI4844 can work from 2.3–28.5 MHz on SW, 64.0–109.0MHz on FM
+ * @details You can configure the band index 40, for example, to work between 27 to 28 MHz.
+ * 
+ * @see Si48XX ATDD PROGRAMMING GUIDE, pages 17, 18, 19 and 20.
+ * 
+ * (top – button)/(bandSpace) must be betwenn 50 and 230
+ * 
+ * @param  bandIndes Predefined band index (valid values: betwenn 0 and 40)
+ * @param  button Band Bottom Frequency Limit
+ * @param  top Band Top Frequency Limit
+ * @param  bandSpace Channel Spacing (use 5 or 10 - On FM 10 = 100KHz)
+ * @param  dfband Default Band Settings; 0 = Allow host controller to override the band property settings; 1 = Force to use tuner default band property settings (Applicable to Si4827 part only)
+ * @param  uni_am Universal AM Band. 0 = Disable universal AM band (default AFC range of 1.1 kHz); 1 = Enable universal AM band (wider AFC range in tuning); Applicable to Si4827 and Si4844B parts and AMRX mode only
+ * @param  tvreq TV Audio Channel Frequency Display; 0 = Disable TV audio channel frequency display format; 1 = Enable TV audio channel frequency display format; Applicable to Si4827 and Si4844B parts and FMRX mode only
+ */
+void SI4844::setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, uint8_t bandSpace, uint8_t dfband, uint8_t uni_am, uint8_t tvreq )
+{
+    SI4844_arg_band customband;
+
+    // The first thing that we have to do is switch to desired band
+    setBand(bandIndex);
+
+    // Now we can customize the band.
+    data_from_device = false;
+    customband.refined.BANDIDX = bandIndex;
+    customband.refined.XOWAIT = 0;
+    customband.refined.XOSCEN = 1;
+    customband.refined.BANDBOT = botton;
+    customband.refined.BANDTOP = top;
+    customband.refined.CHSPC = bandSpace;
+    customband.refined.DFBAND = dfband; 
+    customband.refined.UNI_AM = uni_am;
+    customband.refined.TVFREQ = tvreq;
+    customband.refined.DUMMY = 0;
+
+    // Wait until rady to send a command
+    waitToSend();
+
+    Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(ATDD_POWER_UP);
+    Wire.write(customband.raw[0]);
+    Wire.write(customband.raw[2]);
+    Wire.write(customband.raw[1]);
+    Wire.write(customband.raw[4]);
+    Wire.write(customband.raw[3]);
+    Wire.write(customband.raw[5]);
+    Wire.write(customband.raw[6]);
+
+    Wire.endTransmission();
+    delayMicroseconds(2500);
+    waitInterrupt();
+
+    delayMicroseconds(2500);
+    getStatus();
+    delayMicroseconds(2500);
+    this->setVolume(this->volume);
 
 }
+
+
 
 /**
  * @ingroup GB

@@ -256,7 +256,8 @@ private:
   si4844_firmware_response firmware_response;
   uint16_t resetPin;
   uint16_t interruptPin;
-  uint8_t currentBand; 
+  uint8_t currentBand = 0; 
+
 
   inline void setClockLow(void) { Wire.setClock(10000); };
   inline void setClockHigh(void) { Wire.setClock(50000); };
@@ -268,7 +269,7 @@ private:
   const char *bandmode_table[3] = {"FM", "AM", "SW"};
   const char *stereo_indicator_table[2] = {"Off","On "};
 
-  uint8_t volume = 48;
+  uint8_t volume = 30;
   uint8_t bassTreble = 4;   
 
 public :
@@ -321,8 +322,11 @@ public :
   si4844_status_response *getStatus(void);
   si4844_firmware_response *getFirmware(void);
   // customize the frequency range of a band
-  void setCustomBand(byte, uint16_t , uint16_t , byte);
+  void setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, uint8_t bandSpace);
+  void setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, uint8_t bandSpace, uint8_t dfband, uint8_t uni_am, uint8_t tvreq );
  
+  void setDefaultBandIndx( uint8_t bandidx);
+
   void powerDown(void);
   void powerUp(void);
 

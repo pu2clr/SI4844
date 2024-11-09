@@ -17,29 +17,32 @@
 // Arduino Pin (tested on pro mini)
 #define INTERRUPT_PIN 2
 #define RESET_PIN 12
-#define DEFAULT_BAND 0
+#define DEFAULT_BAND 1
 
 SI4844 si4844; 
 
 void setup() {
   Serial.begin(9600);
-  delay(1000);
+  delay(700);
 
   Serial.print("\nBegin...\n");
  
   instructions();
 
-  delay(500);
   si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
   digitalWrite(RESET_PIN, HIGH);
   showStatus();
-  si4844.setVolume(40);
+  delay(200);
+  si4844.setBand(1); // FM band
+  si4844.setVolume(48);
+  showStatus();
 }
 // Shows instruções
 void instructions() {
   Serial.println("---------------------------------------------------");
   Serial.println("Type F - FM; A - AM; 1 to 7 - SW1 to SW7");
-  Serial.println("Type + or - to sound volume");
+  Serial.println("Type f - Custom FM - from 77 to 109 MHz - Step 200kHz");
+  Serial.println("Type + or - to sound volume");  
   Serial.println("Type B to Bass; T to Treeble and N to Normal");  
   Serial.println("Type c - custom band 5.7 to 6.2 MHz");
   Serial.println("Type C - CB (custom Band 27.0 to 27.5 MHz)");
@@ -94,9 +97,12 @@ void loop() {
     char key = Serial.read();
     switch (key)
     {
-    case 'f':
     case 'F':
-      si4844.setBand(0); // FM band
+      si4844.setBand(1); // FM band
+      break;
+    case 'f': 
+      Serial.println("Custom FM Band:  from to 77 to 109 MHz - Step 200 kHz");
+      si4844.setCustomBand(3,7700,10900,20);  
       break;
     case 'a':
     case 'A':
