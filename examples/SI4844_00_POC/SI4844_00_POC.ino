@@ -42,6 +42,7 @@ void instructions() {
   Serial.println("---------------------------------------------------");
   Serial.println("Type F - FM; A - AM; 1 to 7 - SW1 to SW7");
   Serial.println("Type f - Custom FM - from 77 to 109 MHz - Step 200kHz");
+  Serial.println("Type h - Custom FM - from 101 to 104 MHz - Step 200kHz");
   Serial.println("Type + or - to sound volume");  
   Serial.println("Type B to Bass; T to Treeble and N to Normal");  
   Serial.println("Type c - custom band 5.7 to 6.2 MHz");
@@ -102,8 +103,12 @@ void loop() {
       break;
     case 'f': 
       Serial.println("Custom FM Band:  from to 77 to 109 MHz - Step 200 kHz");
-      si4844.setCustomBand(3,7700,10900,20);  
+      si4844.setCustomBand(3,7700,10900,20);    
       break;
+    case 'h': 
+      Serial.println("Custom FM Band:  from to 101 to 104 MHz - Step 200 kHz");
+      si4844.setCustomBand(3,10100,10400,20);  
+      break;    
     case 'a':
     case 'A':
       si4844.setBand(20); // AM band
