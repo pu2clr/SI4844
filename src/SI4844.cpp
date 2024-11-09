@@ -707,31 +707,19 @@ void SI4844::resetStatus()
  */
 void SI4844::setCustomBand(byte bandIndex, uint16_t  botton, uint16_t  top, byte bandSpace)
 {
-
-    union {
-        struct
-        {
-            byte bandindex : 6;
-            byte xowait : 1;
-            byte xoscen : 1;
-            uint16_t  botton;
-            uint16_t  top;
-            byte bandspace;
-        } refined;
-        byte raw[6];
-    } customband;
+    SI4844_arg_band customband;
 
     // The first thing that we have to do is switch to desired band
     setBand(bandIndex);
 
     // Now we can customize the band.
     data_from_device = false;
-    customband.refined.bandindex = bandIndex;
-    customband.refined.xowait = 0;
-    customband.refined.xoscen = 1;
-    customband.refined.botton = botton;
-    customband.refined.top = top;
-    customband.refined.bandspace = bandSpace;
+    customband.refined.BANDIDX = bandIndex;
+    customband.refined.XOWAIT = 0;
+    customband.refined.XOSCEN = 1;
+    customband.refined.BANDBOT = botton;
+    customband.refined.BANDTOP = top;
+    customband.refined.CHSPC = bandSpace;
 
     // Wait until rady to send a command
     waitToSend();
@@ -753,6 +741,7 @@ void SI4844::setCustomBand(byte bandIndex, uint16_t  botton, uint16_t  top, byte
     delayMicroseconds(2500);
     getStatus();
     delayMicroseconds(2500);
+
 }
 
 /**

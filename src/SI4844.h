@@ -51,6 +51,14 @@
  * or defined data type in C/C++. 
  */
 
+
+/** 
+ * @ingroup GA1
+ * @brief Configures band parameter 
+ * @details Represents searching for a valid frequency data type.
+ * @see  Page 18 of the Si48XX ATDD PROGRAMMING GUIDE - AN610
+ */
+
 typedef union {
   struct {
     uint8_t BANDIDX:6; // Band Index to Set. See Table 8. Pre-defined Band Table
@@ -60,6 +68,28 @@ typedef union {
   uint8_t raw;
 } si4844_arg_band_index;
 
+/** 
+ * @ingroup GA1
+ * @brief Configures all SI48XX parameters 
+ * @details Represents searching for a valid frequency data type.
+ * @see  Page 18 of the Si48XX ATDD PROGRAMMING GUIDE - AN610
+ */
+typedef union {
+    struct
+    {
+       uint8_t  BANDIDX :  6; // Band Index to Set. See Table 8. Pre-defined Band Table
+       uint8_t  XOWAIT  :  1; // Crystal Oscillator Stabilization Wait Time After Reset. 0 = 600 ms; 1 = 900 ms
+       uint8_t  XOSCEN  :  1; // Crystal Oscillator Enable. 0 = Use external RCLK; 1 = Use crystal oscillator (XTALI and XTALO with external 32.768 kHz crystal).
+       uint16_t BANDBOT : 16; // Band Bottom Frequency Limit; FM 6400..10900 (64.0–109.0 MHz); AM 510..1750 (510–1750 kHz); SW 2300..28500 (2.3–28.5 MHz)
+       uint16_t BANDTOP : 16; // Band Top Frequency Limit; FM 6400..10900 (64.0–109.0 MHz); AM 510..1750 (510–1750 kHz); SW 2300..28500 (2.3–28.5 MHz)
+       uint8_t  CHSPC   :  8; // Channel Spacing; FM 10 (e.g.,100 kHz); AM 9 or 10 (e.g., 9 kHz or 10 kHz); SW 5 (e.g., 5 kHz)
+       uint8_t  DUMMY   :  5; // Set it to 00000
+       uint8_t  DFBAND  :  1; // Default Band Settings; 0 = Allow host controller to override the band property settings; 1 = Force to use tuner default band property settings (Applicable to Si4827 part only)
+       uint8_t  UNI_AM  :  1; // Universal AM Band. 0 = Disable universal AM band (default AFC range of 1.1 kHz); 1 = Enable universal AM band (wider AFC range in tuning); Applicable to Si4827 and Si4844B parts and AMRX mode only
+       uint16_t TVFREQ  :  1; // TV Audio Channel Frequency Display; 0 = Disable TV audio channel frequency display format; 1 = Enable TV audio channel frequency display format; Applicable to Si4827 and Si4844B parts and FMRX mode only
+    } refined;
+    uint8_t raw[7];
+} SI4844_arg_band; 
 
 /** 
  * @ingroup GA1
