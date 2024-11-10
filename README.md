@@ -75,6 +75,10 @@ Cordova provides an easy way to develop for iOS and Android.
 __The SI4844 is a 3.3V part. If you are not using a 3.3V version of Arduino, you have to use a kind of 5V to 3.3V converter.__ See [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup).
 
 
+A good alternative to the Arduino Uno or Arduino Nano for a project using the SI48XX device is a board based on the LGT8F328 microcontroller. This device offers excellent compatibility with the Arduino Nano and Uno, including pin configuration, with the added advantage of operating at 3.3V, eliminating the need for a bidirectional converter, and being more affordable. Other viable alternatives include the ESP32, ESP8266, and STM32.
+
+
+
 ## MIT License 
 
 Copyright (c) 2019 Ricardo Lima Caratti
