@@ -13,15 +13,15 @@
   By Ricardo Lima Caratti, Jan 2020.
 */
 
-#include <PinChangeInterrupt.h>
+// #include <PinChangeInterrupt.h>
 
 #include <SI4844.h>
-#include <Tiny4kOLED.h>
+// #include <Tiny4kOLED.h>
 
 
-#define INT_PIN     PCINT3   // Physical pin 2 is used to control interrupt.
+#define INT_PIN     PCINT4   // Physical pin 3 is used to control interrupt.
 
-#define RST_PIN     PB4     // Physical Pin 3 is used to control the RESET of the device. 
+#define RST_PIN     PB3     // Physical Pin 2 is used to control the RESET of the device. 
 #define BAND_SWITC  PB1     // Physical Pin 6 is used to switch the band. 
 
 #define AM 20
@@ -38,41 +38,29 @@ void setup()
   pinMode(BAND_SWITC, INPUT_PULLUP);
   pinMode(RST_PIN, INPUT_PULLUP);
 
-
+  /* 
   oled.begin();
   oled.clear();
   oled.on();
   oled.setFont(FONT8X16);
   oled.setCursor(0, 0);
   oled.print("Si4844-Attiny85");
-  /*
-  oled.setCursor(0, 2);
-  oled.print("   By PU2CLR   ");
-  delay(2000);
-  oled.clear();
-  */
-
-  // interrupt_hundler is an static void function implemented into the SI4844 library to deal with device control interrupt.
-  attachPCINT(digitalPinToPCINT(INT_PIN), interrupt_hundler, CHANGE);
-
-  // -1 means this sketch will handle the interrupt instead the library. 
-  radio.setup(RST_PIN, -1, currentBand);
+  */ 
+  radio.setup(RST_PIN, INT_PIN, currentBand);
+  digitalWrite(RESET_PIN, HIGH);
   
-  // Comment the line above and uncomment the line bellow to debug. See the function debugDevice dicumentation
-  // radio.debugDevice(RST_PIN, INT_PIN, 0, showMsg);
-
-  
-  radio.setVolume(30);
-
+  radio.setVolume(48);
 
   showStatus();
 }
 
 
 void showMsg( char * msg ) {
+  /*
   oled.clear();
   oled.setCursor(0, 0);
   oled.print(msg);
+  */
 }
 
 
@@ -81,6 +69,7 @@ void showMsg( char * msg ) {
 */
 
 void showStatus() {
+  /*
   // Clear just the frequency information space.
   // oled.setCursor(0, 0);
   currentFrequency = radio.getFrequency();
@@ -103,6 +92,7 @@ void showStatus() {
     oled.setCursor(95, 0);
     oled.print("KHz");
   }
+  */
 }
 
 
