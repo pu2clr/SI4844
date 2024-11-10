@@ -1,10 +1,10 @@
 var group___g_a1_structsi4844__status_8refined =
 [
-    [ "D0", "group___g_a1.html#a0e3e06c992d1ead056a6861bb46b28a8", null ],
-    [ "D1", "group___g_a1.html#a4a4079e06eb2f7ba7a12821c7c58a3f6", null ],
-    [ "D2", "group___g_a1.html#ac4d62b6dcca08e5caf06c01889282859", null ],
-    [ "D3", "group___g_a1.html#aa3deb6e481689f1d3303caecb8a6c401", null ],
-    [ "D4", "group___g_a1.html#a2521dc256a4368da87585c936b451dd7", null ],
+    [ "D_0", "group___g_a1.html#ab6e0fb7ce3da205f28974dc3b323c989", null ],
+    [ "D_1", "group___g_a1.html#a323b515dec6e9a6563cad1790f7590bc", null ],
+    [ "D_2", "group___g_a1.html#aa701eb15aaebdd365911d0df1da9c8f7", null ],
+    [ "D_3", "group___g_a1.html#a75d3898b277ccd4965cf703c42b2b8b5", null ],
+    [ "D_4", "group___g_a1.html#a0aa283b20ca498410b8cd10e5fbcd42a", null ],
     [ "ERR", "group___g_a1.html#acd22bad976363fdd1bfbf6759fede482", null ],
     [ "CTS", "group___g_a1.html#ae16433ffd3adc248f0ce2608a95c3c76", null ]
 ];

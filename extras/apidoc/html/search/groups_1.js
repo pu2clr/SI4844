@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['union_20and_20structures_231',['Union and Structures',['../group___g_a1.html',1,'']]]
+  ['member_20functions_0',['Member Functions',['../group___g_b.html',1,'']]]
 ];

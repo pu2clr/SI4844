@@ -1,17 +1,16 @@
 var group___g_a1 =
 [
-    [ "si4844_status", "group___g_a1.html#unionsi4844__status", [
-      [ "refined", "group___g_a1.html#aa11edfc05598063032a94c4f0275f7bc", null ],
-      [ "raw", "group___g_a1.html#a362f396c4c762ad401e2e5ec79cb4eac", null ]
+    [ "si4844_arg_band_index", "group___g_a1.html#unionsi4844__arg__band__index", [
+      [ "refined", "group___g_a1.html#afddebb759f8b85d8bcb1256bb0c9d0d8", null ],
+      [ "raw", "group___g_a1.html#aa4c85a300124473875cb5126534ea3c8", null ]
     ] ],
-    [ "si4844_status.refined", "group___g_a1.html#structsi4844__status_8refined", [
-      [ "D0", "group___g_a1.html#a0e3e06c992d1ead056a6861bb46b28a8", null ],
-      [ "D1", "group___g_a1.html#a4a4079e06eb2f7ba7a12821c7c58a3f6", null ],
-      [ "D2", "group___g_a1.html#ac4d62b6dcca08e5caf06c01889282859", null ],
-      [ "D3", "group___g_a1.html#aa3deb6e481689f1d3303caecb8a6c401", null ],
-      [ "D4", "group___g_a1.html#a2521dc256a4368da87585c936b451dd7", null ],
-      [ "ERR", "group___g_a1.html#acd22bad976363fdd1bfbf6759fede482", null ],
-      [ "CTS", "group___g_a1.html#ae16433ffd3adc248f0ce2608a95c3c76", null ]
+    [ "SI4844_arg_band", "group___g_a1.html#union_s_i4844__arg__band", [
+      [ "refined", "group___g_a1.html#a9e61423a58fbe0bfe35ad9e3d99ffbd3", null ],
+      [ "raw", "group___g_a1.html#a782f41e6dd13d1c3db29d10133aaf29a", null ]
+    ] ],
+    [ "si4844_status", "group___g_a1.html#unionsi4844__status", [
+      [ "refined", "group___g_a1.html#a3cc6eb5264cdf06a2d0d6b111ab787ed", null ],
+      [ "raw", "group___g_a1.html#a362f396c4c762ad401e2e5ec79cb4eac", null ]
     ] ],
     [ "si4844_get_status", "group___g_a1.html#structsi4844__get__status", [
       [ "BCFG0", "group___g_a1.html#aff584d438d22709c99c17537cd4d19c2", null ],
@@ -45,19 +44,36 @@ var group___g_a1 =
       [ "CHIPREV", "group___g_a1.html#a38dcd6fd63f9a040ba68c5266b676105", null ]
     ] ],
     [ "si4844_audiomode", "group___g_a1.html#unionsi4844__audiomode", [
-      [ "arg1", "group___g_a1.html#a65f069eb4d4d47b3a096af3dbf6c4202", null ],
+      [ "arg1", "group___g_a1.html#a1ce59e52d0365d00eb1affd0a9646acb", null ],
       [ "raw", "group___g_a1.html#a1b3bf3ecc88e2d010fafd4d70076ae42", null ]
     ] ],
     [ "si4844_audiomode_status_response", "group___g_a1.html#unionsi4844__audiomode__status__response", [
-      [ "status", "group___g_a1.html#a8776d87c488659994fdb4983290f437b", null ],
+      [ "status", "group___g_a1.html#a2b097007d9cf184f88af6a8c68b58f73", null ],
       [ "raw", "group___g_a1.html#a920ce348cf43defb095ad6c9d1d7b25a", null ]
     ] ],
-    [ "si4844_audiomode_status_response.status", "group___g_a1.html#structsi4844__audiomode__status__response_8status", [
-      [ "AUDIOMODE", "group___g_a1.html#afaf623e55cfa92657ab1a9f6bc4c206e", null ],
-      [ "FM_MONO", "group___g_a1.html#a05bb6702f87c323d31dad58d632dff6c", null ],
-      [ "ADJPT_ATTN", "group___g_a1.html#ad1ebb7e9f4dcea346301d305f4833489", null ],
-      [ "ADJPT_STEO", "group___g_a1.html#a1aa3dfe92d675084fa850b44aabccc8c", null ],
-      [ "Reserved", "group___g_a1.html#a942d4e37dd5607ab68e54755540d4a47", null ],
+    [ "si4844_arg_band_index.refined", "group___g_a1.html#structsi4844__arg__band__index_8refined", [
+      [ "BANDIDX", "group___g_a1.html#a37a187c87903d5145480e7a5b770ec2a", null ],
+      [ "XOWAIT", "group___g_a1.html#a1d9e9b65840f28e0a63adde9d66e2db4", null ],
+      [ "XOSCEN", "group___g_a1.html#a22c9aef8785be330d7e1faf88bcfd4b1", null ]
+    ] ],
+    [ "SI4844_arg_band.refined", "group___g_a1.html#struct_s_i4844__arg__band_8refined", [
+      [ "BANDIDX", "group___g_a1.html#a37a187c87903d5145480e7a5b770ec2a", null ],
+      [ "XOWAIT", "group___g_a1.html#a1d9e9b65840f28e0a63adde9d66e2db4", null ],
+      [ "XOSCEN", "group___g_a1.html#a22c9aef8785be330d7e1faf88bcfd4b1", null ],
+      [ "BANDBOT", "group___g_a1.html#a824479b2c1aef945d8eeac6508958321", null ],
+      [ "BANDTOP", "group___g_a1.html#a9b132d823d67e278b9a2a8fb114f5b3c", null ],
+      [ "CHSPC", "group___g_a1.html#ad4c94ebdf64727206f5b0653d5503633", null ],
+      [ "DUMMY", "group___g_a1.html#abd2103035a8021942390a78a431ba0c4", null ],
+      [ "DFBAND", "group___g_a1.html#ab9c3545a805803eda44f41e8b0b1d045", null ],
+      [ "UNI_AM", "group___g_a1.html#a53cac38237fc51fd267a7c78d4776c70", null ],
+      [ "TVFREQ", "group___g_a1.html#a17572b93158c15452c828032839bcfae", null ]
+    ] ],
+    [ "si4844_status.refined", "group___g_a1.html#structsi4844__status_8refined", [
+      [ "D_0", "group___g_a1.html#ab6e0fb7ce3da205f28974dc3b323c989", null ],
+      [ "D_1", "group___g_a1.html#a323b515dec6e9a6563cad1790f7590bc", null ],
+      [ "D_2", "group___g_a1.html#aa701eb15aaebdd365911d0df1da9c8f7", null ],
+      [ "D_3", "group___g_a1.html#a75d3898b277ccd4965cf703c42b2b8b5", null ],
+      [ "D_4", "group___g_a1.html#a0aa283b20ca498410b8cd10e5fbcd42a", null ],
       [ "ERR", "group___g_a1.html#acd22bad976363fdd1bfbf6759fede482", null ],
       [ "CTS", "group___g_a1.html#ae16433ffd3adc248f0ce2608a95c3c76", null ]
     ] ],
@@ -68,5 +84,14 @@ var group___g_a1 =
       [ "ADJPT_STEO", "group___g_a1.html#a1aa3dfe92d675084fa850b44aabccc8c", null ],
       [ "Reserved", "group___g_a1.html#a942d4e37dd5607ab68e54755540d4a47", null ],
       [ "OPCODE", "group___g_a1.html#a11bdee9fdefbd8d33a25257557bddbef", null ]
+    ] ],
+    [ "si4844_audiomode_status_response.status", "group___g_a1.html#structsi4844__audiomode__status__response_8status", [
+      [ "AUDIOMODE", "group___g_a1.html#afaf623e55cfa92657ab1a9f6bc4c206e", null ],
+      [ "FM_MONO", "group___g_a1.html#a05bb6702f87c323d31dad58d632dff6c", null ],
+      [ "ADJPT_ATTN", "group___g_a1.html#ad1ebb7e9f4dcea346301d305f4833489", null ],
+      [ "ADJPT_STEO", "group___g_a1.html#a1aa3dfe92d675084fa850b44aabccc8c", null ],
+      [ "Reserved", "group___g_a1.html#a942d4e37dd5607ab68e54755540d4a47", null ],
+      [ "ERR", "group___g_a1.html#acd22bad976363fdd1bfbf6759fede482", null ],
+      [ "CTS", "group___g_a1.html#ae16433ffd3adc248f0ce2608a95c3c76", null ]
     ] ]
 ];

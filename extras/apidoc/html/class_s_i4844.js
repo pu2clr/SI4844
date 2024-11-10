@@ -25,7 +25,9 @@ var class_s_i4844 =
     [ "setAudioMode", "group___g_b.html#gadb6affba868c9c99f44918e5a48a423d", null ],
     [ "getStatus", "group___g_b.html#ga3437ce047c5649597e1bccfb8c42cd5b", null ],
     [ "getFirmware", "group___g_b.html#ga1d119d683bed417b108ef1ccf3a2d20c", null ],
-    [ "setCustomBand", "group___g_b.html#ga78c8e80457dd2a3c2d4f66c7d5932d51", null ],
+    [ "setCustomBand", "group___g_b.html#ga67206874edff7473d420e013dd66864d", null ],
+    [ "setCustomBand", "group___g_b.html#ga8d8eec9fe06540ebc454e7b6ae5f0f4e", null ],
+    [ "setDefaultBandIndx", "class_s_i4844.html#ac9a028b4b22255afa30f008a3777695d", null ],
     [ "powerDown", "group___g_b.html#gaff14988c6be8a5fb9d1a5e6934dcff47", null ],
     [ "powerUp", "group___g_b.html#gab19b2ce04e07e23275fea5889b87a201", null ],
     [ "getFrequency", "group___g_b.html#ga0404927e7414a32125e32ff508bd450e", null ],
@@ -33,8 +35,8 @@ var class_s_i4844 =
     [ "resetStatus", "group___g_b.html#ga2f14c89d348c5e3214615258b8f9c918", null ],
     [ "getVolume", "group___g_b.html#ga35aa33472f9d23986457ce7850b8175f", null ],
     [ "getVolumeProperty", "group___g_b.html#ga44f5b3d8746dc30922cc92e778e98f16", null ],
-    [ "getBandMode", "group___g_b.html#ga179ed56010a980a09fce35da92576793", null ],
-    [ "getStereoIndicator", "group___g_b.html#ga2429b3d5dffbf52b24792857063ed506", null ],
+    [ "getBandMode", "group___g_b.html#ga97b111334d8e6ac08db8c500945c15a8", null ],
+    [ "getStereoIndicator", "group___g_b.html#ga89c7f1e6d9aad81e7260f5acea9b0f9c", null ],
     [ "getStatusBCFG0", "class_s_i4844.html#a1107f15e0f83e4d4f1746086cfd94deb", null ],
     [ "getStatusBCFG1", "class_s_i4844.html#ac64e61270ae4b824f5ebdd5deb7b9547", null ],
     [ "getStatusStereo", "class_s_i4844.html#a83569342288b86972da112ea14f45095", null ],
@@ -53,5 +55,9 @@ var class_s_i4844 =
     [ "getFirmwareMinorRevision", "class_s_i4844.html#a5ffed2d0e9ea37c2d823322491e82d8b", null ],
     [ "getFirmwareComponentMajorRevision", "class_s_i4844.html#a0522080cd810f935f081526427bdaba4", null ],
     [ "getFirmwareComponentMinorRevision", "class_s_i4844.html#aa17906d6a04472a7a675bc455d6e3cb9", null ],
-    [ "getFirmwareChipRevision", "class_s_i4844.html#a4a1426b64c33c34bbdab5f994fba7b5f", null ]
+    [ "getFirmwareChipRevision", "class_s_i4844.html#a4a1426b64c33c34bbdab5f994fba7b5f", null ],
+    [ "setResetPin", "class_s_i4844.html#ab8dd1a10df601b5d99c29d879a2720e7", null ],
+    [ "setInterruptPin", "class_s_i4844.html#adc433bd70a07984f8df9d6b79b5cd8b5", null ],
+    [ "scanI2CBus", "group___t_o_o_l_s.html#gab400fccf4b3c381c8ee8c060b56eef1b", null ],
+    [ "detectDevice", "group___t_o_o_l_s.html#ga66d670fc742b379c642316daf7df9bca", null ]
 ];

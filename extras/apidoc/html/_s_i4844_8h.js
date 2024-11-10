@@ -5,7 +5,7 @@ var _s_i4844_8h =
       [ "raw", "_s_i4844_8h.html#a8942ea634be3db7275ac9fbb3cc26dd3", null ]
     ] ],
     [ "si4844_property", "_s_i4844_8h.html#unionsi4844__property", [
-      [ "raw", "_s_i4844_8h.html#ab04cb2b509eabe95ce109dc2289f0e28", null ],
+      [ "raw", "_s_i4844_8h.html#a3097d86ad9d932b95330991ee312e93e", null ],
       [ "value", "_s_i4844_8h.html#a2f87d941759c895e3e1d671b56a9e444", null ]
     ] ],
     [ "SI4844", "class_s_i4844.html", "class_s_i4844" ],
