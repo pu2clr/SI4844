@@ -32,7 +32,6 @@ void setup() {
   si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
   showStatus();
   delay(200);
-  si4844.setBand(1); // FM band
   si4844.setVolume(48);
   showStatus();
 }
