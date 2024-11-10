@@ -2,7 +2,7 @@
 
 [Leia este documento em Português](https://github.com/pu2clr/SI4844/blob/master/README-PT-BR.md)
 
-This Arduino library was developed to work with the SI4822, SI4826, SI4827, SI4840, 4844A, and 4844B "BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER" devices.
+This Arduino library was developed to work with the **SI4822, SI4826, SI4827, SI4840, 4844A, and 4844B** "BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER" devices.
 It is available on Arduino IDE. This library is intended to provide an easier interface to control the SI48XX family.
 
 
