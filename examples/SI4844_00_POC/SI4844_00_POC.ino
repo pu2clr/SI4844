@@ -37,36 +37,36 @@ void setup() {
 }
 // Shows instruções
 void instructions() {
-  Serial.println("---------------------------------------------------");
-  Serial.println("Type F - FM; A - AM; 1 to 7 - SW1 to SW7");
-  Serial.println("Type f - Custom FM - from 77 to 109 MHz - Step 200kHz");
-  Serial.println("Type h - Custom FM - from 101 to 104 MHz - Step 200kHz");
-  Serial.println("Type + or - to sound volume");  
-  Serial.println("Type B to Bass; T to Treeble and N to Normal");  
-  Serial.println("Type c - custom band 5.7 to 6.2 MHz");
-  Serial.println("Type C - CB (custom Band 27.0 to 27.5 MHz)");
-  Serial.println("Type o to Power Down");
-  Serial.println("Type I to Firmware Information  ");
-  Serial.println("---------------------------------------------------");
+  Serial.println(F("---------------------------------------------------"));
+  Serial.println(F("Type F - FM; A - AM; 1 to 7 - SW1 to SW7"));
+  Serial.println(F("Type f - Custom FM - from 77 to 109 MHz - Step 200kHz"));
+  Serial.println(F("Type h - Custom FM - from 101 to 104 MHz - Step 200kHz"));
+  Serial.println(F("Type + or - to sound volume"));  
+  Serial.println(F("Type B to Bass; T to Treeble and N to Normal"));  
+  Serial.println(F("Type c - custom band 5.7 to 6.2 MHz"));
+  Serial.println(F("Type C - CB (custom Band 27.0 to 27.5 MHz"));
+  Serial.println(F("Type o to Power Down"));
+  Serial.println(F("Type I to Firmware Information"));
+  Serial.println(F("---------------------------------------------------"));
   delay(500);
 }
 // Shows firmware information
 void show_firmware_information() {
   Serial.println("\nSI4844 -  Firmware information\n");
   si4844.getFirmware();
-  Serial.print("Final 2 digits of Part Number..: ");
+  Serial.print(F("Final 2 digits of Part Number..: "));
   Serial.println(si4844.getFirmwarePartNumber(), HEX);
-  Serial.print("Firmware Major Revision........: ");
+  Serial.print(F("Firmware Major Revision........: "));
   Serial.println(si4844.getFirmwareMajorRevision());
-  Serial.print("Firmware Minor Revision........: ");
+  Serial.print(F("Firmware Minor Revision........: "));
   Serial.println(si4844.getFirmwareMinorRevision());
-  Serial.print("Component Major Revision.......: ");
+  Serial.print(F("Component Major Revision.......: "));
   Serial.println(si4844.getFirmwareComponentMajorRevision());
-  Serial.print("Component Minor Revision.......: "); 
+  Serial.print(F("Component Minor Revision.......: ")); 
   Serial.println(si4844.getFirmwareComponentMinorRevision());
-  Serial.print("Chip Revision..................: ");
+  Serial.print(F("Chip Revision..................: "));
   Serial.println(si4844.getFirmwareChipRevision());
-  Serial.println("*****************************");
+  Serial.println(F("*****************************"));
 }
 
 void showStatus() {
