@@ -47,7 +47,7 @@ void setup()
   oled.print("Si4844-Attiny85");
   */ 
   radio.setup(RST_PIN, INT_PIN, currentBand);
-  digitalWrite(RESET_PIN, HIGH);
+
   
   radio.setVolume(48);
 
