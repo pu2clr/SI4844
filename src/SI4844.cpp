@@ -290,6 +290,35 @@ void SI4844::powerUp(void)
 
 /**
  * @ingroup GB
+ * @brief Sets Crystal Oscillator Enable
+ * @details 0 = Use external RCLK (crystal oscillator disabled).
+ * @details 1 = Use crystal oscillator (XTALI and XTALO with external 32.768 kHz crystal).
+ * @details See the Si484x Data Sheet Application Schematic for external BOM details.
+ * @see See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
+ * 
+ * @param XOSCEN  1 = Enable (XTALI and XTALO with external 32.768 kHz crystal)
+ */
+void SI4844::setCrystalOscillatorEnable(uint8_t XOSCEN ) {
+    this->xoscen = XOSCEN;
+}
+
+/**
+ * @ingroup GB
+ * @brief Sets Crystal Oscillator Stabilization Wait Time After Reset.
+ * @details 0 = 600 ms (for typical crystal)
+ * @details 1 = 900 ms (for crystal requiring extra stabilization time)
+ * @details Note: Applicable to Si4822/26/40/44A parts only. Later Si4827/44B parts don’t care this bit and will wait till crystal oscillation is stable unconditionally.
+ * @see See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
+ * 
+ * @param XOSCEN  1 = Enable (XTALI and XTALO with external 32.768 kHz crystal)
+ */
+void SI4844::setCrystalOscillatorStabilizationWaitTime(uint8_t XOWAIT) {
+    this->xowait = XOWAIT;
+} 
+
+
+/**
+ * @ingroup GB
  * @brief Sets a new band to the device 
  * @details This method is used to select a band 
  * 
@@ -308,9 +337,10 @@ void SI4844::setBand(byte new_band)
     // Just another way to deal with bytes and bits using C/C++.
 
     si4844_arg_band_index rxBandSetup; 
-    rxBandSetup.refined.XOSCEN = 1;
-    rxBandSetup.refined.XOWAIT = 0;
-    rxBandSetup.refined.BANDIDX = currentBand;
+
+    rxBandSetup.refined.XOSCEN = this->xoscen;
+    rxBandSetup.refined.XOWAIT = this->xowait;
+    rxBandSetup.refined.BANDIDX = this->currentBand;
 
     data_from_device = false;
 
@@ -721,8 +751,8 @@ void SI4844::setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, u
     // Now we can customize the band.
     data_from_device = false;
     customband.refined.BANDIDX = bandIndex;
-    customband.refined.XOWAIT = 0;
-    customband.refined.XOSCEN = 1;
+    customband.refined.XOSCEN = this->xoscen;
+    customband.refined.XOWAIT = this->xowait;
     customband.refined.BANDBOT = botton;
     customband.refined.BANDTOP = top;
     customband.refined.CHSPC = bandSpace;
@@ -779,8 +809,8 @@ void SI4844::setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, u
     // Now we can customize the band.
     data_from_device = false;
     customband.refined.BANDIDX = bandIndex;
-    customband.refined.XOWAIT = 0;
-    customband.refined.XOSCEN = 1;
+    customband.refined.XOSCEN = this->xoscen;
+    customband.refined.XOWAIT = this->xowait;
     customband.refined.BANDBOT = botton;
     customband.refined.BANDTOP = top;
     customband.refined.CHSPC = bandSpace;

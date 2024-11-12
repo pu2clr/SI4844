@@ -258,6 +258,9 @@ private:
   uint16_t interruptPin;
   uint8_t currentBand = 0; 
 
+  uint8_t  xoscen = 1;
+  uint8_t  xowait = 0;
+
 
   inline void setClockLow(void) { Wire.setClock(10000); };
   inline void setClockHigh(void) { Wire.setClock(50000); };
@@ -314,6 +317,9 @@ public :
   void setAmSoftMuteMaxAttenuation(uint8_t value);
   void setFmSoftMuteMaxAttenuation(uint8_t value);
   void setFmDeemphasis(uint8_t value);
+
+  void setCrystalOscillatorEnable(uint8_t XOSCEN );
+  void setCrystalOscillatorStabilizationWaitTime(uint8_t XOWAIT);
 
 
   si4844_audiomode_status_response
