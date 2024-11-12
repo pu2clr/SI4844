@@ -14,6 +14,8 @@ var group___g_b =
     [ "SI4844::reset", "group___g_b.html#ga683a81897fe79e6909817aab36622684", null ],
     [ "SI4844::powerDown", "group___g_b.html#gaff14988c6be8a5fb9d1a5e6934dcff47", null ],
     [ "SI4844::powerUp", "group___g_b.html#gab19b2ce04e07e23275fea5889b87a201", null ],
+    [ "SI4844::setCrystalOscillatorEnable", "group___g_b.html#gab97f73b03943a4c0f4dbb3f0741d7263", null ],
+    [ "SI4844::setCrystalOscillatorStabilizationWaitTime", "group___g_b.html#gab4e3126da78b0c95cd889dcd20144382", null ],
     [ "SI4844::setBand", "group___g_b.html#ga3de561a939b708030dae788781adf7e0", null ],
     [ "SI4844::changeVolume", "group___g_b.html#ga184362ec07964aaf36d27304437fac08", null ],
     [ "SI4844::volumeUp", "group___g_b.html#gab48b1d3c4c87d120de56d3195fa071cc", null ],

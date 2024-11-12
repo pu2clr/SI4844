@@ -22,6 +22,8 @@ var class_s_i4844 =
     [ "setAmSoftMuteMaxAttenuation", "group___g_b.html#ga013c13629b964df2f0023dd0cfee5dfc", null ],
     [ "setFmSoftMuteMaxAttenuation", "group___g_b.html#gad5698ef9798d03188738f89dc7940050", null ],
     [ "setFmDeemphasis", "group___g_b.html#ga184028717d17cde7ef9993ab967afef5", null ],
+    [ "setCrystalOscillatorEnable", "group___g_b.html#gab97f73b03943a4c0f4dbb3f0741d7263", null ],
+    [ "setCrystalOscillatorStabilizationWaitTime", "group___g_b.html#gab4e3126da78b0c95cd889dcd20144382", null ],
     [ "setAudioMode", "group___g_b.html#gadb6affba868c9c99f44918e5a48a423d", null ],
     [ "getStatus", "group___g_b.html#ga3437ce047c5649597e1bccfb8c42cd5b", null ],
     [ "getFirmware", "group___g_b.html#ga1d119d683bed417b108ef1ccf3a2d20c", null ],
