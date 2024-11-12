@@ -248,11 +248,11 @@ void SI4844::reset()
     setClockLow(); // See *Note on page 5
     data_from_device = false;
     digitalWrite(resetPin, LOW);
-    delayMicroseconds(500);
+    delayMicroseconds(200);
     digitalWrite(resetPin, HIGH);
-    delayMicroseconds(500);
+    delayMicroseconds(200);
     waitInterrupt();
-    delayMicroseconds(5500);
+    delayMicroseconds(2500);
 }
 
 

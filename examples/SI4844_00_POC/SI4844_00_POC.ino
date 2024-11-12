@@ -28,7 +28,8 @@ void setup() {
   Serial.print("\nBegin...\n");
  
   instructions();
-
+  // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
+  // si4844.setCrystalOscillatorStabilizationWaitTime(1);
   si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
   showStatus();
   delay(200);
