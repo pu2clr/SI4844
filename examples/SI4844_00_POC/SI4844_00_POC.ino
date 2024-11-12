@@ -1,5 +1,5 @@
 /*
- * It is a Proof of Concept (POC) of using Si4844 with the Arduino Library for Si4844.
+ * It is a Proof of Concept (POC) of using Si4844 with the Arduino Library for rx.
  * 
  *  SI4844 and Arduino Pro Mini connections
  *  
@@ -19,21 +19,21 @@
 #define RESET_PIN 12
 #define DEFAULT_BAND 1
 
-SI4844 si4844; 
+SI4844 rx; 
 
 void setup() {
   Serial.begin(9600);
   delay(700);
 
-  Serial.print("\nBegin...\n");
+  Serial.print(F("\nBegin...\n"));
  
   instructions();
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
-  // si4844.setCrystalOscillatorStabilizationWaitTime(1);
-  si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+  // rx.setCrystalOscillatorStabilizationWaitTime(1);
+  rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
   showStatus();
   delay(200);
-  si4844.setVolume(48);
+  rx.setVolume(48);
   showStatus();
 }
 // Shows instruções
@@ -53,37 +53,37 @@ void instructions() {
 }
 // Shows firmware information
 void show_firmware_information() {
-  Serial.println("\nSI4844 -  Firmware information\n");
-  si4844.getFirmware();
+  Serial.println(F("\nSI4844 -  Firmware information\n"));
+  rx.getFirmware();
   Serial.print(F("Final 2 digits of Part Number..: "));
-  Serial.println(si4844.getFirmwarePartNumber(), HEX);
+  Serial.println(rx.getFirmwarePartNumber(), HEX);
   Serial.print(F("Firmware Major Revision........: "));
-  Serial.println(si4844.getFirmwareMajorRevision());
+  Serial.println(rx.getFirmwareMajorRevision());
   Serial.print(F("Firmware Minor Revision........: "));
-  Serial.println(si4844.getFirmwareMinorRevision());
+  Serial.println(rx.getFirmwareMinorRevision());
   Serial.print(F("Component Major Revision.......: "));
-  Serial.println(si4844.getFirmwareComponentMajorRevision());
+  Serial.println(rx.getFirmwareComponentMajorRevision());
   Serial.print(F("Component Minor Revision.......: ")); 
-  Serial.println(si4844.getFirmwareComponentMinorRevision());
+  Serial.println(rx.getFirmwareComponentMinorRevision());
   Serial.print(F("Chip Revision..................: "));
-  Serial.println(si4844.getFirmwareChipRevision());
+  Serial.println(rx.getFirmwareChipRevision());
   Serial.println(F("*****************************"));
 }
 
 void showStatus() {
-    Serial.print("Band Index: ");
-    Serial.print(si4844.getStatusBandIndex());
-    Serial.print(" - ");
-    Serial.print(si4844.getBandMode());
-    Serial.print(" - Frequency: ");    
-    Serial.print(si4844.getFrequency(),0);
-    Serial.print(" KHz");
-    if (si4844.getStatusBandMode() == 0) {
-      Serial.print(" - Stereo ");
-      Serial.print(si4844.getStereoIndicator());
+    Serial.print(F("Band Index: "));
+    Serial.print(rx.getStatusBandIndex());
+    Serial.print(F(" - "));
+    Serial.print(rx.getBandMode());
+    Serial.print(F(" - Frequency: "));    
+    Serial.print(rx.getFrequency(),0);
+    Serial.print(F(" KHz"));
+    if (rx.getStatusBandMode() == 0) {
+      Serial.print(F(" - Stereo "));
+      Serial.print(rx.getStereoIndicator());
     }
-    Serial.print(" - Volume: ");
-    Serial.print(si4844.getVolume());
+    Serial.print(F(" - Volume: "));
+    Serial.print(rx.getVolume());
     Serial.println("");  
 }
 
@@ -98,63 +98,63 @@ void loop() {
     switch (key)
     {
     case 'F':
-      si4844.setBand(1); // FM band
+      rx.setBand(1); // FM band
       break;
     case 'f': 
-      Serial.println("Custom FM Band:  from to 77 to 109 MHz - Step 200 kHz");
-      si4844.setCustomBand(3,7700,10900,20);    
+      Serial.println(F("Custom FM Band:  from to 77 to 109 MHz - Step 200 kHz"));
+      rx.setCustomBand(3,7700,10900,20);    
       break;
     case 'h': 
-      Serial.println("Custom FM Band:  from to 101 to 104 MHz - Step 200 kHz");
-      si4844.setCustomBand(3,10100,10400,20);  
+      Serial.println(F("Custom FM Band:  from to 101 to 104 MHz - Step 200 kHz"));
+      rx.setCustomBand(3,10100,10400,20);  
       break;    
     case 'a':
     case 'A':
-      si4844.setBand(20); // AM band
+      rx.setBand(20); // AM band
       break;
     case '1':
-      si4844.setBand(28); // SW1 band
+      rx.setBand(28); // SW1 band
       break;
     case '2':
-      si4844.setBand(29); // SW2 band
+      rx.setBand(29); // SW2 band
       break;
     case '3':
-      si4844.setBand(31); // SW3 band
+      rx.setBand(31); // SW3 band
       break;
     case '4':
-      si4844.setBand(33); // SW4 band
+      rx.setBand(33); // SW4 band
       break;
     case '5':
-      si4844.setBand(35); // SW5 band
+      rx.setBand(35); // SW5 band
       break;
     case '6':
-      si4844.setBand(37); // SW6 band
+      rx.setBand(37); // SW6 band
       break;
     case '7':
-      si4844.setBand(39); // SW7 band
+      rx.setBand(39); // SW7 band
       break;
     case '+': // sound volume control
-      si4844.volumeUp();
+      rx.volumeUp();
       break;
     case '-':
-      si4844.volumeDown();
+      rx.volumeDown();
       break;  
     case 'o':
-       Serial.println("Power Down");
+       Serial.println(F("Power Down"));
        delay(500); 
-      si4844.powerDown();
+      rx.powerDown();
       break;  
     case 'c':
       // Configure the Pre-defined Band (band index 26) to work between 5.7 to 6.2 MHz
       // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
-      Serial.println("Custom Band:  5.7 to 6.2 MHz");
-      si4844.setCustomBand(26,5700,6200,5);  
+      Serial.println(F("Custom Band:  5.7 to 6.2 MHz"));
+      rx.setCustomBand(26,5700,6200,5);  
       break;      
     case 'C': 
       // Configure the Pre-defined Band (band index 40) to work between 27.0 to 27.5 MHz
       // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
-      Serial.println("Custom Band: 27.0 to 27.5 MHz");
-      si4844.setCustomBand(40,27000,27500,5);  
+      Serial.println(F("Custom Band: 27.0 to 27.5 MHz"));
+      rx.setCustomBand(40,27000,27500,5);  
       break;  
     case 'I': 
     case 'i':
@@ -162,7 +162,7 @@ void loop() {
       break;
     }
   }
-  if (si4844.hasStatusChanged())
+  if (rx.hasStatusChanged())
   {
     showStatus();
   }
