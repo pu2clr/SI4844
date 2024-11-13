@@ -37,5 +37,8 @@ var group___g_b =
     [ "SI4844::setCustomBand", "group___g_b.html#ga8d8eec9fe06540ebc454e7b6ae5f0f4e", null ],
     [ "SI4844::setAmSoftMuteMaxAttenuation", "group___g_b.html#ga013c13629b964df2f0023dd0cfee5dfc", null ],
     [ "SI4844::setFmSoftMuteMaxAttenuation", "group___g_b.html#gad5698ef9798d03188738f89dc7940050", null ],
-    [ "SI4844::setFmDeemphasis", "group___g_b.html#ga184028717d17cde7ef9993ab967afef5", null ]
+    [ "SI4844::setFmDeemphasis", "group___g_b.html#ga184028717d17cde7ef9993ab967afef5", null ],
+    [ "SI4844::setFmSoftMuteRate", "group___g_b.html#ga1e96b962e2e344b1eadeba33cd4bc813", null ],
+    [ "SI4844::setFmSoftMuteSlope", "group___g_b.html#ga26ac2207be432e5c4587793b3f8b4904", null ],
+    [ "SI4844::setBlendThresholdStereoIndicator", "group___g_b.html#ga536d522d459a7ac501182708f9ecab9d", null ]
 ];

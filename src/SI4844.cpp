@@ -908,6 +908,17 @@ void SI4844::setFmSoftMuteSlope(uint8_t value) {
 }
 
 
+/**
+ * @ingroup GB
+ * @brief Sets the blend threshold for stereo indicator.
+ * @details The CTS bit is set when it is safe to send the next command. This property may only be set or read when in powerup mode.
+ * @details The default value is band dependent (either 0x9F or 0xB2)
+ * @details Default: 0x009F or 0x00B2 (Band dependent)
+ * @param value  0–0xFF
+ */
+void SI4844::setBlendThresholdStereoIndicator(uint16_t value) {
+    setProperty(FM_STEREO_IND_BLEND_THRESHOLD, value);
+}
 
 
 /** @defgroup TOOLS Device Checking*/

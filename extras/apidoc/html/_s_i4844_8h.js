@@ -29,5 +29,10 @@ var _s_i4844_8h =
     [ "RX_ACTUAL_VOLUME", "_s_i4844_8h.html#a6f6ab2088a67fe3ae967956424b43f87", null ],
     [ "FM_SOFT_MUTE_MAX_ATTENUATION", "_s_i4844_8h.html#a8befb9228ad41e2baa0e69411e0f5108", null ],
     [ "AM_SOFT_MUTE_MAX_ATTENUATION", "_s_i4844_8h.html#a57030e143a5efa06b9b9cc21b63d0b70", null ],
-    [ "FM_DEEMPHASIS", "_s_i4844_8h.html#a9fe700fb45d6e08e177da6fdc208fa05", null ]
+    [ "FM_DEEMPHASIS", "_s_i4844_8h.html#a9fe700fb45d6e08e177da6fdc208fa05", null ],
+    [ "FM_SOFT_MUTE_RATE", "_s_i4844_8h.html#a071a5bbf23d933861cb73987c74e9fed", null ],
+    [ "FM_SOFT_MUTE_SLOPE", "_s_i4844_8h.html#ad90847770bc9057d28c2db4975a37ab5", null ],
+    [ "FM_STEREO_IND_BLEND_THRESHOLD", "_s_i4844_8h.html#a5c434290c4783a19e1255ef3aae55d15", null ],
+    [ "FM_BLEND_RSSI_STEREO_THRESHOLD", "_s_i4844_8h.html#abf0ee031cf6bb27b0211709117cfcaf0", null ],
+    [ "FM_BLEND_RSSI_MONO_THRESHOLD", "_s_i4844_8h.html#a8f62bfa609e4deb9febe3a25aae3c6bc", null ]
 ];

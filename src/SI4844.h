@@ -42,7 +42,9 @@
 #define FM_DEEMPHASIS 0x1100
 #define FM_SOFT_MUTE_RATE 0x1300
 #define FM_SOFT_MUTE_SLOPE 0x1301
-
+#define FM_STEREO_IND_BLEND_THRESHOLD 0x1207
+#define FM_BLEND_RSSI_STEREO_THRESHOLD  0x1800
+#define FM_BLEND_RSSI_MONO_THRESHOLD 0x1801
 
 /** @defgroup GA1 Union and Structures 
  * @section GA1
@@ -322,6 +324,7 @@ public :
   void setFmDeemphasis(uint8_t value);
   void setFmSoftMuteRate(uint8_t value);
   void setFmSoftMuteSlope(uint8_t value);
+  void setBlendThresholdStereoIndicator(uint16_t value);
 
   void setCrystalOscillatorEnable(uint8_t XOSCEN );
   void setCrystalOscillatorStabilizationWaitTime(uint8_t XOWAIT);
