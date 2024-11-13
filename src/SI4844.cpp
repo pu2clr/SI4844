@@ -1,6 +1,6 @@
 /**
  * @mainpage SI48XX Arduino Library implementation
- * This is a library for the SI4844, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER,
+ * This is a library for the SI4822, SI4826, SI4827, SI4840, 4844A, and 4844B, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER,
  * ICs from Silicon Labs.  
  * This library is intended to provide an easier interface to control the SI4844.
  * 
