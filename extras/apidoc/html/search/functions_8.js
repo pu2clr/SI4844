@@ -18,8 +18,10 @@ var searchData=
   ['setfmsoftmuteslope_15',['setFmSoftMuteSlope',['../group___g_b.html#ga26ac2207be432e5c4587793b3f8b4904',1,'SI4844']]],
   ['setinterruptpin_16',['setInterruptPin',['../class_s_i4844.html#adc433bd70a07984f8df9d6b79b5cd8b5',1,'SI4844']]],
   ['setproperty_17',['setProperty',['../group___g_b.html#gac080ba62ed2de41f80c1fe08135362a3',1,'SI4844']]],
-  ['setresetpin_18',['setResetPin',['../class_s_i4844.html#ab8dd1a10df601b5d99c29d879a2720e7',1,'SI4844']]],
-  ['setstatusinterruptfromdevice_19',['setStatusInterruptFromDevice',['../group___g_b.html#ga1a00037a2cedbe25d1d53716a1c20c00',1,'SI4844']]],
-  ['setup_20',['setup',['../group___g_b.html#ga9f4d244f654ac20f2e26508f6a8269ce',1,'SI4844']]],
-  ['setvolume_21',['setVolume',['../group___g_b.html#ga65eab6c860e3e11c5d3726144dd3b73d',1,'SI4844']]]
+  ['setreferenceclockfrequency_18',['setReferenceClockFrequency',['../group___g_b.html#ga43fab184f53c1f8191f769167934bfd1',1,'SI4844']]],
+  ['setreferenceclockprescaler_19',['setReferenceClockPrescaler',['../group___g_b.html#gae0618088d11ae5e79193672554e39dad',1,'SI4844']]],
+  ['setresetpin_20',['setResetPin',['../class_s_i4844.html#ab8dd1a10df601b5d99c29d879a2720e7',1,'SI4844']]],
+  ['setstatusinterruptfromdevice_21',['setStatusInterruptFromDevice',['../group___g_b.html#ga1a00037a2cedbe25d1d53716a1c20c00',1,'SI4844']]],
+  ['setup_22',['setup',['../group___g_b.html#ga9f4d244f654ac20f2e26508f6a8269ce',1,'SI4844']]],
+  ['setvolume_23',['setVolume',['../group___g_b.html#ga65eab6c860e3e11c5d3726144dd3b73d',1,'SI4844']]]
 ];

@@ -332,6 +332,8 @@ public :
 
   void setCrystalOscillatorEnable(uint8_t XOSCEN );
   void setCrystalOscillatorStabilizationWaitTime(uint8_t XOWAIT);
+  void setReferenceClockFrequency(uint16_t value);
+  void setReferenceClockPrescaler(uint16_t value);
 
 
 

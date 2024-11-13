@@ -225,6 +225,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ga536d522d459a7ac501182708f9ecab9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#ga536d522d459a7ac501182708f9ecab9d">SI4844::setBlendThresholdStereoIndicator</a> (uint16_t value)</td></tr>
 <tr class="memdesc:ga536d522d459a7ac501182708f9ecab9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the blend threshold for stereo indicator.  <br /></td></tr>
 <tr class="separator:ga536d522d459a7ac501182708f9ecab9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga43fab184f53c1f8191f769167934bfd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#ga43fab184f53c1f8191f769167934bfd1">SI4844::setReferenceClockFrequency</a> (uint16_t value)</td></tr>
+<tr class="memdesc:ga43fab184f53c1f8191f769167934bfd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the frequency of the REFCLK from the output of the prescaler.  <br /></td></tr>
+<tr class="separator:ga43fab184f53c1f8191f769167934bfd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae0618088d11ae5e79193672554e39dad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#gae0618088d11ae5e79193672554e39dad">SI4844::setReferenceClockPrescaler</a> (uint16_t value)</td></tr>
+<tr class="memdesc:gae0618088d11ae5e79193672554e39dad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number used by the prescaler to divide the external reference clock frequency down to the internal REFCLK.  <br /></td></tr>
+<tr class="separator:gae0618088d11ae5e79193672554e39dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
@@ -1527,6 +1533,65 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ga43fab184f53c1f8191f769167934bfd1" name="ga43fab184f53c1f8191f769167934bfd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga43fab184f53c1f8191f769167934bfd1">&#9670;&#160;</a></span>setReferenceClockFrequency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SI4844::setReferenceClockFrequency </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the frequency of the REFCLK from the output of the prescaler. </p>
+<p>The REFCLK range is 31130 to 34406 Hz (32768 ±5% Hz) in 1 Hz steps, or 0 (to disable AFC).</p>
+<p>For example, an reference clock at XTALI pin of 13 MHz would require a prescaler value of 400 to divide it to 32500 Hz REFCLK.</p>
+<p>The reference clock frequency property would then need to be set to 32500 Hz. Reference clock frequencies between 31130 Hz and 40 MHz are supported, however, there are gaps in frequency coverage for prescaler values ranging from 1 to 10, or frequencies up to 311300 Hz. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>31130-34406 (default 32768) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>SI48XX ATDD Programming Guide (AN610) page 26. </dd></dl>
+
+</div>
+</div>
+<a id="gae0618088d11ae5e79193672554e39dad" name="gae0618088d11ae5e79193672554e39dad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae0618088d11ae5e79193672554e39dad">&#9670;&#160;</a></span>setReferenceClockPrescaler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SI4844::setReferenceClockPrescaler </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the number used by the prescaler to divide the external reference clock frequency down to the internal REFCLK. </p>
+<p>The range may be between 1 and 4095 in 1 unit steps. For example, an XTALI reference clock of 13 MHz would require a prescaler value of 400 to divide it to 3250 Hz.</p>
+<p>The reference clock frequency property would then need to be set to 32500 Hz. The reference clock must be valid 10 ns before the chip reset signal. In addition, the reference clock must be valid at all times for proper tuning and AFC operations.</p>
+<p>XTALI reference clock input frequency could be changed but is not recommended and REFCLK properties values need to be reconfigured accordingly.</p>
+<p>Prescaler for Reference Clock is an integer number used to divide clock frequency down to REFCLK frequency. The allowed REFCLK frequency range is between 31130 and 34406 Hz (32768 5%), or 0 (to disable AFC). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>1-4095 (default 1) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>SI48XX ATDD Programming Guide (AN610) page 27. </dd></dl>
 
 </div>
 </div>

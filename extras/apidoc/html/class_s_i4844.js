@@ -27,6 +27,8 @@ var class_s_i4844 =
     [ "setBlendThresholdStereoIndicator", "group___g_b.html#ga536d522d459a7ac501182708f9ecab9d", null ],
     [ "setCrystalOscillatorEnable", "group___g_b.html#gab97f73b03943a4c0f4dbb3f0741d7263", null ],
     [ "setCrystalOscillatorStabilizationWaitTime", "group___g_b.html#gab4e3126da78b0c95cd889dcd20144382", null ],
+    [ "setReferenceClockFrequency", "group___g_b.html#ga43fab184f53c1f8191f769167934bfd1", null ],
+    [ "setReferenceClockPrescaler", "group___g_b.html#gae0618088d11ae5e79193672554e39dad", null ],
     [ "setAudioMode", "group___g_b.html#gadb6affba868c9c99f44918e5a48a423d", null ],
     [ "getStatus", "group___g_b.html#ga3437ce047c5649597e1bccfb8c42cd5b", null ],
     [ "getFirmware", "group___g_b.html#ga1d119d683bed417b108ef1ccf3a2d20c", null ],
