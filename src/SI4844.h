@@ -1,7 +1,7 @@
 /**
  * @brief SI4844 ARDUINO LIBRARY  
  * 
- * @details This is an Arduino library for the SI48XX family, BROADCAST AM/FM/SW RADIO RECEIVER IC family from Silicon Labs. 
+ * @details This is an Arduino library for the SI4822, SI4826, SI4827, SI4840, 4844A, and 4844B, BROADCAST AM/FM/SW RADIO RECEIVER IC family from Silicon Labs. 
  * @details This library is intended to provide an easier interface for controlling the SI47XX by using Arduino platform. 
  * @details The communication used by this library is I2C.
  * @details This file contains: const (#define), Defined Data type and Methods declarations
