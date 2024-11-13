@@ -880,6 +880,34 @@ void SI4844::setFmDeemphasis(uint8_t value) {
 }
 
 
+/**
+ * @ingroup GB
+ * @brief Sets the attack and decay rates when entering and leaving soft mute. 
+ * @details Later values increase rates, and lower values decrease rates. 
+ * @details The CTS is set when it is safe to send the next command. This property may only be set or read when in powerup mode. The default is 64.
+ * 
+ * @param value  1—255 (default 64)
+ */
+void SI4844::setFmSoftMuteRate(uint8_t value) {
+    setProperty(FM_SOFT_MUTE_RATE, value);
+}
+
+
+
+/**
+ * @ingroup GB
+ * @brief Configures attenuation slope during soft mute in dB attenuation per dB SNR below the soft mute SNR threshold.
+ * @details Soft mute attenuation is the minimum of SMSLOPE x (SMTHR – SNR) and SMATTN.
+ * @details The recommended SMSLOPE value is CEILING(SMATTN/SMTHR). SMATTN and SMTHR are set via the FM_SOFT_MUTE_MAX_ATTENUATION and FM_SOFT_MUTE_SNR_THRESHOLD properties.
+ * @details The CTS bit is set when it is safe to send the next command. This property may only be set or read when in power up mode.
+ * 
+ * @param value  0–63 (default 2)
+ */
+void SI4844::setFmSoftMuteSlope(uint8_t value) {
+    setProperty(FM_SOFT_MUTE_RATE, value);
+}
+
+
 
 
 /** @defgroup TOOLS Device Checking*/

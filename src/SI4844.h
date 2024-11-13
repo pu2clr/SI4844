@@ -40,6 +40,9 @@
 #define FM_SOFT_MUTE_MAX_ATTENUATION 0x1302
 #define AM_SOFT_MUTE_MAX_ATTENUATION 0x3302
 #define FM_DEEMPHASIS 0x1100
+#define FM_SOFT_MUTE_RATE 0x1300
+#define FM_SOFT_MUTE_SLOPE 0x1301
+
 
 /** @defgroup GA1 Union and Structures 
  * @section GA1
@@ -317,9 +320,12 @@ public :
   void setAmSoftMuteMaxAttenuation(uint8_t value);
   void setFmSoftMuteMaxAttenuation(uint8_t value);
   void setFmDeemphasis(uint8_t value);
+  void setFmSoftMuteRate(uint8_t value);
+  void setFmSoftMuteSlope(uint8_t value);
 
   void setCrystalOscillatorEnable(uint8_t XOSCEN );
   void setCrystalOscillatorStabilizationWaitTime(uint8_t XOWAIT);
+
 
 
   si4844_audiomode_status_response
