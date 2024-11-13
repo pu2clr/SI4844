@@ -46,6 +46,9 @@
 #define FM_BLEND_RSSI_STEREO_THRESHOLD  0x1800
 #define FM_BLEND_RSSI_MONO_THRESHOLD 0x1801
 
+#define REFCLK_FREQ  0x0201
+
+
 /** @defgroup GA1 Union and Structures 
  * @section GA1
  *  
