@@ -237,6 +237,8 @@ It is important to say that a voltage divider will work for the Si4844 RST pin. 
 See also: [Bi-Directional Logic Level Converter Hookup Guide ](https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide/all) for more details.
 
 
+Once again, it is important to emphasize that there is currently an abundance of low-cost boards  that will work safely with SI48XX devices without the need for a bidirectional level converter. Consider using other boards instead of an Arduino Nano or Uno, such as those based on the LGT8F328, ESP32, ESP8266, RPi PICO, and STM32.
+
 
 #### Arduino Nano, LCD16x02, Push Buttons and SI4844 pin connections
  
