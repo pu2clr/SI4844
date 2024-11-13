@@ -35,5 +35,6 @@ var _s_i4844_8h =
     [ "FM_STEREO_IND_BLEND_THRESHOLD", "_s_i4844_8h.html#a5c434290c4783a19e1255ef3aae55d15", null ],
     [ "FM_BLEND_RSSI_STEREO_THRESHOLD", "_s_i4844_8h.html#abf0ee031cf6bb27b0211709117cfcaf0", null ],
     [ "FM_BLEND_RSSI_MONO_THRESHOLD", "_s_i4844_8h.html#a8f62bfa609e4deb9febe3a25aae3c6bc", null ],
-    [ "REFCLK_FREQ", "_s_i4844_8h.html#adb330b20b383f5f664a9b107edef0036", null ]
+    [ "REFCLK_FREQ", "_s_i4844_8h.html#adb330b20b383f5f664a9b107edef0036", null ],
+    [ "REFCLK_PRESCALE", "_s_i4844_8h.html#a6b615b86f7870b616243b25cb5091933", null ]
 ];
