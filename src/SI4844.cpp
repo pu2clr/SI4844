@@ -921,6 +921,36 @@ void SI4844::setBlendThresholdStereoIndicator(uint16_t value) {
 }
 
 
+/**
+ * @ingroup GB
+ * @brief Sets the frequency of the REFCLK from the output of the prescaler
+ * @details The REFCLK range is 31130 to 34406 Hz (32768 ±5% Hz) in 1 Hz steps, or 0 (to disable AFC).
+ * @details For example, an reference clock at XTALI pin of 13 MHz would require a prescaler value of 400 to divide it to 32500 Hz REFCLK.
+ * @details The reference clock frequency property would then need to be set to 32500 Hz. Reference clock frequencies between 31130 Hz and 40 MHz are supported, however, there are gaps in frequency coverage for prescaler values ranging from 1 to 10, or frequencies up to 311300 Hz.
+ * @param value  31130-34406 (default 32768)
+ * @see SI48XX ATDD Programming Guide (AN610) page 26.
+ */
+void SI4844::setReferenceClockFrequency(uint16_t value) {
+    setProperty(REFCLK_FREQ, value);
+}
+
+
+/**
+ * @ingroup GB
+ * @brief Sets the number used by the prescaler to divide the external reference clock frequency down to the internal REFCLK.
+ * @details The range may be between 1 and 4095 in 1 unit steps. For example, an XTALI reference clock of 13 MHz would require a prescaler value of 400 to divide it to 3250 Hz. 
+ * @details The reference clock frequency property would then need to be set to 32500 Hz. The reference clock must be valid 10 ns before the chip reset signal. In addition, the reference clock must be valid at all times for proper tuning and AFC operations. 
+ * @details XTALI reference clock input frequency could be changed but is not recommended and REFCLK properties values need to be reconfigured accordingly.
+ * @details Prescaler for Reference Clock is an integer number used to divide clock frequency down to REFCLK frequency. The allowed REFCLK frequency range is between 31130 and 34406 Hz (32768 5%), or 0 (to disable AFC).
+ * @param value 1-4095 (default 1)
+ * @see SI48XX ATDD Programming Guide (AN610) page 27.
+ */
+void SI4844::setReferenceClockPrescaler(uint16_t value) {
+    setProperty(REFCLK_PRESCALE, value);
+}
+
+
+
 /** @defgroup TOOLS Device Checking*/
 
 /**

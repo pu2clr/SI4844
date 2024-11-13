@@ -47,6 +47,7 @@
 #define FM_BLEND_RSSI_MONO_THRESHOLD 0x1801
 
 #define REFCLK_FREQ  0x0201
+#define REFCLK_PRESCALE 0x0202
 
 
 /** @defgroup GA1 Union and Structures 
