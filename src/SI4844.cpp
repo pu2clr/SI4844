@@ -745,16 +745,18 @@ void SI4844::setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, u
 {
     SI4844_arg_band customband;
 
-    // The first thing that we have to do is switch to desired band
-    setBand(bandIndex);
+    this->currentBand = bandIndex;
 
     // Now we can customize the band.
     data_from_device = false;
     customband.refined.BANDIDX = bandIndex;
     customband.refined.XOSCEN = this->xoscen;
     customband.refined.XOWAIT = this->xowait;
-    customband.refined.BANDBOT = botton;
-    customband.refined.BANDTOP = top;
+    customband.refined.BANDBOT_HIGH = highByte(botton);
+    customband.refined.BANDBOT_LOW = lowByte(botton);
+    customband.refined.BANDTOP_HIGH = highByte(top);
+    customband.refined.BANDTOP_LOW = lowByte(top);
+
     customband.refined.CHSPC = bandSpace;
 
     // Wait until rady to send a command
@@ -763,10 +765,10 @@ void SI4844::setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, u
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_POWER_UP);
     Wire.write(customband.raw[0]);
-    Wire.write(customband.raw[2]);
     Wire.write(customband.raw[1]);
-    Wire.write(customband.raw[4]);
+    Wire.write(customband.raw[2]);
     Wire.write(customband.raw[3]);
+    Wire.write(customband.raw[4]);
     Wire.write(customband.raw[5]);
     Wire.write(0x00);
 
@@ -803,16 +805,17 @@ void SI4844::setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, u
 {
     SI4844_arg_band customband;
 
-    // The first thing that we have to do is switch to desired band
-    setBand(bandIndex);
+    this->currentBand = bandIndex;
 
     // Now we can customize the band.
     data_from_device = false;
     customband.refined.BANDIDX = bandIndex;
     customband.refined.XOSCEN = this->xoscen;
     customband.refined.XOWAIT = this->xowait;
-    customband.refined.BANDBOT = botton;
-    customband.refined.BANDTOP = top;
+    customband.refined.BANDBOT_HIGH = highByte(botton);
+    customband.refined.BANDBOT_LOW = lowByte(botton);
+    customband.refined.BANDTOP_HIGH = highByte(top);
+    customband.refined.BANDTOP_LOW = lowByte(top);
     customband.refined.CHSPC = bandSpace;
     customband.refined.DFBAND = dfband; 
     customband.refined.UNI_AM = uni_am;
@@ -825,10 +828,10 @@ void SI4844::setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, u
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_POWER_UP);
     Wire.write(customband.raw[0]);
-    Wire.write(customband.raw[2]);
     Wire.write(customband.raw[1]);
-    Wire.write(customband.raw[4]);
+    Wire.write(customband.raw[2]);
     Wire.write(customband.raw[3]);
+    Wire.write(customband.raw[4]);
     Wire.write(customband.raw[5]);
     Wire.write(customband.raw[6]);
 

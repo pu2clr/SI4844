@@ -5,30 +5,35 @@
  *  
  *  | SI4844 pin |  Arduino pin |  Description                                       |
  *  | ---------  | ------------ | -------------------------------------------------  |
- *  |    2       |   2          | Arduino interrupt pin                              |
- *  |   15       |   3          | Regurlar arduino digital pin used to RESET control |
- *  |   16       |   4 (SDA)    | I2C bus (Data)                                     |
- *  |   17       |   5 (SCL)    | I2C bus (Clocl)                                    |
+ *  |    2       |   5          | Interrupt pin                                      |
+ *  |   15       |   6          | Regurlar digital pin used to RESET control         |
+ *  |   16       |   8 (SDA)    | I2C bus (Data)                                     |
+ *  |   17       |   9 (SCL)    | I2C bus (Clocl)                                    |
  * 
- * Author: Ricardo Lima Caratti (PU2CLR)
- * September, 2019
+ *  Install and use the esptool.py
+ *  Run the command "esptool.py flash_id"  to get information about your board. 
+ *  More about ESP32C3 See: https://github.com/sidharthmohannair/Tutorial-ESP32-C3-Super-Mini 
+ *
+ *  Author: Ricardo Lima Caratti (PU2CLR)
+ *  September, 2024
  */
 #include <SI4844.h>
 // Arduino Pin (tested on pro mini)
-#define INTERRUPT_PIN 2
-#define RESET_PIN     3
+#define INTERRUPT_PIN 5
+#define RESET_PIN     6
 #define DEFAULT_BAND  1
 
-#define I2C_SCL       5
-#define I2C_SDA       4
+#define I2C_SDA       8
+#define I2C_SCL       9
 
 SI4844 rx; 
 
 void setup() {
-  Serial.begin(115200);
-  delay(500);
+  Serial.begin(9600);
+  delay(1000);
 
   Serial.print(F("\nESP32C3 - Begin...\n"));
+  Serial.flush();
 
   Wire.begin(I2C_SDA, I2C_SCL);
  
