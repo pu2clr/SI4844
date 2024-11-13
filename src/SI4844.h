@@ -49,6 +49,12 @@
 #define REFCLK_FREQ  0x0201         // You can use setProperty(REFCLK_FREQ, value);
 #define REFCLK_PRESCALE 0x0202      // You can use setProperty(REFCLK_PRESCALE, value);
 
+#define AM_SOFT_MUTE_RATE  0x3300
+#define AM_SOFT_MUTE_SLOPE  0x3301
+#define AM_SOFT_MUTE_SNR_THRESHOLD 0x3303
+
+
+
 
 /** @defgroup GA1 Union and Structures 
  * @section GA1
@@ -328,6 +334,12 @@ public :
   void setFmDeemphasis(uint8_t value);
   void setFmSoftMuteRate(uint8_t value);
   void setFmSoftMuteSlope(uint8_t value);
+
+  void setAmSoftMuteRate(uint8_t value);
+  void setAmSoftMuteSlope(uint8_t value);
+  void setAmSoftMuteSnrThreshold(uint8_t value);
+
+
   void setBlendThresholdStereoIndicator(uint16_t value);
 
   void setCrystalOscillatorEnable(uint8_t XOSCEN );

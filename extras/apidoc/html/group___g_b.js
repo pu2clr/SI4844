@@ -41,6 +41,9 @@ var group___g_b =
     [ "SI4844::setFmSoftMuteRate", "group___g_b.html#ga1e96b962e2e344b1eadeba33cd4bc813", null ],
     [ "SI4844::setFmSoftMuteSlope", "group___g_b.html#ga26ac2207be432e5c4587793b3f8b4904", null ],
     [ "SI4844::setBlendThresholdStereoIndicator", "group___g_b.html#ga536d522d459a7ac501182708f9ecab9d", null ],
+    [ "SI4844::setAmSoftMuteRate", "group___g_b.html#gaf37ee2371cb5c22fca70002c6a70aaee", null ],
+    [ "SI4844::setAmSoftMuteSlope", "group___g_b.html#ga7f2b539247499f7b5b2e9292b89eab09", null ],
+    [ "SI4844::setAmSoftMuteSnrThreshold", "group___g_b.html#ga24e79008d80f6344d849dc8011e36b87", null ],
     [ "SI4844::setReferenceClockFrequency", "group___g_b.html#ga43fab184f53c1f8191f769167934bfd1", null ],
     [ "SI4844::setReferenceClockPrescaler", "group___g_b.html#gae0618088d11ae5e79193672554e39dad", null ]
 ];

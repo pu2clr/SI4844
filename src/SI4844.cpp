@@ -923,6 +923,49 @@ void SI4844::setBlendThresholdStereoIndicator(uint16_t value) {
 
 /**
  * @ingroup GB
+ * @brief Sets the attack and decay rates when entering or leaving soft mute. 
+ * @details The value specified is multiplied by 4.35 dB/s to come up with the actual attack rate. The CTS bit is set when it is safe to send the next command.
+ * @details This property may only be set or read when in power up mode. The default rate is 278 dB/s.
+ * @details Determines how quickly the AM goes into soft mute when soft mute is enabled. The actual rate is calculated by taking the value written to the field
+ * @details and multiplying it with 4.35 dB/s. The default rate is 278 dB/s (SMRATE[15:0] = 0x0040).
+ * @details Default: 0x0040; Actual Rate: SMRATE x 4.35; Units: dB/s
+ * 
+ * @param value  1–255
+ */
+void SI4844::setAmSoftMuteRate(uint8_t value) {
+    setProperty(AM_SOFT_MUTE_RATE, value);
+}
+
+/**
+ * @ingroup GB
+ * @brief Configures attenuation slope during soft mute in dB attenuation per dB SNR below the soft mute SNR threshold.
+ * @details Soft mute attenuation is the minimum of SMSLOPE x (SMTHR – SNR) and SMATTN. The recommended SMSLOPE value is CEILING(SMATTN/SMTHR).
+ * @details SMATTN and SMTHR are set via the AM_SOFT_MUTE_MAX_ATTENUATION and AM_SOFT_MUTE_SNR_THRESHOLD properties. The CTS bit is
+ * @details set when it is safe to send the next command. This property may only be set or read when in power up mode. The
+ * @details default slope is 2 dB/dB. Default: 0x0001 Units: dB/dB
+ * 
+ * @param value  1–5
+ */
+void SI4844::setAmSoftMuteSlope(uint8_t value) {
+    setProperty(AM_SOFT_MUTE_SLOPE, value);
+}
+
+/**
+ * @ingroup GB
+ * @brief  Sets the SNR threshold to engage soft mute.
+ * @details Whenever the SNR for a tuned frequency drops below this threshold the AM reception will go in soft mute, provided soft mute max attenuation property is non-zero. The CTS bit is set when it is safe to send the next command. 
+ * @details This property may only be set or read when in power up mode. The default SNR threshold is 8.
+ * @details Default: 0x0008; Units: dB; 
+ * 
+ * @param value   0–63
+ */
+void SI4844::setAmSoftMuteSnrThreshold(uint8_t value) {
+    setProperty(AM_SOFT_MUTE_SNR_THRESHOLD, value);
+}
+
+
+/**
+ * @ingroup GB
  * @brief Sets the frequency of the REFCLK from the output of the prescaler
  * @details The REFCLK range is 31130 to 34406 Hz (32768 ±5% Hz) in 1 Hz steps, or 0 (to disable AFC).
  * @details For example, an reference clock at XTALI pin of 13 MHz would require a prescaler value of 400 to divide it to 32500 Hz REFCLK.

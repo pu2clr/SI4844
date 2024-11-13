@@ -36,5 +36,8 @@ var _s_i4844_8h =
     [ "FM_BLEND_RSSI_STEREO_THRESHOLD", "_s_i4844_8h.html#abf0ee031cf6bb27b0211709117cfcaf0", null ],
     [ "FM_BLEND_RSSI_MONO_THRESHOLD", "_s_i4844_8h.html#a8f62bfa609e4deb9febe3a25aae3c6bc", null ],
     [ "REFCLK_FREQ", "_s_i4844_8h.html#adb330b20b383f5f664a9b107edef0036", null ],
-    [ "REFCLK_PRESCALE", "_s_i4844_8h.html#a6b615b86f7870b616243b25cb5091933", null ]
+    [ "REFCLK_PRESCALE", "_s_i4844_8h.html#a6b615b86f7870b616243b25cb5091933", null ],
+    [ "AM_SOFT_MUTE_RATE", "_s_i4844_8h.html#ab99cdb1908b382e8398decd8fb455fa8", null ],
+    [ "AM_SOFT_MUTE_SLOPE", "_s_i4844_8h.html#a2d531456d92913b07a7c60b9080a691a", null ],
+    [ "AM_SOFT_MUTE_SNR_THRESHOLD", "_s_i4844_8h.html#ab089c66d524223acdad68bfd970603cc", null ]
 ];
