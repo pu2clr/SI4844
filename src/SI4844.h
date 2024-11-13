@@ -37,17 +37,17 @@
 #define RX_BASS_TREBLE 0x4002
 #define RX_ACTUAL_VOLUME 0x4003
 
-#define FM_SOFT_MUTE_MAX_ATTENUATION 0x1302
-#define AM_SOFT_MUTE_MAX_ATTENUATION 0x3302
-#define FM_DEEMPHASIS 0x1100
-#define FM_SOFT_MUTE_RATE 0x1300
-#define FM_SOFT_MUTE_SLOPE 0x1301
-#define FM_STEREO_IND_BLEND_THRESHOLD 0x1207
-#define FM_BLEND_RSSI_STEREO_THRESHOLD  0x1800
-#define FM_BLEND_RSSI_MONO_THRESHOLD 0x1801
+#define FM_SOFT_MUTE_MAX_ATTENUATION 0x1302     
+#define AM_SOFT_MUTE_MAX_ATTENUATION 0x3302      
+#define FM_DEEMPHASIS 0x1100                    // You can use setProperty(FM_DEEMPHASIS, value);
+#define FM_SOFT_MUTE_RATE 0x1300                // You can use setProperty(FM_SOFT_MUTE_RATE, value);
+#define FM_SOFT_MUTE_SLOPE 0x1301               // You can use setProperty(FM_SOFT_MUTE_SLOPE, value);
+#define FM_STEREO_IND_BLEND_THRESHOLD 0x1207    // You can use setProperty(FM_STEREO_IND_BLEND_THRESHOLD, value);
+#define FM_BLEND_RSSI_STEREO_THRESHOLD  0x1800  // You can use setProperty(FM_BLEND_RSSI_STEREO_THRESHOLD, value);
+#define FM_BLEND_RSSI_MONO_THRESHOLD 0x1801     // You can use setProperty(FM_BLEND_RSSI_MONO_THRESHOLD, value); 
 
-#define REFCLK_FREQ  0x0201
-#define REFCLK_PRESCALE 0x0202
+#define REFCLK_FREQ  0x0201         // You can use setProperty(REFCLK_FREQ, value);
+#define REFCLK_PRESCALE 0x0202      // You can use setProperty(REFCLK_PRESCALE, value);
 
 
 /** @defgroup GA1 Union and Structures 
