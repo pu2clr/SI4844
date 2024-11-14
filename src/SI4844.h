@@ -252,7 +252,7 @@ volatile static bool data_from_device;
  * @details You can control the interrupt process via your sketch intead of this library. 
  * @see setStatusInterruptFromDevice, getStatusInterruptFromDevice, setup 
  */
-#ifdef ESP8266
+#ifdef ESP8266    // if the controller is ESP8266, add IRAM_ATTR.
   IRAM_ATTR 
 #endif
 static void interrupt_hundler()
@@ -359,8 +359,7 @@ public :
   si4844_status_response *getStatus(void);
   si4844_firmware_response *getFirmware(void);
   // customize the frequency range of a band
-  void setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, uint8_t bandSpace);
-  void setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, uint8_t bandSpace, uint8_t dfband, uint8_t uni_am, uint8_t tvreq );
+  void setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, uint8_t bandSpace, uint8_t dfband = 0, uint8_t uni_am = 0, uint8_t tvreq = 0 );
  
   void setDefaultBandIndx( uint8_t bandidx);
 

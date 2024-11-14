@@ -13,7 +13,7 @@ var searchData=
   ['setblendthresholdstereoindicator_10',['setBlendThresholdStereoIndicator',['../group___g_b.html#ga536d522d459a7ac501182708f9ecab9d',1,'SI4844']]],
   ['setcrystaloscillatorenable_11',['setCrystalOscillatorEnable',['../group___g_b.html#gab97f73b03943a4c0f4dbb3f0741d7263',1,'SI4844']]],
   ['setcrystaloscillatorstabilizationwaittime_12',['setCrystalOscillatorStabilizationWaitTime',['../group___g_b.html#gab4e3126da78b0c95cd889dcd20144382',1,'SI4844']]],
-  ['setcustomband_13',['setCustomBand',['../group___g_b.html#ga67206874edff7473d420e013dd66864d',1,'SI4844::setCustomBand(uint8_t bandIndex, uint16_t botton, uint16_t top, uint8_t bandSpace)'],['../group___g_b.html#ga8d8eec9fe06540ebc454e7b6ae5f0f4e',1,'SI4844::setCustomBand(uint8_t bandIndex, uint16_t botton, uint16_t top, uint8_t bandSpace, uint8_t dfband, uint8_t uni_am, uint8_t tvreq)']]],
+  ['setcustomband_13',['setCustomBand',['../group___g_b.html#ga5c766d254b0c261a93dfd817f11b712c',1,'SI4844']]],
   ['setdefaultbandindx_14',['setDefaultBandIndx',['../class_s_i4844.html#ac9a028b4b22255afa30f008a3777695d',1,'SI4844']]],
   ['setfmdeemphasis_15',['setFmDeemphasis',['../group___g_b.html#ga184028717d17cde7ef9993ab967afef5',1,'SI4844']]],
   ['setfmsoftmutemaxattenuation_16',['setFmSoftMuteMaxAttenuation',['../group___g_b.html#gad5698ef9798d03188738f89dc7940050',1,'SI4844']]],

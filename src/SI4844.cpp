@@ -726,62 +726,6 @@ void SI4844::resetStatus()
     data_from_device = false;
 }
 
-/** 
- * @ingroup GB
- * @brief This method allows you to customize the frequency range of a band.
- * @details The SI4844 can work from 2.3–28.5 MHz on SW, 64.0–109.0MHz on FM
- * @details You can configure the band index 40, for example, to work between 27 to 28 MHz.
- * 
- * @see Si48XX ATDD PROGRAMMING GUIDE, pages 17, 18, 19 and 20.
- * 
- * (top – button)/(bandSpace) must be betwenn 50 and 230
- * 
- * @param  bandIndes Predefined band index (valid values: betwenn 0 and 40)
- * @param  button Band Bottom Frequency Limit
- * @param  top Band Top Frequency Limit
- * @param  bandSpace Channel Spacing (use 5 or 10 - On FM 10 = 100KHz)
- */
-void SI4844::setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, uint8_t bandSpace)
-{
-    SI4844_arg_band customband;
-
-    this->currentBand = bandIndex;
-
-    // Now we can customize the band.
-    data_from_device = false;
-    customband.refined.BANDIDX = bandIndex;
-    customband.refined.XOSCEN = this->xoscen;
-    customband.refined.XOWAIT = this->xowait;
-    customband.refined.BANDBOT_HIGH = highByte(botton);
-    customband.refined.BANDBOT_LOW = lowByte(botton);
-    customband.refined.BANDTOP_HIGH = highByte(top);
-    customband.refined.BANDTOP_LOW = lowByte(top);
-
-    customband.refined.CHSPC = bandSpace;
-
-    // Wait until rady to send a command
-    waitToSend();
-
-    Wire.beginTransmission(SI4844_ADDRESS);
-    Wire.write(ATDD_POWER_UP);
-    Wire.write(customband.raw[0]);
-    Wire.write(customband.raw[1]);
-    Wire.write(customband.raw[2]);
-    Wire.write(customband.raw[3]);
-    Wire.write(customband.raw[4]);
-    Wire.write(customband.raw[5]);
-    Wire.write(0x00);
-
-    Wire.endTransmission();
-    delayMicroseconds(2500);
-    waitInterrupt();
-
-    delayMicroseconds(2500);
-    getStatus();
-    delayMicroseconds(2500);
-    
-    this->setVolume(this->volume);
-}
 
 /** 
  * @ingroup GB

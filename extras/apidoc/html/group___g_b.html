@@ -200,12 +200,9 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga2f14c89d348c5e3214615258b8f9c918"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the interrupr status to false. It will turn true after next interrupr <br  />
   <br /></td></tr>
 <tr class="separator:ga2f14c89d348c5e3214615258b8f9c918"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga67206874edff7473d420e013dd66864d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#ga67206874edff7473d420e013dd66864d">SI4844::setCustomBand</a> (uint8_t bandIndex, uint16_t botton, uint16_t top, uint8_t bandSpace)</td></tr>
-<tr class="memdesc:ga67206874edff7473d420e013dd66864d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method allows you to customize the frequency range of a band.  <br /></td></tr>
-<tr class="separator:ga67206874edff7473d420e013dd66864d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8d8eec9fe06540ebc454e7b6ae5f0f4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#ga8d8eec9fe06540ebc454e7b6ae5f0f4e">SI4844::setCustomBand</a> (uint8_t bandIndex, uint16_t botton, uint16_t top, uint8_t bandSpace, uint8_t dfband, uint8_t uni_am, uint8_t tvreq)</td></tr>
-<tr class="memdesc:ga8d8eec9fe06540ebc454e7b6ae5f0f4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method allows you to customize the frequency range of a band.  <br /></td></tr>
-<tr class="separator:ga8d8eec9fe06540ebc454e7b6ae5f0f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5c766d254b0c261a93dfd817f11b712c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#ga5c766d254b0c261a93dfd817f11b712c">SI4844::setCustomBand</a> (uint8_t bandIndex, uint16_t botton, uint16_t top, uint8_t bandSpace, uint8_t dfband=0, uint8_t uni_am=0, uint8_t tvreq=0)</td></tr>
+<tr class="memdesc:ga5c766d254b0c261a93dfd817f11b712c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method allows you to customize the frequency range of a band.  <br /></td></tr>
+<tr class="separator:ga5c766d254b0c261a93dfd817f11b712c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga013c13629b964df2f0023dd0cfee5dfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b.html#ga013c13629b964df2f0023dd0cfee5dfc">SI4844::setAmSoftMuteMaxAttenuation</a> (uint8_t value)</td></tr>
 <tr class="memdesc:ga013c13629b964df2f0023dd0cfee5dfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets AM Soft Mute Max Attenuation.. <br  />
   <br /></td></tr>
@@ -1141,7 +1138,7 @@ Functions</h2></td></tr>
 <p>This library has other methods to get that information easier.</p>
 <dl class="section return"><dt>Returns</dt><dd>a pointer to a structure type <a class="el" href="group___g_a1.html#unionsi4844__status__response" title="Status response.">si4844_status_response</a> </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="group___g_b.html#ga0404927e7414a32125e32ff508bd450e">SI4844::getFrequency()</a>, <a class="el" href="group___g_b.html#ga3de561a939b708030dae788781adf7e0">SI4844::setBand()</a>, and <a class="el" href="group___g_b.html#ga67206874edff7473d420e013dd66864d">SI4844::setCustomBand()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="group___g_b.html#ga0404927e7414a32125e32ff508bd450e">SI4844::getFrequency()</a>, <a class="el" href="group___g_b.html#ga3de561a939b708030dae788781adf7e0">SI4844::setBand()</a>, and <a class="el" href="group___g_b.html#ga5c766d254b0c261a93dfd817f11b712c">SI4844::setCustomBand()</a>.</p>
 
 </div>
 </div>
@@ -1243,65 +1240,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga67206874edff7473d420e013dd66864d" name="ga67206874edff7473d420e013dd66864d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga67206874edff7473d420e013dd66864d">&#9670;&#160;</a></span>setCustomBand() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SI4844::setCustomBand </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>bandIndex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>botton</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>top</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>bandSpace</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This method allows you to customize the frequency range of a band. </p>
-<p>The <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> can work from 2.3–28.5 MHz on SW, 64.0–109.0MHz on FM</p>
-<p>You can configure the band index 40, for example, to work between 27 to 28 MHz.</p>
-<dl class="section see"><dt>See also</dt><dd>Si48XX ATDD PROGRAMMING GUIDE, pages 17, 18, 19 and 20.</dd></dl>
-<p>(top – button)/(bandSpace) must be betwenn 50 and 230</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">bandIndes</td><td>Predefined band index (valid values: betwenn 0 and 40) </td></tr>
-    <tr><td class="paramname">button</td><td>Band Bottom Frequency Limit </td></tr>
-    <tr><td class="paramname">top</td><td>Band Top Frequency Limit </td></tr>
-    <tr><td class="paramname">bandSpace</td><td>Channel Spacing (use 5 or 10 - On FM 10 = 100KHz) </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="reference">References <a class="el" href="group___g_b.html#ga3437ce047c5649597e1bccfb8c42cd5b">SI4844::getStatus()</a>.</p>
-
-</div>
-</div>
-<a id="ga8d8eec9fe06540ebc454e7b6ae5f0f4e" name="ga8d8eec9fe06540ebc454e7b6ae5f0f4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8d8eec9fe06540ebc454e7b6ae5f0f4e">&#9670;&#160;</a></span>setCustomBand() <span class="overload">[2/2]</span></h2>
+<a id="ga5c766d254b0c261a93dfd817f11b712c" name="ga5c766d254b0c261a93dfd817f11b712c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5c766d254b0c261a93dfd817f11b712c">&#9670;&#160;</a></span>setCustomBand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1334,19 +1274,19 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>dfband</em>, </td>
+          <td class="paramname"><em>dfband</em> = <code>0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>uni_am</em>, </td>
+          <td class="paramname"><em>uni_am</em> = <code>0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>tvreq</em>&#160;</td>
+          <td class="paramname"><em>tvreq</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
