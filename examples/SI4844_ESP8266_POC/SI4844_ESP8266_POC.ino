@@ -6,7 +6,7 @@
  *  
  *  | SI4844 pin |  ESP8266 pin |  Description                                       |
  *  | ---------  | ------------ | -------------------------------------------------  |
- *  |    2       | GPIO2        | Interrupt pin                                      |
+ *  |    2       | GPIO13       | Interrupt pin                                      |
  *  |   15       | GPIO15       | Regurlar digital pin used to RESET control         |
  *  |   16       | GPIO4(SDA)   | I2C bus (Data)                                     |
  *  |   17       | GPIO5(SCL)   | I2C bus (Clocl)                                    |
@@ -15,13 +15,15 @@
  *  Run the command "esptool.py flash_id"  to get information about your board. 
  *  More about ESP32C3 See: https://github.com/sidharthmohannair/Tutorial-ESP32-C3-Super-Mini 
  *
+ *  Goto to Tool Menu; Select Board: Generic ESP8266 Module
+ *
  *  Author: Ricardo Lima Caratti (PU2CLR)
  *  September, 2024
  */
 #include <SI4844.h>
 // Arduino Pin (tested on pro mini)
-#define INTERRUPT_PIN 2
-#define RESET_PIN    15
+#define INTERRUPT_PIN 13
+#define RESET_PIN     15
 #define DEFAULT_BAND  1
 
 #define I2C_SDA       4

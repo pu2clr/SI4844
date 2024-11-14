@@ -1,7 +1,7 @@
 /*
  * It is a Proof of Concept (POC) of using Si4844 with the Arduino Library for rx.
  * 
- *  SI4844 and Arduino Pro Mini connections
+ *  SI4844 and Arduino Pro Mini, Arduino Nano, Uno or LGT8F328  connections
  *  
  *  | SI4844 pin |  Arduino pin |  Description                                       |
  *  | ---------  | ------------ | -------------------------------------------------  |
@@ -9,6 +9,8 @@
  *  |   15       |  12          | Regurlar arduino digital pin used to RESET control |
  *  |   16       |  A4 (SDA)    | I2C bus (Data)                                     |
  *  |   17       |  A5 (SCL)    | I2C bus (Clocl)                                    |
+ * 
+ *  ATTENTION: Arduino Nano and Uno are 5V based board. Check the board voltage you are using
  * 
  * Author: Ricardo Lima Caratti (PU2CLR)
  * September, 2019
