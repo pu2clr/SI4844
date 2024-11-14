@@ -252,11 +252,13 @@ volatile static bool data_from_device;
  * @details You can control the interrupt process via your sketch intead of this library. 
  * @see setStatusInterruptFromDevice, getStatusInterruptFromDevice, setup 
  */
+#ifdef ESP8266
+  IRAM_ATTR
+#endif
 static void interrupt_hundler()
 {
    data_from_device = true;
 }
-
 
 /**
  * @brief SI4844 Class 

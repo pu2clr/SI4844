@@ -4,10 +4,10 @@
  * 
  *  SI4844 and ESP8266 connections
  *  
- *  | SI4844 pin |  Arduino pin |  Description                                       |
+ *  | SI4844 pin |  ESP8266 pin |  Description                                       |
  *  | ---------  | ------------ | -------------------------------------------------  |
  *  |    2       | GPIO2        | Interrupt pin                                      |
- *  |   15       | GPIO12       | Regurlar digital pin used to RESET control         |
+ *  |   15       | GPIO15       | Regurlar digital pin used to RESET control         |
  *  |   16       | GPIO4(SDA)   | I2C bus (Data)                                     |
  *  |   17       | GPIO5(SCL)   | I2C bus (Clocl)                                    |
  * 
