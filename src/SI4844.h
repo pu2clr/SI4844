@@ -253,7 +253,7 @@ volatile static bool data_from_device;
  * @see setStatusInterruptFromDevice, getStatusInterruptFromDevice, setup 
  */
 #ifdef ESP8266
-  IRAM_ATTR
+  IRAM_ATTR 
 #endif
 static void interrupt_hundler()
 {
