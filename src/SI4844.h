@@ -372,7 +372,7 @@ public :
   void resetStatus(void);
 
   /**
-   * @ingroup GB 
+   * @ingroup GB1 
    * @brief Gets the current audio volume level
    * 
    * @return Volume level 
@@ -381,14 +381,14 @@ public :
   uint8_t getVolumeProperty();
 
   /**
-   * @ingroup GB 
+   * @ingroup GB1 
    * @brief Get the Band Mode 
    * @return char*   "FM", "AM" or "SW"
    */
   inline char * getBandMode(){ return (char *) bandmode_table[status_response.refined.BANDMODE]; };
 
   /**
-   * @ingroup GB 
+   * @ingroup GB1 
    * @brief Get the Stereo Indicator 
    * @return char* "ON" or "OFF" 
    */

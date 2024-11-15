@@ -137,10 +137,10 @@ void SI4844::waitInterrupt(void)
         ;
 }
 
-/** @defgroup GB  Receiver Functions */
+/** @defgroup GB1  Receiver Functions */
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Initiates the SI4844 instance and connect the device (SI4844) to Arduino. 
  * @details Calling this library should be the first thing to do to control the SI4844.
  * @details If interruptPin is -1, it means you will control interrupt in your sketch. 
@@ -191,7 +191,7 @@ void SI4844::setInterruptPin(int interruptPin) {
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Used to debug  
  * @details use this function instead setup to check your implementation
  *  
@@ -238,7 +238,7 @@ void SI4844::debugDevice(uint16_t resetPin, uint16_t interruptPin, byte defaultB
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Resets the SI4844 device
  * @details Prepares the system  to be started.
  * @see pages 7, 8, 9 and 10 of the programming guide.
@@ -259,7 +259,7 @@ void SI4844::reset()
 
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief  Power the device down
  * @details Moves the SI4844 device from power up to power down mode. 
  * @see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
@@ -280,7 +280,7 @@ void SI4844::setDefaultBandIndx( uint8_t bandidx) {
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Power the device up
  * @details Moves the SI4844 device from power down to power up 
  * @see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
@@ -291,7 +291,7 @@ void SI4844::powerUp(void)
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Sets Crystal Oscillator Enable
  * @details 0 = Use external RCLK (crystal oscillator disabled).
  * @details 1 = Use crystal oscillator (XTALI and XTALO with external 32.768 kHz crystal).
@@ -305,7 +305,7 @@ void SI4844::setCrystalOscillatorEnable(uint8_t XOSCEN ) {
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Sets Crystal Oscillator Stabilization Wait Time After Reset.
  * @details 0 = 600 ms (for typical crystal)
  * @details 1 = 900 ms (for crystal requiring extra stabilization time)
@@ -320,7 +320,7 @@ void SI4844::setCrystalOscillatorStabilizationWaitTime(uint8_t XOWAIT) {
 
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Sets a new band to the device 
  * @details This method is used to select a band 
  * 
@@ -365,7 +365,7 @@ void SI4844::setBand(byte new_band)
 
 
 /**
- * @ingroup GB 
+ * @ingroup GB1 
  * @brief Checks the CTS status.
  * @details Checks whether the device is ready to receive a new command. 
  * @return true 
@@ -383,7 +383,7 @@ bool SI4844::isClearToSend(void)
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Wait for the ATDD become Clear to Send. 
  * @details Waits for CTS status
  */
@@ -395,7 +395,7 @@ inline void SI4844::waitToSend()
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @deprecated 
  * @brief Up or down the sound volume level
  * 
@@ -423,7 +423,7 @@ void SI4844::changeVolume(char command)
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Increases the volume level
  */
 void SI4844::volumeUp()
@@ -434,7 +434,7 @@ void SI4844::volumeUp()
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Decreases the volume level
  */
 void SI4844::volumeDown()
@@ -445,7 +445,7 @@ void SI4844::volumeDown()
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Sets the volume level. 
  * @details Sets a value to the audio volume.
  * @see Table 4, Si48XX ATDD PROGRAMMING GUIDE; AN610; page 11
@@ -463,7 +463,7 @@ void SI4844::setVolume(byte volumeLavel)
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Gets the current volume value stored in SI4844 device. 
  * @details Use getVolume instead. 
  * @return byte 
@@ -474,7 +474,7 @@ byte SI4844::getVolumeProperty() {
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Set the sound volume level, bass and treble.
  * 
  * | bass_treble | Description |
@@ -497,7 +497,7 @@ void SI4844::setBassTreble(byte bass_treble) {
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Less treble, more bass.
  */
 void SI4844::bassTrebleDown()
@@ -508,7 +508,7 @@ void SI4844::bassTrebleDown()
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief More treble, less bass
  */
 void SI4844::bassTrebleUp()
@@ -519,7 +519,7 @@ void SI4844::bassTrebleUp()
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Set audio mode 
  * 
  * @see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 21
@@ -575,7 +575,7 @@ si4844_audiomode_status_response SI4844::setAudioMode(byte audiomode, byte fm_mo
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief  Mutes the audio output.
  * 
  * @param value value 0 = normal (no mute); 1 = Right side mute; 2; Left side mute; 3 = both side 
@@ -586,7 +586,7 @@ void SI4844::audioMute(byte value)
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Mutes the audio output.
  * 
  * @param bool on false = normal (no mute); true = mute 
@@ -600,7 +600,7 @@ void SI4844::setAudioMute(bool on)
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Get tune freq, band, and others information, status of the device.
  * @details Use this method only if you want to deal with that information by yourself. 
  * @details This library has other methods to get that information easier. 
@@ -630,7 +630,7 @@ si4844_status_response *SI4844::getStatus()
 }
 
 /** 
- * @ingroup GB
+ * @ingroup GB1
  * @brief Get part number, chip revision, firmware, patch, and component revision numbers.
  * @details You do not need to call this method. It is executed just once at setup methos. 
  * @details There are other methods that give you that information.   
@@ -662,7 +662,7 @@ si4844_firmware_response *SI4844::getFirmware(void)
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Get the current frequency of the radio in KHz. 
  * @details For example: FM, 103900 KHz (103.9 MHz); SW, 7335 KHz (7.34 MHz, 41m)   
  * 
@@ -707,7 +707,7 @@ float SI4844::getFrequency(void)
 }
 
 /** 
- * @ingroup GB 
+ * @ingroup GB1 
  * @brief Checks whether the SI4844 has its status changed. 
  *  @details Actually it checks if the device triggered an external interruption due to some internal event. 
  *  @details For example: If you move the tuner, the status of the device is changed. 
@@ -720,7 +720,7 @@ bool SI4844::hasStatusChanged(void)
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief set the interrupr status to false. It will turn true after next interrupr  
  */
 void SI4844::resetStatus()
@@ -730,7 +730,7 @@ void SI4844::resetStatus()
 
 
 /** 
- * @ingroup GB
+ * @ingroup GB1
  * @brief This method allows you to customize the frequency range of a band.
  * @details The SI4844 can work from 2.3–28.5 MHz on SW, 64.0–109.0MHz on FM
  * @details You can configure the band index 40, for example, to work between 27 to 28 MHz.
@@ -795,7 +795,7 @@ void SI4844::setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, u
 
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Sets AM Soft Mute Max Attenuation..  
  * @details Maximum attenuation to apply when in soft mute. Specified in units of dB. Default maximum attenuation is 16 dB.
  * @details Set to 0 to disable soft mute. Valid range: 0 - 63. 
@@ -806,7 +806,7 @@ void SI4844::setAmSoftMuteMaxAttenuation(uint8_t value) {
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief FM Soft Mute Maximum Attenuation. 
  * @details Maximum attenuation to apply when in soft mute. Specified in units of dB. Default maximum attenuation is 16 dB.
  * @details Set to 0 to disable soft mute. Valid range: 0 - 31. 
@@ -818,7 +818,7 @@ void SI4844::setFmSoftMuteMaxAttenuation(uint8_t value)
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Sets de-emphasis time constant. 
  * @details Sets the FM Receive de-emphasis to 50 or 75 μs. Default is 75 μs.
  * 
@@ -830,7 +830,7 @@ void SI4844::setFmDeemphasis(uint8_t value) {
 
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Sets the attack and decay rates when entering and leaving soft mute. 
  * @details Later values increase rates, and lower values decrease rates. 
  * @details The CTS is set when it is safe to send the next command. This property may only be set or read when in powerup mode. The default is 64.
@@ -844,7 +844,7 @@ void SI4844::setFmSoftMuteRate(uint8_t value) {
 
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Configures attenuation slope during soft mute in dB attenuation per dB SNR below the soft mute SNR threshold.
  * @details Soft mute attenuation is the minimum of SMSLOPE x (SMTHR – SNR) and SMATTN.
  * @details The recommended SMSLOPE value is CEILING(SMATTN/SMTHR). SMATTN and SMTHR are set via the FM_SOFT_MUTE_MAX_ATTENUATION and FM_SOFT_MUTE_SNR_THRESHOLD properties.
@@ -858,7 +858,7 @@ void SI4844::setFmSoftMuteSlope(uint8_t value) {
 
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Sets the blend threshold for stereo indicator.
  * @details The CTS bit is set when it is safe to send the next command. This property may only be set or read when in powerup mode.
  * @details The default value is band dependent (either 0x9F or 0xB2)
@@ -871,7 +871,7 @@ void SI4844::setBlendThresholdStereoIndicator(uint16_t value) {
 
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Sets the attack and decay rates when entering or leaving soft mute. 
  * @details The value specified is multiplied by 4.35 dB/s to come up with the actual attack rate. The CTS bit is set when it is safe to send the next command.
  * @details This property may only be set or read when in power up mode. The default rate is 278 dB/s.
@@ -886,7 +886,7 @@ void SI4844::setAmSoftMuteRate(uint8_t value) {
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Configures attenuation slope during soft mute in dB attenuation per dB SNR below the soft mute SNR threshold.
  * @details Soft mute attenuation is the minimum of SMSLOPE x (SMTHR – SNR) and SMATTN. The recommended SMSLOPE value is CEILING(SMATTN/SMTHR).
  * @details SMATTN and SMTHR are set via the AM_SOFT_MUTE_MAX_ATTENUATION and AM_SOFT_MUTE_SNR_THRESHOLD properties. The CTS bit is
@@ -900,7 +900,7 @@ void SI4844::setAmSoftMuteSlope(uint8_t value) {
 }
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief  Sets the SNR threshold to engage soft mute.
  * @details Whenever the SNR for a tuned frequency drops below this threshold the AM reception will go in soft mute, provided soft mute max attenuation property is non-zero. The CTS bit is set when it is safe to send the next command. 
  * @details This property may only be set or read when in power up mode. The default SNR threshold is 8.
@@ -914,7 +914,7 @@ void SI4844::setAmSoftMuteSnrThreshold(uint8_t value) {
 
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Sets the frequency of the REFCLK from the output of the prescaler
  * @details The REFCLK range is 31130 to 34406 Hz (32768 ±5% Hz) in 1 Hz steps, or 0 (to disable AFC).
  * @details For example, an reference clock at XTALI pin of 13 MHz would require a prescaler value of 400 to divide it to 32500 Hz REFCLK.
@@ -928,7 +928,7 @@ void SI4844::setReferenceClockFrequency(uint16_t value) {
 
 
 /**
- * @ingroup GB
+ * @ingroup GB1
  * @brief Sets the number used by the prescaler to divide the external reference clock frequency down to the internal REFCLK.
  * @details The range may be between 1 and 4095 in 1 unit steps. For example, an XTALI reference clock of 13 MHz would require a prescaler value of 400 to divide it to 3250 Hz. 
  * @details The reference clock frequency property would then need to be set to 32500 Hz. The reference clock must be valid 10 ns before the chip reset signal. In addition, the reference clock must be valid at all times for proper tuning and AFC operations. 
