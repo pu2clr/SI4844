@@ -11,7 +11,7 @@
 
 #include "SI4844.h"
 
-/** @defgroup GB  Basic Functions */
+/** @defgroup BF  Basic Functions */
 
 /**
  * @ingroup BF
