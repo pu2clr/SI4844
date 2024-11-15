@@ -29,7 +29,7 @@ void setup() {
   Serial.begin(9600);
   delay(1000);
 
-  Serial.print(F("\STM32F1 - Begin...\n"));
+  Serial.print(F("\nSTM32F1 - Starting...\n"));
   Serial.flush();
 
   Wire.begin(I2C_SDA, I2C_SCL);
@@ -38,7 +38,7 @@ void setup() {
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // rx.setCrystalOscillatorStabilizationWaitTime(1);
   rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
-  Serial.print(F("\STM32F1 - Working...\n"));
+  Serial.print(F("\nSTM32F1 - Working...\n"));
   showStatus();
   delay(200);
   rx.setVolume(48);
