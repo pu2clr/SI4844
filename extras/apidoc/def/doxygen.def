@@ -188,7 +188,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
-      sec-mem-id   = 'class_s_i4844_1aca88698cca086f09f23d29734132bfec';
+      sec-mem-id   = 'group___b_f_1gaca88698cca086f09f23d29734132bfec';
       sec-mem-virt = normal;
       sec-mem-prot = public;
       sec-mem-type = <<_EnD_oF_dEf_TeXt_
@@ -223,7 +223,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
-      sec-mem-id   = 'class_s_i4844_1a28ec82cb2fd02a0422e8ef3858e5ddcb';
+      sec-mem-id   = 'group___b_f_1ga28ec82cb2fd02a0422e8ef3858e5ddcb';
       sec-mem-virt = normal;
       sec-mem-prot = public;
       sec-mem-type = <<_EnD_oF_dEf_TeXt_
@@ -473,7 +473,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
-      sec-mem-id   = 'class_s_i4844_1af4b90cf2e7a654718e2c65de5def0928';
+      sec-mem-id   = 'group___b_f_1gaf4b90cf2e7a654718e2c65de5def0928';
       sec-mem-virt = normal;
       sec-mem-prot = public;
       sec-mem-type = <<_EnD_oF_dEf_TeXt_
@@ -949,7 +949,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
-      sec-mem-id   = 'class_s_i4844_1a8b2c96a6126110589a403751ec12631c';
+      sec-mem-id   = 'group___b_f_1ga8b2c96a6126110589a403751ec12631c';
       sec-mem-virt = normal;
       sec-mem-prot = public;
       sec-mem-type = <<_EnD_oF_dEf_TeXt_
@@ -1604,7 +1604,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
-      sec-mem-id   = 'class_s_i4844_1ac080ba62ed2de41f80c1fe08135362a3';
+      sec-mem-id   = 'group___b_f_1gac080ba62ed2de41f80c1fe08135362a3';
       sec-mem-virt = normal;
       sec-mem-prot = public;
       sec-mem-type = <<_EnD_oF_dEf_TeXt_
@@ -1720,7 +1720,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
-      sec-mem-id   = 'class_s_i4844_1a1a00037a2cedbe25d1d53716a1c20c00';
+      sec-mem-id   = 'group___b_f_1ga1a00037a2cedbe25d1d53716a1c20c00';
       sec-mem-virt = normal;
       sec-mem-prot = public;
       sec-mem-type = <<_EnD_oF_dEf_TeXt_
@@ -1944,7 +1944,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
-      sec-mem-id   = 'class_s_i4844_1a34c4b208e45ee1b414afe5113b98db9f';
+      sec-mem-id   = 'group___b_f_1ga34c4b208e45ee1b414afe5113b98db9f';
       sec-mem-virt = normal;
       sec-mem-prot = private;
       sec-mem-type = <<_EnD_oF_dEf_TeXt_
