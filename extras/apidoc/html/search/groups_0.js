@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['device_20checking_0',['Device Checking',['../group___t_o_o_l_s.html',1,'']]]
+  ['basic_20functions_0',['Basic Functions',['../group___g_b.html',1,'']]]
 ];

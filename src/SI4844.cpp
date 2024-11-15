@@ -11,10 +11,10 @@
 
 #include "SI4844.h"
 
-/** @defgroup GB  Member Functions */
+/** @defgroup GB  Basic Functions */
 
 /**
- * @ingroup GB
+ * @ingroup BF
  * @brief Sends (sets) property to the SI48XX
  * 
  * @details This method is used for others to send generic properties and params to SI4844
@@ -42,7 +42,7 @@ void SI4844::setProperty(uint16_t propertyNumber, uint16_t parameter)
 }
 
 /**
- * @ingroup GB 
+ * @ingroup BF 
  * @brief Gets a given property from the SI4844
  * 
  * @details This method is used to get a given property from SI47XX
@@ -82,7 +82,7 @@ uint16_t SI4844::getProperty(uint16_t propertyNumber)
 }
 
 /**
- * @ingroup GB
+ * @ingroup BF
  * @brief Sends a given command to the SI4844 device. 
  * @details This function can be useful when you want to execute a SI4844 device command and it was not implemented by this library.
  * @details Also, you need to work with bit operators to compose the parameters of the command [ &(and), ˆ(xor), |(or) etc ].   
@@ -106,7 +106,7 @@ void SI4844::sendCommand(uint8_t cmd, int parameter_size, const uint8_t *paramet
 }
 
 /**
- * @ingroup GB
+ * @ingroup BF
  * @brief   Returns with the command response.  
  * @details After a command is executed by the device, you can get the result (response) of the command by calling this method.
  * 
@@ -125,7 +125,7 @@ void SI4844::getCommandResponse(int response_size, uint8_t *response)
 }
 
 /**
- * @ingroup GB
+ * @ingroup BF
  * @brief   Waiting for an external interrupt
  * @details This function is called whenever the status of ATDD (SI4844) changes. 
  * @details It can occur, for example, when you use the analog tuner.  
@@ -136,6 +136,8 @@ void SI4844::waitInterrupt(void)
     while (!data_from_device)
         ;
 }
+
+/** @defgroup GB  Receiver Functions */
 
 /**
  * @ingroup GB

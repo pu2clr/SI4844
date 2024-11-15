@@ -1,8 +1,8 @@
 var searchData=
 [
   ['getbandmode_0',['getBandMode',['../group___g_b.html#ga97b111334d8e6ac08db8c500945c15a8',1,'SI4844']]],
-  ['getcommandresponse_1',['getCommandResponse',['../group___g_b.html#gaca88698cca086f09f23d29734132bfec',1,'SI4844']]],
-  ['getdatastatusinterruptfromdevice_2',['getDataStatusInterruptFromDevice',['../group___g_b.html#ga28ec82cb2fd02a0422e8ef3858e5ddcb',1,'SI4844']]],
+  ['getcommandresponse_1',['getCommandResponse',['../class_s_i4844.html#aca88698cca086f09f23d29734132bfec',1,'SI4844']]],
+  ['getdatastatusinterruptfromdevice_2',['getDataStatusInterruptFromDevice',['../class_s_i4844.html#a28ec82cb2fd02a0422e8ef3858e5ddcb',1,'SI4844']]],
   ['getfirmware_3',['getFirmware',['../group___g_b.html#ga1d119d683bed417b108ef1ccf3a2d20c',1,'SI4844']]],
   ['getfirmwarechiprevision_4',['getFirmwareChipRevision',['../class_s_i4844.html#a4a1426b64c33c34bbdab5f994fba7b5f',1,'SI4844']]],
   ['getfirmwarecomponentmajorrevision_5',['getFirmwareComponentMajorRevision',['../class_s_i4844.html#a0522080cd810f935f081526427bdaba4',1,'SI4844']]],
@@ -14,7 +14,7 @@ var searchData=
   ['getfirmwarepartnumber_11',['getFirmwarePartNumber',['../class_s_i4844.html#aada13c283d6450faf9f8c1b05dd86ca9',1,'SI4844']]],
   ['getfirmwarereserved_12',['getFirmwareReserved',['../class_s_i4844.html#af727aa9c1860b88825fb7254fdf9eabb',1,'SI4844']]],
   ['getfrequency_13',['getFrequency',['../group___g_b.html#ga0404927e7414a32125e32ff508bd450e',1,'SI4844']]],
-  ['getproperty_14',['getProperty',['../group___g_b.html#gaf4b90cf2e7a654718e2c65de5def0928',1,'SI4844']]],
+  ['getproperty_14',['getProperty',['../class_s_i4844.html#af4b90cf2e7a654718e2c65de5def0928',1,'SI4844']]],
   ['getstatus_15',['getStatus',['../group___g_b.html#ga3437ce047c5649597e1bccfb8c42cd5b',1,'SI4844']]],
   ['getstatusbandindex_16',['getStatusBandIndex',['../class_s_i4844.html#a33cd94c52839dc76bb020d0ed2a296c5',1,'SI4844']]],
   ['getstatusbandmode_17',['getStatusBandMode',['../class_s_i4844.html#a2532681efe63c1b7e50847338d218159',1,'SI4844']]],

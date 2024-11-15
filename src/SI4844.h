@@ -296,7 +296,7 @@ private:
 
 public :
   /**
-   * @ingroup GB
+   * @ingroup BF
    * @brief Set the Data Status From Device 
    * @details It is a flag that means the device triggered an interrupt.
    * @details You can use this function to back the flag status to false. This way you can check when the device triggers the next interrupt.
@@ -304,8 +304,9 @@ public :
    * @param value true or false
    */
   inline void setStatusInterruptFromDevice( bool value ) { data_from_device = value; };
+
   /**
-   * @ingroup GB 
+   * @ingroup BF 
    * @brief Get the Data Status From Device 
    * @details It returns true when the device has triggered an interrupt. 
    * @return true or false
