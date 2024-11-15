@@ -4,8 +4,8 @@
  *  
  *  | SI4844 pin |  STM32F1 pin |  Description                                       |
  *  | ---------  | ------------ | -------------------------------------------------  |
- *  |    2       |   PA11       | Interrupt pin                                      |
- *  |   15       |   PA12       | Regurlar digital pin used to RESET control         |
+ *  |    2       |   PA0        | Interrupt pin                                      |
+ *  |   15       |   PB4        | Regurlar digital pin used to RESET control         |
  *  |   16       |   PB7 (SDA)  | I2C bus (Data)                                     |
  *  |   17       |   PB6 (SCL)  | I2C bus (Clocl)                                    |
  * 
@@ -15,9 +15,13 @@
 
 #include <SI4844.h>
 
-#define RESET_PIN PA12
-#define INTERRUPT_PIN PA11
+#define RESET_PIN PB4
+#define INTERRUPT_PIN PA0
 #define DEFAULT_BAND 1
+
+#define I2C_SDA   PB7
+#define I2C_SCL   PB6
+
 
 SI4844 rx; 
 
@@ -25,14 +29,16 @@ void setup() {
   Serial.begin(9600);
   delay(1000);
 
-  Serial.print(F("\nESP32C3 - Begin...\n"));
+  Serial.print(F("\STM32F1 - Begin...\n"));
   Serial.flush();
 
+  Wire.begin(I2C_SDA, I2C_SCL);
 
   instructions();
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // rx.setCrystalOscillatorStabilizationWaitTime(1);
   rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+  Serial.print(F("\STM32F1 - Working...\n"));
   showStatus();
   delay(200);
   rx.setVolume(48);
@@ -42,7 +48,7 @@ void setup() {
 
 // Shows instruções
 void instructions() {
-  Serial.println(F("-------------------ESP32C3---CONTROLLER------------------"));
+  Serial.println(F("-------------------STM32F1---CONTROLLER------------------"));
   Serial.println(F("Type F - FM; A - AM; 1 to 7 - SW1 to SW7"));
   Serial.println(F("Type f - Custom FM - from 77 to 109 MHz - Step 200kHz"));
   Serial.println(F("Type h - Custom FM - from 101 to 104 MHz - Step 200kHz"));
