@@ -140,7 +140,7 @@ The sketch [SI4844_BASS_TREBLE.ino](https://github.com/pu2clr/SI4844/tree/master
 ![SI4844 AND ESP32-C3 SETUP](../extras/images/SI4844_ESP32C3_SETUP.jpg)
 
 
-### SI4844 AND ESP8266-C3 SETUP
+### SI4844 AND ESP8266 SETUP
 
 ![SI4844 AND ESP8266 SETUP](../extras/images/SI4844_ESP8266_SETUP.jpg)
 
