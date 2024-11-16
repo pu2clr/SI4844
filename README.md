@@ -176,7 +176,7 @@ To use this labrary you need to build a radio based on SI4844 connected to Ardui
 
 #### SI4844 minimal circuit
 
-![schematic SI4844 minimal circuit](./extras/images/SI4844_ARDUINO_SETUP.jpg)
+![schematic SI4844 minimal circuit](./extras/images/schematic_SI4844_minimal_circuit.png)
 
 
 
