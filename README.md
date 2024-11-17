@@ -5,6 +5,10 @@
 This Arduino library was developed to work with the **SI4822, SI4826, SI4827, SI4840, 4844A, and 4844B** "BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER" devices.
 It is available on Arduino IDE. This library is intended to provide an easier interface to control the SI48XX family.
 
+The SI4844, along with other devices in its family, provides the ideal combination of analog tuning and digital interface, enabling the development of receivers reminiscent of the iconic models from the 1970s and 1980s. These classic receivers featured visual interfaces using liquid crystal displays or LEDs, offering a unique and nostalgic user experience. Therefore, a notable application for the SI4844 is the construction of a vintage-style receiver that blends retro aesthetics with modern technology.
+
+
+
 Use the 'Content Index' of this documentation and the example sketches, especially [SI4844_00_POC.ino](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_00_POC), to make the most of this library.
 
 
@@ -42,8 +46,6 @@ I hold a Master's degree in Educational Technology from the Federal University o
 9. [References](https://pu2clr.github.io/SI4844/#references)
 10. [Source code - Arduino Examples](https://pu2clr.github.io/SI4844/#examples)
 11. [Videos](https://pu2clr.github.io/SI4844/#videos) 
-
-
 
 
 {% include libhistory.html %}
