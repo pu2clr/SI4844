@@ -2,25 +2,33 @@
 
   Wire up on Arduino UNO, Nano, Pro mini or or LGT8F328
 
-  | Device name               | Device Pin / Description      |  Arduino Pin  |
-  | ----------------          | ----------------------------- | ------------  |
-  |    TM1638                 |                               |               |
-  |                           | STB                           |    4          |
-  |                           | CLK                           |    7          |
-  |                           | DIO                           |    8          |
-  |                           | VCC                           |    3.3V       |
-  |                           | GND                           |    GND        |
+  | Device name     | Device Pin / Description |  Arduino Pin  |
+  | ----------------| -------------------------| ------------  |
+  |  TM1638         |                          |               |
+  |                 | STB                      |    4          |
+  |                 | CLK                      |    7          |
+  |                 | DIO                      |    8          |
+  |                 | VCC                      |    3.3V       |
+  |                 | GND                      |    GND        |
+  | SI4844 pin      |                                               |
+  | --------------- | -------------------------| ------------- |
+  |    2            | interrupt pin            |    2          | 
+  |   15            | RESET control            |   12          |
+  |   16            | I2C bus (Data)           |   A4 (SDA)    | 
+  |   17            | I2C bus (Clocl)          |   A5 (SCL)    |
   
  */
 
 #include <TM1638lite.h>
 #include <SI4844.h>
 
+#define INTERRUPT_PIN 2
+#define RESET_PIN 12
+#define DEFAULT_BAND 1
 
 #define TM1638_STB   4
 #define TM1638_CLK   7
 #define TM1638_DIO   8
-
 
 // TM1638 - Buttons controllers
 #define BAND_BUTTON_FM  1       // S1 FM
@@ -33,13 +41,23 @@
 #define VOLUME_DOWN 8           // S5 VOL -
 
 
-uint8_t currentMode = 0; // 0 = FM, 1 = MW and 2 = SW
-
 
 TM1638lite tm(TM1638_STB, TM1638_CLK, TM1638_DIO);
 SI4844 rx;
 
 void setup() {
+
+  // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
+  // rx.setCrystalOscillatorStabilizationWaitTime(1);
+  rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+  showStatus();
+  delay(200);
+  rx.setVolume(48);
+  showStatus();
+
+}
+
+void showStatus() {
 
 }
 
@@ -79,13 +97,13 @@ void showFrequency()
  */
 void showMode() {
     for (int i = 4; i < 8; i++ ) {
-       tm.setLED (i, (i - 4) == currentMode);
+       tm.setLED (i, (i - 4) == rx.getStatusBandMode());
     }
 }
 
 void showRxStatus () {
 
-    if (currentMode == 0 ) {
+    if (rx.getStatusBandMode() == 0 ) {
         tm.setLED (0, rx.getStatusStereo()); // Indicates Stereo or Mono 
     }
 
@@ -108,8 +126,8 @@ void loop() {
         case VOLUME_UP:  
         case VOLUME_DOWN: 
         default: 
+        break;
     }
-
 
     delay(1);
 
