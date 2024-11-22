@@ -994,7 +994,7 @@ void SI4844::setReferenceClockPrescaler(uint16_t value) {
 
 
 
-/** @defgroup TOOLS Device Checking*/
+/** @defgroup TOOLS Helper Functions */
 
 /**
  * @ingroup TOOLS Detect Device
