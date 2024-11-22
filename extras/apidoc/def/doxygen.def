@@ -532,7 +532,7 @@ _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
  Gets the currente frequency of the receiver and return a point to char (string) with the formatted frequency 
 @param removeRightDigit number of less significant digits to be removed (FM mode only)
-@return  point to char with the current frequency
+@return  point to char with the formatted current frequency
 _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
