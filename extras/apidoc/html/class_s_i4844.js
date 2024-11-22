@@ -24,6 +24,7 @@ var class_s_i4844 =
     [ "getFrequency", "group___g_b1.html#ga0404927e7414a32125e32ff508bd450e", null ],
     [ "getFrequencyInteger", "group___g_b1.html#ga0eafb7b0438fb9e70c91d368929c6aed", null ],
     [ "getProperty", "group___b_f.html#gaf4b90cf2e7a654718e2c65de5def0928", null ],
+    [ "getRawChannelFrequency", "group___g_b1.html#gaa25f66f4d68dbc14101ee159e6271cdd", null ],
     [ "getStatus", "group___g_b1.html#ga3437ce047c5649597e1bccfb8c42cd5b", null ],
     [ "getStatusBandIndex", "group___g_b1.html#ga33cd94c52839dc76bb020d0ed2a296c5", null ],
     [ "getStatusBandMode", "group___g_b1.html#ga2532681efe63c1b7e50847338d218159", null ],

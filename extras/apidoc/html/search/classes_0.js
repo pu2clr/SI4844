@@ -11,10 +11,11 @@ var searchData=
   ['si4844_5faudiomode_5fstatus_5fresponse_2estatus_8',['si4844_audiomode_status_response.status',['../group___g_a1.html#structsi4844__audiomode__status__response_8status',1,'']]],
   ['si4844_5ffirmware_5finfo_9',['si4844_firmware_info',['../group___g_a1.html#structsi4844__firmware__info',1,'']]],
   ['si4844_5ffirmware_5fresponse_10',['si4844_firmware_response',['../_s_i4844_8h.html#unionsi4844__firmware__response',1,'']]],
-  ['si4844_5fget_5fstatus_11',['si4844_get_status',['../group___g_a1.html#structsi4844__get__status',1,'']]],
-  ['si4844_5fproperty_12',['si4844_property',['../_s_i4844_8h.html#unionsi4844__property',1,'']]],
-  ['si4844_5fproperty_2eraw_13',['si4844_property.raw',['../_s_i4844_8h.html#structsi4844__property_8raw',1,'']]],
-  ['si4844_5fstatus_14',['si4844_status',['../group___g_a1.html#unionsi4844__status',1,'']]],
-  ['si4844_5fstatus_2erefined_15',['si4844_status.refined',['../group___g_a1.html#structsi4844__status_8refined',1,'']]],
-  ['si4844_5fstatus_5fresponse_16',['si4844_status_response',['../group___g_a1.html#unionsi4844__status__response',1,'']]]
+  ['si4844_5fget_5fchannel_5ffrequency_11',['si4844_get_channel_frequency',['../_s_i4844_8h.html#structsi4844__get__channel__frequency',1,'']]],
+  ['si4844_5fget_5fstatus_12',['si4844_get_status',['../group___g_a1.html#structsi4844__get__status',1,'']]],
+  ['si4844_5fproperty_13',['si4844_property',['../_s_i4844_8h.html#unionsi4844__property',1,'']]],
+  ['si4844_5fproperty_2eraw_14',['si4844_property.raw',['../_s_i4844_8h.html#structsi4844__property_8raw',1,'']]],
+  ['si4844_5fstatus_15',['si4844_status',['../group___g_a1.html#unionsi4844__status',1,'']]],
+  ['si4844_5fstatus_2erefined_16',['si4844_status.refined',['../group___g_a1.html#structsi4844__status_8refined',1,'']]],
+  ['si4844_5fstatus_5fresponse_17',['si4844_status_response',['../group___g_a1.html#unionsi4844__status__response',1,'']]]
 ];

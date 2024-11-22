@@ -9,6 +9,7 @@ var group___g_b1 =
     [ "SI4844::getFirmware", "group___g_b1.html#ga1d119d683bed417b108ef1ccf3a2d20c", null ],
     [ "SI4844::getFrequency", "group___g_b1.html#ga0404927e7414a32125e32ff508bd450e", null ],
     [ "SI4844::getFrequencyInteger", "group___g_b1.html#ga0eafb7b0438fb9e70c91d368929c6aed", null ],
+    [ "SI4844::getRawChannelFrequency", "group___g_b1.html#gaa25f66f4d68dbc14101ee159e6271cdd", null ],
     [ "SI4844::getStatus", "group___g_b1.html#ga3437ce047c5649597e1bccfb8c42cd5b", null ],
     [ "SI4844::getStatusBandIndex", "group___g_b1.html#ga33cd94c52839dc76bb020d0ed2a296c5", null ],
     [ "SI4844::getStatusBandMode", "group___g_b1.html#ga2532681efe63c1b7e50847338d218159", null ],

@@ -5,6 +5,10 @@ var _s_i4844_8h =
       [ "raw", "_s_i4844_8h.html#a8942ea634be3db7275ac9fbb3cc26dd3", null ],
       [ "refined", "_s_i4844_8h.html#a88c3f7f813f5e6c249de39f37793687d", null ]
     ] ],
+    [ "si4844_get_channel_frequency", "_s_i4844_8h.html#structsi4844__get__channel__frequency", [
+      [ "CHFREQ", "_s_i4844_8h.html#af2fdf7025c6dcb7c1c3fecc517867eb9", null ],
+      [ "dummy", "_s_i4844_8h.html#ac9d9fe6d40f952d3584f5558cca163ef", null ]
+    ] ],
     [ "si4844_property", "_s_i4844_8h.html#unionsi4844__property", [
       [ "raw", "_s_i4844_8h.html#a3097d86ad9d932b95330991ee312e93e", null ],
       [ "value", "_s_i4844_8h.html#a2f87d941759c895e3e1d671b56a9e444", null ]

@@ -151,6 +151,11 @@ typedef struct
   uint8_t d3 : 4;        // frequency digit 3
 } si4844_get_status;
 
+typedef struct { 
+  uint16_t dummy; 
+  uint16_t CHFREQ;
+} si4844_get_channel_frequency;
+
 /**
  * @ingroup GA1
  * @brief Status response 
@@ -158,6 +163,7 @@ typedef struct
 */
 typedef union {
   si4844_get_status refined;
+  si4844_get_channel_frequency rawStatus;
   uint8_t raw[4];
 } si4844_status_response;
 
@@ -438,6 +444,18 @@ public :
    */
   inline uint16_t  getStatusInformationReady() { return status_response.refined.INFORDY; };
 
+  /** 
+   * @ingroup GB1 
+   * @brief Gets the Channel Frequency.
+   * @details The channel frequency is a 16-bit word of 4 digits in BCD format:
+   * @details FM 0640..1090 (64.0–109.0 MHz)
+   * @details AM 0504..1750 (504–1750 kHz)
+   * @details SW4 *0230..2850 (2.3– 28.5 MHz)
+   * @details For FM band, if the China TV channel audio sub-carrier display feature is enabled, the CHFREQ bit[15] MSB = 1 means the host controller needs to add an additional 50 kHz for the channel frequency. 
+   * @details For SW band, the CHFREQ bit[15] MSB = 1 means the host controller needs to add an additional 5 kHz for the channel frequency.
+   * @return 0 = Tune info not ready yet; 1 = Tune info ready 
+   */
+  inline uint16_t  getRawChannelFrequency() { return status_response.rawStatus.CHFREQ; };
 
   inline uint16_t  getStatusHostPowerUp() { return status_response.refined.HOSTPWRUP; };
   inline uint16_t  getStatusHostReset() { return status_response.refined.HOSTRST; };
