@@ -368,7 +368,7 @@ public :
   void powerUp(void);
 
   float getFrequency(void);
-  uint32_t getIntegerFrequency(void);
+  uint32_t getFrequencyInteger(void);
   bool hasStatusChanged(void);
   void resetStatus(void);
 
@@ -423,7 +423,7 @@ public :
 
   uint8_t scanI2CBus(uint8_t *device, uint8_t limit);
   bool detectDevice();
-  void convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t dot, uint8_t separator, bool remove_leading_zeros);
+  void convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t dot, uint8_t separator, bool remove_leading_zeros = true);
 
 
 };

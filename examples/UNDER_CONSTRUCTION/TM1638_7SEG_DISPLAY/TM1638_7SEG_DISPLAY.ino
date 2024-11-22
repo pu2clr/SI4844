@@ -84,7 +84,7 @@ void showFrequency()
   char bufferDisplay[9];
   bufferDisplay[8] = '\0';
 
-  // TODO  
+  rx.convertToChar(rx.getFrequencyInteger(), bufferDisplay, 5, 3, ',', true);
 
   for (int pos = 3; pos < 8; pos++ )
      tm.displayASCII(pos,bufferDisplay[pos-3]);

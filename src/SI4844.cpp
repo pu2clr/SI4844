@@ -714,7 +714,7 @@ float SI4844::getFrequency(void)
  * 
  * @return uint32_t current frequency in KHz.  
  */
-uint32_t SI4844::getIntegerFrequency(void)
+uint32_t SI4844::getFrequencyInteger(void)
 {
     getStatus();
     int addFactor = 0;
