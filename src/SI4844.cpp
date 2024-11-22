@@ -1091,7 +1091,7 @@ void SI4844::convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t 
  * @brief Gets Formatted Frequency
  * @details Gets the currente frequency of the receiver and return a point to char (string) with the formatted frequency 
  * @param  removeRightDigit number of less significant digits to be removed (FM mode only)
- * @return  point to char with the current frequency
+ * @return  point to char with the formatted current frequency
  */
 char* SI4844::getFormattedFrequency(uint8_t removeRightDigit) {
 
