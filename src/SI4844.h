@@ -290,6 +290,7 @@ private:
   // SI4844 band description (FM = 0; AM = 1; SW = 2)
   const char *bandmode_table[3] = {"FM", "AM", "SW"};
   const char *stereo_indicator_table[2] = {"Off","On "};
+  char strFormattedCurrentFrequenct[8];
 
   uint8_t volume = 30;
   uint8_t bassTreble = 4;   
@@ -424,7 +425,7 @@ public :
   uint8_t scanI2CBus(uint8_t *device, uint8_t limit);
   bool detectDevice();
   void convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t dot, uint8_t separator, bool remove_leading_zeros = true);
-
+  char* getFormattedFrequency(uint8_t removeRightDigit = 0);
 
 };
 

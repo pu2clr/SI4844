@@ -16,10 +16,20 @@
  * September, 2019
  */
 #include <SI4844.h>
+#include <EEPROM.h>
+
 // Arduino Pin (tested on pro mini)
 #define INTERRUPT_PIN 2
 #define RESET_PIN 12
 #define DEFAULT_BAND 1
+
+#define STORE_TIME 10000 // Time of inactivity to make the current receiver status writable (10s / 10000 milliseconds).
+
+// EEPROM - Stroring control variables
+const uint8_t app_id = 31; // Useful to check the EEPROM content before processing useful data
+const int eeprom_address = 0;
+long storeTime = millis();
+
 
 SI4844 rx; 
 
@@ -29,15 +39,37 @@ void setup() {
 
   Serial.print(F("\nBegin...\n"));
  
+  EEPROM.begin();
+
   instructions();
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // rx.setCrystalOscillatorStabilizationWaitTime(1);
   rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
-  showStatus();
-  delay(200);
-  rx.setVolume(48);
+  if (EEPROM.read(eeprom_address) == app_id)
+  {
+    readAllReceiverInformation();
+  } else 
+    rx.setVolume(48);
+
   showStatus();
 }
+
+void saveAllReceiverInformation()
+{
+  int addr_offset;
+
+  EEPROM.update(eeprom_address, app_id);                        // stores the app id;
+  EEPROM.update(eeprom_address + 1, rx.getVolume());            // stores the current Volume
+  EEPROM.update(eeprom_address + 2, rx.getStatusBandIndex());   // Stores the current band
+
+}
+
+void readAllReceiverInformation()
+{
+  rx.setVolume(EEPROM.read(eeprom_address + 1));
+  rx.setBand(EEPROM.read(eeprom_address + 2));
+}
+
 // Shows instruções
 void instructions() {
   Serial.println(F("---------------------------------------------------"));
@@ -50,6 +82,7 @@ void instructions() {
   Serial.println(F("Type C - CB (custom Band 27.0 to 27.5 MHz"));
   Serial.println(F("Type o to Power Down"));
   Serial.println(F("Type I to Firmware Information"));
+  Serial.println(F("Type R to RESET the EEPROM"));
   Serial.println(F("---------------------------------------------------"));
   delay(500);
 }
@@ -73,20 +106,21 @@ void show_firmware_information() {
 }
 
 void showStatus() {
-    Serial.print(F("Band Index: "));
-    Serial.print(rx.getStatusBandIndex());
-    Serial.print(F(" - "));
-    Serial.print(rx.getBandMode());
-    Serial.print(F(" - Frequency: "));    
-    Serial.print(rx.getFrequencyInteger());
-    Serial.print(F(" KHz"));
+
+    char str[80];
+    char aux[15];
+    char* unt;
     if (rx.getStatusBandMode() == 0) {
-      Serial.print(F(" - Stereo "));
-      Serial.print(rx.getStereoIndicator());
+      strcpy(aux,"Stereo ");
+      strcat(aux, rx.getStereoIndicator() );
+      unt = "MHZ";
+    } else {
+      strcpy(aux,"AM MONO");
+      unt = "kHz";
     }
-    Serial.print(F(" - Volume: "));
-    Serial.print(rx.getVolume());
-    Serial.println("");  
+    sprintf(str,"\nMode: %d - Idx: %2.2d %s - Freq.: %s %s - %s - Vol.: %d", rx.getStatusBandMode(), rx.getStatusBandIndex(), rx.getBandMode(), rx.getFormattedFrequency(2), unt, aux, rx.getVolume() );
+    Serial.print(str);  
+
 }
 
 // Control
@@ -103,11 +137,11 @@ void loop() {
       rx.setBand(1); // FM band
       break;
     case 'f': 
-      Serial.println(F("Custom FM Band:  from to 77 to 109 MHz - Step 200 kHz"));
+      Serial.println(F("\nCustom FM Band:  from to 77 to 109 MHz - Step 200 kHz"));
       rx.setCustomBand(3,7700,10900,20);    
       break;
     case 'h': 
-      Serial.println(F("Custom FM Band:  from to 101 to 104 MHz - Step 200 kHz"));
+      Serial.println(F("\nCustom FM Band:  from to 101 to 104 MHz - Step 200 kHz"));
       rx.setCustomBand(3,10100,10400,20);  
       break;    
     case 'a':
@@ -142,30 +176,38 @@ void loop() {
       rx.volumeDown();
       break;  
     case 'o':
-       Serial.println(F("Power Down"));
+       Serial.println(F("\nPower Down"));
        delay(500); 
       rx.powerDown();
       break;  
     case 'c':
       // Configure the Pre-defined Band (band index 26) to work between 5.7 to 6.2 MHz
       // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
-      Serial.println(F("Custom Band:  5.7 to 6.2 MHz"));
+      Serial.println(F("\nCustom Band:  5.7 to 6.2 MHz"));
       rx.setCustomBand(26,5700,6200,5);  
       break;      
     case 'C': 
       // Configure the Pre-defined Band (band index 40) to work between 27.0 to 27.5 MHz
       // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
-      Serial.println(F("Custom Band: 27.0 to 27.5 MHz"));
+      Serial.println(F("\nCustom Band: 27.0 to 27.5 MHz"));
       rx.setCustomBand(40,27000,27500,5);  
       break;  
     case 'I': 
     case 'i':
       show_firmware_information();
       break;
+    case 'R':
+      EEPROM.update(eeprom_address, 0);
+      Serial.println(F("\nEEPROM RESET..."));  
+      break;  
     }
   }
   if (rx.hasStatusChanged())
   {
     showStatus();
+    if ( (millis() - storeTime) > STORE_TIME  ) {
+      storeTime = millis();
+      saveAllReceiverInformation();
+    }
   }
 }

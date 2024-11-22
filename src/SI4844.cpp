@@ -801,6 +801,9 @@ void SI4844::setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, u
 
     this->currentBand = bandIndex;
 
+    this->setBand(bandIndex);   // For some reason, before switching to a custom band you have to set the regular band. 
+    delay(1);
+
     // Now we can customize the band.
     data_from_device = false;
     customband.refined.BANDIDX = bandIndex;
@@ -1080,4 +1083,25 @@ void SI4844::convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t 
                 strValue[1] = ' ';
         }
     }
+}
+
+
+/**
+ * @ingroup TOOLS 
+ * @brief Gets Formatted Frequency
+ * @details Gets the currente frequency of the receiver and return a point to char (string) with the formatted frequency 
+ * @param  removeRightDigit number of less significant digits to be removed (FM mode only)
+ * @return  point to char with the current frequency
+ */
+char* SI4844::getFormattedFrequency(uint8_t removeRightDigit) {
+
+    uint32_t f = this->getFrequencyInteger();
+    if ( this->getStatusBandMode() == 0 ) { 
+        this->convertToChar(f,this->strFormattedCurrentFrequenct,6,3,',',true);
+        strFormattedCurrentFrequenct[7-removeRightDigit] = '\0';
+    } else { 
+         this->convertToChar(f,this->strFormattedCurrentFrequenct,5,(f > 999)? 2:0,'.',true);
+    }   
+
+    return this->strFormattedCurrentFrequenct;
 }
