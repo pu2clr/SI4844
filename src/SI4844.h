@@ -396,16 +396,68 @@ public :
    */
   inline char * getStereoIndicator(){ return (char *) stereo_indicator_table[status_response.refined.STATION]; };
   
- 
+  /** 
+   * @ingroup GB1 
+   * @brief Gets Band CFG0 (Band Detection Configuration).
+   * @details 0 = ATDD device detects band; 1 = Host detects band
+   * @return 0 = ATDD device detects band; 1 = Host detects band
+   */
   inline uint16_t  getStatusBCFG0() { return status_response.refined.BCFG0; };
+
+  /** 
+   * @ingroup GB1 
+   * @brief Gets Band CFG1 (Band Properties Priority)
+   * @return 0 = ATDD device accepts host customized band properties; 1 = ATDD device ignores host customized band properties
+   */
   inline uint16_t  getStatusBCFG1() { return status_response.refined.BCFG1; };
+
+  /** 
+   * @ingroup GB1 
+   * @brief Gets Stereo indicator.
+   * @details Applicable to Si4840/44 parts FM function only.
+   * @return 0 = Stereo off; 1 = Stereo on
+   */
   inline uint16_t  getStatusStereo() { return status_response.refined.STEREO; };
+
+
+  /** 
+   * @ingroup GB1 
+   * @brief Gets Station Indicator.
+   * @return 0 = Invalid Station; 1 = Valid Station
+   */
   inline uint16_t  getStatusStationIndicator() { return status_response.refined.STATION; };
+  
+  /** 
+   * @ingroup GB1 
+   * @brief Gets Information Ready
+   * @details During power up case, the system controller should not display any of the channel frequency, band mode, band index,
+   * @details station, or stereo statuses until the INFORDY bit is set.
+   * @details The host controller should not display the channel frequency when CHFREQ remains zero even when INFORDY=1.
+   * @details 0 = Tune info not ready yet; 1 = Tune info ready (i.e., Band mode, band index, channel frequency, sta-tion, and stereo indicators)
+   * @return 0 = Tune info not ready yet; 1 = Tune info ready 
+   */
   inline uint16_t  getStatusInformationReady() { return status_response.refined.INFORDY; };
+
+
   inline uint16_t  getStatusHostPowerUp() { return status_response.refined.HOSTPWRUP; };
   inline uint16_t  getStatusHostReset() { return status_response.refined.HOSTRST; };
+
+  /** 
+   * @ingroup GB1 
+   * @brief Gets the current Band Mode
+   * @return 0 = FM mode; 1 = AM mode; 2 = SW mode
+   */
   inline uint16_t  getStatusBandMode() { return status_response.refined.BANDMODE; };
+  
+  /** 
+   * @ingroup GB1 
+   * @brief Gets the current Band Index Detected.
+   * @return 0~19: FM band; 20~24: AM band; 25~40: SW band
+   */
   inline uint16_t  getStatusBandIndex() { return status_response.refined.BANDIDX; };
+
+
+
   inline uint16_t  getStatusCTS() { return status_response.refined.CTS; };
 
 

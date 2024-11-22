@@ -113,10 +113,10 @@ void showStatus() {
     if (rx.getStatusBandMode() == 0) {
       strcpy(aux,"Stereo ");
       strcat(aux, rx.getStereoIndicator() );
-      unt = "MHZ";
+      unt = (char *) "MHZ";
     } else {
       strcpy(aux,"AM MONO");
-      unt = "kHz";
+      unt = (char *) "kHz";
     }
     sprintf(str,"\nMode: %d - Idx: %2.2d %s - Freq.: %s %s - %s - Vol.: %d", rx.getStatusBandMode(), rx.getStatusBandIndex(), rx.getBandMode(), rx.getFormattedFrequency(2), unt, aux, rx.getVolume() );
     Serial.print(str);  
