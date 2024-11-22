@@ -689,7 +689,7 @@ float SI4844::getFrequency(void)
         multFactor = 10;
         if (status_response.refined.d1 & 0b00001000)
         {
-            status_response.refined.d1 &= 0b11110111;
+            status_response.refined.d1 &= 0b11110111;   
             addFactor = 5;
         }
     }
@@ -705,6 +705,54 @@ float SI4844::getFrequency(void)
 
     return (f * multFactor + addFactor);
 }
+
+/**
+ * @ingroup GB1
+ * @brief Get the current frequency of the radio in KHz in uint32_t (long integer) . 
+ * @details For example: FM, 103900 KHz (103.9 MHz); SW, 7335 KHz (7.34 MHz, 41m)   
+ * @details It is useful to save memory
+ * 
+ * @return uint32_t current frequency in KHz.  
+ */
+uint32_t SI4844::getIntegerFrequency(void)
+{
+    getStatus();
+    int addFactor = 0;
+    int multFactor = 1;
+    // Check CHFREQ bit[15] MSB = 1
+    // See Page 15 of Si48XX ATDD PROGRAMMING GUIDE
+    if (status_response.refined.BANDMODE == 0)
+    {
+        multFactor = 100;
+        if (status_response.refined.d1 & 0b00001000)
+        {
+            status_response.refined.d1 &= 0b11110111;
+            addFactor = 50;
+        }
+    }
+    else if (status_response.refined.BANDMODE == 2)
+    {
+        multFactor = 10;
+        if (status_response.refined.d1 & 0b00001000)
+        {
+            status_response.refined.d1 &= 0b11110111;   
+            addFactor = 5;
+        }
+    }
+
+    uint32_t f;
+
+    f = (status_response.refined.d4);
+    f += (status_response.refined.d3) * 10;
+    f += (status_response.refined.d2) * 100;
+    f += (status_response.refined.d1) * 1000;
+
+    data_from_device = false;
+
+    return (f * multFactor + addFactor);
+}
+
+
 
 /** 
  * @ingroup GB1 
@@ -989,3 +1037,47 @@ uint8_t SI4844::scanI2CBus(uint8_t *device, uint8_t limit) {
   return idxDevice;
 }
 
+
+
+/**
+ * @ingroup TOOLS Covert numbers to char array
+ * @brief Converts a number to a char array
+ * @details It is useful to mitigate memory space used by functions like sprintf or other generic similar functions
+ * @details You can use it to format frequency using decimal or thousand separator and also to convert small numbers.
+ *
+ * @param value  value to be converted
+ * @param strValue char array that will be receive the converted value
+ * @param len final string size (in bytes)
+ * @param dot the decimal or thousand separator position
+ * @param separator symbol "." or ","
+ * @param remove_leading_zeros if true removes up to two leading zeros (default is true)
+ */
+void SI4844::convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t dot, uint8_t separator, bool remove_leading_zeros)
+{
+    char d;
+    for (int i = (len - 1); i >= 0; i--)
+    {
+        d = value % 10;
+        value = value / 10;
+        strValue[i] = d + 48;
+    }
+    strValue[len] = '\0';
+    if (dot > 0)
+    {
+        for (int i = len; i >= dot; i--)
+        {
+            strValue[i + 1] = strValue[i];
+        }
+        strValue[dot] = separator;
+    }
+
+    if (remove_leading_zeros)
+    {
+        if (strValue[0] == '0')
+        {
+            strValue[0] = ' ';
+            if (strValue[1] == '0')
+                strValue[1] = ' ';
+        }
+    }
+}
