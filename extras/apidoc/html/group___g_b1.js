@@ -8,6 +8,7 @@ var group___g_b1 =
     [ "SI4844::getBandMode", "group___g_b1.html#ga97b111334d8e6ac08db8c500945c15a8", null ],
     [ "SI4844::getFirmware", "group___g_b1.html#ga1d119d683bed417b108ef1ccf3a2d20c", null ],
     [ "SI4844::getFrequency", "group___g_b1.html#ga0404927e7414a32125e32ff508bd450e", null ],
+    [ "SI4844::getFrequencyInteger", "group___g_b1.html#ga0eafb7b0438fb9e70c91d368929c6aed", null ],
     [ "SI4844::getStatus", "group___g_b1.html#ga3437ce047c5649597e1bccfb8c42cd5b", null ],
     [ "SI4844::getStereoIndicator", "group___g_b1.html#ga89c7f1e6d9aad81e7260f5acea9b0f9c", null ],
     [ "SI4844::getVolume", "group___g_b1.html#ga35aa33472f9d23986457ce7850b8175f", null ],

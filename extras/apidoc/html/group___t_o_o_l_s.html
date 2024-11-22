@@ -98,15 +98,88 @@ $(document).ready(function(){initNavTree('group___t_o_o_l_s.html',''); initResiz
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ga1abfca870fe9a1feae6e8d56f7af37be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_o_o_l_s.html#ga1abfca870fe9a1feae6e8d56f7af37be">SI4844::convertToChar</a> (uint32_t value, char *strValue, uint8_t len, uint8_t dot, uint8_t separator, bool remove_leading_zeros=true)</td></tr>
+<tr class="memdesc:ga1abfca870fe9a1feae6e8d56f7af37be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a number to a char array.  <br /></td></tr>
+<tr class="separator:ga1abfca870fe9a1feae6e8d56f7af37be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga66d670fc742b379c642316daf7df9bca"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_o_o_l_s.html#ga66d670fc742b379c642316daf7df9bca">SI4844::detectDevice</a> ()</td></tr>
 <tr class="memdesc:ga66d670fc742b379c642316daf7df9bca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks communication with <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> via I2C.  <br /></td></tr>
 <tr class="separator:ga66d670fc742b379c642316daf7df9bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab73eede639c03740773261c551ead9a5"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_o_o_l_s.html#gab73eede639c03740773261c551ead9a5">SI4844::getFormattedFrequency</a> (uint8_t removeRightDigit=0)</td></tr>
+<tr class="memdesc:gab73eede639c03740773261c551ead9a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets Formatted Frequency.  <br /></td></tr>
+<tr class="separator:gab73eede639c03740773261c551ead9a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab400fccf4b3c381c8ee8c060b56eef1b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_o_o_l_s.html#gab400fccf4b3c381c8ee8c060b56eef1b">SI4844::scanI2CBus</a> (uint8_t *device, uint8_t limit)</td></tr>
 <tr class="memdesc:gab400fccf4b3c381c8ee8c060b56eef1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scans the I2C bus and returns the addresses of the devices found.  <br /></td></tr>
 <tr class="separator:gab400fccf4b3c381c8ee8c060b56eef1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga1abfca870fe9a1feae6e8d56f7af37be" name="ga1abfca870fe9a1feae6e8d56f7af37be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1abfca870fe9a1feae6e8d56f7af37be">&#9670;&#160;</a></span>convertToChar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SI4844::convertToChar </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>strValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>dot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>separator</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>remove_leading_zeros</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts a number to a char array. </p>
+<p>It is useful to mitigate memory space used by functions like sprintf or other generic similar functions</p>
+<p>You can use it to format frequency using decimal or thousand separator and also to convert small numbers.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>value to be converted </td></tr>
+    <tr><td class="paramname">strValue</td><td>char array that will be receive the converted value </td></tr>
+    <tr><td class="paramname">len</td><td>final string size (in bytes) </td></tr>
+    <tr><td class="paramname">dot</td><td>the decimal or thousand separator position </td></tr>
+    <tr><td class="paramname">separator</td><td>symbol "." or "," </td></tr>
+    <tr><td class="paramname">remove_leading_zeros</td><td>if true removes up to two leading zeros (default is true) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ga66d670fc742b379c642316daf7df9bca" name="ga66d670fc742b379c642316daf7df9bca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga66d670fc742b379c642316daf7df9bca">&#9670;&#160;</a></span>detectDevice()</h2>
 
@@ -124,6 +197,33 @@ Functions</h2></td></tr>
 
 <p>Checks communication with <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> via I2C. </p>
 <p>Checks if the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> is available on the I2C bus. Remember that the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> responds to the address 0x11 </p><dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
+
+</div>
+</div>
+<a id="gab73eede639c03740773261c551ead9a5" name="gab73eede639c03740773261c551ead9a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab73eede639c03740773261c551ead9a5">&#9670;&#160;</a></span>getFormattedFrequency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * SI4844::getFormattedFrequency </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>removeRightDigit</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets Formatted Frequency. </p>
+<p>Gets the currente frequency of the receiver and return a point to char (string) with the formatted frequency </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">removeRightDigit</td><td>number of less significant digits to be removed (FM mode only) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>point to char with the current frequency </dd></dl>
 
 </div>
 </div>
