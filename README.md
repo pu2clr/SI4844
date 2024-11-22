@@ -7,6 +7,8 @@ It is available on Arduino IDE. This library is intended to provide an easier in
 
 The SI4844, along with other devices in its family, provides the ideal combination of analog tuning and digital interface, enabling the development of receivers reminiscent of the iconic models from the 1970s and 1980s. These classic receivers featured visual interfaces using liquid crystal displays or LEDs, offering a unique and nostalgic user experience. Therefore, a notable application for the SI4844 is the construction of a vintage-style receiver that blends retro aesthetics with modern technology.
 
+It is important to highlight the analog tuning of this device does not provide the same experience as the old receivers with variable capacitor tuning. However, depending on how you configure your electronic project and the quality of the 100K potentiometer used for mechanical tuning, you might be pleasantly surprised by the results.
+
 
 
 Use the 'Content Index' of this documentation and the example sketches, especially [SI4844_00_POC.ino](https://github.com/pu2clr/SI4844/tree/master/examples/SI4844_00_POC), to make the most of this library.
