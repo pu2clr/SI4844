@@ -26,69 +26,70 @@
 #define RESET_PIN 12
 #define DEFAULT_BAND 1
 
-#define TM1638_STB   4
-#define TM1638_CLK   7
-#define TM1638_DIO   8
+#define TM1638_STB 4
+#define TM1638_CLK 7
+#define TM1638_DIO 8
 
 // TM1638 - Buttons controllers
-#define BAND_BUTTON_FM  1       // S1 FM
-#define BAND_BUTTON_AM  2       // S1 AM
-#define BAND_BUTTON_SW1 3       // S1 SW1
-#define BAND_BUTTON_SW2 4       // S2 SW2
-#define BAND_BUTTON_SW3 5       // S3 SW3
-#define BAND_BUTTON_SW4 6       // S4 SW4
-#define VOLUME_UP 7             // S5 VOL +
-#define VOLUME_DOWN 8           // S5 VOL -
+#define BAND_BUTTON_FM 1   // S1 FM
+#define BAND_BUTTON_AM 2   // S1 AM
+#define BAND_BUTTON_SW1 4  // S1 SW1
+#define BAND_BUTTON_SW2 8  // S2 SW2
+#define BAND_BUTTON_SW3 16  // S3 SW3
+#define BAND_BUTTON_SW4 32  // S4 SW4
+#define VOLUME_UP 64        // S5 VOL +
+#define VOLUME_DOWN 128      // S5 VOL -
 
-
+uint8_t selectBand = DEFAULT_BAND;
 
 TM1638lite tm(TM1638_STB, TM1638_CLK, TM1638_DIO);
 SI4844 rx;
 
 void setup() {
 
+  showSplash();
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // rx.setCrystalOscillatorStabilizationWaitTime(1);
   rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
   showStatus();
-  delay(200);
   rx.setVolume(48);
   showStatus();
-
 }
 
 void showStatus() {
+  showFrequency();
+  showMode();
+  showRxSignal();
+}
 
+void showBand() {
+  tm.displayASCII(0, selectBand + 48);
 }
 
 /**
  * Shows the static content on  display
  */
-void showSplash()
-{
-  const char *s7= "-SI4844-";
+void showSplash() {
+  const char* s7 = "-SI4844-";
   for (int i = 0; i < 8; i++) {
     tm.setLED(i, 1);
     delay(200);
     tm.displayASCII(i, s7[i]);
     tm.setLED(i, 0);
-    delay(200);
+    delay(100);
   }
-  delay(1000);
+  delay(250);
   tm.reset();
 }
 
 
-void showFrequency()
-{
-  char bufferDisplay[9];
-  bufferDisplay[8] = '\0';
+void showFrequency() {
+  char* pFreq;
+  rx.getStatus();
+  pFreq = rx.getFormattedFrequency(2);
 
-  rx.convertToChar(rx.getFrequencyInteger(), bufferDisplay, 5, 3, ',', true);
-
-  for (int pos = 3; pos < 8; pos++ )
-     tm.displayASCII(pos,bufferDisplay[pos-3]);
-
+  for (int pos = 3; pos < 8; pos++)
+    tm.displayASCII(pos, pFreq[pos - 3]);
 }
 
 
@@ -96,43 +97,63 @@ void showFrequency()
  * Shows the current mode (FM, MW or SW)
  */
 void showMode() {
-    for (int i = 4; i < 8; i++ ) {
-       tm.setLED (i, (i - 4) == rx.getStatusBandMode());
-    }
+  for (int i = 4; i < 8; i++) {
+    tm.setLED(i, (i - 4) == rx.getStatusBandMode());
+  }
 }
 
-void showRxStatus () {
+void showRxSignal() {
 
-    if (rx.getStatusBandMode() == 0 ) {
-        tm.setLED (0, rx.getStatusStereo()); // Indicates Stereo or Mono 
-    }
-
-
-} 
+  if (rx.getStatusBandMode() == 0) {
+    tm.setLED(0, rx.getStatusStereo());  // Indicates Stereo or Mono
+  }
+}
 
 
 
 
 void loop() {
 
-    uint8_t tm_button = tm.readButtons();
-    switch(tm_button) {
-        case BAND_BUTTON_FM:       
-        case BAND_BUTTON_AM:       
-        case BAND_BUTTON_SW1:  
-        case BAND_BUTTON_SW2:  
-        case BAND_BUTTON_SW3:  
-        case BAND_BUTTON_SW4:  
-        case VOLUME_UP:  
-        case VOLUME_DOWN: 
-        default: 
-        break;
-    }
+  uint8_t button = tm.readButtons(); 
 
-    delay(1);
+  switch (button) {
+    case BAND_BUTTON_FM:
+      rx.setBand(1);  // FM band
+      selectBand = 1;
+      break;
+    case BAND_BUTTON_AM:
+      rx.setBand(20);  // AM band
+      selectBand = 2;
+      break;
+    case BAND_BUTTON_SW1:
+      rx.setBand(28);  // SW1 band
+      selectBand = 3;
+      break;
+    case BAND_BUTTON_SW2:
+      rx.setBand(29);  // SW2 band
+      selectBand = 4;
+      break;
+    case BAND_BUTTON_SW3:
+      rx.setBand(31);  // SW3 band
+      selectBand = 5;
+      break;
+    case BAND_BUTTON_SW4:
+      rx.setBand(35);  // SW5 band
+      selectBand = 6;
+      break;
+    case VOLUME_UP:
+      rx.volumeUp();
+      break;
+    case VOLUME_DOWN:
+      rx.volumeDown();
+      break;
+    default:
+      break;
+  }
 
+  if (rx.hasStatusChanged()) {
+    showBand();
+    showStatus();
+  }
+  delay(50);
 }
-
-
-
-
