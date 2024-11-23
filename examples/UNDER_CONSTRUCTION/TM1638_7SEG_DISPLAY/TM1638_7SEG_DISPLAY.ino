@@ -86,10 +86,10 @@ void showSplash() {
 void showFrequency() {
   char* pFreq;
   rx.getStatus();
-  pFreq = rx.getFormattedFrequency(2);
+  pFreq = rx.getFormattedFrequency(1);
 
-  for (int pos = 3; pos < 8; pos++)
-    tm.displayASCII(pos, pFreq[pos - 3]);
+  for (int pos = 2; pos < 8; pos++)
+    tm.displayASCII(pos, pFreq[pos - 2]);
 }
 
 
