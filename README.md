@@ -152,7 +152,7 @@ You can also download this library or old version of it via this repository or v
 
 ## Hardware Requirements and Setup
 
-This library has been written for the Arduino platform and has been successfully tested on Pro Mini 3.3V (8MHz). I beleave it will work on any other Arduino with I2C support.
+This library has been written for the Arduino platform and has been successfully tested on Pro Mini 3.3V (8MHz), LGT8F328 (clock setup: 32kHz with prescaler ou divider set to 2 or 16 kHz or less), ESP32 and  ESP8266.
 
 
 ### Arduino 5V and Si4844
