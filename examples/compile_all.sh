@@ -19,6 +19,7 @@ arduino-cli compile -b arduino:avr:nano ./SI4844_00_MINIMAL --output-dir ~/Downl
 arduino-cli compile -b arduino:avr:nano ./SI4844_00_POC --output-dir ~/Downloads/hex/atmega/SI4844_00_POC  
 arduino-cli compile -b arduino:avr:nano ./SI4844_01_OLED --output-dir ~/Downloads/hex/atmega/SI4844_01_OLED 
 arduino-cli compile -b arduino:avr:nano ./SI4844_02_LCD16x02 --output-dir ~/Downloads/hex/atmega/SI4844_02_LCD16x02  
+arduino-cli compile -b arduino:avr:nano ./SI4844_03_TM1638_7SEG_DISPLAY --output-dir ~/Downloads/hex/atmega/7SEG  
 arduino-cli compile -b arduino:avr:nano ./TEST/SI4844_BASS_TREBLE --output-dir ~/Downloads/hex/atmega/SI4844_BASS_TREBLE  
 arduino-cli compile -b arduino:avr:nano ./TEST/SI4844_CUSTOM_BAND --output-dir ~/Downloads/hex/atmega/SI4844_CUSTOM_BAND  
 arduino-cli compile -b arduino:avr:nano ./TEST/SI4844_FIRMWARE --output-dir ~/Downloads/hex/atmega/SI4844_FIRMWARE  
@@ -30,6 +31,7 @@ arduino-cli compile -b lgt8fx:avr:328  ./SI4844_00_MINIMAL --output-dir ~/Downlo
 arduino-cli compile -b lgt8fx:avr:328 ./SI4844_00_POC --output-dir ~/Downloads/hex/ltg/SI4844_00_POC  
 arduino-cli compile -b lgt8fx:avr:328 ./SI4844_01_OLED --output-dir ~/Downloads/hex/ltg/SI4844_01_OLED 
 arduino-cli compile -b lgt8fx:avr:328 ./SI4844_02_LCD16x02 --output-dir ~/Downloads/hex/ltg/SI4844_02_LCD16x02  
+arduino-cli compile -b lgt8fx:avr:328 ./SI4844_03_TM1638_7SEG_DISPLAY --output-dir ~/Downloads/hex/lgt/7SEG  
 arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_BASS_TREBLE --output-dir ~/Downloads/hex/ltg/SI4844_BASS_TREBLE  
 arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_CUSTOM_BAND --output-dir ~/Downloads/hex/ltg/SI4844_CUSTOM_BAND  
 arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_FIRMWARE --output-dir ~/Downloads/hex/ltg/SI4844_FIRMWARE  
