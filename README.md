@@ -452,6 +452,12 @@ The sketch [SI4844_BASS_TREBLE.ino](https://github.com/pu2clr/SI4844/tree/master
 
 
 
+## More about SI48XX family
+
+* [AM/FM/SW receiver integrated on a single CMOS chip](https://www.elektormagazine.com/news/amfmsw-receiver-integrated-on-a-single-cmos-chip)
+* [Si4844-B DEMO BOARD USER’S GUIDE](https://www.skyworksinc.com/-/media/Skyworks/SL/documents/public/user-guides/Si4844-B-DEMO.pdf)
+ 
+
 
 ## Projects in which this library is used
 
