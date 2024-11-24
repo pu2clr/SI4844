@@ -98,7 +98,7 @@ void showFrequency() {
  */
 void showMode() {
   for (int i = 4; i < 8; i++) {
-    tm.setLED(i, (i - 4) == rx.getStatusBandMode());
+    tm.setLED(i, (i - 4) == (int) rx.getStatusBandMode());
   }
 }
 
