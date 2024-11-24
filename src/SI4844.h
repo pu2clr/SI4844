@@ -245,26 +245,11 @@ typedef union {
 /**
  * @brief Interrupt status
  * @details This variable must be true every time an interruption occurs and then must return to the false every time an action resulting from the interruption is performed.
- * @details The variable below indicates a change of the ATDD status. When it occurs, it means the system needs to process some action (for example show on LCD this change).   
+ * @details The variable below indicates a change of the ATDD status. When it occurs, it means the system needs to process some action (for example show on LCD this change).  
+ * @see interrupt_hundler() function in SI44.cpp. 
  */
 volatile static bool data_from_device;
 
-/**
- * @brief Library handle interrupt
- * @details Handling interruptions.
- * @details Whenever the status of the ATDD changes, a hardware interrupt is triggered. For example, when you move the tuner
- * @details potenciometer, the ATDD sends a signal to the Arduino pin (INTERRUPT_PIN). The same is true when the ATDD is capturing 
- * @details mono FM signal and has switched to stereo. 
- * @details You can control the interrupt process via your sketch intead of this library. 
- * @see setStatusInterruptFromDevice, getStatusInterruptFromDevice, setup 
- */
-#ifdef ESP8266    // if the controller is ESP8266, add IRAM_ATTR.
-  IRAM_ATTR 
-#endif
-static void interrupt_hundler()
-{
-   data_from_device = true;
-}
 
 /**
  * @brief SI4844 Class 

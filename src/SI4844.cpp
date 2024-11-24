@@ -11,6 +11,24 @@
 
 #include "SI4844.h"
 
+/**
+ * @brief Library handle interrupt
+ * @details Handling interruptions.
+ * @details This function simply captures the status change of the SI48XX via interruption.
+ * @details Whenever the status of the ATDD changes, a hardware interrupt is triggered. For example, when you move the tuner
+ * @details potenciometer, the ATDD sends a signal to the Arduino pin (INTERRUPT_PIN). The same is true when the ATDD is capturing 
+ * @details mono FM signal and has switched to stereo. 
+ * @details You can control the interrupt process via your sketch intead of this library. 
+ * @see setStatusInterruptFromDevice, getStatusInterruptFromDevice, setup 
+ */
+#ifdef ESP8266    // if the controller is ESP8266, add IRAM_ATTR.
+  IRAM_ATTR 
+#endif
+void interrupt_hundler()
+{
+   data_from_device = true;
+}
+
 /** @defgroup BF  Basic Functions */
 
 /**
