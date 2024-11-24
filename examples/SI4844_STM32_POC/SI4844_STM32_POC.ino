@@ -4,8 +4,8 @@
  *  
  *  | SI4844 pin |  STM32F1 pin |  Description                                       |
  *  | ---------  | ------------ | -------------------------------------------------  |
- *  |    2       |   PA0        | Interrupt pin                                      |
- *  |   15       |   PB4        | Regurlar digital pin used to RESET control         |
+ *  |    2       |   PB4        | Interrupt pin                                      |
+ *  |   15       |   PB5        | Regurlar digital pin used to RESET control         |
  *  |   16       |   PB7 (SDA)  | I2C bus (Data)                                     |
  *  |   17       |   PB6 (SCL)  | I2C bus (Clocl)                                    |
  * 
@@ -15,8 +15,8 @@
 
 #include <SI4844.h>
 
-#define RESET_PIN PB4
-#define INTERRUPT_PIN PA0
+#define RESET_PIN PB5
+#define INTERRUPT_PIN PB4
 #define DEFAULT_BAND 1
 
 #define I2C_SDA   PB7
