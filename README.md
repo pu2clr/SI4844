@@ -444,6 +444,14 @@ The sketch [SI4844_BASS_TREBLE.ino](https://github.com/pu2clr/SI4844/tree/master
 2. [Prova de Conceito com SI4844 e Arduino (vídeo sobre este projeto)](https://youtu.be/DAQbXZZR7VQ)
 
 
+## Receivers based on SI482X and SI484X devices
+
+* [Degen DE321 DSP shortwave radio](https://swling.com/blog/2011/11/a-review-of-the-degen-de321-dsp-shortwave-radio/)
+* [ShouYu SY-X5 DSP shortwave radio](https://swling.com/blog/2013/07/a-review-of-the-shouyu-sy-x5-dsp-shortwave-radio/)
+* [Degen DE32 shortwave radio](https://swling.com/blog/2013/02/a-review-of-the-degen-de32-shortwave-radio-compared-with-the-de321-and-tecsun-pl-380/)
+
+
+
 
 ## Projects in which this library is used
 
