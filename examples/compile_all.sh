@@ -15,38 +15,38 @@
 echo "********************"
 echo "Arduino ATmega328 based board"
 echo "********************"
-arduino-cli compile -b arduino:avr:nano ./SI4844_00_MINIMAL --output-dir ~/Downloads/hex/atmega/SI4844_00_MINIMAL 
-arduino-cli compile -b arduino:avr:nano ./SI4844_00_POC --output-dir ~/Downloads/hex/atmega/SI4844_00_POC  
-arduino-cli compile -b arduino:avr:nano ./SI4844_01_OLED --output-dir ~/Downloads/hex/atmega/SI4844_01_OLED 
-arduino-cli compile -b arduino:avr:nano ./SI4844_02_LCD16x02 --output-dir ~/Downloads/hex/atmega/SI4844_02_LCD16x02  
-arduino-cli compile -b arduino:avr:nano ./SI4844_03_TM1638_7SEG_DISPLAY --output-dir ~/Downloads/hex/atmega/7SEG  
-arduino-cli compile -b arduino:avr:nano ./TEST/SI4844_BASS_TREBLE --output-dir ~/Downloads/hex/atmega/SI4844_BASS_TREBLE  
-arduino-cli compile -b arduino:avr:nano ./TEST/SI4844_CUSTOM_BAND --output-dir ~/Downloads/hex/atmega/SI4844_CUSTOM_BAND  
-arduino-cli compile -b arduino:avr:nano ./TEST/SI4844_FIRMWARE --output-dir ~/Downloads/hex/atmega/SI4844_FIRMWARE  
+arduino-cli compile -b arduino:avr:nano ./SI4844_00_MINIMAL --output-dir ~/Downloads/hex/atmega/SI4844_00_MINIMAL --warnings all
+arduino-cli compile -b arduino:avr:nano ./SI4844_00_POC --output-dir ~/Downloads/hex/atmega/SI4844_00_POC  --warnings all
+arduino-cli compile -b arduino:avr:nano ./SI4844_01_OLED --output-dir ~/Downloads/hex/atmega/SI4844_01_OLED --warnings all
+arduino-cli compile -b arduino:avr:nano ./SI4844_02_LCD16x02 --output-dir ~/Downloads/hex/atmega/SI4844_02_LCD16x02  --warnings all
+arduino-cli compile -b arduino:avr:nano ./SI4844_03_TM1638_7SEG_DISPLAY --output-dir ~/Downloads/hex/atmega/7SEG  --warnings all
+arduino-cli compile -b arduino:avr:nano ./TEST/SI4844_BASS_TREBLE --output-dir ~/Downloads/hex/atmega/SI4844_BASS_TREBLE  --warnings all
+arduino-cli compile -b arduino:avr:nano ./TEST/SI4844_CUSTOM_BAND --output-dir ~/Downloads/hex/atmega/SI4844_CUSTOM_BAND  --warnings all
+arduino-cli compile -b arduino:avr:nano ./TEST/SI4844_FIRMWARE --output-dir ~/Downloads/hex/atmega/SI4844_FIRMWARE  --warnings all
 
 echo "********************"
 echo "Arduino LGT8FX based board"
 echo "********************"
-arduino-cli compile -b lgt8fx:avr:328  ./SI4844_00_MINIMAL --output-dir ~/Downloads/hex/ltg/SI4844_00_MINIMAL 
-arduino-cli compile -b lgt8fx:avr:328 ./SI4844_00_POC --output-dir ~/Downloads/hex/ltg/SI4844_00_POC  
-arduino-cli compile -b lgt8fx:avr:328 ./SI4844_01_OLED --output-dir ~/Downloads/hex/ltg/SI4844_01_OLED 
-arduino-cli compile -b lgt8fx:avr:328 ./SI4844_02_LCD16x02 --output-dir ~/Downloads/hex/ltg/SI4844_02_LCD16x02  
-arduino-cli compile -b lgt8fx:avr:328 ./SI4844_03_TM1638_7SEG_DISPLAY --output-dir ~/Downloads/hex/lgt/7SEG  
-arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_BASS_TREBLE --output-dir ~/Downloads/hex/ltg/SI4844_BASS_TREBLE  
-arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_CUSTOM_BAND --output-dir ~/Downloads/hex/ltg/SI4844_CUSTOM_BAND  
-arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_FIRMWARE --output-dir ~/Downloads/hex/ltg/SI4844_FIRMWARE  
+arduino-cli compile -b lgt8fx:avr:328  ./SI4844_00_MINIMAL --output-dir ~/Downloads/hex/ltg/SI4844_00_MINIMAL --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./SI4844_00_POC --output-dir ~/Downloads/hex/ltg/SI4844_00_POC  --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./SI4844_01_OLED --output-dir ~/Downloads/hex/ltg/SI4844_01_OLED --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./SI4844_02_LCD16x02 --output-dir ~/Downloads/hex/ltg/SI4844_02_LCD16x02  --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./SI4844_03_TM1638_7SEG_DISPLAY --output-dir ~/Downloads/hex/lgt/7SEG  --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_BASS_TREBLE --output-dir ~/Downloads/hex/ltg/SI4844_BASS_TREBLE  --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_CUSTOM_BAND --output-dir ~/Downloads/hex/ltg/SI4844_CUSTOM_BAND  --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_FIRMWARE --output-dir ~/Downloads/hex/ltg/SI4844_FIRMWARE  --warnings all
 
 echo "********************"
 echo "ESP32"
 echo "********************"
-arduino-cli compile --fqbn esp32:esp32:esp32-poe-iso  ./SI4844_ESP32_POC --output-dir ~/Downloads/hex/esp32/SI4844_ESP32_POC  
+arduino-cli compile --fqbn esp32:esp32:esp32-poe-iso  ./SI4844_ESP32_POC --output-dir ~/Downloads/hex/esp32/SI4844_ESP32_POC  --warnings all
 
 echo "********************"
 echo "ESP8266"
 echo "********************"
-arduino-cli compile --fqbn esp8266:esp8266:generic  ./SI4844_ESP8266_POC --output-dir ~/Downloads/hex/esp8266/SI4844_ESP8266_POC  
+arduino-cli compile --fqbn esp8266:esp8266:generic  ./SI4844_ESP8266_POC --output-dir ~/Downloads/hex/esp8266/SI4844_ESP8266_POC  --warnings all
 
 echo "********************"
 echo "STM32"
 echo "********************"
-arduino-cli compile --fqbn STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103C8 ./SI4844_STM32_POC --output-dir ~/Downloads/hex/STM32/SI4844_STM32_POC  
+arduino-cli compile --fqbn STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103C8 ./SI4844_STM32_POC --output-dir ~/Downloads/hex/STM32/SI4844_STM32_POC  --warnings all
