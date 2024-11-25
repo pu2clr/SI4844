@@ -24,7 +24,7 @@
 
 #define INTERRUPT_PIN 2
 #define RESET_PIN 12
-#define DEFAULT_BAND 1
+#define DEFAULT_FM_BAND 1
 
 #define TM1638_STB 4
 #define TM1638_CLK 7
@@ -40,7 +40,16 @@
 #define VOLUME_UP 64        // S5 VOL +
 #define VOLUME_DOWN 128      // S5 VOL -
 
-uint8_t selectBand = DEFAULT_BAND;
+int custom_fm_band = 1;
+/*
+TODO
+int custom_sw1_band = 1; 
+int custom_sw2_band = 1; 
+int custom_sw3_band = 1; 
+int custom_sw4_band = 1; 
+*/
+
+uint8_t selectBand = 1;
 
 TM1638lite tm(TM1638_STB, TM1638_CLK, TM1638_DIO);
 SI4844 rx;
@@ -50,7 +59,7 @@ void setup() {
   showSplash();
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // rx.setCrystalOscillatorStabilizationWaitTime(1);
-  rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+  rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_FM_BAND);
   showStatus();
   rx.setVolume(48);
   showStatus();
@@ -118,8 +127,20 @@ void loop() {
 
   switch (button) {
     case BAND_BUTTON_FM:
-      rx.setBand(1);  // FM band
-      selectBand = 1;
+      if (custom_fm_band == 0 ) {
+        rx.setBand(DEFAULT_FM_BAND);  // FM band
+         selectBand = 1;
+      } else if ( custom_fm_band == 1 ) {
+        rx.setCustomBand(3,8700,10100,20); 
+        selectBand = 8;
+      } else if ( custom_fm_band == 2 ) {
+        rx.setCustomBand(3,10100,10900,20); 
+        selectBand = 9;
+      } 
+      
+      custom_fm_band++;
+      if ( custom_fm_band > 2) custom_fm_band = 0;
+     
       break;
     case BAND_BUTTON_AM:
       rx.setBand(20);  // AM band
