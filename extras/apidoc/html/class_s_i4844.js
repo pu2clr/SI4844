@@ -69,7 +69,7 @@ var class_s_i4844 =
     [ "setReferenceClockPrescaler", "group___g_b1.html#gae0618088d11ae5e79193672554e39dad", null ],
     [ "setResetPin", "class_s_i4844.html#ab8dd1a10df601b5d99c29d879a2720e7", null ],
     [ "setStatusInterruptFromDevice", "group___b_f.html#ga1a00037a2cedbe25d1d53716a1c20c00", null ],
-    [ "setup", "group___g_b1.html#ga9f4d244f654ac20f2e26508f6a8269ce", null ],
+    [ "setup", "group___g_b1.html#ga4ee686faea79457fc094129ae913b9f4", null ],
     [ "setVolume", "group___g_b1.html#ga65eab6c860e3e11c5d3726144dd3b73d", null ],
     [ "volumeDown", "group___g_b1.html#gab6f68232b768a6c257940407c32be77f", null ],
     [ "volumeUp", "group___g_b1.html#gab48b1d3c4c87d120de56d3195fa071cc", null ]

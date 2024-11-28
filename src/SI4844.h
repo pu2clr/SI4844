@@ -270,10 +270,31 @@ private:
 
   uint8_t  xoscen = 1;
   uint8_t  xowait = 0;
+  uint16_t clockSpeed = 50000;
 
 
+
+  /**
+   * @ingroup BF
+   * @brief Sets hight clock speed to be used on I2C bus
+   * @param clock (10000 = 10kHz; 50000 = 50kHz; 100000 = 100kHz ... )
+   */
+  inline void setClockSpeed(uint16_t clock) { this->clockSpeed = clock; }; 
+
+  /**
+  * @ingroup BF
+  * @brief Sets I2C bus speed to 10kHz
+  */
   inline void setClockLow(void) { Wire.setClock(10000); };
-  inline void setClockHigh(void) { Wire.setClock(50000); };
+
+  /**
+  * @ingroup BF
+  * @brief Sets I2C bus speed to hight previous defined speed
+  * @see setClockSpeed 
+  */
+  inline void setClockHigh() { Wire.setClock(this->clockSpeed); };
+
+
   inline void waitInterrupt(void);
   inline bool isClearToSend(void);
   inline void waitToSend(void);
@@ -311,7 +332,7 @@ public :
   void sendCommand(uint8_t cmd, int parameter_size, const uint8_t *parameter);
   void getCommandResponse(int response_size, uint8_t *response);
 
-  void setup(uint16_t resetPin, int interruptPin, byte defaultBand);
+  void setup(uint16_t resetPin, int interruptPin, byte defaultBand, uint16_t hightClockSpeed = 50000);
   void debugDevice(uint16_t resetPin, uint16_t interruptPin, uint8_t defaultBand, void (*showFunc)(char *msg));
   void reset(void );
   void setBand(byte);

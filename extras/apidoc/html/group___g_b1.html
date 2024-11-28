@@ -233,9 +233,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gae0618088d11ae5e79193672554e39dad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gae0618088d11ae5e79193672554e39dad">SI4844::setReferenceClockPrescaler</a> (uint16_t value)</td></tr>
 <tr class="memdesc:gae0618088d11ae5e79193672554e39dad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number used by the prescaler to divide the external reference clock frequency down to the internal REFCLK.  <br /></td></tr>
 <tr class="separator:gae0618088d11ae5e79193672554e39dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9f4d244f654ac20f2e26508f6a8269ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga9f4d244f654ac20f2e26508f6a8269ce">SI4844::setup</a> (uint16_t resetPin, int interruptPin, byte defaultBand)</td></tr>
-<tr class="memdesc:ga9f4d244f654ac20f2e26508f6a8269ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> instance and connect the device (<a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a>) to Arduino.  <br /></td></tr>
-<tr class="separator:ga9f4d244f654ac20f2e26508f6a8269ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4ee686faea79457fc094129ae913b9f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga4ee686faea79457fc094129ae913b9f4">SI4844::setup</a> (uint16_t resetPin, int interruptPin, byte defaultBand, uint16_t hightClockSpeed=50000)</td></tr>
+<tr class="memdesc:ga4ee686faea79457fc094129ae913b9f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> instance and connect the device (<a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a>) to Arduino.  <br /></td></tr>
+<tr class="separator:ga4ee686faea79457fc094129ae913b9f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga65eab6c860e3e11c5d3726144dd3b73d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga65eab6c860e3e11c5d3726144dd3b73d">SI4844::setVolume</a> (byte)</td></tr>
 <tr class="memdesc:ga65eab6c860e3e11c5d3726144dd3b73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the volume level.  <br /></td></tr>
 <tr class="separator:ga65eab6c860e3e11c5d3726144dd3b73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -447,7 +447,7 @@ Functions</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd>Si48XX ATDD PROGRAMMING GUIDE; AN610; page 22</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>a pointer to a structure type wirh the part number, chip revision, firmware revision, patch revision, and component revision numbers. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="group___g_b1.html#gacd42a278c3304a591d80ae7ab351b87a">SI4844::debugDevice()</a>, and <a class="el" href="group___g_b1.html#ga9f4d244f654ac20f2e26508f6a8269ce">SI4844::setup()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="group___g_b1.html#gacd42a278c3304a591d80ae7ab351b87a">SI4844::debugDevice()</a>, and <a class="el" href="group___g_b1.html#ga4ee686faea79457fc094129ae913b9f4">SI4844::setup()</a>.</p>
 
 </div>
 </div>
@@ -922,7 +922,7 @@ Functions</h2></td></tr>
 <p>Resets the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> device. </p>
 <p>Prepares the system to be started. </p><dl class="section see"><dt>See also</dt><dd>pages 7, 8, 9 and 10 of the programming guide. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="group___g_b1.html#gacd42a278c3304a591d80ae7ab351b87a">SI4844::debugDevice()</a>, <a class="el" href="group___g_b1.html#ga3de561a939b708030dae788781adf7e0">SI4844::setBand()</a>, and <a class="el" href="group___g_b1.html#ga9f4d244f654ac20f2e26508f6a8269ce">SI4844::setup()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="group___g_b1.html#gacd42a278c3304a591d80ae7ab351b87a">SI4844::debugDevice()</a>, <a class="el" href="group___g_b1.html#ga3de561a939b708030dae788781adf7e0">SI4844::setBand()</a>, and <a class="el" href="group___g_b1.html#ga4ee686faea79457fc094129ae913b9f4">SI4844::setup()</a>.</p>
 
 </div>
 </div>
@@ -1564,8 +1564,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga9f4d244f654ac20f2e26508f6a8269ce" name="ga9f4d244f654ac20f2e26508f6a8269ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9f4d244f654ac20f2e26508f6a8269ce">&#9670;&#160;</a></span>setup()</h2>
+<a id="ga4ee686faea79457fc094129ae913b9f4" name="ga4ee686faea79457fc094129ae913b9f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4ee686faea79457fc094129ae913b9f4">&#9670;&#160;</a></span>setup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1586,7 +1586,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">byte&#160;</td>
-          <td class="paramname"><em>defaultBand</em>&#160;</td>
+          <td class="paramname"><em>defaultBand</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>hightClockSpeed</em> = <code>50000</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1605,6 +1611,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">resetPin</td><td>arduino pin used to reset the device </td></tr>
     <tr><td class="paramname">interruptPin</td><td>interruprPin arduino pin used to handle interrupt </td></tr>
     <tr><td class="paramname">defaultBand</td><td>band that the radio should start </td></tr>
+    <tr><td class="paramname">hightClockSpeed</td><td>hight I2C clock speed to be used </td></tr>
   </table>
   </dd>
 </dl>

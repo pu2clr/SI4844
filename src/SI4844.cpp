@@ -166,13 +166,15 @@ void SI4844::waitInterrupt(void)
  * @param resetPin      arduino pin used to reset the device
  * @param interruptPin  interruprPin arduino pin used to handle interrupt 
  * @param defaultBand   band that the radio should start 
+ * @param hightClockSpeed hight I2C clock speed to be used 
  */
-void SI4844::setup(uint16_t resetPin, int interruptPin, byte defaultBand)
+void SI4844::setup(uint16_t resetPin, int interruptPin, byte defaultBand, uint16_t hightClockSpeed )
 {
 
     this->resetPin = resetPin;
     this->interruptPin = interruptPin;
 
+    setClockSpeed(hightClockSpeed);
 
     // Arduino interrupt setup.
     // if interruptPin parameter is < 0, it means the interrupt is being controlled by the user of this library
