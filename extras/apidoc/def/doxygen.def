@@ -25,7 +25,7 @@ _EnD_oF_dEf_TeXt_;
 Mutes the audio output.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-\iline 599 
+\iline 609 
 
 @param value value 0 = normal (no mute); 1 = Right side mute; 2; Left side mute; 3 = both side 
 _EnD_oF_dEf_TeXt_;
@@ -87,7 +87,7 @@ _EnD_oF_dEf_TeXt_;
 Up or down the sound volume level.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
- \xrefitem deprecated 1.\iline 420 
+ \xrefitem deprecated 1.\iline 430 
 
 @param command '+' up and '-' down 
 _EnD_oF_dEf_TeXt_;
@@ -205,12 +205,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga1d119d683bed417b108ef1ccf3a2d20c';
-        sec-mem-ref-line = '663';
+        sec-mem-ref-line = '673';
         sec-mem-ref-name = 'getFirmware';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga683a81897fe79e6909817aab36622684';
-        sec-mem-ref-line = '266';
+        sec-mem-ref-line = '276';
         sec-mem-ref-name = 'reset';
     };
     }; /* sec-member */
@@ -335,7 +335,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1gacd42a278c3304a591d80ae7ab351b87a';
-        sec-mem-ref-line = '223';
+        sec-mem-ref-line = '233';
         sec-mem-ref-name = 'debugDevice';
     };
       sec-mem-referencedby = {
@@ -561,7 +561,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga3437ce047c5649597e1bccfb8c42cd5b';
-        sec-mem-ref-line = '630';
+        sec-mem-ref-line = '640';
         sec-mem-ref-name = 'getStatus';
     };
     }; /* sec-member */
@@ -592,7 +592,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga3437ce047c5649597e1bccfb8c42cd5b';
-        sec-mem-ref-line = '630';
+        sec-mem-ref-line = '640';
         sec-mem-ref-name = 'getStatus';
     };
     }; /* sec-member */
@@ -677,22 +677,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga0404927e7414a32125e32ff508bd450e';
-        sec-mem-ref-line = '691';
+        sec-mem-ref-line = '701';
         sec-mem-ref-name = 'getFrequency';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga0eafb7b0438fb9e70c91d368929c6aed';
-        sec-mem-ref-line = '737';
+        sec-mem-ref-line = '747';
         sec-mem-ref-name = 'getFrequencyInteger';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga3de561a939b708030dae788781adf7e0';
-        sec-mem-ref-line = '351';
+        sec-mem-ref-line = '361';
         sec-mem-ref-name = 'setBand';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga5c766d254b0c261a93dfd817f11b712c';
-        sec-mem-ref-line = '818';
+        sec-mem-ref-line = '828';
         sec-mem-ref-name = 'setCustomBand';
     };
     }; /* sec-member */
@@ -1038,12 +1038,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1gacd42a278c3304a591d80ae7ab351b87a';
-        sec-mem-ref-line = '223';
+        sec-mem-ref-line = '233';
         sec-mem-ref-name = 'debugDevice';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga3de561a939b708030dae788781adf7e0';
-        sec-mem-ref-line = '351';
+        sec-mem-ref-line = '361';
         sec-mem-ref-name = 'setBand';
     };
       sec-mem-referencedby = {
@@ -1308,7 +1308,7 @@ _EnD_oF_dEf_TeXt_;
 Set audio mode.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-\iline 543 
+\iline 553 
 
 @see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 21
 
@@ -1353,7 +1353,7 @@ _EnD_oF_dEf_TeXt_;
 Mutes the audio output.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-\iline 610 
+\iline 620 
 
 @param bool on false = normal (no mute); true = mute 
 _EnD_oF_dEf_TeXt_;
@@ -1387,12 +1387,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga3437ce047c5649597e1bccfb8c42cd5b';
-        sec-mem-ref-line = '630';
+        sec-mem-ref-line = '640';
         sec-mem-ref-name = 'getStatus';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga683a81897fe79e6909817aab36622684';
-        sec-mem-ref-line = '266';
+        sec-mem-ref-line = '276';
         sec-mem-ref-name = 'reset';
     };
     }; /* sec-member */
@@ -1417,7 +1417,7 @@ _EnD_oF_dEf_TeXt_;
 Set the sound volume level, bass and treble.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-\iline 498 
+\iline 508 
 
 <table class="markdownTable">
   <tr class="markdownTableHead">    <th class="markdownTableHeadNone"> bass_treble \ilinebr </th>    <th class="markdownTableHeadNone"> Description \ilinebr </th>  </tr>
@@ -1603,7 +1603,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga3437ce047c5649597e1bccfb8c42cd5b';
-        sec-mem-ref-line = '630';
+        sec-mem-ref-line = '640';
         sec-mem-ref-name = 'getStatus';
     };
     }; /* sec-member */
@@ -1740,7 +1740,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
-      sec-mem-id   = 'class_s_i4844_1adc433bd70a07984f8df9d6b79b5cd8b5';
+      sec-mem-id   = 'group___b_f_1gadc433bd70a07984f8df9d6b79b5cd8b5';
       sec-mem-virt = normal;
       sec-mem-prot = public;
       sec-mem-type = <<_EnD_oF_dEf_TeXt_
@@ -1756,10 +1756,10 @@ _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
       sec-mem-desc-line = '499';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-
+Sets the MCU Interrupt pin.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-
+@param MCU pin (example Arduino Nano: 2 - The Arduino digital pin 2 allows external interrupt)
 _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
@@ -1856,7 +1856,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
-      sec-mem-id   = 'class_s_i4844_1ab8dd1a10df601b5d99c29d879a2720e7';
+      sec-mem-id   = 'group___b_f_1gab8dd1a10df601b5d99c29d879a2720e7';
       sec-mem-virt = normal;
       sec-mem-prot = public;
       sec-mem-type = <<_EnD_oF_dEf_TeXt_
@@ -1872,10 +1872,10 @@ _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
       sec-mem-desc-line = '498';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-
+Sets the MCU RESET pin.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-
+@param MCU pin (example Arduino Nano: 12 - Digital pin 12)
 _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
@@ -1957,12 +1957,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga1d119d683bed417b108ef1ccf3a2d20c';
-        sec-mem-ref-line = '663';
+        sec-mem-ref-line = '673';
         sec-mem-ref-name = 'getFirmware';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga683a81897fe79e6909817aab36622684';
-        sec-mem-ref-line = '266';
+        sec-mem-ref-line = '276';
         sec-mem-ref-name = 'reset';
     };
     }; /* sec-member */

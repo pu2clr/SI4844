@@ -111,9 +111,15 @@ Functions</h2></td></tr>
 <tr class="memitem:ga8b2c96a6126110589a403751ec12631c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_f.html#ga8b2c96a6126110589a403751ec12631c">SI4844::sendCommand</a> (uint8_t cmd, int parameter_size, const uint8_t *parameter)</td></tr>
 <tr class="memdesc:ga8b2c96a6126110589a403751ec12631c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a given command to the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> device.  <br /></td></tr>
 <tr class="separator:ga8b2c96a6126110589a403751ec12631c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadc433bd70a07984f8df9d6b79b5cd8b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_f.html#gadc433bd70a07984f8df9d6b79b5cd8b5">SI4844::setInterruptPin</a> (int interruptPin)</td></tr>
+<tr class="memdesc:gadc433bd70a07984f8df9d6b79b5cd8b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the MCU Interrupt pin.  <br /></td></tr>
+<tr class="separator:gadc433bd70a07984f8df9d6b79b5cd8b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac080ba62ed2de41f80c1fe08135362a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_f.html#gac080ba62ed2de41f80c1fe08135362a3">SI4844::setProperty</a> (uint16_t propertyNumber, uint16_t parameter)</td></tr>
 <tr class="memdesc:gac080ba62ed2de41f80c1fe08135362a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends (sets) property to the SI48XX.  <br /></td></tr>
 <tr class="separator:gac080ba62ed2de41f80c1fe08135362a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab8dd1a10df601b5d99c29d879a2720e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_f.html#gab8dd1a10df601b5d99c29d879a2720e7">SI4844::setResetPin</a> (uint16_t resetPin)</td></tr>
+<tr class="memdesc:gab8dd1a10df601b5d99c29d879a2720e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the MCU RESET pin.  <br /></td></tr>
+<tr class="separator:gab8dd1a10df601b5d99c29d879a2720e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1a00037a2cedbe25d1d53716a1c20c00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_f.html#ga1a00037a2cedbe25d1d53716a1c20c00">SI4844::setStatusInterruptFromDevice</a> (bool value)</td></tr>
 <tr class="memdesc:ga1a00037a2cedbe25d1d53716a1c20c00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Data Status From Device.  <br /></td></tr>
 <tr class="separator:ga1a00037a2cedbe25d1d53716a1c20c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -267,6 +273,32 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="gadc433bd70a07984f8df9d6b79b5cd8b5" name="gadc433bd70a07984f8df9d6b79b5cd8b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadc433bd70a07984f8df9d6b79b5cd8b5">&#9670;&#160;</a></span>setInterruptPin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SI4844::setInterruptPin </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>interruptPin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the MCU Interrupt pin. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">MCU</td><td>pin (example Arduino Nano: 2 - The Arduino digital pin 2 allows external interrupt) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="gac080ba62ed2de41f80c1fe08135362a3" name="gac080ba62ed2de41f80c1fe08135362a3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gac080ba62ed2de41f80c1fe08135362a3">&#9670;&#160;</a></span>setProperty()</h2>
 
@@ -299,6 +331,32 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">propertyNumber</td><td>property number (example: RX_VOLUME) </td></tr>
     <tr><td class="paramname">parameter</td><td>property value that will be seted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab8dd1a10df601b5d99c29d879a2720e7" name="gab8dd1a10df601b5d99c29d879a2720e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab8dd1a10df601b5d99c29d879a2720e7">&#9670;&#160;</a></span>setResetPin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SI4844::setResetPin </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>resetPin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the MCU RESET pin. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">MCU</td><td>pin (example Arduino Nano: 12 - Digital pin 12) </td></tr>
   </table>
   </dd>
 </dl>
