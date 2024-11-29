@@ -339,7 +339,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-ref-name = 'debugDevice';
     };
       sec-mem-referencedby = {
-        sec-mem-ref-id = '_s_i4844_8cpp_1ga4ee686faea79457fc094129ae913b9f4';
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga4ee550ad12649badcb3d54da6c7e62ee';
         sec-mem-ref-line = '171';
         sec-mem-ref-name = 'setup';
     };
@@ -1047,7 +1047,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-ref-name = 'setBand';
     };
       sec-mem-referencedby = {
-        sec-mem-ref-id = '_s_i4844_8cpp_1ga4ee686faea79457fc094129ae913b9f4';
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga4ee550ad12649badcb3d54da6c7e62ee';
         sec-mem-ref-line = '171';
         sec-mem-ref-name = 'setup';
     };
@@ -1907,7 +1907,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
-      sec-mem-id   = 'group___g_b1_1ga4ee686faea79457fc094129ae913b9f4';
+      sec-mem-id   = 'group___g_b1_1ga4ee550ad12649badcb3d54da6c7e62ee';
       sec-mem-virt = normal;
       sec-mem-prot = public;
       sec-mem-type = <<_EnD_oF_dEf_TeXt_
@@ -1934,7 +1934,7 @@ _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-param = {
         sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
-uint16_t
+uint32_t
 _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'hightClockSpeed';
         sec-mem-param-defval = <<_EnD_oF_dEf_TeXt_
@@ -1953,7 +1953,7 @@ _EnD_oF_dEf_TeXt_;
 @param resetPin      arduino pin used to reset the device
 @param interruptPin  interruprPin arduino pin used to handle interrupt 
 @param defaultBand   band that the radio should start 
-@param hightClockSpeed hight I2C clock speed to be used 
+@param hightClockSpeed hight I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga1d119d683bed417b108ef1ccf3a2d20c';
@@ -2225,11 +2225,11 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'variable';
-      sec-mem-id   = 'class_s_i4844_1a28c4bfeff72d37e63622e2032515e19d';
+      sec-mem-id   = 'class_s_i4844_1a8a40ad23b4e6590fb5f8b42177dd2fbb';
       sec-mem-virt = normal;
       sec-mem-prot = private;
       sec-mem-type = <<_EnD_oF_dEf_TeXt_
-uint16_t
+uint32_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'clockSpeed';
       sec-mem-initializer = <<_EnD_oF_dEf_TeXt_

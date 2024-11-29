@@ -25,6 +25,6 @@ var searchData=
   ['setreferenceclockprescaler_22',['setReferenceClockPrescaler',['../group___g_b1.html#gae0618088d11ae5e79193672554e39dad',1,'SI4844']]],
   ['setresetpin_23',['setResetPin',['../class_s_i4844.html#ab8dd1a10df601b5d99c29d879a2720e7',1,'SI4844']]],
   ['setstatusinterruptfromdevice_24',['setStatusInterruptFromDevice',['../group___b_f.html#ga1a00037a2cedbe25d1d53716a1c20c00',1,'SI4844']]],
-  ['setup_25',['setup',['../group___g_b1.html#ga4ee686faea79457fc094129ae913b9f4',1,'SI4844']]],
+  ['setup_25',['setup',['../group___g_b1.html#ga4ee550ad12649badcb3d54da6c7e62ee',1,'SI4844']]],
   ['setvolume_26',['setVolume',['../group___g_b1.html#ga65eab6c860e3e11c5d3726144dd3b73d',1,'SI4844']]]
 ];
