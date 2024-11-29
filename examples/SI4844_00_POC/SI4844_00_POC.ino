@@ -32,6 +32,7 @@ void setup() {
   instructions();
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // rx.setCrystalOscillatorStabilizationWaitTime(1);
+  // rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND, 400000);  // if you want to use 400kHz I2C speed
   rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
   showStatus();
   delay(200);

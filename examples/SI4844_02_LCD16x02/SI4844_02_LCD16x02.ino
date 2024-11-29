@@ -98,7 +98,7 @@ void setup()
   Flash(3000);
   display.clear();
   delay(500);
-
+  // si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND, 400000);  // if you want to use 400kHz I2C speed
   si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
   si4844.setVolume(55);
   

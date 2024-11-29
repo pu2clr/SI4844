@@ -44,7 +44,7 @@ void setup() {
   instructions();
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // rx.setCrystalOscillatorStabilizationWaitTime(1);
-  rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+  rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND, 400000); // 400kHz I2C Clock Speed
   if (EEPROM.read(eeprom_address) == app_id)
   {
     readAllReceiverInformation();
@@ -56,8 +56,6 @@ void setup() {
 
 void saveAllReceiverInformation()
 {
-  int addr_offset;
-
   EEPROM.update(eeprom_address, app_id);                        // stores the app id;
   EEPROM.update(eeprom_address + 1, rx.getVolume());            // stores the current Volume
   EEPROM.update(eeprom_address + 2, rx.getStatusBandIndex());   // Stores the current band
