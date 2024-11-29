@@ -199,6 +199,11 @@ void SI4844::setup(uint16_t resetPin, int interruptPin, byte defaultBand, uint32
     getFirmware();
 }
 
+/**
+ * @ingroup BF
+ * @brief Sets the MCU RESET pin 
+ * @param MCU pin (example Arduino Nano: 12 - Digital pin 12)
+ */
 void SI4844::setResetPin(uint16_t resetPin) {
     this->resetPin = resetPin;
     pinMode(resetPin, OUTPUT);
@@ -206,6 +211,11 @@ void SI4844::setResetPin(uint16_t resetPin) {
     delay(1);
 }
 
+/**
+ * @ingroup BF
+ * @brief Sets the MCU Interrupt pin 
+ * @param MCU pin (example Arduino Nano: 2 - The Arduino digital pin 2 allows external interrupt)
+ */
 void SI4844::setInterruptPin(int interruptPin) {
     this->interruptPin = interruptPin;
 }
