@@ -22,7 +22,6 @@ var group___g_b1 =
     [ "SI4844::getVolume", "group___g_b1.html#ga35aa33472f9d23986457ce7850b8175f", null ],
     [ "SI4844::getVolumeProperty", "group___g_b1.html#ga44f5b3d8746dc30922cc92e778e98f16", null ],
     [ "SI4844::hasStatusChanged", "group___g_b1.html#gae362404004bde2ed561a0c34604e0254", null ],
-    [ "SI4844::isClearToSend", "group___g_b1.html#ga5b2ae6cf8a96c47b8725e6a1615e7b45", null ],
     [ "SI4844::powerDown", "group___g_b1.html#gaff14988c6be8a5fb9d1a5e6934dcff47", null ],
     [ "SI4844::powerUp", "group___g_b1.html#gab19b2ce04e07e23275fea5889b87a201", null ],
     [ "SI4844::reset", "group___g_b1.html#ga683a81897fe79e6909817aab36622684", null ],
@@ -48,6 +47,5 @@ var group___g_b1 =
     [ "SI4844::setup", "group___g_b1.html#ga4ee550ad12649badcb3d54da6c7e62ee", null ],
     [ "SI4844::setVolume", "group___g_b1.html#ga65eab6c860e3e11c5d3726144dd3b73d", null ],
     [ "SI4844::volumeDown", "group___g_b1.html#gab6f68232b768a6c257940407c32be77f", null ],
-    [ "SI4844::volumeUp", "group___g_b1.html#gab48b1d3c4c87d120de56d3195fa071cc", null ],
-    [ "SI4844::waitToSend", "group___g_b1.html#ga7e14f020d74ec2492070e84cb24a68c3", null ]
+    [ "SI4844::volumeUp", "group___g_b1.html#gab48b1d3c4c87d120de56d3195fa071cc", null ]
 ];

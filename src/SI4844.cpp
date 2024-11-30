@@ -395,7 +395,7 @@ void SI4844::setBand(byte new_band)
 
 
 /**
- * @ingroup GB1 
+ * @ingroup BF 
  * @brief Checks the CTS status.
  * @details Checks whether the device is ready to receive a new command. 
  * @return true 
@@ -413,7 +413,7 @@ bool SI4844::isClearToSend(void)
 }
 
 /**
- * @ingroup GB1
+ * @ingroup BF
  * @brief Wait for the ATDD become Clear to Send. 
  * @details Waits for CTS status
  */

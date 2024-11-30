@@ -165,9 +165,6 @@ Functions</h2></td></tr>
 <tr class="memitem:gae362404004bde2ed561a0c34604e0254"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gae362404004bde2ed561a0c34604e0254">SI4844::hasStatusChanged</a> (void)</td></tr>
 <tr class="memdesc:gae362404004bde2ed561a0c34604e0254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> has its status changed.  <br /></td></tr>
 <tr class="separator:gae362404004bde2ed561a0c34604e0254"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5b2ae6cf8a96c47b8725e6a1615e7b45"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga5b2ae6cf8a96c47b8725e6a1615e7b45">SI4844::isClearToSend</a> (void)</td></tr>
-<tr class="memdesc:ga5b2ae6cf8a96c47b8725e6a1615e7b45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies if the system is prepared to receive commands.  <br /></td></tr>
-<tr class="separator:ga5b2ae6cf8a96c47b8725e6a1615e7b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaff14988c6be8a5fb9d1a5e6934dcff47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gaff14988c6be8a5fb9d1a5e6934dcff47">SI4844::powerDown</a> (void)</td></tr>
 <tr class="memdesc:gaff14988c6be8a5fb9d1a5e6934dcff47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power the device down.  <br /></td></tr>
 <tr class="separator:gaff14988c6be8a5fb9d1a5e6934dcff47"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -248,9 +245,6 @@ Functions</h2></td></tr>
 <tr class="memitem:gab48b1d3c4c87d120de56d3195fa071cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gab48b1d3c4c87d120de56d3195fa071cc">SI4844::volumeUp</a> (void)</td></tr>
 <tr class="memdesc:gab48b1d3c4c87d120de56d3195fa071cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increases the volume level.  <br /></td></tr>
 <tr class="separator:gab48b1d3c4c87d120de56d3195fa071cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7e14f020d74ec2492070e84cb24a68c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga7e14f020d74ec2492070e84cb24a68c3">SI4844::waitToSend</a> (void)</td></tr>
-<tr class="memdesc:ga7e14f020d74ec2492070e84cb24a68c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for the system to be ready to receive commands.  <br /></td></tr>
-<tr class="separator:ga7e14f020d74ec2492070e84cb24a68c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
@@ -453,7 +447,7 @@ Functions</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd>Si48XX ATDD PROGRAMMING GUIDE; AN610; page 22</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>a pointer to a structure type wirh the part number, chip revision, firmware revision, patch revision, and component revision numbers. </dd></dl>
 
-<p class="reference">References <a class="el" href="_s_i4844_8h.html#adde5ba839a6d6b3db3a56c1893cf5491">data_from_device</a>, and <a class="el" href="group___g_b1.html#ga7e14f020d74ec2492070e84cb24a68c3">SI4844::waitToSend()</a>.</p>
+<p class="reference">References <a class="el" href="_s_i4844_8h.html#adde5ba839a6d6b3db3a56c1893cf5491">data_from_device</a>, and <a class="el" href="group___b_f.html#ga7e14f020d74ec2492070e84cb24a68c3">SI4844::waitToSend()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="group___g_b1.html#gacd42a278c3304a591d80ae7ab351b87a">SI4844::debugDevice()</a>, and <a class="el" href="group___g_b1.html#ga4ee550ad12649badcb3d54da6c7e62ee">SI4844::setup()</a>.</p>
 
@@ -566,7 +560,7 @@ Functions</h2></td></tr>
 <p>This library has other methods to get that information easier.</p>
 <dl class="section return"><dt>Returns</dt><dd>a pointer to a structure type <a class="el" href="group___g_a1.html#unionsi4844__status__response" title="Status response.">si4844_status_response</a> </dd></dl>
 
-<p class="reference">References <a class="el" href="group___b_f.html#gaf2bae44844dc8879354d13aaf120cd68">SI4844::setClockHigh()</a>, and <a class="el" href="group___g_b1.html#ga7e14f020d74ec2492070e84cb24a68c3">SI4844::waitToSend()</a>.</p>
+<p class="reference">References <a class="el" href="group___b_f.html#gaf2bae44844dc8879354d13aaf120cd68">SI4844::setClockHigh()</a>, and <a class="el" href="group___b_f.html#ga7e14f020d74ec2492070e84cb24a68c3">SI4844::waitToSend()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="group___g_b1.html#ga0404927e7414a32125e32ff508bd450e">SI4844::getFrequency()</a>, <a class="el" href="group___g_b1.html#ga0eafb7b0438fb9e70c91d368929c6aed">SI4844::getFrequencyInteger()</a>, <a class="el" href="group___g_b1.html#ga3de561a939b708030dae788781adf7e0">SI4844::setBand()</a>, and <a class="el" href="group___g_b1.html#ga5c766d254b0c261a93dfd817f11b712c">SI4844::setCustomBand()</a>.</p>
 
@@ -873,40 +867,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga5b2ae6cf8a96c47b8725e6a1615e7b45" name="ga5b2ae6cf8a96c47b8725e6a1615e7b45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5b2ae6cf8a96c47b8725e6a1615e7b45">&#9670;&#160;</a></span>isClearToSend()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool SI4844::isClearToSend </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Verifies if the system is prepared to receive commands. </p>
-<p>Checks the CTS status.</p>
-<p>Checks whether the device is ready to receive a new command. </p><dl class="section return"><dt>Returns</dt><dd>true </dd>
-<dd>
-false </dd></dl>
-
-<p class="reference">Referenced by <a class="el" href="group___g_b1.html#ga7e14f020d74ec2492070e84cb24a68c3">SI4844::waitToSend()</a>.</p>
-
-</div>
-</div>
 <a id="gaff14988c6be8a5fb9d1a5e6934dcff47" name="gaff14988c6be8a5fb9d1a5e6934dcff47"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaff14988c6be8a5fb9d1a5e6934dcff47">&#9670;&#160;</a></span>powerDown()</h2>
 
@@ -926,7 +886,7 @@ false </dd></dl>
 <p>Power the device down. </p>
 <p>Moves the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> device from power up to power down mode. </p><dl class="section see"><dt>See also</dt><dd>Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45 </dd></dl>
 
-<p class="reference">References <a class="el" href="_s_i4844_8h.html#adde5ba839a6d6b3db3a56c1893cf5491">data_from_device</a>, and <a class="el" href="group___g_b1.html#ga7e14f020d74ec2492070e84cb24a68c3">SI4844::waitToSend()</a>.</p>
+<p class="reference">References <a class="el" href="_s_i4844_8h.html#adde5ba839a6d6b3db3a56c1893cf5491">data_from_device</a>, and <a class="el" href="group___b_f.html#ga7e14f020d74ec2492070e84cb24a68c3">SI4844::waitToSend()</a>.</p>
 
 </div>
 </div>
@@ -1174,7 +1134,7 @@ false </dd></dl>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="group___g_b1.html#ga7e14f020d74ec2492070e84cb24a68c3">SI4844::waitToSend()</a>.</p>
+<p class="reference">References <a class="el" href="group___b_f.html#ga7e14f020d74ec2492070e84cb24a68c3">SI4844::waitToSend()</a>.</p>
 
 </div>
 </div>
@@ -1231,7 +1191,7 @@ false </dd></dl>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="_s_i4844_8h.html#adde5ba839a6d6b3db3a56c1893cf5491">data_from_device</a>, <a class="el" href="group___g_b1.html#ga3437ce047c5649597e1bccfb8c42cd5b">SI4844::getStatus()</a>, <a class="el" href="group___g_b1.html#ga683a81897fe79e6909817aab36622684">SI4844::reset()</a>, <a class="el" href="group___b_f.html#ga34c4b208e45ee1b414afe5113b98db9f">SI4844::waitInterrupt()</a>, and <a class="el" href="group___g_b1.html#ga7e14f020d74ec2492070e84cb24a68c3">SI4844::waitToSend()</a>.</p>
+<p class="reference">References <a class="el" href="_s_i4844_8h.html#adde5ba839a6d6b3db3a56c1893cf5491">data_from_device</a>, <a class="el" href="group___g_b1.html#ga3437ce047c5649597e1bccfb8c42cd5b">SI4844::getStatus()</a>, <a class="el" href="group___g_b1.html#ga683a81897fe79e6909817aab36622684">SI4844::reset()</a>, <a class="el" href="group___b_f.html#ga34c4b208e45ee1b414afe5113b98db9f">SI4844::waitInterrupt()</a>, and <a class="el" href="group___b_f.html#ga7e14f020d74ec2492070e84cb24a68c3">SI4844::waitToSend()</a>.</p>
 
 </div>
 </div>
@@ -1444,7 +1404,7 @@ false </dd></dl>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="_s_i4844_8h.html#adde5ba839a6d6b3db3a56c1893cf5491">data_from_device</a>, <a class="el" href="group___g_b1.html#ga3437ce047c5649597e1bccfb8c42cd5b">SI4844::getStatus()</a>, <a class="el" href="group___b_f.html#ga34c4b208e45ee1b414afe5113b98db9f">SI4844::waitInterrupt()</a>, and <a class="el" href="group___g_b1.html#ga7e14f020d74ec2492070e84cb24a68c3">SI4844::waitToSend()</a>.</p>
+<p class="reference">References <a class="el" href="_s_i4844_8h.html#adde5ba839a6d6b3db3a56c1893cf5491">data_from_device</a>, <a class="el" href="group___g_b1.html#ga3437ce047c5649597e1bccfb8c42cd5b">SI4844::getStatus()</a>, <a class="el" href="group___b_f.html#ga34c4b208e45ee1b414afe5113b98db9f">SI4844::waitInterrupt()</a>, and <a class="el" href="group___b_f.html#ga7e14f020d74ec2492070e84cb24a68c3">SI4844::waitToSend()</a>.</p>
 
 </div>
 </div>
@@ -1699,7 +1659,7 @@ false </dd></dl>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="group___g_b1.html#ga7e14f020d74ec2492070e84cb24a68c3">SI4844::waitToSend()</a>.</p>
+<p class="reference">References <a class="el" href="group___b_f.html#ga7e14f020d74ec2492070e84cb24a68c3">SI4844::waitToSend()</a>.</p>
 
 </div>
 </div>
@@ -1740,40 +1700,6 @@ false </dd></dl>
 </div><div class="memdoc">
 
 <p>Increases the volume level. </p>
-
-</div>
-</div>
-<a id="ga7e14f020d74ec2492070e84cb24a68c3" name="ga7e14f020d74ec2492070e84cb24a68c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7e14f020d74ec2492070e84cb24a68c3">&#9670;&#160;</a></span>waitToSend()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SI4844::waitToSend </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Waits for the system to be ready to receive commands. </p>
-<p>Wait for the ATDD become Clear to Send.</p>
-<p>Waits for CTS status </p>
-
-<p class="reference">References <a class="el" href="group___g_b1.html#ga5b2ae6cf8a96c47b8725e6a1615e7b45">SI4844::isClearToSend()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="group___g_b1.html#ga1d119d683bed417b108ef1ccf3a2d20c">SI4844::getFirmware()</a>, <a class="el" href="group___b_f.html#gaf4b90cf2e7a654718e2c65de5def0928">SI4844::getProperty()</a>, <a class="el" href="group___g_b1.html#ga3437ce047c5649597e1bccfb8c42cd5b">SI4844::getStatus()</a>, <a class="el" href="group___g_b1.html#gaff14988c6be8a5fb9d1a5e6934dcff47">SI4844::powerDown()</a>, <a class="el" href="group___b_f.html#ga8b2c96a6126110589a403751ec12631c">SI4844::sendCommand()</a>, <a class="el" href="group___g_b1.html#gadb6affba868c9c99f44918e5a48a423d">SI4844::setAudioMode()</a>, <a class="el" href="group___g_b1.html#ga3de561a939b708030dae788781adf7e0">SI4844::setBand()</a>, <a class="el" href="group___g_b1.html#ga5c766d254b0c261a93dfd817f11b712c">SI4844::setCustomBand()</a>, <a class="el" href="group___b_f.html#gac080ba62ed2de41f80c1fe08135362a3">SI4844::setProperty()</a>, and <a class="el" href="group___g_b1.html#ga65eab6c860e3e11c5d3726144dd3b73d">SI4844::setVolume()</a>.</p>
 
 </div>
 </div>
