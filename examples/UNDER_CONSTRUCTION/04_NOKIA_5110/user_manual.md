@@ -1,64 +1,18 @@
 ##User Manual
 
-You can control and select any function of this receiver using the encoder and push button of the encoder
+This receiver has two FM bands (77MHz to 99MHz and 99MHz to 109MHz), one MW band (510 to 710 kHz), and 9 SW bands:  
 
-This receiver save all current status in the internal EEPROM of the ATmega328. This way, when you turn
-the receiver on again, the last status will be restored.
+1. 4600 to 5300 kHz  
+2. 5700 to 6300 kHz  
+3. 7100 to 7600 kHz  
+4. 9200 to 10000 kHz  
+5. 11600 to 12200 kHz  
+6. 13400 to 13990 kHz  
+7. 15100 to 15900 kHz  
+8. 17400 to 17990 kHz  
+9. 21400 to 21900 kHz  
 
-
-###Commands
-
-1. BAND SELECTION
-
-    Select the band by pressing the encoder push button once and then rotate the encoder clockwise or counterclockwise.
-    When the desired band is shown on display, you can press the button once again or wait for about 2 seconds.
-    You will notice the control will go back to the VFO.
-
-2. STEP, MODE, AGC/Attenuation, bandwidth, Soft Mute, Automatic Volume Control (AVC) and VOLUME
-
-     2.1. Press the encoder push button twice (within 1/2 second).  
-     2.2. After that, the display will show you the Menu text. Rotate the encoder clockwise or counterclockwise
-          to select the option (STEP, MODE, AGC/Attenuation, bandwidth, VOLUME, etc).  
-     2.3. After that, select the option you want to setup by pressing the encoder push button once again.  
-     2.4. After that, rotate the encoder clockwise or counterclockwise to select the parameter.  
-     2.5. Finally, you can press the button once again or wait for about 2 seconds.
-          The control will go back to the VFO.  
-
-3. VFO/BFO Switch
-
-    3.1. Press the encoder push button twice (within 1/2 second).  
-    3.2. Rotate the encoder clockwise or counterclockwise and go to the BFO option. This option is shown only on SSB mode.  
-    3.3. Press the encoder push button once again.  
-    3.4. Rotate the encoder clockwise or counterclockwise to increment or decrement the BFO (select the offset).  
-    3.5. If you press the button again or stop rotating the ancoder for about 2 seconds, the control will go back to the VFO.
-
-4. SEEK
-
-    4.1. Select the menu by pressing twice the encoder push button.  
-    4.2. Rotate the encoder clockwise or counterclockwise to select "Seek Up"  or "Seek Down".  
-    4.3. Press the encoder push button once on "Seek Up"  or "Seek Down".
-
-5. RESET
-
-    This sketch saves some current receiver and band parameters into the internal Arduino EEPROM (frequency, band, mode, volume and band parameters).  
-    For example:  if you select an attenuation parameter or filter parameter or something else on a given band, those information will be saved into the internal Arduino EEPROM.
-    This way, when you turn the receiver on again, that setup will be restored to that given band.
-    To reset the EEPROM content, folow the steps below:
-
-    5.1. Turn the receiver off  
-    5.2. Press and keep pressing the encoder push button  
-    5.3. Turn the receiver on and wait for the message "EEPROM RESET"
-
-###ATTENTION:
-
-To save EEPROM write cycles, any receiver parameter change will only be saved after 10 seconds of inactivity
-Only modified parameters will be saved
-If no parameter is modified, no writing will be made to the EEPROM
-It you turn the receiver off before 10 seconds after any modification, the current data will not be saved;
-You need to wait for 10 seconds after any modification to save the current receiver setup.
+It features 5 push buttons that allow you to select the desired band (FM, MW, and SW), control the volume, and adjust bass and treble.
 
 
-###ATTENTION:
-
-Try press and release the push button quickly. if you hold the button too long, the board may randomly alternate the command status (enable and disable).
-
+Press the **BAND UP** button to select the next available band or the **BAND DOWN** button to select the previous band. Use **VOLUME UP** or **VOLUME DOWN** to adjust the audio level. Press the **TOGGLE** button to switch between volume control and bass/treble control. When **TOGGLE** is pressed, the volume control buttons will adjust bass and treble. Press **TOGGLE** again to revert the controls back to volume adjustment.
