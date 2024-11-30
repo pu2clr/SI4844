@@ -34,21 +34,22 @@
   By PU2CLR, Ricardo, Nov,  2024.
 */
 
-#include <SI4SI4844.h>
+#include <SI4844.h>
 #include <EEPROM.h>
 
 #include <Adafruit_GFX.h>      // Core graphics library
 #include <Adafruit_PCD8544.h>  // See: https://www.electronoobs.com/eng_arduino_Adafruit_PCD8544.php
 
-#define RESET_PIN 12 
+#define RESET_PIN       12 
+#define INTERRUPT_PIN    2
 
 // NOKIA Display pin setup
-#define NOKIA_RST 8  // RESET
-#define NOKIA_CE 9   // Some NOKIA devices show CS
-#define NOKIA_DC 10  //
-#define NOKIA_DIN 11 // MOSI
-#define NOKIA_CLK 13 // SCK
-#define NOKIA_LED 0  // 0 if wired to +3.3V directly
+#define NOKIA_RST    8  // RESET
+#define NOKIA_CE     9   // Some NOKIA devices show CS
+#define NOKIA_DC    10  //
+#define NOKIA_DIN   11 // MOSI
+#define NOKIA_CLK   13 // SCK
+#define NOKIA_LED    0  // 0 if wired to +3.3V directly
 
 
 #define BAND_UP     3
@@ -56,6 +57,45 @@
 #define VOL_UP      5
 #define VOL_DOWN    6
 #define TOGGLE_VOL  7
+
+#define MIN_ELAPSED_TIME 100
+
+
+long elapsedButton = millis();
+
+/*
+  The following band table can be adjusted according to the user's preferences or local conditions. 
+  All bands on this receiver use a custom method rather than the standard SI484X method. 
+  The FM band has been divided into two bands. 
+  There are two MW bands, allowing the receiver to be configured according to the regional band plan and regulations. 
+  Finally, the SW bands can be modified to provide a better experience for users.
+*/
+
+typedef struct {
+    uint8_t   bandIdx;
+    uint16_t  botton;      // botton frequency (10350 = 103.5Mhz; 9775 = 9,775 kHz)
+    uint16_t  top;         // top
+    uint8_t   bandSpace;   // FM only (10 = 100 kHz; 20 = 200 kHz)
+} Band;
+
+
+Band tabBand[] = {  {1, 8700, 10100, 20},
+                    {1, 10100, 10900,20},
+                    {20, 520, 1710, 10},
+                    {21, 522, 1620, 10},
+                    {25, 4600, 5200, 5},
+                    {26, 5700, 6200, 5},
+                    {28, 7100, 7600, 5},
+                    {29, 9200,10000, 5},
+                    {31, 11450,12250, 5}, 
+                    {33, 13400,13900, 5},
+                    {36, 15090,15800, 5},
+                    {38, 17480,17900, 5},
+                    {40, 21450,21800, 5}
+                 };
+
+const int8_t lastBand = (sizeof tabBand / sizeof(Band)) - 1;
+int8_t bandIdx = 0;
 
 
 // Nokia 5110 display
@@ -70,7 +110,7 @@ void setup()
   pinMode(BAND_UP, INPUT_PULLUP);
   pinMode(BAND_DOWN, INPUT_PULLUP);
   pinMode(VOL_UP, INPUT_PULLUP);
-  pinMode(VOLUME_DOWN, INPUT_PULLUP);
+  pinMode(VOL_DOWN, INPUT_PULLUP);
   pinMode(TOGGLE_VOL, INPUT_PULLUP);
 
   // Start the Nokia display device
@@ -79,6 +119,8 @@ void setup()
   display.setContrast(60);  // You may need adjust this value for you Nokia 5110
   splash();                 // Show Splash - Remove this line if you do not want it.
 
+  rx.setup(RESET_PIN, INTERRUPT_PIN, 0, 400000);
+  rx.setVolume(48);
 
   showStatus();
 }
@@ -110,7 +152,6 @@ void splash()
  * Shows frequency information on Display
  */
 void showFrequency() {
-  currentFrequency = rx.getFrequency();
   display.setTextSize(2);
   display.setCursor(3, 8);
   display.print(rx.getFormattedFrequency(2));
@@ -129,23 +170,21 @@ void showStatus() {
   display.display();
 }
 
-/*
- *  Shows the volume level on LCD
- */
-void showVolume()
-{
 
+void nextBand() {
+      if ( bandIdx < lastBand ) 
+          bandIdx++;
+      else 
+          bandIdx = 0;
+      rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);        
 }
 
-
-
-
-/**
- *   Sets Band up (1) or down (!1)
- */
-void setBand(int8_t up_down)
-{
-
+void previousBand () {
+      if ( bandIdx > 0 ) 
+          bandIdx--;
+      else 
+          bandIdx = lastBand;
+      rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);        
 }
 
 /**
@@ -153,5 +192,22 @@ void setBand(int8_t up_down)
  */
 void loop()
 {
+
+  if ( (millis() - elapsedButton) > MIN_ELAPSED_TIME ) {
+    if (digitalRead(BAND_UP) == LOW ) 
+      nextBand(); // goes to the next band. 
+    else if (digitalRead(BAND_DOWN) == LOW )
+      previousBand() ; // goes to the previous band. 
+    else if (digitalRead(VOL_UP) == LOW )
+      rx.changeVolume('+');
+    else if (digitalRead(VOL_DOWN) == LOW )
+      rx.changeVolume('-');
+
+    elapsedButton = millis();  
+  }
+
+  if (rx.hasStatusChanged())
+    showStatus();
+
   delay(10);
 }
