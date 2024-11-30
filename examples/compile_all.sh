@@ -4,8 +4,8 @@
 # Some compilation results (bin and hex files) will be stores in your Download directory (/Users/<username>/Downloads/hex)
 # ATTENTION: 1) Be careful with --output-dir arduino-cli option. Before compiling, this option removes all the contents of the last level folder. 
 #               For example: if you use "--output-dir ~/Downloads", all the current content of the Downloads folder will be lost. 
-#                         if you use "--output-dir ~/Downloads/hex", all current content of the hex folder will be lost and the Downloads 
-#                         content will be preserved. 
+#                            if you use "--output-dir ~/Downloads/hex", all current content of the hex folder will be lost and the Downloads 
+#                            content will be preserved. 
 #            2) I have enabled all the compile warnings (--warnings all) to check some questionable situations that can be avoided or modified to prevent future warnings.  
 #            3) I have enabled  the "--verbose" parameter to show the deteiled logs of the compiling process.
 # Please, see the file config_libraries_and_boards.sh
