@@ -112,13 +112,18 @@ void setup()
   pinMode(VOL_UP, INPUT_PULLUP);
   pinMode(VOL_DOWN, INPUT_PULLUP);
   pinMode(TOGGLE_VOL, INPUT_PULLUP);
+  pinMode(14, OUTPUT);
+  
+  digitalWrite(14, HIGH);
+  delay(2000);
+  digitalWrite(14, LOW);
 
   // Start the Nokia display device
   display.begin();
   // ATTENTION: YOU MUST VERIFY THE BEST LAVEL FOR THE CONTRAST OF YOUR DISPLAY.
   display.setContrast(60);  // You may need adjust this value for you Nokia 5110
   splash();                 // Show Splash - Remove this line if you do not want it.
-
+  while(1);
   rx.setup(RESET_PIN, INTERRUPT_PIN, 0, 400000);
   rx.setVolume(48);
 
