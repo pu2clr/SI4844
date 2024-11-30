@@ -73,6 +73,8 @@ I hold a Master's degree in Educational Technology from the Federal University o
 Cordova provides an easy way to develop for iOS and Android.  
 * [Band Pass Filter controlled by Arduino](https://pu2clr.github.io/auto_bpf_arduino/). It is a HF band pass filter controlled by Arduino. It is designed for HF receivers. With this project, you can use a set of up to four HF bandpass filters that can be selected by Arduino. To do that you will need just two digital Arduino pins.
 
+
+
 ## Important
 
 __The SI4844 is a 3.3V part. If you are not using a 3.3V version of Arduino, you have to use a kind of 5V to 3.3V converter.__ See [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup).
@@ -80,6 +82,7 @@ __The SI4844 is a 3.3V part. If you are not using a 3.3V version of Arduino, you
 
 A good alternative to the Arduino Uno or Arduino Nano for a project using the SI48XX device is a board based on the LGT8F328 microcontroller. This device offers excellent compatibility with the Arduino Nano and Uno, including pin configuration, with the added advantage of operating at 3.3V, eliminating the need for a bidirectional converter, and being more affordable. Other viable alternatives include the ESP32, ESP8266, and STM32.
 
+Another approach to respecting the operating voltages of the SI484X is to use the ATmega328 without the Arduino board (Standalone). This allows you to configure the system at 3V, a voltage compatible with both the SI484X and the ATmega328. Additionally, you can configure the ATmega328 to use its internal oscillator, thereby simplifying the development of the electronic circuit.
 
 
 ## MIT License 
@@ -158,6 +161,8 @@ This library has been written for the Arduino platform and has been successfully
 ### Arduino 5V and Si4844
 
 __The Si4844 is a 3.3V part. If you are not using a 3.3V version of Arduino, you have to use a kind of 5V to 3.3V bidirectional converter. It is important to say that just power the Si4844 device with 3.3V from Arduino board is not enough. You have to be aware that the Arduino that operates with 5V, the digital pins and the I2C bus will send 5V signals to the Si4844 device. That configuration can make the system unstable or damage the device__.
+
+
 
 I have tested it with success the SI4844 with a 5V Arduino using the I2C Multiplexer TCA9548A, that also can work as a bidirectional converter.
 
