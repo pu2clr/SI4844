@@ -282,22 +282,36 @@ private:
   inline void setClockSpeed(uint16_t clock) { this->clockSpeed = clock; }; 
 
   /**
-  * @ingroup BF
-  * @brief Sets I2C bus speed to 10kHz
-  */
+   * @ingroup BF
+   * @brief Sets I2C bus speed to 10kHz
+   */
   inline void setClockLow(void) { Wire.setClock(10000); };
 
   /**
-  * @ingroup BF
-  * @brief Sets I2C bus speed to hight previous defined speed
-  * @see setClockSpeed 
-  */
+   * @ingroup BF
+   * @brief Sets I2C bus speed to hight previous defined speed
+   * @see setClockSpeed 
+   */
   inline void setClockHigh() { Wire.setClock(this->clockSpeed); };
 
-
+  /**
+   * @ingroup BF
+   * @brief waits for interrupt event
+   */
   inline void waitInterrupt(void);
+
+  /**
+   * @ingroup BF
+   * @brief Verifies if the system is prepared to receive commands.
+   */
   inline bool isClearToSend(void);
+
+  /**
+   * @ingroup BF
+   * @brief Waits for the system to be ready to receive commands. 
+   */
   inline void waitToSend(void);
+
 
   // SI4844 band description (FM = 0; AM = 1; SW = 2)
   const char *bandmode_table[3] = {"FM", "AM", "SW"};
