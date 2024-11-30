@@ -204,6 +204,11 @@ _EnD_oF_dEf_TeXt_;
 @param showFunc          function of your sketch that will be called to show something
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1adde5ba839a6d6b3db3a56c1893cf5491';
+        sec-mem-ref-line = '251';
+        sec-mem-ref-name = 'data_from_device';
+    };
+      sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga1d119d683bed417b108ef1ccf3a2d20c';
         sec-mem-ref-line = '673';
         sec-mem-ref-name = 'getFirmware';
@@ -304,6 +309,11 @@ _EnD_oF_dEf_TeXt_;
  It returns true when the device has triggered an interrupt. 
 @return true or false
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1adde5ba839a6d6b3db3a56c1893cf5491';
+        sec-mem-ref-line = '251';
+        sec-mem-ref-name = 'data_from_device';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -333,6 +343,16 @@ _EnD_oF_dEf_TeXt_;
 @return a pointer to a structure type  wirh the part number, chip revision, 
         firmware revision, patch revision, and component revision numbers.
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1adde5ba839a6d6b3db3a56c1893cf5491';
+        sec-mem-ref-line = '251';
+        sec-mem-ref-name = 'data_from_device';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga7e14f020d74ec2492070e84cb24a68c3';
+        sec-mem-ref-line = '420';
+        sec-mem-ref-name = 'waitToSend';
+    };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1gacd42a278c3304a591d80ae7ab351b87a';
         sec-mem-ref-line = '233';
@@ -534,6 +554,11 @@ _EnD_oF_dEf_TeXt_;
 @param removeRightDigit number of less significant digits to be removed (FM mode only)
 @return  point to char with the formatted current frequency
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1ab6cca42de97df341fb39a156c7baaa64';
+        sec-mem-ref-line = '319';
+        sec-mem-ref-name = 'strFormattedCurrentFrequenct';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -559,6 +584,11 @@ _EnD_oF_dEf_TeXt_;
 
 @return float current frequency in KHz.  <br>
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1adde5ba839a6d6b3db3a56c1893cf5491';
+        sec-mem-ref-line = '251';
+        sec-mem-ref-name = 'data_from_device';
+    };
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga3437ce047c5649597e1bccfb8c42cd5b';
         sec-mem-ref-line = '640';
@@ -590,6 +620,11 @@ _EnD_oF_dEf_TeXt_;
 
 @return uint32_t current frequency in KHz.  <br>
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1adde5ba839a6d6b3db3a56c1893cf5491';
+        sec-mem-ref-line = '251';
+        sec-mem-ref-name = 'data_from_device';
+    };
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga3437ce047c5649597e1bccfb8c42cd5b';
         sec-mem-ref-line = '640';
@@ -625,6 +660,11 @@ _EnD_oF_dEf_TeXt_;
 @param propertyNumber property number (example: RX_VOLUME)
 @return property value  (the content of the property)
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga7e14f020d74ec2492070e84cb24a68c3';
+        sec-mem-ref-line = '420';
+        sec-mem-ref-name = 'waitToSend';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -675,6 +715,16 @@ _EnD_oF_dEf_TeXt_;
 
 @return a pointer to a structure type si4844_status_response
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1gaf2bae44844dc8879354d13aaf120cd68';
+        sec-mem-ref-line = '295';
+        sec-mem-ref-name = 'setClockHigh';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga7e14f020d74ec2492070e84cb24a68c3';
+        sec-mem-ref-line = '420';
+        sec-mem-ref-name = 'waitToSend';
+    };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga0404927e7414a32125e32ff508bd450e';
         sec-mem-ref-line = '701';
@@ -964,6 +1014,11 @@ _EnD_oF_dEf_TeXt_;
 
  @return true or false  <br>
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1adde5ba839a6d6b3db3a56c1893cf5491';
+        sec-mem-ref-line = '251';
+        sec-mem-ref-name = 'data_from_device';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -988,6 +1043,16 @@ _EnD_oF_dEf_TeXt_;
  Moves the SI4844 device from power up to power down mode. 
 @see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1adde5ba839a6d6b3db3a56c1893cf5491';
+        sec-mem-ref-line = '251';
+        sec-mem-ref-name = 'data_from_device';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga7e14f020d74ec2492070e84cb24a68c3';
+        sec-mem-ref-line = '420';
+        sec-mem-ref-name = 'waitToSend';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -1036,6 +1101,21 @@ _EnD_oF_dEf_TeXt_;
  Prepares the system  to be started.
 @see pages 7, 8, 9 and 10 of the programming guide.
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1adde5ba839a6d6b3db3a56c1893cf5491';
+        sec-mem-ref-line = '251';
+        sec-mem-ref-name = 'data_from_device';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1ga3d3d37fdaa1cd64c0bd2c6178c72c80a';
+        sec-mem-ref-line = '288';
+        sec-mem-ref-name = 'setClockLow';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga34c4b208e45ee1b414afe5113b98db9f';
+        sec-mem-ref-line = '151';
+        sec-mem-ref-name = 'waitInterrupt';
+    };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1gacd42a278c3304a591d80ae7ab351b87a';
         sec-mem-ref-line = '233';
@@ -1074,6 +1154,11 @@ _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1adde5ba839a6d6b3db3a56c1893cf5491';
+        sec-mem-ref-line = '251';
+        sec-mem-ref-name = 'data_from_device';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -1149,6 +1234,11 @@ _EnD_oF_dEf_TeXt_;
 @param parameter_size Parameter size in bytes. Tell the number of argument used by the command.
 @param parameter uint16_t  byte array with the arguments of the command  <br>
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga7e14f020d74ec2492070e84cb24a68c3';
+        sec-mem-ref-line = '420';
+        sec-mem-ref-name = 'waitToSend';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -1331,6 +1421,11 @@ _EnD_oF_dEf_TeXt_;
             0 = Set audio mode and settings
             1 = Get current audio mode and settings without setting
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga7e14f020d74ec2492070e84cb24a68c3';
+        sec-mem-ref-line = '420';
+        sec-mem-ref-name = 'waitToSend';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -1386,6 +1481,11 @@ _EnD_oF_dEf_TeXt_;
 @param new_band  band number. 
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1adde5ba839a6d6b3db3a56c1893cf5491';
+        sec-mem-ref-line = '251';
+        sec-mem-ref-name = 'data_from_device';
+    };
+      sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga3437ce047c5649597e1bccfb8c42cd5b';
         sec-mem-ref-line = '640';
         sec-mem-ref-name = 'getStatus';
@@ -1394,6 +1494,16 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-ref-id = '_s_i4844_8cpp_1ga683a81897fe79e6909817aab36622684';
         sec-mem-ref-line = '276';
         sec-mem-ref-name = 'reset';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga34c4b208e45ee1b414afe5113b98db9f';
+        sec-mem-ref-line = '151';
+        sec-mem-ref-name = 'waitInterrupt';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga7e14f020d74ec2492070e84cb24a68c3';
+        sec-mem-ref-line = '420';
+        sec-mem-ref-name = 'waitToSend';
     };
     }; /* sec-member */
     sec-member = {
@@ -1602,9 +1712,24 @@ _EnD_oF_dEf_TeXt_;
 @param tvreq TV Audio Channel Frequency Display; 0 = Disable TV audio channel frequency display format; 1 = Enable TV audio channel frequency display format; Applicable to Si4827 and Si4844B parts and FMRX mode only
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1adde5ba839a6d6b3db3a56c1893cf5491';
+        sec-mem-ref-line = '251';
+        sec-mem-ref-name = 'data_from_device';
+    };
+      sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga3437ce047c5649597e1bccfb8c42cd5b';
         sec-mem-ref-line = '640';
         sec-mem-ref-name = 'getStatus';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga34c4b208e45ee1b414afe5113b98db9f';
+        sec-mem-ref-line = '151';
+        sec-mem-ref-name = 'waitInterrupt';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga7e14f020d74ec2492070e84cb24a68c3';
+        sec-mem-ref-line = '420';
+        sec-mem-ref-name = 'waitToSend';
     };
     }; /* sec-member */
     sec-member = {
@@ -1796,6 +1921,11 @@ _EnD_oF_dEf_TeXt_;
 @param propertyNumber property number (example: RX_VOLUME)
 @param parameter   property value that will be seted
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga7e14f020d74ec2492070e84cb24a68c3';
+        sec-mem-ref-line = '420';
+        sec-mem-ref-name = 'waitToSend';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -1904,6 +2034,11 @@ _EnD_oF_dEf_TeXt_;
 \ilinebr\ilinebr It is very useful when the user wants to control the interrupt instead of give this control to the library. 
 @param value true or false
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1adde5ba839a6d6b3db3a56c1893cf5491';
+        sec-mem-ref-line = '251';
+        sec-mem-ref-name = 'data_from_device';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -1956,6 +2091,11 @@ _EnD_oF_dEf_TeXt_;
 @param hightClockSpeed hight I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1adde5ba839a6d6b3db3a56c1893cf5491';
+        sec-mem-ref-line = '251';
+        sec-mem-ref-name = 'data_from_device';
+    };
+      sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga1d119d683bed417b108ef1ccf3a2d20c';
         sec-mem-ref-line = '673';
         sec-mem-ref-name = 'getFirmware';
@@ -1991,6 +2131,11 @@ _EnD_oF_dEf_TeXt_;
 @see Table 4, Si48XX ATDD PROGRAMMING GUIDE; AN610; page 11
 @param byte volumeLevel (domain: 0 to 63) 
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga7e14f020d74ec2492070e84cb24a68c3';
+        sec-mem-ref-line = '420';
+        sec-mem-ref-name = 'waitToSend';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -2067,6 +2212,11 @@ Checks the CTS status.
 @return true 
 @return false 
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga7e14f020d74ec2492070e84cb24a68c3';
+        sec-mem-ref-line = '420';
+        sec-mem-ref-name = 'waitToSend';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -2085,6 +2235,11 @@ _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
 @see setClockSpeed 
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga3437ce047c5649597e1bccfb8c42cd5b';
+        sec-mem-ref-line = '640';
+        sec-mem-ref-name = 'getStatus';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -2108,6 +2263,11 @@ _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga683a81897fe79e6909817aab36622684';
+        sec-mem-ref-line = '276';
+        sec-mem-ref-name = 'reset';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -2158,6 +2318,26 @@ Waiting for an external interrupt.
  This function is called whenever the status of ATDD (SI4844) changes. 
 \ilinebr\ilinebr It can occur, for example, when you use the analog tuner.  <br>
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8h_1adde5ba839a6d6b3db3a56c1893cf5491';
+        sec-mem-ref-line = '251';
+        sec-mem-ref-name = 'data_from_device';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga683a81897fe79e6909817aab36622684';
+        sec-mem-ref-line = '276';
+        sec-mem-ref-name = 'reset';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga3de561a939b708030dae788781adf7e0';
+        sec-mem-ref-line = '361';
+        sec-mem-ref-name = 'setBand';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga5c766d254b0c261a93dfd817f11b712c';
+        sec-mem-ref-line = '828';
+        sec-mem-ref-name = 'setCustomBand';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -2183,6 +2363,61 @@ Wait for the ATDD become Clear to Send.
 
  Waits for CTS status
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga5b2ae6cf8a96c47b8725e6a1615e7b45';
+        sec-mem-ref-line = '404';
+        sec-mem-ref-name = 'isClearToSend';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga1d119d683bed417b108ef1ccf3a2d20c';
+        sec-mem-ref-line = '673';
+        sec-mem-ref-name = 'getFirmware';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1gaf4b90cf2e7a654718e2c65de5def0928';
+        sec-mem-ref-line = '72';
+        sec-mem-ref-name = 'getProperty';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga3437ce047c5649597e1bccfb8c42cd5b';
+        sec-mem-ref-line = '640';
+        sec-mem-ref-name = 'getStatus';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1gaff14988c6be8a5fb9d1a5e6934dcff47';
+        sec-mem-ref-line = '297';
+        sec-mem-ref-name = 'powerDown';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga8b2c96a6126110589a403751ec12631c';
+        sec-mem-ref-line = '114';
+        sec-mem-ref-name = 'sendCommand';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1gadb6affba868c9c99f44918e5a48a423d';
+        sec-mem-ref-line = '576';
+        sec-mem-ref-name = 'setAudioMode';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga3de561a939b708030dae788781adf7e0';
+        sec-mem-ref-line = '361';
+        sec-mem-ref-name = 'setBand';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga5c766d254b0c261a93dfd817f11b712c';
+        sec-mem-ref-line = '828';
+        sec-mem-ref-name = 'setCustomBand';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1gac080ba62ed2de41f80c1fe08135362a3';
+        sec-mem-ref-line = '43';
+        sec-mem-ref-name = 'setProperty';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga65eab6c860e3e11c5d3726144dd3b73d';
+        sec-mem-ref-line = '484';
+        sec-mem-ref-name = 'setVolume';
+    };
     }; /* sec-member */
   }; /* cp-section */
   cp-section = {
@@ -2381,6 +2616,11 @@ _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1gab73eede639c03740773261c551ead9a5';
+        sec-mem-ref-line = '1126';
+        sec-mem-ref-name = 'getFormattedFrequency';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'variable';
@@ -2455,6 +2695,86 @@ _EnD_oF_dEf_TeXt_;
 \iline 255 
 
 \ilinebr\ilinebr This class implements all functions to help you to control the Si4844 devices. 
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 1;
+        node-label = 'SI4844';
+        node-link = {
+          node-link-id = 'class_s_i4844';
+        };
+        node-child = {
+          child-id = '2';
+          relation = usage;
+          edgelabel = <<_EnD_oF_dEf_TeXt_
+status_response
+_EnD_oF_dEf_TeXt_;
+        }; /* node-child */
+        node-child = {
+          child-id = '5';
+          relation = usage;
+          edgelabel = <<_EnD_oF_dEf_TeXt_
+firmware_response
+_EnD_oF_dEf_TeXt_;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 6;
+        node-label = 'si4844_firmware_info';
+        node-link = {
+          node-link-id = 'group___g_a1#structsi4844__firmware__info';
+        };
+      }; /* node */
+      node = {
+        node-id    = 5;
+        node-label = 'si4844_firmware_response';
+        node-link = {
+          node-link-id = '_s_i4844_8h#unionsi4844__firmware__response';
+        };
+        node-child = {
+          child-id = '6';
+          relation = usage;
+          edgelabel = <<_EnD_oF_dEf_TeXt_
+refined
+_EnD_oF_dEf_TeXt_;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 4;
+        node-label = 'si4844_get_channel_frequency';
+        node-link = {
+          node-link-id = '_s_i4844_8h#structsi4844__get__channel__frequency';
+        };
+      }; /* node */
+      node = {
+        node-id    = 3;
+        node-label = 'si4844_get_status';
+        node-link = {
+          node-link-id = 'group___g_a1#structsi4844__get__status';
+        };
+      }; /* node */
+      node = {
+        node-id    = 2;
+        node-label = 'si4844_status_response';
+        node-link = {
+          node-link-id = 'group___g_a1#unionsi4844__status__response';
+        };
+        node-child = {
+          child-id = '3';
+          relation = usage;
+          edgelabel = <<_EnD_oF_dEf_TeXt_
+refined
+_EnD_oF_dEf_TeXt_;
+        }; /* node-child */
+        node-child = {
+          child-id = '4';
+          relation = usage;
+          edgelabel = <<_EnD_oF_dEf_TeXt_
+rawStatus
+_EnD_oF_dEf_TeXt_;
+        }; /* node-child */
+      }; /* node */
+
 _EnD_oF_dEf_TeXt_;
 }; /* class */
 union = {
@@ -4228,6 +4548,11 @@ _EnD_oF_dEf_TeXt_;
 \ilinebr\ilinebr You can control the interrupt process via your sketch intead of this library. 
 @see setStatusInterruptFromDevice, getStatusInterruptFromDevice, setup 
 _EnD_oF_dEf_TeXt_;
+      func-mem-referenceto = {
+        func-mem-ref-id = '_s_i4844_8h_1adde5ba839a6d6b3db3a56c1893cf5491';
+        func-mem-ref-line = '251';
+        func-mem-ref-name = 'data_from_device';
+    };
     }; /* func-member */
     };
   file-full-name  = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.cpp';
@@ -4762,6 +5087,81 @@ _EnD_oF_dEf_TeXt_;
 \ilinebr\ilinebr The variable below indicates a change of the ATDD status. When it occurs, it means the system needs to process some action (for example show on LCD this change).  <br>
 @see interrupt_hundler() function in SI44.cpp. 
 _EnD_oF_dEf_TeXt_;
+      var-mem-referencedby = {
+        var-mem-ref-id = '_s_i4844_8cpp_1gacd42a278c3304a591d80ae7ab351b87a';
+        var-mem-ref-line = '233';
+        var-mem-ref-name = 'SI4844::debugDevice';
+    };
+      var-mem-referencedby = {
+        var-mem-ref-id = '_s_i4844_8h_1ga28ec82cb2fd02a0422e8ef3858e5ddcb';
+        var-mem-ref-line = '341';
+        var-mem-ref-name = 'SI4844::getDataStatusInterruptFromDevice';
+    };
+      var-mem-referencedby = {
+        var-mem-ref-id = '_s_i4844_8cpp_1ga1d119d683bed417b108ef1ccf3a2d20c';
+        var-mem-ref-line = '673';
+        var-mem-ref-name = 'SI4844::getFirmware';
+    };
+      var-mem-referencedby = {
+        var-mem-ref-id = '_s_i4844_8cpp_1ga0404927e7414a32125e32ff508bd450e';
+        var-mem-ref-line = '701';
+        var-mem-ref-name = 'SI4844::getFrequency';
+    };
+      var-mem-referencedby = {
+        var-mem-ref-id = '_s_i4844_8cpp_1ga0eafb7b0438fb9e70c91d368929c6aed';
+        var-mem-ref-line = '747';
+        var-mem-ref-name = 'SI4844::getFrequencyInteger';
+    };
+      var-mem-referencedby = {
+        var-mem-ref-id = '_s_i4844_8cpp_1gae362404004bde2ed561a0c34604e0254';
+        var-mem-ref-line = '795';
+        var-mem-ref-name = 'SI4844::hasStatusChanged';
+    };
+      var-mem-referencedby = {
+        var-mem-ref-id = '_s_i4844_8cpp_1ac673bec28500b111088b013029979fcc';
+        var-mem-ref-line = '27';
+        var-mem-ref-name = 'interrupt_hundler';
+    };
+      var-mem-referencedby = {
+        var-mem-ref-id = '_s_i4844_8cpp_1gaff14988c6be8a5fb9d1a5e6934dcff47';
+        var-mem-ref-line = '297';
+        var-mem-ref-name = 'SI4844::powerDown';
+    };
+      var-mem-referencedby = {
+        var-mem-ref-id = '_s_i4844_8cpp_1ga683a81897fe79e6909817aab36622684';
+        var-mem-ref-line = '276';
+        var-mem-ref-name = 'SI4844::reset';
+    };
+      var-mem-referencedby = {
+        var-mem-ref-id = '_s_i4844_8cpp_1ga2f14c89d348c5e3214615258b8f9c918';
+        var-mem-ref-line = '804';
+        var-mem-ref-name = 'SI4844::resetStatus';
+    };
+      var-mem-referencedby = {
+        var-mem-ref-id = '_s_i4844_8cpp_1ga3de561a939b708030dae788781adf7e0';
+        var-mem-ref-line = '361';
+        var-mem-ref-name = 'SI4844::setBand';
+    };
+      var-mem-referencedby = {
+        var-mem-ref-id = '_s_i4844_8cpp_1ga5c766d254b0c261a93dfd817f11b712c';
+        var-mem-ref-line = '828';
+        var-mem-ref-name = 'SI4844::setCustomBand';
+    };
+      var-mem-referencedby = {
+        var-mem-ref-id = '_s_i4844_8h_1ga1a00037a2cedbe25d1d53716a1c20c00';
+        var-mem-ref-line = '333';
+        var-mem-ref-name = 'SI4844::setStatusInterruptFromDevice';
+    };
+      var-mem-referencedby = {
+        var-mem-ref-id = '_s_i4844_8cpp_1ga4ee550ad12649badcb3d54da6c7e62ee';
+        var-mem-ref-line = '171';
+        var-mem-ref-name = 'SI4844::setup';
+    };
+      var-mem-referencedby = {
+        var-mem-ref-id = '_s_i4844_8cpp_1ga34c4b208e45ee1b414afe5113b98db9f';
+        var-mem-ref-line = '151';
+        var-mem-ref-name = 'SI4844::waitInterrupt';
+    };
     }; /* var-member */
     };
   file-full-name  = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';

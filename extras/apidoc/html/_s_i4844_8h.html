@@ -92,7 +92,8 @@ $(document).ready(function(){initNavTree('_s_i4844_8h.html',''); initResizable()
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">SI4844.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -209,6 +210,12 @@ Macros</h2></td></tr>
 <tr class="memdesc:acc6be0457e695b1458f3d016ef10faeb"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> ARDUINO LIBRARY <br  />
   <br /></td></tr>
 <tr class="separator:acc6be0457e695b1458f3d016ef10faeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:adde5ba839a6d6b3db3a56c1893cf5491"><td class="memItemLeft" align="right" valign="top">static volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_i4844_8h.html#adde5ba839a6d6b3db3a56c1893cf5491">data_from_device</a></td></tr>
+<tr class="memdesc:adde5ba839a6d6b3db3a56c1893cf5491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupt status.  <br /></td></tr>
+<tr class="separator:adde5ba839a6d6b3db3a56c1893cf5491"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Class Documentation</h2>
 <a name="unionsi4844__firmware__response" id="unionsi4844__firmware__response"></a>
@@ -719,6 +726,36 @@ byteLow</td>
 github.com</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>PU2CLR - Ricardo Lima Caratti </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2019-2020 </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="adde5ba839a6d6b3db3a56c1893cf5491" name="adde5ba839a6d6b3db3a56c1893cf5491"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adde5ba839a6d6b3db3a56c1893cf5491">&#9670;&#160;</a></span>data_from_device</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile bool data_from_device</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Interrupt status. </p>
+<p>This variable must be true every time an interruption occurs and then must return to the false every time an action resulting from the interruption is performed.</p>
+<p>The variable below indicates a change of the ATDD status. When it occurs, it means the system needs to process some action (for example show on LCD this change). <br  />
+ </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="_s_i4844_8cpp.html#ac673bec28500b111088b013029979fcc" title="Library handle interrupt.">interrupt_hundler()</a> function in SI44.cpp. </dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="group___g_b1.html#gacd42a278c3304a591d80ae7ab351b87a">SI4844::debugDevice()</a>, <a class="el" href="group___b_f.html#ga28ec82cb2fd02a0422e8ef3858e5ddcb">SI4844::getDataStatusInterruptFromDevice()</a>, <a class="el" href="group___g_b1.html#ga1d119d683bed417b108ef1ccf3a2d20c">SI4844::getFirmware()</a>, <a class="el" href="group___g_b1.html#ga0404927e7414a32125e32ff508bd450e">SI4844::getFrequency()</a>, <a class="el" href="group___g_b1.html#ga0eafb7b0438fb9e70c91d368929c6aed">SI4844::getFrequencyInteger()</a>, <a class="el" href="group___g_b1.html#gae362404004bde2ed561a0c34604e0254">SI4844::hasStatusChanged()</a>, <a class="el" href="_s_i4844_8cpp.html#ac673bec28500b111088b013029979fcc">interrupt_hundler()</a>, <a class="el" href="group___g_b1.html#gaff14988c6be8a5fb9d1a5e6934dcff47">SI4844::powerDown()</a>, <a class="el" href="group___g_b1.html#ga683a81897fe79e6909817aab36622684">SI4844::reset()</a>, <a class="el" href="group___g_b1.html#ga2f14c89d348c5e3214615258b8f9c918">SI4844::resetStatus()</a>, <a class="el" href="group___g_b1.html#ga3de561a939b708030dae788781adf7e0">SI4844::setBand()</a>, <a class="el" href="group___g_b1.html#ga5c766d254b0c261a93dfd817f11b712c">SI4844::setCustomBand()</a>, <a class="el" href="group___b_f.html#ga1a00037a2cedbe25d1d53716a1c20c00">SI4844::setStatusInterruptFromDevice()</a>, <a class="el" href="group___g_b1.html#ga4ee550ad12649badcb3d54da6c7e62ee">SI4844::setup()</a>, and <a class="el" href="group___b_f.html#ga34c4b208e45ee1b414afe5113b98db9f">SI4844::waitInterrupt()</a>.</p>
 
 </div>
 </div>
