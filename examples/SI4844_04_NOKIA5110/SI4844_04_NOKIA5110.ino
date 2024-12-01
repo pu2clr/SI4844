@@ -115,7 +115,12 @@ void setup() {
   nokia.setContrast(70); // 0 - 120 -> Set the appropriated value for your Nokia 5110 display
   splash();              // Show Splash - Remove this line if you do not want it.
 
-  rx.setup(RESET_PIN, INTERRUPT_PIN, 0, 100000);
+  // Start the SI484X device and link it to the MCU pins.  
+  // -1 means no band is selected here and 400000 means 400kHz I2C bus speed 
+  rx.setup(RESET_PIN, INTERRUPT_PIN, -1, 400000);
+
+  // Select the band. See tabBand array structure 
+  rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);
 
   rx.setVolume(48);
   showStatus();

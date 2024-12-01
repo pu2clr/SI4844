@@ -333,7 +333,7 @@ public :
   void sendCommand(uint8_t cmd, int parameter_size, const uint8_t *parameter);
   void getCommandResponse(int response_size, uint8_t *response);
 
-  void setup(uint16_t resetPin, int interruptPin, byte defaultBand, uint32_t hightClockSpeed = 50000);
+  void setup(uint16_t resetPin, int interruptPin, int8_t defaultBand = 0, uint32_t hightClockSpeed = 50000);
   void debugDevice(uint16_t resetPin, uint16_t interruptPin, uint8_t defaultBand, void (*showFunc)(char *msg));
   void reset(void );
   void setBand(byte);

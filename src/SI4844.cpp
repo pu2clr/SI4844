@@ -165,10 +165,10 @@ void SI4844::waitInterrupt(void)
  * @details In this case, you have to call interrupt_hundler() (see SI4844.h)   
  * @param resetPin      arduino pin used to reset the device
  * @param interruptPin  interruprPin arduino pin used to handle interrupt 
- * @param defaultBand   band that the radio should start 
+ * @param defaultBand   band that the radio should start. If -1 no band is selected and you must select one after starting. Default 0 = FM.
  * @param hightClockSpeed hight I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
  */
-void SI4844::setup(uint16_t resetPin, int interruptPin, byte defaultBand, uint32_t hightClockSpeed )
+void SI4844::setup(uint16_t resetPin, int interruptPin, int8_t defaultBand, uint32_t hightClockSpeed )
 {
 
     this->resetPin = resetPin;
@@ -192,12 +192,15 @@ void SI4844::setup(uint16_t resetPin, int interruptPin, byte defaultBand, uint32
 
     // FM is the default BAND
     // See pages 17 and 18 (Table 8. Pre-defined Band Table) for more details
-    setBand(defaultBand);
+    if ( defaultBand >= 0 )
+        setBand(defaultBand);
+        
     setVolume(30);
 
     // You need call it just once.
     getFirmware();
 }
+
 
 /**
  * @ingroup BF
