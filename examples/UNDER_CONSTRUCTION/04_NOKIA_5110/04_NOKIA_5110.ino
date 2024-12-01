@@ -35,7 +35,7 @@
 */
 
 #include <SI4844.h>
-#include <EEPROM.h>
+// #include <EEPROM.h>
 
 #include <Adafruit_GFX.h>      // Core graphics library
 #include <Adafruit_PCD8544.h>  // See: https://www.electronoobs.com/eng_arduino_Adafruit_PCD8544.php
@@ -59,9 +59,10 @@
 #define TOGGLE_VOL  7
 
 #define MIN_ELAPSED_TIME 100
-
+#define MINIMUM_DELAY 200
 
 long elapsedButton = millis();
+bool toggle = true;
 
 /*
   The following band table can be adjusted according to the user's preferences or local conditions. 
@@ -72,25 +73,25 @@ long elapsedButton = millis();
 */
 
 typedef struct {
-    uint8_t   bandIdx;
+    int8_t    bandIdx;
     uint16_t  botton;      // botton frequency (10350 = 103.5Mhz; 9775 = 9,775 kHz)
     uint16_t  top;         // top
     uint8_t   bandSpace;   // FM only (10 = 100 kHz; 20 = 200 kHz)
 } Band;
 
 
-Band tabBand[] = {  {1, 8700, 10100, 20},
-                    {1, 10100, 10900,20},
+Band tabBand[] = {  {3, 8700, 10100, 20},
+                    {3, 10100, 10900,20},
                     {20, 520, 1710, 10},
                     {21, 522, 1620, 10},
-                    {25, 4600, 5200, 5},
+                    {26, 4600, 5200, 5},
                     {26, 5700, 6200, 5},
-                    {28, 7100, 7600, 5},
-                    {29, 9200,10000, 5},
-                    {31, 11450,12250, 5}, 
-                    {33, 13400,13900, 5},
-                    {36, 15090,15800, 5},
-                    {38, 17480,17900, 5},
+                    {26, 7100, 7600, 5},
+                    {26, 9200,10000, 5},
+                    {26, 11450,12250, 5}, 
+                    {40, 13400,13900, 5},
+                    {40, 15090,15800, 5},
+                    {40, 17480,17900, 5},
                     {40, 21450,21800, 5}
                  };
 
@@ -121,6 +122,13 @@ void setup()
 
   rx.setup(RESET_PIN, INTERRUPT_PIN, 0, 400000);
   rx.setVolume(48);
+
+  for (int i = 0; i < lastBand; i++) {
+    delay(500);
+    rx.setCustomBand(tabBand[i].bandIdx, tabBand[i].botton, tabBand[i].top, tabBand[i].bandSpace);   
+    showStatus();
+    delay(10000);    
+  }
 
   showStatus();
 }
@@ -163,7 +171,7 @@ void showFrequency() {
  * Shows some basic information on display
  */
 void showStatus() {
-
+  rx.getStatusBandIndex();
   display.fillRect(0, 0, 84, 23, WHITE);
   display.setTextColor(BLACK);
   showFrequency();
@@ -176,7 +184,9 @@ void nextBand() {
           bandIdx++;
       else 
           bandIdx = 0;
-      rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);        
+      rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);
+  delay(MINIMUM_DELAY);
+  showStatus();
 }
 
 void previousBand () {
@@ -184,8 +194,28 @@ void previousBand () {
           bandIdx--;
       else 
           bandIdx = lastBand;
-      rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);        
+      rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);       
+  delay(MINIMUM_DELAY);
+  showStatus();
 }
+
+void audioControlUp() {
+    if (toggle) 
+      rx.changeVolume('+');
+    else
+      rx.bassTrebleUp();
+  delay(MINIMUM_DELAY); 
+  showStatus();       
+}
+
+void audioControlDown() {
+    if (toggle) 
+      rx.changeVolume('-');
+    else
+      rx.bassTrebleDown();
+  delay(MINIMUM_DELAY);  
+}
+
 
 /**
  * Main loop
@@ -193,21 +223,21 @@ void previousBand () {
 void loop()
 {
 
-  if ( (millis() - elapsedButton) > MIN_ELAPSED_TIME ) {
     if (digitalRead(BAND_UP) == LOW ) 
       nextBand(); // goes to the next band. 
     else if (digitalRead(BAND_DOWN) == LOW )
       previousBand() ; // goes to the previous band. 
     else if (digitalRead(VOL_UP) == LOW )
-      rx.changeVolume('+');
+      audioControlUp();
     else if (digitalRead(VOL_DOWN) == LOW )
-      rx.changeVolume('-');
-
-    elapsedButton = millis();  
-  }
+      audioControlDown();
+    else if ( digitalRead(TOGGLE_VOL) == LOW) { 
+      toggle = !toggle;
+      delay(MINIMUM_DELAY);
+    }
 
   if (rx.hasStatusChanged())
     showStatus();
 
-  delay(10);
+  delay(5);
 }
