@@ -3,40 +3,43 @@
   This sketch compiles on the Arduino Nano, Uno, Pro Mini, and LGT8F328 (LGT8Fx board manager), 
   as well as on the ATmega328 standalone (MiniCore board manager).
 
+  
+  This sketch uses the EEPROM to store the last band used and the audio level. 
+  This way, the radio will start on the band you were using when it was last turned off. 
+  To reset the EEPROM, turn on the radio while holding down the "Next Band (BAND_UP)" button.
+
   See user_manual.txt before operating the receiver.
 
-  Wire up on Arduino Pro Mini, Nano, LGT8F328 and SI4844
+  Wire up on ATmega328 or Arduino Pro Mini or  Nano or  LGT8F328  and SI4844 and Nokia Diaplay
 
-  | Device name               | Device Pin / Description      |  Arduino Pin  |
-  | ----------------          | ----------------------------- | ------------  |
-  | Display NOKIA 5110        |                               |               |
-  |                           | (1) RST (RESET)               |     8         |
-  |                           | (2) CE or CS                  |     9         |
-  |                           | (3) DC or DO                  |    10         |
-  |                           | (4) DIN or DI or MOSI         |    11         |
-  |                           | (5) CLK                       |    13         |
-  |                           | (6) VCC  (3V-5V)              |    +VCC       |
-  |                           | (7) BL/DL/LIGHT               |    +VCC       |
-  |                           | (8) GND                       |    GND        |
-  |     SI4844                |                               |               |
-  |                           | RESET (pin 15)                |     12        |
-  |                           | INTERRUPT (pin 2)             |      2        |
-  |                           | SDA (pin 16)                  |     A4        |
-  |                           | SCL (pin 17)                  |     A5        |
-
-  |    Buttons                |                               |               |
-  |                           | Band + (Next Band)            |      3        |
-  |                           | Band - (Previous Band)        |      4        |
-  |                           | Vol/bass/treble +             |      5        |
-  |                           | Vol/Bass/Treble -             |      6        | 
-  |                           | Toggle Vol/bass/treble        |      7        |    
+  |     Device name       | Device Pin / Description      |  Arduino Pin  |
+  | --------------------- | ----------------------------- | ------------  |
+  |   Display NOKIA 5110  |                               |               |
+  |                       | (1) RST (RESET)               |     8         |
+  |                       | (2) CE or CS                  |     9         |
+  |                       | (3) DC or DO                  |    10         |
+  |                       | (4) DIN or DI or MOSI         |    11         |
+  |                       | (5) CLK                       |    13         |
+  |                       | (6) VCC  (3V-5V)              |    +VCC       |
+  |                       | (7) BL/DL/LIGHT               |    +VCC       |
+  |                       | (8) GND                       |    GND        |
+  |    SI4844             |                               |               |
+  |                       | RESET (pin 15)                |     12        |
+  |                       | INTERRUPT (pin 2)             |      2        |
+  |                       | SDA (pin 16)                  |     A4        |
+  |                       | SCL (pin 17)                  |     A5        |
+  |    Buttons            |                               |               |
+  |                       | Band + (Next Band)            |      3        |
+  |                       | Band - (Previous Band)        |      4        |
+  |                       | Vol/bass/treble +             |      5        |
+  |                       | Vol/Bass/Treble -             |      6        | 
+  |                       | Toggle Vol/bass/treble        |      7        |    
 
   By PU2CLR, Ricardo, Nov,  2024.
 */
 
 #include <SI4844.h>
 #include <LCD5110_Graph.h> // you can download this library on http://www.rinkydinkelectronics.com/library.php?id=47
-
 #include <EEPROM.h>
 
 #define RESET_PIN 12
@@ -93,12 +96,13 @@ Band tabBand[] = { { 3, 8700, 10100, 20, (char *) "FM1" },
                    { 29, 11400,12200, 5, (char *) "SW5"},
                    { 34, 13400,13990, 5, (char *) "SW6"},
                    { 36, 15090,15700, 5, (char *) "SW7"},
-                   { 40, 21400,21600, 5, (char *) "SW8"},
-                   { 40, 27000,27700, 5, (char *) "SW9" } };
+                   { 40, 17400,17990, 5, (char *) "SW8"},
+                   { 40, 21400,27890, 5, (char *) "SW9" } };
 
 const int8_t lastBand = (sizeof tabBand / sizeof(Band)) - 1;
 int8_t bandIdx = 0;
 
+char *stmo[] = {(char *) "Mono", (char *) "Stereo"}; 
 
 extern uint8_t SmallFont[]; // Font Nokia
 extern uint8_t BigNumbers[];
@@ -200,7 +204,7 @@ void showStatus() {
   nokia.print(mode,63,40);
 
   if (rx.getStatusBandMode() == 0) {
-    nokia.print(rx.getStereoIndicator(),0,40);
+    nokia.print(stmo[rx.getStatusStereo()],0,40);
   }
 
   nokia.update();
