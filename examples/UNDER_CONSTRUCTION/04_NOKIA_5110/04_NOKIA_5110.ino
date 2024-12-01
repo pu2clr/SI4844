@@ -40,23 +40,23 @@
 #include <Adafruit_GFX.h>      // Core graphics library
 #include <Adafruit_PCD8544.h>  // See: https://www.electronoobs.com/eng_arduino_Adafruit_PCD8544.php
 
-#define RESET_PIN       12 
-#define INTERRUPT_PIN    2
+#define RESET_PIN 12
+#define INTERRUPT_PIN 2
 
 // NOKIA Display pin setup
-#define NOKIA_RST    8  // RESET
-#define NOKIA_CE     9   // Some NOKIA devices show CS
-#define NOKIA_DC    10  //
-#define NOKIA_DIN   11 // MOSI
-#define NOKIA_CLK   13 // SCK
-#define NOKIA_LED    0  // 0 if wired to +3.3V directly
+#define NOKIA_RST 8   // RESET
+#define NOKIA_CE 9    // Some NOKIA devices show CS
+#define NOKIA_DC 10   //
+#define NOKIA_DIN 11  // MOSI
+#define NOKIA_CLK 13  // SCK
+#define NOKIA_LED 0   // 0 if wired to +3.3V directly
 
 
-#define BAND_UP     3
-#define BAND_DOWN   4
-#define VOL_UP      5
-#define VOL_DOWN    6
-#define TOGGLE_VOL  7
+#define BAND_UP 3
+#define BAND_DOWN 4
+#define VOL_UP 5
+#define VOL_DOWN 6
+#define TOGGLE_VOL 7
 
 #define MIN_ELAPSED_TIME 100
 #define MINIMUM_DELAY 200
@@ -73,27 +73,26 @@ bool toggle = true;
 */
 
 typedef struct {
-    int8_t    bandIdx;
-    uint16_t  botton;      // botton frequency (10350 = 103.5Mhz; 9775 = 9,775 kHz)
-    uint16_t  top;         // top
-    uint8_t   bandSpace;   // FM only (10 = 100 kHz; 20 = 200 kHz)
+  int8_t bandIdx;
+  uint16_t botton;    // botton frequency (10350 = 103.5Mhz; 9775 = 9,775 kHz)
+  uint16_t top;       // top
+  uint8_t bandSpace;  // FM only (10 = 100 kHz; 20 = 200 kHz)
 } Band;
 
 
-Band tabBand[] = {  {3, 8700, 10100, 20},
-                    {3, 10100, 10900,20},
-                    {20, 520, 1710, 10},
-                    {21, 522, 1620, 10},
-                    {26, 4600, 5200, 5},
-                    {26, 5700, 6200, 5},
-                    {26, 7100, 7600, 5},
-                    {26, 9200,10000, 5},
-                    {26, 11450,12250, 5}, 
-                    {40, 13400,13900, 5},
-                    {40, 15090,15800, 5},
-                    {40, 17480,17900, 5},
-                    {40, 21450,21800, 5}
-                 };
+Band tabBand[] = { { 3, 8700, 10100, 20 },
+                   { 3, 10100, 10900, 20 },
+                   { 20, 0, 0 , 0 },
+                   { 21, 0, 0, 0},
+                   { 26, 4600, 5200, 5 },
+                   { 26, 0, 0, 0 },
+                   { 27, 0, 0, 0 },
+                   { 28, 0, 0, 0 },
+                   { 29, 0, 0, 0 },
+                   { 34, 0, 0, 0 },
+                   { 36, 0, 0, 0 },
+                   { 39, 0, 0, 0 },
+                   { 40, 21450, 21800, 5 } };
 
 const int8_t lastBand = (sizeof tabBand / sizeof(Band)) - 1;
 int8_t bandIdx = 0;
@@ -105,8 +104,7 @@ Adafruit_PCD8544 display = Adafruit_PCD8544(NOKIA_DC, NOKIA_CE, NOKIA_RST);
 
 SI4844 rx;
 
-void setup()
-{
+void setup() {
   // Encoder pins
   pinMode(BAND_UP, INPUT_PULLUP);
   pinMode(BAND_DOWN, INPUT_PULLUP);
@@ -120,15 +118,8 @@ void setup()
   display.setContrast(45);  // You may need adjust this value for you Nokia 5110
   splash();                 // Show Splash - Remove this line if you do not want it.
 
-  rx.setup(RESET_PIN, INTERRUPT_PIN, 0, 400000);
+  rx.setup(RESET_PIN, INTERRUPT_PIN, 0);
   rx.setVolume(48);
-
-  for (int i = 0; i < lastBand; i++) {
-    delay(500);
-    rx.setCustomBand(tabBand[i].bandIdx, tabBand[i].botton, tabBand[i].top, tabBand[i].bandSpace);   
-    showStatus();
-    delay(10000);    
-  }
 
   showStatus();
 }
@@ -136,8 +127,7 @@ void setup()
 /**
  * Shows splash message
  */
-void splash()
-{
+void splash() {
   display.clearDisplay();
   display.display();
   display.setTextColor(BLACK);
@@ -180,61 +170,70 @@ void showStatus() {
 
 
 void nextBand() {
-      if ( bandIdx < lastBand ) 
-          bandIdx++;
-      else 
-          bandIdx = 0;
-      rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);
+  if (bandIdx < lastBand)
+    bandIdx++;
+  else
+    bandIdx = 0;
+
+  if ( tabBand[bandIdx].botton == 0) 
+    rx.setBand(tabBand[bandIdx].bandIdx);
+  else    
+    rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);
+
   delay(MINIMUM_DELAY);
   showStatus();
 }
 
-void previousBand () {
-      if ( bandIdx > 0 ) 
-          bandIdx--;
-      else 
-          bandIdx = lastBand;
-      rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);       
+void previousBand() {
+  if (bandIdx > 0)
+    bandIdx--;
+  else
+    bandIdx = lastBand;
+
+  if ( tabBand[bandIdx].botton == 0) 
+    rx.setBand(tabBand[bandIdx].bandIdx);
+  else    
+    rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);    
+
   delay(MINIMUM_DELAY);
   showStatus();
 }
 
 void audioControlUp() {
-    if (toggle) 
-      rx.changeVolume('+');
-    else
-      rx.bassTrebleUp();
-  delay(MINIMUM_DELAY); 
-  showStatus();       
+  if (toggle)
+    rx.changeVolume('+');
+  else
+    rx.bassTrebleUp();
+  delay(MINIMUM_DELAY);
+  showStatus();
 }
 
 void audioControlDown() {
-    if (toggle) 
-      rx.changeVolume('-');
-    else
-      rx.bassTrebleDown();
-  delay(MINIMUM_DELAY);  
+  if (toggle)
+    rx.changeVolume('-');
+  else
+    rx.bassTrebleDown();
+  delay(MINIMUM_DELAY);
 }
 
 
 /**
  * Main loop
  */
-void loop()
-{
+void loop() {
 
-    if (digitalRead(BAND_UP) == LOW ) 
-      nextBand(); // goes to the next band. 
-    else if (digitalRead(BAND_DOWN) == LOW )
-      previousBand() ; // goes to the previous band. 
-    else if (digitalRead(VOL_UP) == LOW )
-      audioControlUp();
-    else if (digitalRead(VOL_DOWN) == LOW )
-      audioControlDown();
-    else if ( digitalRead(TOGGLE_VOL) == LOW) { 
-      toggle = !toggle;
-      delay(MINIMUM_DELAY);
-    }
+  if (digitalRead(BAND_UP) == LOW)
+    nextBand();  // goes to the next band.
+  else if (digitalRead(BAND_DOWN) == LOW)
+    previousBand();  // goes to the previous band.
+  else if (digitalRead(VOL_UP) == LOW)
+    audioControlUp();
+  else if (digitalRead(VOL_DOWN) == LOW)
+    audioControlDown();
+  else if (digitalRead(TOGGLE_VOL) == LOW) {
+    toggle = !toggle;
+    delay(MINIMUM_DELAY);
+  }
 
   if (rx.hasStatusChanged())
     showStatus();
