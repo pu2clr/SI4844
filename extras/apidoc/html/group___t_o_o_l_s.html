@@ -104,9 +104,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga66d670fc742b379c642316daf7df9bca"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_o_o_l_s.html#ga66d670fc742b379c642316daf7df9bca">SI4844::detectDevice</a> ()</td></tr>
 <tr class="memdesc:ga66d670fc742b379c642316daf7df9bca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks communication with <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> via I2C.  <br /></td></tr>
 <tr class="separator:ga66d670fc742b379c642316daf7df9bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab73eede639c03740773261c551ead9a5"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_o_o_l_s.html#gab73eede639c03740773261c551ead9a5">SI4844::getFormattedFrequency</a> (uint8_t removeRightDigit=0)</td></tr>
-<tr class="memdesc:gab73eede639c03740773261c551ead9a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets Formatted Frequency.  <br /></td></tr>
-<tr class="separator:gab73eede639c03740773261c551ead9a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga168919a06150d7ceb185d8293b1c6eeb"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_o_o_l_s.html#ga168919a06150d7ceb185d8293b1c6eeb">SI4844::getFormattedFrequency</a> (uint8_t removeRightDigit=0, uint8_t thousandsSeparator=',')</td></tr>
+<tr class="memdesc:ga168919a06150d7ceb185d8293b1c6eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets Formatted Frequency.  <br /></td></tr>
+<tr class="separator:ga168919a06150d7ceb185d8293b1c6eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab400fccf4b3c381c8ee8c060b56eef1b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_o_o_l_s.html#gab400fccf4b3c381c8ee8c060b56eef1b">SI4844::scanI2CBus</a> (uint8_t *device, uint8_t limit)</td></tr>
 <tr class="memdesc:gab400fccf4b3c381c8ee8c060b56eef1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scans the I2C bus and returns the addresses of the devices found.  <br /></td></tr>
 <tr class="separator:gab400fccf4b3c381c8ee8c060b56eef1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,8 +200,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gab73eede639c03740773261c551ead9a5" name="gab73eede639c03740773261c551ead9a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab73eede639c03740773261c551ead9a5">&#9670;&#160;</a></span>getFormattedFrequency()</h2>
+<a id="ga168919a06150d7ceb185d8293b1c6eeb" name="ga168919a06150d7ceb185d8293b1c6eeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga168919a06150d7ceb185d8293b1c6eeb">&#9670;&#160;</a></span>getFormattedFrequency()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,8 +210,18 @@ Functions</h2></td></tr>
           <td class="memname">char * SI4844::getFormattedFrequency </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>removeRightDigit</em> = <code>0</code></td><td>)</td>
+          <td class="paramname"><em>removeRightDigit</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>thousandsSeparator</em> = <code>','</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

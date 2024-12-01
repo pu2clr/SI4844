@@ -15,7 +15,7 @@ var searchData=
   ['getfirmwareminorrevision_12',['getFirmwareMinorRevision',['../class_s_i4844.html#a5ffed2d0e9ea37c2d823322491e82d8b',1,'SI4844']]],
   ['getfirmwarepartnumber_13',['getFirmwarePartNumber',['../class_s_i4844.html#aada13c283d6450faf9f8c1b05dd86ca9',1,'SI4844']]],
   ['getfirmwarereserved_14',['getFirmwareReserved',['../class_s_i4844.html#af727aa9c1860b88825fb7254fdf9eabb',1,'SI4844']]],
-  ['getformattedfrequency_15',['getFormattedFrequency',['../group___t_o_o_l_s.html#gab73eede639c03740773261c551ead9a5',1,'SI4844']]],
+  ['getformattedfrequency_15',['getFormattedFrequency',['../group___t_o_o_l_s.html#ga168919a06150d7ceb185d8293b1c6eeb',1,'SI4844']]],
   ['getfrequency_16',['getFrequency',['../group___g_b1.html#ga0404927e7414a32125e32ff508bd450e',1,'SI4844']]],
   ['getfrequencyinteger_17',['getFrequencyInteger',['../group___g_b1.html#ga0eafb7b0438fb9e70c91d368929c6aed',1,'SI4844']]],
   ['getproperty_18',['getProperty',['../group___b_f.html#gaf4b90cf2e7a654718e2c65de5def0928',1,'SI4844']]],

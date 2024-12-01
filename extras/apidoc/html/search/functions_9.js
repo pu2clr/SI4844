@@ -28,6 +28,6 @@ var searchData=
   ['setreferenceclockprescaler_25',['setReferenceClockPrescaler',['../group___g_b1.html#gae0618088d11ae5e79193672554e39dad',1,'SI4844']]],
   ['setresetpin_26',['setResetPin',['../group___b_f.html#gab8dd1a10df601b5d99c29d879a2720e7',1,'SI4844']]],
   ['setstatusinterruptfromdevice_27',['setStatusInterruptFromDevice',['../group___b_f.html#ga1a00037a2cedbe25d1d53716a1c20c00',1,'SI4844']]],
-  ['setup_28',['setup',['../group___g_b1.html#ga4ee550ad12649badcb3d54da6c7e62ee',1,'SI4844']]],
+  ['setup_28',['setup',['../group___g_b1.html#ga11a97916ce91dfb5ad6f49e5156219b1',1,'SI4844']]],
   ['setvolume_29',['setVolume',['../group___g_b1.html#ga65eab6c860e3e11c5d3726144dd3b73d',1,'SI4844']]]
 ];
