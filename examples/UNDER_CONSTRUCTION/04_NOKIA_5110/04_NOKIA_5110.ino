@@ -77,22 +77,23 @@ typedef struct {
   uint16_t botton;    // botton frequency (10350 = 103.5Mhz; 9775 = 9,775 kHz)
   uint16_t top;       // top
   uint8_t bandSpace;  // FM only (10 = 100 kHz; 20 = 200 kHz)
+  char *desc; 
 } Band;
 
 
-Band tabBand[] = { { 3, 8700, 10100, 20 },
-                   { 3, 10100, 10900, 20 },
-                   { 20, 0, 0 , 0 },
-                   { 21, 0, 0, 0},
-                   { 26, 4600, 5200, 5 },
-                   { 26, 0, 0, 0 },
-                   { 27, 0, 0, 0 },
-                   { 28, 0, 0, 0 },
-                   { 29, 0, 0, 0 },
-                   { 34, 0, 0, 0 },
-                   { 36, 0, 0, 0 },
-                   { 39, 0, 0, 0 },
-                   { 40, 21450, 21800, 5 } };
+Band tabBand[] = { { 3, 8700, 10100, 20, (char *) "FM1" },
+                   { 3, 10100, 10900, 20, (char *) "FM2" },
+                   { 20, 0,0,0, (char *) "MW1" },
+                   { 21, 0,0,0, (char *) "MW2" }, 
+                   { 26, 4600, 5200, 5, (char *) "SW1" },
+                   { 26, 0, 0, 0, (char *) (char *) "SW2"},
+                   { 27, 0, 0, 0, (char *) "SW3"},
+                   { 28, 0, 0, 0, (char *) "SW4"},
+                   { 29, 0, 0, 0, (char *) "SW5"},
+                   { 34, 0, 0, 0, (char *) "SW6"},
+                   { 36, 0, 0, 0, (char *) "SW7"},
+                   { 39, 0, 0, 0, (char *) "SW8"},
+                   { 40, 21450, 21800, 5, (char *) "SW9" } };
 
 const int8_t lastBand = (sizeof tabBand / sizeof(Band)) - 1;
 int8_t bandIdx = 0;
