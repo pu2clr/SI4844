@@ -106,7 +106,7 @@ Adafruit_PCD8544 display = Adafruit_PCD8544(NOKIA_DC, NOKIA_CE, NOKIA_RST);
 SI4844 rx;
 
 void setup() {
-  // Encoder pins
+
   pinMode(BAND_UP, INPUT_PULLUP);
   pinMode(BAND_DOWN, INPUT_PULLUP);
   pinMode(VOL_UP, INPUT_PULLUP);
@@ -119,8 +119,23 @@ void setup() {
   display.setContrast(45);  // You may need adjust this value for you Nokia 5110
   splash();                 // Show Splash - Remove this line if you do not want it.
 
-  rx.setup(RESET_PIN, INTERRUPT_PIN, 0);
+  rx.setup(RESET_PIN, INTERRUPT_PIN, 0, 100000);
   rx.setVolume(48);
+ 
+  delay(500);
+
+  rx.setCustomBand(3,7700,10900,20);    
+  showStatus(); 
+  delay(5000);
+  rx.setCustomBand(3,10100,10400,20);  
+  showStatus();  
+  delay(5000);
+  rx.setCustomBand(26,5700,6200,5);  
+  showStatus();  
+  rx.setCustomBand(40,27000,27500,5); 
+  showStatus();  
+  delay(5000);
+  rx.setBand(0);
 
   showStatus();
 }
@@ -239,5 +254,5 @@ void loop() {
   if (rx.hasStatusChanged())
     showStatus();
 
-  delay(5);
+  delay(50);
 }
