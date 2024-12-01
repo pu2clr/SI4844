@@ -37,6 +37,8 @@
 #include <SI4844.h>
 #include <LCD5110_Graph.h> // you can download this library on http://www.rinkydinkelectronics.com/library.php?id=47
 
+#include <EEPROM.h>
+
 #define RESET_PIN 12
 #define INTERRUPT_PIN 2
 
@@ -58,6 +60,10 @@
 
 long elapsedButton = millis();
 bool toggle = true;
+
+// EEPROM - Stroring control variables
+const uint8_t app_id = 31; // Useful to check the EEPROM content before processing useful data
+const int eeprom_address = 0;
 
 /*
   The following band table can be adjusted according to the user's preferences or local conditions. 
@@ -115,16 +121,48 @@ void setup() {
   nokia.setContrast(70); // 0 - 120 -> Set the appropriated value for your Nokia 5110 display
   splash();              // Show Splash - Remove this line if you do not want it.
 
+  // If you want to reset the eeprom, keep the VOLUME_UP button pressed during statup
+  if (digitalRead(BAND_UP) == LOW)
+  {
+    EEPROM.update(eeprom_address, 0);
+    nokia.print((char *)"EEPROM RESET",0,0);
+    nokia.update();
+    delay(2000);
+    nokia.clrScr();
+    nokia.update();
+  }
+
+
   // Start the SI484X device and link it to the MCU pins.  
   // -1 means no band is selected here and 400000 means 400kHz I2C bus speed 
   rx.setup(RESET_PIN, INTERRUPT_PIN, -1, 400000);
 
+  if (EEPROM.read(eeprom_address) == app_id)
+    readAllReceiverInformation();
+  else
+    rx.setVolume(48);
+
   // Select the band. See tabBand array structure 
   rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);
-
-  rx.setVolume(48);
   showStatus();
 
+}
+
+/*
+ *  writes the conrrent receiver information into the eeprom.
+ *  The EEPROM.update avoid write the same data in the same memory position. It will save unnecessary recording.
+ */
+void saveAllReceiverInformation()
+{
+  EEPROM.update(eeprom_address, app_id);             // stores the app id;
+  EEPROM.update(eeprom_address + 1, rx.getVolume()); // stores the current Volume
+  EEPROM.update(eeprom_address + 2, bandIdx);        // Stores the current band index
+}
+
+void readAllReceiverInformation()
+{
+  rx.setVolume(EEPROM.read(eeprom_address + 1)); // Gets the stored volume;
+  bandIdx = EEPROM.read(eeprom_address + 2);
 }
 
 
@@ -132,34 +170,19 @@ void setup() {
 void splash() {
   nokia.setFont(SmallFont);
   nokia.clrScr();
-  nokia.print(F("PU2CLR"), 25, 25);
+  nokia.print(F("PU2CLR"), 20, 25);
   nokia.update();
-  delay(2000);
+  delay(1000);
   nokia.clrScr();
   nokia.print(F("SI4844"), 0, 0);
   nokia.print(F("Arduino"), 0, 15);
   nokia.print(F("Library"), 0, 30);
   nokia.update();
-  delay(2000);
+  delay(1000);
   nokia.clrScr();
   nokia.update();
 }
 
-
-void nextBand() {
-  if (bandIdx < lastBand)
-    bandIdx++;
-  else
-    bandIdx = 0;
-
-  if ( tabBand[bandIdx].botton == 0) 
-    rx.setBand(tabBand[bandIdx].bandIdx);
-  else    
-    rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);
-
-  delay(MINIMUM_DELAY);
-  showStatus();
-}
 
 void showStatus() {
   char *mode;
@@ -200,6 +223,21 @@ void showFrequency() {
   nokia.update();
 }
 
+void nextBand() {
+  if (bandIdx < lastBand)
+    bandIdx++;
+  else
+    bandIdx = 0;
+
+  if ( tabBand[bandIdx].botton == 0) 
+    rx.setBand(tabBand[bandIdx].bandIdx);
+  else    
+    rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);
+
+  delay(MINIMUM_DELAY);
+  showStatus();
+  saveAllReceiverInformation();
+}
 
 void previousBand() {
   if (bandIdx > 0)
@@ -214,6 +252,7 @@ void previousBand() {
 
   delay(MINIMUM_DELAY);
   showStatus();
+  saveAllReceiverInformation();
 }
 
 void audioControlUp() {
