@@ -1834,7 +1834,7 @@
     (property "Reference" "SW5" (at 107.95 163.83 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "VOL_DOWN" (at 107.95 166.37 0)
+    (property "Value" "TOGGLE" (at 107.95 166.37 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "" (at 107.95 166.37 0)
