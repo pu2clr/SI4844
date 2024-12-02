@@ -207,6 +207,10 @@ void showStatus() {
     nokia.print(stmo[rx.getStatusStereo()],0,40);
   }
 
+  if ( rx.getStatusStationIndicator() != 0) {
+    nokia.print((char *)"OK",30,0);
+  }
+
   nokia.update();
 }
 
