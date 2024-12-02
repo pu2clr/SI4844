@@ -80,6 +80,9 @@ You can use the SI4844 minimal circuit as SI4844 setup reference.
 ![schematic SI4844 LCD16x02](../extras/images/schematic_lcd_16x02_nano.png)
 
 
+![SI4844 and LCD16x02 with Arduino / LGT8F328](../extras/images/LCD16x2_prototype_05.jpg)
+
+
 #### The schematic below shows a suggestion to the bi-directional converter strategy.
 
 ![schematic SI4844 LCD16x02](../extras/images/BI_DIRECTIONAL_CONVERTER.png)
