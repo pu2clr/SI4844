@@ -129,7 +129,7 @@ Band tabBand[] = { { 3, 8700, 10100, 20, (char *) "FM1" },
 const int8_t lastBand = (sizeof tabBand / sizeof(Band)) - 1;
 int8_t bandIdx = 0;
 
-char *stmo[] = {(char *) "Mono", (char *) "Stereo"}; 
+char *stmo[] = {(char *) "Mo", (char *) "S"}; 
 
 extern uint8_t SmallFont[]; // Font Nokia
 extern uint8_t BigNumbers[];
@@ -229,26 +229,34 @@ void splash() {
 void showStatus() {
   char *mode;
 
+  display.clear();
+
   showFrequency();
 
-  // nokia.print(rx.getBandMode(),0,0);
-  // nokia.print(tabBand[bandIdx].desc,63,0);
+  display.setCursor(0, 1);
+  display.print(rx.getBandMode());
+
+  display.setCursor(13, 0);
+  display.print(tabBand[bandIdx].desc);
+
   if (rx.getFrequencyInteger() > 999) 
     mode = (char *) "MHZ";
   else
     mode = (char *) "kHz";  
   
-  // nokia.print(mode,63,40);
+  display.setCursor(12, 1);
+  display.print(mode);
 
-  // if (rx.getStatusBandMode() == 0) {
-  //  nokia.print(stmo[rx.getStatusStereo()],0,40);
-  // }
+  if (rx.getStatusBandMode() == 0) {
+    display.setCursor(13, 0);
+    display.print(stmo[rx.getStatusStereo()]);
+  }
 
-  // if ( rx.getStatusStationIndicator() != 0) {
-  //  nokia.print((char *)"OK",35,0);
-  // }
+  if ( rx.getStatusStationIndicator() != 0) {
+      display.setCursor(7, 0); 
+      display.print((char *)"OK");
+  }
 
-  // nokia.update();
 }
 
 
@@ -256,17 +264,8 @@ void showStatus() {
  * Shows frequency information on Display
  */
 void showFrequency() {
-  char *p;
-  uint8_t l = 0;
-  
-  // nokia.setFont(BigNumbers);
-
-  p = rx.getFormattedFrequency(2,'.');
-  // if (p[0] == ' ') l++;
-  // if (p[1] == ' ') l++;
-
-  // nokia.print(&p[l], 0+l, 13);
-  // nokia.update();
+  display.setCursor(5, 1);
+  display.print(rx.getFormattedFrequency(2,'.'));
 }
 
 void nextBand() {
