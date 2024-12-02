@@ -84,10 +84,34 @@ typedef struct {
   char *desc; 
 } Band;
 
+/*
+  To add, remove, or modify a band, simply update the table below. Each row corresponds to a specific band. 
+  Here's how the parameters are defined:
 
-Band tabBand[] = { { 3, 8700, 10100, 20, (char *) "FM1" },
+  1) First parameter: An internal value used by the SI474X to identify the band (see the Datasheet AN610 - Si48XX ATDD PROGRAMMING GUIDE page 17).
+  2) Second and third parameters: These specify the lower and upper frequency limits for the band:
+  3) For FM bands, the values are in MHz (e.g., 7700 means 77.00 MHz, and 10800 means 108.00 MHz).
+  4) For SW bands, the values are in kHz (e.g., 4600 means 4,600 kHz or 4.6 MHz).
+  5) If both frequencies are set to 0, the device will use its default internal frequencies for that band.
+  6) Fourth parameter: Defines the frequency step size:
+  7) For FM: 10 corresponds to 100 kHz spacing, and 20 corresponds to 200 kHz spacing.
+  8) For SW: 5 corresponds to 5 kHz spacing.
+  9) Fifth parameter: A descriptive name for the band, making it easier to identify.
+
+  In the following example, except for the MW1 and MW2 bands, all bands have been customized and do not follow the SI484X device's internal defaults. 
+  Based on the datasheet "AN610 - Si48XX ATDD PROGRAMMING GUIDE" pages 17 and 18, you can select additional bands or configure them according to 
+  your preferences.
+
+  Note that in the following example, the FM bands have been configured to be narrower than those typically found in commercial receivers. 
+  This approach was adopted to enhance the tuning experience. By narrowing the bands, it became easier to tune a station using a 100K potentiometer, 
+  which offers only 180 degrees of rotation. Commercial receivers usually employ mechanical reduction systems, such as pulleys or gears, to improve 
+  the user experience by providing finer tuning control. Since this prototype lacks such mechanical aids, I chose to narrow the bands to compensate 
+  and optimize usability.
+
+*/
+Band tabBand[] = { { 3, 8700, 10100, 20, (char *) "FM1" },      
                    { 3, 10100, 10900, 20, (char *) "FM2" },
-                   { 20, 0,0,0, (char *) "MW1" },
+                   { 20, 0,0,0, (char *) "MW1" },             
                    { 21, 0,0,0, (char *) "MW2" }, 
                    { 26, 4600, 5200,5, (char *) "SW1" },
                    { 26, 5700, 6200,5, (char *) (char *) "SW2"},
