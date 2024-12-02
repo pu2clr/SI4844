@@ -141,6 +141,11 @@ The Nokia 5110 display is widely used in Arduino experiments. It is generally av
 ![Nokia 5110 Display and SI4844 prototype 3](../extras/images/SI4844B_PROTOTYPE1.jpg)
 
 
+
+![Nokia 5110 Display and SI4844 prototype 4](../extras/images/Atmega328_prototype.jpg)
+
+
+
 Note: In this prototype, the FM bands have been configured to be narrower than those typically found in commercial receivers. This approach was adopted to enhance the tuning experience. By narrowing the bands, it became easier to tune a station using a 100K potentiometer, which offers only 180 degrees of rotation. Commercial receivers usually employ mechanical reduction systems, such as pulleys or gears, to improve  the user experience by providing finer tuning control. Since this prototype lacks such mechanical aids, I chose to narrow the bands to compensate and optimize usability.
 
 
