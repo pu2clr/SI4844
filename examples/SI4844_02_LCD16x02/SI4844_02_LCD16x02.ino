@@ -8,7 +8,7 @@
  *  | SI4844 pin |  Arduino pin |  Description                                       |
  *  | ---------  | ------------ | -------------------------------------------------  |
  *  |    2       |   2          | Arduino interrupt pin                              |
- *  |   15       |   12         | Arduino A0 (Digital pin 14) for SI4844 RESET       |
+ *  |   15       |   12         | SI4844 RESET                                       |
  *  |   16       |  A4 (SDA)    | I2C bus (Data)                                     |
  *  |   17       |  A5 (SCL)    | I2C bus (Clock)                                    | 
  *  | -----------| -------------| ---------------------------------------------------|
@@ -66,8 +66,6 @@ long elapsedButton = millis();
 byte bandPlan[] = {4, 20, 26, 27, 28, 29, 31, 33, 35, 37, 39, 40};
 const int maxBand = (sizeof(bandPlan) / sizeof(byte)) - 1;
 int idxBand = 0;
-
-// OLED - Declaration for a SSD1306 display connected to I2C (SDA, SCL pins)
 
 LiquidCrystal display(LCD_RS, LCD_E, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
 
