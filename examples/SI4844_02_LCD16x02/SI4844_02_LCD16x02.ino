@@ -14,10 +14,10 @@
  *  | -----------| -------------| ---------------------------------------------------|
  *  |  LCD 16x02 |                                                                   |
  *  | -----------| -------------| ---------------------------------------------------|                        
- *  |      D4    |     D7       | Arduino Digital Pin 7                              |
- *  |      D5    |     D6       | Arduino Digital Pin 6                              | 
- *  |      D6    |     D5       | Arduino Digital pin 5                              |
- *  |      D7    |     D4       | Arduino Digital Pin 4                              | 
+ *  |      D7    |     D7       | Arduino Digital Pin 7                              |
+ *  |      D6    |     D6       | Arduino Digital Pin 6                              | 
+ *  |      D5    |     D5       | Arduino Digital pin 5                              |
+ *  |      D4    |     D4       | Arduino Digital Pin 4                              | 
  *  |      RS    |     D3       | Arduino Digital Pin 3 for LCD RESET controle       | 
  *  |      E/ENA |     D13      | Arduino Digital Pin 13                             |
  *  |RW & VSS & K|     GND      |                                                    |
@@ -44,10 +44,10 @@
 #define DEFAULT_BAND 0
 
 // LCD 16x02 or LCD20x4 PINs
-#define LCD_D7 4
-#define LCD_D6 5
-#define LCD_D5 6
-#define LCD_D4 7
+#define LCD_D7 7
+#define LCD_D6 6
+#define LCD_D5 5
+#define LCD_D4 4
 #define LCD_RS 3
 #define LCD_E  13
 
