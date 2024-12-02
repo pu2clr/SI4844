@@ -124,7 +124,7 @@ Band tabBand[] = { { 3, 8700, 10100, 20, (char *) "FM1" },
                    { 34, 13400,13990, 5, (char *) "SW6"},
                    { 36, 15090,15700, 5, (char *) "SW7"},
                    { 40, 17400,17990, 5, (char *) "SW8"},
-                   { 40, 21400,27890, 5, (char *) "SW9" } };
+                   { 40, 21400,21790, 5, (char *) "SW9" } };
 
 const int8_t lastBand = (sizeof tabBand / sizeof(Band)) - 1;
 int8_t bandIdx = 0;
