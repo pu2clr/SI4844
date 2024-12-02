@@ -121,6 +121,54 @@ See also: [Bi-Directional Logic Level Converter Hookup Guide ](https://learn.spa
 
 
 
+#### Arduino Uno/Nano (Atmega328 or LGT8F328), Nokia 5110 Display and SI4844 pin connections
+
+The Nokia 5110 display is widely used in Arduino experiments. It is generally available at a low cost and supported by numerous libraries for control. The following prototype demonstrates an example of a receiver based on the SI4844, utilizing the Nokia 5110 display along with 5 buttons to control the receiver. With this interface, you can select 2 FM bands, 2 AM bands, and 9 SW bands. You can also modify the sketch to include additional bands or adjust the lower and upper frequency limits for each band. It is possible to control the audio using three buttons (Volume, Bass, and Treble).
+
+
+##### Nokia 5110 Display and SI4844 prototype
+
+
+
+![Nokia 5110 Display and SI4844 prototype 1](../extras/images/NOKIA_PROTOTYPE_01.jpg)
+
+
+
+![Nokia 5110 Display and SI4844 prototype 2](../extras/images/NOKIA_PROTOTYPE_02.jpg)
+
+
+
+![Nokia 5110 Display and SI4844 prototype 3](../extras/images/SI4844B_PROTOTYPE1.jpg)
+
+
+
+##### Wire up on ATmega328 or Arduino Pro Mini or  Nano or  LGT8F328  and SI4844 and Nokia Diaplay
+
+  |     Device name       | Device Pin / Description      |  Arduino Pin  |
+  | --------------------- | ----------------------------- | ------------  |
+  |   Display NOKIA 5110  |                               |               |
+  |                       | (1) RST (RESET)               |     8         |
+  |                       | (2) CE or CS                  |     9         |
+  |                       | (3) DC or DO                  |    10         |
+  |                       | (4) DIN or DI or MOSI         |    11         |
+  |                       | (5) CLK                       |    13         |
+  |                       | (6) VCC  (3V-5V)              |    +VCC       |
+  |                       | (7) BL/DL/LIGHT               |    +VCC       |
+  |                       | (8) GND                       |    GND        |
+  |    SI4844             |                               |               |
+  |                       | RESET (pin 15)                |     12        |
+  |                       | INTERRUPT (pin 2)             |      2        |
+  |                       | SDA (pin 16)                  |     A4        |
+  |                       | SCL (pin 17)                  |     A5        |
+  |    Buttons            |                               |               |
+  |                       | Band + (Next Band)            |      3        |
+  |                       | Band - (Previous Band)        |      4        |
+  |                       | Vol/bass/treble +             |      5        |
+  |                       | Vol/Bass/Treble -             |      6        | 
+  |                       | Toggle Vol/bass/treble        |      7        |    
+
+
+
 
 ## Sound Control
 

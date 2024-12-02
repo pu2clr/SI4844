@@ -208,7 +208,7 @@ void showStatus() {
   }
 
   if ( rx.getStatusStationIndicator() != 0) {
-    nokia.print((char *)"OK",30,0);
+    nokia.print((char *)"OK",35,0);
   }
 
   nokia.update();
