@@ -21,10 +21,10 @@
  *  | -----------| -------------| ---------------------------------------------------|
  *  |  LCD 16x02 |                                                                   |
  *  | -----------| -------------| ---------------------------------------------------|                        
- *  |      D4    |     D7       | Arduino Digital Pin 7                              |
- *  |      D5    |     D6       | Arduino Digital Pin 6                              | 
- *  |      D6    |     D5       | Arduino Digital pin 5                              |
- *  |      D7    |     D4       | Arduino Digital Pin 4                              | 
+ *  |      D4    |     D4       | Arduino Digital Pin 7                              |
+ *  |      D5    |     D5       | Arduino Digital Pin 6                              | 
+ *  |      D6    |     D6       | Arduino Digital pin 5                              |
+ *  |      D7    |     D7       | Arduino Digital Pin 4                              | 
  *  |      RS    |     D3       | Arduino Digital Pin 3 for LCD RESET controle       | 
  *  |      E/ENA |     D13      | Arduino Digital Pin 13                             |
  *  |RW & VSS & K|     GND      |                                                    |
@@ -55,10 +55,10 @@
 #define TOGGLE_VOL 14 
 
 // LCD 16x02 or LCD20x4 PINs
-#define LCD_D7 4
-#define LCD_D6 5
-#define LCD_D5 6
-#define LCD_D4 7
+#define LCD_D7 7
+#define LCD_D6 6
+#define LCD_D5 5
+#define LCD_D4 4
 #define LCD_RS 3
 #define LCD_E  13
 
@@ -68,7 +68,7 @@ long elapsedButton = millis();
 bool toggle = true;
 
 // EEPROM - Stroring control variables
-const uint8_t app_id = 31; // Useful to check the EEPROM content before processing useful data
+const uint8_t app_id = 44; // Useful to check the EEPROM content before processing useful data
 const int eeprom_address = 0;
 
 /*
@@ -129,7 +129,7 @@ Band tabBand[] = { { 3, 8700, 10100, 20, (char *) "FM1" },
 const int8_t lastBand = (sizeof tabBand / sizeof(Band)) - 1;
 int8_t bandIdx = 0;
 
-char *stmo[] = {(char *) "Mo", (char *) "S"}; 
+char *stmo[] = {(char *) "Mo", (char *) "St"}; 
 
 extern uint8_t SmallFont[]; // Font Nokia
 extern uint8_t BigNumbers[];
@@ -156,11 +156,9 @@ void setup() {
   if (digitalRead(BAND_UP) == LOW)
   {
     EEPROM.update(eeprom_address, 0);
-    // nokia.print((char *)"EEPROM RESET",0,0);
-    // nokia.update();
+    display.setCursor(0,0);
+    display.print((char *)"EEPROM RESET");
     delay(2000);
-    // nokia.clrScr();
-    // nokia.update();
   }
 
 
@@ -216,12 +214,12 @@ void splash() {
   display.print("SI4844");
   display.setCursor(0, 1);
   display.print("Arduino Library");
-  Flash(2000);
+  Flash(1000);
   display.setCursor(0, 0);
   display.print("FM / AM(MW & SW)");
   display.setCursor(0, 1);
-  display.print("By RICARDO/2020");
-  Flash(3000);
+  display.print("By RICARDO/2024");
+  Flash(2000);
   display.clear();
 }
 
@@ -233,7 +231,7 @@ void showStatus() {
 
   showFrequency();
 
-  display.setCursor(0, 1);
+  display.setCursor(0, 0);
   display.print(rx.getBandMode());
 
   display.setCursor(13, 0);
@@ -244,11 +242,11 @@ void showStatus() {
   else
     mode = (char *) "kHz";  
   
-  display.setCursor(12, 1);
+  display.setCursor(13, 1);
   display.print(mode);
 
   if (rx.getStatusBandMode() == 0) {
-    display.setCursor(13, 0);
+    display.setCursor(0, 1);
     display.print(stmo[rx.getStatusStereo()]);
   }
 
