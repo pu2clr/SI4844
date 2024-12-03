@@ -61,7 +61,7 @@ long elapsedButton = millis();
 
 /*
   The following band table can be adjusted according to the user's preferences or local conditions. 
-  All bands on this receiver use a custom method rather than the standard SI484X method. 
+  Most bands on this receiver use a custom method rather than the standard SI484X method. 
   The FM band has been divided into two bands. 
   There are two MW bands, allowing the receiver to be configured according to the regional band plan and regulations. 
   Finally, the SW bands can be modified to provide a better experience for users.
@@ -116,6 +116,8 @@ Band tabBand[] = { { 3, 8700, 10100, 20, (char *) "FM1" },
 
 const int8_t lastBand = (sizeof tabBand / sizeof(Band)) - 1;
 int8_t bandIdx = 0;
+
+char *stmo[] = {(char *) "Mo", (char *) "St"}; 
 
 
 // OLED - Declaration for a SSD1306 display connected to I2C (SDA, SCL pins)
