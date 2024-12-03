@@ -351,7 +351,7 @@ The Si4827 (SOP-16) is an entry-level, analog-tuned, digital-display CMOS AM/FM/
 
 ![SI4827 soldered on adapter 01](./extras/images/SI4827_FA.jpg)
 
-![SI4847 soldered on adapter 03](./extras/images/SI4827_FA.jpg)
+![SI4847 soldered on adapter 03](./extras/images/SI4827_FB.jpg)
 
 
 #### prototyping with SI4827 with LGT8F328 (Nano replecment) and LCD16x02
