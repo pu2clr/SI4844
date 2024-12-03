@@ -195,6 +195,9 @@ void displayDial()
   display.print(si4844.getFormattedFrequency(2,'.'));
   display.print(" ");
   display.print(unit);
+  display.setCursor(5, 6);
+  display.print("Stereo ");
+  display.print(si4844.getStereoIndicator());
 
 }
 
