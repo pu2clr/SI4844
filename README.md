@@ -335,7 +335,7 @@ It was a bit hard to solder the Si4844 on adapter. However, by using a electroni
 ![SI4844 soldered on adapter 03](./extras/images/si4844_board_03.png)
 
 
-#### prototyping 
+#### prototyping with SI4844
 
 ![SI4844 soldered on adapter 04](./extras/images/SI4844_F00.png)
 
@@ -343,9 +343,24 @@ It was a bit hard to solder the Si4844 on adapter. However, by using a electroni
 
 ![SI4844 soldered on adapter 06](./extras/images/SI4844_F02.png)
 
-##### OLED/I2C and Arduino Pro Mini
 
-![SI4844 and Arduino on protoboard 01](./extras/images/protoboard_01.png)
+### SI4827 soldered on adapter
+
+The Si4827 (SOP-16) is an entry-level, analog-tuned, digital-display CMOS AM/FM/SW radio receiver IC that integrates the full receiver function from antenna to audio output, offering a mono audio output compared to the stereo capability of the Si4844 (SOP-24) despite sharing the same programming interface. It works seamlessly with an MCU via an I2C-compatible interface, supports LCD frequency display, enhances FM/SW band coverage, includes China TV channel audio reception, and features an advanced control algorithm that simplifies operation and removes the need for manual tuning components.
+
+
+![SI4827 soldered on adapter 01](./extras/images/SI4827_FA.jpg)
+
+![SI4847 soldered on adapter 03](./extras/images/SI4827_FA.jpg)
+
+
+#### prototyping with SI4827 with LGT8F328 (Nano replecment) and LCD16x02
+
+![SI484 soldered on adapter 04](./extras/images/si4827_prototype_01.jpg)
+
+
+![SI4844 soldered on adapter 05](./extras/images/si4827_prototype_01.jpg)
+
 
 ##### LCD16x02 5V and Arduino Nano
 
