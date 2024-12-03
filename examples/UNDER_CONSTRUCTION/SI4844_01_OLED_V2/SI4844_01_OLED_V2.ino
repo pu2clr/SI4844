@@ -117,8 +117,6 @@ Band tabBand[] = { { 3, 8700, 10100, 20, (char *) "FM1" },
 const int8_t lastBand = (sizeof tabBand / sizeof(Band)) - 1;
 int8_t bandIdx = 0;
 
-char *stmo[] = {(char *) "Mo", (char *) "St"}; 
-
 
 // OLED - Declaration for a SSD1306 display connected to I2C (SDA, SCL pins)
 SSD1306AsciiAvrI2c display;
