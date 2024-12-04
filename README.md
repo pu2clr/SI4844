@@ -172,6 +172,22 @@ See that approach [here](./extras/5V_to_3V3_CONVERTER).
 ### Schematic
 
 
+The following circuit examples present a basic configuration with the SI4844 and SI4827 using an Arduino based on the ATmega328 or the LGT8F328 (a substitute for the ATmega328). These examples can be easily ported to other microcontrollers such as ESP32, ESP8266, STM32, among others. See more details in the [examples](./examples/) folder.
+
+
+#### SI4844 minimal circuit
+
+![schematic SI4844 minimal circuit](./extras/images/schematic_SI4844_minimal_circuit.png)
+
+
+#### SI4827 minimal circuit
+
+![schematic SI4844 minimal circuit](./extras/images/SI4827_BASIC_SETUP.jpg)
+
+
+
+
+
 ### Schematic with Arduino Pro Mini 3.3V and OLED
 
 To use this labrary you need to build a radio based on SI4844 connected to Arduino. The schematic and photos below show the hardware and setup requirments for start using this library.
