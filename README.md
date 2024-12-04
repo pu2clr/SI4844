@@ -179,7 +179,27 @@ See that approach [here](./extras/5V_to_3V3_CONVERTER).
 ![SI4827 PINOUT](./extras/images/SI4827_PINOUT.png)
 
 
-Use the labels from the table below for the SI4844 to identify the corresponding pin functions of the SI4827. Note that the SI4827 does not support stereo functionality. Also note that the SI4827 has only one pin for VCC and GND (unlike the SI4844).
+| Pin Number | Label   | Description |
+| ---------- | ------  | ----------- |
+|  1         | IRQ     | Interrupt request output. Used to signal events or status changes. |
+|  2         | TUNE1   | Frequency tuning control input. |
+|  3         | TUNE2   | Additional frequency tuning control input. |
+|  4         | BAND    | Selects the frequency band and configures de-emphasis and stereo separation. |
+|  5         | NC      | No connection. These pins should be left floating. |
+|  6         | FMI     | FM radio frequency input. Connect this pin to the FM antenna trace. |
+|  7         | RFGND   | RF ground. Connect to the ground plane on the PCB for proper RF performance. |
+|  8         | AMI     | AM radio frequency input. Connect this pin to the AM antenna. |
+|  9         | RST     | Active-low device reset input. Pull low to reset the device. |
+| 10         | SDIO    | Serial data input/output for I2C communication. |
+| 11         | SCLK    | Serial clock input for I2C communication. |
+| 12         | XTALO   | Crystal oscillator output pin. Used with an external crystal. |
+| 13         | XTALI   | Crystal oscillator input pin. Connect to the external crystal. |
+| 14         | VDD     | Supply voltage input. Can be connected directly to a battery. |
+| 15         | GND     | Ground connections. Attach to the PCB ground plane. |
+| 16         | AOUT    | Audio output in analog mode. |
+
+
+Note that the SI4827 does not support stereo functionality. Also note that the SI4827 has only one pin for VCC and GND (unlike the SI4844).
 
 
 ### SI4828 PINOUT 
