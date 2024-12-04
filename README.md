@@ -119,8 +119,8 @@ See more about SI4844 on [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO
 |Sketch|Name that Arduino environment uses for a program|
 |ATDD  |Analog Tune Digital Display. Sometimes used to refer the Si4844 device|
 |interrupt|In this context, it is a Arduino Resource. Allows important tasks to be performed regardless of the flow of your program|
-| IRQ  | the pin label of the SI48XX device |
-| RST  | the pin label of the SI48XX device | 
+| IRQ  | the pin label of the SI48XX device  used by the SI48XX  device to notify status changing |
+| RST  | the pin label of the SI48XX device  used to reset the SI48XX device | 
 |C++| A object-oriented programming (OOP) language. It is a superset of the C language with an additional concept of "classes." |
 |programming guide| In this context it refers to [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)|
 |POC| Proof of Concept|
