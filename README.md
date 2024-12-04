@@ -4,7 +4,7 @@
 This Arduino library was developed to work with the **SI4822, SI4826, SI4827, SI4840, 4844A, and 4844B** "BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER" devices.
 It is available on Arduino IDE. This library is intended to provide an easier interface to control the SI48XX family. **When appropriate, this documentation will use the acronym SI48XX to refer to the following devices: SI4822, SI4826, SI4827, SI4840, SI4844A, and SI4844B. In most cases, references to the SI4844 device also apply to the other aforementioned devices.**
 
-The SI4844, along with other devices in its family, provides the ideal combination of analog tuning and digital interface, enabling the development of receivers reminiscent of the iconic models from the 1970s and 1980s. These classic receivers featured visual interfaces using liquid crystal displays or LEDs, offering a unique and nostalgic user experience. Therefore, a notable application for the SI4844 is the construction of a vintage-style receiver that blends retro aesthetics with modern technology.
+The SI48XX, along with other devices in its family, provides the ideal combination of analog tuning and digital interface, enabling the development of receivers reminiscent of the iconic models from the 1970s and 1980s. These classic receivers featured visual interfaces using liquid crystal displays or LEDs, offering a unique and nostalgic user experience. Therefore, a notable application for the SI48XX is the construction of a vintage-style receiver that blends retro aesthetics with modern technology.
 
 It is important to highlight that the analog tuning of this device does not offer the same experience as the classic receivers with variable capacitor tuning. However, depending on how you configure your electronic project, the quality of the 100K potentiometer used for mechanical tuning, and the firmware, you might be pleasantly surprised by the results.
 
@@ -77,7 +77,7 @@ Cordova provides an easy way to develop for iOS and Android.
 
 ## Important
 
-__The SI4844 is a 3.3V part. If you are not using a 3.3V version of Arduino, you have to use a kind of 5V to 3.3V converter.__ See [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup).
+__The SI48XX (SI4822, SI4826, SI4827, SI4840, 4844A, and 4844B) is a 3.3V part. If you are not using a 3.3V version of Arduino, you have to use a kind of 5V to 3.3V converter.__ See [Hardware Requirements and Setup](https://github.com/pu2clr/SI4844#hardware-requirements-and-setup).
 
 
 A good alternative to the Arduino Uno or Arduino Nano for a project using the SI48XX device is a board based on the LGT8F328 microcontroller. This device offers excellent compatibility with the Arduino Nano and Uno, including pin configuration, with the added advantage of operating at 3.3V, eliminating the need for a bidirectional converter, and being more affordable. Other viable alternatives include the ESP32, ESP8266, and STM32.
@@ -111,6 +111,7 @@ See more about SI4844 on [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO
 
 | Term | Description  |
 |------|--------|
+| SI48XX     | used to refer to the devices SI4822, SI4826, SI4827, SI4840, 4844A, and 4844B |
 |Arduino Libraries|Libraries are files written in C or C++ (.c, .cpp) which provide your sketches with extra functionality. The SI4844 Library provides extra functionalities to make easier the Arduino deal with Si4844 device| 
 | CTS | Clear to send |
 |IDE   |Integrated Development Environment|   
@@ -118,11 +119,15 @@ See more about SI4844 on [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO
 |Sketch|Name that Arduino environment uses for a program|
 |ATDD  |Analog Tune Digital Display. Sometimes used to refer the Si4844 device|
 |interrupt|In this context, it is a Arduino Resource. Allows important tasks to be performed regardless of the flow of your program|
+| IRQ  | the pin label of the SI48XX device |
+| RST  | the pin label of the SI48XX device | 
 |C++| A object-oriented programming (OOP) language. It is a superset of the C language with an additional concept of "classes." |
 |programming guide| In this context it refers to [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)|
 |POC| Proof of Concept|
 | SDIO / SDA | Serial data in/data out pin|
 | SCLK / SCL | Serial clock pin |
+
+
 
 
 ## Library Features
@@ -167,6 +172,41 @@ __The Si4844 is a 3.3V part. If you are not using a 3.3V version of Arduino, you
 I have tested it with success the SI4844 with a 5V Arduino using the I2C Multiplexer TCA9548A, that also can work as a bidirectional converter.
 
 See that approach [here](./extras/5V_to_3V3_CONVERTER). 
+
+
+### SI4827 PINOUT 
+
+![SI4827 PINOUT](./extras/images/SI4827_PINOUT.png)
+
+
+### SI4827 PINOUT 
+
+![SI4844 PINOUT](./extras/images/SI4844_SI4840_PINOUT.png
+
+
+| Pin Number | Label  | Description | 
+| ---------- | ------ |-----------  | 
+| 1 | LNA_EN | Enabling SW external LNA |
+| 2 | IRQ Interrupt Request |
+| 3 | TUNE1 | Frequency tuning | 
+| 4 | TUNE2 | Frequency tuning |
+| 5 | BAND | Band selection and De-emphasis/Stereo separation selection |
+| 6,7 | NC No connect | Leave floating. |
+| 8 | FMI FM RF inputs| FMI should be connected to the antenna trace. |
+| 9 | RFGND RF ground| Connect to ground plane on PCB. |
+| 10, 11 |  NC Unused|  Tie these pins to GND. |
+| 12 | AMI AM RF input|  AMI should be connected to the AM antenna. |
+| 13, 14 | GND Ground | . Connect to ground plane on PCB. |
+| 15 | RST | Device reset (active low) input |
+| 16 | SDIO | Serial data input/output |
+| 17 | SCLK | Serial clock input |
+| 18 | XTALO | Crystal oscillator output |
+| 19 | XTALI | Crystal oscillator input |
+| 20 | VDD1 | Supply voltage. May be connected directly to battery.| 
+| 21 | VDD2 | Supply voltage. May be connected directly to battery.| 
+| 22 | DBYP | Dedicated bypass for VDD |
+| 23 | ROUT | Right audio line output in analog output mode |
+| 24 | LOUT | Left audio line output in analog output mode |
 
 
 ### Schematic
