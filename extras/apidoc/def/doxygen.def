@@ -1609,7 +1609,7 @@ _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
  0 = Use external RCLK (crystal oscillator disabled).
 \ilinebr\ilinebr 1 = Use crystal oscillator (XTALI and XTALO with external 32.768 kHz crystal).
-\ilinebr\ilinebr See the Si484x Data Sheet Application Schematic for external BOM details.
+\ilinebr\ilinebr See the SI48XX Data Sheet Application Schematic for external BOM details.
 @see See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  <br>
 
 @param XOSCEN  1 = Enable (XTALI and XTALO with external 32.768 kHz crystal)

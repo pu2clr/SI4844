@@ -2,7 +2,7 @@
 
 
 This Arduino library was developed to work with the **SI4822, SI4826, SI4827, SI4840, 4844A, and 4844B** "BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER" devices.
-It is available on Arduino IDE. This library is intended to provide an easier interface to control the SI48XX family.
+It is available on Arduino IDE. This library is intended to provide an easier interface to control the SI48XX family. **When appropriate, this documentation will use the acronym SI48XX to refer to the following devices: SI4822, SI4826, SI4827, SI4840, SI4844A, and SI4844B. In most cases, references to the SI4844 device also apply to the other aforementioned devices.**
 
 The SI4844, along with other devices in its family, provides the ideal combination of analog tuning and digital interface, enabling the development of receivers reminiscent of the iconic models from the 1970s and 1980s. These classic receivers featured visual interfaces using liquid crystal displays or LEDs, offering a unique and nostalgic user experience. Therefore, a notable application for the SI4844 is the construction of a vintage-style receiver that blends retro aesthetics with modern technology.
 
@@ -82,7 +82,7 @@ __The SI4844 is a 3.3V part. If you are not using a 3.3V version of Arduino, you
 
 A good alternative to the Arduino Uno or Arduino Nano for a project using the SI48XX device is a board based on the LGT8F328 microcontroller. This device offers excellent compatibility with the Arduino Nano and Uno, including pin configuration, with the added advantage of operating at 3.3V, eliminating the need for a bidirectional converter, and being more affordable. Other viable alternatives include the ESP32, ESP8266, and STM32.
 
-Another approach to respecting the operating voltages of the SI484X is to use the ATmega328 without the Arduino board (Standalone). This allows you to configure the system at 3V, a voltage compatible with both the SI484X and the ATmega328. Additionally, you can configure the ATmega328 to use its internal oscillator, thereby simplifying the development of the electronic circuit.
+Another approach to respecting the operating voltages of the SI48XX is to use the ATmega328 without the Arduino board (Standalone). This allows you to configure the system at 3V, a voltage compatible with both the SI48XX and the ATmega328. Additionally, you can configure the ATmega328 to use its internal oscillator, thereby simplifying the development of the electronic circuit.
 
 
 ## MIT License 
@@ -475,7 +475,7 @@ The sketch [SI4844_BASS_TREBLE.ino](https://github.com/pu2clr/SI4844/tree/master
 2. [Prova de Conceito com SI4844 e Arduino (vídeo sobre este projeto)](https://youtu.be/DAQbXZZR7VQ)
 
 
-## Receivers based on SI482X and SI484X devices
+## Receivers based on SI482X and SI48XX devices
 
 * [Degen DE321 DSP shortwave radio](https://swling.com/blog/2011/11/a-review-of-the-degen-de321-dsp-shortwave-radio/)
 * [ShouYu SY-X5 DSP shortwave radio](https://swling.com/blog/2013/07/a-review-of-the-shouyu-sy-x5-dsp-shortwave-radio/)

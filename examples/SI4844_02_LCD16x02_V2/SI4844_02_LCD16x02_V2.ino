@@ -73,7 +73,7 @@ const int eeprom_address = 0;
 
 /*
   The following band table can be adjusted according to the user's preferences or local conditions. 
-  All bands on this receiver use a custom method rather than the standard SI484X method. 
+  All bands on this receiver use a custom method rather than the standard SI48XX method. 
   The FM band has been divided into two bands. 
   There are two MW bands, allowing the receiver to be configured according to the regional band plan and regulations. 
   Finally, the SW bands can be modified to provide a better experience for users.
@@ -101,7 +101,7 @@ typedef struct {
   8) For SW: 5 corresponds to 5 kHz spacing.
   9) Fifth parameter: A descriptive name for the band, making it easier to identify.
 
-  In the following example, except for the MW1 and MW2 bands, all bands have been customized and do not follow the SI484X device's internal defaults. 
+  In the following example, except for the MW1 and MW2 bands, all bands have been customized and do not follow the SI48XX device's internal defaults. 
   Based on the datasheet "AN610 - Si48XX ATDD PROGRAMMING GUIDE" pages 17 and 18, you can select additional bands or configure them according to 
   your preferences.
 
@@ -162,7 +162,7 @@ void setup() {
   }
 
 
-  // Start the SI484X device and link it to the MCU pins.  
+  // Start the SI48XX device and link it to the MCU pins.  
   // -1 means no band is selected here and 400000 means 400kHz I2C bus speed 
   rx.setup(RESET_PIN, INTERRUPT_PIN, -1, 400000);
 

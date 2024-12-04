@@ -2,6 +2,8 @@
  * @mainpage SI48XX Arduino Library implementation
  * This is a library for the SI4822, SI4826, SI4827, SI4840, 4844A, and 4844B, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER,
  * ICs from Silicon Labs.  
+ * When appropriate, this documentation will use the acronym SI48XX to refer to the following devices: SI4822, SI4826, SI4827, SI4840, SI4844A, and SI4844B.
+ * In most cases, references to the SI4844 device also apply to the other aforementioned devices.
  * This library is intended to provide an easier interface to control the SI4844.
  * 
  * This library can be freely distributed using the MIT Free Software model.
@@ -328,7 +330,7 @@ void SI4844::powerUp(void)
  * @brief Sets Crystal Oscillator Enable
  * @details 0 = Use external RCLK (crystal oscillator disabled).
  * @details 1 = Use crystal oscillator (XTALI and XTALO with external 32.768 kHz crystal).
- * @details See the Si484x Data Sheet Application Schematic for external BOM details.
+ * @details See the SI48XX Data Sheet Application Schematic for external BOM details.
  * @see See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
  * 
  * @param XOSCEN  1 = Enable (XTALI and XTALO with external 32.768 kHz crystal)
