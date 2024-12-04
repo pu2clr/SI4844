@@ -184,7 +184,7 @@ Use the labels from the table below for the SI4844 to identify the corresponding
 
 ### SI4828 PINOUT 
 
-![SI4844 PINOUT](./extras/images/SI4844_SI4840_PINOUT.png
+![SI4844 PINOUT](./extras/images/SI4844_SI4840_PINOUT.png)
 
 
 | Pin Number | Label  | Description |
