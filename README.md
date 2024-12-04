@@ -179,34 +179,37 @@ See that approach [here](./extras/5V_to_3V3_CONVERTER).
 ![SI4827 PINOUT](./extras/images/SI4827_PINOUT.png)
 
 
-### SI4827 PINOUT 
+Use the labels from the table below for the SI4844 to identify the corresponding pin functions of the SI4827. Note that the SI4827 does not support stereo functionality. Also note that the SI4827 has only one pin for VCC and GND (unlike the SI4844).
+
+
+### SI4828 PINOUT 
 
 ![SI4844 PINOUT](./extras/images/SI4844_SI4840_PINOUT.png
 
 
-| Pin Number | Label  | Description | 
-| ---------- | ------ |-----------  | 
-| 1 | LNA_EN | Enabling SW external LNA |
-| 2 | IRQ Interrupt Request |
-| 3 | TUNE1 | Frequency tuning | 
-| 4 | TUNE2 | Frequency tuning |
-| 5 | BAND | Band selection and De-emphasis/Stereo separation selection |
-| 6,7 | NC No connect | Leave floating. |
-| 8 | FMI FM RF inputs| FMI should be connected to the antenna trace. |
-| 9 | RFGND RF ground| Connect to ground plane on PCB. |
-| 10, 11 |  NC Unused|  Tie these pins to GND. |
-| 12 | AMI AM RF input|  AMI should be connected to the AM antenna. |
-| 13, 14 | GND Ground | . Connect to ground plane on PCB. |
-| 15 | RST | Device reset (active low) input |
-| 16 | SDIO | Serial data input/output |
-| 17 | SCLK | Serial clock input |
-| 18 | XTALO | Crystal oscillator output |
-| 19 | XTALI | Crystal oscillator input |
-| 20 | VDD1 | Supply voltage. May be connected directly to battery.| 
-| 21 | VDD2 | Supply voltage. May be connected directly to battery.| 
-| 22 | DBYP | Dedicated bypass for VDD |
-| 23 | ROUT | Right audio line output in analog output mode |
-| 24 | LOUT | Left audio line output in analog output mode |
+| Pin Number | Label  | Description |
+| ---------- | ------ | ----------- |
+| 1          | LNA_EN | Enables the external Low-Noise Amplifier (LNA) for shortwave (SW). |
+| 2          | IRQ     | Interrupt request output. Used to signal events or status changes. |
+| 3          | TUNE1   | Frequency tuning control input. |
+| 4          | TUNE2   | Additional frequency tuning control input. |
+| 5          | BAND    | Selects the frequency band and configures de-emphasis and stereo separation. |
+| 6, 7       | NC      | No connection. These pins should be left floating. |
+| 8          | FMI     | FM radio frequency input. Connect this pin to the FM antenna trace. |
+| 9          | RFGND   | RF ground. Connect to the ground plane on the PCB for proper RF performance. |
+| 10, 11     | NC (Unused) | Unused pins. Connect these directly to GND. |
+| 12         | AMI     | AM radio frequency input. Connect this pin to the AM antenna. |
+| 13, 14     | GND     | Ground connections. Attach to the PCB ground plane. |
+| 15         | RST     | Active-low device reset input. Pull low to reset the device. |
+| 16         | SDIO    | Serial data input/output for I2C communication. |
+| 17         | SCLK    | Serial clock input for I2C communication. |
+| 18         | XTALO   | Crystal oscillator output pin. Used with an external crystal. |
+| 19         | XTALI   | Crystal oscillator input pin. Connect to the external crystal. |
+| 20         | VDD1    | Supply voltage input. Can be connected directly to a battery. |
+| 21         | VDD2    | Additional supply voltage input. Can be connected directly to a battery. |
+| 22         | DBYP    | Dedicated bypass pin for VDD to improve stability. |
+| 23         | ROUT    | Right channel audio output in analog mode. |
+| 24         | LOUT    | Left channel audio output in analog mode. |
 
 
 ### Schematic
