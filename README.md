@@ -165,7 +165,7 @@ This library has been written for the Arduino platform and has been successfully
 
 ### Arduino 5V and Si4844
 
-__The Si4844 is a 3.3V part. If you are not using a 3.3V version of Arduino, you have to use a kind of 5V to 3.3V bidirectional converter. It is important to say that just power the Si4844 device with 3.3V from Arduino board is not enough. You have to be aware that the Arduino that operates with 5V, the digital pins and the I2C bus will send 5V signals to the Si4844 device. That configuration can make the system unstable or damage the device__.
+__The Si48XX is a 3.3V part. If you are not using a 3.3V version of Arduino, you have to use a kind of 5V to 3.3V bidirectional converter. It is important to say that just power the Si4844 device with 3.3V from Arduino board is not enough. You have to be aware that the Arduino that operates with 5V, the digital pins and the I2C bus will send 5V signals to the Si48XX device. That configuration can make the system unstable or damage the device__.
 
 
 
