@@ -169,11 +169,11 @@ void loop() {
       break;
     case 'B':
     case 'b':
-      rx.bassTrebleDown();
+      rx.bassTrebleUp();
       break;
     case 'T':
     case 't':
-      rx.bassTrebleUp();
+      rx.bassTrebleDown();
       break;      
     case 'N':
     case 'n': 
