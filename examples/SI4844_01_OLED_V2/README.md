@@ -5,8 +5,8 @@ The schematic below shows how to insert the OLED and button on the original sche
 
 #### Arduino and OLED circuit
 
-![schematic Arduino and OLED](https://github.com/pu2clr/SI4844/blob/master/extras/images/schematic_Arduino_circuit.png)
+![schematic Arduino and OLED](../../extras/images/schematic_Arduino_circuit.png)
 
 #### SI4844 minimal circuit
 
-![schematic SI4844 minimal circuit](https://github.com/pu2clr/SI4844/blob/master/extras/images/schematic_SI4844_minimal_circuit.png)
+![schematic SI4844 minimal circuit](../../extras/images/SI4827_BASIC_SETUP.jpg)
