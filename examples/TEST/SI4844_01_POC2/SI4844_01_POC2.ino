@@ -194,6 +194,14 @@ void loop() {
     case 'i':
       show_firmware_information();
       break;
+    case 'B':
+    case 'b':
+      rx.bassTrebleDown();
+      break;
+    case 'T':
+    case 't':
+      rx.bassTrebleUp();
+      break;          
     case 'R':
       EEPROM.update(eeprom_address, 0);
       Serial.println(F("\nEEPROM RESET..."));  

@@ -25,7 +25,7 @@ _EnD_oF_dEf_TeXt_;
 Mutes the audio output.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-\iline 614 
+\iline 615 
 
 @param value value 0 = normal (no mute); 1 = Right side mute; 2; Left side mute; 3 = both side 
 _EnD_oF_dEf_TeXt_;
@@ -205,7 +205,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga1d119d683bed417b108ef1ccf3a2d20c';
-        sec-mem-ref-line = '678';
+        sec-mem-ref-line = '679';
         sec-mem-ref-name = 'getFirmware';
     };
       sec-mem-referenceto = {
@@ -570,7 +570,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga3437ce047c5649597e1bccfb8c42cd5b';
-        sec-mem-ref-line = '645';
+        sec-mem-ref-line = '646';
         sec-mem-ref-name = 'getStatus';
     };
     }; /* sec-member */
@@ -601,7 +601,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga3437ce047c5649597e1bccfb8c42cd5b';
-        sec-mem-ref-line = '645';
+        sec-mem-ref-line = '646';
         sec-mem-ref-name = 'getStatus';
     };
     }; /* sec-member */
@@ -686,12 +686,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga0404927e7414a32125e32ff508bd450e';
-        sec-mem-ref-line = '706';
+        sec-mem-ref-line = '707';
         sec-mem-ref-name = 'getFrequency';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga0eafb7b0438fb9e70c91d368929c6aed';
-        sec-mem-ref-line = '752';
+        sec-mem-ref-line = '753';
         sec-mem-ref-name = 'getFrequencyInteger';
     };
       sec-mem-referencedby = {
@@ -701,7 +701,7 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga5c766d254b0c261a93dfd817f11b712c';
-        sec-mem-ref-line = '833';
+        sec-mem-ref-line = '834';
         sec-mem-ref-name = 'setCustomBand';
     };
     }; /* sec-member */
@@ -1057,7 +1057,7 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga5c766d254b0c261a93dfd817f11b712c';
-        sec-mem-ref-line = '833';
+        sec-mem-ref-line = '834';
         sec-mem-ref-name = 'setCustomBand';
     };
       sec-mem-referencedby = {
@@ -1322,7 +1322,7 @@ _EnD_oF_dEf_TeXt_;
 Set audio mode.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-\iline 558 
+\iline 559 
 
 @see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 21
 
@@ -1367,7 +1367,7 @@ _EnD_oF_dEf_TeXt_;
 Mutes the audio output.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-\iline 625 
+\iline 626 
 
 @param bool on false = normal (no mute); true = mute 
 _EnD_oF_dEf_TeXt_;
@@ -1401,7 +1401,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga3437ce047c5649597e1bccfb8c42cd5b';
-        sec-mem-ref-line = '645';
+        sec-mem-ref-line = '646';
         sec-mem-ref-name = 'getStatus';
     };
       sec-mem-referenceto = {
@@ -1617,7 +1617,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga3437ce047c5649597e1bccfb8c42cd5b';
-        sec-mem-ref-line = '645';
+        sec-mem-ref-line = '646';
         sec-mem-ref-name = 'getStatus';
     };
       sec-mem-referenceto = {
@@ -1979,7 +1979,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga1d119d683bed417b108ef1ccf3a2d20c';
-        sec-mem-ref-line = '678';
+        sec-mem-ref-line = '679';
         sec-mem-ref-name = 'getFirmware';
     };
       sec-mem-referenceto = {

@@ -47,6 +47,7 @@ void instructions() {
   Serial.println(F("Type h - Custom FM - from 101 to 104 MHz - Step 200kHz"));
   Serial.println(F("Type + or - to sound volume"));  
   Serial.println(F("Type B to Bass; T to Treeble and N to Normal"));  
+  Serial.println(F("Type M to Mute"));   
   Serial.println(F("Type c - custom band 5.7 to 6.2 MHz"));
   Serial.println(F("Type C - CB (custom Band 27.0 to 27.5 MHz"));
   Serial.println(F("Type o to Power Down"));
@@ -92,6 +93,9 @@ void showStatus() {
 
 // Control
 void loop() {
+
+  bool bMute = false;
+
   // Read from keyboar (Arduino Serial Monitor)
   // Band switch and sound volume control
   // It can be replaced by your keyboar, encoder or push button device.
@@ -163,6 +167,23 @@ void loop() {
     case 'i':
       show_firmware_information();
       break;
+    case 'B':
+    case 'b':
+      rx.bassTrebleDown();
+      break;
+    case 'T':
+    case 't':
+      rx.bassTrebleUp();
+      break;      
+    case 'N':
+    case 'n': 
+      rx.setBassTreble(4);
+      break;   
+    case 'M':
+    case 'm': 
+      bMute = !bMute;
+      rx.setAudioMute(bMute);
+      break;             
     }
   }
   if (rx.hasStatusChanged())

@@ -528,7 +528,8 @@ byte SI4844::getVolumeProperty() {
  * @param bass_treble bass and treble (domain: 0 to 8). See table above
  */
 void SI4844::setBassTreble(byte bass_treble) {
-        setProperty(RX_BASS_TREBLE, bass_treble);
+    setProperty(RX_BASS_TREBLE, bass_treble);
+    this->bassTreble = bass_treble;
 }
 
 /**
