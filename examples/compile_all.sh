@@ -18,6 +18,7 @@ echo "********************"
 arduino-cli compile -b arduino:avr:nano ./SI4844_00_MINIMAL --output-dir ~/Downloads/hex/atmega/SI4844_00_MINIMAL --warnings all
 arduino-cli compile -b arduino:avr:nano ./SI4844_00_POC --output-dir ~/Downloads/hex/atmega/SI4844_00_POC  --warnings all
 arduino-cli compile -b arduino:avr:nano ./SI4844_01_OLED --output-dir ~/Downloads/hex/atmega/SI4844_01_OLED --warnings all
+arduino-cli compile -b arduino:avr:nano ./SI4844_01_OLED_V2 --output-dir ~/Downloads/hex/atmega/SI4844_01_OLED_V2 --warnings all
 arduino-cli compile -b arduino:avr:nano ./SI4844_02_LCD16x02 --output-dir ~/Downloads/hex/atmega/SI4844_02_LCD16x02  --warnings all
 arduino-cli compile -b arduino:avr:nano ./SI4844_03_TM1638_7SEG_DISPLAY --output-dir ~/Downloads/hex/atmega/7SEG  --warnings all
 arduino-cli compile -b arduino:avr:nano ./SI4844_04_NOKIA5110 --output-dir ~/Downloads/hex/atmega/NOKIA5110 
@@ -33,6 +34,7 @@ echo "********************"
 arduino-cli compile -b lgt8fx:avr:328  ./SI4844_00_MINIMAL --output-dir ~/Downloads/hex/ltg/SI4844_00_MINIMAL --warnings all
 arduino-cli compile -b lgt8fx:avr:328 ./SI4844_00_POC --output-dir ~/Downloads/hex/ltg/SI4844_00_POC  --warnings all
 arduino-cli compile -b lgt8fx:avr:328 ./SI4844_01_OLED --output-dir ~/Downloads/hex/ltg/SI4844_01_OLED --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./SI4844_02_LCD16x02 --output-dir ~/Downloads/hex/atmega/SI4844_02_LCD16x02  --warnings all
 arduino-cli compile -b lgt8fx:avr:328 ./SI4844_02_LCD16x02 --output-dir ~/Downloads/hex/ltg/SI4844_02_LCD16x02  --warnings all
 arduino-cli compile -b lgt8fx:avr:328 ./SI4844_03_TM1638_7SEG_DISPLAY --output-dir ~/Downloads/hex/lgt/7SEG  --warnings all
 arduino-cli compile -b lgt8fx:avr:328 ./SI4844_04_NOKIA5110 --output-dir ~/Downloads/hex/atmega/NOKIA5110 
