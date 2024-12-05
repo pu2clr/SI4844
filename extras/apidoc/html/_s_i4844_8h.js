@@ -43,6 +43,5 @@ var _s_i4844_8h =
     [ "RX_HARD_MUTE", "_s_i4844_8h.html#a5d8cbc8d5c6630e874f1f8b14b897be2", null ],
     [ "RX_VOLUME", "_s_i4844_8h.html#aeb1de40ffb7cb51cf4a151f5d1b746d7", null ],
     [ "SET_PROPERTY", "_s_i4844_8h.html#a92cfecd26935c8864d65bbdc6031acb0", null ],
-    [ "SI4844_ADDRESS", "_s_i4844_8h.html#acc6be0457e695b1458f3d016ef10faeb", null ],
-    [ "data_from_device", "_s_i4844_8h.html#adde5ba839a6d6b3db3a56c1893cf5491", null ]
+    [ "SI4844_ADDRESS", "_s_i4844_8h.html#acc6be0457e695b1458f3d016ef10faeb", null ]
 ];
