@@ -44,7 +44,6 @@
 // Arduino Pin (tested on pro mini)
 #define INTERRUPT_PIN 2
 #define RESET_PIN 12
-#define DEFAULT_BAND -1
 
 #define BAND_UP 8    // Next Band
 #define BAND_DOWN 9  // Previous Band
@@ -148,14 +147,20 @@ void setup()
     delay(2000);
   }
 
-  si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND, 100000);
+  si4844.setup(RESET_PIN, INTERRUPT_PIN, -1, 100000);
 
   if (EEPROM.read(eeprom_address) == app_id)
     readAllReceiverInformation();
   else
     si4844.setVolume(48);
-  
+
+  if ( tabBand[bandIdx].botton != 0)
+    si4844.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top,tabBand[bandIdx].bandSpace);
+  else 
+    si4844.setBand(tabBand[bandIdx].bandIdx);  
+
   displayDial();
+
 }
 
 /*
@@ -173,6 +178,7 @@ void readAllReceiverInformation()
 {
   si4844.setVolume(EEPROM.read(eeprom_address + 1)); // Gets the stored volume;
   bandIdx = EEPROM.read(eeprom_address + 2);
+
 }
 
 
@@ -183,20 +189,27 @@ void displayDial()
   if (si4844.getFrequencyInteger() > 999) 
     unit = (char *) "MHZ";
   else
-    unit = (char *) "kHz";  
+    unit = (char *) "kHz ";  
+
 
   display.set2X();
   display.setCursor(0, 0);
   display.print(si4844.getBandMode());
-  display.print("      ");
+  if ( si4844.getStatusStationIndicator() != 0) {
+      display.print((char *) "  OK ");
+  } else {
+    display.print("     ");
+  }
   display.print(tabBand[bandIdx].desc);
   display.setCursor(10, 3);
   display.print(si4844.getFormattedFrequency(2,'.'));
   display.print(" ");
   display.print(unit);
   display.setCursor(5, 6);
-  display.print("Stereo ");
-  display.print(si4844.getStereoIndicator());
+  if ( si4844.getStatusBandMode() == 0) {
+    display.print("Stereo ");
+    display.print(si4844.getStereoIndicator());
+  }
 
 }
 

@@ -172,7 +172,11 @@ void setup() {
     rx.setVolume(48);
 
   // Select the band. See tabBand array structure 
-  rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);
+  if ( tabBand[bandIdx].botton != 0)
+    rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top,tabBand[bandIdx].bandSpace);
+  else 
+    rx.setBand(tabBand[bandIdx].bandIdx);  
+    
   showStatus();
 
 }
