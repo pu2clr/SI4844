@@ -189,17 +189,13 @@ void displayDial()
   if (si4844.getFrequencyInteger() > 999) 
     unit = (char *) "MHZ";
   else
-    unit = (char *) "kHz ";  
+    unit = (char *) "kHz";  
 
 
   display.set2X();
   display.setCursor(0, 0);
   display.print(si4844.getBandMode());
-  if ( si4844.getStatusStationIndicator() != 0) {
-      display.print((char *) "  OK ");
-  } else {
-    display.print("     ");
-  }
+  display.print("     ");
   display.print(tabBand[bandIdx].desc);
   display.setCursor(10, 3);
   display.print(si4844.getFormattedFrequency(2,'.'));
