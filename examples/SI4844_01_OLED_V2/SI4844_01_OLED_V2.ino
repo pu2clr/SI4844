@@ -133,10 +133,9 @@ void setup()
   display.setFont(Adafruit5x7);
   display.set2X();
   display.clear();
-  display.print("\n PU2CLR");
-  delay(1500);
+  // display.print("\n PU2CLR");
+  // delay(1000);
   display.clear();
-  delay(500);
 
   // RESET EEPROM
   if (digitalRead(BAND_UP) == LOW)
@@ -144,9 +143,10 @@ void setup()
     EEPROM.update(eeprom_address, 0);
     display.setCursor(0,0);
     display.print((char *)"EEPROM RESET");
-    delay(2000);
+    delay(1500);
   }
-
+  // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
+  // si4844.setCrystalOscillatorStabilizationWaitTime(1);
   si4844.setup(RESET_PIN, INTERRUPT_PIN, -1, 100000);
 
   if (EEPROM.read(eeprom_address) == app_id)
@@ -195,7 +195,10 @@ void displayDial()
   display.set2X();
   display.setCursor(0, 0);
   display.print(si4844.getBandMode());
-  display.print("     ");
+  if ( si4844.getStatusStationIndicator() != 0) 
+    display.print("  OK ");
+  else 
+    display.print("     ");
   display.print(tabBand[bandIdx].desc);
   display.setCursor(10, 3);
   display.print(si4844.getFormattedFrequency(2,'.'));
