@@ -37,8 +37,11 @@
  *  |  BAND_DOWN |     9        |                                                    | 
  *  |  VOL_UP    |    10        |                                                    | 
  *  |  VOL_DOWN  |    11        |                                                    |   
-
-  By PU2CLR, Ricardo, Nov,  2024.
+ * 
+ *  ATTENTION: Arduino Nano and Uno are 5V based board. Check the board voltage you are using
+ *  If you are using the LGT8F328 see: https://blog.eletrogate.com/tutorial-pro-mini-evb-lgt8f328p-arduino-ide/
+ *
+ *  By PU2CLR, Ricardo, Nov,  2024.
 */
 
 #include <SI4844.h>

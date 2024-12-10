@@ -31,6 +31,9 @@
  *  |  VOL_UP    |    10        |                                                    | 
  *  |  VOL_DOWN  |    11        |                                                    |  
  * 
+ *  ATTENTION: Arduino Nano and Uno are 5V based board. Check the board voltage you are using
+ *  If you are using the LGT8F328 see: https://blog.eletrogate.com/tutorial-pro-mini-evb-lgt8f328p-arduino-ide/
+ *
  *  Author: Ricardo Lima Caratti (PU2CLR)
  *  Oct, 2019 2020
 */

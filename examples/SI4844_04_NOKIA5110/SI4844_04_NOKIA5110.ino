@@ -35,7 +35,10 @@
   |                       | Vol/Bass/Treble -             |      6        | 
   |                       | Toggle Vol/bass/treble        |      7        |    
 
+  ATTENTION: Arduino Nano and Uno are 5V based board. Check the board voltage you are using
+  If you are using the LGT8F328 see: https://blog.eletrogate.com/tutorial-pro-mini-evb-lgt8f328p-arduino-ide/
   By PU2CLR, Ricardo, Nov,  2024.
+  
 */
 
 #include <SI4844.h>

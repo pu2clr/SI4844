@@ -16,7 +16,11 @@
   |   15            | RESET control            |   12          |
   |   16            | I2C bus (Data)           |   A4 (SDA)    | 
   |   17            | I2C bus (Clocl)          |   A5 (SCL)    |
-  
+ 
+  ATTENTION: Arduino Nano and Uno are 5V based board. Check the board voltage you are using
+  If you are using the LGT8F328 see: https://blog.eletrogate.com/tutorial-pro-mini-evb-lgt8f328p-arduino-ide/
+  Author: Ricardo Lima Caratti (PU2CLR)  Oct, 2019 2020
+
  */
 
 #include <TM1638lite.h>

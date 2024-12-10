@@ -11,6 +11,7 @@
  *  |   17       |  A5 (SCL)    | I2C bus (Clocl)                                    |
  * 
  *  ATTENTION: Arduino Nano and Uno are 5V based board. Check the board voltage you are using
+ *  If you are using the LGT8F328 see: https://blog.eletrogate.com/tutorial-pro-mini-evb-lgt8f328p-arduino-ide/
  * 
  * Author: Ricardo Lima Caratti (PU2CLR)
  * September, 2019
