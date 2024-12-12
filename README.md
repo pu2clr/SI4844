@@ -202,7 +202,23 @@ See that approach [here](./extras/5V_to_3V3_CONVERTER).
 Note that the SI4827 does not support stereo functionality. Also note that the SI4827 has only one pin for VCC and GND (unlike the SI4844).
 
 
-### SI4828 PINOUT 
+### SI4827 PINOUT vs  SI4825 PINOUT 
+
+Many low-cost receivers currently sold in the market, especially those with a "vintage" appearance, are based on the SI4825. Upon closer inspection of this device, a similarity to the SI4827 can be observed, as shown in the figure below. Unlike the SI4827, the SI4825 lacks a digital interface, with pins 10 and 11 used for volume control instead of the I2C bus for communication with a microcontroller. The RESET pin (pin 9) is present in both devices. 
+
+Pin 1, which is used for interrupt functionality in the SI4827 (critical for microcontroller communication to signal changes in the receiver's status), serves as an LNA control in the SI4825. This pin is used to apply an external RF signal to the device. It’s worth noting that both the SI4825 and SI4827 have internal LNAs that, in most applications, sufficiently serve as RF signal amplifiers. 
+
+Given these similarities, it’s feasible to design a project to replace the SI4825 with an SI4827 by making minor modifications to the main structure of the radio’s printed circuit board, adding a microcontroller and a display, thus giving the receiver a new set of features. The circuit modifications include isolating pins 9, 10, 11, and 1 to interface with the microcontroller, and using buttons or a frequency band selector to enable the microcontroller to select the band.
+
+
+![SI4825 PINOUT](./extras/images/Si4827_x_Si4825.png)
+
+
+It is worth considering, in the future and if appropriate, using the SI4827 in place of the SI4825 with the necessary modifications to provide a new visual interface as well as new functionalities (including additional SW band ranges).
+
+
+
+### SI4844 PINOUT 
 
 ![SI4844 PINOUT](./extras/images/SI4844_SI4840_PINOUT.png)
 
