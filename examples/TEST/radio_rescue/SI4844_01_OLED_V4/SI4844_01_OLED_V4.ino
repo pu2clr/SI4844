@@ -120,7 +120,7 @@ Band tabBand[] = { { 3, 8700, 10100, 20, (char *) "FM1" },
 const int8_t lastBand = (sizeof tabBand / sizeof(Band)) - 1;
 int8_t bandIdx = 0;
 
-
+char *stereoStatus[] = { (char *) "Mono  ", (char *) "Stereo"};
 
 // OLED - Declaration for a SSD1306 display connected to I2C (SDA, SCL pins)
 SSD1306AsciiAvrI2c display;
@@ -132,13 +132,8 @@ void setup()
   pinMode(BAND_DOWN, INPUT_PULLUP);
   pinMode(VOL_UP, INPUT_PULLUP);
   pinMode(VOL_DOWN, INPUT_PULLUP);
-
-  display.begin(&Adafruit128x64, I2C_ADDRESS);
+  display.begin(&Adafruit128x32, I2C_ADDRESS);
   display.setFont(Adafruit5x7);
-  display.set2X();
-  display.clear();
-  // display.print("\n PU2CLR");
-  // delay(1000);
   display.clear();
 
   // RESET EEPROM
@@ -196,23 +191,29 @@ void displayDial()
     unit = (char *) "kHz";  
 
 
-  display.set2X();
+  display.set1X();
+
   display.setCursor(0, 0);
   display.print(si4844.getBandMode());
+  display.setCursor(50, 0);
   if ( si4844.getStatusStationIndicator() != 0) 
     display.print("  OK ");
   else 
     display.print("     ");
+  display.setCursor(110, 0);
   display.print(tabBand[bandIdx].desc);
-  display.setCursor(10, 3);
+  display.set2X();
+  display.setCursor(25, 2);
   display.print(si4844.getFormattedFrequency(2,'.'));
-  display.print(" ");
+  display.setCursor(90, 3);
+  display.set1X();
   display.print(unit);
-  display.setCursor(5, 6);
+  /* Does not work for SI4827 (it is mono)
+  display.setCursor(35, 3);
   if ( si4844.getStatusBandMode() == 0) {
-    display.print("Stereo ");
-    display.print(si4844.getStereoIndicator());
+      display.print(stereoStatus[si4844.getStatusStereo()]);
   }
+  */
 
 }
 
