@@ -5,35 +5,35 @@
  * This way, the radio will start on the band you were using when it was last turned off. 
  * To reset the EEPROM, turn on the radio while holding down the "Next Band (BAND_UP)" button.
  *
- *  Arduino Pro Mini 3.3V (8MHz) or LGT8F328 and SI4844 pin connections
+ *  Arduino Pro Mini 3.3V (8MHz) or LGT8F328 and SI4827 pin connections
  *
- *  Arduino Nano and SI4844 pin connections
+ *  Arduino Nano and SI4827 pin connections
  *
- *  | SI4844 pin |  Arduino pin |  Description                                       |
+ *  | SI4827 pin |  Arduino pin |  Description                                       |
  *  | ---------  | ------------ | -------------------------------------------------  |
- *  |    2       |   2          | Arduino interrupt pin                              |
- *  |   15       |   12         | Arduino A0 (Digital pin 14) for SI4844 RESET       |
- *  |   16       |  A4 (SDA)    | I2C bus (Data)                                     |
- *  |   17       |  A5 (SCL)    | I2C bus (Clock)                                    | 
+ *  |    1       |   2          | Arduino interrupt pin                              |
+ *  |    9       |   12         | Arduino A0 (Digital pin 14) for SI4827 RESET       |
+ *  |   10       |  A4 (SDA)    | I2C bus (Data)                                     |
+ *  |   11       |  A5 (SCL)    | I2C bus (Clock)                                    | 
  *  | -----------| -------------| ---------------------------------------------------|
  *  |  OLED      |              |                                                    |
  *  | -----------| -------------| ---------------------------------------------------|                        
- *  |   SDA      |  A4          | It shares the I2C bus with the SI4844              |
- *  |   CLK      |  A5          | It shares the I2C bus with the SI4844              |       
+ *  |   SDA      |  A4          | It shares the I2C bus with the SI4827              |
+ *  |   CLK      |  A5          | It shares the I2C bus with the SI4827              |       
  *  | -----------| -------------| ---------------------------------------------------|
- *  |Push Buttons|                                                                   |                                                                     |
+ *  |Push Buttons|                                                                   |
  *  | -----------| -------------| ---------------------------------------------------| 
- *  |  BAND_UP   |     8        |                                                    |                          
- *  |  BAND_DOWN |     9        |                                                    | 
- *  |  VOL_UP    |    10        |                                                    | 
- *  |  VOL_DOWN  |    11        |                                                    |  
+ *  |  BAND_UP   |     8        | Next band                                          |                          
+ *  |  BAND_DOWN |     9        | Previous band                                      | 
+ *  |  BASS_UP   |    10        | Bass Treble control (Bass up)                      | 
+ *  |  BASS_DOWN |    11        | Bass Treble control (Treble up)                    |  
  *
  *  ATTENTION: Arduino Nano and Uno are 5V based board. Check the board voltage you are using
  *  If you are using the LGT8F328 see: https://blog.eletrogate.com/tutorial-pro-mini-evb-lgt8f328p-arduino-ide/
  
 
  *  Author: Ricardo Lima Caratti (PU2CLR)
- *  Oct, 2019
+ *  Nov, 2022
 */
 
 #include <SI4844.h>
@@ -51,13 +51,13 @@
 
 #define BAND_UP 8    // Next Band
 #define BAND_DOWN 9  // Previous Band
-#define VOL_UP 10    // Volume Volume Up
-#define VOL_DOWN 11  // Volume Down
+#define BASS_UP 10    // Bass  Up and Treble Down
+#define BASS_DOWN 11  // Treble Up and Bass Down
 
 #define MIN_ELAPSED_TIME 100
 
 // EEPROM - Stroring control variables
-const uint8_t app_id = 44; // Useful to check the EEPROM content before processing useful data
+const uint8_t app_id = 27; // Useful to check the EEPROM content before processing useful data
 const int eeprom_address = 0;
 
 long elapsedButton = millis();
@@ -103,8 +103,7 @@ typedef struct {
   and optimize usability.
 
 */
-Band tabBand[] = { { 3, 8700, 10100, 20, (char *) "FM1" },      
-                   { 3, 10100, 10900, 20, (char *) "FM2" },
+Band tabBand[] = { { 3, 8700, 10810, 20, (char *) "FM " },      
                    { 20, 0,0,0, (char *) "MW1" },             
                    { 21, 0,0,0, (char *) "MW2" }, 
                    { 26, 4600, 5200,5, (char *) "60m" },
@@ -124,14 +123,14 @@ char *stereoStatus[] = { (char *) "Mono  ", (char *) "Stereo"};
 
 // OLED - Declaration for a SSD1306 display connected to I2C (SDA, SCL pins)
 SSD1306AsciiAvrI2c display;
-SI4844 si4844;
+SI4844 rx;
 
 void setup()
 {
   pinMode(BAND_UP, INPUT_PULLUP);
   pinMode(BAND_DOWN, INPUT_PULLUP);
-  pinMode(VOL_UP, INPUT_PULLUP);
-  pinMode(VOL_DOWN, INPUT_PULLUP);
+  pinMode(BASS_UP, INPUT_PULLUP);
+  pinMode(BASS_DOWN, INPUT_PULLUP);
   display.begin(&Adafruit128x32, I2C_ADDRESS);
   display.setFont(Adafruit5x7);
   display.clear();
@@ -145,18 +144,20 @@ void setup()
     delay(1500);
   }
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
-  // si4844.setCrystalOscillatorStabilizationWaitTime(1);
-  si4844.setup(RESET_PIN, INTERRUPT_PIN, -1, 100000);
+  // rx.setCrystalOscillatorStabilizationWaitTime(1);
+  rx.setup(RESET_PIN, INTERRUPT_PIN, -1, 100000);
 
   if (EEPROM.read(eeprom_address) == app_id)
     readAllReceiverInformation();
   else
-    si4844.setVolume(48);
+    rx.setBassTreble(4);
+
+  rx.setVolume(40);
 
   if ( tabBand[bandIdx].botton != 0)
-    si4844.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top,tabBand[bandIdx].bandSpace);
+    rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top,tabBand[bandIdx].bandSpace);
   else 
-    si4844.setBand(tabBand[bandIdx].bandIdx);  
+    rx.setBand(tabBand[bandIdx].bandIdx);  
 
   displayDial();
 
@@ -169,13 +170,13 @@ void setup()
 void saveAllReceiverInformation()
 {
   EEPROM.update(eeprom_address, app_id);             // stores the app id;
-  EEPROM.update(eeprom_address + 1, si4844.getVolume()); // stores the current Volume
+  EEPROM.update(eeprom_address + 1, rx.getBassTreble()); // stores the current Volume
   EEPROM.update(eeprom_address + 2, bandIdx);        // Stores the current band index
 }
 
 void readAllReceiverInformation()
 {
-  si4844.setVolume(EEPROM.read(eeprom_address + 1)); // Gets the stored volume;
+  rx.setBassTreble(EEPROM.read(eeprom_address + 1)); // Gets the stored volume;
   bandIdx = EEPROM.read(eeprom_address + 2);
 
 }
@@ -185,7 +186,7 @@ void displayDial()
 {
   String unit, freqDisplay, stereo;
 
-  if (si4844.getFrequencyInteger() > 999) 
+  if (rx.getFrequencyInteger() > 999) 
     unit = (char *) "MHZ";
   else
     unit = (char *) "kHz";  
@@ -194,24 +195,27 @@ void displayDial()
   display.set1X();
 
   display.setCursor(0, 0);
-  display.print(si4844.getBandMode());
+  display.print(rx.getBandMode());
   display.setCursor(50, 0);
-  if ( si4844.getStatusStationIndicator() != 0) 
+  if ( rx.getStatusStationIndicator() != 0) 
     display.print("  OK ");
   else 
     display.print("     ");
   display.setCursor(110, 0);
   display.print(tabBand[bandIdx].desc);
-  display.set2X();
-  display.setCursor(25, 2);
-  display.print(si4844.getFormattedFrequency(2,'.'));
-  display.setCursor(90, 3);
-  display.set1X();
+  display.setCursor(110, 3);
   display.print(unit);
+  display.set2X();
+  display.setCursor(15, 2);
+  display.print("       ");
+  display.setCursor(15, 2);
+  display.print(rx.getFormattedFrequency(2,'.'));
+
+
   /* Does not work for SI4827 (it is mono)
   display.setCursor(35, 3);
-  if ( si4844.getStatusBandMode() == 0) {
-      display.print(stereoStatus[si4844.getStatusStereo()]);
+  if ( rx.getStatusBandMode() == 0) {
+      display.print(stereoStatus[rx.getStatusStereo()]);
   }
   */
 
@@ -225,17 +229,12 @@ void setBand(byte cmd)
     bandIdx = (bandIdx > 0) ? (bandIdx - 1) : lastBand;
 
   if ( tabBand[bandIdx].botton != 0)
-    si4844.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top,tabBand[bandIdx].bandSpace);
+    rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top,tabBand[bandIdx].bandSpace);
   else 
-    si4844.setBand(tabBand[bandIdx].bandIdx);  
+    rx.setBand(tabBand[bandIdx].bandIdx);  
 
   display.clear();
   saveAllReceiverInformation();
-  elapsedButton = millis();
-}
-
-void setVolume( char v) {
-  si4844.changeVolume(v);
   elapsedButton = millis();
 }
 
@@ -247,13 +246,17 @@ void loop()
       setBand('+'); // goes to the next band. 
     else if (digitalRead(BAND_DOWN) == LOW )
       setBand('-'); // goes to the previous band. 
-    else if (digitalRead(VOL_UP) == LOW )
-      setVolume('+');
-    else if (digitalRead(VOL_DOWN) == LOW )
-      setVolume('-');
+    else if (digitalRead(BASS_UP) == LOW ) {
+      rx.bassTrebleUp();
+      elapsedButton = millis();
+    }
+    else if (digitalRead(BASS_DOWN) == LOW ) {
+      rx.bassTrebleDown();
+      elapsedButton = millis();
+    }
   }
 
-  if (si4844.hasStatusChanged())
+  if (rx.hasStatusChanged())
     displayDial();
   
   delay(10);

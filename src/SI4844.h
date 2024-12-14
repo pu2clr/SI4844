@@ -347,6 +347,7 @@ public :
   void setBassTreble(uint8_t bass_treble);
   void bassTrebleUp();
   void bassTrebleDown();
+  uint8_t inline getBassTreble() {return this->bassTreble;};
   void audioMute(uint8_t value);
   void setAudioMute(bool on);
 
