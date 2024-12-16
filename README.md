@@ -6,6 +6,8 @@ It is available on Arduino IDE. This library is intended to provide an easier in
 
 The SI48XX, along with other devices in its family, provides the ideal combination of analog tuning and digital interface, enabling the development of receivers reminiscent of the iconic models from the 1970s and 1980s. These classic receivers featured visual interfaces using liquid crystal displays or LEDs, offering a unique and nostalgic user experience. Therefore, a notable application for the SI48XX is the construction of a vintage-style receiver that blends retro aesthetics with modern technology.
 
+A less common application, but one that might catch the attention of some hobbyists, is the conversion of receivers based on the SI4825, which feature mechanical tuning and only an analog dial, into a receiver based on the SI4827. This model retains the same characteristics as the SI4825 but adds a digital interface through a display. This video shows that idea:  [Improving a Si4825-based radio with the Si4827 and Arduino](https://youtu.be/dl5ZFl_KF3c?si=FtygwYBywTiOHvSY).
+
 It is important to highlight that the analog tuning of this device does not offer the same experience as the classic receivers with variable capacitor tuning. However, depending on how you configure your electronic project, the quality of the 100K potentiometer used for mechanical tuning, and the firmware, you might be pleasantly surprised by the results.
 
 
