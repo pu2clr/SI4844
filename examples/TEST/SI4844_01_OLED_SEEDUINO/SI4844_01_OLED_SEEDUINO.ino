@@ -138,9 +138,12 @@ void setup()
   pinMode(VOL_DOWN, INPUT_PULLUP);
 
   display.begin(SSD1306_SWITCHCAPVCC, I2C_ADDRESS); // Address 0x3C for 128x32
+
+  // display.display();
+  display.setTextColor(SSD1306_WHITE);
+
+
   display.clearDisplay();
-  // display.print("\n PU2CLR");
-  // delay(1000);
 
   // RESET EEPROM
   if (digitalRead(BAND_UP) == LOW)
@@ -206,31 +209,35 @@ void displayDial()
   display.setCursor(0, 0);
   display.print(si4844.getBandMode());
 
-  display.setCursor(50, 0);  
+  display.setCursor(48, 0);  
   if ( si4844.getStatusStationIndicator() != 0) 
-    display.print("  OK ");
+    display.print("OK");
   else 
-    display.print("     ");
+    display.print("  ");
 
-  display.setCursor(90, 0);  
+  display.setCursor(105, 0);  
   display.print(tabBand[bandIdx].desc);
 
 
   display.setFont(&DSEG7_Classic_Regular_16);
 
-  display.setCursor(20, 24);
+  display.setCursor(15, 30);
   display.print(si4844.getFormattedFrequency(2,'.'));
-  display.setCursor(90, 15);
+  display.setCursor(100, 20);
   display.setFont(NULL);
   display.print(" ");
   display.print(unit);
   
-    
+  // It does not make sense with Si4827  -- Temove the comment if you are using the Si4844 or si4840
+  /*
   if ( si4844.getStatusBandMode() == 0) {
-    display.setCursor(0, 25);
-    display.print("St");
-    display.print(si4844.getStereoIndicator());
+    display.setCursor(75, 25);
+    if (si4844.getStatusStereo() == 1)
+      display.print("Stereo");
+    else   
+      display.print("Mono  ");
   }
+  */
 
   display.display();
 }
