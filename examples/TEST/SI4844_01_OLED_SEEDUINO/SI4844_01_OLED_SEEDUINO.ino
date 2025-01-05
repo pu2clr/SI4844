@@ -37,9 +37,12 @@
 */
 
 #include <SI4844.h>
-#include "SSD1306Ascii.h"
-// #include "SSD1306AsciiAvrI2c.h"
-// #include <EEPROM.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <FlashAsEEPROM_SAMD.h> // Install this library from Github: https://github.com/khoih-prog/FlashStorage_SAMD#why-do-we-need-this-flashstorage_samd-library
+#include "DSEG7_Classic_Regular_16.h"
+
+
 
 // OLED Diaplay constants
 #define I2C_ADDRESS 0x3C
@@ -123,7 +126,8 @@ int8_t bandIdx = 0;
 
 
 // OLED - Declaration for a SSD1306 display connected to I2C (SDA, SCL pins)
-SSD1306AsciiAvrI2c display;
+Adafruit_SSD1306 display = Adafruit_SSD1306(128, 32, &Wire);
+
 SI4844 si4844;
 
 void setup()
@@ -133,16 +137,12 @@ void setup()
   pinMode(VOL_UP, INPUT_PULLUP);
   pinMode(VOL_DOWN, INPUT_PULLUP);
 
-  display.begin(&Adafruit128x64, I2C_ADDRESS);
-  display.setFont(Adafruit5x7);
-  display.set2X();
-  display.clear();
+  display.begin(SSD1306_SWITCHCAPVCC, I2C_ADDRESS); // Address 0x3C for 128x32
+  display.clearDisplay();
   // display.print("\n PU2CLR");
   // delay(1000);
-  display.clear();
 
   // RESET EEPROM
-  /*
   if (digitalRead(BAND_UP) == LOW)
   {
     EEPROM.update(eeprom_address, 0);
@@ -150,7 +150,7 @@ void setup()
     display.print((char *)"EEPROM RESET");
     delay(1500);
   }
-  */
+  
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // si4844.setCrystalOscillatorStabilizationWaitTime(1);
   si4844.setup(RESET_PIN, INTERRUPT_PIN, -1, 100000);
@@ -177,19 +177,15 @@ void setup()
  */
 void saveAllReceiverInformation()
 {
-  /*  
   EEPROM.update(eeprom_address, app_id);             // stores the app id;
   EEPROM.update(eeprom_address + 1, si4844.getVolume()); // stores the current Volume
   EEPROM.update(eeprom_address + 2, bandIdx);        // Stores the current band index
-  */
 }
 
 void readAllReceiverInformation()
 {
-  /*
   si4844.setVolume(EEPROM.read(eeprom_address + 1)); // Gets the stored volume;
   bandIdx = EEPROM.read(eeprom_address + 2);
-  */
 
 }
 
@@ -203,25 +199,40 @@ void displayDial()
   else
     unit = (char *) "kHz";  
 
+  display.setFont(NULL);
+  display.clearDisplay();
 
-  display.set2X();
+ 
   display.setCursor(0, 0);
   display.print(si4844.getBandMode());
+
+  display.setCursor(50, 0);  
   if ( si4844.getStatusStationIndicator() != 0) 
     display.print("  OK ");
   else 
     display.print("     ");
+
+  display.setCursor(90, 0);  
   display.print(tabBand[bandIdx].desc);
-  display.setCursor(10, 3);
+
+
+  display.setFont(&DSEG7_Classic_Regular_16);
+
+  display.setCursor(20, 24);
   display.print(si4844.getFormattedFrequency(2,'.'));
+  display.setCursor(90, 15);
+  display.setFont(NULL);
   display.print(" ");
   display.print(unit);
-  display.setCursor(5, 6);
+  
+    
   if ( si4844.getStatusBandMode() == 0) {
-    display.print("Stereo ");
+    display.setCursor(0, 25);
+    display.print("St");
     display.print(si4844.getStereoIndicator());
   }
 
+  display.display();
 }
 
 void setBand(byte cmd)
@@ -236,9 +247,9 @@ void setBand(byte cmd)
   else 
     si4844.setBand(tabBand[bandIdx].bandIdx);  
 
-  display.clear();
   saveAllReceiverInformation();
   elapsedButton = millis();
+
 }
 
 void setVolume( char v) {
