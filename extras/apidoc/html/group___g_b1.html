@@ -107,6 +107,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga374db2d27ad97a0a59ebbc6255ea5707"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga374db2d27ad97a0a59ebbc6255ea5707">SI4844::bassTrebleUp</a> ()</td></tr>
 <tr class="memdesc:ga374db2d27ad97a0a59ebbc6255ea5707"><td class="mdescLeft">&#160;</td><td class="mdescRight">More treble, less bass.  <br /></td></tr>
 <tr class="separator:ga374db2d27ad97a0a59ebbc6255ea5707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2ebde5bc3de157d223c077c7b016c88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gab2ebde5bc3de157d223c077c7b016c88">SI4844::begin</a> (uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed=50000)</td></tr>
+<tr class="memdesc:gab2ebde5bc3de157d223c077c7b016c88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> instance and connect the device (<a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a>) to Arduino.  <br /></td></tr>
+<tr class="separator:gab2ebde5bc3de157d223c077c7b016c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga184362ec07964aaf36d27304437fac08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga184362ec07964aaf36d27304437fac08">SI4844::changeVolume</a> (char)</td></tr>
 <tr class="memdesc:ga184362ec07964aaf36d27304437fac08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Up or down the sound volume level.  <br /></td></tr>
 <tr class="separator:ga184362ec07964aaf36d27304437fac08"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,6 +168,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gae362404004bde2ed561a0c34604e0254"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gae362404004bde2ed561a0c34604e0254">SI4844::hasStatusChanged</a> (void)</td></tr>
 <tr class="memdesc:gae362404004bde2ed561a0c34604e0254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> has its status changed.  <br /></td></tr>
 <tr class="separator:gae362404004bde2ed561a0c34604e0254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7264a6caa7626678daef61d8f908d612"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga7264a6caa7626678daef61d8f908d612">SI4844::isHostDetectionBandConfig</a> ()</td></tr>
+<tr class="memdesc:ga7264a6caa7626678daef61d8f908d612"><td class="mdescLeft">&#160;</td><td class="mdescRight">Band CFG0 (Band Detection Configuration)  <br /></td></tr>
+<tr class="separator:ga7264a6caa7626678daef61d8f908d612"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaff14988c6be8a5fb9d1a5e6934dcff47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gaff14988c6be8a5fb9d1a5e6934dcff47">SI4844::powerDown</a> (void)</td></tr>
 <tr class="memdesc:gaff14988c6be8a5fb9d1a5e6934dcff47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power the device down.  <br /></td></tr>
 <tr class="separator:gaff14988c6be8a5fb9d1a5e6934dcff47"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -312,6 +318,56 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="gab2ebde5bc3de157d223c077c7b016c88" name="gab2ebde5bc3de157d223c077c7b016c88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab2ebde5bc3de157d223c077c7b016c88">&#9670;&#160;</a></span>begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SI4844::begin </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>resetPin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>interruptPin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>hightClockSpeed</em> = <code>50000</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initiates the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> instance and connect the device (<a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a>) to Arduino. </p>
+<p>This function is identical to the setup function. The difference is that it forcibly starts the system on band 0.</p>
+<p>Calling this library should be the first thing to do to control the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a>.</p>
+<p>If interruptPin is -1, it means you will control interrupt in your sketch.</p>
+<p>In this case, you have to call <a class="el" href="_s_i4844_8cpp.html#ac673bec28500b111088b013029979fcc" title="Library handle interrupt.">interrupt_hundler()</a> (see <a class="el" href="_s_i4844_8h.html">SI4844.h</a>) <br  />
+ </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resetPin</td><td>arduino pin used to reset the device </td></tr>
+    <tr><td class="paramname">interruptPin</td><td>interruprPin arduino pin used to handle interrupt </td></tr>
+    <tr><td class="paramname">hightClockSpeed</td><td>hight I2C clock speed to be used by the system (optional - default 50000 - 50kHz). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">References <a class="el" href="group___g_b1.html#ga1d119d683bed417b108ef1ccf3a2d20c">SI4844::getFirmware()</a>, and <a class="el" href="group___g_b1.html#gab19b2ce04e07e23275fea5889b87a201">SI4844::powerUp()</a>.</p>
+
+</div>
+</div>
 <a id="ga184362ec07964aaf36d27304437fac08" name="ga184362ec07964aaf36d27304437fac08"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga184362ec07964aaf36d27304437fac08">&#9670;&#160;</a></span>changeVolume()</h2>
 
@@ -447,7 +503,7 @@ Functions</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd>Si48XX ATDD PROGRAMMING GUIDE; AN610; page 22</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>a pointer to a structure type wirh the part number, chip revision, firmware revision, patch revision, and component revision numbers. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="group___g_b1.html#gacd42a278c3304a591d80ae7ab351b87a">SI4844::debugDevice()</a>, and <a class="el" href="group___g_b1.html#ga11a97916ce91dfb5ad6f49e5156219b1">SI4844::setup()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="group___g_b1.html#gab2ebde5bc3de157d223c077c7b016c88">SI4844::begin()</a>, <a class="el" href="group___g_b1.html#gacd42a278c3304a591d80ae7ab351b87a">SI4844::debugDevice()</a>, and <a class="el" href="group___g_b1.html#ga11a97916ce91dfb5ad6f49e5156219b1">SI4844::setup()</a>.</p>
 
 </div>
 </div>
@@ -558,7 +614,7 @@ Functions</h2></td></tr>
 <p>This library has other methods to get that information easier.</p>
 <dl class="section return"><dt>Returns</dt><dd>a pointer to a structure type <a class="el" href="group___g_a1.html#unionsi4844__status__response" title="Status response.">si4844_status_response</a> </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="group___g_b1.html#ga0404927e7414a32125e32ff508bd450e">SI4844::getFrequency()</a>, <a class="el" href="group___g_b1.html#ga0eafb7b0438fb9e70c91d368929c6aed">SI4844::getFrequencyInteger()</a>, <a class="el" href="group___g_b1.html#ga3de561a939b708030dae788781adf7e0">SI4844::setBand()</a>, and <a class="el" href="group___g_b1.html#ga5c766d254b0c261a93dfd817f11b712c">SI4844::setCustomBand()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="group___g_b1.html#ga0404927e7414a32125e32ff508bd450e">SI4844::getFrequency()</a>, <a class="el" href="group___g_b1.html#ga0eafb7b0438fb9e70c91d368929c6aed">SI4844::getFrequencyInteger()</a>, <a class="el" href="group___g_b1.html#ga7264a6caa7626678daef61d8f908d612">SI4844::isHostDetectionBandConfig()</a>, <a class="el" href="group___g_b1.html#gab19b2ce04e07e23275fea5889b87a201">SI4844::powerUp()</a>, <a class="el" href="group___g_b1.html#ga3de561a939b708030dae788781adf7e0">SI4844::setBand()</a>, and <a class="el" href="group___g_b1.html#ga5c766d254b0c261a93dfd817f11b712c">SI4844::setCustomBand()</a>.</p>
 
 </div>
 </div>
@@ -861,6 +917,32 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ga7264a6caa7626678daef61d8f908d612" name="ga7264a6caa7626678daef61d8f908d612"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7264a6caa7626678daef61d8f908d612">&#9670;&#160;</a></span>isHostDetectionBandConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SI4844::isHostDetectionBandConfig </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Band CFG0 (Band Detection Configuration) </p>
+<p>The ATDD device has two operating modes of band detection configuration options:</p>
+<p>either the ATDD device detects the band or the system controller detects and controls</p>
+<p>the band by its own mechanism.</p>
+<p>For the ATDD device, the BAND pin of the device must be connected to the band switch resistor.</p>
+<dl class="section return"><dt>Returns</dt><dd>false = ATDD device detects band; True = Host detects band </dd></dl>
+
+<p class="reference">References <a class="el" href="group___g_b1.html#ga3437ce047c5649597e1bccfb8c42cd5b">SI4844::getStatus()</a>.</p>
+
+</div>
+</div>
 <a id="gaff14988c6be8a5fb9d1a5e6934dcff47" name="gaff14988c6be8a5fb9d1a5e6934dcff47"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaff14988c6be8a5fb9d1a5e6934dcff47">&#9670;&#160;</a></span>powerDown()</h2>
 
@@ -901,6 +983,10 @@ Functions</h2></td></tr>
 <p>Power the device up. </p>
 <p>Moves the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> device from power down to power up </p><dl class="section see"><dt>See also</dt><dd>Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45 </dd></dl>
 
+<p class="reference">References <a class="el" href="group___g_b1.html#ga3437ce047c5649597e1bccfb8c42cd5b">SI4844::getStatus()</a>, and <a class="el" href="group___g_b1.html#ga683a81897fe79e6909817aab36622684">SI4844::reset()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="group___g_b1.html#gab2ebde5bc3de157d223c077c7b016c88">SI4844::begin()</a>.</p>
+
 </div>
 </div>
 <a id="ga683a81897fe79e6909817aab36622684" name="ga683a81897fe79e6909817aab36622684"></a>
@@ -922,7 +1008,7 @@ Functions</h2></td></tr>
 <p>Resets the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> device. </p>
 <p>Prepares the system to be started. </p><dl class="section see"><dt>See also</dt><dd>pages 7, 8, 9 and 10 of the programming guide. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="group___g_b1.html#gacd42a278c3304a591d80ae7ab351b87a">SI4844::debugDevice()</a>, <a class="el" href="group___g_b1.html#ga3de561a939b708030dae788781adf7e0">SI4844::setBand()</a>, <a class="el" href="group___g_b1.html#ga5c766d254b0c261a93dfd817f11b712c">SI4844::setCustomBand()</a>, and <a class="el" href="group___g_b1.html#ga11a97916ce91dfb5ad6f49e5156219b1">SI4844::setup()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="group___g_b1.html#gacd42a278c3304a591d80ae7ab351b87a">SI4844::debugDevice()</a>, <a class="el" href="group___g_b1.html#gab19b2ce04e07e23275fea5889b87a201">SI4844::powerUp()</a>, <a class="el" href="group___g_b1.html#ga3de561a939b708030dae788781adf7e0">SI4844::setBand()</a>, <a class="el" href="group___g_b1.html#ga5c766d254b0c261a93dfd817f11b712c">SI4844::setCustomBand()</a>, and <a class="el" href="group___g_b1.html#ga11a97916ce91dfb5ad6f49e5156219b1">SI4844::setup()</a>.</p>
 
 </div>
 </div>
