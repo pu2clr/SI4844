@@ -137,7 +137,7 @@ typedef union {
  */
 typedef struct
 {
-  uint8_t BCFG0 : 1;     // Bit 0
+  uint8_t BCFG0 : 1;     // Bit 0 - 0 = ATDD device detects band; 1 = Host detects band
   uint8_t BCFG1 : 1;     // bit 1
   uint8_t STEREO : 1;    // bit 2
   uint8_t STATION : 1;   // bit 3
@@ -377,6 +377,9 @@ public :
 
   si4844_status_response *getStatus(void);
   si4844_firmware_response *getFirmware(void);
+
+  bool isHostDetectionBandConfig();
+
   // customize the frequency range of a band
   void setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, uint8_t bandSpace, uint8_t dfband = 0, uint8_t uni_am = 0, uint8_t tvreq = 0 );
  

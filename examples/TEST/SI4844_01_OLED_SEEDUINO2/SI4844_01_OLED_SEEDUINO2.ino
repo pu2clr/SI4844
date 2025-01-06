@@ -25,11 +25,13 @@
  *  NOTE:
  *  1) The Si4822/26/40/44 SSOP24 packaged parts have a pull up resistor option (at pin 1 LNA_EN) 
  *     to force the ATDD device to use its default band properties rather than the values programmed by the system controller.
- *     when the ATDD device pin 1 is pulled up, it will ignore the band properties programmed by the system
- *  2) The system controller is able to read this information from the band configuration state bits from the ATDD device.
- *  3) The Si4827 SOIC16 package ATDD part doesn't have the pin pull-up option. However, the host controller can send an 
+ *     when the ATDD device pin 1 is pulled up, it will ignore the band properties programmed by the system.
+ *  2) At power up, the system controller is required to read the band configuration state bits from the ATDD device and 
+ *     determine which configuration option is responsible for the band detection. 
+ *  3) The system controller is able to read this information from the band configuration state bits from the ATDD device.
+ *  4) The Si4827 SOIC16 package ATDD part doesn't have the pin pull-up option. However, the host controller can send an 
  *     extra argument byte in the ATDD_POWER_UP command to specify this band properties priority.
- *  40 
+ *  5)   
  *
  *  Author: Ricardo Lima Caratti (PU2CLR)
  *  Oct, 2019

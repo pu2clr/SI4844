@@ -804,6 +804,23 @@ si4844_status_response *SI4844::getStatus()
     return &status_response;
 }
 
+/**
+ * @ingroup GB1
+ * @brief Band CFG0 (Band Detection Configuration)
+ * @details The ATDD device has two operating modes of band detection configuration options: 
+ * @details either the ATDD device detects the band or the system controller detects and controls 
+ * @details the band by its own mechanism. 
+ * @details For the ATDD device, the BAND pin of the device must be connected to the band switch resistor.
+ * 
+ * @return false = ATDD device detects band; True = Host detects band
+ */
+bool SI4844::isHostDetectionBandConfig() {
+    si4844_status_response *s;
+    s = this->getStatus();
+    return s->refined.BCFG0; 
+}
+
+
 /** 
  * @ingroup GB1
  * @brief Get part number, chip revision, firmware, patch, and component revision numbers.
