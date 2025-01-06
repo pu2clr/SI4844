@@ -18,6 +18,19 @@
  *  |   CLK      |  A5           | It shares the I2C bus with the SI4844              |       
  *  | -----------| ------------- | ---------------------------------------------------|
  *
+ *  Test with the mechanical band selection method (using a resistor network).
+ *  In this approach, there is no need for push buttons or storing the receiver's status 
+ *  in EEPROM. The system will start at the frequency and band determined by the tuning 
+ *  potentiometer and the position of the band switch.
+ *  NOTE:
+ *  1) The Si4822/26/40/44 SSOP24 packaged parts have a pull up resistor option (at pin 1 LNA_EN) 
+ *     to force the ATDD device to use its default band properties rather than the values programmed by the system controller.
+ *     when the ATDD device pin 1 is pulled up, it will ignore the band properties programmed by the system
+ *  2) The system controller is able to read this information from the band configuration state bits from the ATDD device.
+ *  3) The Si4827 SOIC16 package ATDD part doesn't have the pin pull-up option. However, the host controller can send an 
+ *     extra argument byte in the ATDD_POWER_UP command to specify this band properties priority.
+ *  40 
+ *
  *  Author: Ricardo Lima Caratti (PU2CLR)
  *  Oct, 2019
 */
@@ -27,6 +40,8 @@
 #include <Adafruit_SSD1306.h>
 #include "DSEG7_Classic_Regular_16.h"
 
+
+#define SI4844_DEVICE
 
 
 // OLED Diaplay constants
@@ -118,8 +133,8 @@ void displayDial()
   display.print(" ");
   display.print(unit);
   
-  // It does not make sense with Si4827  -- Temove the comment if you are using the Si4844 or si4840
-  /*
+  // Stereo status does not make sense with Si4827 
+  #ifdef SI4844_DEVICE
   if ( si4844.getStatusBandMode() == 0) {
     display.setCursor(75, 25);
     if (si4844.getStatusStereo() == 1)
@@ -127,7 +142,7 @@ void displayDial()
     else   
       display.print("Mono  ");
   }
-  */
+  #endif
 
   display.display();
 }

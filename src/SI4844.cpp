@@ -159,6 +159,46 @@ void SI4844::waitInterrupt(void)
 
 /** @defgroup GB1  Receiver Functions */
 
+
+/**
+ * @ingroup GB1
+ * @brief   Initiates the SI4844 instance and connect the device (SI4844) to Arduino. 
+ * @details This function is identical to the setup function. The difference is that it forcibly starts the system on band 0.
+ * @details Calling this library should be the first thing to do to control the SI4844.
+ * @details If interruptPin is -1, it means you will control interrupt in your sketch. 
+ * @details In this case, you have to call interrupt_hundler() (see SI4844.h)   
+ * @param resetPin      arduino pin used to reset the device
+ * @param interruptPin  interruprPin arduino pin used to handle interrupt 
+ * @param hightClockSpeed hight I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
+ */
+void SI4844::begin(uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed )
+{
+    this->resetPin = resetPin;
+    this->interruptPin = interruptPin;
+
+    setClockSpeed(hightClockSpeed);
+
+    // Arduino interrupt setup.
+    // if interruptPin parameter is < 0, it means the interrupt is being controlled by the user of this library
+    if (interruptPin != -1 ) {
+        pinMode(interruptPin, INPUT);
+        attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_hundler, RISING);
+    }
+
+    pinMode(resetPin, OUTPUT);
+    digitalWrite(resetPin, HIGH);
+    delay(1);    
+    data_from_device = false;
+
+    this->powerUp();
+        
+    setVolume(30);
+
+    // You need call it just once.
+    getFirmware();
+}
+
+
 /**
  * @ingroup GB1
  * @brief Initiates the SI4844 instance and connect the device (SI4844) to Arduino. 
@@ -322,7 +362,37 @@ void SI4844::setDefaultBandIndx( uint8_t bandidx) {
  */
 void SI4844::powerUp(void)
 {
-    setBand(this->currentBand);
+   reset();
+
+    this->currentBand = 0;
+
+    // Assigning 1 to bit 7. It means we are using external crystal
+    // Silicon Labs; Si48XX ATDD PROGRAMMING GUIDE; AN610; page 7
+    // Just another way to deal with bytes and bits using C/C++.
+
+    si4844_arg_band_index rxBandSetup; 
+
+    rxBandSetup.refined.XOSCEN = this->xoscen;
+    rxBandSetup.refined.XOWAIT = this->xowait;
+    rxBandSetup.refined.BANDIDX = 0;
+
+    data_from_device = false;
+
+    // Wait until rady to send a command
+    waitToSend();
+
+    Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(ATDD_POWER_UP);
+    Wire.write(rxBandSetup.raw);
+    Wire.endTransmission();
+    delayMicroseconds(2500);
+    waitInterrupt();
+
+    delayMicroseconds(2500);
+    getStatus();
+    delayMicroseconds(2500);
+
+    this->setVolume(this->volume);
 }
 
 /**
@@ -352,6 +422,7 @@ void SI4844::setCrystalOscillatorEnable(uint8_t XOSCEN ) {
 void SI4844::setCrystalOscillatorStabilizationWaitTime(uint8_t XOWAIT) {
     this->xowait = XOWAIT;
 } 
+
 
 
 /**
