@@ -84,7 +84,10 @@ int8_t newBand;
 
 void setup() {
   Serial.begin(9600);
-  delay(700);
+  delay(2000);
+
+  Serial.print("\n Starting");
+  Serial.flush();
 
   display.begin(SSD1306_SWITCHCAPVCC, I2C_ADDRESS);  // Address 0x3C for 128x32
 
@@ -97,12 +100,14 @@ void setup() {
 
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // si4844.setCrystalOscillatorStabilizationWaitTime(1);
-  si4844.setupSlideSwitch(RESET_PIN, INTERRUPT_PIN, 100000);
+  si4844.setupSlideSwitch(RESET_PIN, INTERRUPT_PIN);
 
   // You must calibrate the default volume
   si4844.setVolume(50);
-
-  displayDial();
+  delay(100);
+  Serial.print("\n Running");
+  Serial.flush();
+  // displayDial();
 }
 
 
@@ -182,11 +187,11 @@ void loop() {
           // si4844.setBand(newBand);
           si4844.setBandSlideSwitch(newBand);
         }
-        displayDial();  
       } else {
         Serial.print("\n An invalid band index was detected!");
       }
     }
+    displayDial();  
   }
 
   delay(50);

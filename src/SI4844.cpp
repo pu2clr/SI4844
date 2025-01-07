@@ -171,6 +171,7 @@ void SI4844::waitInterrupt(void)
 
 /**
  * @ingroup GB1
+ * @todo UNDER CONSTRUCTION
  * @brief   Initiates the SI48XX instance and connect the device (SI4844) to a microcontroller. 
  * @details This function initializes the Si48XX with the "Slide Switch Selects Band" configuration, where a resistor 
  * @details network (voltage divider) is connected to the BAND pin of the device (Si4844, Si4826, or Si4827). 
@@ -202,13 +203,20 @@ void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t high
     delay(1);    
     data_from_device = false;
 
+    Serial.print("\nDEBUG - RESET");    
     this->reset();
+    Serial.print("\nDEBUG - POWER UP");    
     this->powerUp();
+    Serial.print("\nDEBUG - SET BAND");    
 
+
+    delay(50);
     this->setBandSlideSwitch(0); // Starts with band index 0 and checks later if it corresponds with real band
 
+
+    Serial.print("DEBUG - END SETUP");   
     // You need call it just once.
-    getFirmware();
+    // getFirmware();
 }
 
 
@@ -369,6 +377,7 @@ void SI4844::setDefaultBandIndx( uint8_t bandidx) {
 
 /**
  * @ingroup GB1
+ * @todo UNDER CONSTRUCTION
  * @brief Power the device up
  * @details Moves the SI4844 device from power down to power up 
  * @see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
@@ -385,8 +394,10 @@ void SI4844::powerUp(void)
 
     data_from_device = false;
 
+    Serial.print("\n=======> powerUp before waitToSend");
     // Wait until rady to send a command
     waitToSend();
+    Serial.print("\n=======> powerUp after waitToSend");
 
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_POWER_UP);
@@ -395,11 +406,16 @@ void SI4844::powerUp(void)
     delayMicroseconds(2500);
     waitInterrupt();
 
+    Serial.print("\n=======> powerUp after powerUP");
+
     delayMicroseconds(2500);
     getStatus();
+    Serial.print("\n=======> powerUp after powerUP");
     delayMicroseconds(2500);
 
     this->setVolume(this->volume);
+
+    Serial.print("\n=======> powerUp finish powerUP");
 }
 
 /**
@@ -478,6 +494,7 @@ void SI4844::setBand(byte new_band)
 
 /**
  * @ingroup GB1
+ * @todo UNDER CONSTRUCTION...
  * @brief Sets a new band to the device configured as Slide Switch
  * @see See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
  * @param band  band index number. 
@@ -486,10 +503,12 @@ void SI4844::setBand(byte new_band)
 void SI4844::setBandSlideSwitch(uint8_t band)
 {
     int8_t newBand;
-
     do {
         newBand = this->getValidBandIndex();
-    } while (newBand -1 );
+    } while (newBand == -1);
+
+    Serial.print("**** NewBand: ");
+    Serial.print(newBand); 
 
     // Set band to real band defined by the slice switch
 
@@ -500,7 +519,7 @@ void SI4844::setBandSlideSwitch(uint8_t band)
         si4844_arg_band_index rxBandSetup; 
         rxBandSetup.refined.XOSCEN = this->xoscen;
         rxBandSetup.refined.XOWAIT = this->xowait;
-        rxBandSetup.refined.BANDIDX = band;
+        rxBandSetup.refined.BANDIDX = newBand;
 
         data_from_device = false;  
         waitToSend();
@@ -519,7 +538,7 @@ void SI4844::setBandSlideSwitch(uint8_t band)
         this->setVolume(this->volume);      
       }
     }
-    this->currentBand = band;
+    this->currentBand = newBand;
 }
 
 
@@ -854,7 +873,7 @@ si4844_status_response *SI4844::getStatus()
         // if INFORDY is 0 or CHFREQ is 0, not ready yet
 
     } while (status_response.refined.INFORDY == 0 || (status_response.raw[2] == 0 && status_response.raw[3] == 0));
-
+    setClockLow();
     return &status_response;
 }
 
