@@ -341,7 +341,7 @@ public :
   void debugDevice(uint16_t resetPin, uint16_t interruptPin, uint8_t defaultBand, void (*showFunc)(char *msg));
   void reset(void );
   void setBand(uint8_t newBand = 0);
-  void setBandSlideSwitch(uint8_t newBand = 0);
+  void setBandSlideSwitch();
   
   void changeVolume(char);  // deprecated
   void volumeUp(void);

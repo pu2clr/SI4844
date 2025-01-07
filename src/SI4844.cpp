@@ -211,7 +211,7 @@ void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t high
 
 
     delay(50);
-    this->setBandSlideSwitch(0); // Starts with band index 0 and checks later if it corresponds with real band
+    this->setBandSlideSwitch(); // Starts with band index 0 and checks later if it corresponds with real band
 
 
     Serial.print("DEBUG - END SETUP");   
@@ -500,12 +500,15 @@ void SI4844::setBand(byte new_band)
  * @param band  band index number. 
  * @see Si4822/26/27/40/44 A NTENNA , SCHEMATIC , LAYOUT, AND DESIGN GUIDELINES 
  */
-void SI4844::setBandSlideSwitch(uint8_t band)
+void SI4844::setBandSlideSwitch()
 {
     int8_t newBand;
+   
     do {
         newBand = this->getValidBandIndex();
     } while (newBand == -1);
+
+
 
     Serial.print("**** NewBand: ");
     Serial.print(newBand); 
@@ -513,10 +516,10 @@ void SI4844::setBandSlideSwitch(uint8_t band)
     // Set band to real band defined by the slice switch
 
     if (newBand != this->getCurrentBand() ) {
-      if ( this->needHostReset())
-        this->reset();
-      if ( this->needHostPowerUp()) {
         si4844_arg_band_index rxBandSetup; 
+
+        this->reset();
+
         rxBandSetup.refined.XOSCEN = this->xoscen;
         rxBandSetup.refined.XOWAIT = this->xowait;
         rxBandSetup.refined.BANDIDX = newBand;
@@ -536,9 +539,9 @@ void SI4844::setBandSlideSwitch(uint8_t band)
         delayMicroseconds(2500);
 
         this->setVolume(this->volume);      
-      }
+        this->currentBand = newBand;
     }
-    this->currentBand = newBand;
+
 }
 
 
@@ -905,11 +908,11 @@ int8_t SI4844::getValidBandIndex() {
     uint8_t count = 0;
     do { 
          this->getStatus();
-         delay(3);
+         delay(1);
          count++;
       } while (this->status_response.refined.INFORDY == 0 && count < 50 );  
 
-    if ( count > DEVICE_LAST_VALID_INDEX_BAND  ) return -1;
+    if ( this->status_response.refined.BANDIDX > DEVICE_LAST_VALID_INDEX_BAND || count >= 50  ) return -1;
     return  this->status_response.refined.BANDIDX;     
 }
 
