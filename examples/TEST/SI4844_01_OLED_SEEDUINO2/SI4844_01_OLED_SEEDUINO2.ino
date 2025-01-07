@@ -159,8 +159,15 @@ void loop()
 
     si4844_status_response *s;
     s = si4844.getStatus();
-    if (s->refined.BANDIDX != si4844.getCurrentBand() )
+    if (s->refined.BANDIDX != si4844.getCurrentBand() ) {
        si4844.setBand(s->refined.BANDIDX);
+
+      do { 
+        s = si4844.getStatus();
+        delay(3);
+      } while (s->refined.INFORDY == 0);   
+
+    }
 
     displayDial();
   }
