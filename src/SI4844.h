@@ -335,7 +335,7 @@ public :
   void sendCommand(uint8_t cmd, int parameter_size, const uint8_t *parameter);
   void getCommandResponse(int response_size, uint8_t *response);
 
-  void begin(uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed = 50000);
+  void setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed = 50000);
   void setup(uint16_t resetPin, int interruptPin, int8_t defaultBand = 0, uint32_t hightClockSpeed = 50000);
   void debugDevice(uint16_t resetPin, uint16_t interruptPin, uint8_t defaultBand, void (*showFunc)(char *msg));
   void reset(void );
@@ -392,6 +392,14 @@ public :
   uint32_t getFrequencyInteger(void);
   bool hasStatusChanged(void);
   void resetStatus(void);
+
+  /**
+   * @ingroup GB1 
+   * @brief Gets the latest band set by the microcontroller.
+   * @details It can be used as a feature to detect if the current band has been changed via Slide
+   * @return latest band
+   */
+  uint8_t inline getCurrentBand() {return this->currentBand; };
 
   /**
    * @ingroup GB1 

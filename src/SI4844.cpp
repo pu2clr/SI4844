@@ -162,16 +162,19 @@ void SI4844::waitInterrupt(void)
 
 /**
  * @ingroup GB1
- * @brief   Initiates the SI4844 instance and connect the device (SI4844) to Arduino. 
- * @details This function is identical to the setup function. The difference is that it forcibly starts the system on band 0.
- * @details Calling this library should be the first thing to do to control the SI4844.
+ * @brief   Initiates the SI48XX instance and connect the device (SI4844) to a microcontroller. 
+ * @details This function initializes the Si48XX with the "Slide Switch Selects Band" configuration, where a resistor 
+ * @details network (voltage divider) is connected to the BAND pin of the device (Si4844, Si4826, or Si4827). 
+ * @details While in the setup function the band control is managed by the microcontroller, the setupSlideSwitch 
+ * @details function assumes that you are using a mechanical band selector.
+ * @details Calling this library should be the first thing to do to control the SI48XX.
  * @details If interruptPin is -1, it means you will control interrupt in your sketch. 
  * @details In this case, you have to call interrupt_hundler() (see SI4844.h)   
  * @param resetPin      arduino pin used to reset the device
  * @param interruptPin  interruprPin arduino pin used to handle interrupt 
  * @param hightClockSpeed hight I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
  */
-void SI4844::begin(uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed )
+void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed )
 {
     this->resetPin = resetPin;
     this->interruptPin = interruptPin;
@@ -191,7 +194,17 @@ void SI4844::begin(uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed
     data_from_device = false;
 
     this->powerUp();
-        
+
+    si4844_status_response *s;
+    
+    do { 
+        s = this->getStatus();
+        delay(3);
+    } while (s->refined.INFORDY == 0);
+
+    // Set band to real band defined by the slice switch
+    setBand(s->refined.BANDIDX);
+
     setVolume(30);
 
     // You need call it just once.

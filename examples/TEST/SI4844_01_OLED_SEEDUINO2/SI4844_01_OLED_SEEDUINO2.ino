@@ -89,7 +89,10 @@ void setup()
  
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // si4844.setCrystalOscillatorStabilizationWaitTime(1);
-  si4844.setup(RESET_PIN, INTERRUPT_PIN, -1, 100000);
+  si4844.setupSlideSwitch(RESET_PIN, INTERRUPT_PIN, 100000); 
+
+  // You must calibrate the default volume
+  // si4844.setVolume(40);
 
   displayDial();
 
@@ -152,8 +155,15 @@ void displayDial()
 
 void loop()
 {
-  if (si4844.hasStatusChanged())
+  if (si4844.hasStatusChanged()) {
+
+    si4844_status_response *s;
+    s = si4844.getStatus();
+    if (s->refined.BANDIDX != si4844.getCurrentBand() )
+       si4844.setBand(s->refined.BANDIDX);
+
     displayDial();
+  }
   
   delay(10);
 }
