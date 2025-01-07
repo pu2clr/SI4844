@@ -79,7 +79,7 @@ Adafruit_SSD1306 display = Adafruit_SSD1306(128, 32, &Wire);
 
 SI4844 si4844;
 
-uint8_t newBand; 
+int8_t newBand; 
 
 
 void setup()
@@ -171,8 +171,12 @@ void loop()
     Serial.print("\n --- hasStatusChanged");  
     newBand = si4844.getValidBandIndex();
     if (newBand != si4844.getCurrentBand() ) {
-      si4844.reset();
-      newBand = si4844.getValidBandIndex();
+
+      if ( si4844.needHostReset()) 
+        si4844.reset();
+      if ( si4844.needHostPowerUp())  
+        si4844.setBand(newBand);
+        
       Serial.print("\n ------- Band Index has Changed to "); 
       Serial.print(newBand); 
       if (si4844.needHostReset()) 

@@ -840,15 +840,15 @@ bool SI4844::isHostDetectionBandConfig() {
  * @details Once INFORDY is 1, the host can read and display the current status, including band mode, station, and stereo states.  
  * @return  The current valid BANDIDX.  
  */
-uint8_t SI4844::getValidBandIndex() {
-    uint16_t count;
+int8_t SI4844::getValidBandIndex() {
+    uint8_t count = 0;
     do { 
          this->getStatus();
          delay(3);
          count++;
       } while (this->status_response.refined.INFORDY == 0 && count < 50 );  
 
-    if ( count >= 50 ) return 99;
+    if ( count > DEVICE_LAST_VALID_INDEX_BAND  ) return -1;
     return  this->status_response.refined.BANDIDX;     
 }
 

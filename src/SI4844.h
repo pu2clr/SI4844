@@ -56,7 +56,7 @@
 #define AM_SOFT_MUTE_SNR_THRESHOLD 0x3303
 
 
-
+#define DEVICE_LAST_VALID_INDEX_BAND 40
 
 /** @defgroup GA1 Union and Structures 
  * @section GA1
@@ -379,7 +379,7 @@ public :
   si4844_firmware_response *getFirmware(void);
 
   bool isHostDetectionBandConfig();
-  uint8_t getValidBandIndex();
+  int8_t getValidBandIndex();
  
 
   // customize the frequency range of a band
