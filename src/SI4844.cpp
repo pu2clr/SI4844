@@ -186,6 +186,7 @@ void SI4844::waitInterrupt(void)
  */
 void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed )
 {
+    int8_t newBand;
     this->resetPin = resetPin;
     this->interruptPin = interruptPin;
 
@@ -209,9 +210,10 @@ void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t high
     this->powerUp();
     Serial.print("\nDEBUG - SET BAND");    
 
+    newBand = this->getValidBandIndex();
 
-    delay(50);
-    this->setBandSlideSwitch(); // Starts with band index 0 and checks later if it corresponds with real band
+    if ( newBand != 0 )
+        this->setBandSlideSwitch(); // Starts with band index 0 and checks later if it corresponds with real band
 
 
     Serial.print("DEBUG - END SETUP");   
@@ -504,9 +506,9 @@ void SI4844::setBandSlideSwitch()
 {
     int8_t newBand;
    
-    do {
+    // do {
         newBand = this->getValidBandIndex();
-    } while (newBand == -1);
+    // } while (newBand == -1);
 
 
 
@@ -515,16 +517,18 @@ void SI4844::setBandSlideSwitch()
 
     // Set band to real band defined by the slice switch
 
-    if (newBand != this->getCurrentBand() ) {
+    if (newBand >= 0 && newBand != this->getCurrentBand() ) {
         si4844_arg_band_index rxBandSetup; 
 
+        Serial.print("\n Antes do reset");
         this->reset();
-
+        delayMicroseconds(2500);
         rxBandSetup.refined.XOSCEN = this->xoscen;
         rxBandSetup.refined.XOWAIT = this->xowait;
         rxBandSetup.refined.BANDIDX = newBand;
 
         data_from_device = false;  
+        Serial.print("\n Antes do waitToSend");
         waitToSend();
 
         Wire.beginTransmission(SI4844_ADDRESS);
@@ -534,12 +538,17 @@ void SI4844::setBandSlideSwitch()
         delayMicroseconds(2500);
         waitInterrupt();
 
+        Serial.print("\n PASSOU PELO ATDD_POWER_UP");
+
         delayMicroseconds(2500);
         getStatus();
         delayMicroseconds(2500);
 
+        Serial.print("\n PASSOU PELO getStatus");
+
         this->setVolume(this->volume);      
         this->currentBand = newBand;
+        Serial.print("\n FIM da CHAMADA");
     }
 
 }
@@ -623,6 +632,7 @@ void SI4844::setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, u
  */
 bool SI4844::isClearToSend(void)
 {
+    delayMicroseconds(2000);
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_GET_STATUS);
     Wire.endTransmission();
@@ -860,8 +870,9 @@ void SI4844::setAudioMute(bool on)
  */
 si4844_status_response *SI4844::getStatus()
 {
+    // setClockHigh();
+    setClockLow();
     waitToSend();
-    setClockHigh();
     do
     {
         Wire.beginTransmission(SI4844_ADDRESS);
@@ -874,8 +885,8 @@ si4844_status_response *SI4844::getStatus()
             status_response.raw[i] = Wire.read();
         // check response error. Exit when no error found. See page 7.
         // if INFORDY is 0 or CHFREQ is 0, not ready yet
-
-    } while (status_response.refined.INFORDY == 0 || (status_response.raw[2] == 0 && status_response.raw[3] == 0));
+        delayMicroseconds(2500);
+    } while (status_response.refined.CTS == 0 || status_response.refined.INFORDY == 0 || (status_response.raw[2] == 0 && status_response.raw[3] == 0));
     setClockLow();
     return &status_response;
 }

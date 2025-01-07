@@ -1,14 +1,14 @@
 /**
- *  This sketch runs on Seeeduino devices.
+ *  This sketch runs on Arduino devices.
  *  I2C OLED Display and buttons Example
  *
  *
- *  SEEEDUINO and SI4844 pin connections
+ *  Arduino and SI4844 pin connections
  *
- *  | SI4844 pin | SEEEDUINO pin |  Description                                       |
+ *  | SI4844 pin | Arduino pin |  Description                                       |
  *  | ---------  | ------------  | -------------------------------------------------  |
- *  |    2       |  2            | SEEEDUINO interrupt pin                            |
- *  |   15       |  6            | RESET                                              |
+ *  |    2       |  2            | Arduino interrupt pin                            |
+ *  |   15       |  12           | RESET                                              |
  *  |   16       |  A4 (SDA)     | I2C bus (Data)                                     |
  *  |   17       |  A5 (SCL)     | I2C bus (Clock)                                    | 
  *  | -----------| ------------- | ---------------------------------------------------|
@@ -58,7 +58,7 @@
 
 // Arduino Pin (tested on pro mini)
 #define INTERRUPT_PIN 2
-#define RESET_PIN 6
+#define RESET_PIN 12
 
 
 /*
