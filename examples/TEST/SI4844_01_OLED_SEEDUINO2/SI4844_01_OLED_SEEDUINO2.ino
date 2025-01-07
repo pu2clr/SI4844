@@ -54,7 +54,7 @@
 
 // OLED Diaplay constants
 #define I2C_ADDRESS 0x3C
-#define RST_PIN -1 // Define proper RST_PIN if required.
+#define RST_PIN -1  // Define proper RST_PIN if required.
 
 // Arduino Pin (tested on pro mini)
 #define INTERRUPT_PIN 2
@@ -65,9 +65,9 @@
    Pre-defined Band Table - See the SI48XX ATDD - PROGRAMMING GUIDE page 17.
 */
 
-String tabBand[] = { "FM1", "FM1", "FM1", "FM1", "FM2", "FM2", "FM2", "FM2", "FM3", "FM3", "FM3", "FM3","FM4", "FM4", "FM4", "FM4", "FM5", "FM5", "FM5", "FM5",
-                     "AM1", "AM2", "AM3", "AM4", "AM5", 
-                     "SW1", "SW2", "SW3", "SW4", "SW54", "AM6", "SW7", "SW8", "SW9", "SW10", "SW11", "AM12", "SW13", "SW14", "SW15", "SW16" };   
+String tabBand[] = { "FM1", "FM1", "FM1", "FM1", "FM2", "FM2", "FM2", "FM2", "FM3", "FM3", "FM3", "FM3", "FM4", "FM4", "FM4", "FM4", "FM5", "FM5", "FM5", "FM5",
+                     "AM1", "AM2", "AM3", "AM4", "AM5",
+                     "SW1", "SW2", "SW3", "SW4", "SW54", "AM6", "SW7", "SW8", "SW9", "SW10", "SW11", "AM12", "SW13", "SW14", "SW15", "SW16" };
 
 const int8_t lastBand = (sizeof tabBand / sizeof(String)) - 1;
 int8_t bandIdx = 0;
@@ -79,15 +79,14 @@ Adafruit_SSD1306 display = Adafruit_SSD1306(128, 32, &Wire);
 
 SI4844 si4844;
 
-int8_t newBand; 
+int8_t newBand;
 
 
-void setup()
-{
+void setup() {
   Serial.begin(9600);
   delay(700);
 
-  display.begin(SSD1306_SWITCHCAPVCC, I2C_ADDRESS); // Address 0x3C for 128x32
+  display.begin(SSD1306_SWITCHCAPVCC, I2C_ADDRESS);  // Address 0x3C for 128x32
 
   // display.display();
   display.setTextColor(SSD1306_WHITE);
@@ -95,99 +94,100 @@ void setup()
 
   display.clearDisplay();
 
- 
+
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // si4844.setCrystalOscillatorStabilizationWaitTime(1);
-  si4844.setupSlideSwitch(RESET_PIN, INTERRUPT_PIN, 100000); 
+  si4844.setupSlideSwitch(RESET_PIN, INTERRUPT_PIN, 100000);
 
   // You must calibrate the default volume
   si4844.setVolume(50);
 
   displayDial();
-
 }
 
 
-void displayDial()
-{
+void displayDial() {
   String unit, freqDisplay, stereo;
 
-  if (si4844.getFrequencyInteger() > 999) 
-    unit = (char *) "MHZ";
+  if (si4844.getFrequencyInteger() > 999)
+    unit = (char *)"MHZ";
   else
-    unit = (char *) "kHz";  
+    unit = (char *)"kHz";
 
   display.setFont(NULL);
   display.clearDisplay();
 
- 
+
   display.setCursor(0, 0);
   display.print(si4844.getBandMode());
 
-  display.setCursor(48, 0);  
-  if ( si4844.getStatusStationIndicator() != 0) 
+  display.setCursor(48, 0);
+  if (si4844.getStatusStationIndicator() != 0)
     display.print("OK");
-  else 
+  else
     display.print("  ");
 
   bandIdx = newBand;
-  
-  if (bandIdx > lastBand) return; 
 
-  display.setCursor(90, 0);  
+  if (bandIdx > lastBand) return;
+
+  display.setCursor(90, 0);
   display.print(bandIdx);
-   display.print("-");
+  display.print("-");
   display.print(tabBand[bandIdx]);
 
 
   display.setFont(&DSEG7_Classic_Regular_16);
 
   display.setCursor(15, 30);
-  display.print(si4844.getFormattedFrequency(2,'.'));
+  display.print(si4844.getFormattedFrequency(2, '.'));
   display.setCursor(100, 20);
   display.setFont(NULL);
   display.print(" ");
   display.print(unit);
-  
-  // Stereo status does not make sense with Si4827 
-  #ifdef SI4844_DEVICE
-  if ( si4844.getStatusBandMode() == 0) {
+
+// Stereo status does not make sense with Si4827
+#ifdef SI4844_DEVICE
+  if (si4844.getStatusBandMode() == 0) {
     display.setCursor(75, 25);
     if (si4844.getStatusStereo() == 1)
       display.print("Stereo");
-    else   
+    else
       display.print("Mono  ");
   }
-  #endif
+#endif
 
   display.display();
 }
 
 
-void loop()
-{
+void loop() {
   if (si4844.hasStatusChanged()) {
 
-    Serial.print("\n --- hasStatusChanged");  
+    Serial.print("\n --- Something has changed");
     newBand = si4844.getValidBandIndex();
-    if (newBand != si4844.getCurrentBand() ) {
+    if (newBand != si4844.getCurrentBand()) {
 
-      if ( si4844.needHostReset()) 
-        si4844.reset();
-      if ( si4844.needHostPowerUp())  
-        si4844.setBand(newBand);
-        
-      Serial.print("\n ------- Band Index has Changed to "); 
-      Serial.print(newBand); 
-      if (si4844.needHostReset()) 
-        Serial.print("\n ------- Chaging to New Band"); 
-        if ( newBand < lastBand)
-          si4844.setBand(newBand);
-        else 
-          Serial.print("\n This band can not be set!");  
+      Serial.print("\nNew Band was detected:  ");
+      Serial.print(newBand);
+
+      if (newBand >= 0) {
+        if (si4844.needHostReset()) {
+          Serial.print("\n ------- Resetting  ");
+          // si4844.reset();
+        }
+
+        if (si4844.needHostPowerUp()) {
+           Serial.print("\n ------- Chaging to New Band");
+          // si4844.setBand(newBand);
+          si4844.setBandSlideSwitch(newBand);
+        }
+        displayDial();  
+      } else {
+        Serial.print("\n An invalid band index was detected!");
+      }
     }
-    displayDial();
   }
-  
+
   delay(50);
 }

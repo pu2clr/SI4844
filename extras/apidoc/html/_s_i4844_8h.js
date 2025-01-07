@@ -27,6 +27,7 @@ var _s_i4844_8h =
     [ "ATDD_POWER_UP", "_s_i4844_8h.html#a9fce44b312bbb4dbca1a0d951a0a7c8d", null ],
     [ "ATDD_XOSCEN", "_s_i4844_8h.html#a15334ea9808ed9e355d8bc6bb3b43fcf", null ],
     [ "ATDD_XOWAIT", "_s_i4844_8h.html#a775e42f41cc53c1f6ce0b30bfa5e6902", null ],
+    [ "DEVICE_LAST_VALID_INDEX_BAND", "_s_i4844_8h.html#a3819dacd7536c0b8e83a8570e83cf5ab", null ],
     [ "FM_BLEND_RSSI_MONO_THRESHOLD", "_s_i4844_8h.html#a8f62bfa609e4deb9febe3a25aae3c6bc", null ],
     [ "FM_BLEND_RSSI_STEREO_THRESHOLD", "_s_i4844_8h.html#abf0ee031cf6bb27b0211709117cfcaf0", null ],
     [ "FM_DEEMPHASIS", "_s_i4844_8h.html#a9fe700fb45d6e08e177da6fdc208fa05", null ],

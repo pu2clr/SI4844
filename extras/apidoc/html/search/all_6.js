@@ -32,7 +32,7 @@ var searchData=
   ['getstatusstationindicator_29',['getStatusStationIndicator',['../group___g_b1.html#ga3705f4855d249db7a66b9170f09378cb',1,'SI4844']]],
   ['getstatusstereo_30',['getStatusStereo',['../group___g_b1.html#ga83569342288b86972da112ea14f45095',1,'SI4844']]],
   ['getstereoindicator_31',['getStereoIndicator',['../group___g_b1.html#ga89c7f1e6d9aad81e7260f5acea9b0f9c',1,'SI4844']]],
-  ['getvalidbandindex_32',['getValidBandIndex',['../group___g_b1.html#ga77a982fa66877348adddf95faac28f02',1,'SI4844']]],
+  ['getvalidbandindex_32',['getValidBandIndex',['../group___g_b1.html#ga7b7d5a9c3005db4a246ed7a585b94889',1,'SI4844']]],
   ['getvolume_33',['getVolume',['../group___g_b1.html#ga35aa33472f9d23986457ce7850b8175f',1,'SI4844']]],
   ['getvolumeproperty_34',['getVolumeProperty',['../group___g_b1.html#ga44f5b3d8746dc30922cc92e778e98f16',1,'SI4844']]]
 ];

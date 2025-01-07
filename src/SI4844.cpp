@@ -1,14 +1,23 @@
 /**
  * @mainpage SI48XX Arduino Library implementation
- * This is a library for the SI4822, SI4826, SI4827, SI4840, 4844A, and 4844B, BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER,
- * ICs from Silicon Labs.  
- * When appropriate, this documentation will use the acronym SI48XX to refer to the following devices: SI4822, SI4826, SI4827, SI4840, SI4844A, and SI4844B.
- * In most cases, references to the SI4844 device also apply to the other aforementioned devices.
- * This library is intended to provide an easier interface to control the SI4844.
+ *
+ * @brief SI4844 ARDUINO LIBRARY  
  * 
- * This library can be freely distributed using the MIT Free Software model.
+ * @details This is an Arduino library for the SI4822, SI4826, SI4827, SI4840, 4844A, and 4844B, BROADCAST AM/FM/SW RADIO RECEIVER IC family from Silicon Labs. 
+ * @details When appropriate, this documentation will use the acronym SI48XX to refer to the following devices: SI4822, SI4826, SI4827, SI4840, SI4844A, and SI4844B.
+ * @details In most cases, references to the SI4844 device also apply to the other aforementioned devices.
+ * @details This library is intended to provide an easier interface for controlling the SI47XX by using Arduino platform. 
+ * @details The communication used by this library is I2C.
+ * @details This file contains: const (#define), Defined Data type and Methods declarations
+ * @details You can see a complete documentation on <https://github.com/pu2clr/SI4844>
+ *   
+ * @see https://pu2clr.github.io/SI4844/
+ * @see Si48XX ATDD PROGRAMMING GUIDE - AN610
+ * @see BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER - Si4844-B20
+ * @see Si4822/26/27/40/44 A NTENNA , SCHEMATIC , LAYOUT, AND DESIGN GUIDELINES - AN602
  * 
- * Copyright (c) 2019 Ricardo Lima Caratti
+ * @author PU2CLR - Ricardo Lima Caratti 
+ * @date  2019-2020
  */
 
 #include "SI4844.h"
@@ -176,7 +185,6 @@ void SI4844::waitInterrupt(void)
  */
 void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed )
 {
-    uint8_t newBand; 
     this->resetPin = resetPin;
     this->interruptPin = interruptPin;
 
@@ -194,17 +202,10 @@ void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t high
     delay(1);    
     data_from_device = false;
 
+    this->reset();
     this->powerUp();
- 
 
-    do {
-        newBand = this->getValidBandIndex();
-    } while (newBand > 40 );
-
-    // Set band to real band defined by the slice switch
-    this->setBand(newBand);
-
-    setVolume(30);
+    this->setBandSlideSwitch(0); // Starts with band index 0 and checks later if it corresponds with real band
 
     // You need call it just once.
     getFirmware();
@@ -374,13 +375,7 @@ void SI4844::setDefaultBandIndx( uint8_t bandidx) {
  */
 void SI4844::powerUp(void)
 {
-   reset();
-
     this->currentBand = 0;
-
-    // Assigning 1 to bit 7. It means we are using external crystal
-    // Silicon Labs; Si48XX ATDD PROGRAMMING GUIDE; AN610; page 7
-    // Just another way to deal with bytes and bits using C/C++.
 
     si4844_arg_band_index rxBandSetup; 
 
@@ -480,6 +475,53 @@ void SI4844::setBand(byte new_band)
 
     this->setVolume(this->volume);
 }
+
+/**
+ * @ingroup GB1
+ * @brief Sets a new band to the device configured as Slide Switch
+ * @see See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
+ * @param band  band index number. 
+ * @see Si4822/26/27/40/44 A NTENNA , SCHEMATIC , LAYOUT, AND DESIGN GUIDELINES 
+ */
+void SI4844::setBandSlideSwitch(uint8_t band)
+{
+    int8_t newBand;
+
+    do {
+        newBand = this->getValidBandIndex();
+    } while (newBand -1 );
+
+    // Set band to real band defined by the slice switch
+
+    if (newBand != this->getCurrentBand() ) {
+      if ( this->needHostReset())
+        this->reset();
+      if ( this->needHostPowerUp()) {
+        si4844_arg_band_index rxBandSetup; 
+        rxBandSetup.refined.XOSCEN = this->xoscen;
+        rxBandSetup.refined.XOWAIT = this->xowait;
+        rxBandSetup.refined.BANDIDX = band;
+
+        data_from_device = false;  
+        waitToSend();
+
+        Wire.beginTransmission(SI4844_ADDRESS);
+        Wire.write(ATDD_POWER_UP);
+        Wire.write(rxBandSetup.raw);
+        Wire.endTransmission();
+        delayMicroseconds(2500);
+        waitInterrupt();
+
+        delayMicroseconds(2500);
+        getStatus();
+        delayMicroseconds(2500);
+
+        this->setVolume(this->volume);      
+      }
+    }
+    this->currentBand = band;
+}
+
 
 
 /** 

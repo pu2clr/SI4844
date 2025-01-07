@@ -206,10 +206,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ga89c7f1e6d9aad81e7260f5acea9b0f9c"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga89c7f1e6d9aad81e7260f5acea9b0f9c">getStereoIndicator</a> ()</td></tr>
 <tr class="memdesc:ga89c7f1e6d9aad81e7260f5acea9b0f9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Stereo Indicator.  <br /></td></tr>
 <tr class="separator:ga89c7f1e6d9aad81e7260f5acea9b0f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga77a982fa66877348adddf95faac28f02"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga77a982fa66877348adddf95faac28f02">getValidBandIndex</a> ()</td></tr>
-<tr class="memdesc:ga77a982fa66877348adddf95faac28f02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current valid BAND INDEX. <br  />
+<tr class="memitem:ga7b7d5a9c3005db4a246ed7a585b94889"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga7b7d5a9c3005db4a246ed7a585b94889">getValidBandIndex</a> ()</td></tr>
+<tr class="memdesc:ga7b7d5a9c3005db4a246ed7a585b94889"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current valid BAND INDEX. <br  />
   <br /></td></tr>
-<tr class="separator:ga77a982fa66877348adddf95faac28f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ga7b7d5a9c3005db4a246ed7a585b94889"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga35aa33472f9d23986457ce7850b8175f"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga35aa33472f9d23986457ce7850b8175f">getVolume</a> ()</td></tr>
 <tr class="memdesc:ga35aa33472f9d23986457ce7850b8175f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current audio volume level.  <br /></td></tr>
 <tr class="separator:ga35aa33472f9d23986457ce7850b8175f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -267,9 +267,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:gaede56f3b80857296a85ba4613bc87459"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gaede56f3b80857296a85ba4613bc87459">setAudioMute</a> (bool on)</td></tr>
 <tr class="memdesc:gaede56f3b80857296a85ba4613bc87459"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutes the audio output.  <br /></td></tr>
 <tr class="separator:gaede56f3b80857296a85ba4613bc87459"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3de561a939b708030dae788781adf7e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga3de561a939b708030dae788781adf7e0">setBand</a> (byte)</td></tr>
-<tr class="memdesc:ga3de561a939b708030dae788781adf7e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new band to the device.  <br /></td></tr>
-<tr class="separator:ga3de561a939b708030dae788781adf7e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad91399d31b91e1b078d8f52a0cec4656"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gad91399d31b91e1b078d8f52a0cec4656">setBand</a> (uint8_t newBand=0)</td></tr>
+<tr class="memdesc:gad91399d31b91e1b078d8f52a0cec4656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new band to the device.  <br /></td></tr>
+<tr class="separator:gad91399d31b91e1b078d8f52a0cec4656"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf3b26b955fac5464c27ef72d11fd445"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gacf3b26b955fac5464c27ef72d11fd445">setBandSlideSwitch</a> (uint8_t newBand=0)</td></tr>
+<tr class="memdesc:gacf3b26b955fac5464c27ef72d11fd445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new band to the device configured as Slide Switch.  <br /></td></tr>
+<tr class="separator:gacf3b26b955fac5464c27ef72d11fd445"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4323a4cd070b75d84e7fc0a5ea7c8f41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga4323a4cd070b75d84e7fc0a5ea7c8f41">setBassTreble</a> (uint8_t bass_treble)</td></tr>
 <tr class="memdesc:ga4323a4cd070b75d84e7fc0a5ea7c8f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the sound volume level, bass and treble.  <br /></td></tr>
 <tr class="separator:ga4323a4cd070b75d84e7fc0a5ea7c8f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
