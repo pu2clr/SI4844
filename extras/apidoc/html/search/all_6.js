@@ -28,13 +28,13 @@ var searchData=
   ['getstatusbcfg0_25',['getStatusBCFG0',['../group___g_b1.html#ga1107f15e0f83e4d4f1746086cfd94deb',1,'SI4844']]],
   ['getstatusbcfg1_26',['getStatusBCFG1',['../group___g_b1.html#gac64e61270ae4b824f5ebdd5deb7b9547',1,'SI4844']]],
   ['getstatuscts_27',['getStatusCTS',['../class_s_i4844.html#a327a9bf91658360a7d25d5daa7b1ae7f',1,'SI4844']]],
-  ['getstatushostpowerup_28',['getStatusHostPowerUp',['../class_s_i4844.html#a11c4c3a535b510f6239206fb4a2c211d',1,'SI4844']]],
-  ['getstatushostreset_29',['getStatusHostReset',['../class_s_i4844.html#aa176cff89632f28e6d7d3847e1a6b3fb',1,'SI4844']]],
+  ['getstatushostpowerup_28',['getStatusHostPowerUp',['../group___g_b1.html#ga2279b38aa587eea1c9e21b6910580c23',1,'SI4844']]],
+  ['getstatushostreset_29',['getStatusHostReset',['../group___g_b1.html#gaa7507d37c3a82075a5055fe2680dd947',1,'SI4844']]],
   ['getstatusinformationready_30',['getStatusInformationReady',['../group___g_b1.html#gac423142ab4a94dc2533aea51beb14432',1,'SI4844']]],
   ['getstatusstationindicator_31',['getStatusStationIndicator',['../group___g_b1.html#ga3705f4855d249db7a66b9170f09378cb',1,'SI4844']]],
   ['getstatusstereo_32',['getStatusStereo',['../group___g_b1.html#ga83569342288b86972da112ea14f45095',1,'SI4844']]],
   ['getstereoindicator_33',['getStereoIndicator',['../group___g_b1.html#ga89c7f1e6d9aad81e7260f5acea9b0f9c',1,'SI4844']]],
-  ['getvalidbandindex_34',['getValidBandIndex',['../class_s_i4844.html#a77a982fa66877348adddf95faac28f02',1,'SI4844']]],
+  ['getvalidbandindex_34',['getValidBandIndex',['../group___g_b1.html#ga77a982fa66877348adddf95faac28f02',1,'SI4844']]],
   ['getvolume_35',['getVolume',['../group___g_b1.html#ga35aa33472f9d23986457ce7850b8175f',1,'SI4844']]],
   ['getvolumeproperty_36',['getVolumeProperty',['../group___g_b1.html#ga44f5b3d8746dc30922cc92e778e98f16',1,'SI4844']]]
 ];
