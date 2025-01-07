@@ -176,6 +176,7 @@ void SI4844::waitInterrupt(void)
  */
 void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed )
 {
+    uint8_t newBand; 
     this->resetPin = resetPin;
     this->interruptPin = interruptPin;
 
@@ -195,15 +196,13 @@ void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t high
 
     this->powerUp();
  
-    si4844_status_response *s;
-    
-    do { 
-         s = this->getStatus();
-         delay(5);
-    } while (s->refined.INFORDY == 0);
+
+    do {
+        newBand = this->getValidBandIndex();
+    } while (newBand > 40 );
 
     // Set band to real band defined by the slice switch
-    this->setBand(s->refined.BANDIDX);
+    this->setBand(newBand);
 
     setVolume(30);
 
@@ -842,11 +841,14 @@ bool SI4844::isHostDetectionBandConfig() {
  * @return  The current valid BANDIDX.  
  */
 uint8_t SI4844::getValidBandIndex() {
+    uint16_t count;
     do { 
          this->getStatus();
          delay(3);
-      } while (this->status_response.refined.INFORDY == 0);  
+         count++;
+      } while (this->status_response.refined.INFORDY == 0 && count < 50 );  
 
+    if ( count >= 50 ) return 99;
     return  this->status_response.refined.BANDIDX;     
 }
 

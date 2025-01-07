@@ -73,10 +73,13 @@ Adafruit_SSD1306 display = Adafruit_SSD1306(128, 32, &Wire);
 
 SI4844 si4844;
 
-si4844_status_response *rxStatus;
+uint8_t newBand; 
+
 
 void setup()
 {
+  Serial.begin(9600);
+  delay(700);
 
   display.begin(SSD1306_SWITCHCAPVCC, I2C_ADDRESS); // Address 0x3C for 128x32
 
@@ -103,8 +106,6 @@ void displayDial()
 {
   String unit, freqDisplay, stereo;
 
-  rxStatus = si4844.getStatus();
-
   if (si4844.getFrequencyInteger() > 999) 
     unit = (char *) "MHZ";
   else
@@ -123,9 +124,13 @@ void displayDial()
   else 
     display.print("  ");
 
-  bandIdx = rxStatus->refined.BANDIDX;
+  bandIdx = newBand;
   
-  display.setCursor(105, 0);  
+  if (bandIdx > lastBand) return; 
+
+  display.setCursor(90, 0);  
+  display.print(bandIdx);
+   display.print("-");
   display.print(tabBand[bandIdx]);
 
 
@@ -156,10 +161,20 @@ void displayDial()
 void loop()
 {
   if (si4844.hasStatusChanged()) {
-    uint8_t newBand = si4844.getValidBandIndex();
+
+    Serial.print("\n --- hasStatusChanged");  
+    newBand = si4844.getValidBandIndex();
     if (newBand != si4844.getCurrentBand() ) {
+      si4844.reset();
+      newBand = si4844.getValidBandIndex();
+      Serial.print("\n ------- Band Index has Changed to "); 
+      Serial.print(newBand); 
       if (si4844.needHostReset()) 
-        si4844.setBand(newBand);
+        Serial.print("\n ------- Chaging to New Band"); 
+        if ( newBand < lastBand)
+          si4844.setBand(newBand);
+        else 
+          Serial.print("\n This band can not be set!");  
     }
     displayDial();
   }
