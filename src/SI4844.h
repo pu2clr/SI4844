@@ -380,15 +380,6 @@ public :
 
   bool isHostDetectionBandConfig();
   uint8_t getValidBandIndex();
-
-  /**
-    * @ingroup GB1
-    * @brief   Retrieves the current HOSTRST bit status.  
-    * @details Check if the host (microcontroler) needs to reset the device.
-    * @return  True or False.
-  */
-  bool inline needHostReset() {return this->status_response.refined.HOSTRST; };
-
  
 
   // customize the frequency range of a band
@@ -490,8 +481,21 @@ public :
    */
   inline uint16_t  getRawChannelFrequency() { return status_response.rawStatus.CHFREQ; };
 
-  inline uint16_t  getStatusHostPowerUp() { return status_response.refined.HOSTPWRUP; };
-  inline uint16_t  getStatusHostReset() { return status_response.refined.HOSTRST; };
+  /** 
+   * @ingroup GB1 
+   * @brief Checks Host Power Up Status
+   * @details if True, the system needs to Power Up the device 
+   * @return True: issue the ATDD_POWER_UP command with the valid band index detected. 
+   */
+  inline bool  getStatusHostPowerUp() { return status_response.refined.HOSTPWRUP; };
+
+  /**
+    * @ingroup GB1
+    * @brief   Checks HOST Reset Status  
+    * @details Check if the host (microcontroler) needs to reset the device.
+    * @return  True or False.
+  */
+  inline bool  getStatusHostReset() { return status_response.refined.HOSTRST; };
 
   /** 
    * @ingroup GB1 

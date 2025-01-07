@@ -31,7 +31,13 @@
  *  3) The system controller is able to read this information from the band configuration state bits from the ATDD device.
  *  4) The Si4827 SOIC16 package ATDD part doesn't have the pin pull-up option. However, the host controller can send an 
  *     extra argument byte in the ATDD_POWER_UP command to specify this band properties priority.
- *  5)   
+ *  5) The ATDD device detects band is changed and then interrupts the system controller when band is switched by user.  
+ *  6) System controller waits for any IRQ is received
+ *  7) System controller issues ATDD_GET_STATUS command to obtain the latest status:
+ *  8) If REPLY0 (STATU) bit[4] INFORDY bit = 1, i.e. info ready, the host can read and display the status, i.e. the band mode, the station, and stereo states.
+ *  9) The tune frequency is ready when combined frequency of REPLY2, REPLY3 is non-zero (4-digit BCD number).
+ * 10) *** Host should always save theREPLY1 bit[5:0] BANDIDX band index byte for later use.
+ * 11) 
  *
  *  Author: Ricardo Lima Caratti (PU2CLR)
  *  Oct, 2019
