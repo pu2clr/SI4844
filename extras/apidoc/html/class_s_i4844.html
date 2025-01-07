@@ -113,9 +113,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ga374db2d27ad97a0a59ebbc6255ea5707"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga374db2d27ad97a0a59ebbc6255ea5707">bassTrebleUp</a> ()</td></tr>
 <tr class="memdesc:ga374db2d27ad97a0a59ebbc6255ea5707"><td class="mdescLeft">&#160;</td><td class="mdescRight">More treble, less bass.  <br /></td></tr>
 <tr class="separator:ga374db2d27ad97a0a59ebbc6255ea5707"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab2ebde5bc3de157d223c077c7b016c88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gab2ebde5bc3de157d223c077c7b016c88">begin</a> (uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed=50000)</td></tr>
-<tr class="memdesc:gab2ebde5bc3de157d223c077c7b016c88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> instance and connect the device (<a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a>) to Arduino.  <br /></td></tr>
-<tr class="separator:gab2ebde5bc3de157d223c077c7b016c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga184362ec07964aaf36d27304437fac08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga184362ec07964aaf36d27304437fac08">changeVolume</a> (char)</td></tr>
 <tr class="memdesc:ga184362ec07964aaf36d27304437fac08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Up or down the sound volume level.  <br /></td></tr>
 <tr class="separator:ga184362ec07964aaf36d27304437fac08"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,6 +135,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:gaca88698cca086f09f23d29734132bfec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns with the command response. <br  />
   <br /></td></tr>
 <tr class="separator:gaca88698cca086f09f23d29734132bfec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9abadece84dee04770b0800dea8a3b70"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga9abadece84dee04770b0800dea8a3b70">getCurrentBand</a> ()</td></tr>
+<tr class="memdesc:ga9abadece84dee04770b0800dea8a3b70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the latest band set by the microcontroller.  <br /></td></tr>
+<tr class="separator:ga9abadece84dee04770b0800dea8a3b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga28ec82cb2fd02a0422e8ef3858e5ddcb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_f.html#ga28ec82cb2fd02a0422e8ef3858e5ddcb">getDataStatusInterruptFromDevice</a> ()</td></tr>
 <tr class="memdesc:ga28ec82cb2fd02a0422e8ef3858e5ddcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Data Status From Device.  <br /></td></tr>
 <tr class="separator:ga28ec82cb2fd02a0422e8ef3858e5ddcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -210,6 +210,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ga89c7f1e6d9aad81e7260f5acea9b0f9c"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga89c7f1e6d9aad81e7260f5acea9b0f9c">getStereoIndicator</a> ()</td></tr>
 <tr class="memdesc:ga89c7f1e6d9aad81e7260f5acea9b0f9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Stereo Indicator.  <br /></td></tr>
 <tr class="separator:ga89c7f1e6d9aad81e7260f5acea9b0f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77a982fa66877348adddf95faac28f02"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_i4844.html#a77a982fa66877348adddf95faac28f02">getValidBandIndex</a> ()</td></tr>
+<tr class="memdesc:a77a982fa66877348adddf95faac28f02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current valid BAND INDEX. <br  />
+  <br /></td></tr>
+<tr class="separator:a77a982fa66877348adddf95faac28f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga35aa33472f9d23986457ce7850b8175f"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga35aa33472f9d23986457ce7850b8175f">getVolume</a> ()</td></tr>
 <tr class="memdesc:ga35aa33472f9d23986457ce7850b8175f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current audio volume level.  <br /></td></tr>
 <tr class="separator:ga35aa33472f9d23986457ce7850b8175f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -222,6 +226,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ga7264a6caa7626678daef61d8f908d612"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga7264a6caa7626678daef61d8f908d612">isHostDetectionBandConfig</a> ()</td></tr>
 <tr class="memdesc:ga7264a6caa7626678daef61d8f908d612"><td class="mdescLeft">&#160;</td><td class="mdescRight">Band CFG0 (Band Detection Configuration)  <br /></td></tr>
 <tr class="separator:ga7264a6caa7626678daef61d8f908d612"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga459050d4620103194d5079edde1d98ff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga459050d4620103194d5079edde1d98ff">needHostReset</a> ()</td></tr>
+<tr class="memdesc:ga459050d4620103194d5079edde1d98ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current HOSTRST bit status. <br  />
+  <br /></td></tr>
+<tr class="separator:ga459050d4620103194d5079edde1d98ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaff14988c6be8a5fb9d1a5e6934dcff47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gaff14988c6be8a5fb9d1a5e6934dcff47">powerDown</a> (void)</td></tr>
 <tr class="memdesc:gaff14988c6be8a5fb9d1a5e6934dcff47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power the device down.  <br /></td></tr>
 <tr class="separator:gaff14988c6be8a5fb9d1a5e6934dcff47"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -313,6 +321,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ga11a97916ce91dfb5ad6f49e5156219b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga11a97916ce91dfb5ad6f49e5156219b1">setup</a> (uint16_t resetPin, int interruptPin, int8_t defaultBand=0, uint32_t hightClockSpeed=50000)</td></tr>
 <tr class="memdesc:ga11a97916ce91dfb5ad6f49e5156219b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> instance and connect the device (<a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a>) to Arduino.  <br /></td></tr>
 <tr class="separator:ga11a97916ce91dfb5ad6f49e5156219b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaed9e80832b8f991bdce9235eae3a069c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gaed9e80832b8f991bdce9235eae3a069c">setupSlideSwitch</a> (uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed=50000)</td></tr>
+<tr class="memdesc:gaed9e80832b8f991bdce9235eae3a069c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates the SI48XX instance and connect the device (<a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a>) to a microcontroller.  <br /></td></tr>
+<tr class="separator:gaed9e80832b8f991bdce9235eae3a069c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga65eab6c860e3e11c5d3726144dd3b73d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga65eab6c860e3e11c5d3726144dd3b73d">setVolume</a> (byte)</td></tr>
 <tr class="memdesc:ga65eab6c860e3e11c5d3726144dd3b73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the volume level.  <br /></td></tr>
 <tr class="separator:ga65eab6c860e3e11c5d3726144dd3b73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -649,6 +660,33 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a77a982fa66877348adddf95faac28f02" name="a77a982fa66877348adddf95faac28f02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77a982fa66877348adddf95faac28f02">&#9670;&#160;</a></span>getValidBandIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SI4844::getValidBandIndex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves the current valid BAND INDEX. <br  />
+ </p>
+<p>Waits until INFORDY is set to 1. <br  />
+</p>
+<p>Once INFORDY is 1, the host can read and display the current status, including band mode, station, and stereo states. <br  />
+ </p><dl class="section return"><dt>Returns</dt><dd>The current valid BANDIDX. <br  />
+ </dd></dl>
+
+<p class="reference">References <a class="el" href="group___g_b1.html#ga3437ce047c5649597e1bccfb8c42cd5b">getStatus()</a>.</p>
 
 </div>
 </div>

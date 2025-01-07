@@ -834,6 +834,24 @@ bool SI4844::isHostDetectionBandConfig() {
 }
 
 
+/**
+ * @ingroup GB1
+ * @brief   Retrieves the current valid BAND INDEX.  
+ * @details Waits until INFORDY is set to 1.  
+ * @details Once INFORDY is 1, the host can read and display the current status, including band mode, station, and stereo states.  
+ * @return  The current valid BANDIDX.  
+ */
+uint8_t SI4844::getValidBandIndex() {
+    do { 
+         this->getStatus();
+         delay(3);
+      } while (this->status_response.refined.INFORDY == 0);  
+
+    return  this->status_response.refined.BANDIDX;     
+}
+
+
+
 /** 
  * @ingroup GB1
  * @brief Get part number, chip revision, firmware, patch, and component revision numbers.

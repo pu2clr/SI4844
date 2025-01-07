@@ -379,6 +379,17 @@ public :
   si4844_firmware_response *getFirmware(void);
 
   bool isHostDetectionBandConfig();
+  uint8_t getValidBandIndex();
+
+  /**
+    * @ingroup GB1
+    * @brief   Retrieves the current HOSTRST bit status.  
+    * @details Check if the host (microcontroler) needs to reset the device.
+    * @return  True or False.
+  */
+  bool inline needHostReset() {return this->status_response.refined.HOSTRST; };
+
+ 
 
   // customize the frequency range of a band
   void setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, uint8_t bandSpace, uint8_t dfband = 0, uint8_t uni_am = 0, uint8_t tvreq = 0 );

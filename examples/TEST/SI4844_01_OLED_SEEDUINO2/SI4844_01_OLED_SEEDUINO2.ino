@@ -155,24 +155,14 @@ void displayDial()
 
 void loop()
 {
-  // if (si4844.hasStatusChanged()) {
-
-    si4844_status_response *s;
-    s = si4844.getStatus();
-    if (s->refined.BANDIDX != si4844.getCurrentBand() ) {
-      si4844.setBand(s->refined.BANDIDX); 
-      delay(100);
-      do { 
-         s = si4844.getStatus();
-         delay(3);
-      } while (s->refined.INFORDY == 0);  
-      si4844.setBand(s->refined.BANDIDX);
-      delay(100);
-      displayDial();
+  if (si4844.hasStatusChanged()) {
+    uint8_t newBand = si4844.getValidBandIndex();
+    if (newBand != si4844.getCurrentBand() ) {
+      if (si4844.needHostReset()) 
+        si4844.setBand(newBand);
     }
-
-
-  // }
+    displayDial();
+  }
   
   delay(50);
 }
