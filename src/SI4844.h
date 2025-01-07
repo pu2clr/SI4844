@@ -487,7 +487,7 @@ public :
    * @details if True, the system needs to Power Up the device 
    * @return True: issue the ATDD_POWER_UP command with the valid band index detected. 
    */
-  inline bool  getStatusHostPowerUp() { return status_response.refined.HOSTPWRUP; };
+  inline bool  needHostPowerUp() { return status_response.refined.HOSTPWRUP; };
 
   /**
     * @ingroup GB1
@@ -495,7 +495,7 @@ public :
     * @details Check if the host (microcontroler) needs to reset the device.
     * @return  True or False.
   */
-  inline bool  getStatusHostReset() { return status_response.refined.HOSTRST; };
+  inline bool  needHostReset() { return status_response.refined.HOSTRST; };
 
   /** 
    * @ingroup GB1 

@@ -850,44 +850,6 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
-      sec-mem-id   = 'group___g_b1_1ga2279b38aa587eea1c9e21b6910580c23';
-      sec-mem-virt = normal;
-      sec-mem-prot = public;
-      sec-mem-type = <<_EnD_oF_dEf_TeXt_
-bool
-_EnD_oF_dEf_TeXt_;
-      sec-mem-name = 'getStatusHostPowerUp';
-      sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '490';
-      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-Checks Host Power Up Status.
-_EnD_oF_dEf_TeXt_;
-      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
- if True, the system needs to Power Up the device 
-@return True: issue the ATDD_POWER_UP command with the valid band index detected. 
-_EnD_oF_dEf_TeXt_;
-    }; /* sec-member */
-    sec-member = {
-      sec-mem-kind = 'function';
-      sec-mem-id   = 'group___g_b1_1gaa7507d37c3a82075a5055fe2680dd947';
-      sec-mem-virt = normal;
-      sec-mem-prot = public;
-      sec-mem-type = <<_EnD_oF_dEf_TeXt_
-bool
-_EnD_oF_dEf_TeXt_;
-      sec-mem-name = 'getStatusHostReset';
-      sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '498';
-      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-Checks HOST Reset Status  <br>
-_EnD_oF_dEf_TeXt_;
-      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
- Check if the host (microcontroler) needs to reset the device.
-@return  True or False.
-_EnD_oF_dEf_TeXt_;
-    }; /* sec-member */
-    sec-member = {
-      sec-mem-kind = 'function';
       sec-mem-id   = 'group___g_b1_1gac423142ab4a94dc2533aea51beb14432';
       sec-mem-virt = normal;
       sec-mem-prot = public;
@@ -1075,6 +1037,44 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-ref-line = '797';
         sec-mem-ref-name = 'getStatus';
     };
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'group___g_b1_1ga30bf0c52c481bd7a8dd3181f683bc330';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+bool
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'needHostPowerUp';
+      sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
+      sec-mem-desc-line = '490';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Checks Host Power Up Status.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+ if True, the system needs to Power Up the device 
+@return True: issue the ATDD_POWER_UP command with the valid band index detected. 
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'group___g_b1_1ga459050d4620103194d5079edde1d98ff';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+bool
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'needHostReset';
+      sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
+      sec-mem-desc-line = '498';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Checks HOST Reset Status  <br>
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+ Check if the host (microcontroler) needs to reset the device.
+@return  True or False.
+_EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
