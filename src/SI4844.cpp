@@ -194,16 +194,16 @@ void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t high
     data_from_device = false;
 
     this->powerUp();
-
+ 
     si4844_status_response *s;
     
     do { 
-        s = this->getStatus();
-        delay(3);
+         s = this->getStatus();
+         delay(5);
     } while (s->refined.INFORDY == 0);
 
     // Set band to real band defined by the slice switch
-    setBand(s->refined.BANDIDX);
+    this->setBand(s->refined.BANDIDX);
 
     setVolume(30);
 

@@ -92,7 +92,7 @@ void setup()
   si4844.setupSlideSwitch(RESET_PIN, INTERRUPT_PIN, 100000); 
 
   // You must calibrate the default volume
-  // si4844.setVolume(40);
+  si4844.setVolume(50);
 
   displayDial();
 
@@ -155,22 +155,24 @@ void displayDial()
 
 void loop()
 {
-  if (si4844.hasStatusChanged()) {
+  // if (si4844.hasStatusChanged()) {
 
     si4844_status_response *s;
     s = si4844.getStatus();
     if (s->refined.BANDIDX != si4844.getCurrentBand() ) {
-       si4844.setBand(s->refined.BANDIDX);
-
+      si4844.setBand(s->refined.BANDIDX); 
+      delay(100);
       do { 
-        s = si4844.getStatus();
-        delay(3);
-      } while (s->refined.INFORDY == 0);   
-
+         s = si4844.getStatus();
+         delay(3);
+      } while (s->refined.INFORDY == 0);  
+      si4844.setBand(s->refined.BANDIDX);
+      delay(100);
+      displayDial();
     }
 
-    displayDial();
-  }
+
+  // }
   
-  delay(10);
+  delay(50);
 }
