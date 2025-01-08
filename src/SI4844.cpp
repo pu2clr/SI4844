@@ -164,6 +164,7 @@ void SI4844::waitInterrupt(void)
     
     while (!data_from_device)
         ;
+        
 }
 
 /** @defgroup GB1  Receiver Functions */
@@ -386,24 +387,25 @@ void SI4844::setDefaultBandIndx( uint8_t bandidx) {
  */
 void SI4844::powerUp(void)
 {
-    this->reset();      // Resets the system and wait for a iterrupt
-    this->getAllReceiverInfo();  // Gets the first status after resetting
+    // 5.1.1
+    this->reset();      // 1. and 2. - Resets the system and wait for a iterrupt
+   
+    this->getStatus();  // 3. Gets the first status after resetting
 
     // Chacks "ATDD device detects band" mode is configured
-    if ( all_receiver_status.refined.BCFG0 != 0 ) this->setBand(0);
+    if ( device_status.refined.BCFG0 != 0 ) this->setBand(0);
 
     Serial.print("\n=======> ATDD device detects band");
-
-    this->currentBand = 0;
-    this->xowait = 1;
+    if ( device_status.refined.HOSTPWRUP == 1) 
+        Serial.print("\n=======> YES! HOSTPWRUP is set");
 
     si4844_arg_band_index rxBandSetup; 
 
     rxBandSetup.refined.XOSCEN = this->xoscen;
     rxBandSetup.refined.XOWAIT = this->xowait;
-    rxBandSetup.refined.BANDIDX = this->currentBand;
+    rxBandSetup.refined.BANDIDX = 0; // At this moment the host do no know the real band number
 
-    data_from_device = false;
+    this->currentBand = 0; // just sync the current band information
 
     Serial.print("\n=======> First powerUp ");
 
@@ -413,25 +415,31 @@ void SI4844::powerUp(void)
     Wire.endTransmission();
     delayMicroseconds(2500);
 
+    data_from_device = false; // 5. Wait for a IRQ when a valid band is detected 
+    waitInterrupt();    
+
+
+    this->currentBand  = this->getValidBandIndex(); // 6. Polls the status until ready and returns a valid band index.
+
+
+    Serial.print("\n=======> Do I have a valid band index? ");
+    Serial.print(this->currentBand);
+
+    Serial.print("\n=======> First powerUp finished");
+
+    if (all_receiver_status.refined.HOSTRST == 1 ) // 6. band switching is across different band modes
+        this->reset();
+
+    data_from_device = false;   // 7. System controller waits till further IRQ is received for the tune wheel frequency ready.
     waitInterrupt();
 
-    Serial.print("\n=======> powerUp after powerUP");
-
-    delayMicroseconds(2500);
-    getAllReceiverInfo();
-
-    Serial.print("\n=======> powerUp after powerUP and getStatus");
-    
-    delayMicroseconds(2500);
-
-    this->currentBand = all_receiver_status.refined.BANDIDX;
 
     rxBandSetup.refined.XOSCEN = this->xoscen;
     rxBandSetup.refined.XOWAIT = this->xowait;
     rxBandSetup.refined.BANDIDX = this->currentBand;
 
     Serial.print("\n=======> Secound powerUp ");
-    this->reset();
+
 
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_POWER_UP);
@@ -439,7 +447,10 @@ void SI4844::powerUp(void)
     Wire.endTransmission();
     delayMicroseconds(2500);
 
+    data_from_device = false; 
     waitInterrupt();
+
+    this->getAllReceiverInfo();
 
     this->setVolume(this->volume);
 
