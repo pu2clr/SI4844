@@ -187,7 +187,7 @@ void SI4844::waitInterrupt(void)
  */
 void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed )
 {
-    int8_t newBand;
+    // UNDER CONSTRUCTION
     this->resetPin = resetPin;
     this->interruptPin = interruptPin;
 
@@ -203,24 +203,10 @@ void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t high
     pinMode(resetPin, OUTPUT);
     digitalWrite(resetPin, HIGH);
     delay(1);    
-    data_from_device = false;
-
-    Serial.print("\nDEBUG - RESET");    
-    this->reset();
-    Serial.print("\nDEBUG - POWER UP");    
-    this->powerUp();
-    Serial.print("\nDEBUG - SET BAND");    
-
-    newBand = this->getValidBandIndex();
-
-    if ( newBand != 0 )
-        this->setBandSlideSwitch(); // Starts with band index 0 and checks later if it corresponds with real band
-
-
-    Serial.print("DEBUG - END SETUP");   
-    // You need call it just once.
-    // getFirmware();
+    data_from_device = false;    
+    
 }
+
 
 
 /**
@@ -387,74 +373,8 @@ void SI4844::setDefaultBandIndx( uint8_t bandidx) {
  */
 void SI4844::powerUp(void)
 {
-    // 5.1.1
-    this->reset();      // 1. and 2. - Resets the system and wait for a iterrupt
-   
-    this->getStatus();  // 3. Gets the first status after resetting
+    // UNDER CONSTRUCTION... 
 
-    // Chacks "ATDD device detects band" mode is configured
-    if ( device_status.refined.BCFG0 != 0 ) this->setBand(0);
-
-    Serial.print("\n=======> ATDD device detects band");
-    if ( device_status.refined.HOSTPWRUP == 1) 
-        Serial.print("\n=======> YES! HOSTPWRUP is set");
-
-    si4844_arg_band_index rxBandSetup; 
-
-    rxBandSetup.refined.XOSCEN = this->xoscen;
-    rxBandSetup.refined.XOWAIT = this->xowait;
-    rxBandSetup.refined.BANDIDX = 0; // At this moment the host do no know the real band number
-
-    this->currentBand = 0; // just sync the current band information
-
-    Serial.print("\n=======> First powerUp ");
-
-    Wire.beginTransmission(SI4844_ADDRESS);
-    Wire.write(ATDD_POWER_UP);
-    Wire.write(rxBandSetup.raw);
-    Wire.endTransmission();
-    delayMicroseconds(2500);
-
-    data_from_device = false; // 5. Wait for a IRQ when a valid band is detected 
-    waitInterrupt();    
-
-
-    this->currentBand  = this->getValidBandIndex(); // 6. Polls the status until ready and returns a valid band index.
-
-
-    Serial.print("\n=======> Do I have a valid band index? ");
-    Serial.print(this->currentBand);
-
-    Serial.print("\n=======> First powerUp finished");
-
-    if (all_receiver_status.refined.HOSTRST == 1 ) // 6. band switching is across different band modes
-        this->reset();
-
-    data_from_device = false;   // 7. System controller waits till further IRQ is received for the tune wheel frequency ready.
-    waitInterrupt();
-
-
-    rxBandSetup.refined.XOSCEN = this->xoscen;
-    rxBandSetup.refined.XOWAIT = this->xowait;
-    rxBandSetup.refined.BANDIDX = this->currentBand;
-
-    Serial.print("\n=======> Secound powerUp ");
-
-
-    Wire.beginTransmission(SI4844_ADDRESS);
-    Wire.write(ATDD_POWER_UP);
-    Wire.write(rxBandSetup.raw);
-    Wire.endTransmission();
-    delayMicroseconds(2500);
-
-    data_from_device = false; 
-    waitInterrupt();
-
-    this->getAllReceiverInfo();
-
-    this->setVolume(this->volume);
-
-    Serial.print("\n=======> powerUp finish powerUP");
 }
 
 /**
@@ -541,52 +461,7 @@ void SI4844::setBand(byte new_band)
  */
 void SI4844::setBandSlideSwitch()
 {
-    int8_t newBand;
-   
-    // do {
-        newBand = this->getValidBandIndex();
-    // } while (newBand == -1);
-
-
-
-    Serial.print("**** NewBand: ");
-    Serial.print(newBand); 
-
-    // Set band to real band defined by the slice switch
-
-    if (newBand >= 0 && newBand != this->getCurrentBand() ) {
-        si4844_arg_band_index rxBandSetup; 
-
-        Serial.print("\n Antes do reset");
-        this->reset();
-        delayMicroseconds(2500);
-        rxBandSetup.refined.XOSCEN = this->xoscen;
-        rxBandSetup.refined.XOWAIT = this->xowait;
-        rxBandSetup.refined.BANDIDX = newBand;
-
-        data_from_device = false;  
-        Serial.print("\n Antes do waitToSend");
-        waitToSend();
-
-        Wire.beginTransmission(SI4844_ADDRESS);
-        Wire.write(ATDD_POWER_UP);
-        Wire.write(rxBandSetup.raw);
-        Wire.endTransmission();
-        delayMicroseconds(2500);
-        waitInterrupt();
-
-        Serial.print("\n PASSOU PELO ATDD_POWER_UP");
-
-        delayMicroseconds(2500);
-        getAllReceiverInfo();
-        delayMicroseconds(2500);
-
-        Serial.print("\n PASSOU PELO getStatus");
-
-        this->setVolume(this->volume);      
-        this->currentBand = newBand;
-        Serial.print("\n FIM da CHAMADA");
-    }
+    // UNDER CONSTRUCTION 
 
 }
 

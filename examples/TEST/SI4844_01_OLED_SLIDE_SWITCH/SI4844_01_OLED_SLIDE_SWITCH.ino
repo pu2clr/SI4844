@@ -114,6 +114,10 @@ void setup() {
 void displayDial() {
   String unit, freqDisplay, stereo;
 
+  display.setFont(NULL);
+  display.setCursor(0, 0);
+  display.print("TESTE");
+  /*
   if (si4844.getFrequencyInteger() > 999)
     unit = (char *)"MHZ";
   else
@@ -134,7 +138,6 @@ void displayDial() {
 
   bandIdx = si4844.getCurrentBand();
 
-  if (bandIdx > lastBand) return;
 
   display.setCursor(90, 0);
   display.print(bandIdx);
@@ -151,6 +154,7 @@ void displayDial() {
   display.print(" ");
   display.print(unit);
 
+
 // Stereo status does not make sense with Si4827
 #ifdef SI4844_DEVICE
   if (si4844.getStatusBandMode() == 0) {
@@ -161,7 +165,7 @@ void displayDial() {
       display.print("Mono  ");
   }
 #endif
-
+  */
   display.display();
 }
 
@@ -169,7 +173,10 @@ void displayDial() {
 void loop() {
 
   if (si4844.hasStatusChanged()) {
-    displayDial();  
+    Serial.print("\n Changed ");
+    Serial.print(si4844.getCurrentBand());
+    if (si4844.getCurrentBand() >= 0)
+      displayDial();  
   }
 
   delay(50);
