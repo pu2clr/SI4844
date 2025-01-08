@@ -965,12 +965,12 @@ bool SI4844::isHostDetectionBandConfig() {
 int8_t SI4844::getValidBandIndex() {
     uint8_t count = 0;
     do { 
-         this->getAllReceiverInfo();
+         this->getStatus();
          delay(1);
          count++;
-      } while (this->all_receiver_status.refined.INFORDY == 0 && count < 50 );  
-
-    if ( this->all_receiver_status.refined.BANDIDX > DEVICE_LAST_VALID_INDEX_BAND || count >= 50  ) return -1;
+      } while (this->device_status.refined.INFORDY == 0 && count < 50 );  
+    this->getAllReceiverInfo();
+    if ( this->device_status.refined.BANDIDX > DEVICE_LAST_VALID_INDEX_BAND || count >= 50  ) return -1;
     return  this->all_receiver_status.refined.BANDIDX;     
 }
 
