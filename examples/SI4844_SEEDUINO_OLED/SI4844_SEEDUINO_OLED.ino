@@ -233,7 +233,7 @@ void displayDial()
   display.print(" ");
   display.print(unit);
   
-  // It does not make sense with Si4827  -- Temove the comment if you are using the Si4844 or si4840
+  // It does not make sense with Si4827  -- Remove the comment if you are using the Si4844 or si4840
   /*
   if ( si4844.getStatusBandMode() == 0) {
     display.setCursor(75, 25);
