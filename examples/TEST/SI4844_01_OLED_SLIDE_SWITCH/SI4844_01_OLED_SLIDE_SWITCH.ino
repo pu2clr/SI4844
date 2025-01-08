@@ -132,7 +132,7 @@ void displayDial() {
   else
     display.print("  ");
 
-  bandIdx = newBand;
+  bandIdx = si4844.getCurrentBand();
 
   if (bandIdx > lastBand) return;
 
@@ -167,32 +167,8 @@ void displayDial() {
 
 
 void loop() {
+
   if (si4844.hasStatusChanged()) {
-
-    Serial.print("\n --- Something has changed");
-    newBand = si4844.getValidBandIndex();
-    if (newBand != si4844.getCurrentBand()) {
-
-      Serial.print("\nNew Band was detected:  ");
-      Serial.print(newBand);
-      
-       if (newBand >= 0) {
-        si4844.setBand(newBand);
-        /*
-        if (si4844.needHostReset()) {
-          Serial.print("\n ------- Resetting  ");
-          // si4844.reset();
-        }
-
-        if (si4844.needHostPowerUp()) {
-           Serial.print("\n ------- Chaging to New Band");
-           
-          // si4844.setBandSlideSwitch();
-        } */
-      } else {
-        Serial.print("\n An invalid band index was detected!");
-      }
-    }
     displayDial();  
   }
 

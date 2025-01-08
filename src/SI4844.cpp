@@ -386,34 +386,60 @@ void SI4844::setDefaultBandIndx( uint8_t bandidx) {
  */
 void SI4844::powerUp(void)
 {
+    this->reset();      // Resets the system and wait for a iterrupt
+    this->getStatus();  // Gets the first status after resetting
+
+    // Chacks "ATDD device detects band" mode is configured
+    if ( status_response.refined.BCFG0 != 0 ) this->setBand(0);
+
+    Serial.print("\n=======> ATDD device detects band");
+
     this->currentBand = 0;
+    this->xowait = 1;
 
     si4844_arg_band_index rxBandSetup; 
 
     rxBandSetup.refined.XOSCEN = this->xoscen;
     rxBandSetup.refined.XOWAIT = this->xowait;
-    rxBandSetup.refined.BANDIDX = 0;
+    rxBandSetup.refined.BANDIDX = this->currentBand;
 
     data_from_device = false;
 
-    Serial.print("\n=======> powerUp before waitToSend");
-    // Wait until rady to send a command
-    waitToSend();
-    Serial.print("\n=======> powerUp after waitToSend");
+    Serial.print("\n=======> First powerUp ");
 
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_POWER_UP);
     Wire.write(rxBandSetup.raw);
     Wire.endTransmission();
     delayMicroseconds(2500);
+
     waitInterrupt();
 
     Serial.print("\n=======> powerUp after powerUP");
 
     delayMicroseconds(2500);
     getStatus();
-    Serial.print("\n=======> powerUp after powerUP");
+
+    Serial.print("\n=======> powerUp after powerUP and getStatus");
+    
     delayMicroseconds(2500);
+
+    this->currentBand = status_response.refined.BANDIDX;
+
+    rxBandSetup.refined.XOSCEN = this->xoscen;
+    rxBandSetup.refined.XOWAIT = this->xowait;
+    rxBandSetup.refined.BANDIDX = this->currentBand;
+
+    Serial.print("\n=======> Secound powerUp ");
+    this->reset();
+
+    Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(ATDD_POWER_UP);
+    Wire.write(rxBandSetup.raw);
+    Wire.endTransmission();
+    delayMicroseconds(2500);
+
+    waitInterrupt();
 
     this->setVolume(this->volume);
 
