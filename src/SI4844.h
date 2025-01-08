@@ -326,7 +326,7 @@ private:
 
   // SI4844 band description (FM = 0; AM = 1; SW = 2)
   const char *bandmode_table[3] = {"FM", "AM", "SW"};
-  const char *stereo_indicator_table[2] = {"Off","On "};
+  const char *stereo_indicator_table[2] = {"ST","MO"};
   char strFormattedCurrentFrequenct[8];
 
   uint8_t volume = 30;
@@ -440,46 +440,54 @@ public :
    * @ingroup GB1 
    * @brief Get the Band Mode 
    * @return char*   "FM", "AM" or "SW"
+   * @see getStatusBandMode()
    */
   inline char * getBandMode(){ return (char *) bandmode_table[all_receiver_status.refined.BANDMODE]; };
 
   /**
    * @ingroup GB1 
    * @brief Get the Stereo Indicator 
+   * @details **Call getStatus or getAllReceiverInfo before calling this function**    
    * @return char* "ON" or "OFF" 
+   * @see getStatusStereo()
    */
-  inline char * getStereoIndicator(){ return (char *) stereo_indicator_table[all_receiver_status.refined.STATION]; };
+  inline char * getStereoIndicator(){ return (char *) stereo_indicator_table[device_status.refined.STEREO]; };
   
   /** 
    * @ingroup GB1 
    * @brief Gets Band CFG0 (Band Detection Configuration).
    * @details 0 = ATDD device detects band; 1 = Host detects band
+   * @details **Call getStatus or getAllReceiverInfo before calling this function** 
    * @return 0 = ATDD device detects band; 1 = Host detects band
    */
-  inline uint16_t  getStatusBCFG0() { return all_receiver_status.refined.BCFG0; };
+  inline uint16_t  getStatusBCFG0() { return device_status.refined.BCFG0; };
 
   /** 
    * @ingroup GB1 
    * @brief Gets Band CFG1 (Band Properties Priority)
+   * @details **Call getStatus or getAllReceiverInfo before calling this function** 
    * @return 0 = ATDD device accepts host customized band properties; 1 = ATDD device ignores host customized band properties
    */
-  inline uint16_t  getStatusBCFG1() { return all_receiver_status.refined.BCFG1; };
+  inline uint16_t  getStatusBCFG1() { return device_status.refined.BCFG1; };
 
   /** 
    * @ingroup GB1 
    * @brief Gets Stereo indicator.
-   * @details Applicable to Si4840/44 parts FM function only.
+   * @details Applicable to Si4840/44 parts FM function only (id does not make sense for Si4827).
+   * @details **Call getStatus or getAllReceiverInfo before calling this function**  
    * @return 0 = Stereo off; 1 = Stereo on
+   * @see getStereoIndicator()
    */
-  inline uint16_t  getStatusStereo() { return all_receiver_status.refined.STEREO; };
+  inline uint16_t  getStatusStereo() { return device_status.refined.STEREO; };
 
 
   /** 
    * @ingroup GB1 
    * @brief Gets Station Indicator.
+   * @details **Call getStatus or getAllReceiverInfo before calling this function** 
    * @return 0 = Invalid Station; 1 = Valid Station
    */
-  inline uint16_t  getStatusStationIndicator() { return all_receiver_status.refined.STATION; };
+  inline uint16_t  getStatusStationIndicator() { return device_status.refined.STATION; };
   
   /** 
    * @ingroup GB1 
@@ -488,9 +496,29 @@ public :
    * @details station, or stereo statuses until the INFORDY bit is set.
    * @details The host controller should not display the channel frequency when CHFREQ remains zero even when INFORDY=1.
    * @details 0 = Tune info not ready yet; 1 = Tune info ready (i.e., Band mode, band index, channel frequency, sta-tion, and stereo indicators)
+   * @details **Call getStatus or getAllReceiverInfo before calling this function** 
    * @return 0 = Tune info not ready yet; 1 = Tune info ready 
    */
-  inline uint16_t  getStatusInformationReady() { return all_receiver_status.refined.INFORDY; };
+  inline uint16_t  getStatusInformationReady() { return device_status.refined.INFORDY; };
+
+  /** 
+   * @ingroup GB1 
+   * @brief Checks Host Power Up Status
+   * @details if True, the system needs to Power Up the device 
+   * @details **Call getStatus or getAllReceiverInfo before calling this function**  
+   * @return True: issue the ATDD_POWER_UP command with the valid band index detected. 
+   */
+  inline bool  needHostPowerUp() { return device_status.refined.HOSTPWRUP; };
+
+  /**
+    * @ingroup GB1
+    * @brief   Checks HOST Reset Status  
+    * @details Check if the host (microcontroler) needs to reset the device.
+    * @details **Call getStatus or getAllReceiverInfo before calling this function**      
+    * @return  True or False.
+  */
+  inline bool  needHostReset() { return device_status.refined.HOSTRST; };
+
 
   /** 
    * @ingroup GB1 
@@ -505,26 +533,12 @@ public :
    */
   inline uint16_t  getRawChannelFrequency() { return all_receiver_status.rawStatus.CHFREQ; };
 
-  /** 
-   * @ingroup GB1 
-   * @brief Checks Host Power Up Status
-   * @details if True, the system needs to Power Up the device 
-   * @return True: issue the ATDD_POWER_UP command with the valid band index detected. 
-   */
-  inline bool  needHostPowerUp() { return all_receiver_status.refined.HOSTPWRUP; };
-
-  /**
-    * @ingroup GB1
-    * @brief   Checks HOST Reset Status  
-    * @details Check if the host (microcontroler) needs to reset the device.
-    * @return  True or False.
-  */
-  inline bool  needHostReset() { return all_receiver_status.refined.HOSTRST; };
 
   /** 
    * @ingroup GB1 
    * @brief Gets the current Band Mode
    * @return 0 = FM mode; 1 = AM mode; 2 = SW mode
+   * @see getBandMode()
    */
   inline uint16_t  getStatusBandMode() { return all_receiver_status.refined.BANDMODE; };
   

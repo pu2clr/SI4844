@@ -918,12 +918,10 @@ void SI4844::setAudioMute(bool on)
 si4844_status_response *SI4844::getAllReceiverInfo()
 {
     // setClockHigh();
-    setClockLow();
+    // setClockLow();
     waitToSend();
     do
     {
-        // data_from_device = false;
-        // waitInterrupt();
         Wire.beginTransmission(SI4844_ADDRESS);
         Wire.write(ATDD_GET_STATUS);
         Wire.endTransmission();
@@ -935,7 +933,8 @@ si4844_status_response *SI4844::getAllReceiverInfo()
         // check response error. Exit when no error found. See page 7.
         // if INFORDY is 0 or CHFREQ is 0, not ready yet
     } while (all_receiver_status.refined.CTS == 0 || all_receiver_status.refined.INFORDY == 0 || (all_receiver_status.raw[2] == 0 && all_receiver_status.raw[3] == 0));
-    setClockLow();
+    // setClockLow();
+    device_status.raw = all_receiver_status.raw[0];
     return &all_receiver_status;
 }
 
