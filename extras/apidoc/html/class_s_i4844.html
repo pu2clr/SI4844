@@ -126,6 +126,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ga66d670fc742b379c642316daf7df9bca"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_o_o_l_s.html#ga66d670fc742b379c642316daf7df9bca">detectDevice</a> ()</td></tr>
 <tr class="memdesc:ga66d670fc742b379c642316daf7df9bca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks communication with <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> via I2C.  <br /></td></tr>
 <tr class="separator:ga66d670fc742b379c642316daf7df9bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga844135282d9d5d7ae5e735ecb70aa5dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___g_a1.html#unionsi4844__status__response">si4844_status_response</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga844135282d9d5d7ae5e735ecb70aa5dc">getAllReceiverInfo</a> (void)</td></tr>
+<tr class="memdesc:ga844135282d9d5d7ae5e735ecb70aa5dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets all current information of the receiver (tune freq, band, and others information, status of the device).  <br /></td></tr>
+<tr class="separator:ga844135282d9d5d7ae5e735ecb70aa5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga97b111334d8e6ac08db8c500945c15a8"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga97b111334d8e6ac08db8c500945c15a8">getBandMode</a> ()</td></tr>
 <tr class="memdesc:ga97b111334d8e6ac08db8c500945c15a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Band Mode.  <br /></td></tr>
 <tr class="separator:ga97b111334d8e6ac08db8c500945c15a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,9 +180,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:gaa25f66f4d68dbc14101ee159e6271cdd"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gaa25f66f4d68dbc14101ee159e6271cdd">getRawChannelFrequency</a> ()</td></tr>
 <tr class="memdesc:gaa25f66f4d68dbc14101ee159e6271cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the Channel Frequency.  <br /></td></tr>
 <tr class="separator:gaa25f66f4d68dbc14101ee159e6271cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3437ce047c5649597e1bccfb8c42cd5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___g_a1.html#unionsi4844__status__response">si4844_status_response</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga3437ce047c5649597e1bccfb8c42cd5b">getStatus</a> (void)</td></tr>
-<tr class="memdesc:ga3437ce047c5649597e1bccfb8c42cd5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get tune freq, band, and others information, status of the device.  <br /></td></tr>
-<tr class="separator:ga3437ce047c5649597e1bccfb8c42cd5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ddc72e37495309f61cfce89b4bce24d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___g_a1.html#unionsi4844__device__status">si4844_device_status</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga3ddc72e37495309f61cfce89b4bce24d">getStatus</a> ()</td></tr>
+<tr class="memdesc:ga3ddc72e37495309f61cfce89b4bce24d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current status of the device.  <br /></td></tr>
+<tr class="separator:ga3ddc72e37495309f61cfce89b4bce24d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga33cd94c52839dc76bb020d0ed2a296c5"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga33cd94c52839dc76bb020d0ed2a296c5">getStatusBandIndex</a> ()</td></tr>
 <tr class="memdesc:ga33cd94c52839dc76bb020d0ed2a296c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current Band Index Detected.  <br /></td></tr>
 <tr class="separator:ga33cd94c52839dc76bb020d0ed2a296c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -270,9 +273,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:gad91399d31b91e1b078d8f52a0cec4656"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gad91399d31b91e1b078d8f52a0cec4656">setBand</a> (uint8_t newBand=0)</td></tr>
 <tr class="memdesc:gad91399d31b91e1b078d8f52a0cec4656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new band to the device.  <br /></td></tr>
 <tr class="separator:gad91399d31b91e1b078d8f52a0cec4656"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacf3b26b955fac5464c27ef72d11fd445"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gacf3b26b955fac5464c27ef72d11fd445">setBandSlideSwitch</a> (uint8_t newBand=0)</td></tr>
-<tr class="memdesc:gacf3b26b955fac5464c27ef72d11fd445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new band to the device configured as Slide Switch.  <br /></td></tr>
-<tr class="separator:gacf3b26b955fac5464c27ef72d11fd445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga11e6a2a47bb6ac3864f8c97c012c4e47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga11e6a2a47bb6ac3864f8c97c012c4e47">setBandSlideSwitch</a> ()</td></tr>
+<tr class="memdesc:ga11e6a2a47bb6ac3864f8c97c012c4e47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new band to the device configured as Slide Switch.  <br /></td></tr>
+<tr class="separator:ga11e6a2a47bb6ac3864f8c97c012c4e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4323a4cd070b75d84e7fc0a5ea7c8f41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga4323a4cd070b75d84e7fc0a5ea7c8f41">setBassTreble</a> (uint8_t bass_treble)</td></tr>
 <tr class="memdesc:ga4323a4cd070b75d84e7fc0a5ea7c8f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the sound volume level, bass and treble.  <br /></td></tr>
 <tr class="separator:ga4323a4cd070b75d84e7fc0a5ea7c8f41"><td class="memSeparator" colspan="2">&#160;</td></tr>

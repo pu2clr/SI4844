@@ -10,7 +10,7 @@ var _s_i4844_8h =
       [ "dummy", "_s_i4844_8h.html#ac9d9fe6d40f952d3584f5558cca163ef", null ]
     ] ],
     [ "si4844_property", "_s_i4844_8h.html#unionsi4844__property", [
-      [ "raw", "_s_i4844_8h.html#a3097d86ad9d932b95330991ee312e93e", null ],
+      [ "raw", "_s_i4844_8h.html#a598f86514f19ca1c4771afe4dc55434a", null ],
       [ "value", "_s_i4844_8h.html#a2f87d941759c895e3e1d671b56a9e444", null ]
     ] ],
     [ "si4844_property.raw", "_s_i4844_8h.html#structsi4844__property_8raw", [

@@ -28,7 +28,7 @@ var group___g_a1 =
       [ "XOWAIT", "group___g_a1.html#a1d9e9b65840f28e0a63adde9d66e2db4", null ]
     ] ],
     [ "si4844_audiomode", "group___g_a1.html#unionsi4844__audiomode", [
-      [ "arg1", "group___g_a1.html#a1ce59e52d0365d00eb1affd0a9646acb", null ],
+      [ "arg1", "group___g_a1.html#ada9ef3ac20f4819922aa89a510dbc10f", null ],
       [ "raw", "group___g_a1.html#a1b3bf3ecc88e2d010fafd4d70076ae42", null ]
     ] ],
     [ "si4844_audiomode.arg1", "group___g_a1.html#structsi4844__audiomode_8arg1", [
@@ -41,7 +41,7 @@ var group___g_a1 =
     ] ],
     [ "si4844_audiomode_status_response", "group___g_a1.html#unionsi4844__audiomode__status__response", [
       [ "raw", "group___g_a1.html#a920ce348cf43defb095ad6c9d1d7b25a", null ],
-      [ "status", "group___g_a1.html#a2b097007d9cf184f88af6a8c68b58f73", null ]
+      [ "status", "group___g_a1.html#afaa238bc157431e7a977b40c386e7d0a", null ]
     ] ],
     [ "si4844_audiomode_status_response.status", "group___g_a1.html#structsi4844__audiomode__status__response_8status", [
       [ "ADJPT_ATTN", "group___g_a1.html#ad1ebb7e9f4dcea346301d305f4833489", null ],
@@ -51,6 +51,20 @@ var group___g_a1 =
       [ "ERR", "group___g_a1.html#acd22bad976363fdd1bfbf6759fede482", null ],
       [ "FM_MONO", "group___g_a1.html#a05bb6702f87c323d31dad58d632dff6c", null ],
       [ "Reserved", "group___g_a1.html#a942d4e37dd5607ab68e54755540d4a47", null ]
+    ] ],
+    [ "si4844_device_status", "group___g_a1.html#unionsi4844__device__status", [
+      [ "raw", "group___g_a1.html#a0ea68516f18bbc66b25da58bd9797e7e", null ],
+      [ "refined", "group___g_a1.html#a98dc85597b978984219c6e4daa7d6f7f", null ]
+    ] ],
+    [ "si4844_device_status.refined", "group___g_a1.html#structsi4844__device__status_8refined", [
+      [ "BCFG0", "group___g_a1.html#a5261a78ae4ddbdac319c80dbeee308b2", null ],
+      [ "BCFG1", "group___g_a1.html#a416474ab3b793f2f62bd31d2712c0404", null ],
+      [ "CTS", "group___g_a1.html#ae16433ffd3adc248f0ce2608a95c3c76", null ],
+      [ "HOSTPWRUP", "group___g_a1.html#add07c35e97fa7083939134ae5a198975", null ],
+      [ "HOSTRST", "group___g_a1.html#afe6af5b1629740d386f70ac440dfd081", null ],
+      [ "INFORDY", "group___g_a1.html#ab85cc15163fc2abc8fdd086f07c38a3c", null ],
+      [ "STATION", "group___g_a1.html#aa0b67bb0a7cfbb35a3b71363059d5d80", null ],
+      [ "STEREO", "group___g_a1.html#a830dff3c27992cca35a4b46282e10530", null ]
     ] ],
     [ "si4844_firmware_info", "group___g_a1.html#structsi4844__firmware__info", [
       [ "CHIPREV", "group___g_a1.html#a38dcd6fd63f9a040ba68c5266b676105", null ],

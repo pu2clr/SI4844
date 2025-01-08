@@ -132,7 +132,27 @@ typedef union {
 
 /**
  * @ingroup GA1 
- * @brief Device Status 
+ * @brief Device Status (The first byte of the device ststus register) 
+ * @details The structure below represents the first byte response got by command ATDD_GET_STATUS
+ * @see PROGRAMMING GUIDE, pages 14 and 15
+ */
+typedef union { 
+  struct  {
+    uint8_t BCFG0 : 1;     // Bit 0 - 0 = ATDD device detects band; 1 = Host detects band
+    uint8_t BCFG1 : 1;     // bit 1
+    uint8_t STEREO : 1;    // bit 2
+    uint8_t STATION : 1;   // bit 3
+    uint8_t INFORDY : 1;   // bit 4
+    uint8_t HOSTPWRUP : 1; // bit 5
+    uint8_t HOSTRST : 1;   // bit 6
+    uint8_t CTS : 1;       // bit 7
+  } refined; 
+  uint8_t raw;
+} si4844_device_status;
+
+/**
+ * @ingroup GA1 
+ * @brief All Device Information (All Status) 
  * @details The structure below represents the four bytes response got by command ATDD_GET_STATUS
  * @see PROGRAMMING GUIDE, pages 14 and 15
  */
@@ -265,7 +285,8 @@ class SI4844
 
 private:
 
-  si4844_status_response status_response; 
+  si4844_device_status device_status;               // Stores the first currente status of the device         
+  si4844_status_response all_receiver_status;       // Stores all current receiver information 
   si4844_firmware_response firmware_response;
   uint16_t resetPin;
   uint16_t interruptPin;
@@ -377,7 +398,8 @@ public :
   si4844_audiomode_status_response
   setAudioMode(uint8_t audiomode, uint8_t fm_mono, uint8_t adjpt_attn, uint8_t adjpt_steo, uint8_t opcode);
 
-  si4844_status_response *getStatus(void);
+  si4844_device_status *getStatus();
+  si4844_status_response *getAllReceiverInfo(void);
   si4844_firmware_response *getFirmware(void);
 
   bool isHostDetectionBandConfig();
@@ -419,14 +441,14 @@ public :
    * @brief Get the Band Mode 
    * @return char*   "FM", "AM" or "SW"
    */
-  inline char * getBandMode(){ return (char *) bandmode_table[status_response.refined.BANDMODE]; };
+  inline char * getBandMode(){ return (char *) bandmode_table[all_receiver_status.refined.BANDMODE]; };
 
   /**
    * @ingroup GB1 
    * @brief Get the Stereo Indicator 
    * @return char* "ON" or "OFF" 
    */
-  inline char * getStereoIndicator(){ return (char *) stereo_indicator_table[status_response.refined.STATION]; };
+  inline char * getStereoIndicator(){ return (char *) stereo_indicator_table[all_receiver_status.refined.STATION]; };
   
   /** 
    * @ingroup GB1 
@@ -434,14 +456,14 @@ public :
    * @details 0 = ATDD device detects band; 1 = Host detects band
    * @return 0 = ATDD device detects band; 1 = Host detects band
    */
-  inline uint16_t  getStatusBCFG0() { return status_response.refined.BCFG0; };
+  inline uint16_t  getStatusBCFG0() { return all_receiver_status.refined.BCFG0; };
 
   /** 
    * @ingroup GB1 
    * @brief Gets Band CFG1 (Band Properties Priority)
    * @return 0 = ATDD device accepts host customized band properties; 1 = ATDD device ignores host customized band properties
    */
-  inline uint16_t  getStatusBCFG1() { return status_response.refined.BCFG1; };
+  inline uint16_t  getStatusBCFG1() { return all_receiver_status.refined.BCFG1; };
 
   /** 
    * @ingroup GB1 
@@ -449,7 +471,7 @@ public :
    * @details Applicable to Si4840/44 parts FM function only.
    * @return 0 = Stereo off; 1 = Stereo on
    */
-  inline uint16_t  getStatusStereo() { return status_response.refined.STEREO; };
+  inline uint16_t  getStatusStereo() { return all_receiver_status.refined.STEREO; };
 
 
   /** 
@@ -457,7 +479,7 @@ public :
    * @brief Gets Station Indicator.
    * @return 0 = Invalid Station; 1 = Valid Station
    */
-  inline uint16_t  getStatusStationIndicator() { return status_response.refined.STATION; };
+  inline uint16_t  getStatusStationIndicator() { return all_receiver_status.refined.STATION; };
   
   /** 
    * @ingroup GB1 
@@ -468,7 +490,7 @@ public :
    * @details 0 = Tune info not ready yet; 1 = Tune info ready (i.e., Band mode, band index, channel frequency, sta-tion, and stereo indicators)
    * @return 0 = Tune info not ready yet; 1 = Tune info ready 
    */
-  inline uint16_t  getStatusInformationReady() { return status_response.refined.INFORDY; };
+  inline uint16_t  getStatusInformationReady() { return all_receiver_status.refined.INFORDY; };
 
   /** 
    * @ingroup GB1 
@@ -481,7 +503,7 @@ public :
    * @details For SW band, the CHFREQ bit[15] MSB = 1 means the host controller needs to add an additional 5 kHz for the channel frequency.
    * @return 0 = Tune info not ready yet; 1 = Tune info ready 
    */
-  inline uint16_t  getRawChannelFrequency() { return status_response.rawStatus.CHFREQ; };
+  inline uint16_t  getRawChannelFrequency() { return all_receiver_status.rawStatus.CHFREQ; };
 
   /** 
    * @ingroup GB1 
@@ -489,7 +511,7 @@ public :
    * @details if True, the system needs to Power Up the device 
    * @return True: issue the ATDD_POWER_UP command with the valid band index detected. 
    */
-  inline bool  needHostPowerUp() { return status_response.refined.HOSTPWRUP; };
+  inline bool  needHostPowerUp() { return all_receiver_status.refined.HOSTPWRUP; };
 
   /**
     * @ingroup GB1
@@ -497,25 +519,25 @@ public :
     * @details Check if the host (microcontroler) needs to reset the device.
     * @return  True or False.
   */
-  inline bool  needHostReset() { return status_response.refined.HOSTRST; };
+  inline bool  needHostReset() { return all_receiver_status.refined.HOSTRST; };
 
   /** 
    * @ingroup GB1 
    * @brief Gets the current Band Mode
    * @return 0 = FM mode; 1 = AM mode; 2 = SW mode
    */
-  inline uint16_t  getStatusBandMode() { return status_response.refined.BANDMODE; };
+  inline uint16_t  getStatusBandMode() { return all_receiver_status.refined.BANDMODE; };
   
   /** 
    * @ingroup GB1 
    * @brief Gets the current Band Index Detected.
    * @return 0~19: FM band; 20~24: AM band; 25~40: SW band
    */
-  inline uint16_t  getStatusBandIndex() { return status_response.refined.BANDIDX; };
+  inline uint16_t  getStatusBandIndex() { return all_receiver_status.refined.BANDIDX; };
 
 
 
-  inline uint16_t  getStatusCTS() { return status_response.refined.CTS; };
+  inline uint16_t  getStatusCTS() { return all_receiver_status.refined.CTS; };
 
 
   inline uint16_t  getFirmwareReserved() { return firmware_response.refined.RESERVED; };

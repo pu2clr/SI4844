@@ -98,7 +98,7 @@ void showSplash() {
 
 void showFrequency() {
   char* pFreq;
-  rx.getStatus();
+  rx.getAllReceiverInfo();
   pFreq = rx.getFormattedFrequency(1);
 
   for (int pos = 2; pos < 8; pos++)

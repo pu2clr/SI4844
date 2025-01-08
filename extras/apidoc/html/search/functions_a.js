@@ -9,7 +9,7 @@ var searchData=
   ['setaudiomode_6',['setAudioMode',['../group___g_b1.html#gadb6affba868c9c99f44918e5a48a423d',1,'SI4844']]],
   ['setaudiomute_7',['setAudioMute',['../group___g_b1.html#gaede56f3b80857296a85ba4613bc87459',1,'SI4844']]],
   ['setband_8',['setBand',['../group___g_b1.html#gad91399d31b91e1b078d8f52a0cec4656',1,'SI4844']]],
-  ['setbandslideswitch_9',['setBandSlideSwitch',['../group___g_b1.html#gacf3b26b955fac5464c27ef72d11fd445',1,'SI4844']]],
+  ['setbandslideswitch_9',['setBandSlideSwitch',['../group___g_b1.html#ga11e6a2a47bb6ac3864f8c97c012c4e47',1,'SI4844']]],
   ['setbasstreble_10',['setBassTreble',['../group___g_b1.html#ga4323a4cd070b75d84e7fc0a5ea7c8f41',1,'SI4844']]],
   ['setblendthresholdstereoindicator_11',['setBlendThresholdStereoIndicator',['../group___g_b1.html#ga536d522d459a7ac501182708f9ecab9d',1,'SI4844']]],
   ['setcrystaloscillatorenable_12',['setCrystalOscillatorEnable',['../group___g_b1.html#gab97f73b03943a4c0f4dbb3f0741d7263',1,'SI4844']]],

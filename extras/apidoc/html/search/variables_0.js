@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['arg1_0',['arg1',['../group___g_a1.html#a1ce59e52d0365d00eb1affd0a9646acb',1,'si4844_audiomode']]]
+  ['arg1_0',['arg1',['../group___g_a1.html#ada9ef3ac20f4819922aa89a510dbc10f',1,'si4844_audiomode']]]
 ];

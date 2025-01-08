@@ -387,10 +387,10 @@ void SI4844::setDefaultBandIndx( uint8_t bandidx) {
 void SI4844::powerUp(void)
 {
     this->reset();      // Resets the system and wait for a iterrupt
-    this->getStatus();  // Gets the first status after resetting
+    this->getAllReceiverInfo();  // Gets the first status after resetting
 
     // Chacks "ATDD device detects band" mode is configured
-    if ( status_response.refined.BCFG0 != 0 ) this->setBand(0);
+    if ( all_receiver_status.refined.BCFG0 != 0 ) this->setBand(0);
 
     Serial.print("\n=======> ATDD device detects band");
 
@@ -418,13 +418,13 @@ void SI4844::powerUp(void)
     Serial.print("\n=======> powerUp after powerUP");
 
     delayMicroseconds(2500);
-    getStatus();
+    getAllReceiverInfo();
 
     Serial.print("\n=======> powerUp after powerUP and getStatus");
     
     delayMicroseconds(2500);
 
-    this->currentBand = status_response.refined.BANDIDX;
+    this->currentBand = all_receiver_status.refined.BANDIDX;
 
     rxBandSetup.refined.XOSCEN = this->xoscen;
     rxBandSetup.refined.XOWAIT = this->xowait;
@@ -514,7 +514,7 @@ void SI4844::setBand(byte new_band)
     waitInterrupt();
 
     delayMicroseconds(2500);
-    getStatus();
+    getAllReceiverInfo();
     delayMicroseconds(2500);
 
     this->setVolume(this->volume);
@@ -567,7 +567,7 @@ void SI4844::setBandSlideSwitch()
         Serial.print("\n PASSOU PELO ATDD_POWER_UP");
 
         delayMicroseconds(2500);
-        getStatus();
+        getAllReceiverInfo();
         delayMicroseconds(2500);
 
         Serial.print("\n PASSOU PELO getStatus");
@@ -640,7 +640,7 @@ void SI4844::setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, u
     waitInterrupt();
 
     delayMicroseconds(2500);
-    getStatus();
+    getAllReceiverInfo();
     delayMicroseconds(2500);
     this->setVolume(this->volume);
 
@@ -664,8 +664,8 @@ bool SI4844::isClearToSend(void)
     Wire.endTransmission();
     delayMicroseconds(2000);
     Wire.requestFrom(SI4844_ADDRESS, 1);
-    status_response.raw[0] = Wire.read();
-    return status_response.refined.CTS; // return 0 (false) or 1 (true)
+    all_receiver_status.raw[0] = Wire.read();
+    return all_receiver_status.refined.CTS; // return 0 (false) or 1 (true)
 }
 
 /**
@@ -886,15 +886,36 @@ void SI4844::setAudioMute(bool on)
         audioMute(0);
 }
 
+
 /**
  * @ingroup GB1
- * @brief Get tune freq, band, and others information, status of the device.
- * @details Use this method only if you want to deal with that information by yourself. 
- * @details This library has other methods to get that information easier. 
- * 
- * @return a pointer to a structure type si4844_status_response
+ * @brief   Gets current status of the device.
+ * @details Use this method only if you want to deal with the current status by yourself. 
+ * @details the status is stored in "device_status" member variable
+ * @details this method updates the first byte of all_receiver_status member variable
+ * @return  pointer to a structure type si4844_device_status
  */
-si4844_status_response *SI4844::getStatus()
+ si4844_device_status *SI4844::getStatus() {
+    delayMicroseconds(2000);
+    Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(ATDD_GET_STATUS);
+    Wire.endTransmission();
+    delayMicroseconds(2000);
+    Wire.requestFrom(SI4844_ADDRESS, 1);
+    all_receiver_status.raw[0] = Wire.read();
+    device_status.raw = all_receiver_status.raw[0];
+    return &device_status; 
+ }
+
+/**
+ * @ingroup GB1
+ * @brief Gets all current information  of the receiver (tune freq, band, and others information, status of the device).
+ * @details Use this method only if you want to deal with that information by yourself. 
+ * @details all data of the receiver is storted in "all_receiver_status" member variable 
+ * @details This library has other methods to get that information easier. 
+ * @return pointer to a structure type si4844_status_response
+ */
+si4844_status_response *SI4844::getAllReceiverInfo()
 {
     // setClockHigh();
     setClockLow();
@@ -910,12 +931,12 @@ si4844_status_response *SI4844::getStatus()
         // request 4 bytes response from atdd (si4844)
         Wire.requestFrom(SI4844_ADDRESS, 0x04);
         for (int i = 0; i < 4; i++)
-            status_response.raw[i] = Wire.read();
+            all_receiver_status.raw[i] = Wire.read();
         // check response error. Exit when no error found. See page 7.
         // if INFORDY is 0 or CHFREQ is 0, not ready yet
-    } while (status_response.refined.CTS == 0 || status_response.refined.INFORDY == 0 || (status_response.raw[2] == 0 && status_response.raw[3] == 0));
+    } while (all_receiver_status.refined.CTS == 0 || all_receiver_status.refined.INFORDY == 0 || (all_receiver_status.raw[2] == 0 && all_receiver_status.raw[3] == 0));
     setClockLow();
-    return &status_response;
+    return &all_receiver_status;
 }
 
 /**
@@ -930,7 +951,7 @@ si4844_status_response *SI4844::getStatus()
  */
 bool SI4844::isHostDetectionBandConfig() {
     si4844_status_response *s;
-    s = this->getStatus();
+    s = this->getAllReceiverInfo();
     return s->refined.BCFG0; 
 }
 
@@ -945,13 +966,13 @@ bool SI4844::isHostDetectionBandConfig() {
 int8_t SI4844::getValidBandIndex() {
     uint8_t count = 0;
     do { 
-         this->getStatus();
+         this->getAllReceiverInfo();
          delay(1);
          count++;
-      } while (this->status_response.refined.INFORDY == 0 && count < 50 );  
+      } while (this->all_receiver_status.refined.INFORDY == 0 && count < 50 );  
 
-    if ( this->status_response.refined.BANDIDX > DEVICE_LAST_VALID_INDEX_BAND || count >= 50  ) return -1;
-    return  this->status_response.refined.BANDIDX;     
+    if ( this->all_receiver_status.refined.BANDIDX > DEVICE_LAST_VALID_INDEX_BAND || count >= 50  ) return -1;
+    return  this->all_receiver_status.refined.BANDIDX;     
 }
 
 
@@ -997,36 +1018,36 @@ si4844_firmware_response *SI4844::getFirmware(void)
  */
 float SI4844::getFrequency(void)
 {
-    getStatus();
+    getAllReceiverInfo();
     int addFactor = 0;
     int multFactor = 1;
     // Check CHFREQ bit[15] MSB = 1
     // See Page 15 of Si48XX ATDD PROGRAMMING GUIDE
-    if (status_response.refined.BANDMODE == 0)
+    if (all_receiver_status.refined.BANDMODE == 0)
     {
         multFactor = 100;
-        if (status_response.refined.d1 & 0b00001000)
+        if (all_receiver_status.refined.d1 & 0b00001000)
         {
-            status_response.refined.d1 &= 0b11110111;
+            all_receiver_status.refined.d1 &= 0b11110111;
             addFactor = 50;
         }
     }
-    else if (status_response.refined.BANDMODE == 2)
+    else if (all_receiver_status.refined.BANDMODE == 2)
     {
         multFactor = 10;
-        if (status_response.refined.d1 & 0b00001000)
+        if (all_receiver_status.refined.d1 & 0b00001000)
         {
-            status_response.refined.d1 &= 0b11110111;   
+            all_receiver_status.refined.d1 &= 0b11110111;   
             addFactor = 5;
         }
     }
 
     float f;
 
-    f = (status_response.refined.d4);
-    f += (status_response.refined.d3) * 10;
-    f += (status_response.refined.d2) * 100;
-    f += (status_response.refined.d1) * 1000;
+    f = (all_receiver_status.refined.d4);
+    f += (all_receiver_status.refined.d3) * 10;
+    f += (all_receiver_status.refined.d2) * 100;
+    f += (all_receiver_status.refined.d1) * 1000;
 
     data_from_device = false;
 
@@ -1043,36 +1064,36 @@ float SI4844::getFrequency(void)
  */
 uint32_t SI4844::getFrequencyInteger(void)
 {
-    getStatus();
+    getAllReceiverInfo();
     int addFactor = 0;
     int multFactor = 1;
     // Check CHFREQ bit[15] MSB = 1
     // See Page 15 of Si48XX ATDD PROGRAMMING GUIDE
-    if (status_response.refined.BANDMODE == 0)
+    if (all_receiver_status.refined.BANDMODE == 0)
     {
         multFactor = 100;
-        if (status_response.refined.d1 & 0b00001000)
+        if (all_receiver_status.refined.d1 & 0b00001000)
         {
-            status_response.refined.d1 &= 0b11110111;
+            all_receiver_status.refined.d1 &= 0b11110111;
             addFactor = 50;
         }
     }
-    else if (status_response.refined.BANDMODE == 2)
+    else if (all_receiver_status.refined.BANDMODE == 2)
     {
         multFactor = 10;
-        if (status_response.refined.d1 & 0b00001000)
+        if (all_receiver_status.refined.d1 & 0b00001000)
         {
-            status_response.refined.d1 &= 0b11110111;   
+            all_receiver_status.refined.d1 &= 0b11110111;   
             addFactor = 5;
         }
     }
 
     uint32_t f;
 
-    f = (status_response.refined.d4);
-    f += (status_response.refined.d3) * 10;
-    f += (status_response.refined.d2) * 100;
-    f += (status_response.refined.d1) * 1000;
+    f = (all_receiver_status.refined.d4);
+    f += (all_receiver_status.refined.d3) * 10;
+    f += (all_receiver_status.refined.d2) * 100;
+    f += (all_receiver_status.refined.d1) * 1000;
 
     data_from_device = false;
 
