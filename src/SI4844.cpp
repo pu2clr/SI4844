@@ -375,6 +375,27 @@ void SI4844::powerUp(void)
 {
     // UNDER CONSTRUCTION... 
 
+
+    data_from_device = false;    
+
+    this->currentBand = 0;
+
+    si4844_arg_band_index rxBandSetup; 
+
+    rxBandSetup.refined.XOSCEN = this->xoscen;
+    rxBandSetup.refined.XOWAIT = this->xowait;
+    rxBandSetup.refined.BANDIDX = this->currentBand;
+
+    waitToSend();
+
+    Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(ATDD_POWER_UP);
+    Wire.write(rxBandSetup.raw);
+    Wire.endTransmission();
+
+    delayMicroseconds(2500);
+    this->waitInterrupt();
+
 }
 
 /**
@@ -462,6 +483,26 @@ void SI4844::setBand(byte new_band)
 void SI4844::setBandSlideSwitch()
 {
     // UNDER CONSTRUCTION 
+
+    this->currentBand = all_receiver_status.refined.BANDIDX;
+
+    si4844_arg_band_index rxBandSetup; 
+
+    rxBandSetup.refined.XOSCEN = this->xoscen;
+    rxBandSetup.refined.XOWAIT = this->xowait;
+    rxBandSetup.refined.BANDIDX = this->currentBand;
+
+    data_from_device = false;
+
+    // Wait until rady to send a command
+    waitToSend();
+
+    Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(ATDD_POWER_UP);
+    Wire.write(rxBandSetup.raw);
+    Wire.endTransmission();
+    delayMicroseconds(2500);
+    waitInterrupt();
 
 }
 
@@ -782,7 +823,6 @@ void SI4844::setAudioMute(bool on)
  * @return  pointer to a structure type si4844_device_status
  */
  si4844_device_status *SI4844::getStatus() {
-    delayMicroseconds(2000);
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_GET_STATUS);
     Wire.endTransmission();
@@ -803,9 +843,7 @@ void SI4844::setAudioMute(bool on)
  */
 si4844_status_response *SI4844::getAllReceiverInfo()
 {
-    // setClockHigh();
-    // setClockLow();
-    waitToSend();
+    setClockHigh();
     do
     {
         Wire.beginTransmission(SI4844_ADDRESS);
@@ -817,9 +855,9 @@ si4844_status_response *SI4844::getAllReceiverInfo()
         for (int i = 0; i < 4; i++)
             all_receiver_status.raw[i] = Wire.read();
         // check response error. Exit when no error found. See page 7.
-        // if INFORDY is 0 or CHFREQ is 0, not ready yet
-    } while (all_receiver_status.refined.CTS == 0 || all_receiver_status.refined.INFORDY == 0 || (all_receiver_status.raw[2] == 0 && all_receiver_status.raw[3] == 0));
-    // setClockLow();
+        // if INFORDY is 0, the system is not ready yet. You may need to check if CHFREQ is 0 too.
+    } while ( all_receiver_status.refined.INFORDY == 0 );
+
     device_status.raw = all_receiver_status.raw[0];
     return &all_receiver_status;
 }
