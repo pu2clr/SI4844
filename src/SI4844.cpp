@@ -898,9 +898,11 @@ si4844_status_response *SI4844::getStatus()
 {
     // setClockHigh();
     setClockLow();
-    waitToSend();
+    // waitToSend();
     do
     {
+        data_from_device = false;
+        waitInterrupt();
         Wire.beginTransmission(SI4844_ADDRESS);
         Wire.write(ATDD_GET_STATUS);
         Wire.endTransmission();
@@ -911,7 +913,6 @@ si4844_status_response *SI4844::getStatus()
             status_response.raw[i] = Wire.read();
         // check response error. Exit when no error found. See page 7.
         // if INFORDY is 0 or CHFREQ is 0, not ready yet
-        delayMicroseconds(2500);
     } while (status_response.refined.CTS == 0 || status_response.refined.INFORDY == 0 || (status_response.raw[2] == 0 && status_response.raw[3] == 0));
     setClockLow();
     return &status_response;
