@@ -898,11 +898,11 @@ si4844_status_response *SI4844::getStatus()
 {
     // setClockHigh();
     setClockLow();
-    // waitToSend();
+    waitToSend();
     do
     {
-        data_from_device = false;
-        waitInterrupt();
+        // data_from_device = false;
+        // waitInterrupt();
         Wire.beginTransmission(SI4844_ADDRESS);
         Wire.write(ATDD_GET_STATUS);
         Wire.endTransmission();
