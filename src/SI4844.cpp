@@ -205,6 +205,42 @@ void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t high
     delay(1);    
     data_from_device = false;    
     
+    // Step 1: Reset and Prepare the Device
+    //      1. The system controller resets the ATDD device and releases the  RSTb  pin.
+    //      2. The system controller waits until the first  IRQ  is received, indicating that the ATDD device is ready to receive commands.   
+    this->reset(); // Step 1 - Reset and Prepare the Device
+
+    // Step 2: Obtain Device Status
+    //      3. The system controller sends the  ATDD_GET_STATUS  command to retrieve the ATDD device status.    
+    this->getStatus();
+    if ( device_status.refined.BCFG0 != 0) {
+        system_error = 51;  // The hardware is configured to "MCU detects the band" and you are trying "ATDD device detects the band"
+    } 
+
+    // Step 3 and Step 4: Power Up the Device and Confirm Band Detection
+    //      4. The system controller issues the  ATDD_POWER_UP  command with BANDIDX = 0  (since the host doesn’t know the band number)  
+    //      5. The system controller waits for another  IRQ  indicating that the valid band has been detected.    
+
+    this->powerUp();
+
+    // Step 5 and Step 6: Retrieve Updated Status and  real Frequency Detection
+    // 6. The system controller sends the  ATDD_GET_STATUS  command to obtain the latest status.
+    do { 
+        delay(1);
+        this->getStatus();
+    } while (device_status.refined.INFORDY == 0);   
+
+    this->getAllReceiverInfo();
+    this->currentBand = this->all_receiver_status.refined.BANDIDX;
+
+   if (all_receiver_status.refined.HOSTRST == 1) {
+       this->reset();
+    }   
+
+    // Set to the real band selected by the user via Slide Switch
+    this->setBandSlideSwitch();
+    this->setVolume(30);
+
 }
 
 
@@ -504,7 +540,13 @@ void SI4844::setBandSlideSwitch()
     delayMicroseconds(2500);
     waitInterrupt();
 
+    this->getAllReceiverInfo();
+
+    this->setVolume(this->volume);
+
 }
+
+
 
 
 

@@ -297,6 +297,8 @@ private:
   uint32_t clockSpeed = 50000;
 
 
+  uint8_t  system_error = 0; 
+
 
   /**
    * @ingroup BF
