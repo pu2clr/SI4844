@@ -230,16 +230,10 @@ void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t high
         this->getStatus();
     } while (device_status.refined.INFORDY == 0);   
 
-    this->getAllReceiverInfo();
-    this->currentBand = this->all_receiver_status.refined.BANDIDX;
-
-   if (all_receiver_status.refined.HOSTRST == 1) {
-       this->reset();
-    }   
-
+ 
     // Set to the real band selected by the user via Slide Switch
     this->setBandSlideSwitch();
-    this->setVolume(30);
+    this->setVolume(this->volume);
 
 }
 
@@ -518,9 +512,14 @@ void SI4844::setBand(byte new_band)
  */
 void SI4844::setBandSlideSwitch()
 {
-    // UNDER CONSTRUCTION 
 
-    this->currentBand = all_receiver_status.refined.BANDIDX;
+   this->getAllReceiverInfo();
+    this->currentBand = this->all_receiver_status.refined.BANDIDX;
+
+   // If band mode changed, reset the device. 
+   if (all_receiver_status.refined.HOSTRST == 1) {
+       this->reset();
+    }   
 
     si4844_arg_band_index rxBandSetup; 
 

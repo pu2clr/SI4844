@@ -26,67 +26,19 @@ SI4844 rx;
 
 char str[160];
 
+int8_t lastBandIdx;
+
 void setup() {
   
-  si4844_device_status *ds;
-  si4844_status_response *rs;
-
-  int count = 0;
   Serial.begin(9600);
-  delay(1000);
-  Serial.print("\nStarting"); 
+  delay(700);
 
+  Serial.print("\nStarting the system.");
   rx.setupSlideSwitch(RESET_PIN, INTERRUPT_PIN);
-
-  rx.reset(); // Step 1
-  Serial.print("\nSystem Reseted"); 
-
-
-  delay(2);
-  ds = rx.getStatus();
-
-  sprintf(str,"\nBCFG0.....: %d\nBCFG1.....: %d\nSTEREO....: %d\nSTATION...: %d\nINFORDY...: %d\nHOSTPWRUP.: %d \nHOSTRST...: %d\nCTS.......: %d", ds->refined.BCFG0, ds->refined.BCFG1, ds->refined.STEREO, ds->refined.STATION, ds->refined.INFORDY, ds->refined.HOSTPWRUP, ds->refined.HOSTRST, ds->refined.CTS );
+  rx.setVolume(40);
+  sprintf(str,"\nSystem Started at the band %d, Band Mode %s, and current frequency %d ", rx.getCurrentBand(), rx.getBandMode(), rx.getFrequencyInteger());
   Serial.print(str);
-
-  if ( ds->refined.BCFG0 == 0 ) {
-    Serial.print("\nHardware configured to -ATDD device detects the band-"); 
-  } else {
-    Serial.print("\nHardware configured to -MCU detects the band-"); 
-  }
-
-  if (ds->refined.HOSTRST == 1) {
-    Serial.print("\nResetting Again.....");
-    rx.reset();
-    delay(100);
-  }
-  delay(200);
-  rx.powerUp();
-  Serial.print("\nPowerUp 1 Finished");
-  
-  do { 
-    delay(2);
-    ds = rx.getStatus();
-  } while (ds->refined.INFORDY == 0);
-  Serial.print("\nCheck Status Finished");
-  
-  rs = rx.getAllReceiverInfo();
-
-  sprintf(str,"\nBCFG0.....: %d\nBCFG1.....: %d\nSTEREO....: %d\nSTATION...: %d\nINFORDY...: %d\nHOSTPWRUP.: %d \nHOSTRST...: %d\nCTS.......: %d\nCount.....: %d", ds->refined.BCFG0, ds->refined.BCFG1, ds->refined.STEREO, ds->refined.STATION, ds->refined.INFORDY, ds->refined.HOSTPWRUP, ds->refined.HOSTRST, ds->refined.CTS, count );
-  Serial.print(str);
-
-  sprintf(str,"\nBand Mode.: %d\nBand Idx..: %d", rs->refined.BANDMODE, rs->refined.BANDIDX);
-  Serial.print(str);
-
-  if (ds->refined.HOSTRST == 1) {
-    Serial.print("\nResetting Again.....");
-    rx.reset();
-    delay(100);
-  }
-
-  rx.setBandSlideSwitch();
-   Serial.print("\nSet Band finished");
-  rx.setVolume(50);
-
+  lastBandIdx = rx.getStatusBandIndex();
 
 }
 
@@ -122,6 +74,18 @@ void showStatus() {
 // Control
 void loop() {
 
+  if (rx.hasStatusChanged())
+  { 
+      rx.getAllReceiverInfo(); 
+      if ( lastBandIdx != rx.getStatusBandIndex()) {
+        Serial.print("\nNew Band");
+        rx.setBandSlideSwitch();  
+        lastBandIdx = rx.getStatusBandIndex();
+      }
+      sprintf(str,"\nSystem Started at the band %d, Band Mode %s\n", rx.getCurrentBand(), rx.getBandMode());
+      Serial.print(str);  
+      Serial.print(rx.getFrequencyInteger());    
+  }
   
   delay(10);
 }
