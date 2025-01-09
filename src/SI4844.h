@@ -324,6 +324,7 @@ private:
   inline void waitInterrupt(void);
   inline bool isClearToSend(void);
   inline void waitToSend(void);
+  void waitDetectFrequency();
 
 
   // SI4844 band description (FM = 0; AM = 1; SW = 2)

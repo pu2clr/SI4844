@@ -1,9 +1,25 @@
 /**
- *  This sketch runs on Arduino devices.
- *  I2C OLED Display and buttons Example
+ *  This sketch runs on Arduino devices with I2C OLED Display. 
+ *  This project works on Si4822/26/27/40/44
+ *
+ * This application uses a mechanical switch-based band selection method and a resistor network ("ATDD device detects Band"). 
+ * For this band selection approach, the BAND pin of the Si48XX or Si4827 must be connected to a resistor network configured 
+ * as a voltage divider (similar to the Si4825 configuration). Although this hardware design is more complex, particularly 
+ * due to the construction of the band selection switch and the higher project cost, there are some advantages to this approach:
+ *
+ * 1. There is no need to store the receiver's current settings in EEPROM for retrieval when the receiver is powered on, 
+ *    simplifying the Arduino code needed to control the device.
+ * 2. The mechanical switch offers the same tactile experience as vintage radios, making this project suitable for developing
+ *    vintage-style models.
+ * 3. To some extent, this model can be more user-friendly due to its simplified operation of the radio's features.
+ *
+ *  References: 
+ *        Si4844-B DEMO BOARD USER’S GUIDE 
+ *        Si4827 DEMO BOARD USER’S GUIDE
+ *        Si4822/26/27/40/44 ANTENNA, SCHEMATIC, LAYOUT, AND DESIGN GUIDELINES - AN602
  *
  *
- *  Arduino and SI4844 pin connections
+ *  Arduino and SI48XX pin connections
  *
  *  | SI4844 pin | Arduino pin |  Description                                       |
  *  | ---------  | ------------  | -------------------------------------------------  |
@@ -17,27 +33,6 @@
  *  |   SDA      |  A4           | It shares the I2C bus with the SI4844              |
  *  |   CLK      |  A5           | It shares the I2C bus with the SI4844              |       
  *  | -----------| ------------- | ---------------------------------------------------|
- *
- *  Test with the mechanical band selection method (using a resistor network).
- *  In this approach, there is no need for push buttons or storing the receiver's status 
- *  in EEPROM. The system will start at the frequency and band determined by the tuning 
- *  potentiometer and the position of the band switch.
- *  NOTE:
- *  1) The Si4822/26/40/44 SSOP24 packaged parts have a pull up resistor option (at pin 1 LNA_EN) 
- *     to force the ATDD device to use its default band properties rather than the values programmed by the system controller.
- *     when the ATDD device pin 1 is pulled up, it will ignore the band properties programmed by the system.
- *  2) At power up, the system controller is required to read the band configuration state bits from the ATDD device and 
- *     determine which configuration option is responsible for the band detection. 
- *  3) The system controller is able to read this information from the band configuration state bits from the ATDD device.
- *  4) The Si4827 SOIC16 package ATDD part doesn't have the pin pull-up option. However, the host controller can send an 
- *     extra argument byte in the ATDD_POWER_UP command to specify this band properties priority.
- *  5) The ATDD device detects band is changed and then interrupts the system controller when band is switched by user.  
- *  6) System controller waits for any IRQ is received
- *  7) System controller issues ATDD_GET_STATUS command to obtain the latest status:
- *  8) If REPLY0 (STATU) bit[4] INFORDY bit = 1, i.e. info ready, the host can read and display the status, i.e. the band mode, the station, and stereo states.
- *  9) The tune frequency is ready when combined frequency of REPLY2, REPLY3 is non-zero (4-digit BCD number).
- * 10) *** Host should always save theREPLY1 bit[5:0] BANDIDX band index byte for later use.
- * 11) 
  *
  *  Author: Ricardo Lima Caratti (PU2CLR)
  *  Oct, 2019
@@ -77,17 +72,12 @@ int8_t bandIdx = 0;
 // OLED - Declaration for a SSD1306 display connected to I2C (SDA, SCL pins)
 Adafruit_SSD1306 display = Adafruit_SSD1306(128, 32, &Wire);
 
-SI4844 si4844;
+SI4844 rx;
 
 int8_t newBand;
 
 
 void setup() {
-  Serial.begin(9600);
-  delay(2000);
-
-  Serial.print("\n Starting");
-  Serial.flush();
 
   display.begin(SSD1306_SWITCHCAPVCC, I2C_ADDRESS);  // Address 0x3C for 128x32
 
@@ -99,15 +89,13 @@ void setup() {
 
 
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
-  // si4844.setCrystalOscillatorStabilizationWaitTime(1);
-  si4844.setupSlideSwitch(RESET_PIN, INTERRUPT_PIN);
+  // rx.setCrystalOscillatorStabilizationWaitTime(1);
+  rx.setupSlideSwitch(RESET_PIN, INTERRUPT_PIN);
 
   // You must calibrate the default volume
-  si4844.setVolume(50);
+  rx.setVolume(50);
   delay(100);
-  Serial.print("\n Running");
-  Serial.flush();
-  // displayDial();
+  displayDial();
 }
 
 
@@ -117,8 +105,8 @@ void displayDial() {
   display.setFont(NULL);
   display.setCursor(0, 0);
   display.print("TESTE");
-  /*
-  if (si4844.getFrequencyInteger() > 999)
+
+  if (rx.getFrequencyInteger() > 999)
     unit = (char *)"MHZ";
   else
     unit = (char *)"kHz";
@@ -128,15 +116,15 @@ void displayDial() {
 
 
   display.setCursor(0, 0);
-  display.print(si4844.getBandMode());
+  display.print(rx.getBandMode());
 
   display.setCursor(48, 0);
-  if (si4844.getStatusStationIndicator() != 0)
+  if (rx.getStatusStationIndicator() != 0)
     display.print("OK");
   else
     display.print("  ");
 
-  bandIdx = si4844.getCurrentBand();
+  bandIdx = rx.getCurrentBand();
 
 
   display.setCursor(90, 0);
@@ -148,7 +136,7 @@ void displayDial() {
   display.setFont(&DSEG7_Classic_Regular_16);
 
   display.setCursor(15, 30);
-  display.print(si4844.getFormattedFrequency(2, '.'));
+  display.print(rx.getFormattedFrequency(2, '.'));
   display.setCursor(100, 20);
   display.setFont(NULL);
   display.print(" ");
@@ -157,26 +145,27 @@ void displayDial() {
 
 // Stereo status does not make sense with Si4827
 #ifdef SI4844_DEVICE
-  if (si4844.getStatusBandMode() == 0) {
+  if (rx.getStatusBandMode() == 0) {
     display.setCursor(75, 25);
-    if (si4844.getStatusStereo() == 1)
+    if (rx.getStatusStereo() == 1)
       display.print("Stereo");
     else
       display.print("Mono  ");
   }
 #endif
-  */
+
   display.display();
 }
 
 
 void loop() {
 
-  if (si4844.hasStatusChanged()) {
-    Serial.print("\n Changed ");
-    Serial.print(si4844.getCurrentBand());
-    if (si4844.getCurrentBand() >= 0)
-      displayDial();  
+  if (rx.hasStatusChanged()) {
+    if (rx.hasBandChanged()) {
+      rx.setBandSlideSwitch();
+    }
+
+    displayDial();  
   }
 
   delay(50);

@@ -230,9 +230,10 @@ void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t high
         this->getStatus();
     } while (device_status.refined.INFORDY == 0);   
 
- 
-    // Set to the real band selected by the user via Slide Switch
+
+    // Step 6: Set to the real band selected by the user via Slide Switch; Frequency Detection; etc
     this->setBandSlideSwitch();
+
     this->setVolume(this->volume);
 
 }
@@ -403,9 +404,6 @@ void SI4844::setDefaultBandIndx( uint8_t bandidx) {
  */
 void SI4844::powerUp(void)
 {
-    // UNDER CONSTRUCTION... 
-
-
     data_from_device = false;    
 
     this->currentBand = 0;
@@ -539,8 +537,7 @@ void SI4844::setBandSlideSwitch()
     delayMicroseconds(2500);
     waitInterrupt();
 
-    this->getAllReceiverInfo();
-
+    this->waitDetectFrequency(); 
     this->setVolume(this->volume);
 
 }
@@ -646,6 +643,18 @@ inline void SI4844::waitToSend()
 
     while (!isClearToSend())
         ;
+}
+
+
+/**
+ * @ingroup BF
+ * @brief Wait for the ATDD detect a valid frequency (frequency not zero). 
+ */
+void SI4844::waitDetectFrequency() {
+    do { 
+        delay(1);
+        this->getAllReceiverInfo();
+    } while ( (all_receiver_status.raw[2] | all_receiver_status.raw[3]) == 0  );   
 }
 
 /**
