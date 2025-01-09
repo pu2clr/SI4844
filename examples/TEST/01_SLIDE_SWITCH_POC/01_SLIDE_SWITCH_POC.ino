@@ -36,7 +36,7 @@ void setup() {
   Serial.print("\nStarting the system.");
   rx.setupSlideSwitch(RESET_PIN, INTERRUPT_PIN);
   rx.setVolume(40);
-  sprintf(str,"\nSystem Started at the band %d, Band Mode %s, and current frequency %d ", rx.getCurrentBand(), rx.getBandMode(), rx.getFrequencyInteger());
+  sprintf(str,"\nSystem Started at the band %d, Band Mode %s", rx.getCurrentBand(), rx.getBandMode());
   Serial.print(str);
   lastBandIdx = rx.getStatusBandIndex();
 
@@ -77,7 +77,7 @@ void loop() {
   if (rx.hasStatusChanged())
   { 
       rx.getAllReceiverInfo(); 
-      if ( lastBandIdx != rx.getStatusBandIndex()) {
+      if ( rx.hasBandChanged()) {
         Serial.print("\nNew Band");
         rx.setBandSlideSwitch();  
         lastBandIdx = rx.getStatusBandIndex();

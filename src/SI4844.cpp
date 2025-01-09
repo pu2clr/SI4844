@@ -1080,6 +1080,18 @@ bool SI4844::hasStatusChanged(void)
     return data_from_device;
 }
 
+/** 
+ * @ingroup GB1 
+ * @brief Checks whether the current band detected by the device changed
+ * @details When the Slide Switch is moved by the user, the system have to process it
+ *
+ *  @return True if the user moved the Slide Switch
+ */
+bool SI4844::hasBandChanged(void) {
+    this->getAllReceiverInfo();
+    return ( all_receiver_status.refined.BANDIDX != this->currentBand);
+}
+
 /**
  * @ingroup GB1
  * @brief set the interrupr status to false. It will turn true after next interrupr  

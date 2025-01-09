@@ -290,7 +290,7 @@ private:
   si4844_firmware_response firmware_response;
   uint16_t resetPin;
   uint16_t interruptPin;
-  uint8_t currentBand = 0; 
+  uint8_t   currentBand = 0; 
 
   uint8_t  xoscen = 1;
   uint8_t  xowait = 0;
@@ -419,6 +419,7 @@ public :
   float getFrequency(void);
   uint32_t getFrequencyInteger(void);
   bool hasStatusChanged(void);
+  bool hasBandChanged(void);
   void resetStatus(void);
 
   /**
