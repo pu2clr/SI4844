@@ -172,6 +172,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga44f5b3d8746dc30922cc92e778e98f16"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga44f5b3d8746dc30922cc92e778e98f16">SI4844::getVolumeProperty</a> ()</td></tr>
 <tr class="memdesc:ga44f5b3d8746dc30922cc92e778e98f16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current volume value stored in <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> device.  <br /></td></tr>
 <tr class="separator:ga44f5b3d8746dc30922cc92e778e98f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1b9e216739cd952c14c08815f492b723"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga1b9e216739cd952c14c08815f492b723">SI4844::hasBandChanged</a> (void)</td></tr>
+<tr class="memdesc:ga1b9e216739cd952c14c08815f492b723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the current band detected by the device changed.  <br /></td></tr>
+<tr class="separator:ga1b9e216739cd952c14c08815f492b723"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae362404004bde2ed561a0c34604e0254"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gae362404004bde2ed561a0c34604e0254">SI4844::hasStatusChanged</a> (void)</td></tr>
 <tr class="memdesc:gae362404004bde2ed561a0c34604e0254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> has its status changed.  <br /></td></tr>
 <tr class="separator:gae362404004bde2ed561a0c34604e0254"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -443,7 +446,7 @@ Functions</h2></td></tr>
 <p>all data of the receiver is storted in "all_receiver_status" member variable</p>
 <p>This library has other methods to get that information easier. </p><dl class="section return"><dt>Returns</dt><dd>pointer to a structure type <a class="el" href="group___g_a1.html#unionsi4844__status__response" title="Status response.">si4844_status_response</a> </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="group___g_b1.html#ga0404927e7414a32125e32ff508bd450e">SI4844::getFrequency()</a>, <a class="el" href="group___g_b1.html#ga0eafb7b0438fb9e70c91d368929c6aed">SI4844::getFrequencyInteger()</a>, <a class="el" href="group___g_b1.html#ga7264a6caa7626678daef61d8f908d612">SI4844::isHostDetectionBandConfig()</a>, <a class="el" href="group___g_b1.html#gab19b2ce04e07e23275fea5889b87a201">SI4844::powerUp()</a>, <a class="el" href="group___g_b1.html#gad91399d31b91e1b078d8f52a0cec4656">SI4844::setBand()</a>, <a class="el" href="group___g_b1.html#ga11e6a2a47bb6ac3864f8c97c012c4e47">SI4844::setBandSlideSwitch()</a>, and <a class="el" href="group___g_b1.html#ga5c766d254b0c261a93dfd817f11b712c">SI4844::setCustomBand()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="group___g_b1.html#ga0404927e7414a32125e32ff508bd450e">SI4844::getFrequency()</a>, <a class="el" href="group___g_b1.html#ga0eafb7b0438fb9e70c91d368929c6aed">SI4844::getFrequencyInteger()</a>, <a class="el" href="group___g_b1.html#ga7b7d5a9c3005db4a246ed7a585b94889">SI4844::getValidBandIndex()</a>, <a class="el" href="group___g_b1.html#ga1b9e216739cd952c14c08815f492b723">SI4844::hasBandChanged()</a>, <a class="el" href="group___g_b1.html#ga7264a6caa7626678daef61d8f908d612">SI4844::isHostDetectionBandConfig()</a>, <a class="el" href="group___g_b1.html#gad91399d31b91e1b078d8f52a0cec4656">SI4844::setBand()</a>, <a class="el" href="group___g_b1.html#ga11e6a2a47bb6ac3864f8c97c012c4e47">SI4844::setBandSlideSwitch()</a>, and <a class="el" href="group___g_b1.html#ga5c766d254b0c261a93dfd817f11b712c">SI4844::setCustomBand()</a>.</p>
 
 </div>
 </div>
@@ -472,6 +475,7 @@ Functions</h2></td></tr>
 
 <p>Get the Band Mode. </p>
 <dl class="section return"><dt>Returns</dt><dd>char* "FM", "AM" or "SW" </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___g_b1.html#ga2532681efe63c1b7e50847338d218159" title="Gets the current Band Mode.">getStatusBandMode()</a> </dd></dl>
 
 </div>
 </div>
@@ -636,6 +640,8 @@ Functions</h2></td></tr>
 <p>the status is stored in "device_status" member variable</p>
 <p>this method updates the first byte of all_receiver_status member variable </p><dl class="section return"><dt>Returns</dt><dd>pointer to a structure type <a class="el" href="group___g_a1.html#unionsi4844__device__status" title="Device Status (The first byte of the device ststus register)">si4844_device_status</a> </dd></dl>
 
+<p class="reference">Referenced by <a class="el" href="group___g_b1.html#gaed9e80832b8f991bdce9235eae3a069c">SI4844::setupSlideSwitch()</a>.</p>
+
 </div>
 </div>
 <a id="ga33cd94c52839dc76bb020d0ed2a296c5" name="ga33cd94c52839dc76bb020d0ed2a296c5"></a>
@@ -691,6 +697,7 @@ Functions</h2></td></tr>
 
 <p>Gets the current Band Mode. </p>
 <dl class="section return"><dt>Returns</dt><dd>0 = FM mode; 1 = AM mode; 2 = SW mode </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___g_b1.html#ga97b111334d8e6ac08db8c500945c15a8" title="Get the Band Mode.">getBandMode()</a> </dd></dl>
 
 </div>
 </div>
@@ -718,7 +725,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets Band CFG0 (Band Detection Configuration). </p>
-<p>0 = ATDD device detects band; 1 = Host detects band </p><dl class="section return"><dt>Returns</dt><dd>0 = ATDD device detects band; 1 = Host detects band </dd></dl>
+<p>0 = ATDD device detects band; 1 = Host detects band</p>
+<p><b>Call getStatus or getAllReceiverInfo before calling this function</b> </p><dl class="section return"><dt>Returns</dt><dd>0 = ATDD device detects band; 1 = Host detects band </dd></dl>
 
 </div>
 </div>
@@ -746,7 +754,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets Band CFG1 (Band Properties Priority) </p>
-<dl class="section return"><dt>Returns</dt><dd>0 = ATDD device accepts host customized band properties; 1 = ATDD device ignores host customized band properties </dd></dl>
+<p><b>Call getStatus or getAllReceiverInfo before calling this function</b> </p><dl class="section return"><dt>Returns</dt><dd>0 = ATDD device accepts host customized band properties; 1 = ATDD device ignores host customized band properties </dd></dl>
 
 </div>
 </div>
@@ -777,7 +785,8 @@ Functions</h2></td></tr>
 <p>During power up case, the system controller should not display any of the channel frequency, band mode, band index,</p>
 <p>station, or stereo statuses until the INFORDY bit is set.</p>
 <p>The host controller should not display the channel frequency when CHFREQ remains zero even when INFORDY=1.</p>
-<p>0 = Tune info not ready yet; 1 = Tune info ready (i.e., Band mode, band index, channel frequency, sta-tion, and stereo indicators) </p><dl class="section return"><dt>Returns</dt><dd>0 = Tune info not ready yet; 1 = Tune info ready </dd></dl>
+<p>0 = Tune info not ready yet; 1 = Tune info ready (i.e., Band mode, band index, channel frequency, sta-tion, and stereo indicators)</p>
+<p><b>Call getStatus or getAllReceiverInfo before calling this function</b> </p><dl class="section return"><dt>Returns</dt><dd>0 = Tune info not ready yet; 1 = Tune info ready </dd></dl>
 
 </div>
 </div>
@@ -805,7 +814,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets Station Indicator. </p>
-<dl class="section return"><dt>Returns</dt><dd>0 = Invalid Station; 1 = Valid Station </dd></dl>
+<p><b>Call getStatus or getAllReceiverInfo before calling this function</b> </p><dl class="section return"><dt>Returns</dt><dd>0 = Invalid Station; 1 = Valid Station </dd></dl>
 
 </div>
 </div>
@@ -833,7 +842,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets Stereo indicator. </p>
-<p>Applicable to Si4840/44 parts FM function only. </p><dl class="section return"><dt>Returns</dt><dd>0 = Stereo off; 1 = Stereo on </dd></dl>
+<p>Applicable to Si4840/44 parts FM function only (id does not make sense for Si4827).</p>
+<p><b>Call getStatus or getAllReceiverInfo before calling this function</b> <br  />
+ </p><dl class="section return"><dt>Returns</dt><dd>0 = Stereo off; 1 = Stereo on </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___g_b1.html#ga89c7f1e6d9aad81e7260f5acea9b0f9c" title="Get the Stereo Indicator.">getStereoIndicator()</a> </dd></dl>
 
 </div>
 </div>
@@ -861,7 +873,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get the Stereo Indicator. </p>
-<dl class="section return"><dt>Returns</dt><dd>char* "ON" or "OFF" </dd></dl>
+<p><b>Call getStatus or getAllReceiverInfo before calling this function</b> <br  />
+ </p><dl class="section return"><dt>Returns</dt><dd>char* "ON" or "OFF" </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___g_b1.html#ga83569342288b86972da112ea14f45095" title="Gets Stereo indicator.">getStatusStereo()</a> </dd></dl>
 
 </div>
 </div>
@@ -887,6 +901,8 @@ Functions</h2></td></tr>
 <p>Once INFORDY is 1, the host can read and display the current status, including band mode, station, and stereo states. <br  />
  </p><dl class="section return"><dt>Returns</dt><dd>The current valid BANDIDX. <br  />
  </dd></dl>
+
+<p class="reference">References <a class="el" href="group___g_b1.html#ga844135282d9d5d7ae5e735ecb70aa5dc">SI4844::getAllReceiverInfo()</a>.</p>
 
 </div>
 </div>
@@ -935,6 +951,30 @@ Functions</h2></td></tr>
 
 <p>Gets the current volume value stored in <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> device. </p>
 <p>Use getVolume instead. </p><dl class="section return"><dt>Returns</dt><dd>byte </dd></dl>
+
+</div>
+</div>
+<a id="ga1b9e216739cd952c14c08815f492b723" name="ga1b9e216739cd952c14c08815f492b723"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1b9e216739cd952c14c08815f492b723">&#9670;&#160;</a></span>hasBandChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SI4844::hasBandChanged </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks whether the current band detected by the device changed. </p>
+<p>When the Slide Switch is moved by the user, the system have to process it</p>
+<dl class="section return"><dt>Returns</dt><dd>True if the user moved the Slide Switch </dd></dl>
+
+<p class="reference">References <a class="el" href="group___g_b1.html#ga844135282d9d5d7ae5e735ecb70aa5dc">SI4844::getAllReceiverInfo()</a>.</p>
 
 </div>
 </div>
@@ -1012,7 +1052,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks Host Power Up Status. </p>
-<p>if True, the system needs to Power Up the device </p><dl class="section return"><dt>Returns</dt><dd>True: issue the ATDD_POWER_UP command with the valid band index detected. </dd></dl>
+<p>if True, the system needs to Power Up the device</p>
+<p><b>Call getStatus or getAllReceiverInfo before calling this function</b> <br  />
+ </p><dl class="section return"><dt>Returns</dt><dd>True: issue the ATDD_POWER_UP command with the valid band index detected. </dd></dl>
 
 </div>
 </div>
@@ -1041,7 +1083,9 @@ Functions</h2></td></tr>
 
 <p>Checks HOST Reset Status <br  />
  </p>
-<p>Check if the host (microcontroler) needs to reset the device. </p><dl class="section return"><dt>Returns</dt><dd>True or False. </dd></dl>
+<p>Check if the host (microcontroler) needs to reset the device.</p>
+<p><b>Call getStatus or getAllReceiverInfo before calling this function</b> <br  />
+ </p><dl class="section return"><dt>Returns</dt><dd>True or False. </dd></dl>
 
 </div>
 </div>
@@ -1086,8 +1130,6 @@ Functions</h2></td></tr>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>UNDER CONSTRUCTION </dd></dl>
 <p>Moves the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> device from power down to power up </p><dl class="section see"><dt>See also</dt><dd>Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45 </dd></dl>
 
-<p class="reference">References <a class="el" href="group___g_b1.html#ga844135282d9d5d7ae5e735ecb70aa5dc">SI4844::getAllReceiverInfo()</a>, and <a class="el" href="group___g_b1.html#ga683a81897fe79e6909817aab36622684">SI4844::reset()</a>.</p>
-
 <p class="reference">Referenced by <a class="el" href="group___g_b1.html#gaed9e80832b8f991bdce9235eae3a069c">SI4844::setupSlideSwitch()</a>.</p>
 
 </div>
@@ -1111,7 +1153,7 @@ Functions</h2></td></tr>
 <p>Resets the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> device. </p>
 <p>Prepares the system to be started. </p><dl class="section see"><dt>See also</dt><dd>pages 7, 8, 9 and 10 of the programming guide. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="group___g_b1.html#gacd42a278c3304a591d80ae7ab351b87a">SI4844::debugDevice()</a>, <a class="el" href="group___g_b1.html#gab19b2ce04e07e23275fea5889b87a201">SI4844::powerUp()</a>, <a class="el" href="group___g_b1.html#gad91399d31b91e1b078d8f52a0cec4656">SI4844::setBand()</a>, <a class="el" href="group___g_b1.html#ga11e6a2a47bb6ac3864f8c97c012c4e47">SI4844::setBandSlideSwitch()</a>, <a class="el" href="group___g_b1.html#ga5c766d254b0c261a93dfd817f11b712c">SI4844::setCustomBand()</a>, <a class="el" href="group___g_b1.html#ga11a97916ce91dfb5ad6f49e5156219b1">SI4844::setup()</a>, and <a class="el" href="group___g_b1.html#gaed9e80832b8f991bdce9235eae3a069c">SI4844::setupSlideSwitch()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="group___g_b1.html#gacd42a278c3304a591d80ae7ab351b87a">SI4844::debugDevice()</a>, <a class="el" href="group___g_b1.html#gad91399d31b91e1b078d8f52a0cec4656">SI4844::setBand()</a>, <a class="el" href="group___g_b1.html#ga11e6a2a47bb6ac3864f8c97c012c4e47">SI4844::setBandSlideSwitch()</a>, <a class="el" href="group___g_b1.html#ga5c766d254b0c261a93dfd817f11b712c">SI4844::setCustomBand()</a>, <a class="el" href="group___g_b1.html#ga11a97916ce91dfb5ad6f49e5156219b1">SI4844::setup()</a>, and <a class="el" href="group___g_b1.html#gaed9e80832b8f991bdce9235eae3a069c">SI4844::setupSlideSwitch()</a>.</p>
 
 </div>
 </div>
@@ -1892,7 +1934,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="group___g_b1.html#gab19b2ce04e07e23275fea5889b87a201">SI4844::powerUp()</a>, <a class="el" href="group___g_b1.html#ga683a81897fe79e6909817aab36622684">SI4844::reset()</a>, and <a class="el" href="group___g_b1.html#ga11e6a2a47bb6ac3864f8c97c012c4e47">SI4844::setBandSlideSwitch()</a>.</p>
+<p class="reference">References <a class="el" href="group___g_b1.html#ga3ddc72e37495309f61cfce89b4bce24d">SI4844::getStatus()</a>, <a class="el" href="group___g_b1.html#gab19b2ce04e07e23275fea5889b87a201">SI4844::powerUp()</a>, <a class="el" href="group___g_b1.html#ga683a81897fe79e6909817aab36622684">SI4844::reset()</a>, and <a class="el" href="group___g_b1.html#ga11e6a2a47bb6ac3864f8c97c012c4e47">SI4844::setBandSlideSwitch()</a>.</p>
 
 </div>
 </div>

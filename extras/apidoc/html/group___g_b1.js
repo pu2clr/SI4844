@@ -24,6 +24,7 @@ var group___g_b1 =
     [ "SI4844::getValidBandIndex", "group___g_b1.html#ga7b7d5a9c3005db4a246ed7a585b94889", null ],
     [ "SI4844::getVolume", "group___g_b1.html#ga35aa33472f9d23986457ce7850b8175f", null ],
     [ "SI4844::getVolumeProperty", "group___g_b1.html#ga44f5b3d8746dc30922cc92e778e98f16", null ],
+    [ "SI4844::hasBandChanged", "group___g_b1.html#ga1b9e216739cd952c14c08815f492b723", null ],
     [ "SI4844::hasStatusChanged", "group___g_b1.html#gae362404004bde2ed561a0c34604e0254", null ],
     [ "SI4844::isHostDetectionBandConfig", "group___g_b1.html#ga7264a6caa7626678daef61d8f908d612", null ],
     [ "SI4844::needHostPowerUp", "group___g_b1.html#ga30bf0c52c481bd7a8dd3181f683bc330", null ],

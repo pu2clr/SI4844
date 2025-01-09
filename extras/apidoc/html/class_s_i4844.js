@@ -41,6 +41,7 @@ var class_s_i4844 =
     [ "getValidBandIndex", "group___g_b1.html#ga7b7d5a9c3005db4a246ed7a585b94889", null ],
     [ "getVolume", "group___g_b1.html#ga35aa33472f9d23986457ce7850b8175f", null ],
     [ "getVolumeProperty", "group___g_b1.html#ga44f5b3d8746dc30922cc92e778e98f16", null ],
+    [ "hasBandChanged", "group___g_b1.html#ga1b9e216739cd952c14c08815f492b723", null ],
     [ "hasStatusChanged", "group___g_b1.html#gae362404004bde2ed561a0c34604e0254", null ],
     [ "isHostDetectionBandConfig", "group___g_b1.html#ga7264a6caa7626678daef61d8f908d612", null ],
     [ "needHostPowerUp", "group___g_b1.html#ga30bf0c52c481bd7a8dd3181f683bc330", null ],

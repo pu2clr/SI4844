@@ -20,12 +20,12 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'value';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '375';
+      sec-mem-desc-line = '377';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Mutes the audio output.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-\iline 866 
+\iline 834 
 
 @param value value 0 = normal (no mute); 1 = Right side mute; 2; Left side mute; 3 = both side 
 _EnD_oF_dEf_TeXt_;
@@ -40,7 +40,7 @@ void
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'bassTrebleDown';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '373';
+      sec-mem-desc-line = '375';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Less treble, more bass.
 _EnD_oF_dEf_TeXt_;
@@ -58,7 +58,7 @@ void
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'bassTrebleUp';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '372';
+      sec-mem-desc-line = '374';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 More treble, less bass.
 _EnD_oF_dEf_TeXt_;
@@ -82,12 +82,12 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-defname = 'command';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '367';
+      sec-mem-desc-line = '369';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Up or down the sound volume level.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
- \xrefitem deprecated 1.\iline 686 
+ \xrefitem deprecated 1.\iline 654 
 
 @param command '+' up and '-' down 
 _EnD_oF_dEf_TeXt_;
@@ -141,7 +141,7 @@ true
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '558';
+      sec-mem-desc-line = '575';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Converts a number to a char array.
 _EnD_oF_dEf_TeXt_;
@@ -191,7 +191,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'showFunc';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '362';
+      sec-mem-desc-line = '364';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Used to debug  <br>
 _EnD_oF_dEf_TeXt_;
@@ -205,12 +205,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga1d119d683bed417b108ef1ccf3a2d20c';
-        sec-mem-ref-line = '991';
+        sec-mem-ref-line = '956';
         sec-mem-ref-name = 'getFirmware';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga683a81897fe79e6909817aab36622684';
-        sec-mem-ref-line = '344';
+        sec-mem-ref-line = '361';
         sec-mem-ref-name = 'reset';
     };
     }; /* sec-member */
@@ -224,7 +224,7 @@ bool
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'detectDevice';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '557';
+      sec-mem-desc-line = '574';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Checks communication with SI4844 via I2C.
 _EnD_oF_dEf_TeXt_;
@@ -248,7 +248,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '402';
+      sec-mem-desc-line = '404';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Gets all current information  of the receiver (tune freq, band, and others information, status of the device).
 _EnD_oF_dEf_TeXt_;
@@ -260,37 +260,42 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga0404927e7414a32125e32ff508bd450e';
-        sec-mem-ref-line = '1019';
+        sec-mem-ref-line = '984';
         sec-mem-ref-name = 'getFrequency';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga0eafb7b0438fb9e70c91d368929c6aed';
-        sec-mem-ref-line = '1065';
+        sec-mem-ref-line = '1030';
         sec-mem-ref-name = 'getFrequencyInteger';
     };
       sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga7b7d5a9c3005db4a246ed7a585b94889';
+        sec-mem-ref-line = '930';
+        sec-mem-ref-name = 'getValidBandIndex';
+    };
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga1b9e216739cd952c14c08815f492b723';
+        sec-mem-ref-line = '1090';
+        sec-mem-ref-name = 'hasBandChanged';
+    };
+      sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga7264a6caa7626678daef61d8f908d612';
-        sec-mem-ref-line = '952';
+        sec-mem-ref-line = '916';
         sec-mem-ref-name = 'isHostDetectionBandConfig';
     };
       sec-mem-referencedby = {
-        sec-mem-ref-id = '_s_i4844_8cpp_1gab19b2ce04e07e23275fea5889b87a201';
-        sec-mem-ref-line = '387';
-        sec-mem-ref-name = 'powerUp';
-    };
-      sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1gad91399d31b91e1b078d8f52a0cec4656';
-        sec-mem-ref-line = '488';
+        sec-mem-ref-line = '470';
         sec-mem-ref-name = 'setBand';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga11e6a2a47bb6ac3864f8c97c012c4e47';
-        sec-mem-ref-line = '531';
+        sec-mem-ref-line = '513';
         sec-mem-ref-name = 'setBandSlideSwitch';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga5c766d254b0c261a93dfd817f11b712c';
-        sec-mem-ref-line = '602';
+        sec-mem-ref-line = '570';
         sec-mem-ref-name = 'setCustomBand';
     };
     }; /* sec-member */
@@ -304,12 +309,13 @@ char *
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getBandMode';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '444';
+      sec-mem-desc-line = '448';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Get the Band Mode.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
 @return char*   "FM", "AM" or "SW"
+@see getStatusBandMode()
 _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
@@ -322,7 +328,7 @@ uint8_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getBassTreble';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '374';
+      sec-mem-desc-line = '376';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -352,7 +358,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'response';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '358';
+      sec-mem-desc-line = '360';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Returns with the command response.  <br>
 _EnD_oF_dEf_TeXt_;
@@ -375,7 +381,7 @@ uint8_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getCurrentBand';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '428';
+      sec-mem-desc-line = '431';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Gets the latest band set by the microcontroller.
 _EnD_oF_dEf_TeXt_;
@@ -394,7 +400,7 @@ bool
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getDataStatusInterruptFromDevice';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '352';
+      sec-mem-desc-line = '354';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Get the Data Status From Device.
 _EnD_oF_dEf_TeXt_;
@@ -418,7 +424,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '403';
+      sec-mem-desc-line = '405';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Get part number, chip revision, firmware, patch, and component revision numbers.
 _EnD_oF_dEf_TeXt_;
@@ -433,12 +439,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1gacd42a278c3304a591d80ae7ab351b87a';
-        sec-mem-ref-line = '301';
+        sec-mem-ref-line = '318';
         sec-mem-ref-name = 'debugDevice';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga11a97916ce91dfb5ad6f49e5156219b1';
-        sec-mem-ref-line = '236';
+        sec-mem-ref-line = '253';
         sec-mem-ref-name = 'setup';
     };
     }; /* sec-member */
@@ -452,7 +458,7 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getFirmwareChipRevision';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '551';
+      sec-mem-desc-line = '568';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -470,7 +476,7 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getFirmwareComponentMajorRevision';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '549';
+      sec-mem-desc-line = '566';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -488,7 +494,7 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getFirmwareComponentMinorRevision';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '550';
+      sec-mem-desc-line = '567';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -506,7 +512,7 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getFirmwareCTS';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '545';
+      sec-mem-desc-line = '562';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -524,7 +530,7 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getFirmwareErr';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '544';
+      sec-mem-desc-line = '561';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -542,7 +548,7 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getFirmwareMajorRevision';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '547';
+      sec-mem-desc-line = '564';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -560,7 +566,7 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getFirmwareMinorRevision';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '548';
+      sec-mem-desc-line = '565';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -578,7 +584,7 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getFirmwarePartNumber';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '546';
+      sec-mem-desc-line = '563';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -596,7 +602,7 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getFirmwareReserved';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '543';
+      sec-mem-desc-line = '560';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -632,7 +638,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '559';
+      sec-mem-desc-line = '576';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Gets Formatted Frequency.
 _EnD_oF_dEf_TeXt_;
@@ -657,7 +663,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '417';
+      sec-mem-desc-line = '419';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Get the current frequency of the radio in KHz.
 _EnD_oF_dEf_TeXt_;
@@ -668,7 +674,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
-        sec-mem-ref-line = '918';
+        sec-mem-ref-line = '885';
         sec-mem-ref-name = 'getAllReceiverInfo';
     };
     }; /* sec-member */
@@ -687,7 +693,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '418';
+      sec-mem-desc-line = '420';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Get the current frequency of the radio in KHz in uint32_t (long integer) .
 _EnD_oF_dEf_TeXt_;
@@ -699,7 +705,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
-        sec-mem-ref-line = '918';
+        sec-mem-ref-line = '885';
         sec-mem-ref-name = 'getAllReceiverInfo';
     };
     }; /* sec-member */
@@ -719,7 +725,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'propertyNumber';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '356';
+      sec-mem-desc-line = '358';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Gets a given property from the SI4844.
 _EnD_oF_dEf_TeXt_;
@@ -743,7 +749,7 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getRawChannelFrequency';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '506';
+      sec-mem-desc-line = '537';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Gets the Channel Frequency.
 _EnD_oF_dEf_TeXt_;
@@ -767,7 +773,7 @@ si4844_device_status *
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getStatus';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '401';
+      sec-mem-desc-line = '403';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Gets current status of the device.
 _EnD_oF_dEf_TeXt_;
@@ -777,6 +783,11 @@ _EnD_oF_dEf_TeXt_;
 \ilinebr\ilinebr this method updates the first byte of all_receiver_status member variable
 @return  pointer to a structure type si4844_device_status
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referencedby = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1gaed9e80832b8f991bdce9235eae3a069c';
+        sec-mem-ref-line = '188';
+        sec-mem-ref-name = 'setupSlideSwitch';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -788,7 +799,7 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getStatusBandIndex';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '536';
+      sec-mem-desc-line = '553';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Gets the current Band Index Detected.
 _EnD_oF_dEf_TeXt_;
@@ -806,12 +817,13 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getStatusBandMode';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '529';
+      sec-mem-desc-line = '546';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Gets the current Band Mode.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
 @return 0 = FM mode; 1 = AM mode; 2 = SW mode
+@see getBandMode()
 _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
@@ -824,12 +836,13 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getStatusBCFG0';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '459';
+      sec-mem-desc-line = '466';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Gets Band CFG0 (Band Detection Configuration).
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
  0 = ATDD device detects band; 1 = Host detects band
+\ilinebr\ilinebr <strong>Call getStatus or getAllReceiverInfo before calling this function</strong> 
 @return 0 = ATDD device detects band; 1 = Host detects band
 _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
@@ -843,11 +856,12 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getStatusBCFG1';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '466';
+      sec-mem-desc-line = '474';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Gets Band CFG1 (Band Properties Priority)
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+ <strong>Call getStatus or getAllReceiverInfo before calling this function</strong> 
 @return 0 = ATDD device accepts host customized band properties; 1 = ATDD device ignores host customized band properties
 _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
@@ -861,7 +875,7 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getStatusCTS';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '540';
+      sec-mem-desc-line = '557';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -879,7 +893,7 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getStatusInformationReady';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '493';
+      sec-mem-desc-line = '505';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Gets Information Ready.
 _EnD_oF_dEf_TeXt_;
@@ -888,6 +902,7 @@ _EnD_oF_dEf_TeXt_;
 \ilinebr\ilinebr station, or stereo statuses until the INFORDY bit is set.
 \ilinebr\ilinebr The host controller should not display the channel frequency when CHFREQ remains zero even when INFORDY=1.
 \ilinebr\ilinebr 0 = Tune info not ready yet; 1 = Tune info ready (i.e., Band mode, band index, channel frequency, sta-tion, and stereo indicators)
+\ilinebr\ilinebr <strong>Call getStatus or getAllReceiverInfo before calling this function</strong> 
 @return 0 = Tune info not ready yet; 1 = Tune info ready 
 _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
@@ -901,11 +916,12 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getStatusStationIndicator';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '482';
+      sec-mem-desc-line = '493';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Gets Station Indicator.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+ <strong>Call getStatus or getAllReceiverInfo before calling this function</strong> 
 @return 0 = Invalid Station; 1 = Valid Station
 _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
@@ -919,13 +935,15 @@ uint16_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getStatusStereo';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '474';
+      sec-mem-desc-line = '484';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Gets Stereo indicator.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
- Applicable to Si4840/44 parts FM function only.
+ Applicable to Si4840/44 parts FM function only (id does not make sense for Si4827).
+\ilinebr\ilinebr <strong>Call getStatus or getAllReceiverInfo before calling this function</strong>  <br>
 @return 0 = Stereo off; 1 = Stereo on
+@see getStereoIndicator()
 _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
@@ -938,12 +956,14 @@ char *
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getStereoIndicator';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '451';
+      sec-mem-desc-line = '457';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Get the Stereo Indicator.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+ <strong>Call getStatus or getAllReceiverInfo before calling this function</strong>    <br>
 @return char* "ON" or "OFF" 
+@see getStatusStereo()
 _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
@@ -956,7 +976,7 @@ int8_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getValidBandIndex';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '406';
+      sec-mem-desc-line = '408';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Retrieves the current valid BAND INDEX.  <br>
 _EnD_oF_dEf_TeXt_;
@@ -965,6 +985,11 @@ _EnD_oF_dEf_TeXt_;
 \ilinebr\ilinebr Once INFORDY is 1, the host can read and display the current status, including band mode, station, and stereo states.  <br>
 @return  The current valid BANDIDX.  <br>
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
+        sec-mem-ref-line = '885';
+        sec-mem-ref-name = 'getAllReceiverInfo';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -976,12 +1001,12 @@ uint8_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getVolume';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '436';
+      sec-mem-desc-line = '439';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Gets the current audio volume level.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-\iline 432 
+\iline 435 
 
 @return Volume level 
 _EnD_oF_dEf_TeXt_;
@@ -996,7 +1021,7 @@ uint8_t
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getVolumeProperty';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '437';
+      sec-mem-desc-line = '440';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Gets the current volume value stored in SI4844 device.
 _EnD_oF_dEf_TeXt_;
@@ -1004,6 +1029,36 @@ _EnD_oF_dEf_TeXt_;
  Use getVolume instead. 
 @return byte 
 _EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'group___g_b1_1ga1b9e216739cd952c14c08815f492b723';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+bool
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'hasBandChanged';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+void
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
+      sec-mem-desc-line = '422';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Checks whether the current band detected by the device changed.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+ When the Slide Switch is moved by the user, the system have to process it
+
+ @return True if the user moved the Slide Switch
+_EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
+        sec-mem-ref-line = '885';
+        sec-mem-ref-name = 'getAllReceiverInfo';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -1020,7 +1075,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '419';
+      sec-mem-desc-line = '421';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Checks whether the SI4844 has its status changed.
 _EnD_oF_dEf_TeXt_;
@@ -1041,7 +1096,7 @@ bool
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'isHostDetectionBandConfig';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '405';
+      sec-mem-desc-line = '407';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Band CFG0 (Band Detection Configuration)
 _EnD_oF_dEf_TeXt_;
@@ -1055,7 +1110,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
-        sec-mem-ref-line = '918';
+        sec-mem-ref-line = '885';
         sec-mem-ref-name = 'getAllReceiverInfo';
     };
     }; /* sec-member */
@@ -1075,6 +1130,7 @@ Checks Host Power Up Status.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
  if True, the system needs to Power Up the device 
+\ilinebr\ilinebr <strong>Call getStatus or getAllReceiverInfo before calling this function</strong>  <br>
 @return True: issue the ATDD_POWER_UP command with the valid band index detected. 
 _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
@@ -1088,12 +1144,13 @@ bool
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'needHostReset';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '522';
+      sec-mem-desc-line = '523';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Checks HOST Reset Status  <br>
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
  Check if the host (microcontroler) needs to reset the device.
+\ilinebr\ilinebr <strong>Call getStatus or getAllReceiverInfo before calling this function</strong>      <br>
 @return  True or False.
 _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
@@ -1112,7 +1169,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '414';
+      sec-mem-desc-line = '416';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Power the device down.
 _EnD_oF_dEf_TeXt_;
@@ -1136,7 +1193,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '415';
+      sec-mem-desc-line = '417';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Power the device up.
 _EnD_oF_dEf_TeXt_;
@@ -1144,19 +1201,9 @@ _EnD_oF_dEf_TeXt_;
  \xrefitem todo 2.\ilinebr\ilinebr Moves the SI4844 device from power down to power up 
 @see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
 _EnD_oF_dEf_TeXt_;
-      sec-mem-referenceto = {
-        sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
-        sec-mem-ref-line = '918';
-        sec-mem-ref-name = 'getAllReceiverInfo';
-    };
-      sec-mem-referenceto = {
-        sec-mem-ref-id = '_s_i4844_8cpp_1ga683a81897fe79e6909817aab36622684';
-        sec-mem-ref-line = '344';
-        sec-mem-ref-name = 'reset';
-    };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1gaed9e80832b8f991bdce9235eae3a069c';
-        sec-mem-ref-line = '187';
+        sec-mem-ref-line = '188';
         sec-mem-ref-name = 'setupSlideSwitch';
     };
     }; /* sec-member */
@@ -1175,7 +1222,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '363';
+      sec-mem-desc-line = '365';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Resets the SI4844 device.
 _EnD_oF_dEf_TeXt_;
@@ -1185,37 +1232,32 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1gacd42a278c3304a591d80ae7ab351b87a';
-        sec-mem-ref-line = '301';
+        sec-mem-ref-line = '318';
         sec-mem-ref-name = 'debugDevice';
     };
       sec-mem-referencedby = {
-        sec-mem-ref-id = '_s_i4844_8cpp_1gab19b2ce04e07e23275fea5889b87a201';
-        sec-mem-ref-line = '387';
-        sec-mem-ref-name = 'powerUp';
-    };
-      sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1gad91399d31b91e1b078d8f52a0cec4656';
-        sec-mem-ref-line = '488';
+        sec-mem-ref-line = '470';
         sec-mem-ref-name = 'setBand';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga11e6a2a47bb6ac3864f8c97c012c4e47';
-        sec-mem-ref-line = '531';
+        sec-mem-ref-line = '513';
         sec-mem-ref-name = 'setBandSlideSwitch';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga5c766d254b0c261a93dfd817f11b712c';
-        sec-mem-ref-line = '602';
+        sec-mem-ref-line = '570';
         sec-mem-ref-name = 'setCustomBand';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga11a97916ce91dfb5ad6f49e5156219b1';
-        sec-mem-ref-line = '236';
+        sec-mem-ref-line = '253';
         sec-mem-ref-name = 'setup';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1gaed9e80832b8f991bdce9235eae3a069c';
-        sec-mem-ref-line = '187';
+        sec-mem-ref-line = '188';
         sec-mem-ref-name = 'setupSlideSwitch';
     };
     }; /* sec-member */
@@ -1234,7 +1276,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '420';
+      sec-mem-desc-line = '423';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 set the interrupr status to false. It will turn true after next interrupr  <br>
 _EnD_oF_dEf_TeXt_;
@@ -1264,7 +1306,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'limit';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '556';
+      sec-mem-desc-line = '573';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Scans the I2C bus and returns the addresses of the devices found.
 _EnD_oF_dEf_TeXt_;
@@ -1302,7 +1344,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'parameter';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '357';
+      sec-mem-desc-line = '359';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sends a given command to the SI4844 device.
 _EnD_oF_dEf_TeXt_;
@@ -1333,7 +1375,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'value';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '378';
+      sec-mem-desc-line = '380';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets AM Soft Mute Max Attenuation..  <br>
 _EnD_oF_dEf_TeXt_;
@@ -1359,7 +1401,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'value';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '384';
+      sec-mem-desc-line = '386';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets the attack and decay rates when entering or leaving soft mute.
 _EnD_oF_dEf_TeXt_;
@@ -1389,7 +1431,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'value';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '385';
+      sec-mem-desc-line = '387';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Configures attenuation slope during soft mute in dB attenuation per dB SNR below the soft mute SNR threshold.
 _EnD_oF_dEf_TeXt_;
@@ -1418,7 +1460,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'value';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '386';
+      sec-mem-desc-line = '388';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets the SNR threshold to engage soft mute.
 _EnD_oF_dEf_TeXt_;
@@ -1470,12 +1512,12 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'opcode';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '399';
+      sec-mem-desc-line = '401';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Set audio mode.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-\iline 810 
+\iline 778 
 
 @see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 21
 
@@ -1515,12 +1557,12 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'on';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '376';
+      sec-mem-desc-line = '378';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Mutes the audio output.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-\iline 877 
+\iline 845 
 
 @param bool on false = normal (no mute); true = mute 
 _EnD_oF_dEf_TeXt_;
@@ -1544,7 +1586,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '364';
+      sec-mem-desc-line = '366';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets a new band to the device.
 _EnD_oF_dEf_TeXt_;
@@ -1557,12 +1599,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
-        sec-mem-ref-line = '918';
+        sec-mem-ref-line = '885';
         sec-mem-ref-name = 'getAllReceiverInfo';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga683a81897fe79e6909817aab36622684';
-        sec-mem-ref-line = '344';
+        sec-mem-ref-line = '361';
         sec-mem-ref-name = 'reset';
     };
     }; /* sec-member */
@@ -1576,7 +1618,7 @@ void
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'setBandSlideSwitch';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '365';
+      sec-mem-desc-line = '367';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets a new band to the device configured as Slide Switch.
 _EnD_oF_dEf_TeXt_;
@@ -1587,17 +1629,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
-        sec-mem-ref-line = '918';
+        sec-mem-ref-line = '885';
         sec-mem-ref-name = 'getAllReceiverInfo';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga683a81897fe79e6909817aab36622684';
-        sec-mem-ref-line = '344';
+        sec-mem-ref-line = '361';
         sec-mem-ref-name = 'reset';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1gaed9e80832b8f991bdce9235eae3a069c';
-        sec-mem-ref-line = '187';
+        sec-mem-ref-line = '188';
         sec-mem-ref-name = 'setupSlideSwitch';
     };
     }; /* sec-member */
@@ -1617,12 +1659,12 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'bass_treble';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '371';
+      sec-mem-desc-line = '373';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Set the sound volume level, bass and treble.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-\iline 764 
+\iline 732 
 
 <table class="markdownTable">
   <tr class="markdownTableHead">    <th class="markdownTableHeadNone"> bass_treble \ilinebr </th>    <th class="markdownTableHeadNone"> Description \ilinebr </th>  </tr>
@@ -1656,7 +1698,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'value';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '389';
+      sec-mem-desc-line = '391';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets the blend threshold for stereo indicator.
 _EnD_oF_dEf_TeXt_;
@@ -1683,7 +1725,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'XOSCEN';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '391';
+      sec-mem-desc-line = '393';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets Crystal Oscillator Enable.
 _EnD_oF_dEf_TeXt_;
@@ -1712,7 +1754,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'XOWAIT';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '392';
+      sec-mem-desc-line = '394';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets Crystal Oscillator Stabilization Wait Time After Reset.
 _EnD_oF_dEf_TeXt_;
@@ -1786,7 +1828,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '410';
+      sec-mem-desc-line = '412';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 This method allows you to customize the frequency range of a band.
 _EnD_oF_dEf_TeXt_;
@@ -1808,12 +1850,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
-        sec-mem-ref-line = '918';
+        sec-mem-ref-line = '885';
         sec-mem-ref-name = 'getAllReceiverInfo';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga683a81897fe79e6909817aab36622684';
-        sec-mem-ref-line = '344';
+        sec-mem-ref-line = '361';
         sec-mem-ref-name = 'reset';
     };
     }; /* sec-member */
@@ -1833,7 +1875,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'bandidx';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '412';
+      sec-mem-desc-line = '414';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -1857,7 +1899,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'value';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '380';
+      sec-mem-desc-line = '382';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets de-emphasis time constant.
 _EnD_oF_dEf_TeXt_;
@@ -1883,7 +1925,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'value';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '379';
+      sec-mem-desc-line = '381';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 FM Soft Mute Maximum Attenuation.
 _EnD_oF_dEf_TeXt_;
@@ -1909,7 +1951,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'value';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '381';
+      sec-mem-desc-line = '383';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets the attack and decay rates when entering and leaving soft mute.
 _EnD_oF_dEf_TeXt_;
@@ -1936,7 +1978,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'value';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '382';
+      sec-mem-desc-line = '384';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Configures attenuation slope during soft mute in dB attenuation per dB SNR below the soft mute SNR threshold.
 _EnD_oF_dEf_TeXt_;
@@ -1964,7 +2006,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'interruptPin';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '554';
+      sec-mem-desc-line = '571';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets the MCU Interrupt pin.
 _EnD_oF_dEf_TeXt_;
@@ -1994,7 +2036,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'parameter';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '355';
+      sec-mem-desc-line = '357';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sends (sets) property to the SI48XX.
 _EnD_oF_dEf_TeXt_;
@@ -2023,7 +2065,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'value';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '393';
+      sec-mem-desc-line = '395';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets the frequency of the REFCLK from the output of the prescaler.
 _EnD_oF_dEf_TeXt_;
@@ -2051,7 +2093,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'value';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '394';
+      sec-mem-desc-line = '396';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets the number used by the prescaler to divide the external reference clock frequency down to the internal REFCLK.
 _EnD_oF_dEf_TeXt_;
@@ -2080,7 +2122,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'resetPin';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '553';
+      sec-mem-desc-line = '570';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets the MCU RESET pin.
 _EnD_oF_dEf_TeXt_;
@@ -2104,7 +2146,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'value';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '344';
+      sec-mem-desc-line = '346';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Set the Data Status From Device.
 _EnD_oF_dEf_TeXt_;
@@ -2155,7 +2197,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '361';
+      sec-mem-desc-line = '363';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Initiates the SI4844 instance and connect the device (SI4844) to Arduino.
 _EnD_oF_dEf_TeXt_;
@@ -2170,12 +2212,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga1d119d683bed417b108ef1ccf3a2d20c';
-        sec-mem-ref-line = '991';
+        sec-mem-ref-line = '956';
         sec-mem-ref-name = 'getFirmware';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga683a81897fe79e6909817aab36622684';
-        sec-mem-ref-line = '344';
+        sec-mem-ref-line = '361';
         sec-mem-ref-name = 'reset';
     };
     }; /* sec-member */
@@ -2210,7 +2252,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '360';
+      sec-mem-desc-line = '362';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Initiates the SI48XX instance and connect the device (SI4844) to a microcontroller.
 _EnD_oF_dEf_TeXt_;
@@ -2227,18 +2269,23 @@ _EnD_oF_dEf_TeXt_;
 @param hightClockSpeed hight I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
+        sec-mem-ref-id = '_s_i4844_8cpp_1ga3ddc72e37495309f61cfce89b4bce24d';
+        sec-mem-ref-line = '866';
+        sec-mem-ref-name = 'getStatus';
+    };
+      sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1gab19b2ce04e07e23275fea5889b87a201';
-        sec-mem-ref-line = '387';
+        sec-mem-ref-line = '404';
         sec-mem-ref-name = 'powerUp';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga683a81897fe79e6909817aab36622684';
-        sec-mem-ref-line = '344';
+        sec-mem-ref-line = '361';
         sec-mem-ref-name = 'reset';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga11e6a2a47bb6ac3864f8c97c012c4e47';
-        sec-mem-ref-line = '531';
+        sec-mem-ref-line = '513';
         sec-mem-ref-name = 'setBandSlideSwitch';
     };
     }; /* sec-member */
@@ -2258,7 +2305,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-defname = 'volumeLavel';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '370';
+      sec-mem-desc-line = '372';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets the volume level.
 _EnD_oF_dEf_TeXt_;
@@ -2283,7 +2330,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '369';
+      sec-mem-desc-line = '371';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Decreases the volume level.
 _EnD_oF_dEf_TeXt_;
@@ -2306,7 +2353,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '368';
+      sec-mem-desc-line = '370';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Increases the volume level.
 _EnD_oF_dEf_TeXt_;
@@ -2332,7 +2379,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '323';
+      sec-mem-desc-line = '325';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Checks the CTS status.
 _EnD_oF_dEf_TeXt_;
@@ -2352,7 +2399,7 @@ void
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'setClockHigh';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '319';
+      sec-mem-desc-line = '321';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets I2C bus speed to hight previous defined speed.
 _EnD_oF_dEf_TeXt_;
@@ -2375,7 +2422,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '312';
+      sec-mem-desc-line = '314';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets I2C bus speed to 10kHz.
 _EnD_oF_dEf_TeXt_;
@@ -2399,7 +2446,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'clock';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '306';
+      sec-mem-desc-line = '308';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Sets hight clock speed to be used on I2C bus.
 _EnD_oF_dEf_TeXt_;
@@ -2422,7 +2469,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '322';
+      sec-mem-desc-line = '324';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Waiting for an external interrupt.
 _EnD_oF_dEf_TeXt_;
@@ -2446,7 +2493,7 @@ void
 _EnD_oF_dEf_TeXt_;
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '324';
+      sec-mem-desc-line = '326';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Wait for the ATDD become Clear to Send.
 _EnD_oF_dEf_TeXt_;
@@ -2488,7 +2535,7 @@ _EnD_oF_dEf_TeXt_;
 = {"FM", "AM", "SW"}
 _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '328';
+      sec-mem-desc-line = '330';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2509,7 +2556,7 @@ _EnD_oF_dEf_TeXt_;
 = 4
 _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '333';
+      sec-mem-desc-line = '335';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2641,10 +2688,10 @@ const char *
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'stereo_indicator_table';
       sec-mem-initializer = <<_EnD_oF_dEf_TeXt_
-= {"Off","On "}
+= {"ST","MO"}
 _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '329';
+      sec-mem-desc-line = '331';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2662,7 +2709,28 @@ char
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'strFormattedCurrentFrequenct';
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '330';
+      sec-mem-desc-line = '332';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'class_s_i4844_1abbfca8eaf7af6c175ac8d377ce16ccb2';
+      sec-mem-virt = normal;
+      sec-mem-prot = private;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+uint8_t
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'system_error';
+      sec-mem-initializer = <<_EnD_oF_dEf_TeXt_
+= 0
+_EnD_oF_dEf_TeXt_;
+      sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
+      sec-mem-desc-line = '300';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2683,7 +2751,7 @@ _EnD_oF_dEf_TeXt_;
 = 30
 _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
-      sec-mem-desc-line = '332';
+      sec-mem-desc-line = '334';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
