@@ -1,3 +1,20 @@
+
+Documentation - AN602
+
+
+3.4. Si4822/26/40/44 Application Circuits: Slide Switch Select Band and
+Use Default Band Property
+Figure 7shows an application circuit that uses a slide switch for band selection. In this example, the host MCU
+cannot change those band properties already fixed in the default band definition, as stated in section 2.1, it can
+only define the band properties which are not fixed in the default band definition, such as softmute property, etc.
+For more details, refer to “AN610: Si48xx ATDD Programming Guide”. The two key points to ensure
+Si4822/26/40/44 works properly are as follows:
+1. Add pull-up resistor R42 of 10 k to pin 1 LNA_EN.
+2. Pin 5 BAND is connected to slide switch.
+
+
+Documentation - AN610
+
 Steps to control the device with  "ATDD device detects the band" mode configuration
 
 5.1.1. Power-On Sequence
