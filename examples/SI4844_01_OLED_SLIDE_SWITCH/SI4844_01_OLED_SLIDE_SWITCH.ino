@@ -60,7 +60,7 @@
    Pre-defined Band Table - See the SI48XX ATDD - PROGRAMMING GUIDE page 17.
 */
 
-String tabBand[] = { "FM1", "FM1", "FM1", "FM1", "FM2", "FM2", "FM2", "FM2", "FM3", "FM3", "FM3", "FM3", "FM4", "FM4", "FM4", "FM4", "FM5", "FM5", "FM5", "FM5",
+String tabBand[] = { "FM1", "FM2", "FM3", "FM4", "FM5", "FM6", "FM7", "FM8", "FM9", "FM10", "FM11", "FM12", "FM13", "FM14", "FM15", "FM16", "FM17", "FM18", "FM19", "FM20",
                      "AM1", "AM2", "AM3", "AM4", "AM5",
                      "SW1", "SW2", "SW3", "SW4", "SW54", "AM6", "SW7", "SW8", "SW9", "SW10", "SW11", "AM12", "SW13", "SW14", "SW15", "SW16" };
 
@@ -127,7 +127,7 @@ void displayDial() {
   bandIdx = rx.getCurrentBand();
 
 
-  display.setCursor(90, 0);
+  display.setCursor(80, 0);
   display.print(bandIdx);
   display.print("-");
   display.print(tabBand[bandIdx]);
