@@ -21,18 +21,19 @@
  *
  *  Arduino and SI48XX pin connections
  *
- *  | SI4844 pin | Arduino pin |  Description                                       |
- *  | ---------  | ------------  | -------------------------------------------------  |
- *  |    2       |  2            | Arduino interrupt pin                            |
- *  |   15       |  12           | RESET                                              |
- *  |   16       |  A4 (SDA)     | I2C bus (Data)                                     |
- *  |   17       |  A5 (SCL)     | I2C bus (Clock)                                    | 
- *  | -----------| ------------- | ---------------------------------------------------|
- *  |  OLED      |               |                                                    |
- *  | -----------| ------------- | ---------------------------------------------------|                        
- *  |   SDA      |  A4           | It shares the I2C bus with the SI4844              |
- *  |   CLK      |  A5           | It shares the I2C bus with the SI4844              |       
- *  | -----------| ------------- | ---------------------------------------------------|
+ *  | SI4844 pin | Arduino pin |  Description                          |
+ *  | ---------  | ------------| ------------------------------------- |
+ *  |    2       |  2          | Arduino interrupt pin                 |
+ *  |   15       |  12         | RESET                                 |
+ *  |   16       |  A4 (SDA)   | I2C bus (Data)                        |
+ *  |   17       |  A5 (SCL)   | I2C bus (Clock)                       | 
+ *  | -----------| ------------| --------------------------------------|
+ *  |  OLED      |             |                                       |
+ *  | -----------| ------------| --------------------------------------|                        
+ *  |   SDA      |  A4         | It shares the I2C bus with the SI4844 |
+ *  |   CLK      |  A5         | It shares the I2C bus with the SI4844 |       
+ *  | -----------| ------------| --------------------------------------|
+ *  |  Tune LED  |  10         | Optional Tune LED                     |  
  *
  *  Author: Ricardo Lima Caratti (PU2CLR)
  *  Oct, 2019
@@ -53,6 +54,7 @@
 
 // Arduino Pin (tested on pro mini)
 #define INTERRUPT_PIN 2
+#define TUNE_LED 10
 #define RESET_PIN 12
 
 
@@ -79,6 +81,8 @@ int8_t newBand;
 
 void setup() {
 
+  pinMode(TUNE_LED, OUTPUT);
+
   display.begin(SSD1306_SWITCHCAPVCC, I2C_ADDRESS);  // Address 0x3C for 128x32
 
   // display.display();
@@ -93,7 +97,7 @@ void setup() {
   rx.setupSlideSwitch(RESET_PIN, INTERRUPT_PIN);
 
   // You must calibrate the default volume
-  rx.setVolume(50);
+  rx.setVolume(58);
   delay(100);
   displayDial();
 }
@@ -119,10 +123,14 @@ void displayDial() {
   display.print(rx.getBandMode());
 
   display.setCursor(48, 0);
-  if (rx.getStatusStationIndicator() != 0)
+  if (rx.getStatusStationIndicator() != 0) {
     display.print("OK");
-  else
+    digitalWrite(TUNE_LED, HIGH);
+  }
+  else {
     display.print("  ");
+    digitalWrite(TUNE_LED, LOW);    
+  }
 
   bandIdx = rx.getCurrentBand();
 
