@@ -58,6 +58,11 @@ The circuit below illustrates a more complete version of a receiver based on the
 
 
 
+## Prototype 
+
+![Prototype](./PH_01.jpg)
+
+
 # References: 
   
 * Si4844-B DEMO BOARD USER’S GUIDE 
