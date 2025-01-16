@@ -35,6 +35,15 @@
  *  | -----------| ------------| --------------------------------------|
  *  |  Tune LED  |  10         | Optional Tune LED                     |  
  *
+ *  Important: In this configuration, when using a slide switch or a rotary band switch, 
+ *             the BAND pin of the Si48XX must be connected to the band switch instead of +VCC. 
+ *             The BAND pin connected to the +VCC should be used if you want to select the band 
+ *             via microcontroller using a push button or similar device.
+ *             Also, take note of the LNA_EN pin: if it is pulled up with a 10K resistor, 
+ *             the Si48XX will use the default parameters for the selected bands. 
+ *             However, if the LNA_EN pin is left floating (not connected), the microcontroller can 
+ *             apply custom parameters, such as lower and upper frequency limits. 
+ *
  *  Author: Ricardo Lima Caratti (PU2CLR)
  *  Oct, 2019
  * 
