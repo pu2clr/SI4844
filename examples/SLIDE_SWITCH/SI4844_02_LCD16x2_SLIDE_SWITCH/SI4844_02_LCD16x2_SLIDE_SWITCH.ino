@@ -54,12 +54,7 @@
 
 #define RESET_PIN 12
 #define INTERRUPT_PIN 2
-
-#define BAND_UP     8 // Next Band
-#define BAND_DOWN   9 // Previous Band
-#define VOL_UP     10 // Volume Volume Up
-#define VOL_DOWN   11 // Volume Down
-#define TOGGLE_VOL 14 
+#define TUNE_LED 10
 
 // LCD 16x02 or LCD20x4 PINs
 #define LCD_D7 7
@@ -89,16 +84,11 @@ char *stmo[] = {(char *) "Mo", (char *) "St"};
 
 LiquidCrystal display(LCD_RS, LCD_E, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
 
-
 SI4844 rx;
 
 void setup() {
 
-  pinMode(BAND_UP, INPUT_PULLUP);
-  pinMode(BAND_DOWN, INPUT_PULLUP);
-  pinMode(VOL_UP, INPUT_PULLUP);
-  pinMode(VOL_DOWN, INPUT_PULLUP);
-  pinMode(TOGGLE_VOL, INPUT_PULLUP);
+  pinMode(TUNE_LED, OUTPUT);
 
   display.begin(16, 2);
 
@@ -142,10 +132,15 @@ void showStatus() {
     display.print(stmo[rx.getStatusStereo()]);
   }
 
+  display.setCursor(7, 0); 
   if ( rx.getStatusStationIndicator() != 0) {
-      display.setCursor(7, 0); 
       display.print((char *)"OK");
+      digitalWrite(TUNE_LED, HIGH);
+  } else { 
+      display.print((char *)"  ");
+      digitalWrite(TUNE_LED, LOW);
   }
+
 
   display.setCursor(5, 1);
   display.print(rx.getFormattedFrequency(2,'.'));  
