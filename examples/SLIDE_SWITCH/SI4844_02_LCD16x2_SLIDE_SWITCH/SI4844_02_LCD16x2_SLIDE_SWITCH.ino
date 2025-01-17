@@ -104,12 +104,21 @@ void setup() {
 
 }
 
+uint32_t oldFrequency = 0L;
+uint8_t oldStationIndicator = 99;
 
 void showStatus() {
 
   String unit, freqDisplay, stereo;
 
+  uint32_t currentFrequency = rx.getFrequencyInteger(); 
+  uint8_t currentStationIndicator = rx.getStatusStationIndicator();
+
+  if ( oldFrequency == currentFrequency &&  oldStationIndicator == currentStationIndicator) return;
   
+  oldFrequency = currentFrequency; 
+  oldStationIndicator = currentStationIndicator;
+
   display.clear();
 
   display.setCursor(0, 0);
@@ -133,7 +142,7 @@ void showStatus() {
   }
 
   display.setCursor(7, 0); 
-  if ( rx.getStatusStationIndicator() != 0) {
+  if ( currentStationIndicator != 0) {
       display.print((char *)"OK");
       digitalWrite(TUNE_LED, HIGH);
   } else { 
@@ -156,6 +165,8 @@ void loop() {
 
   if (rx.hasStatusChanged()) {
     if (rx.hasBandChanged()) {
+      oldFrequency = 0;
+      oldStationIndicator = 99;
       rx.setBandSlideSwitch();
     }
 
