@@ -63,6 +63,17 @@ The circuit below illustrates a more complete version of a receiver based on the
 ![Prototype](./PH_01.jpg)
 
 
+
+## Simplified Wiring for Band Selection and Tuning Potentiometer Integration
+
+For the version with band selection using a Band Switch, the diagram below suggests using four wires to connect the 100K tuning potentiometer and the band switch. These components can be mounted outside the main board, on a panel, and connected to the main board using only four wires.
+
+In the circuit suggested by the manufacturer, note that the TUNE1 and GND pins are shared between the band switch and the potentiometer, while the TUNE2 and BAND pins are connected to the center tops of the potentiometer and the band switch, respectively.
+
+![Simplified Wiring for Band Selection and Tuning Potentiometer Integration](../../extras/KiCad/SI4844_TUNE_AND_BAND_SWitCH_BOARD.jpg)
+
+
+
 # References: 
   
 * Si4844-B DEMO BOARD USER’S GUIDE 
