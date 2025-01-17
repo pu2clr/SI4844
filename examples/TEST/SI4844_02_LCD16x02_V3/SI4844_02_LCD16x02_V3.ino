@@ -3,7 +3,11 @@
   This sketch compiles on the Arduino Nano, Uno, Pro Mini, and LGT8F328 (LGT8Fx board manager), 
   as well as on the ATmega328 standalone (MiniCore board manager).
 
-  
+
+  This version with a 16x2 LCD uses four buttons for band selection: the first for FM, the second 
+  for AM, and the others for SW1 and SW2, covering 5.9 to 22 MHz.
+
+
   This sketch uses the EEPROM to store the last band used and the audio level. 
   This way, the radio will start on the band you were using when it was last turned off. 
   To reset the EEPROM, turn on the radio while holding down the "Next Band (BT_FM_BAND)" button.
