@@ -25,6 +25,15 @@ arduino-cli compile -b arduino:avr:nano ./SI4844_04_NOKIA5110 --output-dir ~/Dow
 arduino-cli compile -b arduino:avr:nano ./TEST/SI4844_BASS_TREBLE --output-dir ~/Downloads/hex/atmega/SI4844_BASS_TREBLE  --warnings all
 arduino-cli compile -b arduino:avr:nano ./TEST/SI4844_CUSTOM_BAND --output-dir ~/Downloads/hex/atmega/SI4844_CUSTOM_BAND  --warnings all
 arduino-cli compile -b arduino:avr:nano ./TEST/SI4844_FIRMWARE --output-dir ~/Downloads/hex/atmega/SI4844_FIRMWARE  --warnings all
+arduino-cli compile -b arduino:avr:nano ./SLIDE_SWITCH/SI4844_01_OLED_SLIDE_SWITCH  --output-dir ~/Downloads/hex/atmega/SLIDE_SWITCH_OLED  --warnings all
+arduino-cli compile -b arduino:avr:nano ./SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH  --output-dir ~/Downloads/hex/atmega/SLIDE_SWITCH_LCD16x2  --warnings all
+
+
+echo "********************"
+echo "ATmega MiniCore - Standalone" 
+echo "********************"
+arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto  ./SLIDE_SWITCH/SI4844_01_OLED_SLIDE_SWITCH  --output-dir ~/Downloads/hex/minicore/SLIDE_SWITCH_OLED  --warnings all
+arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto  ./SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH  --output-dir ~/Downloads/hex/minicore/SLIDE_SWITCH_LCD16x2  --warnings all
 
 
 
@@ -41,8 +50,8 @@ arduino-cli compile -b lgt8fx:avr:328 ./SI4844_04_NOKIA5110 --output-dir ~/Downl
 arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_BASS_TREBLE --output-dir ~/Downloads/hex/ltg/SI4844_BASS_TREBLE  --warnings all
 arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_CUSTOM_BAND --output-dir ~/Downloads/hex/ltg/SI4844_CUSTOM_BAND  --warnings all
 arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_FIRMWARE --output-dir ~/Downloads/hex/ltg/SI4844_FIRMWARE  --warnings all
-
-
+arduino-cli compile -b lgt8fx:avr:328 ./SLIDE_SWITCH/SI4844_01_OLED_SLIDE_SWITCH  --output-dir ~/Downloads/hex/ltg/SLIDE_SWITCH_OLED  --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH  --output-dir ~/Downloads/hex/ltg/SLIDE_SWITCH_LCD16x2  --warnings all
 
 
 echo "********************"
