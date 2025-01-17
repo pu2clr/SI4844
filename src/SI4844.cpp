@@ -494,7 +494,7 @@ void SI4844::setBand(byte new_band)
     waitInterrupt();
 
     delayMicroseconds(2500);
-    getAllReceiverInfo();
+    this->getAllReceiverInfo();
     delayMicroseconds(2500);
 
     this->setVolume(this->volume);
@@ -511,7 +511,7 @@ void SI4844::setBand(byte new_band)
 void SI4844::setBandSlideSwitch()
 {
 
-   this->getAllReceiverInfo();
+    this->getAllReceiverInfo();
     this->currentBand = this->all_receiver_status.refined.BANDIDX;
 
    // If band mode changed, reset the device. 
@@ -992,7 +992,7 @@ si4844_firmware_response *SI4844::getFirmware(void)
  */
 float SI4844::getFrequency(void)
 {
-    getAllReceiverInfo();
+    this->getAllReceiverInfo();
     int addFactor = 0;
     int multFactor = 1;
     // Check CHFREQ bit[15] MSB = 1
@@ -1038,7 +1038,7 @@ float SI4844::getFrequency(void)
  */
 uint32_t SI4844::getFrequencyInteger(void)
 {
-    getAllReceiverInfo();
+    this->getAllReceiverInfo();
     int addFactor = 0;
     int multFactor = 1;
     // Check CHFREQ bit[15] MSB = 1
