@@ -70,8 +70,6 @@
 
 #define MINIMUM_DELAY 200
 
-long elapsedButton = millis();
-bool toggle = true;
 
 // EEPROM - Stroring control variables
 const uint8_t app_id = 44;  // Useful to check the EEPROM content before processing useful data
@@ -85,13 +83,7 @@ int8_t bandIdx = 0;
 
 char *stmo[] = { (char *)"Mo", (char *)"St" };
 
-extern uint8_t SmallFont[];  // Font Nokia
-extern uint8_t BigNumbers[];
-
-
 LiquidCrystal display(LCD_RS, LCD_E, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
-
-
 SI4844 rx;
 
 void setup() {
