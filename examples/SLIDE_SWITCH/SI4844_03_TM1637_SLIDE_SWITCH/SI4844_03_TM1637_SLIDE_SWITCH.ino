@@ -1,5 +1,5 @@
 /**
- *  This sketch runs on Arduino devices with a LCD16x02 Display. 
+ *  This sketch runs on Arduino devices with a 7 Seg. TM1637 display  
  *  This project works on Si4822/26/27/40/44
  *
  * This application uses a mechanical switch-based band selection method and a resistor network ("ATDD device detects Band"). 
@@ -28,17 +28,10 @@
  *  |   16       |  A4 (SDA)   | I2C bus (Data)                        |
  *  |   17       |  A5 (SCL)   | I2C bus (Clock)                       | 
  *  | -----------| ------------| --------------------------------------|
- *  |  LCD 16x02 |             |                                       |
+ *  | TM1637     |             |                                       |
  *  | -----------| ------------| --------------------------------------|                        
- *  |      D4    |     D4      |                                       |
- *  |      D5    |     D5      |                                       | 
- *  |      D6    |     D6      |                                       |
- *  |      D7    |     D7      |                                       | 
- *  |      RS    |     D3      |                                       | 
- *  |      E/ENA |     D13     |                                       |
- *  |RW & VSS & K|     GND     |                                       |
- *  | A & VDD    |    +Vcc     |                                       |
- *  |      VO    |             | (see 5K tripot connection)            |
+ *  | CLK        | 8           | Arduino Digital Pin 8                 |
+ *  | DIO        | 9           | Arduino Digital Pin 9                 |        
  *  | -----------| ------------| --------------------------------------|   
  *  |  Tune LED  |  10         | Optional Tune LED                     |  
  *
@@ -57,47 +50,30 @@
 */
 
 #include <SI4844.h>
-#include <LiquidCrystal.h>
+#include <TM1637TinyDisplay6.h> // Install this library
 
 #define RESET_PIN 12
 #define INTERRUPT_PIN 2
 #define TUNE_LED 10
 
-// LCD 16x02 or LCD20x4 PINs
-#define LCD_D7 7
-#define LCD_D6 6
-#define LCD_D5 5
-#define LCD_D4 4
-#define LCD_RS 3
-#define LCD_E  13
+// TM1637 Connections
+#define TM1637_CLK  8
+#define TM1637_DIO  9
+
 
 #define MINIMUM_DELAY 200
 
 long elapsedButton = millis();
 
-
-/*
-   Pre-defined Band Table - See the SI48XX ATDD - PROGRAMMING GUIDE page 17.
-*/
-
-String tabBand[] = { "FM01", "FM02", "FM03", "FM04", "FM05", "FM06", "FM07", "FM08", "FM09", "FM10", "FM11", "FM12", "FM13", "FM14", "FM15", "FM16", "FM17", "FM18", "FM19", "FM20",
-                     "AM01", "AM02", "AM03", "AM04", "AM05",
-                     "SW01", "SW02", "SW03", "SW04", "SW05", "AM06", "SW07", "SW08", "SW09", "SW10", "SW11", "AM12", "SW13", "SW14", "SW15", "SW16" };
-
-const int8_t lastBand = (sizeof tabBand / sizeof(String)) - 1;
-int8_t bandIdx = 0;
-
-char *stmo[] = {(char *) "Mo", (char *) "St"}; 
-
-LiquidCrystal display(LCD_RS, LCD_E, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
-
+TM1637TinyDisplay6 display(TM1637_CLK, TM1637_DIO);
 SI4844 rx;
 
 void setup() {
 
   pinMode(TUNE_LED, OUTPUT);
 
-  display.begin(16, 2);
+  display.begin();
+  display.clear();
 
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // rx.setCrystalOscillatorStabilizationWaitTime(1);
@@ -116,50 +92,14 @@ uint8_t oldStationIndicator = 99;
 
 void showStatus() {
 
-  String unit, freqDisplay, stereo;
+  float f = rx.getFrequency(); 
 
-  uint32_t currentFrequency = rx.getFrequencyInteger(); 
-  uint8_t currentStationIndicator = rx.getStatusStationIndicator();
-
-  if ( oldFrequency == currentFrequency &&  oldStationIndicator == currentStationIndicator) return;
-  
-  oldFrequency = currentFrequency; 
-  oldStationIndicator = currentStationIndicator;
-
-  display.clear();
-
-  display.setCursor(0, 0);
-  display.print(rx.getBandMode());
-
-  display.setCursor(12, 0);
-  bandIdx = rx.getStatusBandIndex();
-  display.print(tabBand[bandIdx]);
-
-  if (rx.getFrequencyInteger() > 999) 
-    unit =  "MHZ";
-  else
-    unit =  "kHz";  
-  
-  display.setCursor(13, 1);
-  display.print(unit);
-
-  if (rx.getStatusBandMode() == 0) {
-    display.setCursor(0, 1);
-    display.print(stmo[rx.getStatusStereo()]);
-  }
-
-  display.setCursor(7, 0); 
-  if ( currentStationIndicator != 0) {
-      display.print((char *)"OK");
-      digitalWrite(TUNE_LED, HIGH);
-  } else { 
-      display.print((char *)"  ");
-      digitalWrite(TUNE_LED, LOW);
-  }
-
-
-  display.setCursor(5, 1);
-  display.print(rx.getFormattedFrequency(2,'.'));  
+  display.showNumber(f / 1000., (rx.getStatusBandMode() == 0)? 2:3 );
+ 
+  if (rx.getStatusBandMode() == 0)
+    digitalWrite(TUNE_LED, (rx.getStatusStereo() == 0)? LOW:HIGH);
+  else 
+    digitalWrite(TUNE_LED, (rx.getStatusStationIndicator() == 0)? LOW:HIGH);
 
 }
 
