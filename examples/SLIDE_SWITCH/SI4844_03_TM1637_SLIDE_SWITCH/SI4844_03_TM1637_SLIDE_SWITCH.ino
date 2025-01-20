@@ -30,10 +30,11 @@
  *  | -----------| ------------| --------------------------------------|
  *  | TM1637     |             |                                       |
  *  | -----------| ------------| --------------------------------------|                        
- *  | CLK        | 8           | Arduino Digital Pin 8                 |
- *  | DIO        | 9           | Arduino Digital Pin 9                 |        
+ *  | CLK        | 6           | Arduino Digital Pin 6                 |
+ *  | DIO        | 7           | Arduino Digital Pin 7                 |        
  *  | -----------| ------------| --------------------------------------|   
- *  |  Tune LED  |  10         | Optional Tune LED                     |  
+ *  |  Tune LED  |  10         | Optional Tune LED.Used to indicate    | 
+ *  |            |             | stereo or valid station               |       
  *
  *  Important: In this configuration, when using a slide switch or a rotary band switch, 
  *             the BAND pin of the Si48XX must be connected to the band switch instead of +VCC. 
@@ -57,8 +58,8 @@
 #define TUNE_LED 10
 
 // TM1637 Connections
-#define TM1637_CLK  8
-#define TM1637_DIO  9
+#define TM1637_CLK  6
+#define TM1637_DIO  7
 
 
 #define MINIMUM_DELAY 200
