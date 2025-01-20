@@ -74,7 +74,7 @@ void setup() {
   pinMode(TUNE_LED, OUTPUT);
 
   display.begin();
-  display.clear();
+  display.showString("Si4844");
 
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // rx.setCrystalOscillatorStabilizationWaitTime(1);
@@ -83,7 +83,7 @@ void setup() {
   // You must calibrate the default volume
   rx.setVolume(58);
   delay(100);
-    
+  display.clear();    
   showStatus();
 
 }
