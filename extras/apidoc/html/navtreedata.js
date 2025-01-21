@@ -51,7 +51,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_s_i4844_8cpp.html"
+"_band_list_8h.html",
+"group___t_o_o_l_s.html#gab400fccf4b3c381c8ee8c060b56eef1b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -8031,7 +8031,7 @@ _ZN12Adafruit_GFX9setCursorEii():
     31e6:	10 92 2c 03 	sts	0x032C, r1	; 0x80032c <display+0xf>
     31ea:	10 92 2b 03 	sts	0x032B, r1	; 0x80032b <display+0xe>
 _ZN6SI484411getBandModeEv():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:449
+/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:453
    * @ingroup GB1 
    * @brief Get the Band Mode 
    * @return char*   "FM", "AM" or "SW"
@@ -8074,7 +8074,7 @@ _ZN12Adafruit_GFX9setCursorEii():
     3218:	10 92 2c 03 	sts	0x032C, r1	; 0x80032c <display+0xf>
     321c:	10 92 2b 03 	sts	0x032B, r1	; 0x80032b <display+0xe>
 _ZN6SI484425getStatusStationIndicatorEv():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:494
+/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:498
    * @ingroup GB1 
    * @brief Gets Station Indicator.
    * @details **Call getStatus or getAllReceiverInfo before calling this function** 
@@ -8256,7 +8256,7 @@ char* SI4844::getFormattedFrequency(uint8_t removeRightDigit, uint8_t thousandsS
     uint32_t f = this->getFrequencyInteger();
     32d2:	0e 94 55 16 	call	0x2caa	; 0x2caa <SI4844::getFrequencyInteger() [clone .constprop.27]>
 _ZN6SI484417getStatusBandModeEv():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:547
+/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:551
    * @ingroup GB1 
    * @brief Gets the current Band Mode
    * @return 0 = FM mode; 1 = AM mode; 2 = SW mode
@@ -8355,7 +8355,7 @@ write():
     3348:	93 e0       	ldi	r25, 0x03	; 3
     334a:	0e 94 f8 0a 	call	0x15f0	; 0x15f0 <Print::write(unsigned char const*, unsigned int)>
 _ZN6SI484417getStatusBandModeEv():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:547
+/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:551
     334e:	80 91 e5 02 	lds	r24, 0x02E5	; 0x8002e5 <rx+0x2>
     3352:	82 95       	swap	r24
     3354:	86 95       	lsr	r24
@@ -8389,7 +8389,7 @@ _ZN12Adafruit_GFX9setCursorEii():
     336c:	90 93 2c 03 	sts	0x032C, r25	; 0x80032c <display+0xf>
     3370:	80 93 2b 03 	sts	0x032B, r24	; 0x80032b <display+0xe>
 _ZN6SI484415getStatusStereoEv():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:485
+/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:489
    * @details Applicable to Si4840/44 parts FM function only (id does not make sense for Si4827).
    * @details **Call getStatus or getAllReceiverInfo before calling this function**  
    * @return 0 = Stereo off; 1 = Stereo on
@@ -10176,7 +10176,7 @@ void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t high
     3da6:	90 93 f4 02 	sts	0x02F4, r25	; 0x8002f4 <rx+0x11>
     3daa:	80 93 f3 02 	sts	0x02F3, r24	; 0x8002f3 <rx+0x10>
 _ZN6SI484413setClockSpeedEj():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:308
+/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:312
   /**
    * @ingroup BF
    * @brief Sets hight clock speed to be used on I2C bus

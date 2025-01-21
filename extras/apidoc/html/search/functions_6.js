@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['interrupt_5fhundler_0',['interrupt_hundler',['../_s_i4844_8cpp.html#ac673bec28500b111088b013029979fcc',1,'SI4844.cpp']]],
-  ['ishostdetectionbandconfig_1',['isHostDetectionBandConfig',['../group___g_b1.html#ga7264a6caa7626678daef61d8f908d612',1,'SI4844']]]
+  ['hasbandchanged_0',['hasBandChanged',['../group___g_b1.html#ga1b9e216739cd952c14c08815f492b723',1,'SI4844']]],
+  ['hasstatuschanged_1',['hasStatusChanged',['../group___g_b1.html#gae362404004bde2ed561a0c34604e0254',1,'SI4844']]]
 ];

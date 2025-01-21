@@ -3668,7 +3668,7 @@ copy():
 
 00000e64 <showStatus()>:
 showStatus():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:110
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:117
 }
 
 uint32_t oldFrequency = 0L;
@@ -3692,7 +3692,7 @@ void showStatus() {
      e80:	de bf       	out	0x3e, r29	; 62
      e82:	0f be       	out	0x3f, r0	; 63
      e84:	cd bf       	out	0x3d, r28	; 61
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:112
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:119
 
   String unit, freqDisplay, stereo;
      e86:	64 e4       	ldi	r22, 0x44	; 68
@@ -3710,12 +3710,12 @@ void showStatus() {
      ea2:	ce 01       	movw	r24, r28
      ea4:	0d 96       	adiw	r24, 0x0d	; 13
      ea6:	0e 94 f6 06 	call	0xdec	; 0xdec <String::String(char const*)>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:114
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:121
 
   uint32_t currentFrequency = rx.getFrequencyInteger(); 
      eaa:	0e 94 4a 05 	call	0xa94	; 0xa94 <SI4844::getFrequencyInteger() [clone .constprop.19]>
 _ZN6SI484425getStatusStationIndicatorEv():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:494
+/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:498
    * @ingroup GB1 
    * @brief Gets Station Indicator.
    * @details **Call getStatus or getAllReceiverInfo before calling this function** 
@@ -3727,7 +3727,7 @@ _ZN6SI484425getStatusStationIndicatorEv():
      eb4:	ff 24       	eor	r15, r15
      eb6:	f0 f8       	bld	r15, 0
 showStatus():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:117
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:124
   uint8_t currentStationIndicator = rx.getStatusStationIndicator();
 
   if ( oldFrequency == currentFrequency &&  oldStationIndicator == currentStationIndicator) return;
@@ -3744,14 +3744,14 @@ showStatus():
      ed6:	2f 15       	cp	r18, r15
      ed8:	09 f4       	brne	.+2      	; 0xedc <showStatus()+0x78>
      eda:	94 c0       	rjmp	.+296    	; 0x1004 <showStatus()+0x1a0>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:119
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:126
   
   oldFrequency = currentFrequency; 
      edc:	60 93 72 02 	sts	0x0272, r22	; 0x800272 <oldFrequency>
      ee0:	70 93 73 02 	sts	0x0273, r23	; 0x800273 <oldFrequency+0x1>
      ee4:	80 93 74 02 	sts	0x0274, r24	; 0x800274 <oldFrequency+0x2>
      ee8:	90 93 75 02 	sts	0x0275, r25	; 0x800275 <oldFrequency+0x3>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:120
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:127
   oldStationIndicator = currentStationIndicator;
      eec:	f0 92 04 01 	sts	0x0104, r15	; 0x800104 <oldStationIndicator>
 clear():
@@ -3770,7 +3770,7 @@ void LiquidCrystal::clear()
      ef8:	97 e0       	ldi	r25, 0x07	; 7
      efa:	0e 94 02 02 	call	0x404	; 0x404 <delayMicroseconds>
 showStatus():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:124
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:131
 
   display.clear();
 
@@ -3779,7 +3779,7 @@ showStatus():
      f00:	80 e0       	ldi	r24, 0x00	; 0
      f02:	0e 94 ff 03 	call	0x7fe	; 0x7fe <LiquidCrystal::setCursor(unsigned char, unsigned char) [clone .constprop.17]>
 _ZN6SI484411getBandModeEv():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:449
+/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:453
    * @ingroup GB1 
    * @brief Get the Band Mode 
    * @return char*   "FM", "AM" or "SW"
@@ -3797,19 +3797,19 @@ _ZN6SI484411getBandModeEv():
      f18:	eb 50       	subi	r30, 0x0B	; 11
      f1a:	fd 4f       	sbci	r31, 0xFD	; 253
 showStatus():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:125
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:132
   display.print(rx.getBandMode());
      f1c:	80 81       	ld	r24, Z
      f1e:	91 81       	ldd	r25, Z+1	; 0x01
      f20:	0e 94 7e 06 	call	0xcfc	; 0xcfc <Print::print(char const*) [clone .constprop.35]>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:127
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:134
 
   display.setCursor(12, 0);
      f24:	60 e0       	ldi	r22, 0x00	; 0
      f26:	8c e0       	ldi	r24, 0x0C	; 12
      f28:	0e 94 ff 03 	call	0x7fe	; 0x7fe <LiquidCrystal::setCursor(unsigned char, unsigned char) [clone .constprop.17]>
 _ZN6SI484418getStatusBandIndexEv():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:554
+/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:558
   /** 
    * @ingroup GB1 
    * @brief Gets the current Band Index Detected.
@@ -3819,7 +3819,7 @@ _ZN6SI484418getStatusBandIndexEv():
      f2c:	e0 91 dd 02 	lds	r30, 0x02DD	; 0x8002dd <rx+0x2>
      f30:	ef 73       	andi	r30, 0x3F	; 63
 showStatus():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:129
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:136
   bandIdx = rx.getStatusBandIndex();
   display.print(tabBand[bandIdx]);
      f32:	26 e0       	ldi	r18, 0x06	; 6
@@ -3842,7 +3842,7 @@ write():
      f48:	93 e0       	ldi	r25, 0x03	; 3
      f4a:	0e 94 88 02 	call	0x510	; 0x510 <Print::write(unsigned char const*, unsigned int)>
 showStatus():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:131
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:138
 
   if (rx.getFrequencyInteger() > 999) 
      f4e:	0e 94 4a 05 	call	0xa94	; 0xa94 <SI4844::getFrequencyInteger() [clone .constprop.19]>
@@ -3859,7 +3859,7 @@ operator=():
      f64:	01 96       	adiw	r24, 0x01	; 1
      f66:	0e 94 c0 06 	call	0xd80	; 0xd80 <String::operator=(char const*) [clone .part.3]>
 showStatus():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:136
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:143
     unit =  "MHZ";
   else
     unit =  "kHz";  
@@ -3878,7 +3878,7 @@ write():
      f7c:	93 e0       	ldi	r25, 0x03	; 3
      f7e:	0e 94 88 02 	call	0x510	; 0x510 <Print::write(unsigned char const*, unsigned int)>
 _ZN6SI484417getStatusBandModeEv():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:547
+/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:551
    * @ingroup GB1 
    * @brief Gets the current Band Mode
    * @return 0 = FM mode; 1 = AM mode; 2 = SW mode
@@ -3891,17 +3891,17 @@ _ZN6SI484417getStatusBandModeEv():
      f8a:	86 95       	lsr	r24
      f8c:	83 70       	andi	r24, 0x03	; 3
 showStatus():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:139
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:146
   display.print(unit);
 
   if (rx.getStatusBandMode() == 0) {
      f8e:	91 f4       	brne	.+36     	; 0xfb4 <showStatus()+0x150>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:140
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:147
     display.setCursor(0, 1);
      f90:	61 e0       	ldi	r22, 0x01	; 1
      f92:	0e 94 ff 03 	call	0x7fe	; 0x7fe <LiquidCrystal::setCursor(unsigned char, unsigned char) [clone .constprop.17]>
 _ZN6SI484415getStatusStereoEv():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:485
+/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:489
    * @details Applicable to Si4840/44 parts FM function only (id does not make sense for Si4827).
    * @details **Call getStatus or getAllReceiverInfo before calling this function**  
    * @return 0 = Stereo off; 1 = Stereo on
@@ -3914,7 +3914,7 @@ _ZN6SI484415getStatusStereoEv():
      f9e:	00 f9       	bld	r16, 0
      fa0:	10 e0       	ldi	r17, 0x00	; 0
 showStatus():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:141
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:148
     display.print(stmo[rx.getStatusStereo()]);
      fa2:	00 0f       	add	r16, r16
      fa4:	11 1f       	adc	r17, r17
@@ -3924,33 +3924,33 @@ showStatus():
      fac:	80 81       	ld	r24, Z
      fae:	91 81       	ldd	r25, Z+1	; 0x01
      fb0:	0e 94 7e 06 	call	0xcfc	; 0xcfc <Print::print(char const*) [clone .constprop.35]>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:144
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:151
   }
 
   display.setCursor(7, 0); 
      fb4:	60 e0       	ldi	r22, 0x00	; 0
      fb6:	87 e0       	ldi	r24, 0x07	; 7
      fb8:	0e 94 ff 03 	call	0x7fe	; 0x7fe <LiquidCrystal::setCursor(unsigned char, unsigned char) [clone .constprop.17]>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:145
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:152
   if ( currentStationIndicator != 0) {
      fbc:	ff 20       	and	r15, r15
      fbe:	09 f4       	brne	.+2      	; 0xfc2 <showStatus()+0x15e>
      fc0:	40 c0       	rjmp	.+128    	; 0x1042 <showStatus()+0x1de>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:146
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:153
       display.print((char *)"OK");
      fc2:	8f e3       	ldi	r24, 0x3F	; 63
      fc4:	91 e0       	ldi	r25, 0x01	; 1
      fc6:	0e 94 7e 06 	call	0xcfc	; 0xcfc <Print::print(char const*) [clone .constprop.35]>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:147
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:154
       digitalWrite(TUNE_LED, HIGH);
      fca:	61 e0       	ldi	r22, 0x01	; 1
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:150
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:157
   } else { 
       display.print((char *)"  ");
       digitalWrite(TUNE_LED, LOW);
      fcc:	8a e0       	ldi	r24, 0x0A	; 10
      fce:	0e 94 85 01 	call	0x30a	; 0x30a <digitalWrite>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:154
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:161
   }
 
 
@@ -3968,7 +3968,7 @@ char* SI4844::getFormattedFrequency(uint8_t removeRightDigit, uint8_t thousandsS
     uint32_t f = this->getFrequencyInteger();
      fda:	0e 94 4a 05 	call	0xa94	; 0xa94 <SI4844::getFrequencyInteger() [clone .constprop.19]>
 _ZN6SI484417getStatusBandModeEv():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:547
+/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:551
    * @ingroup GB1 
    * @brief Gets the current Band Mode
    * @return 0 = FM mode; 1 = AM mode; 2 = SW mode
@@ -3995,12 +3995,12 @@ getFormattedFrequency():
         strFormattedCurrentFrequenct[7-removeRightDigit] = '\0';
      ff8:	10 92 04 03 	sts	0x0304, r1	; 0x800304 <rx+0x29>
 showStatus():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:155
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:162
   display.print(rx.getFormattedFrequency(2,'.'));  
      ffc:	8f ef       	ldi	r24, 0xFF	; 255
      ffe:	92 e0       	ldi	r25, 0x02	; 2
     1000:	0e 94 7e 06 	call	0xcfc	; 0xcfc <Print::print(char const*) [clone .constprop.35]>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:117
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:124
   String unit, freqDisplay, stereo;
 
   uint32_t currentFrequency = rx.getFrequencyInteger(); 
@@ -4016,7 +4016,7 @@ showStatus():
     1014:	ce 01       	movw	r24, r28
     1016:	01 96       	adiw	r24, 0x01	; 1
     1018:	0e 94 90 06 	call	0xd20	; 0xd20 <String::~String()>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:157
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:164
 
 
   display.setCursor(5, 1);
@@ -4044,7 +4044,7 @@ operator=():
     103e:	71 e0       	ldi	r23, 0x01	; 1
     1040:	90 cf       	rjmp	.-224    	; 0xf62 <showStatus()+0xfe>
 showStatus():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:149
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:156
   display.setCursor(7, 0); 
   if ( currentStationIndicator != 0) {
       display.print((char *)"OK");
@@ -4054,7 +4054,7 @@ showStatus():
     1042:	82 e4       	ldi	r24, 0x42	; 66
     1044:	91 e0       	ldi	r25, 0x01	; 1
     1046:	0e 94 7e 06 	call	0xcfc	; 0xcfc <Print::print(char const*) [clone .constprop.35]>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:150
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:157
       digitalWrite(TUNE_LED, LOW);
     104a:	60 e0       	ldi	r22, 0x00	; 0
     104c:	bf cf       	rjmp	.-130    	; 0xfcc <showStatus()+0x168>
@@ -5216,7 +5216,7 @@ void init()
   UCSR0B = 0;
     16ee:	10 92 c1 00 	sts	0x00C1, r1	; 0x8000c1 <__DATA_REGION_ORIGIN__+0x61>
 setup():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:91
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:98
 
 SI4844 rx;
 
@@ -5226,7 +5226,7 @@ void setup() {
     16f2:	61 e0       	ldi	r22, 0x01	; 1
     16f4:	8a e0       	ldi	r24, 0x0A	; 10
     16f6:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <pinMode>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:93
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:100
 
   display.begin(16, 2);
     16fa:	82 e0       	ldi	r24, 0x02	; 2
@@ -5250,7 +5250,7 @@ void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t high
     1710:	90 93 ec 02 	sts	0x02EC, r25	; 0x8002ec <rx+0x11>
     1714:	80 93 eb 02 	sts	0x02EB, r24	; 0x8002eb <rx+0x10>
 _ZN6SI484413setClockSpeedEj():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:308
+/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:312
   /**
    * @ingroup BF
    * @brief Sets hight clock speed to be used on I2C bus
@@ -5482,7 +5482,7 @@ void SI4844::setVolume(byte volumeLavel)
     1808:	8a e3       	ldi	r24, 0x3A	; 58
     180a:	0e 94 f5 05 	call	0xbea	; 0xbea <SI4844::setVolume(unsigned char) [clone .part.5] [clone .constprop.12]>
 setup():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:101
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:108
   // rx.setCrystalOscillatorStabilizationWaitTime(1);
   rx.setupSlideSwitch(RESET_PIN, INTERRUPT_PIN);
 
@@ -5494,7 +5494,7 @@ setup():
     1812:	80 e0       	ldi	r24, 0x00	; 0
     1814:	90 e0       	ldi	r25, 0x00	; 0
     1816:	0e 94 51 02 	call	0x4a2	; 0x4a2 <delay>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:103
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:110
     
   showStatus();
     181a:	0e 94 32 07 	call	0xe64	; 0xe64 <showStatus()>
@@ -5509,7 +5509,7 @@ main():
     181e:	c0 e0       	ldi	r28, 0x00	; 0
     1820:	d0 e0       	ldi	r29, 0x00	; 0
 loop():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:169
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:176
 void loop() {
 
   if (rx.hasStatusChanged()) {
@@ -5527,7 +5527,7 @@ bool SI4844::hasStatusChanged(void)
     return data_from_device;
     1824:	80 91 7b 02 	lds	r24, 0x027B	; 0x80027b <_ZL16data_from_device.lto_priv.48>
 loop():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:166
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:173
 /**
  * Main loop
  */
@@ -5552,29 +5552,29 @@ bool SI4844::hasBandChanged(void) {
     1836:	80 91 ed 02 	lds	r24, 0x02ED	; 0x8002ed <rx+0x12>
     183a:	90 e0       	ldi	r25, 0x00	; 0
 loop():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:167
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:174
     if (rx.hasBandChanged()) {
     183c:	28 17       	cp	r18, r24
     183e:	19 06       	cpc	r1, r25
     1840:	61 f0       	breq	.+24     	; 0x185a <main+0x1b8>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:168
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:175
       oldFrequency = 0;
     1842:	10 92 72 02 	sts	0x0272, r1	; 0x800272 <oldFrequency>
     1846:	10 92 73 02 	sts	0x0273, r1	; 0x800273 <oldFrequency+0x1>
     184a:	10 92 74 02 	sts	0x0274, r1	; 0x800274 <oldFrequency+0x2>
     184e:	10 92 75 02 	sts	0x0275, r1	; 0x800275 <oldFrequency+0x3>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:169
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:176
       oldStationIndicator = 99;
     1852:	10 93 04 01 	sts	0x0104, r17	; 0x800104 <oldStationIndicator>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:170
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:177
       rx.setBandSlideSwitch();
     1856:	0e 94 2b 06 	call	0xc56	; 0xc56 <SI4844::setBandSlideSwitch() [clone .constprop.8]>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:173
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:180
     }
 
     showStatus();  
     185a:	0e 94 32 07 	call	0xe64	; 0xe64 <showStatus()>
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:176
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:183
   }
 
   delay(50);
@@ -5592,11 +5592,11 @@ main():
 
 00001874 <_GLOBAL__sub_D_elapsedButton>:
 _GLOBAL__sub_D_elapsedButton():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:177
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:184
 }
     1874:	cf 93       	push	r28
     1876:	df 93       	push	r29
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:76
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:83
 
 /*
    Pre-defined Band Table - See the SI48XX ATDD - PROGRAMMING GUIDE page 17.
@@ -5614,7 +5614,7 @@ __static_initialization_and_destruction_0():
     1888:	d8 07       	cpc	r29, r24
     188a:	c1 f7       	brne	.-16     	; 0x187c <_GLOBAL__sub_D_elapsedButton+0x8>
 _GLOBAL__sub_D_elapsedButton():
-/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:177
+/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/examples/SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH.ino:184
 
     showStatus();  
   }

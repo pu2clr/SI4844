@@ -1,5 +1,7 @@
 var annotated_dup =
 [
+    [ "BandList", "class_band_list.html", "class_band_list" ],
+    [ "BandNode", "_band_list_8h.html#struct_band_node", "_band_list_8h_struct_band_node" ],
     [ "SI4844", "class_s_i4844.html", "class_s_i4844" ],
     [ "SI4844_arg_band", "group___g_a1.html#union_s_i4844__arg__band", "group___g_a1_union_s_i4844__arg__band" ],
     [ "SI4844_arg_band.refined", "group___g_a1.html#struct_s_i4844__arg__band_8refined", "group___g_a1_struct_s_i4844__arg__band_8refined" ],

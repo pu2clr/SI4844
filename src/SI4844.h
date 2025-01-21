@@ -17,6 +17,10 @@
  * @date  2019-2020
  */
 
+#ifndef _SI4844_H // Prevent this file from being compiled more than once
+#define _SI4844_H
+
+
 #include <Arduino.h>
 #include <Wire.h>
 
@@ -578,5 +582,5 @@ public :
 
 };
 
-
+#endif // _SI4844_H
 
