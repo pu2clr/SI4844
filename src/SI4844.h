@@ -304,7 +304,7 @@ private:
 
   uint8_t  system_error = 0; 
 
-  BandList bandList;
+  BandList bandList;  // Will store the list of custom band with its parameters 
 
 
   /**
@@ -374,7 +374,7 @@ public :
   void setBand(uint8_t newBand = 0);
   void setBandSlideSwitch();
 
-  void addCustomBand(int8_t bandIdx, uint32_t bottomBand, uint32_t topBand, uint8_t space );
+  void addCustomBand(int8_t bandIdx, uint32_t bottomFrequency, uint32_t topFrequency, uint8_t space );
   void removeCustomBand(int8_t bandIdx);
   BandNode *findCustomBand(int8_t bandIdx);
 

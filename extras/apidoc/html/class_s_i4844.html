@@ -104,6 +104,9 @@ $(document).ready(function(){initNavTree('class_s_i4844.html',''); initResizable
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ga5e13d648a226f258d53a595790cacfed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga5e13d648a226f258d53a595790cacfed">addCustomBand</a> (int8_t bandIdx, uint32_t bottomFrequency, uint32_t topFrequency, uint8_t space)</td></tr>
+<tr class="memdesc:ga5e13d648a226f258d53a595790cacfed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a custom band in the list of custom bands.  <br /></td></tr>
+<tr class="separator:ga5e13d648a226f258d53a595790cacfed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacd7984bdca51c53082ab0a67b00244aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gacd7984bdca51c53082ab0a67b00244aa">audioMute</a> (uint8_t value)</td></tr>
 <tr class="memdesc:gacd7984bdca51c53082ab0a67b00244aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutes the audio output.  <br /></td></tr>
 <tr class="separator:gacd7984bdca51c53082ab0a67b00244aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,6 +129,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ga66d670fc742b379c642316daf7df9bca"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_o_o_l_s.html#ga66d670fc742b379c642316daf7df9bca">detectDevice</a> ()</td></tr>
 <tr class="memdesc:ga66d670fc742b379c642316daf7df9bca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks communication with <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> via I2C.  <br /></td></tr>
 <tr class="separator:ga66d670fc742b379c642316daf7df9bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7ed16d2dfc339e5e257b7a11c07e1ca8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_band_list_8h.html#struct_band_node">BandNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga7ed16d2dfc339e5e257b7a11c07e1ca8">findCustomBand</a> (int8_t bandIdx)</td></tr>
+<tr class="memdesc:ga7ed16d2dfc339e5e257b7a11c07e1ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a custom band in the list of custom bands.  <br /></td></tr>
+<tr class="separator:ga7ed16d2dfc339e5e257b7a11c07e1ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga844135282d9d5d7ae5e735ecb70aa5dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___g_a1.html#unionsi4844__status__response">si4844_status_response</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga844135282d9d5d7ae5e735ecb70aa5dc">getAllReceiverInfo</a> (void)</td></tr>
 <tr class="memdesc:ga844135282d9d5d7ae5e735ecb70aa5dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets all current information of the receiver (tune freq, band, and others information, status of the device).  <br /></td></tr>
 <tr class="separator:ga844135282d9d5d7ae5e735ecb70aa5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -241,6 +247,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:gab19b2ce04e07e23275fea5889b87a201"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gab19b2ce04e07e23275fea5889b87a201">powerUp</a> (void)</td></tr>
 <tr class="memdesc:gab19b2ce04e07e23275fea5889b87a201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power the device up.  <br /></td></tr>
 <tr class="separator:gab19b2ce04e07e23275fea5889b87a201"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaea049eb3773108878bf40f6e4f7650ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#gaea049eb3773108878bf40f6e4f7650ff">removeCustomBand</a> (int8_t bandIdx)</td></tr>
+<tr class="memdesc:gaea049eb3773108878bf40f6e4f7650ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a custom band in the list of custom bands.  <br /></td></tr>
+<tr class="separator:gaea049eb3773108878bf40f6e4f7650ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga683a81897fe79e6909817aab36622684"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_b1.html#ga683a81897fe79e6909817aab36622684">reset</a> (void)</td></tr>
 <tr class="memdesc:ga683a81897fe79e6909817aab36622684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> device.  <br /></td></tr>
 <tr class="separator:ga683a81897fe79e6909817aab36622684"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -1,5 +1,6 @@
 var class_s_i4844 =
 [
+    [ "addCustomBand", "group___g_b1.html#ga5e13d648a226f258d53a595790cacfed", null ],
     [ "audioMute", "group___g_b1.html#gacd7984bdca51c53082ab0a67b00244aa", null ],
     [ "bassTrebleDown", "group___g_b1.html#gad45a8797518a831c0320edb9fe9ec1d1", null ],
     [ "bassTrebleUp", "group___g_b1.html#ga374db2d27ad97a0a59ebbc6255ea5707", null ],
@@ -7,6 +8,7 @@ var class_s_i4844 =
     [ "convertToChar", "group___t_o_o_l_s.html#ga1abfca870fe9a1feae6e8d56f7af37be", null ],
     [ "debugDevice", "group___g_b1.html#gacd42a278c3304a591d80ae7ab351b87a", null ],
     [ "detectDevice", "group___t_o_o_l_s.html#ga66d670fc742b379c642316daf7df9bca", null ],
+    [ "findCustomBand", "group___g_b1.html#ga7ed16d2dfc339e5e257b7a11c07e1ca8", null ],
     [ "getAllReceiverInfo", "group___g_b1.html#ga844135282d9d5d7ae5e735ecb70aa5dc", null ],
     [ "getBandMode", "group___g_b1.html#ga97b111334d8e6ac08db8c500945c15a8", null ],
     [ "getBassTreble", "class_s_i4844.html#ae12799224df69da4204f6fc1d75649b7", null ],
@@ -48,6 +50,7 @@ var class_s_i4844 =
     [ "needHostReset", "group___g_b1.html#ga459050d4620103194d5079edde1d98ff", null ],
     [ "powerDown", "group___g_b1.html#gaff14988c6be8a5fb9d1a5e6934dcff47", null ],
     [ "powerUp", "group___g_b1.html#gab19b2ce04e07e23275fea5889b87a201", null ],
+    [ "removeCustomBand", "group___g_b1.html#gaea049eb3773108878bf40f6e4f7650ff", null ],
     [ "reset", "group___g_b1.html#ga683a81897fe79e6909817aab36622684", null ],
     [ "resetStatus", "group___g_b1.html#ga2f14c89d348c5e3214615258b8f9c918", null ],
     [ "scanI2CBus", "group___t_o_o_l_s.html#gab400fccf4b3c381c8ee8c060b56eef1b", null ],

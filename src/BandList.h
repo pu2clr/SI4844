@@ -1,17 +1,17 @@
-/*
-    UNDER CONSTRUCTION... 
-    
-    This class implements the management of the custom band list in case the receiver developer wants to use 
-    frequency ranges different from those provided by the SI48XX. 
-    This list will start empty and can be referenced and maintained (with the addition and removal of bands) 
-    in the main program using the addCustomBand and removeCustomBand methods implemented in the Si4844 library.
-
-    These methods are particularly useful for receivers with mechanical band selection switches, where it is 
-    impossible to determine in advance which band will be selected during use. It is crucial for the designer
-    to correctly configure the custom bands so that when the band switch is positioned and the band index is 
-    detected, it matches an entry in the list. If the detected band index is not found in the list, the 
-    receiver will work with default settings.   
-
+/**
+ * @mainpage SI48XX Custom Band implementation
+ * @brief SI4844 Custom Band for SI4844 ARDUINO LIBRARY  
+ * @details  This class implements the management of the custom band list in case the receiver developer wants to use 
+ * @details  frequency ranges different from those provided by the SI48XX. 
+ * @details  This list will start empty and can be referenced and maintained (with the addition and removal of bands) 
+ * @details  in the main program using the addCustomBand and removeCustomBand methods implemented in the Si4844 library.
+ * @details  These methods are particularly useful for receivers with mechanical band selection switches, where it is 
+ * @details  impossible to determine in advance which band will be selected during use. It is crucial for the designer
+ * @details  to correctly configure the custom bands so that when the band switch is positioned and the band index is 
+ * @details  detected, it matches an entry in the list. If the detected band index is not found in the list, the 
+ * @details  receiver will work with default settings.  
+ * @details  **Important** Currently, this structure only works for the band selection mode using a mechanical method (Slide Switch or Rotary Band Switch via a resistor network). For custom bands to function correctly, the LNA_EN pin (pin 1 of the Si4844) must be left floating (open). If this pin is pulled up, the custom parameters will be ignored, and the internally defined device parameters will be used.
+ * @todo     Future Changes: Unify the band customization methods for both modes. 
 */
 
 #ifndef _BandList_H // Prevent this file from being compiled more than once

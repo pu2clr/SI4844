@@ -1,10 +1,12 @@
 var group___g_b1 =
 [
+    [ "SI4844::addCustomBand", "group___g_b1.html#ga5e13d648a226f258d53a595790cacfed", null ],
     [ "SI4844::audioMute", "group___g_b1.html#gacd7984bdca51c53082ab0a67b00244aa", null ],
     [ "SI4844::bassTrebleDown", "group___g_b1.html#gad45a8797518a831c0320edb9fe9ec1d1", null ],
     [ "SI4844::bassTrebleUp", "group___g_b1.html#ga374db2d27ad97a0a59ebbc6255ea5707", null ],
     [ "SI4844::changeVolume", "group___g_b1.html#ga184362ec07964aaf36d27304437fac08", null ],
     [ "SI4844::debugDevice", "group___g_b1.html#gacd42a278c3304a591d80ae7ab351b87a", null ],
+    [ "SI4844::findCustomBand", "group___g_b1.html#ga7ed16d2dfc339e5e257b7a11c07e1ca8", null ],
     [ "SI4844::getAllReceiverInfo", "group___g_b1.html#ga844135282d9d5d7ae5e735ecb70aa5dc", null ],
     [ "SI4844::getBandMode", "group___g_b1.html#ga97b111334d8e6ac08db8c500945c15a8", null ],
     [ "SI4844::getCurrentBand", "group___g_b1.html#ga9abadece84dee04770b0800dea8a3b70", null ],
@@ -31,6 +33,7 @@ var group___g_b1 =
     [ "SI4844::needHostReset", "group___g_b1.html#ga459050d4620103194d5079edde1d98ff", null ],
     [ "SI4844::powerDown", "group___g_b1.html#gaff14988c6be8a5fb9d1a5e6934dcff47", null ],
     [ "SI4844::powerUp", "group___g_b1.html#gab19b2ce04e07e23275fea5889b87a201", null ],
+    [ "SI4844::removeCustomBand", "group___g_b1.html#gaea049eb3773108878bf40f6e4f7650ff", null ],
     [ "SI4844::reset", "group___g_b1.html#ga683a81897fe79e6909817aab36622684", null ],
     [ "SI4844::resetStatus", "group___g_b1.html#ga2f14c89d348c5e3214615258b8f9c918", null ],
     [ "SI4844::setAmSoftMuteMaxAttenuation", "group___g_b1.html#ga013c13629b964df2f0023dd0cfee5dfc", null ],

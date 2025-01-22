@@ -465,6 +465,7 @@ void SI4844::setCrystalOscillatorStabilizationWaitTime(uint8_t XOWAIT) {
  * @see See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
  * 
  * @param new_band  band number. 
+ * @todo The functions setBand and setBandSlideSwitch will be rewritten with the goal of improving the final code.
  */
 void SI4844::setBand(byte new_band)
 {
@@ -501,20 +502,44 @@ void SI4844::setBand(byte new_band)
     this->setVolume(this->volume);
 }
 
+/**
+ * @ingroup GB1
+ * @brief Add a custom band in the list of custom bands.
+ * @details This function adds a costom band to the list of band. 
+ * @details ATTENTION: For now, this function only applies to the band selection mode using a Slide Switch or 
+ * @details Rotary Band Switch. For the band selection mode controlled by an MCU, use the setCustomBand function.
+ * @param bandIdx The index number of the band to search for.
+ * @param bottomFrequency Lower frequency limit
+ * @param topFrequency Upper frequency limit
+ * @param space  Band spacing
+ * @see Table 8: Pre-defined Band Table in the Si48XX ATDD Programming Guide (AN610), pages 17 and 18.
+ */
+void SI4844::addCustomBand(int8_t bandIdx, uint32_t bottomFrequency, uint32_t topFrequency, uint8_t space ) {
 
-void SI4844::addCustomBand(int8_t bandIdx, uint32_t bottomBand, uint32_t topBand, uint8_t space ) {
-
-    bandList.add(bandIdx, bottomBand, topBand, space);
+    bandList.add(bandIdx, bottomFrequency, topFrequency, space);
 
 }
 
-
+/**
+ * @ingroup GB1
+ * @brief Remove a custom band in the list of custom bands.
+ * @param bandIdx The index number of the band to search for.
+ * @see Table 8: Pre-defined Band Table in the Si48XX ATDD Programming Guide (AN610), pages 17 and 18.
+ */
 void SI4844::removeCustomBand(int8_t bandIdx) {
 
     bandList.remove(bandIdx);
 
 }
 
+/**
+ * @ingroup GB1
+ * @brief Find a custom band in the list of custom bands.
+ * @details If the specified band index is found in the list, the corresponding custom parameters will be used.
+ * @details If the band index is not found, the default (Pre-defined) parameters will be applied.
+ * @param bandIdx The index number of the band to search for.
+ * @see Table 8: Pre-defined Band Table in the Si48XX ATDD Programming Guide (AN610), pages 17 and 18.
+ */
 BandNode * SI4844::findCustomBand(int8_t bandIdx) {
 
     return bandList.findBand(bandIdx);
@@ -524,15 +549,14 @@ BandNode * SI4844::findCustomBand(int8_t bandIdx) {
 
 /**
  * @ingroup GB1
- * @todo UNDER CONSTRUCTION...
  * @brief Sets a new band to the device configured as Slide Switch
  * @see See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
  * @param band  band index number. 
  * @see Si4822/26/27/40/44 A NTENNA , SCHEMATIC , LAYOUT, AND DESIGN GUIDELINES 
+ * @todo The functions setBand and setBandSlideSwitch will be rewritten with the goal of improving the final code.
  */
 void SI4844::setBandSlideSwitch()
 {
-
     this->getAllReceiverInfo();
     this->currentBand = this->all_receiver_status.refined.BANDIDX;
 
@@ -552,16 +576,17 @@ void SI4844::setBandSlideSwitch()
     // Wait until rady to send a command
     waitToSend();
 
+    // Checks if the current band is a custom band
     BandNode *bandNode = this->findCustomBand(this->currentBand);
-
     if ( bandNode  == nullptr )  {   
+        // If it is not a custom band, sets it as pre-defined banda
         Wire.beginTransmission(SI4844_ADDRESS);
         Wire.write(ATDD_POWER_UP);
         Wire.write(rxBandSetup.raw);
         Wire.endTransmission();
     } else {
+        // if the current band is a custom band, sets the new parameters for the band.
         SI4844_arg_band customband;
-
         customband.refined.BANDIDX = this->currentBand;
         customband.refined.XOSCEN = this->xoscen;
         customband.refined.XOWAIT = this->xowait;
