@@ -1,18 +1,21 @@
 /**
  *  This sketch runs on Arduino devices with a 7 Seg. TM1637 display  
  *  This project works on Si4822/26/27/40/44
+ * 
+ *  This example shows hot to custom the band parameters. Use it to change the pre-defined band frequency range and band spacing. 
+ * 
+ *  This application uses a mechanical switch-based band selection method and a resistor network ("ATDD device detects Band"). 
+ *  For this band selection approach, the BAND pin of the Si48XX or Si4827 must be connected to a resistor network configured 
+ *  as a voltage divider (similar to the Si4825 configuration). Although this hardware design is more complex, particularly 
+ *  due to the construction of the band selection switch and the higher project cost, there are some advantages to this approach:
  *
- * This application uses a mechanical switch-based band selection method and a resistor network ("ATDD device detects Band"). 
- * For this band selection approach, the BAND pin of the Si48XX or Si4827 must be connected to a resistor network configured 
- * as a voltage divider (similar to the Si4825 configuration). Although this hardware design is more complex, particularly 
- * due to the construction of the band selection switch and the higher project cost, there are some advantages to this approach:
+ *  1. There is no need to store the receiver's current settings in EEPROM for retrieval when the receiver is powered on, 
+ *     simplifying the Arduino code needed to control the device.
+ *  2. The mechanical switch offers the same tactile experience as vintage radios, making this project suitable for developing
+ *     vintage-style models.
+ *  3. To some extent, this model can be more user-friendly due to its simplified operation of the radio's features.
  *
- * 1. There is no need to store the receiver's current settings in EEPROM for retrieval when the receiver is powered on, 
- *    simplifying the Arduino code needed to control the device.
- * 2. The mechanical switch offers the same tactile experience as vintage radios, making this project suitable for developing
- *    vintage-style models.
- * 3. To some extent, this model can be more user-friendly due to its simplified operation of the radio's features.
- *
+ * 
  *  References: 
  *        Si4844-B DEMO BOARD USER’S GUIDE 
  *        Si4827 DEMO BOARD USER’S GUIDE
