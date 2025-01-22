@@ -23,6 +23,7 @@
 
 #include <Arduino.h>
 #include <Wire.h>
+#include "BandList.h"
 
 #define SI4844_ADDRESS 0x11
 
@@ -303,6 +304,8 @@ private:
 
   uint8_t  system_error = 0; 
 
+  BandList bandList;
+
 
   /**
    * @ingroup BF
@@ -370,7 +373,11 @@ public :
   void reset(void );
   void setBand(uint8_t newBand = 0);
   void setBandSlideSwitch();
-  
+
+  void addCustomBand(int8_t bandIdx, uint32_t bottomBand, uint32_t topBand, uint8_t space );
+  void removeCustomBand(int8_t bandIdx);
+  BandNode *findCustomBand(int8_t bandIdx);
+
   void changeVolume(char);  // deprecated
   void volumeUp(void);
   void volumeDown(void);

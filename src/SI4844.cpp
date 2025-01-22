@@ -21,6 +21,7 @@
  */
 
 #include "SI4844.h"
+#include "BandList.h"
 
 /**
  * @brief Library handle interrupt
@@ -500,6 +501,27 @@ void SI4844::setBand(byte new_band)
     this->setVolume(this->volume);
 }
 
+
+void SI4844::addCustomBand(int8_t bandIdx, uint32_t bottomBand, uint32_t topBand, uint8_t space ) {
+
+    bandList.add(bandIdx, bottomBand, topBand, space);
+
+}
+
+
+void SI4844::removeCustomBand(int8_t bandIdx) {
+
+    bandList.remove(bandIdx);
+
+}
+
+BandNode * SI4844::findCustomBand(int8_t bandIdx) {
+
+    return bandList.findBand(bandIdx);
+
+}
+
+
 /**
  * @ingroup GB1
  * @todo UNDER CONSTRUCTION...
@@ -530,11 +552,42 @@ void SI4844::setBandSlideSwitch()
     // Wait until rady to send a command
     waitToSend();
 
-    Wire.beginTransmission(SI4844_ADDRESS);
-    Wire.write(ATDD_POWER_UP);
-    Wire.write(rxBandSetup.raw);
-    Wire.endTransmission();
+    BandNode *bandNode = this->findCustomBand(this->currentBand);
+
+    if ( bandNode  == nullptr )  {   
+        Wire.beginTransmission(SI4844_ADDRESS);
+        Wire.write(ATDD_POWER_UP);
+        Wire.write(rxBandSetup.raw);
+        Wire.endTransmission();
+    } else {
+        SI4844_arg_band customband;
+
+        customband.refined.BANDIDX = this->currentBand;
+        customband.refined.XOSCEN = this->xoscen;
+        customband.refined.XOWAIT = this->xowait;
+        customband.refined.BANDBOT_HIGH = highByte(bandNode->bottomFrequency);
+        customband.refined.BANDBOT_LOW = lowByte(bandNode->bottomFrequency);
+        customband.refined.BANDTOP_HIGH = highByte(bandNode->topFrequency);
+        customband.refined.BANDTOP_LOW = lowByte(bandNode->topFrequency);
+        customband.refined.CHSPC = bandNode->space;
+        customband.refined.DFBAND = 0; 
+        customband.refined.UNI_AM = 0;
+        customband.refined.TVFREQ = 0;
+        customband.refined.DUMMY = 0;   
+        Wire.beginTransmission(SI4844_ADDRESS);
+        Wire.write(ATDD_POWER_UP);
+        Wire.write(customband.raw[0]);
+        Wire.write(customband.raw[1]);
+        Wire.write(customband.raw[2]);
+        Wire.write(customband.raw[3]);
+        Wire.write(customband.raw[4]);
+        Wire.write(customband.raw[5]);
+        Wire.write(customband.raw[6]);
+        Wire.endTransmission();           
+    }
+     
     delayMicroseconds(2500);
+
     waitInterrupt();
 
     this->waitDetectFrequency(); 
