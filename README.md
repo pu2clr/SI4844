@@ -131,17 +131,47 @@ See more about SI4844 on [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO
 
 
 
-
 ## Library Features
 
-1. Open Source. It is free. You can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software. See [MIT License](https://github.com/pu2clr/SI4844#mit-licence) to know more.   
-2. Built Based on [Si48XX ATDD PROGRAMMING GUIDE](https://www.silabs.com/documents/public/application-notes/AN610.pdf)
-3. More than 30 Si48XX functions (methods)
-4. Extended SW band frequency ranges: 2.3–5.6 MHz and 22–28.5 MHz
-5. C++ Lenguage and Object-oriented programming
-6. Available on Arduino IDE (Manage Libraries)
-7. Simplifies SI4844 based projects
+1. **Open Source**:  
+   - Free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software. See the [MIT License](https://github.com/pu2clr/SI4844#mit-licence) for details.  
 
+2. **Based on Si48XX ATDD Programming Guide**:  
+   - Developed in alignment with the [Si48XX ATDD Programming Guide](https://www.silabs.com/documents/public/application-notes/AN610.pdf), ensuring compatibility and reliability.
+
+3. **Over 40 Si48XX Functions**:  
+   - Includes a comprehensive set of methods for advanced control and customization.
+
+4. **Extended SW Band Frequency Ranges**:  
+   - Supports extended shortwave frequency ranges: 2.3–5.6 MHz and 22–28.5 MHz.
+
+5. **C++ and Object-Oriented Design**:  
+   - Built using the C++ language and object-oriented programming principles, offering flexibility and reusability.
+
+6. **Arduino IDE Integration**:  
+   - Available in the Arduino IDE library manager for seamless installation and updates.
+
+7. **Simplifies SI4844-Based Projects**:  
+   - Abstracts the complexities of working with the SI4844, making development faster and more accessible.
+
+8. **Band Selection Modes**:  
+   - Supports **programmatic band selection** via the MCU.  
+   - Offers traditional **band selection using Slide Switch or Rotary Band Switch** through a resistor network (voltage divider).
+
+9. **Custom Band Configuration**:  
+   - Enables developers to redefine frequency ranges by customizing the lower and upper limits for each band.
+
+10. **Pre-Defined Band Support**:  
+   - Includes compatibility with the Si48XX internal band table for standard frequency setups.
+
+11. **Dynamic Band Management**:  
+   - Allows adding, removing, or modifying bands dynamically at runtime.
+
+12. **Dual Selection Modes**:  
+   - Supports both mechanical (Slide/Band Switch) and programmable (MCU-controlled) band selection methods.
+
+13. **Low-Level Hardware Control**:  
+   - Provides direct access to hardware configurations, including resistor network management and pin settings.
 
 
 ## Library Installation
