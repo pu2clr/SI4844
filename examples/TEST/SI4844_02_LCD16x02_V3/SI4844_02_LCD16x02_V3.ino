@@ -188,7 +188,7 @@ void setBand(uint8_t band) {
     rx.setCustomBand(26, 15000, 22000, 5);  // From 15.0 to 22.0 MHz
 
   saveAllReceiverInformation();
-
+  showStatus();
   delay(MINIMUM_DELAY);
 
 }

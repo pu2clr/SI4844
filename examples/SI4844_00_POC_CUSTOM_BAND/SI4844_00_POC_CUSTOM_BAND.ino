@@ -17,24 +17,32 @@
 #define INTERRUPT_PIN 2  
 #define RESET_PIN 12
 // Pages 17 and 18 from Si48XX ATDD PROGRAMMING GUIDE
-#define DEFAULT_BAND 4   // FM => 0 to 19; AM => 20 to 24; SW => 25 to 40
 
 SI4844 si4844; 
 
 void setup() {
   Serial.begin(9600);
   delay(500);  
-  si4844.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
-  // Configure the Pre-defined Band (band index 40) to work between 27.0 to 27.5 MHz
+
+  Serial.print("\nStarting...\n");
+  si4844.setCrystalOscillatorStabilizationWaitTime(0);
+  si4844.setup(RESET_PIN, INTERRUPT_PIN, -1);
+
   // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
-  si4844.setCustomBand(40,27000,27500,5);  
+
+  // Legacy Method
+  // si4844.setCustomBand(40, 27000, 27500, 5); // Defines and immediately selects Band 40 to operate between 27.0 and 27.5 MHz
+
+  // New Method
+  si4844.addCustomBand(40, 27000, 27500, 5); // Adds Band 40 with a frequency range of 27.0 to 27.5 MHz
+  si4844.setBand(40);                        // Selects Band 40 for operation
+
+  Serial.print("\nRunning...\n");
+  showStatus();
 
 }
 
-void loop() {
-  // If you move the tuner, hasStatusChanged returns true
-  if (si4844.hasStatusChanged())
-  {
+void showStatus() {
     Serial.print("[Band..: ");
     Serial.print(si4844.getBandMode());
     Serial.print(" - Frequency: ");    
@@ -45,5 +53,12 @@ void loop() {
       Serial.print(si4844.getStereoIndicator());
     }
     Serial.println("]");
+}
+
+void loop() {
+  // If you move the tuner, hasStatusChanged returns true
+  if (si4844.hasStatusChanged())
+  {
+    showStatus();
   }
 }

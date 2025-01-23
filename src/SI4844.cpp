@@ -456,52 +456,6 @@ void SI4844::setCrystalOscillatorStabilizationWaitTime(uint8_t XOWAIT) {
 } 
 
 
-
-/**
- * @ingroup GB1
- * @brief Sets a new band to the device 
- * @details This method is used to select a band 
- * 
- * @see See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
- * 
- * @param new_band  band number. 
- * @todo The functions setBand and setBandSlideSwitch will be rewritten with the goal of improving the final code.
- */
-void SI4844::setBand(byte new_band)
-{
-    reset();
-
-    this->currentBand = new_band;
-
-    // Assigning 1 to bit 7. It means we are using external crystal
-    // Silicon Labs; Si48XX ATDD PROGRAMMING GUIDE; AN610; page 7
-    // Just another way to deal with bytes and bits using C/C++.
-
-    si4844_arg_band_index rxBandSetup; 
-
-    rxBandSetup.refined.XOSCEN = this->xoscen;
-    rxBandSetup.refined.XOWAIT = this->xowait;
-    rxBandSetup.refined.BANDIDX = this->currentBand;
-
-    data_from_device = false;
-
-    // Wait until rady to send a command
-    waitToSend();
-
-    Wire.beginTransmission(SI4844_ADDRESS);
-    Wire.write(ATDD_POWER_UP);
-    Wire.write(rxBandSetup.raw);
-    Wire.endTransmission();
-    delayMicroseconds(2500);
-    waitInterrupt();
-
-    delayMicroseconds(2500);
-    this->getAllReceiverInfo();
-    delayMicroseconds(2500);
-
-    this->setVolume(this->volume);
-}
-
 /**
  * @ingroup GB1
  * @brief Add a custom band in the list of custom bands.
@@ -547,9 +501,122 @@ BandNode * SI4844::findCustomBand(int8_t bandIdx) {
 }
 
 
+void SI4844::setPredefinedBand(uint8_t bandIdx) {
+
+    si4844_arg_band_index rxBandSetup; 
+
+    this->currentBand = bandIdx;
+
+    data_from_device = false;
+
+    rxBandSetup.refined.XOSCEN = this->xoscen;
+    rxBandSetup.refined.XOWAIT = this->xowait;
+    rxBandSetup.refined.BANDIDX = this->currentBand;
+    waitToSend();
+    Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(ATDD_POWER_UP);
+    Wire.write(rxBandSetup.raw);
+    Wire.endTransmission();
+    delayMicroseconds(2500);
+    waitInterrupt();
+    delayMicroseconds(2500);    
+}
+
+/**
+ * @ingroup GB1
+ * @brief Allows customization of the frequency range for a specific band.
+ * @details The SI4844 supports frequency ranges of 2.3–28.5 MHz for SW and 64.0–109.0 MHz for FM.
+ * @details You can configure up to 40 custom bands, such as defining a band from 27 to 28 MHz.
+ * @details Note: This function is only applicable in MCU-controlled band selection mode.
+ * 
+ * @see Si48XX ATDD PROGRAMMING GUIDE, pages 17, 18, 19 and 20.
+ * @see setBand, addCustomBand, setUserDefinedBand
+ * @param bandIdx  Predefined band index (valid values: betwenn 0 and 40)
+ * @param bottomFrequency Band Bottom Frequency Limit
+ * @param topFrequency Band Top Frequency Limit
+ * @param space Channel Spacing (use 5 or 10 - On FM 10 = 100KHz)
+ */
+void SI4844::setUserDefinedBand(int8_t bandIdx, uint32_t bottomFrequency, uint32_t topFrequency, uint8_t space ) {
+
+    SI4844_arg_band customband;
+
+    this->currentBand = bandIdx;
+
+    // Now we can customize the band.
+    data_from_device = false;
+    customband.refined.BANDIDX = bandIdx;
+    customband.refined.XOSCEN = this->xoscen;
+    customband.refined.XOWAIT = this->xowait;
+    customband.refined.BANDBOT_HIGH = highByte(bottomFrequency);
+    customband.refined.BANDBOT_LOW = lowByte(bottomFrequency);
+    customband.refined.BANDTOP_HIGH = highByte(topFrequency);
+    customband.refined.BANDTOP_LOW = lowByte(topFrequency);
+    customband.refined.CHSPC = space;
+    customband.refined.DFBAND = 0; 
+    customband.refined.UNI_AM = 0;
+    customband.refined.TVFREQ = 0;
+    customband.refined.DUMMY = 0;
+
+    // Wait until rady to send a command
+    waitToSend();
+
+    Wire.beginTransmission(SI4844_ADDRESS);
+    Wire.write(ATDD_POWER_UP);
+    Wire.write(customband.raw[0]);
+    Wire.write(customband.raw[1]);
+    Wire.write(customband.raw[2]);
+    Wire.write(customband.raw[3]);
+    Wire.write(customband.raw[4]);
+    Wire.write(customband.raw[5]);
+    Wire.write(customband.raw[6]);
+    Wire.endTransmission();
+    delayMicroseconds(2500);
+    waitInterrupt();
+    delayMicroseconds(2500);
+
+  }
+
+
+/**
+ * @ingroup GB1
+ * @brief Sets a new band to the device 
+ * @details This method is used to select a band 
+ * @details If a band is defined in the custom band list, the specified band will be configured;
+ * @details  otherwise, the predefined band set by the device will be applied.
+ * @details The main difference between this function and the setBand function (used in MCU band selection mode) is that,
+ * @details in the Slide Switch band selection mode, the selected band is not known in advance. It is necessary to detect 
+ * @details the band first, and then select it.
+ * @see See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
+ * @param new_band  band number. 
+ * @todo The functions setBand and setBandSlideSwitch will be rewritten with the goal of improving the final code.
+ */
+void SI4844::setBand(uint8_t bandIndex)
+{
+    reset();
+
+    // Checks if the current band is a custom band
+    BandNode *bandNode = this->findCustomBand(bandIndex);
+    if ( bandNode  == nullptr )  {   
+        this->setPredefinedBand(bandIndex);
+    } else {
+        // if the current band is a custom band, sets the new parameters for the band.
+        this->setUserDefinedBand(bandIndex, bandNode->bottomFrequency, bandNode->topFrequency, bandNode->space);
+    }
+
+    Serial.print("\nAqui: ");
+    Serial.print(bandIndex);
+    this->getAllReceiverInfo();
+    delayMicroseconds(2500);
+
+    this->setVolume(this->volume);
+}
+
+
 /**
  * @ingroup GB1
  * @brief Sets a new band to the device configured as Slide Switch
+ * @details If a band is defined in the custom band list, the specified band will be configured;
+ * @details  otherwise, the predefined band set by the device will be applied.
  * @see See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
  * @param band  band index number. 
  * @see Si4822/26/27/40/44 A NTENNA , SCHEMATIC , LAYOUT, AND DESIGN GUIDELINES 
@@ -557,80 +624,40 @@ BandNode * SI4844::findCustomBand(int8_t bandIdx) {
  */
 void SI4844::setBandSlideSwitch()
 {
+    
     this->getAllReceiverInfo();
-    this->currentBand = this->all_receiver_status.refined.BANDIDX;
+    uint8_t bandIndex = this->all_receiver_status.refined.BANDIDX;
 
    // If band mode changed, reset the device. 
    if (all_receiver_status.refined.HOSTRST == 1) {
        this->reset();
     }   
 
-    si4844_arg_band_index rxBandSetup; 
-
-    rxBandSetup.refined.XOSCEN = this->xoscen;
-    rxBandSetup.refined.XOWAIT = this->xowait;
-    rxBandSetup.refined.BANDIDX = this->currentBand;
-
-    data_from_device = false;
-
-    // Wait until rady to send a command
-    waitToSend();
-
     // Checks if the current band is a custom band
-    BandNode *bandNode = this->findCustomBand(this->currentBand);
+    BandNode *bandNode = this->findCustomBand(bandIndex);
     if ( bandNode  == nullptr )  {   
-        // If it is not a custom band, sets it as pre-defined banda
-        Wire.beginTransmission(SI4844_ADDRESS);
-        Wire.write(ATDD_POWER_UP);
-        Wire.write(rxBandSetup.raw);
-        Wire.endTransmission();
+        this->setPredefinedBand(bandIndex);
     } else {
         // if the current band is a custom band, sets the new parameters for the band.
-        SI4844_arg_band customband;
-        customband.refined.BANDIDX = this->currentBand;
-        customband.refined.XOSCEN = this->xoscen;
-        customband.refined.XOWAIT = this->xowait;
-        customband.refined.BANDBOT_HIGH = highByte(bandNode->bottomFrequency);
-        customband.refined.BANDBOT_LOW = lowByte(bandNode->bottomFrequency);
-        customband.refined.BANDTOP_HIGH = highByte(bandNode->topFrequency);
-        customband.refined.BANDTOP_LOW = lowByte(bandNode->topFrequency);
-        customband.refined.CHSPC = bandNode->space;
-        customband.refined.DFBAND = 0; 
-        customband.refined.UNI_AM = 0;
-        customband.refined.TVFREQ = 0;
-        customband.refined.DUMMY = 0;   
-        Wire.beginTransmission(SI4844_ADDRESS);
-        Wire.write(ATDD_POWER_UP);
-        Wire.write(customband.raw[0]);
-        Wire.write(customband.raw[1]);
-        Wire.write(customband.raw[2]);
-        Wire.write(customband.raw[3]);
-        Wire.write(customband.raw[4]);
-        Wire.write(customband.raw[5]);
-        Wire.write(customband.raw[6]);
-        Wire.endTransmission();           
+        this->setUserDefinedBand(bandIndex, bandNode->bottomFrequency, bandNode->topFrequency, bandNode->space);
     }
      
-    delayMicroseconds(2500);
-
-    waitInterrupt();
-
     this->waitDetectFrequency(); 
     this->setVolume(this->volume);
 
 }
 
 
-
-
-
 /** 
  * @ingroup GB1
  * @brief This method allows you to customize the frequency range of a band.
- * @details The SI4844 can work from 2.3–28.5 MHz on SW, 64.0–109.0MHz on FM
+ * @details Lagacy - See setBand, addCustomBand, and setUserDefinedBand.
+ * @details  The SI4844 can work from 2.3–28.5 MHz on SW, 64.0–109.0MHz on FM
  * @details You can configure the band index 40, for example, to work between 27 to 28 MHz.
+ * @details This function works only in MCU band select mode.
  * 
  * @see Si48XX ATDD PROGRAMMING GUIDE, pages 17, 18, 19 and 20.
+ * @see setBand, addCustomBand, setUserDefinedBand
  * 
  * (top – button)/(bandSpace) must be betwenn 50 and 230
  * 

@@ -17,6 +17,7 @@ echo "Arduino ATmega328 based board"
 echo "********************"
 arduino-cli compile -b arduino:avr:nano ./SI4844_00_MINIMAL --output-dir ~/Downloads/hex/atmega/SI4844_00_MINIMAL --warnings all
 arduino-cli compile -b arduino:avr:nano ./SI4844_00_POC --output-dir ~/Downloads/hex/atmega/SI4844_00_POC  --warnings all
+arduino-cli compile -b arduino:avr:nano ./SI4844_00_POC_CUSTOM_BAND --output-dir ~/Downloads/hex/atmega/SI4844_00_POC_CUSTOM_BAND  --warnings all
 arduino-cli compile -b arduino:avr:nano ./SI4844_01_OLED --output-dir ~/Downloads/hex/atmega/SI4844_01_OLED --warnings all
 arduino-cli compile -b arduino:avr:nano ./SI4844_01_OLED_V2 --output-dir ~/Downloads/hex/atmega/SI4844_01_OLED_V2 --warnings all
 arduino-cli compile -b arduino:avr:nano ./SI4844_02_LCD16x02 --output-dir ~/Downloads/hex/atmega/SI4844_02_LCD16x02  --warnings all

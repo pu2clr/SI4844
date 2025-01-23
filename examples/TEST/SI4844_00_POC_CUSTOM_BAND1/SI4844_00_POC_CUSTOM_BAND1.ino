@@ -11,25 +11,16 @@
  *  |   17       |  A5 (SCL)    | I2C bus (Clocl)                                    |
  * 
  *  ATTENTION: Arduino Nano and Uno are 5V based board. Check the board voltage you are using
+ *  If you are using the LGT8F328 see: https://blog.eletrogate.com/tutorial-pro-mini-evb-lgt8f328p-arduino-ide/
  * 
  * Author: Ricardo Lima Caratti (PU2CLR)
  * September, 2019
  */
 #include <SI4844.h>
-#include <EEPROM.h>
-
 // Arduino Pin (tested on pro mini)
 #define INTERRUPT_PIN 2
 #define RESET_PIN 12
 #define DEFAULT_BAND 1
-
-#define STORE_TIME 10000 // Time of inactivity to make the current receiver status writable (10s / 10000 milliseconds).
-
-// EEPROM - Stroring control variables
-const uint8_t app_id = 31; // Useful to check the EEPROM content before processing useful data
-const int eeprom_address = 0;
-long storeTime = millis();
-
 
 SI4844 rx; 
 
@@ -39,35 +30,16 @@ void setup() {
 
   Serial.print(F("\nBegin...\n"));
  
-  EEPROM.begin();
-
   instructions();
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
-  // rx.setCrystalOscillatorStabilizationWaitTime(1);
-  rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND, 400000); // 400kHz I2C Clock Speed
-  if (EEPROM.read(eeprom_address) == app_id)
-  {
-    readAllReceiverInformation();
-  } else 
-    rx.setVolume(48);
-
+  rx.setCrystalOscillatorStabilizationWaitTime(1);
+  // rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND, 400000);  // if you want to use 400kHz I2C speed
+  rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+  showStatus();
+  delay(200);
+  rx.setVolume(48);
   showStatus();
 }
-
-void saveAllReceiverInformation()
-{
-  EEPROM.update(eeprom_address, app_id);                        // stores the app id;
-  EEPROM.update(eeprom_address + 1, rx.getVolume());            // stores the current Volume
-  EEPROM.update(eeprom_address + 2, rx.getStatusBandIndex());   // Stores the current band
-
-}
-
-void readAllReceiverInformation()
-{
-  rx.setVolume(EEPROM.read(eeprom_address + 1));
-  rx.setBand(EEPROM.read(eeprom_address + 2));
-}
-
 // Shows instruções
 void instructions() {
   Serial.println(F("---------------------------------------------------"));
@@ -76,11 +48,11 @@ void instructions() {
   Serial.println(F("Type h - Custom FM - from 101 to 104 MHz - Step 200kHz"));
   Serial.println(F("Type + or - to sound volume"));  
   Serial.println(F("Type B to Bass; T to Treeble and N to Normal"));  
+  Serial.println(F("Type M to Mute"));   
   Serial.println(F("Type c - custom band 5.7 to 6.2 MHz"));
   Serial.println(F("Type C - CB (custom Band 27.0 to 27.5 MHz"));
   Serial.println(F("Type o to Power Down"));
   Serial.println(F("Type I to Firmware Information"));
-  Serial.println(F("Type R to RESET the EEPROM"));
   Serial.println(F("---------------------------------------------------"));
   delay(500);
 }
@@ -104,25 +76,27 @@ void show_firmware_information() {
 }
 
 void showStatus() {
-
-    char str[80];
-    char aux[15];
-    char* unt;
+    Serial.print(F("Band Index: "));
+    Serial.print(rx.getStatusBandIndex());
+    Serial.print(F(" - "));
+    Serial.print(rx.getBandMode());
+    Serial.print(F(" - Frequency: "));    
+    Serial.print(rx.getFrequencyInteger());
+    Serial.print(F(" KHz"));
     if (rx.getStatusBandMode() == 0) {
-      strcpy(aux,"Stereo ");
-      strcat(aux, rx.getStereoIndicator() );
-      unt = (char *) "MHZ";
-    } else {
-      strcpy(aux,"AM MONO");
-      unt = (char *) "kHz";
+      Serial.print(F(" - Stereo "));
+      Serial.print(rx.getStereoIndicator());
     }
-    sprintf(str,"\nMode: %d - Idx: %2.2d %s - Freq.: %s %s - %s - Vol.: %d", rx.getStatusBandMode(), rx.getStatusBandIndex(), rx.getBandMode(), rx.getFormattedFrequency(2), unt, aux, rx.getVolume() );
-    Serial.print(str);  
-
+    Serial.print(F(" - Volume: "));
+    Serial.print(rx.getVolume());
+    Serial.println("");  
 }
 
 // Control
 void loop() {
+
+  bool bMute = false;
+
   // Read from keyboar (Arduino Serial Monitor)
   // Band switch and sound volume control
   // It can be replaced by your keyboar, encoder or push button device.
@@ -135,11 +109,11 @@ void loop() {
       rx.setBand(1); // FM band
       break;
     case 'f': 
-      Serial.println(F("\nCustom FM Band:  from to 77 to 109 MHz - Step 200 kHz"));
+      Serial.println(F("Custom FM Band:  from to 77 to 109 MHz - Step 200 kHz"));
       rx.setCustomBand(3,7700,10900,20);    
       break;
     case 'h': 
-      Serial.println(F("\nCustom FM Band:  from to 101 to 104 MHz - Step 200 kHz"));
+      Serial.println(F("Custom FM Band:  from to 101 to 104 MHz - Step 200 kHz"));
       rx.setCustomBand(3,10100,10400,20);  
       break;    
     case 'a':
@@ -174,20 +148,20 @@ void loop() {
       rx.volumeDown();
       break;  
     case 'o':
-       Serial.println(F("\nPower Down"));
+       Serial.println(F("Power Down"));
        delay(500); 
       rx.powerDown();
       break;  
     case 'c':
       // Configure the Pre-defined Band (band index 26) to work between 5.7 to 6.2 MHz
       // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
-      Serial.println(F("\nCustom Band:  5.7 to 6.2 MHz"));
+      Serial.println(F("Custom Band:  5.7 to 6.2 MHz"));
       rx.setCustomBand(26,5700,6200,5);  
       break;      
     case 'C': 
       // Configure the Pre-defined Band (band index 40) to work between 27.0 to 27.5 MHz
       // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
-      Serial.println(F("\nCustom Band: 27.0 to 27.5 MHz"));
+      Serial.println(F("Custom Band: 27.0 to 27.5 MHz"));
       rx.setCustomBand(40,27000,27500,5);  
       break;  
     case 'I': 
@@ -196,24 +170,25 @@ void loop() {
       break;
     case 'B':
     case 'b':
-      rx.bassTrebleDown();
+      rx.bassTrebleUp();
       break;
     case 'T':
     case 't':
-      rx.bassTrebleUp();
-      break;          
-    case 'R':
-      EEPROM.update(eeprom_address, 0);
-      Serial.println(F("\nEEPROM RESET..."));  
-      break;  
+      rx.bassTrebleDown();
+      break;      
+    case 'N':
+    case 'n': 
+      rx.setBassTreble(4);
+      break;   
+    case 'M':
+    case 'm': 
+      bMute = !bMute;
+      rx.setAudioMute(bMute);
+      break;             
     }
   }
   if (rx.hasStatusChanged())
   {
     showStatus();
-    if ( (millis() - storeTime) > STORE_TIME  ) {
-      storeTime = millis();
-      saveAllReceiverInformation();
-    }
   }
 }

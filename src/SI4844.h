@@ -334,6 +334,10 @@ private:
   void waitDetectFrequency();
 
 
+  void setPredefinedBand(uint8_t bandIndex);
+  void setUserDefinedBand(int8_t bandIndex, uint32_t bottomFrequency, uint32_t topFrequency, uint8_t space ); 
+
+
   // SI4844 band description (FM = 0; AM = 1; SW = 2)
   const char *bandmode_table[3] = {"FM", "AM", "SW"};
   const char *stereo_indicator_table[2] = {"ST","MO"};

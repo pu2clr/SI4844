@@ -1,7 +1,7 @@
 /*
  *  It is a Proof of Concept (POC) of using Si4844 with the Arduino Library for rx.
- *  This example uses the band selection method via programming.
- *
+ *  This test evaluates the Custom Band method through the prior registration of customized bands.
+ * 
  *  SI4844 and Arduino Pro Mini, Arduino Nano, Uno or LGT8F328  connections
  *  
  *  | SI4844 pin |  Arduino pin |  Description                                       |
@@ -32,10 +32,19 @@ void setup() {
   Serial.print(F("\nBegin...\n"));
  
   instructions();
+
+  // Register custom bands
+  rx.addCustomBand(1, 8400, 10100, 200);  
+  rx.addCustomBand(3, 10100, 10800, 200);
+  rx.addCustomBand(4, 10100, 10400, 200);  
+  rx.addCustomBand(26,5700,6200,5);  
+  rx.addCustomBand(40,27000,27500,5);  
+
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
-  rx.setCrystalOscillatorStabilizationWaitTime(1);
-  // rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND, 400000);  // if you want to use 400kHz I2C speed
-  rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+  // rx.setCrystalOscillatorStabilizationWaitTime(1);
+  rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND, 400000);  // if you want to use 400kHz I2C speed
+  // rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND);
+  // rx.setBand(1);
   showStatus();
   delay(200);
   rx.setVolume(48);
@@ -110,12 +119,10 @@ void loop() {
       rx.setBand(1); // FM band
       break;
     case 'f': 
-      Serial.println(F("Custom FM Band:  from to 77 to 109 MHz - Step 200 kHz"));
-      rx.setCustomBand(3,7700,10900,20);    
+      rx.setBand(3);    
       break;
     case 'h': 
-      Serial.println(F("Custom FM Band:  from to 101 to 104 MHz - Step 200 kHz"));
-      rx.setCustomBand(3,10100,10400,20);  
+      rx.setBand(4);  
       break;    
     case 'a':
     case 'A':
@@ -157,13 +164,13 @@ void loop() {
       // Configure the Pre-defined Band (band index 26) to work between 5.7 to 6.2 MHz
       // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
       Serial.println(F("Custom Band:  5.7 to 6.2 MHz"));
-      rx.setCustomBand(26,5700,6200,5);  
+      rx.setBand(26);  
       break;      
     case 'C': 
       // Configure the Pre-defined Band (band index 40) to work between 27.0 to 27.5 MHz
       // See Si48XX ATDD PROGRAMMING GUIDE, pages 17,18,19 and 20.
       Serial.println(F("Custom Band: 27.0 to 27.5 MHz"));
-      rx.setCustomBand(40,27000,27500,5);  
+      rx.setBand(40);  
       break;  
     case 'I': 
     case 'i':
