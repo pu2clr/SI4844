@@ -602,9 +602,9 @@ void setup() {
   rx.setBand(40); // Runs SW from 27.0 to 27.5 MHz , spacing 5 kHz
 } 
 
+```
 
-
- [See example examples and example/TEST folders](https://github.com/pu2clr/SI4844/blob/master/examples/).
+[See example examples and example/TEST folders](https://github.com/pu2clr/SI4844/blob/master/examples/)
 
 
 ## SI4844 with OLED and buttons
