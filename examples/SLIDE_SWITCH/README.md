@@ -84,123 +84,27 @@ You can use custom frequency ranges beyond those predefined by the Si4827/44 by 
 #include <SI4844.h>
 #define INTERRUPT_PIN 2
 #define RESET_PIN 12
-#define DEFAULT_BAND 1
 
 SI4844 rx; 
 void setup() {
-  Serial.begin(9600);
-  delay(700);    
+
   // Register custom bands
   rx.addCustomBand(1, 8400, 10100, 20);  // Band Index 1, FM, from 84 to 101MHz, spacing 200 kHz
   rx.addCustomBand(3, 10100, 10800, 20); // Band Index 3, FM, from 101 to 108MHz, spacing 200 kHz
   rx.addCustomBand(4, 10100, 10400, 20); // Band Index 4, FM, from 101 to 104MHz, spacing 200 kHz 
   rx.addCustomBand(26,5700,6200,5);   // Band Index 26, SW, from 5.7 to 6.2MHz, spacing 5 kHz
   rx.addCustomBand(40,27000,27500,5); // Band Index 40, SW, from 27 to 27.5MHz, spacing 5 kHz 
-  rx.setup(RESET_PIN, INTERRUPT_PIN, DEFAULT_BAND, 400000);  // if you want to use 400kHz I2C speed
+
+  rx.setup(RESET_PIN, INTERRUPT_PIN, -1, 400000);  // if you want to use 400kHz I2C speed
   rx.setVolume(48);
-  showStatus();
-}
+  
+  rx.setBand(1); 
+  delay(10000);
+  rx.setBand(26);
+  .
+  .
+  . 
 
-void showStatus() {
-    Serial.print(F("Band Index: "));
-    Serial.print(rx.getStatusBandIndex());
-    Serial.print(F(" - "));
-    Serial.print(rx.getBandMode());
-    Serial.print(F(" - Frequency: "));    
-    Serial.print(rx.getFrequencyInteger());
-    Serial.print(F(" KHz"));
-    if (rx.getStatusBandMode() == 0) {
-      Serial.print(F(" - Stereo "));
-      Serial.print(rx.getStereoIndicator());
-    }
-    Serial.print(F(" - Volume: "));
-    Serial.print(rx.getVolume());
-    Serial.println("");  
-}
-
-void loop() {
-  bool bMute = false;
-  if (Serial.available() > 0)
-  {
-    char key = Serial.read();
-    switch (key)
-    {
-    case 'F':
-      rx.setBand(1); 
-      break;
-    case 'f': 
-      rx.setBand(3);    
-      break;
-    case 'h': 
-      rx.setBand(4);  
-      break;    
-    case 'a':
-    case 'A':
-      rx.setBand(20); // AM band
-      break;
-    case '1':
-      rx.setBand(28); // SW1 band
-      break;
-    case '2':
-      rx.setBand(29); // SW2 band
-      break;
-    case '3':
-      rx.setBand(31); // SW3 band
-      break;
-    case '4':
-      rx.setBand(33); // SW4 band
-      break;
-    case '5':
-      rx.setBand(35); // SW5 band
-      break;
-    case '6':
-      rx.setBand(37); // SW6 band
-      break;
-    case '7':
-      rx.setBand(39); // SW7 band
-      break;
-    case '+': // sound volume control
-      rx.volumeUp();
-      break;
-    case '-':
-      rx.volumeDown();
-      break;  
-    case 'o':
-       Serial.println(F("Power Down"));
-       delay(500); 
-      rx.powerDown();
-      break;  
-    case 'c':
-      Serial.println(F("Custom Band:  5.7 to 6.2 MHz"));
-      rx.setBand(26);  
-      break;      
-    case 'C': 
-      Serial.println(F("Custom Band: 27.0 to 27.5 MHz"));
-      rx.setBand(40);  
-      break;  
-    case 'B':
-    case 'b':
-      rx.bassTrebleUp();
-      break;
-    case 'T':
-    case 't':
-      rx.bassTrebleDown();
-      break;      
-    case 'N':
-    case 'n': 
-      rx.setBassTreble(4);
-      break;   
-    case 'M':
-    case 'm': 
-      bMute = !bMute;
-      rx.setAudioMute(bMute);
-      break;             
-    }
-  }
-  if (rx.hasStatusChanged())
-  {
-    showStatus();
-  }
 }
 
 ```

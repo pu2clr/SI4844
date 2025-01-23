@@ -555,7 +555,51 @@ The [SI4844_POC.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI484
 
 ### Extended SW band frequency ranges from 2.3–5.6 MHz and 22–28.5 MHz 
 
-The sketch [SI4844_CUSTOM_BAND.ino](https://github.com/pu2clr/SI4844/blob/master/examples/TEST/SI4844_CUSTOM_BAND/SI4844_CUSTOM_BAND.ino) shows how to extend a SW band frequency ranges. You can define band from from 2.3–5.6 MHz and 22–28.5 MHz. 
+The Si4827/44 devices allow configuring bands with frequency ranges different from those predefined by the device. Using the setCustomBand function (legacy) or the addCustomBand and setBand methods, it is possible to tune to frequencies below 5.6 MHz and above 22 MHz. It is essential for the programmer to understand the band selection mechanisms of the SI48XX family, particularly as described in the document AN610 (Si48XX ATDD Programming Guide), pages 17 and 18, as well as the procedures provided by the library for this purpose. The legacy method can be used as shown below.
+
+```cpp
+
+#include <SI4844.h>
+#define INTERRUPT_PIN 2
+#define RESET_PIN 12
+#define DEFAULT_BAND 1
+SI4844 rx; 
+void setup() {
+  rx.setup(RESET_PIN, INTERRUPT_PIN, -1);
+  rx.setCustomBand(3,10100,10400,20); // Custom FM Band (index 3), from 101 to 104 MHz; spacing 200 kHz    
+  .
+  .
+  .
+  rx.setCustomBand(40,27000,27500,5); // Custom SW Band (index 40): from 27.0 to 27.5 MHz , spacing 5 kHz
+} 
+
+```
+
+
+The following code illustrates another method for using custom bands.
+
+```cpp
+
+#include <SI4844.h>
+#define INTERRUPT_PIN 2
+#define RESET_PIN 12
+#define DEFAULT_BAND 1
+SI4844 rx; 
+void setup() {
+
+  rx.addCustomBand(3,10100,10400,20); // Register Custom FM Band (index 3), from 101 to 104 MHz; spacing 200 kHz  
+  rx.addCustomBand(40,27000,27500,5); // Register Custom SW Band (index 40): from 27.0 to 27.5 MHz , spacing 5 kHz
+  rx.setup(RESET_PIN, INTERRUPT_PIN, -1);
+  rx.setBand(3); // Runs FM from 101 to 104 MHz; spacing 200 kHz      
+  .
+  .
+  .
+  rx.setBand(40); // Runs SW from 27.0 to 27.5 MHz , spacing 5 kHz
+} 
+
+
+
+ [See example examples and example/TEST folders](https://github.com/pu2clr/SI4844/blob/master/examples/).
 
 
 ## SI4844 with OLED and buttons
