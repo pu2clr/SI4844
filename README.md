@@ -555,7 +555,12 @@ The [SI4844_POC.ino](https://github.com/pu2clr/SI4844/blob/master/examples/SI484
 
 ### Extended SW band frequency ranges from 2.3–5.6 MHz and 22–28.5 MHz 
 
-The Si4827/44 devices allow configuring bands with frequency ranges different from those predefined by the device. Using the setCustomBand function (legacy) or the addCustomBand and setBand methods, it is possible to tune to frequencies below 5.6 MHz and above 22 MHz. It is essential for the programmer to understand the band selection mechanisms of the SI48XX family, particularly as described in the document AN610 (Si48XX ATDD Programming Guide), pages 17 and 18, as well as the procedures provided by the library for this purpose. The legacy method can be used as shown below.
+The Si4827/44 devices allow configuring bands with frequency ranges different from those predefined by the device. Using the setCustomBand function (legacy) or the addCustomBand and setBand methods, it is possible to tune to frequencies below 5.6 MHz and above 22 MHz. It is essential for the programmer to understand the band selection mechanisms of the SI48XX family, particularly as described in the document AN610 (Si48XX ATDD Programming Guide), pages 17 and 18, as well as the procedures provided by the library for this purpose. 
+
+***Important: If you are using the Si4844, it is important to check the configuration of pin 1 (LNA_EN). For the custom band settings to take effect, this pin must be floating (open). If the pin is configured as pull-up, the custom or extended bands will be ignored, and the device's predefined parameters will prevail.***
+
+
+The legacy method can be used as shown below.
 
 ```cpp
 
