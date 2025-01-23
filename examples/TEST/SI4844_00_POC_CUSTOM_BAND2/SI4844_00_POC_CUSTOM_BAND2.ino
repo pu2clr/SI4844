@@ -34,11 +34,11 @@ void setup() {
   instructions();
 
   // Register custom bands
-  rx.addCustomBand(1, 8400, 10100, 200);  
-  rx.addCustomBand(3, 10100, 10800, 200);
-  rx.addCustomBand(4, 10100, 10400, 200);  
-  rx.addCustomBand(26,5700,6200,5);  
-  rx.addCustomBand(40,27000,27500,5);  
+  rx.addCustomBand(1, 8400, 10100, 20);  // Band Index 1, FM, from 84 to 101MHz, spacing 200 kHz
+  rx.addCustomBand(3, 10100, 10800, 20); // Band Index 3, FM, from 101 to 108MHz, spacing 200 kHz
+  rx.addCustomBand(4, 10100, 10400, 20); // Band Index 4, FM, from 101 to 104MHz, spacing 200 kHz 
+  rx.addCustomBand(26,5700,6200,5);   // Band Index 26, SW, from 5.7 to 6.2MHz, spacing 5 kHz
+  rx.addCustomBand(40,27000,27500,5); // Band Index 40, SW, from 27 to 27.5MHz, spacing 5 kHz 
 
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // rx.setCrystalOscillatorStabilizationWaitTime(1);
