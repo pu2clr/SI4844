@@ -1509,7 +1509,7 @@ Functions</h2></td></tr>
           <td class="memname">void SI4844::setBand </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>newBand</em> = <code>0</code></td><td>)</td>
+          <td class="paramname"><em>bandIndex</em> = <code>0</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1517,8 +1517,12 @@ Functions</h2></td></tr>
 
 <p>Sets a new band to the device. </p>
 <p>This method is used to select a band</p>
-<dl class="section see"><dt>See also</dt><dd>See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18 <br  />
-</dd></dl>
+<p>If a band is defined in the custom band list, the specified band will be configured;</p>
+<p>otherwise, the predefined band set by the device will be applied.</p>
+<p>The main difference between this function and the setBand function (used in MCU band selection mode) is that,</p>
+<p>in the Slide Switch band selection mode, the selected band is not known in advance. It is necessary to detect</p>
+<p>the band first, and then select it. </p><dl class="section see"><dt>See also</dt><dd>See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18 <br  />
+ </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">new_band</td><td>band number. </td></tr>
@@ -1547,7 +1551,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets a new band to the device configured as Slide Switch. </p>
-<dl class="section see"><dt>See also</dt><dd>See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18 <br  />
+<p>If a band is defined in the custom band list, the specified band will be configured;</p>
+<p>otherwise, the predefined band set by the device will be applied. </p><dl class="section see"><dt>See also</dt><dd>See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18 <br  />
  </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1756,9 +1761,13 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This method allows you to customize the frequency range of a band. </p>
+<p>Lagacy - See setBand, addCustomBand, and setUserDefinedBand.</p>
 <p>The <a class="el" href="class_s_i4844.html" title="SI4844 Class.">SI4844</a> can work from 2.3–28.5 MHz on SW, 64.0–109.0MHz on FM</p>
 <p>You can configure the band index 40, for example, to work between 27 to 28 MHz.</p>
-<dl class="section see"><dt>See also</dt><dd>Si48XX ATDD PROGRAMMING GUIDE, pages 17, 18, 19 and 20.</dd></dl>
+<p>This function works only in MCU band select mode.</p>
+<dl class="section see"><dt>See also</dt><dd>Si48XX ATDD PROGRAMMING GUIDE, pages 17, 18, 19 and 20. </dd>
+<dd>
+<a class="el" href="group___g_b1.html#gad91399d31b91e1b078d8f52a0cec4656" title="Sets a new band to the device.">setBand</a>, <a class="el" href="group___g_b1.html#ga5e13d648a226f258d53a595790cacfed" title="Add a custom band in the list of custom bands.">addCustomBand</a>, setUserDefinedBand</dd></dl>
 <p>(top – button)/(bandSpace) must be betwenn 50 and 230</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
