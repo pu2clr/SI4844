@@ -95,6 +95,9 @@ void setup() {
   rx.setupSlideSwitch(RESET_PIN, INTERRUPT_PIN);
 
   // You must calibrate the default volume
+
+  // rx.setAmSoftMuteMaxAttenuation(0); // disable Soft Mute
+  
   rx.setVolume(58);
   delay(100);
   display.clear();    
