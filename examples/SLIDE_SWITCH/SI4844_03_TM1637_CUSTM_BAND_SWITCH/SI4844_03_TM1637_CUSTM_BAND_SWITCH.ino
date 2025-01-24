@@ -69,6 +69,9 @@
 
 long elapsedButton = millis();
 
+uint32_t oldFrequency = 0L;
+uint8_t oldStationIndicator = 99;
+
 TM1637TinyDisplay6 display(TM1637_CLK, TM1637_DIO);
 SI4844 rx;
 
@@ -91,22 +94,19 @@ void setup() {
   rx.addCustomBand(39, 21400, 21700, 5);
 
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
-  // rx.setCrystalOscillatorStabilizationWaitTime(1);
+  rx.setCrystalOscillatorStabilizationWaitTime(0); // Set - Waits 600 ms for the crystal to stabilize.
   rx.setupSlideSwitch(RESET_PIN, INTERRUPT_PIN);
 
-  // You must calibrate the default volume
+  rx.setAmSoftMuteMaxAttenuation(0); // disable Soft Mute
 
-  // rx.setAmSoftMuteMaxAttenuation(0); // disable Soft Mute
-  
-  rx.setVolume(58);
-  delay(100);
+
+  // You must calibrate the default volume -  Assuming that the volume control is external.
+  rx.setVolume(60);
   display.clear();    
   showStatus();
 
 }
 
-uint32_t oldFrequency = 0L;
-uint8_t oldStationIndicator = 99;
 
 void showStatus() {
 
@@ -121,30 +121,27 @@ void showStatus() {
 
 }
 
-
+// Useful for debugging (helps identify the actual Band Index based on the Band Switch position) 
 void showBandIndex() {
     display.clear(); 
     display.showNumber(rx.getValidBandIndex());
-    delay(500);
+    delay(100);
     display.clear(); 
 }
 
-/**
- * Main loop
- */
 void loop() {
 
   if (rx.hasStatusChanged()) {
     if (rx.hasBandChanged()) {
       oldFrequency = 0;
       oldStationIndicator = 99;
-      // showBandIndex();
+      showBandIndex(); // You can remove this line  
       rx.setBandSlideSwitch();
     }
 
     showStatus();  
   }
 
-  delay(50);
+  delay(10);
 }
 

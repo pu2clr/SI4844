@@ -2,6 +2,8 @@
 
 This folder has a set of examples that might help you in your project with Si4844 and Arduino.
 
+Also, take note of the subfolders [SLIDE_SWITCH](./SLIDE_SWITCH/), [TEST](./TEST/), and [UNDER_CONSTRUCTION](./UNDER_CONSTRUCTION/). In particular, the [SLIDE_SWITCH](./SLIDE_SWITCH/) subfolder contains examples that use the band selection mode via Slide Switch or Rotary Band Switch. This feature, available in the SI48XX family, provides the classic band selection experience of vintage receivers. The other folders contain examples or sketches designed for testing, development, and maintenance of this library.
+
 
 __This project is about a library to control the SI4844 device and the focus of this project is the library and its functionalities. Please, don't ask me to assist you in your: displays (LCD, OLED, TFT etc), encoders, buttons or something else out the library scope. Thanks.__
 
@@ -152,7 +154,6 @@ The Nokia 5110 display is widely used in Arduino experiments. It is generally av
 
 
 ![Nokia 5110 Display and SI4844 prototype 3](../extras/images/SI4844B_PROTOTYPE1.jpg)
-
 
 
 ![Nokia 5110 Display and SI4844 prototype 4](../extras/images/Atmega328_prototype.jpg)
