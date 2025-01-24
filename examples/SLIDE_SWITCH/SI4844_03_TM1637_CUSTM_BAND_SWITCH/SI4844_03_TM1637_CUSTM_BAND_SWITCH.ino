@@ -97,8 +97,8 @@ void setup() {
   rx.setCrystalOscillatorStabilizationWaitTime(0); // Set - Waits 600 ms for the crystal to stabilize.
   rx.setupSlideSwitch(RESET_PIN, INTERRUPT_PIN);
 
-  rx.setAmSoftMuteMaxAttenuation(0); // disable Soft Mute
-
+  // rx.setAmSoftMuteMaxAttenuation(0); // disable Soft Mute
+  rx.setAmSoftMuteMaxAttenuation(20); 
 
   // You must calibrate the default volume -  Assuming that the volume control is external.
   rx.setVolume(60);
@@ -135,7 +135,7 @@ void loop() {
     if (rx.hasBandChanged()) {
       oldFrequency = 0;
       oldStationIndicator = 99;
-      showBandIndex(); // You can remove this line  
+      // showBandIndex(); // You can remove this line  
       rx.setBandSlideSwitch();
     }
 
