@@ -60,13 +60,13 @@ The circuit below illustrates a more complete version of a receiver based on the
 
 ## Prototype 
 
-![Prototype Photo 03](./BAND_SWITCH_03)
+![Prototype Photo 03](./BAND_SWITCH_03.jpg)
 
 
-![Prototype Photo 02](./BAND_SWITCH_02)
+![Prototype Photo 02](./BAND_SWITCH_02.jpg)
 
 
-![Prototype Photo 01](./BAND_SWITCH_01)
+![Prototype Photo 01](./BAND_SWITCH_01.jpg)
 
 
 
