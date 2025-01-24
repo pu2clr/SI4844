@@ -69,8 +69,12 @@ The circuit below illustrates a more complete version of a receiver based on the
 ![Prototype Photo 01](./BAND_SWITCH_01.jpg)
 
 
+![Prototype Photo 01](./BAND_SWITCH_04.jpg)
 
 
+
+![Prototype Photo 01](./BAND_SWITCH_05.jpg)
+***Details of Band Switch with a Resistor Network for 12 bands.***
 
 
 
