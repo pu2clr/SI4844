@@ -776,7 +776,7 @@ void TwoWire::beginTransmission(uint8_t address)
 
 000012aa <SI4844::convertToChar(unsigned long, char*, unsigned char, unsigned char, unsigned char, bool) [clone .constprop.42]>:
 convertToChar():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1430
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1430
  * @param len final string size (in bytes)
  * @param dot the decimal or thousand separator position
  * @param separator symbol "." or ","
@@ -806,7 +806,7 @@ void SI4844::convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t 
     12d2:	f5 1e       	adc	r15, r21
     12d4:	67 01       	movw	r12, r14
     12d6:	57 01       	movw	r10, r14
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1435
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1435
 {
     char d;
     for (int i = (len - 1); i >= 0; i--)
@@ -817,7 +817,7 @@ void SI4844::convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t 
     12dc:	51 2c       	mov	r5, r1
     12de:	61 2c       	mov	r6, r1
     12e0:	71 2c       	mov	r7, r1
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1436
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1436
         value = value / 10;
     12e2:	bc 01       	movw	r22, r24
     12e4:	cd 01       	movw	r24, r26
@@ -828,7 +828,7 @@ void SI4844::convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t 
     12f0:	c9 01       	movw	r24, r18
     12f2:	f5 01       	movw	r30, r10
     12f4:	31 97       	sbiw	r30, 0x01	; 1
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1437
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1437
         strValue[i] = d + 48;
     12f6:	60 5d       	subi	r22, 0xD0	; 208
     12f8:	60 83       	st	Z, r22
@@ -839,7 +839,7 @@ void SI4844::convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t 
     1302:	2c 1b       	sub	r18, r28
     1304:	3d 0b       	sbc	r19, r29
     1306:	5f 01       	movw	r10, r30
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1433
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1433
  * @param remove_leading_zeros if true removes up to two leading zeros (default is true)
  */
 void SI4844::convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t dot, uint8_t separator, bool remove_leading_zeros)
@@ -848,7 +848,7 @@ void SI4844::convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t 
     for (int i = (len - 1); i >= 0; i--)
     1308:	37 ff       	sbrs	r19, 7
     130a:	eb cf       	rjmp	.-42     	; 0x12e2 <SI4844::convertToChar(unsigned long, char*, unsigned char, unsigned char, unsigned char, bool) [clone .constprop.42]+0x38>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1439
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1439
     {
         d = value % 10;
         value = value / 10;
@@ -857,11 +857,11 @@ void SI4844::convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t 
     strValue[len] = '\0';
     130c:	f7 01       	movw	r30, r14
     130e:	10 82       	st	Z, r1
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1440
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1440
     if (dot > 0)
     1310:	00 23       	and	r16, r16
     1312:	99 f0       	breq	.+38     	; 0x133a <SI4844::convertToChar(unsigned long, char*, unsigned char, unsigned char, unsigned char, bool) [clone .constprop.42]+0x90>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1442
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1442
     {
         for (int i = len; i >= dot; i--)
     1314:	10 e0       	ldi	r17, 0x00	; 0
@@ -871,7 +871,7 @@ void SI4844::convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t 
     131c:	80 17       	cp	r24, r16
     131e:	91 07       	cpc	r25, r17
     1320:	3c f0       	brlt	.+14     	; 0x1330 <SI4844::convertToChar(unsigned long, char*, unsigned char, unsigned char, unsigned char, bool) [clone .constprop.42]+0x86>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1444
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1444
         {
             strValue[i + 1] = strValue[i];
     1322:	f6 01       	movw	r30, r12
@@ -881,7 +881,7 @@ void SI4844::convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t 
     132a:	cf 1a       	sub	r12, r31
     132c:	d1 08       	sbc	r13, r1
     132e:	f3 cf       	rjmp	.-26     	; 0x1316 <SI4844::convertToChar(unsigned long, char*, unsigned char, unsigned char, unsigned char, bool) [clone .constprop.42]+0x6c>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1446
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1446
         }
         strValue[dot] = separator;
     1330:	0c 0f       	add	r16, r28
@@ -889,7 +889,7 @@ void SI4844::convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t 
     1334:	8e e2       	ldi	r24, 0x2E	; 46
     1336:	f8 01       	movw	r30, r16
     1338:	80 83       	st	Z, r24
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1451
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1451
     }
 
     if (remove_leading_zeros)
@@ -898,20 +898,20 @@ void SI4844::convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t 
     133a:	88 81       	ld	r24, Y
     133c:	80 33       	cpi	r24, 0x30	; 48
     133e:	31 f4       	brne	.+12     	; 0x134c <SI4844::convertToChar(unsigned long, char*, unsigned char, unsigned char, unsigned char, bool) [clone .constprop.42]+0xa2>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1453
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1453
         {
             strValue[0] = ' ';
     1340:	80 e2       	ldi	r24, 0x20	; 32
     1342:	88 83       	st	Y, r24
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1454
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1454
             if (strValue[1] == '0')
     1344:	99 81       	ldd	r25, Y+1	; 0x01
     1346:	90 33       	cpi	r25, 0x30	; 48
     1348:	09 f4       	brne	.+2      	; 0x134c <SI4844::convertToChar(unsigned long, char*, unsigned char, unsigned char, unsigned char, bool) [clone .constprop.42]+0xa2>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1455
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1455
                 strValue[1] = ' ';
     134a:	89 83       	std	Y+1, r24	; 0x01
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1458
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1458
         }
     }
 }
@@ -2119,7 +2119,7 @@ void delay(unsigned long ms)
 
 00001764 <interrupt_hundler()>:
 interrupt_hundler():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:41
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:41
 #ifdef ESP8266    // if the controller is ESP8266, add IRAM_ATTR.
   IRAM_ATTR 
 #endif
@@ -2128,7 +2128,7 @@ void interrupt_hundler()
    data_from_device = true;
     1764:	81 e0       	ldi	r24, 0x01	; 1
     1766:	80 93 c5 02 	sts	0x02C5, r24	; 0x8002c5 <_ZL16data_from_device.lto_priv.64>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:42
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:42
 }
     176a:	08 95       	ret
 
@@ -7034,7 +7034,7 @@ availableForWrite():
 
 00002d5c <SI4844::waitInterrupt() [clone .isra.2]>:
 _ZN6SI484413waitInterruptEv.isra.2():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:166
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:166
  * @details It can occur, for example, when you use the analog tuner.  
  */
 void SI4844::waitInterrupt(void)
@@ -7044,7 +7044,7 @@ void SI4844::waitInterrupt(void)
     2d5c:	80 91 c5 02 	lds	r24, 0x02C5	; 0x8002c5 <_ZL16data_from_device.lto_priv.64>
     2d60:	88 23       	and	r24, r24
     2d62:	e1 f3       	breq	.-8      	; 0x2d5c <SI4844::waitInterrupt() [clone .isra.2]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:169
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:169
         ;
         
 }
@@ -7052,7 +7052,7 @@ void SI4844::waitInterrupt(void)
 
 00002d66 <SI4844::reset() [clone .constprop.17]>:
 reset():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:363
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:363
  * @ingroup GB1
  * @brief Resets the SI4844 device
  * @details Prepares the system  to be started.
@@ -7066,47 +7066,47 @@ twi_setFrequency():
     2d6a:	88 e1       	ldi	r24, 0x18	; 24
     2d6c:	80 93 b8 00 	sts	0x00B8, r24	; 0x8000b8 <__DATA_REGION_ORIGIN__+0x58>
 reset():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:368
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:368
 {
     // waitToSend();
 
     setClockLow(); // See *Note on page 5
     data_from_device = false;
     2d70:	10 92 c5 02 	sts	0x02C5, r1	; 0x8002c5 <_ZL16data_from_device.lto_priv.64>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:369
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:369
     digitalWrite(resetPin, LOW);
     2d74:	c2 e9       	ldi	r28, 0x92	; 146
     2d76:	d3 e0       	ldi	r29, 0x03	; 3
     2d78:	60 e0       	ldi	r22, 0x00	; 0
     2d7a:	8e 85       	ldd	r24, Y+14	; 0x0e
     2d7c:	0e 94 d6 0a 	call	0x15ac	; 0x15ac <digitalWrite>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:370
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:370
     delayMicroseconds(200);
     2d80:	88 ec       	ldi	r24, 0xC8	; 200
     2d82:	90 e0       	ldi	r25, 0x00	; 0
     2d84:	0e 94 53 0b 	call	0x16a6	; 0x16a6 <delayMicroseconds>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:371
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:371
     digitalWrite(resetPin, HIGH);
     2d88:	61 e0       	ldi	r22, 0x01	; 1
     2d8a:	8e 85       	ldd	r24, Y+14	; 0x0e
     2d8c:	0e 94 d6 0a 	call	0x15ac	; 0x15ac <digitalWrite>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:372
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:372
     delayMicroseconds(200);
     2d90:	88 ec       	ldi	r24, 0xC8	; 200
     2d92:	90 e0       	ldi	r25, 0x00	; 0
     2d94:	0e 94 53 0b 	call	0x16a6	; 0x16a6 <delayMicroseconds>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:373
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:373
     waitInterrupt();
     2d98:	0e 94 ae 16 	call	0x2d5c	; 0x2d5c <SI4844::waitInterrupt() [clone .isra.2]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:374
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:374
     delayMicroseconds(2500);
     2d9c:	84 ec       	ldi	r24, 0xC4	; 196
     2d9e:	99 e0       	ldi	r25, 0x09	; 9
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:375
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:375
 }
     2da0:	df 91       	pop	r29
     2da2:	cf 91       	pop	r28
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:374
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:374
     digitalWrite(resetPin, LOW);
     delayMicroseconds(200);
     digitalWrite(resetPin, HIGH);
@@ -7121,7 +7121,7 @@ beginTransmission():
     2da8:	81 e1       	ldi	r24, 0x11	; 17
     2daa:	0e 94 4b 09 	call	0x1296	; 0x1296 <TwoWire::beginTransmission(unsigned char) [clone .constprop.51]>
 getStatus():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:982
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:982
  * @details this method updates the first byte of all_receiver_status member variable
  * @return  pointer to a structure type si4844_device_status
  */
@@ -7131,12 +7131,12 @@ getStatus():
     2dae:	80 ee       	ldi	r24, 0xE0	; 224
     2db0:	90 e0       	ldi	r25, 0x00	; 0
     2db2:	0e 94 f3 14 	call	0x29e6	; 0x29e6 <TwoWire::write(int) [clone .constprop.36]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:983
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:983
     Wire.endTransmission();
     2db6:	82 ec       	ldi	r24, 0xC2	; 194
     2db8:	93 e0       	ldi	r25, 0x03	; 3
     2dba:	0e 94 f8 14 	call	0x29f0	; 0x29f0 <TwoWire::endTransmission()>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:984
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:984
     delayMicroseconds(2000);
     2dbe:	80 ed       	ldi	r24, 0xD0	; 208
     2dc0:	97 e0       	ldi	r25, 0x07	; 7
@@ -7158,7 +7158,7 @@ requestFrom():
   rxBufferLength = read;
     2dd2:	80 93 c6 02 	sts	0x02C6, r24	; 0x8002c6 <TwoWire::rxBufferLength>
 getStatus():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:986
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:986
     Wire.requestFrom(SI4844_ADDRESS, 1);
     all_receiver_status.raw[0] = Wire.read();
     2dd6:	82 ec       	ldi	r24, 0xC2	; 194
@@ -7167,10 +7167,10 @@ getStatus():
     2dde:	e2 e9       	ldi	r30, 0x92	; 146
     2de0:	f3 e0       	ldi	r31, 0x03	; 3
     2de2:	81 83       	std	Z+1, r24	; 0x01
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:987
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:987
     device_status.raw = all_receiver_status.raw[0];
     2de4:	80 83       	st	Z, r24
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:989
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:989
     return &device_status; 
  }
     2de6:	cf 01       	movw	r24, r30
@@ -7178,7 +7178,7 @@ getStatus():
 
 00002dea <SI4844::getAllReceiverInfo() [clone .constprop.34]>:
 getAllReceiverInfo():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:999
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:999
  * @details Use this method only if you want to deal with that information by yourself. 
  * @details all data of the receiver is storted in "all_receiver_status" member variable 
  * @details This library has other methods to get that information easier. 
@@ -7218,7 +7218,7 @@ void TwoWire::beginTransmission(int address)
     2e1e:	81 e1       	ldi	r24, 0x11	; 17
     2e20:	0e 94 4b 09 	call	0x1296	; 0x1296 <TwoWire::beginTransmission(unsigned char) [clone .constprop.51]>
 getAllReceiverInfo():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1005
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1005
 {
     setClockHigh();
     do
@@ -7228,12 +7228,12 @@ getAllReceiverInfo():
     2e24:	80 ee       	ldi	r24, 0xE0	; 224
     2e26:	90 e0       	ldi	r25, 0x00	; 0
     2e28:	0e 94 f3 14 	call	0x29e6	; 0x29e6 <TwoWire::write(int) [clone .constprop.36]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1006
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1006
         Wire.endTransmission();
     2e2c:	82 ec       	ldi	r24, 0xC2	; 194
     2e2e:	93 e0       	ldi	r25, 0x03	; 3
     2e30:	0e 94 f8 14 	call	0x29f0	; 0x29f0 <TwoWire::endTransmission()>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1007
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1007
         delayMicroseconds(2500);
     2e34:	84 ec       	ldi	r24, 0xC4	; 196
     2e36:	99 e0       	ldi	r25, 0x09	; 9
@@ -7257,7 +7257,7 @@ requestFrom():
     2e4c:	c3 e9       	ldi	r28, 0x93	; 147
     2e4e:	d3 e0       	ldi	r29, 0x03	; 3
 getAllReceiverInfo():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1011
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1011
         // request 4 bytes response from atdd (si4844)
         Wire.requestFrom(SI4844_ADDRESS, 0x04);
         for (int i = 0; i < 4; i++)
@@ -7266,7 +7266,7 @@ getAllReceiverInfo():
     2e52:	93 e0       	ldi	r25, 0x03	; 3
     2e54:	0e 94 7d 14 	call	0x28fa	; 0x28fa <TwoWire::read()>
     2e58:	89 93       	st	Y+, r24
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1010
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1010
         Wire.write(ATDD_GET_STATUS);
         Wire.endTransmission();
         delayMicroseconds(2500);
@@ -7277,7 +7277,7 @@ getAllReceiverInfo():
     2e5c:	c7 39       	cpi	r28, 0x97	; 151
     2e5e:	d8 07       	cpc	r29, r24
     2e60:	b9 f7       	brne	.-18     	; 0x2e50 <SI4844::getAllReceiverInfo() [clone .constprop.34]+0x66>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1014
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1014
             all_receiver_status.raw[i] = Wire.read();
         // check response error. Exit when no error found. See page 7.
         // if INFORDY is 0, the system is not ready yet. You may need to check if CHFREQ is 0 too.
@@ -7285,11 +7285,11 @@ getAllReceiverInfo():
     2e62:	80 91 93 03 	lds	r24, 0x0393	; 0x800393 <rx+0x1>
     2e66:	84 ff       	sbrs	r24, 4
     2e68:	da cf       	rjmp	.-76     	; 0x2e1e <SI4844::getAllReceiverInfo() [clone .constprop.34]+0x34>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1016
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1016
 
     device_status.raw = all_receiver_status.raw[0];
     2e6a:	80 93 92 03 	sts	0x0392, r24	; 0x800392 <rx>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1018
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1018
     return &all_receiver_status;
 }
     2e6e:	83 e9       	ldi	r24, 0x93	; 147
@@ -7300,7 +7300,7 @@ getAllReceiverInfo():
 
 00002e78 <SI4844::getFrequencyInteger() [clone .constprop.33]>:
 getFrequencyInteger():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1144
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1144
  * @details For example: FM, 103900 KHz (103.9 MHz); SW, 7335 KHz (7.34 MHz, 41m)   
  * @details It is useful to save memory
  * 
@@ -7311,11 +7311,11 @@ uint32_t SI4844::getFrequencyInteger(void)
     2e7a:	df 92       	push	r13
     2e7c:	ef 92       	push	r14
     2e7e:	ff 92       	push	r15
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1146
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1146
 {
     this->getAllReceiverInfo();
     2e80:	0e 94 f5 16 	call	0x2dea	; 0x2dea <SI4844::getAllReceiverInfo() [clone .constprop.34]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1151
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1151
     int addFactor = 0;
     int multFactor = 1;
     // Check CHFREQ bit[15] MSB = 1
@@ -7326,7 +7326,7 @@ uint32_t SI4844::getFrequencyInteger(void)
     2e8a:	80 91 95 03 	lds	r24, 0x0395	; 0x800395 <rx+0x3>
     2e8e:	91 11       	cpse	r25, r1
     2e90:	54 c0       	rjmp	.+168    	; 0x2f3a <SI4844::getFrequencyInteger() [clone .constprop.33]+0xc2>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1154
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1154
     {
         multFactor = 100;
         if (all_receiver_status.refined.d1 & 0b00001000)
@@ -7335,7 +7335,7 @@ uint32_t SI4844::getFrequencyInteger(void)
     2e96:	9f 70       	andi	r25, 0x0F	; 15
     2e98:	87 ff       	sbrs	r24, 7
     2e9a:	64 c0       	rjmp	.+200    	; 0x2f64 <SI4844::getFrequencyInteger() [clone .constprop.33]+0xec>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1156
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1156
         {
             all_receiver_status.refined.d1 &= 0b11110111;
     2e9c:	97 70       	andi	r25, 0x07	; 7
@@ -7344,7 +7344,7 @@ uint32_t SI4844::getFrequencyInteger(void)
     2ea2:	8f 70       	andi	r24, 0x0F	; 15
     2ea4:	89 2b       	or	r24, r25
     2ea6:	80 93 95 03 	sts	0x0395, r24	; 0x800395 <rx+0x3>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1153
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1153
     int multFactor = 1;
     // Check CHFREQ bit[15] MSB = 1
     // See Page 15 of Si48XX ATDD PROGRAMMING GUIDE
@@ -7353,14 +7353,14 @@ uint32_t SI4844::getFrequencyInteger(void)
         multFactor = 100;
     2eaa:	a4 e6       	ldi	r26, 0x64	; 100
     2eac:	b0 e0       	ldi	r27, 0x00	; 0
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1157
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1157
         if (all_receiver_status.refined.d1 & 0b00001000)
         {
             all_receiver_status.refined.d1 &= 0b11110111;
             addFactor = 50;
     2eae:	e2 e3       	ldi	r30, 0x32	; 50
     2eb0:	f0 e0       	ldi	r31, 0x00	; 0
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1172
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1172
         }
     }
 
@@ -7370,7 +7370,7 @@ uint32_t SI4844::getFrequencyInteger(void)
     2eb2:	20 91 96 03 	lds	r18, 0x0396	; 0x800396 <rx+0x4>
     2eb6:	62 2f       	mov	r22, r18
     2eb8:	6f 70       	andi	r22, 0x0F	; 15
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1173
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1173
     f += (all_receiver_status.refined.d3) * 10;
     2eba:	22 95       	swap	r18
     2ebc:	2f 70       	andi	r18, 0x0F	; 15
@@ -7382,7 +7382,7 @@ uint32_t SI4844::getFrequencyInteger(void)
     2ec8:	00 0c       	add	r0, r0
     2eca:	44 0b       	sbc	r20, r20
     2ecc:	55 0b       	sbc	r21, r21
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1174
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1174
     f += (all_receiver_status.refined.d2) * 100;
     2ece:	90 91 95 03 	lds	r25, 0x0395	; 0x800395 <rx+0x3>
     2ed2:	89 2f       	mov	r24, r25
@@ -7403,7 +7403,7 @@ uint32_t SI4844::getFrequencyInteger(void)
     2ef0:	31 1d       	adc	r19, r1
     2ef2:	41 1d       	adc	r20, r1
     2ef4:	51 1d       	adc	r21, r1
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1175
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1175
     f += (all_receiver_status.refined.d1) * 1000;
     2ef6:	92 95       	swap	r25
     2ef8:	9f 70       	andi	r25, 0x0F	; 15
@@ -7422,11 +7422,11 @@ uint32_t SI4844::getFrequencyInteger(void)
     2f12:	3d 1d       	adc	r19, r13
     2f14:	4e 1d       	adc	r20, r14
     2f16:	5f 1d       	adc	r21, r15
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1177
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1177
 
     data_from_device = false;
     2f18:	10 92 c5 02 	sts	0x02C5, r1	; 0x8002c5 <_ZL16data_from_device.lto_priv.64>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1179
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1179
 
     return (f * multFactor + addFactor);
     2f1c:	0e 94 0d 24 	call	0x481a	; 0x481a <__mulshisi3>
@@ -7438,14 +7438,14 @@ uint32_t SI4844::getFrequencyInteger(void)
     2f2a:	7d 1d       	adc	r23, r13
     2f2c:	8e 1d       	adc	r24, r14
     2f2e:	9f 1d       	adc	r25, r15
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1180
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1180
 }
     2f30:	ff 90       	pop	r15
     2f32:	ef 90       	pop	r14
     2f34:	df 90       	pop	r13
     2f36:	cf 90       	pop	r12
     2f38:	08 95       	ret
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1148
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1148
  */
 uint32_t SI4844::getFrequencyInteger(void)
 {
@@ -7454,7 +7454,7 @@ uint32_t SI4844::getFrequencyInteger(void)
     int multFactor = 1;
     2f3a:	a1 e0       	ldi	r26, 0x01	; 1
     2f3c:	b0 e0       	ldi	r27, 0x00	; 0
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1160
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1160
         {
             all_receiver_status.refined.d1 &= 0b11110111;
             addFactor = 50;
@@ -7463,7 +7463,7 @@ uint32_t SI4844::getFrequencyInteger(void)
     else if (all_receiver_status.refined.BANDMODE == 2)
     2f3e:	90 38       	cpi	r25, 0x80	; 128
     2f40:	99 f4       	brne	.+38     	; 0x2f68 <SI4844::getFrequencyInteger() [clone .constprop.33]+0xf0>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1163
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1163
     {
         multFactor = 10;
         if (all_receiver_status.refined.d1 & 0b00001000)
@@ -7472,7 +7472,7 @@ uint32_t SI4844::getFrequencyInteger(void)
     2f46:	9f 70       	andi	r25, 0x0F	; 15
     2f48:	87 ff       	sbrs	r24, 7
     2f4a:	11 c0       	rjmp	.+34     	; 0x2f6e <SI4844::getFrequencyInteger() [clone .constprop.33]+0xf6>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1165
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1165
         {
             all_receiver_status.refined.d1 &= 0b11110111;   
     2f4c:	97 70       	andi	r25, 0x07	; 7
@@ -7481,7 +7481,7 @@ uint32_t SI4844::getFrequencyInteger(void)
     2f52:	8f 70       	andi	r24, 0x0F	; 15
     2f54:	89 2b       	or	r24, r25
     2f56:	80 93 95 03 	sts	0x0395, r24	; 0x800395 <rx+0x3>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1162
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1162
             addFactor = 50;
         }
     }
@@ -7490,7 +7490,7 @@ uint32_t SI4844::getFrequencyInteger(void)
         multFactor = 10;
     2f5a:	aa e0       	ldi	r26, 0x0A	; 10
     2f5c:	b0 e0       	ldi	r27, 0x00	; 0
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1166
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1166
         if (all_receiver_status.refined.d1 & 0b00001000)
         {
             all_receiver_status.refined.d1 &= 0b11110111;   
@@ -7498,7 +7498,7 @@ uint32_t SI4844::getFrequencyInteger(void)
     2f5e:	e5 e0       	ldi	r30, 0x05	; 5
     2f60:	f0 e0       	ldi	r31, 0x00	; 0
     2f62:	a7 cf       	rjmp	.-178    	; 0x2eb2 <SI4844::getFrequencyInteger() [clone .constprop.33]+0x3a>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1153
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1153
     int multFactor = 1;
     // Check CHFREQ bit[15] MSB = 1
     // See Page 15 of Si48XX ATDD PROGRAMMING GUIDE
@@ -7507,7 +7507,7 @@ uint32_t SI4844::getFrequencyInteger(void)
         multFactor = 100;
     2f64:	a4 e6       	ldi	r26, 0x64	; 100
     2f66:	b0 e0       	ldi	r27, 0x00	; 0
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1147
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1147
  * @return uint32_t current frequency in KHz.  
  */
 uint32_t SI4844::getFrequencyInteger(void)
@@ -7517,7 +7517,7 @@ uint32_t SI4844::getFrequencyInteger(void)
     2f68:	f0 e0       	ldi	r31, 0x00	; 0
     2f6a:	e0 e0       	ldi	r30, 0x00	; 0
     2f6c:	a2 cf       	rjmp	.-188    	; 0x2eb2 <SI4844::getFrequencyInteger() [clone .constprop.33]+0x3a>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1162
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1162
             addFactor = 50;
         }
     }
@@ -7530,7 +7530,7 @@ uint32_t SI4844::getFrequencyInteger(void)
 
 00002f74 <SI4844::waitToSend() [clone .constprop.25]>:
 _ZN6SI484413isClearToSendEv.isra.4():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:731
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:731
  * @return true 
  * @return false 
  */
@@ -7551,18 +7551,18 @@ void TwoWire::beginTransmission(int address)
     2f7c:	81 e1       	ldi	r24, 0x11	; 17
     2f7e:	0e 94 4b 09 	call	0x1296	; 0x1296 <TwoWire::beginTransmission(unsigned char) [clone .constprop.51]>
 _ZN6SI484413isClearToSendEv.isra.4():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:733
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:733
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_GET_STATUS);
     2f82:	80 ee       	ldi	r24, 0xE0	; 224
     2f84:	90 e0       	ldi	r25, 0x00	; 0
     2f86:	0e 94 f3 14 	call	0x29e6	; 0x29e6 <TwoWire::write(int) [clone .constprop.36]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:734
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:734
     Wire.endTransmission();
     2f8a:	82 ec       	ldi	r24, 0xC2	; 194
     2f8c:	93 e0       	ldi	r25, 0x03	; 3
     2f8e:	0e 94 f8 14 	call	0x29f0	; 0x29f0 <TwoWire::endTransmission()>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:735
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:735
     delayMicroseconds(2000);
     2f92:	80 ed       	ldi	r24, 0xD0	; 208
     2f94:	97 e0       	ldi	r25, 0x07	; 7
@@ -7584,7 +7584,7 @@ requestFrom():
   rxBufferLength = read;
     2fa6:	80 93 c6 02 	sts	0x02C6, r24	; 0x8002c6 <TwoWire::rxBufferLength>
 _ZN6SI484413isClearToSendEv.isra.4():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:737
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:737
     Wire.requestFrom(SI4844_ADDRESS, 1);
     all_receiver_status.raw[0] = Wire.read();
     2faa:	82 ec       	ldi	r24, 0xC2	; 194
@@ -7592,7 +7592,7 @@ _ZN6SI484413isClearToSendEv.isra.4():
     2fae:	0e 94 7d 14 	call	0x28fa	; 0x28fa <TwoWire::read()>
     2fb2:	80 93 93 03 	sts	0x0393, r24	; 0x800393 <rx+0x1>
 waitToSend():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:749
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:749
  * @details Waits for CTS status
  */
 inline void SI4844::waitToSend()
@@ -7601,14 +7601,14 @@ inline void SI4844::waitToSend()
     while (!isClearToSend())
     2fb6:	87 ff       	sbrs	r24, 7
     2fb8:	dd cf       	rjmp	.-70     	; 0x2f74 <SI4844::waitToSend() [clone .constprop.25]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:751
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:751
         ;
 }
     2fba:	08 95       	ret
 
 00002fbc <SI4844::setVolume(unsigned char) [clone .part.5] [clone .constprop.23]>:
 _ZN6SI48449setVolumeEh.part.5():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:822
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:822
  * @brief Sets the volume level. 
  * @details Sets a value to the audio volume.
  * @see Table 4, Si48XX ATDD PROGRAMMING GUIDE; AN610; page 11
@@ -7617,7 +7617,7 @@ _ZN6SI48449setVolumeEh.part.5():
 void SI4844::setVolume(byte volumeLavel)
     2fbc:	cf 93       	push	r28
     2fbe:	c8 2f       	mov	r28, r24
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:827
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:827
 {
     if (volumeLavel > 63)
         return;
@@ -7625,7 +7625,7 @@ void SI4844::setVolume(byte volumeLavel)
     waitToSend();
     2fc0:	0e 94 ba 17 	call	0x2f74	; 0x2f74 <SI4844::waitToSend() [clone .constprop.25]>
 setProperty():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:62
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:62
     si4844_property property;
     si4844_property param;
 
@@ -7644,53 +7644,53 @@ void TwoWire::beginTransmission(int address)
     2fc8:	81 e1       	ldi	r24, 0x11	; 17
     2fca:	0e 94 4b 09 	call	0x1296	; 0x1296 <TwoWire::beginTransmission(unsigned char) [clone .constprop.51]>
 setProperty():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:64
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:64
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(SET_PROPERTY);
     2fce:	82 e1       	ldi	r24, 0x12	; 18
     2fd0:	90 e0       	ldi	r25, 0x00	; 0
     2fd2:	0e 94 f3 14 	call	0x29e6	; 0x29e6 <TwoWire::write(int) [clone .constprop.36]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:65
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:65
     Wire.write(0x00);
     2fd6:	90 e0       	ldi	r25, 0x00	; 0
     2fd8:	80 e0       	ldi	r24, 0x00	; 0
     2fda:	0e 94 f3 14 	call	0x29e6	; 0x29e6 <TwoWire::write(int) [clone .constprop.36]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:66
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:66
     Wire.write(property.raw.byteHigh); // Send property - High byte - most significant first
     2fde:	60 e4       	ldi	r22, 0x40	; 64
     2fe0:	82 ec       	ldi	r24, 0xC2	; 194
     2fe2:	93 e0       	ldi	r25, 0x03	; 3
     2fe4:	0e 94 c4 14 	call	0x2988	; 0x2988 <TwoWire::write(unsigned char)>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:67
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:67
     Wire.write(property.raw.byteLow);  // Send property - Low byte - less significant after
     2fe8:	60 e0       	ldi	r22, 0x00	; 0
     2fea:	82 ec       	ldi	r24, 0xC2	; 194
     2fec:	93 e0       	ldi	r25, 0x03	; 3
     2fee:	0e 94 c4 14 	call	0x2988	; 0x2988 <TwoWire::write(unsigned char)>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:68
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:68
     Wire.write(param.raw.byteHigh);    // Send the argments. High Byte - Most significant first
     2ff2:	60 e0       	ldi	r22, 0x00	; 0
     2ff4:	82 ec       	ldi	r24, 0xC2	; 194
     2ff6:	93 e0       	ldi	r25, 0x03	; 3
     2ff8:	0e 94 c4 14 	call	0x2988	; 0x2988 <TwoWire::write(unsigned char)>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:69
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:69
     Wire.write(param.raw.byteLow);     // Send the argments. Low Byte - Less significant after
     2ffc:	6c 2f       	mov	r22, r28
     2ffe:	82 ec       	ldi	r24, 0xC2	; 194
     3000:	93 e0       	ldi	r25, 0x03	; 3
     3002:	0e 94 c4 14 	call	0x2988	; 0x2988 <TwoWire::write(unsigned char)>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:70
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:70
     Wire.endTransmission();
     3006:	82 ec       	ldi	r24, 0xC2	; 194
     3008:	93 e0       	ldi	r25, 0x03	; 3
     300a:	0e 94 f8 14 	call	0x29f0	; 0x29f0 <TwoWire::endTransmission()>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:71
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:71
     delayMicroseconds(550);
     300e:	86 e2       	ldi	r24, 0x26	; 38
     3010:	92 e0       	ldi	r25, 0x02	; 2
     3012:	0e 94 53 0b 	call	0x16a6	; 0x16a6 <delayMicroseconds>
 _ZN6SI48449setVolumeEh.part.5():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:830
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:830
         return;
 
     waitToSend();
@@ -7698,14 +7698,14 @@ _ZN6SI48449setVolumeEh.part.5():
 
     this->volume = volumeLavel;
     3016:	c0 93 c0 03 	sts	0x03C0, r28	; 0x8003c0 <rx+0x2e>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:831
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:831
 }
     301a:	cf 91       	pop	r28
     301c:	08 95       	ret
 
 0000301e <SI4844::setBandSlideSwitch() [clone .constprop.16]>:
 setBandSlideSwitch():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:625
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:625
  * @see See Table 8. Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18  
  * @param band  band index number. 
  * @see Si4822/26/27/40/44 A NTENNA , SCHEMATIC , LAYOUT, AND DESIGN GUIDELINES 
@@ -7730,26 +7730,26 @@ void SI4844::setBandSlideSwitch()
     303c:	1f 92       	push	r1
     303e:	cd b7       	in	r28, 0x3d	; 61
     3040:	de b7       	in	r29, 0x3e	; 62
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:628
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:628
 {
     
     this->getAllReceiverInfo();
     3042:	0e 94 f5 16 	call	0x2dea	; 0x2dea <SI4844::getAllReceiverInfo() [clone .constprop.34]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:629
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:629
     uint8_t bandIndex = this->all_receiver_status.refined.BANDIDX;
     3046:	10 91 94 03 	lds	r17, 0x0394	; 0x800394 <rx+0x2>
     304a:	1f 73       	andi	r17, 0x3F	; 63
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:632
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:632
 
    // If band mode changed, reset the device. 
    if (all_receiver_status.refined.HOSTRST == 1) {
     304c:	80 91 93 03 	lds	r24, 0x0393	; 0x800393 <rx+0x1>
     3050:	86 fd       	sbrc	r24, 6
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:633
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:633
        this->reset();
     3052:	0e 94 b3 16 	call	0x2d66	; 0x2d66 <SI4844::reset() [clone .constprop.17]>
 findBand():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/BandList.h:77
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/BandList.h:77
       }
     }
 
@@ -7758,24 +7758,24 @@ findBand():
       BandNode* current = head;
     3056:	e0 91 ac 03 	lds	r30, 0x03AC	; 0x8003ac <rx+0x1a>
     305a:	f0 91 ad 03 	lds	r31, 0x03AD	; 0x8003ad <rx+0x1b>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/BandList.h:78
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/BandList.h:78
       while (current) {
     305e:	30 97       	sbiw	r30, 0x00	; 0
     3060:	41 f0       	breq	.+16     	; 0x3072 <SI4844::setBandSlideSwitch() [clone .constprop.16]+0x54>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/BandList.h:79
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/BandList.h:79
         if (current->bandIdx == bandIdx) return current; // Return the pointer if found
     3062:	80 81       	ld	r24, Z
     3064:	18 17       	cp	r17, r24
     3066:	09 f4       	brne	.+2      	; 0x306a <SI4844::setBandSlideSwitch() [clone .constprop.16]+0x4c>
     3068:	56 c0       	rjmp	.+172    	; 0x3116 <SI4844::setBandSlideSwitch() [clone .constprop.16]+0xf8>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/BandList.h:80
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/BandList.h:80
         current = current->next; // Move to the next node
     306a:	02 84       	ldd	r0, Z+10	; 0x0a
     306c:	f3 85       	ldd	r31, Z+11	; 0x0b
     306e:	e0 2d       	mov	r30, r0
     3070:	f6 cf       	rjmp	.-20     	; 0x305e <SI4844::setBandSlideSwitch() [clone .constprop.16]+0x40>
 setPredefinedBand():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:508
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:508
 
 void SI4844::setPredefinedBand(uint8_t bandIdx) {
 
@@ -7783,27 +7783,27 @@ void SI4844::setPredefinedBand(uint8_t bandIdx) {
 
     this->currentBand = bandIdx;
     3072:	10 93 a4 03 	sts	0x03A4, r17	; 0x8003a4 <rx+0x12>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:510
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:510
 
     data_from_device = false;
     3076:	10 92 c5 02 	sts	0x02C5, r1	; 0x8002c5 <_ZL16data_from_device.lto_priv.64>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:512
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:512
 
     rxBandSetup.refined.XOSCEN = this->xoscen;
     307a:	80 91 a5 03 	lds	r24, 0x03A5	; 0x8003a5 <rx+0x13>
     307e:	60 e0       	ldi	r22, 0x00	; 0
     3080:	80 fb       	bst	r24, 0
     3082:	67 f9       	bld	r22, 7
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:513
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:513
     rxBandSetup.refined.XOWAIT = this->xowait;
     3084:	80 91 a6 03 	lds	r24, 0x03A6	; 0x8003a6 <rx+0x14>
     3088:	80 fb       	bst	r24, 0
     308a:	66 f9       	bld	r22, 6
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:514
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:514
     rxBandSetup.refined.BANDIDX = this->currentBand;
     308c:	60 7c       	andi	r22, 0xC0	; 192
     308e:	16 2b       	or	r17, r22
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:515
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:515
     waitToSend();
     3090:	0e 94 ba 17 	call	0x2f74	; 0x2f74 <SI4844::waitToSend() [clone .constprop.25]>
 beginTransmission():
@@ -7811,17 +7811,17 @@ beginTransmission():
     3094:	81 e1       	ldi	r24, 0x11	; 17
     3096:	0e 94 4b 09 	call	0x1296	; 0x1296 <TwoWire::beginTransmission(unsigned char) [clone .constprop.51]>
 setPredefinedBand():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:517
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:517
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_POWER_UP);
     309a:	81 ee       	ldi	r24, 0xE1	; 225
     309c:	90 e0       	ldi	r25, 0x00	; 0
     309e:	0e 94 f3 14 	call	0x29e6	; 0x29e6 <TwoWire::write(int) [clone .constprop.36]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:518
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:518
     Wire.write(rxBandSetup.raw);
     30a2:	61 2f       	mov	r22, r17
 setUserDefinedBand():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:571
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:571
     Wire.write(customband.raw[1]);
     Wire.write(customband.raw[2]);
     Wire.write(customband.raw[3]);
@@ -7831,26 +7831,26 @@ setUserDefinedBand():
     30a4:	82 ec       	ldi	r24, 0xC2	; 194
     30a6:	93 e0       	ldi	r25, 0x03	; 3
     30a8:	0e 94 c4 14 	call	0x2988	; 0x2988 <TwoWire::write(unsigned char)>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:572
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:572
     Wire.endTransmission();
     30ac:	82 ec       	ldi	r24, 0xC2	; 194
     30ae:	93 e0       	ldi	r25, 0x03	; 3
     30b0:	0e 94 f8 14 	call	0x29f0	; 0x29f0 <TwoWire::endTransmission()>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:573
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:573
     delayMicroseconds(2500);
     30b4:	84 ec       	ldi	r24, 0xC4	; 196
     30b6:	99 e0       	ldi	r25, 0x09	; 9
     30b8:	0e 94 53 0b 	call	0x16a6	; 0x16a6 <delayMicroseconds>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:574
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:574
     waitInterrupt();
     30bc:	0e 94 ae 16 	call	0x2d5c	; 0x2d5c <SI4844::waitInterrupt() [clone .isra.2]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:575
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:575
     delayMicroseconds(2500);
     30c0:	84 ec       	ldi	r24, 0xC4	; 196
     30c2:	99 e0       	ldi	r25, 0x09	; 9
     30c4:	0e 94 53 0b 	call	0x16a6	; 0x16a6 <delayMicroseconds>
 waitDetectFrequency():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:760
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:760
  * @ingroup BF
  * @brief Wait for the ATDD detect a valid frequency (frequency not zero). 
  */
@@ -7862,17 +7862,17 @@ void SI4844::waitDetectFrequency() {
     30cc:	80 e0       	ldi	r24, 0x00	; 0
     30ce:	90 e0       	ldi	r25, 0x00	; 0
     30d0:	0e 94 80 0b 	call	0x1700	; 0x1700 <delay>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:761
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:761
         this->getAllReceiverInfo();
     30d4:	0e 94 f5 16 	call	0x2dea	; 0x2dea <SI4844::getAllReceiverInfo() [clone .constprop.34]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:762
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:762
     } while ( (all_receiver_status.raw[2] | all_receiver_status.raw[3]) == 0  );   
     30d8:	80 91 95 03 	lds	r24, 0x0395	; 0x800395 <rx+0x3>
     30dc:	90 91 96 03 	lds	r25, 0x0396	; 0x800396 <rx+0x4>
     30e0:	89 2b       	or	r24, r25
     30e2:	91 f3       	breq	.-28     	; 0x30c8 <SI4844::setBandSlideSwitch() [clone .constprop.16]+0xaa>
 setBandSlideSwitch():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:646
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:646
         // if the current band is a custom band, sets the new parameters for the band.
         this->setUserDefinedBand(bandIndex, bandNode->bottomFrequency, bandNode->topFrequency, bandNode->space);
     }
@@ -7881,7 +7881,7 @@ setBandSlideSwitch():
     this->setVolume(this->volume);
     30e4:	80 91 c0 03 	lds	r24, 0x03C0	; 0x8003c0 <rx+0x2e>
 setVolume():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:824
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:824
  * @see Table 4, Si48XX ATDD PROGRAMMING GUIDE; AN610; page 11
  * @param byte volumeLevel (domain: 0 to 63) 
  */
@@ -7892,7 +7892,7 @@ void SI4844::setVolume(byte volumeLavel)
     30ea:	08 f0       	brcs	.+2      	; 0x30ee <SI4844::setBandSlideSwitch() [clone .constprop.16]+0xd0>
     30ec:	5d c0       	rjmp	.+186    	; 0x31a8 <SI4844::setBandSlideSwitch() [clone .constprop.16]+0x18a>
 setBandSlideSwitch():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:648
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:648
     }
      
     this->waitDetectFrequency(); 
@@ -7920,7 +7920,7 @@ setBandSlideSwitch():
 setVolume():
     3112:	0c 94 de 17 	jmp	0x2fbc	; 0x2fbc <SI4844::setVolume(unsigned char) [clone .part.5] [clone .constprop.23]>
 setBandSlideSwitch():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:642
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:642
     BandNode *bandNode = this->findCustomBand(bandIndex);
     if ( bandNode  == nullptr )  {   
         this->setPredefinedBand(bandIndex);
@@ -7937,7 +7937,7 @@ setBandSlideSwitch():
     3124:	a3 80       	ldd	r10, Z+3	; 0x03
     3126:	b4 80       	ldd	r11, Z+4	; 0x04
 setUserDefinedBand():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:543
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:543
  */
 void SI4844::setUserDefinedBand(int8_t bandIdx, uint32_t bottomFrequency, uint32_t topFrequency, uint8_t space ) {
 
@@ -7945,28 +7945,28 @@ void SI4844::setUserDefinedBand(int8_t bandIdx, uint32_t bottomFrequency, uint32
 
     this->currentBand = bandIdx;
     3128:	10 93 a4 03 	sts	0x03A4, r17	; 0x8003a4 <rx+0x12>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:546
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:546
 
     // Now we can customize the band.
     data_from_device = false;
     312c:	10 92 c5 02 	sts	0x02C5, r1	; 0x8002c5 <_ZL16data_from_device.lto_priv.64>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:547
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:547
     customband.refined.BANDIDX = bandIdx;
     3130:	69 81       	ldd	r22, Y+1	; 0x01
     3132:	60 7c       	andi	r22, 0xC0	; 192
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:548
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:548
     customband.refined.XOSCEN = this->xoscen;
     3134:	61 2b       	or	r22, r17
     3136:	80 91 a5 03 	lds	r24, 0x03A5	; 0x8003a5 <rx+0x13>
     313a:	80 fb       	bst	r24, 0
     313c:	67 f9       	bld	r22, 7
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:549
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:549
     customband.refined.XOWAIT = this->xowait;
     313e:	80 91 a6 03 	lds	r24, 0x03A6	; 0x8003a6 <rx+0x14>
     3142:	80 fb       	bst	r24, 0
     3144:	66 f9       	bld	r22, 6
     3146:	69 83       	std	Y+1, r22	; 0x01
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:558
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:558
     customband.refined.BANDTOP_LOW = lowByte(topFrequency);
     customband.refined.CHSPC = space;
     customband.refined.DFBAND = 0; 
@@ -7974,7 +7974,7 @@ void SI4844::setUserDefinedBand(int8_t bandIdx, uint32_t bottomFrequency, uint32
     customband.refined.TVFREQ = 0;
     customband.refined.DUMMY = 0;
     3148:	1f 82       	std	Y+7, r1	; 0x07
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:561
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:561
 
     // Wait until rady to send a command
     waitToSend();
@@ -7984,20 +7984,20 @@ beginTransmission():
     314e:	81 e1       	ldi	r24, 0x11	; 17
     3150:	0e 94 4b 09 	call	0x1296	; 0x1296 <TwoWire::beginTransmission(unsigned char) [clone .constprop.51]>
 setUserDefinedBand():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:564
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:564
 
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_POWER_UP);
     3154:	81 ee       	ldi	r24, 0xE1	; 225
     3156:	90 e0       	ldi	r25, 0x00	; 0
     3158:	0e 94 f3 14 	call	0x29e6	; 0x29e6 <TwoWire::write(int) [clone .constprop.36]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:565
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:565
     Wire.write(customband.raw[0]);
     315c:	69 81       	ldd	r22, Y+1	; 0x01
     315e:	82 ec       	ldi	r24, 0xC2	; 194
     3160:	93 e0       	ldi	r25, 0x03	; 3
     3162:	0e 94 c4 14 	call	0x2988	; 0x2988 <TwoWire::write(unsigned char)>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:550
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:550
     // Now we can customize the band.
     data_from_device = false;
     customband.refined.BANDIDX = bandIdx;
@@ -8008,7 +8008,7 @@ setUserDefinedBand():
     3168:	8b 2d       	mov	r24, r11
     316a:	7a 2d       	mov	r23, r10
     316c:	69 2d       	mov	r22, r9
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:566
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:566
     waitToSend();
 
     Wire.beginTransmission(SI4844_ADDRESS);
@@ -8018,13 +8018,13 @@ setUserDefinedBand():
     316e:	82 ec       	ldi	r24, 0xC2	; 194
     3170:	93 e0       	ldi	r25, 0x03	; 3
     3172:	0e 94 c4 14 	call	0x2988	; 0x2988 <TwoWire::write(unsigned char)>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:567
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:567
     Wire.write(customband.raw[2]);
     3176:	68 2d       	mov	r22, r8
     3178:	82 ec       	ldi	r24, 0xC2	; 194
     317a:	93 e0       	ldi	r25, 0x03	; 3
     317c:	0e 94 c4 14 	call	0x2988	; 0x2988 <TwoWire::write(unsigned char)>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:552
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:552
     customband.refined.BANDIDX = bandIdx;
     customband.refined.XOSCEN = this->xoscen;
     customband.refined.XOWAIT = this->xowait;
@@ -8035,7 +8035,7 @@ setUserDefinedBand():
     3182:	8f 2d       	mov	r24, r15
     3184:	7e 2d       	mov	r23, r14
     3186:	6d 2d       	mov	r22, r13
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:568
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:568
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_POWER_UP);
     Wire.write(customband.raw[0]);
@@ -8045,24 +8045,24 @@ setUserDefinedBand():
     3188:	82 ec       	ldi	r24, 0xC2	; 194
     318a:	93 e0       	ldi	r25, 0x03	; 3
     318c:	0e 94 c4 14 	call	0x2988	; 0x2988 <TwoWire::write(unsigned char)>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:569
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:569
     Wire.write(customband.raw[4]);
     3190:	6c 2d       	mov	r22, r12
     3192:	82 ec       	ldi	r24, 0xC2	; 194
     3194:	93 e0       	ldi	r25, 0x03	; 3
     3196:	0e 94 c4 14 	call	0x2988	; 0x2988 <TwoWire::write(unsigned char)>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:570
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:570
     Wire.write(customband.raw[5]);
     319a:	60 2f       	mov	r22, r16
     319c:	82 ec       	ldi	r24, 0xC2	; 194
     319e:	93 e0       	ldi	r25, 0x03	; 3
     31a0:	0e 94 c4 14 	call	0x2988	; 0x2988 <TwoWire::write(unsigned char)>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:571
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:571
     Wire.write(customband.raw[6]);
     31a4:	6f 81       	ldd	r22, Y+7	; 0x07
     31a6:	7e cf       	rjmp	.-260    	; 0x30a4 <SI4844::setBandSlideSwitch() [clone .constprop.16]+0x86>
 setBandSlideSwitch():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:648
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:648
     }
      
     this->waitDetectFrequency(); 
@@ -8805,7 +8805,7 @@ _ZN12Adafruit_GFX9setCursorEii():
     34c8:	10 92 dd 03 	sts	0x03DD, r1	; 0x8003dd <display+0xf>
     34cc:	10 92 dc 03 	sts	0x03DC, r1	; 0x8003dc <display+0xe>
 _ZN6SI484411getBandModeEv():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:464
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.h:464
    * @ingroup GB1 
    * @brief Get the Band Mode 
    * @return char*   "FM", "AM" or "SW"
@@ -8848,7 +8848,7 @@ _ZN12Adafruit_GFX9setCursorEii():
     34fa:	10 92 dd 03 	sts	0x03DD, r1	; 0x8003dd <display+0xf>
     34fe:	10 92 dc 03 	sts	0x03DC, r1	; 0x8003dc <display+0xe>
 _ZN6SI484425getStatusStationIndicatorEv():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:509
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.h:509
    * @ingroup GB1 
    * @brief Gets Station Indicator.
    * @details **Call getStatus or getAllReceiverInfo before calling this function** 
@@ -9021,7 +9021,7 @@ _ZN12Adafruit_GFX9setCursorEii():
     35ac:	90 93 dd 03 	sts	0x03DD, r25	; 0x8003dd <display+0xf>
     35b0:	80 93 dc 03 	sts	0x03DC, r24	; 0x8003dc <display+0xe>
 getFormattedFrequency():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1470
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1470
  * @param  removeRightDigit number of less significant digits to be removed (FM mode only)
  * @return  point to char with the formatted current frequency
  */
@@ -9030,7 +9030,7 @@ char* SI4844::getFormattedFrequency(uint8_t removeRightDigit, uint8_t thousandsS
     uint32_t f = this->getFrequencyInteger();
     35b4:	0e 94 3c 17 	call	0x2e78	; 0x2e78 <SI4844::getFrequencyInteger() [clone .constprop.33]>
 _ZN6SI484417getStatusBandModeEv():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:562
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.h:562
    * @ingroup GB1 
    * @brief Gets the current Band Mode
    * @return 0 = FM mode; 1 = AM mode; 2 = SW mode
@@ -9043,18 +9043,18 @@ _ZN6SI484417getStatusBandModeEv():
     35c0:	26 95       	lsr	r18
     35c2:	23 70       	andi	r18, 0x03	; 3
 getFormattedFrequency():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1471
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1471
     if ( this->getStatusBandMode() == 0 ) { 
     35c4:	09 f0       	breq	.+2      	; 0x35c8 <displayDial()+0x1b2>
     35c6:	ea c0       	rjmp	.+468    	; 0x379c <displayDial()+0x386>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1472
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1472
         this->convertToChar(f,this->strFormattedCurrentFrequenct,6,3,thousandsSeparator,true);
     35c8:	03 e0       	ldi	r16, 0x03	; 3
     35ca:	26 e0       	ldi	r18, 0x06	; 6
     35cc:	48 eb       	ldi	r20, 0xB8	; 184
     35ce:	53 e0       	ldi	r21, 0x03	; 3
     35d0:	0e 94 55 09 	call	0x12aa	; 0x12aa <SI4844::convertToChar(unsigned long, char*, unsigned char, unsigned char, unsigned char, bool) [clone .constprop.42]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1473
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1473
         strFormattedCurrentFrequenct[7-removeRightDigit] = '\0';
     35d4:	10 92 bd 03 	sts	0x03BD, r1	; 0x8003bd <rx+0x2b>
 displayDial():
@@ -9129,7 +9129,7 @@ write():
     362a:	93 e0       	ldi	r25, 0x03	; 3
     362c:	0e 94 b9 0b 	call	0x1772	; 0x1772 <Print::write(unsigned char const*, unsigned int)>
 _ZN6SI484417getStatusBandModeEv():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:562
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.h:562
     3630:	80 91 94 03 	lds	r24, 0x0394	; 0x800394 <rx+0x2>
     3634:	82 95       	swap	r24
     3636:	86 95       	lsr	r24
@@ -9163,7 +9163,7 @@ _ZN12Adafruit_GFX9setCursorEii():
     364e:	90 93 dd 03 	sts	0x03DD, r25	; 0x8003dd <display+0xf>
     3652:	80 93 dc 03 	sts	0x03DC, r24	; 0x8003dc <display+0xe>
 _ZN6SI484415getStatusStereoEv():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:500
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.h:500
    * @details Applicable to Si4840/44 parts FM function only (id does not make sense for Si4827).
    * @details **Call getStatus or getAllReceiverInfo before calling this function**  
    * @return 0 = Stereo off; 1 = Stereo on
@@ -9380,7 +9380,7 @@ displayDial():
     digitalWrite(TUNE_LED, LOW);    
     3798:	60 e0       	ldi	r22, 0x00	; 0
     379a:	bc ce       	rjmp	.-648    	; 0x3514 <displayDial()+0xfe>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1475
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1475
     } else { 
          this->convertToChar(f,this->strFormattedCurrentFrequenct,5,(f > 999)? 2:0,'.',true);
     379c:	02 e0       	ldi	r16, 0x02	; 2
@@ -10512,8 +10512,8 @@ __vector_24():
     3d30:	10 92 ee 02 	sts	0x02EE, r1	; 0x8002ee <twi_error>
     3d34:	28 cf       	rjmp	.-432    	; 0x3b86 <__vector_24+0xa6>
 
-00003d36 <global constructors keyed to 65535_0_SI4844_01_OLED_SLIDE_SWITCH.ino.cpp.o.3999>:
-_GLOBAL__I_65535_0_SI4844_01_OLED_SLIDE_SWITCH.ino.cpp.o.3999():
+00003d36 <global constructors keyed to 65535_0_SI4844_01_OLED_SLIDE_SWITCH.ino.cpp.o.4047>:
+_GLOBAL__I_65535_0_SI4844_01_OLED_SLIDE_SWITCH.ino.cpp.o.4047():
     3d36:	cf 93       	push	r28
     3d38:	df 93       	push	r29
     3d3a:	e5 ef       	ldi	r30, 0xF5	; 245
@@ -10870,7 +10870,7 @@ _GLOBAL__I_65535_0_SI4844_01_OLED_SLIDE_SWITCH.ino.cpp.o.3999():
     404a:	01 90       	ld	r0, Z+
     404c:	0d 92       	st	X+, r0
     404e:	8a 95       	dec	r24
-    4050:	e1 f7       	brne	.-8      	; 0x404a <global constructors keyed to 65535_0_SI4844_01_OLED_SLIDE_SWITCH.ino.cpp.o.3999+0x314>
+    4050:	e1 f7       	brne	.-8      	; 0x404a <global constructors keyed to 65535_0_SI4844_01_OLED_SLIDE_SWITCH.ino.cpp.o.4047+0x314>
     4052:	80 91 10 01 	lds	r24, 0x0110	; 0x800110 <__malloc_margin+0x8>
     4056:	90 91 11 01 	lds	r25, 0x0111	; 0x800111 <__malloc_margin+0x9>
     405a:	a0 91 12 01 	lds	r26, 0x0112	; 0x800112 <__malloc_margin+0xa>
@@ -11112,7 +11112,7 @@ setup():
   display.clearDisplay();
     4178:	0e 94 47 19 	call	0x328e	; 0x328e <Adafruit_SSD1306::clearDisplay() [clone .constprop.26]>
 setupSlideSwitch():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:192
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:192
  * @param hightClockSpeed hight I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
  */
 void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed )
@@ -11123,14 +11123,14 @@ void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t high
     417e:	90 e0       	ldi	r25, 0x00	; 0
     4180:	90 93 a1 03 	sts	0x03A1, r25	; 0x8003a1 <rx+0xf>
     4184:	80 93 a0 03 	sts	0x03A0, r24	; 0x8003a0 <rx+0xe>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:193
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:193
     this->interruptPin = interruptPin;
     4188:	82 e0       	ldi	r24, 0x02	; 2
     418a:	90 e0       	ldi	r25, 0x00	; 0
     418c:	90 93 a3 03 	sts	0x03A3, r25	; 0x8003a3 <rx+0x11>
     4190:	80 93 a2 03 	sts	0x03A2, r24	; 0x8003a2 <rx+0x10>
 _ZN6SI484413setClockSpeedEj():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:315
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.h:315
   /**
    * @ingroup BF
    * @brief Sets hight clock speed to be used on I2C bus
@@ -11146,7 +11146,7 @@ _ZN6SI484413setClockSpeedEj():
     41a4:	a0 93 a9 03 	sts	0x03A9, r26	; 0x8003a9 <rx+0x17>
     41a8:	b0 93 aa 03 	sts	0x03AA, r27	; 0x8003aa <rx+0x18>
 setupSlideSwitch():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:200
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:200
     setClockSpeed(hightClockSpeed);
 
     // Arduino interrupt setup.
@@ -11182,7 +11182,7 @@ void attachInterrupt(uint8_t interruptNum, void (*userFunc)(void), int mode)
           EIMSK |= (1 << INT0);
     41ca:	e8 9a       	sbi	0x1d, 0	; 29
 setupSlideSwitch():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:204
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:204
         attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_hundler, RISING);
     }
 
@@ -11190,45 +11190,45 @@ setupSlideSwitch():
     41cc:	61 e0       	ldi	r22, 0x01	; 1
     41ce:	8c e0       	ldi	r24, 0x0C	; 12
     41d0:	0e 94 22 0b 	call	0x1644	; 0x1644 <pinMode>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:205
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:205
     digitalWrite(resetPin, HIGH);
     41d4:	61 e0       	ldi	r22, 0x01	; 1
     41d6:	8c e0       	ldi	r24, 0x0C	; 12
     41d8:	0e 94 d6 0a 	call	0x15ac	; 0x15ac <digitalWrite>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:206
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:206
     delay(1);    
     41dc:	61 e0       	ldi	r22, 0x01	; 1
     41de:	70 e0       	ldi	r23, 0x00	; 0
     41e0:	80 e0       	ldi	r24, 0x00	; 0
     41e2:	90 e0       	ldi	r25, 0x00	; 0
     41e4:	0e 94 80 0b 	call	0x1700	; 0x1700 <delay>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:207
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:207
     data_from_device = false;    
     41e8:	10 92 c5 02 	sts	0x02C5, r1	; 0x8002c5 <_ZL16data_from_device.lto_priv.64>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:212
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:212
     
     // Step 1: Reset and Prepare the Device
     //      1. The system controller resets the ATDD device and releases the  RSTb  pin.
     //      2. The system controller waits until the first  IRQ  is received, indicating that the ATDD device is ready to receive commands.   
     this->reset(); // Step 1 - Reset and Prepare the Device
     41ec:	0e 94 b3 16 	call	0x2d66	; 0x2d66 <SI4844::reset() [clone .constprop.17]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:216
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:216
 
     // Step 2: Obtain Device Status
     //      3. The system controller sends the  ATDD_GET_STATUS  command to retrieve the ATDD device status.    
     this->getStatus();
     41f0:	0e 94 d4 16 	call	0x2da8	; 0x2da8 <SI4844::getStatus() [clone .constprop.15]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:217
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:217
     if ( device_status.refined.BCFG0 != 0) {
     41f4:	80 91 92 03 	lds	r24, 0x0392	; 0x800392 <rx>
     41f8:	80 ff       	sbrs	r24, 0
     41fa:	03 c0       	rjmp	.+6      	; 0x4202 <main+0x18a>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:218
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:218
         system_error = 51;  // The hardware is configured to "MCU detects the band" and you are trying "ATDD device detects the band"
     41fc:	83 e3       	ldi	r24, 0x33	; 51
     41fe:	80 93 ab 03 	sts	0x03AB, r24	; 0x8003ab <rx+0x19>
 powerUp():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:408
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:408
  * @details Moves the SI4844 device from power down to power up 
  * @see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
  */
@@ -11236,11 +11236,11 @@ void SI4844::powerUp(void)
 {
     data_from_device = false;    
     4202:	10 92 c5 02 	sts	0x02C5, r1	; 0x8002c5 <_ZL16data_from_device.lto_priv.64>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:410
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:410
 
     this->currentBand = 0;
     4206:	10 92 a4 03 	sts	0x03A4, r1	; 0x8003a4 <rx+0x12>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:414
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:414
 
     si4844_arg_band_index rxBandSetup; 
 
@@ -11249,15 +11249,15 @@ void SI4844::powerUp(void)
     420e:	c0 e0       	ldi	r28, 0x00	; 0
     4210:	80 fb       	bst	r24, 0
     4212:	c7 f9       	bld	r28, 7
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:415
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:415
     rxBandSetup.refined.XOWAIT = this->xowait;
     4214:	80 91 a6 03 	lds	r24, 0x03A6	; 0x8003a6 <rx+0x14>
     4218:	80 fb       	bst	r24, 0
     421a:	c6 f9       	bld	r28, 6
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:416
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:416
     rxBandSetup.refined.BANDIDX = this->currentBand;
     421c:	c0 7c       	andi	r28, 0xC0	; 192
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:418
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:418
 
     waitToSend();
     421e:	0e 94 ba 17 	call	0x2f74	; 0x2f74 <SI4844::waitToSend() [clone .constprop.25]>
@@ -11266,35 +11266,35 @@ beginTransmission():
     4222:	81 e1       	ldi	r24, 0x11	; 17
     4224:	0e 94 4b 09 	call	0x1296	; 0x1296 <TwoWire::beginTransmission(unsigned char) [clone .constprop.51]>
 powerUp():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:421
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:421
 
     Wire.beginTransmission(SI4844_ADDRESS);
     Wire.write(ATDD_POWER_UP);
     4228:	81 ee       	ldi	r24, 0xE1	; 225
     422a:	90 e0       	ldi	r25, 0x00	; 0
     422c:	0e 94 f3 14 	call	0x29e6	; 0x29e6 <TwoWire::write(int) [clone .constprop.36]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:422
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:422
     Wire.write(rxBandSetup.raw);
     4230:	6c 2f       	mov	r22, r28
     4232:	82 ec       	ldi	r24, 0xC2	; 194
     4234:	93 e0       	ldi	r25, 0x03	; 3
     4236:	0e 94 c4 14 	call	0x2988	; 0x2988 <TwoWire::write(unsigned char)>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:423
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:423
     Wire.endTransmission();
     423a:	82 ec       	ldi	r24, 0xC2	; 194
     423c:	93 e0       	ldi	r25, 0x03	; 3
     423e:	0e 94 f8 14 	call	0x29f0	; 0x29f0 <TwoWire::endTransmission()>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:425
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:425
 
     delayMicroseconds(2500);
     4242:	84 ec       	ldi	r24, 0xC4	; 196
     4244:	99 e0       	ldi	r25, 0x09	; 9
     4246:	0e 94 53 0b 	call	0x16a6	; 0x16a6 <delayMicroseconds>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:426
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:426
     this->waitInterrupt();
     424a:	0e 94 ae 16 	call	0x2d5c	; 0x2d5c <SI4844::waitInterrupt() [clone .isra.2]>
 setupSlideSwitch():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:230
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:230
     this->powerUp();
 
     // Step 5 and Step 6: Retrieve Updated Status and  real Frequency Detection
@@ -11306,26 +11306,26 @@ setupSlideSwitch():
     4252:	80 e0       	ldi	r24, 0x00	; 0
     4254:	90 e0       	ldi	r25, 0x00	; 0
     4256:	0e 94 80 0b 	call	0x1700	; 0x1700 <delay>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:231
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:231
         this->getStatus();
     425a:	0e 94 d4 16 	call	0x2da8	; 0x2da8 <SI4844::getStatus() [clone .constprop.15]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:232
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:232
     } while (device_status.refined.INFORDY == 0);   
     425e:	80 91 92 03 	lds	r24, 0x0392	; 0x800392 <rx>
     4262:	84 ff       	sbrs	r24, 4
     4264:	f4 cf       	rjmp	.-24     	; 0x424e <main+0x1d6>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:236
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:236
 
 
     // Step 6: Set to the real band selected by the user via Slide Switch; Frequency Detection; etc
     this->setBandSlideSwitch();
     4266:	0e 94 0f 18 	call	0x301e	; 0x301e <SI4844::setBandSlideSwitch() [clone .constprop.16]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:238
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:238
 
     this->setVolume(this->volume);
     426a:	80 91 c0 03 	lds	r24, 0x03C0	; 0x8003c0 <rx+0x2e>
 setVolume():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:824
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:824
  * @see Table 4, Si48XX ATDD PROGRAMMING GUIDE; AN610; page 11
  * @param byte volumeLevel (domain: 0 to 63) 
  */
@@ -11364,7 +11364,7 @@ void serialEventRun(void)
     428c:	c0 e0       	ldi	r28, 0x00	; 0
     428e:	d0 e0       	ldi	r29, 0x00	; 0
 hasStatusChanged():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1194
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1194
  *
  *  @return true or false  
  */
@@ -11383,7 +11383,7 @@ void loop() {
     4294:	88 23       	and	r24, r24
     4296:	79 f0       	breq	.+30     	; 0x42b6 <main+0x23e>
 hasBandChanged():
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1205
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1205
  * @details When the Slide Switch is moved by the user, the system have to process it
  *
  *  @return True if the user moved the Slide Switch
@@ -11391,7 +11391,7 @@ hasBandChanged():
 bool SI4844::hasBandChanged(void) {
     this->getAllReceiverInfo();
     4298:	0e 94 f5 16 	call	0x2dea	; 0x2dea <SI4844::getAllReceiverInfo() [clone .constprop.34]>
-/Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:1206
+/Users/rcaratti/Documents/Arduino/libraries/si4844/src/SI4844.cpp:1206
     return ( all_receiver_status.refined.BANDIDX != this->currentBand);
     429c:	20 91 94 03 	lds	r18, 0x0394	; 0x800394 <rx+0x2>
     42a0:	2f 73       	andi	r18, 0x3F	; 63
