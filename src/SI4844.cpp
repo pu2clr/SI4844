@@ -603,8 +603,6 @@ void SI4844::setBand(uint8_t bandIndex)
         this->setUserDefinedBand(bandIndex, bandNode->bottomFrequency, bandNode->topFrequency, bandNode->space);
     }
 
-    Serial.print("\nAqui: ");
-    Serial.print(bandIndex);
     this->getAllReceiverInfo();
     delayMicroseconds(2500);
 
