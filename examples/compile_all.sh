@@ -28,8 +28,8 @@ arduino-cli compile -b arduino:avr:nano ./TEST/SI4844_00_POC_CUSTOM_BAND3 --outp
 arduino-cli compile -b arduino:avr:nano ./TEST/SI4844_FIRMWARE --output-dir ~/Downloads/hex/atmega/SI4844_FIRMWARE  --warnings all
 arduino-cli compile -b arduino:avr:nano ./SLIDE_SWITCH/SI4844_01_OLED_SLIDE_SWITCH  --output-dir ~/Downloads/hex/atmega/SLIDE_SWITCH_OLED  --warnings all
 arduino-cli compile -b arduino:avr:nano ./SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH  --output-dir ~/Downloads/hex/atmega/SLIDE_SWITCH_LCD16x2  --warnings all
-arduino-cli compile -b arduino:avr:nano ./SLIDE_SWITCH/SI4844_03_TM1637_CUSTM_BAND_SWITCH  --output-dir ~/Downloads/hex/atmega/SI4844_03_TM1637_CUSTM_BAND_SWITCH  --warnings all
-arduino-cli compile -b arduino:avr:nano ./SLIDE_SWITCH/SI4844_03_TM1637_SLIDE_SWITCH  --output-dir ~/Downloads/hex/atmega/SI4844_03_TM1637_SLIDE_SWITCH  --warnings all
+arduino-cli compile -b arduino:avr:nano ./SLIDE_SWITCH/SI4844_03_TM1637_CUSTM_BAND_SWITCH  --output-dir ~/Downloads/hex/atmega/SI4844_03_TM1637_CUSTM_BAND_SWITCH 
+arduino-cli compile -b arduino:avr:nano ./SLIDE_SWITCH/SI4844_03_TM1637_SLIDE_SWITCH  --output-dir ~/Downloads/hex/atmega/SI4844_03_TM1637_SLIDE_SWITCH  
 
 
 
@@ -43,26 +43,30 @@ arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./S
 arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./SI4844_03_TM1638_7SEG_DISPLAY --output-dir ~/Downloads/hex/minicore/7SEG  --warnings all
 arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto  ./SLIDE_SWITCH/SI4844_01_OLED_SLIDE_SWITCH  --output-dir ~/Downloads/hex/minicore/SLIDE_SWITCH_OLED  --warnings all
 arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto  ./SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH  --output-dir ~/Downloads/hex/minicore/SLIDE_SWITCH_LCD16x2  --warnings all
-arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./SLIDE_SWITCH/SI4844_03_TM1637_CUSTM_BAND_SWITCH  --output-dir ~/Downloads/hex/minicore/SI4844_03_TM1637_CUSTM_BAND_SWITCH  --warnings all
-arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./SLIDE_SWITCH/SI4844_03_TM1637_SLIDE_SWITCH  --output-dir ~/Downloads/hex/minicore/SI4844_03_TM1637_SLIDE_SWITCH  --warnings all
+arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./SLIDE_SWITCH/SI4844_03_TM1637_CUSTM_BAND_SWITCH  --output-dir ~/Downloads/hex/minicore/SI4844_03_TM1637_CUSTM_BAND_SWITCH  
+arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./SLIDE_SWITCH/SI4844_03_TM1637_SLIDE_SWITCH  --output-dir ~/Downloads/hex/minicore/SI4844_03_TM1637_SLIDE_SWITCH  
 
 
 
 echo "********************"
 echo "Arduino LGT8FX based board"
 echo "********************"
-arduino-cli compile -b lgt8fx:avr:328  ./SI4844_00_MINIMAL --output-dir ~/Downloads/hex/ltg/SI4844_00_MINIMAL --warnings all
-arduino-cli compile -b lgt8fx:avr:328 ./SI4844_00_POC --output-dir ~/Downloads/hex/ltg/SI4844_00_POC  --warnings all
-arduino-cli compile -b lgt8fx:avr:328 ./SI4844_01_OLED --output-dir ~/Downloads/hex/ltg/SI4844_01_OLED --warnings all
+arduino-cli compile -b lgt8fx:avr:328  ./SI4844_00_MINIMAL --output-dir ~/Downloads/hex/lgt/SI4844_00_MINIMAL --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./SI4844_00_POC --output-dir ~/Downloads/hex/lgt/SI4844_00_POC  --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./SI4844_01_OLED --output-dir ~/Downloads/hex/lgt/SI4844_01_OLED --warnings all
 arduino-cli compile -b lgt8fx:avr:328 ./SI4844_02_LCD16x02 --output-dir ~/Downloads/hex/atmega/SI4844_02_LCD16x02  --warnings all
-arduino-cli compile -b lgt8fx:avr:328 ./SI4844_02_LCD16x02 --output-dir ~/Downloads/hex/ltg/SI4844_02_LCD16x02  --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./SI4844_02_LCD16x02 --output-dir ~/Downloads/hex/lgt/SI4844_02_LCD16x02  --warnings all
 arduino-cli compile -b lgt8fx:avr:328 ./SI4844_03_TM1638_7SEG_DISPLAY --output-dir ~/Downloads/hex/lgt/7SEG  --warnings all
 arduino-cli compile -b lgt8fx:avr:328 ./SI4844_04_NOKIA5110 --output-dir ~/Downloads/hex/atmega/NOKIA5110 
-arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_BASS_TREBLE --output-dir ~/Downloads/hex/ltg/SI4844_BASS_TREBLE  --warnings all
-arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_CUSTOM_BAND --output-dir ~/Downloads/hex/ltg/SI4844_CUSTOM_BAND  --warnings all
-arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_FIRMWARE --output-dir ~/Downloads/hex/ltg/SI4844_FIRMWARE  --warnings all
-arduino-cli compile -b lgt8fx:avr:328 ./SLIDE_SWITCH/SI4844_01_OLED_SLIDE_SWITCH  --output-dir ~/Downloads/hex/ltg/SLIDE_SWITCH_OLED  --warnings all
-arduino-cli compile -b lgt8fx:avr:328 ./SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH  --output-dir ~/Downloads/hex/ltg/SLIDE_SWITCH_LCD16x2  --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_BASS_TREBLE --output-dir ~/Downloads/hex/lgt/SI4844_BASS_TREBLE  --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_FIRMWARE --output-dir ~/Downloads/hex/lgt/SI4844_FIRMWARE  --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./SLIDE_SWITCH/SI4844_01_OLED_SLIDE_SWITCH  --output-dir ~/Downloads/hex/lgt/SLIDE_SWITCH_OLED  
+arduino-cli compile -b lgt8fx:avr:328 ./SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH  --output-dir ~/Downloads/hex/lgt/SLIDE_SWITCH_LCD16x2  --warnings all
+arduino-cli compile -b lgt8fx:avr:328  ./SLIDE_SWITCH/SI4844_03_TM1637_CUSTM_BAND_SWITCH  --output-dir ~/Downloads/hex/lgt/SI4844_03_TM1637_CUSTM_BAND_SWITCH  
+arduino-cli compile -b lgt8fx:avr:328 ./SLIDE_SWITCH/SI4844_03_TM1637_SLIDE_SWITCH  --output-dir ~/Downloads/hex/lgt/SI4844_03_TM1637_SLIDE_SWITCH  
+
+
+
 
 
 echo "********************"
