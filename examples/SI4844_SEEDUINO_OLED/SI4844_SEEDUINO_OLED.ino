@@ -140,12 +140,12 @@ void setup()
   pinMode(VOL_DOWN, INPUT_PULLUP);
 
   display.begin(SSD1306_SWITCHCAPVCC, I2C_ADDRESS); // Address 0x3C for 128x32
-
-  // display.display();
+  display.display();
+  display.clearDisplay();
   display.setTextColor(SSD1306_WHITE);
 
 
-  display.clearDisplay();
+
 
   // RESET EEPROM
   if (digitalRead(BAND_UP) == LOW)
