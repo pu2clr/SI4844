@@ -622,7 +622,7 @@ void SI4844::setBand(uint8_t bandIndex)
  */
 void SI4844::setBandSlideSwitch()
 {
-    
+    this->waitToSend();
     this->getAllReceiverInfo();
     uint8_t bandIndex = this->all_receiver_status.refined.BANDIDX;
 
@@ -631,6 +631,7 @@ void SI4844::setBandSlideSwitch()
        this->reset();
     }   
 
+    this->waitToSend();
     // Checks if the current band is a custom band
     BandNode *bandNode = this->findCustomBand(bandIndex);
     if ( bandNode  == nullptr )  {   
