@@ -50,14 +50,14 @@
 
 #define MINIMUM_DELAY 200
 
-uint32_t oldFrequency = 0L;
-uint8_t oldStationIndicator = 99;
-
 SI4844 rx;
 
 void setup() {
 
-  Serial.begin(9600);  
+  Serial.begin(9600);
+  delay(700);
+
+  Serial.print(F("\nPOC SLIDE SWITCH Begin...\n"));
 
   // Customizing the bands of the Si48XX device.   
   rx.addCustomBand(2, 8400, 10100, 20);
@@ -80,39 +80,35 @@ void setup() {
   // You must calibrate the default volume -  Assuming that the volume control is external.
   rx.setVolume(60);
   
+  Serial.print(F("\nPOC SLIDE SWITCH Running...\n"));
+
   showStatus();
 
 }
 
 
 void showStatus() {
-
-  float f = rx.getFrequency(); 
-
-  display.showNumber(f / 1000., (rx.getStatusBandMode() == 0)? 2:3 );
- 
-  if (rx.getStatusBandMode() == 0)
-    digitalWrite(TUNE_LED, (rx.getStatusStereo() == 0)? LOW:HIGH);
-  else 
-    digitalWrite(TUNE_LED, (rx.getStatusStationIndicator() == 0)? LOW:HIGH);
-
+    Serial.print(F("Band Index: "));
+    Serial.print(rx.getStatusBandIndex());
+    Serial.print(F(" - "));
+    Serial.print(rx.getBandMode());
+    Serial.print(F(" - Frequency: "));    
+    Serial.print(rx.getFrequencyInteger());
+    Serial.print(F(" KHz"));
+    if (rx.getStatusBandMode() == 0) {
+      Serial.print(F(" - Stereo "));
+      Serial.print(rx.getStereoIndicator());
+    }
+    Serial.print(F(" - Volume: "));
+    Serial.print(rx.getVolume());
+    Serial.println("");  
 }
 
-// Useful for debugging (helps identify the actual Band Index based on the Band Switch position) 
-void showBandIndex() {
-    display.clear(); 
-    display.showNumber(rx.getValidBandIndex());
-    delay(100);
-    display.clear(); 
-}
 
 void loop() {
 
   if (rx.hasStatusChanged()) {
     if (rx.hasBandChanged()) {
-      oldFrequency = 0;
-      oldStationIndicator = 99;
-      // showBandIndex(); // You can remove this line  
       rx.setBandSlideSwitch();
     }
 
