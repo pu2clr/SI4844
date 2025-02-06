@@ -42,7 +42,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <FlashAsEEPROM_SAMD.h> // Install this library from Github: https://github.com/khoih-prog/FlashStorage_SAMD#why-do-we-need-this-flashstorage_samd-library
-#include "DSEG7_Classic_Regular_16.h"
+#include "DSEG7_Classic_Regular_21.h"
 
 
 
@@ -164,7 +164,7 @@ void setup()
   if (EEPROM.read(eeprom_address) == app_id)
     readAllReceiverInformation();
   else
-    si4844.setVolume(48);
+    si4844.setVolume(60);
   
 
   if ( tabBand[bandIdx].botton != 0)
@@ -211,7 +211,7 @@ void displayDial()
   display.clearDisplay();
 
  
-  display.setCursor(0, 0);
+  display.setCursor(3, 0);
   display.print(si4844.getBandMode());
 
   display.setCursor(48, 0);  
@@ -224,11 +224,11 @@ void displayDial()
   display.print(tabBand[bandIdx].desc);
 
 
-  display.setFont(&DSEG7_Classic_Regular_16);
+  display.setFont(&DSEG7_Classic_Regular_21);
 
-  display.setCursor(15, 30);
+  display.setCursor(16, 31);
   display.print(si4844.getFormattedFrequency(2,'.'));
-  display.setCursor(100, 20);
+  display.setCursor(104, 30);
   display.setFont(NULL);
   display.print(" ");
   display.print(unit);
