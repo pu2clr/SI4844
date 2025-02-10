@@ -41,7 +41,7 @@
 #include <SI4844.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
-#include <FlashAsEEPROM_SAMD.h> // Install this library from Github: https://github.com/khoih-prog/FlashStorage_SAMD#why-do-we-need-this-flashstorage_samd-library
+// #include <FlashAsEEPROM_SAMD.h> // Install this library from Github: https://github.com/khoih-prog/FlashStorage_SAMD#why-do-we-need-this-flashstorage_samd-library
 #include "DSEG7_Classic_Regular_21.h"
 
 
@@ -151,7 +151,7 @@ void setup()
 
 
 
-
+  /*
   // RESET EEPROM
   if (digitalRead(BAND_UP) == LOW)
   {
@@ -160,17 +160,18 @@ void setup()
     display.print((char *)"EEPROM RESET");
     delay(1500);
   }
+  */
   
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // si4844.setCrystalOscillatorStabilizationWaitTime(1);
   si4844.setup(RESET_PIN, INTERRUPT_PIN, -1, 100000);
 
-  
+  /*
   if (EEPROM.read(eeprom_address) == app_id)
     readAllReceiverInformation();
   else
     si4844.setVolume(60);
-  
+  */
 
   if ( tabBand[bandIdx].botton != 0)
     si4844.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top,tabBand[bandIdx].bandSpace);
@@ -189,16 +190,20 @@ void setup()
  */
 void saveAllReceiverInformation()
 {
+  /*
   EEPROM.update(eeprom_address, app_id);             // stores the app id;
   EEPROM.update(eeprom_address + 1, si4844.getVolume()); // stores the current Volume
   EEPROM.update(eeprom_address + 2, bandIdx);        // Stores the current band index
   EEPROM.commit();
+  */
 }
 
 void readAllReceiverInformation()
 {
+  /*
   si4844.setVolume(EEPROM.read(eeprom_address + 1)); // Gets the stored volume;
   bandIdx = EEPROM.read(eeprom_address + 2);
+  */
 
 }
 
