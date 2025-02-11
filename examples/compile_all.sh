@@ -83,3 +83,10 @@ echo "********************"
 echo "STM32"
 echo "********************"
 arduino-cli compile --fqbn STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103C8 ./SI4844_STM32_POC --output-dir ~/Downloads/hex/STM32/SI4844_STM32_POC  --warnings all
+
+
+
+echo "********************"
+echo "SEEEDUINO"
+echo "********************"
+arduino-cli compile --fqbn Seeeduino:samd:seeed_XIAO_m0 ./SI4844_SEEDUINO_OLED --output-dir ~/Downloads/hex/SEEEDUINO/SI4844_SEEDUINO_OLED  #--warnings all
