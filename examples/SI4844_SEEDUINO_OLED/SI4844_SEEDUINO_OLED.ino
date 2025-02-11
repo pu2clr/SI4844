@@ -146,12 +146,15 @@ void setup()
   pinMode(VOL_UP, INPUT_PULLUP);
   pinMode(VOL_DOWN, INPUT_PULLUP);
 
-  delay(200);
+  delay(100);
   display.begin(SSD1306_SWITCHCAPVCC, I2C_ADDRESS); // Address 0x3C for 128x32
   display.clearDisplay();
   display.display();
   display.setTextColor(SSD1306_WHITE);
 
+  display.setCursor(0,0);
+  display.print((char *)"PU2CLR\n\nRadio experiments");
+  display.display();
 
   // RESET EEPROM
   if (digitalRead(BAND_UP) == LOW)
@@ -178,7 +181,6 @@ void setup()
   else 
     si4844.setBand(tabBand[bandIdx].bandIdx);  
 
-  
 
   displayDial();
 
