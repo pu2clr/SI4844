@@ -108,7 +108,7 @@ typedef struct {
   and optimize usability.
 
 */
-Band tabBand[] = { { 3, 6400, 8800, 20, (char *) "FM1" },
+Band tabBand[] = { { 3, 6400, 8800, 20, (char *) "FM0" },
                    { 3, 8700, 10100, 20, (char *) "FM1" },      
                    { 3, 10100, 10900, 20, (char *) "FM2" },
                    { 20, 0,0,0, (char *) "MW1" },             
