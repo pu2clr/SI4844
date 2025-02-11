@@ -41,7 +41,7 @@
 #include <SI4844.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
-#include <FlashAsEEPROM_SAMD.h> // Install this library from Github: https://github.com/khoih-prog/FlashStorage_SAMD#why-do-we-need-this-flashstorage_samd-library
+// #include <FlashAsEEPROM_SAMD.h> // Install this library from Github: https://github.com/khoih-prog/FlashStorage_SAMD#why-do-we-need-this-flashstorage_samd-library
 #include "DSEG7_Classic_Regular_21.h"
 
 
@@ -113,8 +113,7 @@ Band tabBand[] = { { 3, 6400, 8800, 20, (char *) "FM1" },
                    { 3, 10100, 10900, 20, (char *) "FM2" },
                    { 20, 0,0,0, (char *) "MW1" },             
                    { 21, 0,0,0, (char *) "MW2" }, 
-                   { 25, 2300, 3200,  5, (char *) "90m"},
-                   { 25, 3200, 4200,  5, (char *) "80m"},
+                   { 25, 2300, 4200,  5, (char *) "90m"},
                    { 25, 4600, 5200,  5, (char *) "60m" },
                    { 26, 5700, 6200,  5, (char *) "49m"},
                    { 27, 7100, 7600,  5, (char *) "41m"},
@@ -124,10 +123,9 @@ Band tabBand[] = { { 3, 6400, 8800, 20, (char *) "FM1" },
                    { 35, 15090,15700, 5, (char *) "19m"},
                    { 38, 17400,17990, 5, (char *) "16m"},
                    { 40, 21400,21790, 5, (char *) "13m"},
-                   { 40, 24890,25100, 5, (char *) "12m"},
+                   { 40, 24800,25200, 5, (char *) "12m"},
                    { 40, 25600,26610, 5, (char *) "11m"},
-                   { 40, 27000,27700, 5, (char *) "11m"},
-                   { 40, 28000,28500, 5, (char *) "11m"} };
+                   { 40, 27000,27700, 5, (char *) "11m" } };
 
 const int8_t lastBand = (sizeof tabBand / sizeof(Band)) - 1;
 int8_t bandIdx = 0;
@@ -146,13 +144,14 @@ void setup()
   pinMode(VOL_UP, INPUT_PULLUP);
   pinMode(VOL_DOWN, INPUT_PULLUP);
 
-  delay(200);
   display.begin(SSD1306_SWITCHCAPVCC, I2C_ADDRESS); // Address 0x3C for 128x32
-  display.clearDisplay();
   display.display();
+  display.clearDisplay();
   display.setTextColor(SSD1306_WHITE);
 
 
+
+  /*
   // RESET EEPROM
   if (digitalRead(BAND_UP) == LOW)
   {
@@ -161,17 +160,18 @@ void setup()
     display.print((char *)"EEPROM RESET");
     delay(1500);
   }
+  */
   
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // si4844.setCrystalOscillatorStabilizationWaitTime(1);
   si4844.setup(RESET_PIN, INTERRUPT_PIN, -1, 100000);
 
-  
+  /*
   if (EEPROM.read(eeprom_address) == app_id)
     readAllReceiverInformation();
   else
     si4844.setVolume(60);
-  
+  */
 
   if ( tabBand[bandIdx].botton != 0)
     si4844.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top,tabBand[bandIdx].bandSpace);
@@ -190,16 +190,20 @@ void setup()
  */
 void saveAllReceiverInformation()
 {
+  /*
   EEPROM.update(eeprom_address, app_id);             // stores the app id;
   EEPROM.update(eeprom_address + 1, si4844.getVolume()); // stores the current Volume
   EEPROM.update(eeprom_address + 2, bandIdx);        // Stores the current band index
   EEPROM.commit();
+  */
 }
 
 void readAllReceiverInformation()
 {
+  /*
   si4844.setVolume(EEPROM.read(eeprom_address + 1)); // Gets the stored volume;
   bandIdx = EEPROM.read(eeprom_address + 2);
+  */
 
 }
 
