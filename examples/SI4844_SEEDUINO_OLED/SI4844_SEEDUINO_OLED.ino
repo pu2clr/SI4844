@@ -146,7 +146,7 @@ void setup()
   pinMode(VOL_UP, INPUT_PULLUP);
   pinMode(VOL_DOWN, INPUT_PULLUP);
 
-  delay(100);
+  delay(150); // Needed to make the OLED starts
   display.begin(SSD1306_SWITCHCAPVCC, I2C_ADDRESS); // Address 0x3C for 128x32
   display.clearDisplay();
   display.display();
