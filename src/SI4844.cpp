@@ -592,7 +592,7 @@ void SI4844::setUserDefinedBand(int8_t bandIdx, uint32_t bottomFrequency, uint32
  */
 void SI4844::setBand(uint8_t bandIndex)
 {
-    // If changed from AM to FM or FM to AM mode the reset
+    // If changed from AM to FM or FM to AM mode the reset - See  Pre-defined Band Table in Si48XX ATDD PROGRAMMING GUIDE; AN610; pages 17 and 18 
     if (  (this->currentBand <= 19 && bandIndex > 19) || (this->currentBand > 19 && bandIndex <= 19)  )
         this->reset();
 
