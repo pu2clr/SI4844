@@ -272,7 +272,7 @@ void SI4844::setup(uint16_t resetPin, int interruptPin, int8_t defaultBand, uint
     delay(1);    
     data_from_device = false;
 
-    reset();
+    this->reset();
 
     // FM is the default BAND
     // See pages 17 and 18 (Table 8. Pre-defined Band Table) for more details
@@ -336,7 +336,7 @@ void SI4844::debugDevice(uint16_t resetPin, uint16_t interruptPin, byte defaultB
     // delay(1000);
 
     data_from_device = false;
-    reset();
+    this->reset();
 
     // showFunc("So far so good 2");
     // delay(1000);
@@ -592,7 +592,9 @@ void SI4844::setUserDefinedBand(int8_t bandIdx, uint32_t bottomFrequency, uint32
  */
 void SI4844::setBand(uint8_t bandIndex)
 {
-    reset();
+    // If changed from AM to FM or FM to AM mode the reset
+    if (  (this->currentBand <= 19 && bandIndex > 19) || (this->currentBand > 19 && bandIndex <= 19)  )
+        this->reset();
 
     // Checks if the current band is a custom band
     BandNode *bandNode = this->findCustomBand(bandIndex);
@@ -604,8 +606,6 @@ void SI4844::setBand(uint8_t bandIndex)
     }
 
     this->getAllReceiverInfo();
-    delayMicroseconds(2500);
-
     this->setVolume(this->volume);
 }
 
@@ -672,9 +672,12 @@ void SI4844::setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, u
 {
     SI4844_arg_band customband;
 
+    // If changed from AM to FM or FM to AM mode the reset
+    if (  (this->currentBand <= 19 && bandIndex > 19) || (this->currentBand > 19 && bandIndex <= 19)  )
+        this->reset();
+
     this->currentBand = bandIndex;
 
-    reset();
 
     // Now we can customize the band.
     data_from_device = false;
