@@ -1,41 +1,37 @@
 /**
- *  This sketch runs on Seeeduino devices.
- *  I2C OLED Display and buttons Example
+ *  This sketch was specially developed to work on a radio based on the Si44825 (Motobras RM-PFT73AC), which was converted into a radio based 
+ *  on the Si4827. It is worth noting that the Si4827 is very similar to the Si4825 and offers an I2C interface for DSP control via a 
+ *  microcontroller. In this experiment, the microcontroller used was the Seeeduino XIAO.
+ *  The digital interface consists of a 6-digit 7-segment display based on the TM1637, which provides a nostalgic look similar to old radios 
+ *  from the 70s and 80s. The bands are selected using two push buttons. Information about the current band is stored in non-volatile memory.
+ *  This way, the receiver can start based on the last band used when the radio was last turned off. 
  *
  *  ABOUT SEEEDUINO XIAO and EEPROM
  *    The Seeeduino XIAO does no have internal EEPROM.
  *    To provide a convenient way to store and retrieve the reciver useful data, this sketch uses a library emulated-EEPROM with flash memory
  *    See FlashStorage_SAMD Arduino library on https://github.com/khoih-prog/FlashStorage_SAMD
  *
-
- *
- *  SEEEDUINO and SI4844 pin connections
+ *  SEEEDUINO and Si4827 pin connections
  *
  *  | SI4844 pin | SEEEDUINO pin |  Description                                       |
  *  | ---------  | ------------  | -------------------------------------------------  |
- *  |    2       |  D2           | SEEEDUINO interrupt pin                            |
- *  |   15       |  D6           | RESET                                              |
- *  |   16       |  A4/D4 (SDA)  | I2C bus (Data)                                     |
- *  |   17       |  A5/D5 (SCL)  | I2C bus (Clock)                                    | 
+ *  |    1       |  D2           | SEEEDUINO interrupt pin                            |
+ *  |    9       |  D6           | RESET                                              |
+ *  |   10       |  A4/D4 (SDA)  | I2C bus (Data)                                     |
+ *  |   11       |  A5/D5 (SCL)  | I2C bus (Clock)                                    | 
  *  | -----------| ------------- | ---------------------------------------------------|
- *  |  TM1637    |               |                                                    |
+ *  |  TM1637    |               |  7 Seg. Display based on TM1637                    |
  *  | -----------| ------------- | ---------------------------------------------------|                        
- *  |   SDA      |  1            |                                                    |
- *  |   CLK      |  0            |                                                    |       
+ *  |   Data     |  1            |                                                    |
+ *  |   CLOCK    |  0            |                                                    |       
  *  | -----------| ------------- | ---------------------------------------------------|
  *  |Push Buttons|               |                                                    |                                                                     |
  *  | -----------| ------------- | ---------------------------------------------------| 
  *  |  BAND_UP   |     7         |                                                    |                          
  *  |  BAND_DOWN |     8         |                                                    | 
- *  |  VOL_UP    |     9         |                                                    | 
- *  |  VOL_DOWN  |    10         |                                                    |  
  *
- *  ATTENTION: Arduino Nano and Uno are 5V based board. Check the board voltage you are using
- *  If you are using the LGT8F328 see: https://blog.eletrogate.com/tutorial-pro-mini-evb-lgt8f328p-arduino-ide/
- 
-
  *  Author: Ricardo Lima Caratti (PU2CLR)
- *  Oct, 2019
+ *  Feb, 2025
 */
 
 #include <SI4844.h>
@@ -48,6 +44,12 @@
 // Arduino Pin (tested on pro mini)
 #define INTERRUPT_PIN 2
 #define RESET_PIN 6
+
+#define SDA_PIN 4
+#define CLK_PIN 5
+
+#define DIAL_INDICATOR 3
+#define TUNE_INDICATOR 10
 
 #define TM1637_CLK  0
 #define TM1637_DIO  1
@@ -79,6 +81,7 @@ typedef struct {
   uint16_t top;       // top
   uint8_t bandSpace;  // FM only (10 = 100 kHz; 20 = 200 kHz)
   char *desc; 
+  bool analogDial;    // True if the band is shown on the dial Panel
 } Band;
 
 /*
@@ -106,26 +109,25 @@ typedef struct {
   and optimize usability.
 
 */
-Band tabBand[] = { { 3, 6400, 8800, 20, (char *) "FM0" },
-                   { 3, 8700, 10100, 20, (char *) "FM1" },      
-                   { 3, 10100, 10900, 20, (char *) "FM2" },
-                   { 20, 0,0,0, (char *) "MW1" },             
-                   { 21, 0,0,0, (char *) "MW2" }, 
-                   { 25, 2300, 3200,  5, (char *) "90m"},
-                   { 25, 3200, 4200,  5, (char *) "80m"},
-                   { 25, 4600, 5200,  5, (char *) "60m" },
-                   { 26, 5700, 6200,  5, (char *) "49m"},
-                   { 27, 7100, 7600,  5, (char *) "41m"},
-                   { 29, 9200, 9990,  5, (char *) "31m"},
-                   { 31, 11400,12200, 5, (char *) "25m"},
-                   { 33, 13400,13990, 5, (char *) "22m"},
-                   { 35, 15090,15700, 5, (char *) "19m"},
-                   { 38, 17400,17990, 5, (char *) "16m"},
-                   { 40, 21400,21790, 5, (char *) "13m"},
-                   { 40, 24890,25100, 5, (char *) "12m"},
-                   { 40, 25600,26610, 5, (char *) "11m"},
-                   { 40, 27000,27700, 5, (char *) "11m"},
-                   { 40, 28000,28500, 5, (char *) "11m"} };
+Band tabBand[] = { { 3, 6400, 8800, 20, (char *) "FM1", false },    
+                   { 3, 8700, 10800, 20, (char *) "FM2", true },   
+                   { 20, 0,0,0, (char *) "MW1", true },             
+                   { 21, 0,0,0, (char *) "MW2", true }, 
+                   { 25, 2300, 3200,  5, (char *) "90m", false},
+                   { 25, 3200, 4200,  5, (char *) "80m", false},
+                   { 25, 4750, 5050,  5, (char *) "60m", true },
+                   { 26, 5950, 6200,  5, (char *) "49m", true },
+                   { 27, 7000, 7600,  5, (char *) "41m", false},
+                   { 29, 9200, 9990,  5, (char *) "31m", true },
+                   { 31, 11600,12200, 5, (char *) "25m", true },
+                   { 33, 13400,13990, 5, (char *) "22m", false},
+                   { 35, 15000,15900, 5, (char *) "19m", true },
+                   { 38, 17400,17990, 5, (char *) "16m", false},
+                   { 40, 21400,21790, 5, (char *) "13m", false},
+                   { 40, 24890,25100, 5, (char *) "12m", false},
+                   { 40, 25600,26610, 5, (char *) "11m", false},
+                   { 40, 27000,27700, 5, (char *) "11m", false},
+                   { 40, 28000,28500, 5, (char *) "10m", false} };
 
 const int8_t lastBand = (sizeof tabBand / sizeof(Band)) - 1;
 int8_t bandIdx = 0;
@@ -142,6 +144,8 @@ void setup()
   pinMode(BAND_DOWN, INPUT_PULLUP);
   pinMode(VOL_UP, INPUT_PULLUP);
   pinMode(VOL_DOWN, INPUT_PULLUP);
+  pinMode(DIAL_INDICATOR, OUTPUT);
+  pinMode(TUNE_INDICATOR, OUTPUT);
 
   delay(200); // Needed to make the OLED starts
   display.begin();
@@ -155,7 +159,8 @@ void setup()
     delay(1500);
   }
 
-  Wire.begin();  
+  Wire.begin(SDA_PIN, CLK_PIN);  
+    
   // Some crystal oscillators may need more time to stabilize. Uncomment the following line if you are experiencing issues starting the receiver.
   // rx.setCrystalOscillatorStabilizationWaitTime(1);
   rx.setup(RESET_PIN, INTERRUPT_PIN, -1, 100000);
@@ -203,6 +208,8 @@ void displayDial()
   float f = rx.getFrequency(); 
 
   display.showNumber(f / 1000., (rx.getStatusBandMode() == 0)? 2:3 );
+
+  digitalWrite(TUNE_INDICATOR, (rx.getStatusStationIndicator() != 0) ); 
  
 }
 
@@ -217,6 +224,8 @@ void setBand(byte cmd)
     rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top,tabBand[bandIdx].bandSpace);
   else 
     rx.setBand(tabBand[bandIdx].bandIdx);  
+
+  digitalWrite(DIAL_INDICATOR, tabBand[bandIdx].analogDial); // Turn the LED ON or OFF if the current Band is shown on the Dial
 
   saveAllReceiverInformation();
   elapsedButton = millis();
