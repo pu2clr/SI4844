@@ -47,7 +47,6 @@ arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./S
 arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./SLIDE_SWITCH/SI4844_03_TM1637_SLIDE_SWITCH  --output-dir ~/Downloads/hex/minicore/SI4844_03_TM1637_SLIDE_SWITCH  
 
 
-
 echo "********************"
 echo "Arduino LGT8FX based board"
 echo "********************"
@@ -88,4 +87,5 @@ arduino-cli compile --fqbn STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103C8 .
 echo "********************"
 echo "SEEEDUINO"
 echo "********************"
-arduino-cli compile --fqbn Seeeduino:samd:seeed_XIAO_m0 ./SI4844_SEEDUINO_OLED --output-dir ~/Downloads/hex/SEEEDUINO/SI4844_SEEDUINO_OLED  #--warnings all
+arduino-cli compile --fqbn Seeeduino:samd:seeed_XIAO_m0 ./SI4844_SEEEDUINO/SI4844_SEEEDUINO_OLED --output-dir ~/Downloads/hex/SEEEDUINO/SI4844_SEEDUINO_OLED 
+arduino-cli compile --fqbn Seeeduino:samd:seeed_XIAO_m0 ./SI4844_SEEEDUINO/SI4844_SEEEDUINO_TM1637 --output-dir ~/Downloads/hex/SEEEDUINO/SI4844_SEEEDUINO_TM1637  

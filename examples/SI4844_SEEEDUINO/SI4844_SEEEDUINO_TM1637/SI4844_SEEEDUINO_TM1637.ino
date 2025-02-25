@@ -25,11 +25,15 @@
  *  |   Data     |  1            |                                                    |
  *  |   CLOCK    |  0            |                                                    |       
  *  | -----------| ------------- | ---------------------------------------------------|
- *  |Push Buttons|               |                                                    |                                                                     |
+ *  |Push Buttons|               |                                                    |
  *  | -----------| ------------- | ---------------------------------------------------| 
- *  |  BAND_UP   |     7         |                                                    |                          
- *  |  BAND_DOWN |     8         |                                                    | 
- *
+ *  |  BAND_UP   |     7         | Next Band                                          |                          
+ *  |  BAND_DOWN |     8         | Previous Band                                      | 
+ *  | -----------| ------------- | ---------------------------------------------------| 
+ *  |  LEDs      |               |                                                    |
+ *  | -----------| ------------- | ---------------------------------------------------| 
+ *  |  DIAL      |     3         | Indicates that the analog dial shows the current frequency, matching the one displayed on the screen |
+ *  |  TUNE      |    10         | Indicates that the receiver is tuned in a valid channel |
  *  Author: Ricardo Lima Caratti (PU2CLR)
  *  Feb, 2025
 */
@@ -37,9 +41,6 @@
 #include <SI4844.h>
 #include <FlashAsEEPROM_SAMD.h> // Install this library from Github: https://github.com/khoih-prog/FlashStorage_SAMD#why-do-we-need-this-flashstorage_samd-library
 #include <TM1637TinyDisplay6.h> // Install this library
-
-
-#define RST_PIN -1 // Define proper RST_PIN if required.
 
 // Arduino Pin (tested on pro mini)
 #define INTERRUPT_PIN 2
