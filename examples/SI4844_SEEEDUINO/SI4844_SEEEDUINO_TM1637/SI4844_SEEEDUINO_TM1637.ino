@@ -55,15 +55,13 @@
 #define TM1637_CLK  0
 #define TM1637_DIO  1
 
-#define BAND_UP 7    // Next Band
-#define BAND_DOWN 8  // Previous Band
-#define VOL_UP 9    // Volume Volume Up
-#define VOL_DOWN 10  // Volume Down
+#define BAND_UP 8    // Next Band
+#define BAND_DOWN 7  // Previous Band
 
 #define MIN_ELAPSED_TIME 100
 
 // EEPROM - Stroring control variables
-const uint8_t app_id = 48; // Useful to check the EEPROM content before processing useful data
+const uint8_t app_id = 27; // Useful to check the EEPROM content before processing useful data
 const int eeprom_address = 0;
 
 long elapsedButton = millis();
@@ -143,8 +141,6 @@ void setup()
 {
   pinMode(BAND_UP, INPUT_PULLUP);
   pinMode(BAND_DOWN, INPUT_PULLUP);
-  pinMode(VOL_UP, INPUT_PULLUP);
-  pinMode(VOL_DOWN, INPUT_PULLUP);
   pinMode(DIAL_INDICATOR, OUTPUT);
   pinMode(TUNE_INDICATOR, OUTPUT);
 
@@ -176,6 +172,8 @@ void setup()
     rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top,tabBand[bandIdx].bandSpace);
   else 
     rx.setBand(tabBand[bandIdx].bandIdx);  
+
+  digitalWrite(DIAL_INDICATOR, tabBand[bandIdx].analogDial); // Turn the LED ON or OFF if the current Band is shown on the Dial
 
   display.clear(); 
   displayDial();
@@ -233,11 +231,6 @@ void setBand(byte cmd)
 
 }
 
-void setVolume( char v) {
-  rx.changeVolume(v);
-  elapsedButton = millis();
-}
-
 void loop()
 {
   if ( (millis() - elapsedButton) > MIN_ELAPSED_TIME ) {
@@ -246,10 +239,6 @@ void loop()
       setBand('+'); // goes to the next band. 
     else if (digitalRead(BAND_DOWN) == LOW )
       setBand('-'); // goes to the previous band. 
-    else if (digitalRead(VOL_UP) == LOW )
-      setVolume('+');
-    else if (digitalRead(VOL_DOWN) == LOW )
-      setVolume('-');
   }
 
   if (rx.hasStatusChanged())
