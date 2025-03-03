@@ -146,6 +146,7 @@ void setup()
 
   delay(200); // Needed to make the OLED starts
   display.begin();
+  display.setBrightness(BRIGHT_LOW);
   display.showString("pu2clr");
 
   // RESET EEPROM
