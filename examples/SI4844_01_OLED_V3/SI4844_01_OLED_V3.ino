@@ -56,7 +56,7 @@
 #define MIN_ELAPSED_TIME 100
 
 // EEPROM - Stroring control variables
-const uint8_t app_id = 27; // Useful to check the EEPROM content before processing useful data
+const uint8_t app_id = 44; // Useful to check the EEPROM content before processing useful data
 const int eeprom_address = 0;
 
 long elapsedButton = millis();
@@ -102,19 +102,29 @@ typedef struct {
   and optimize usability.
 
 */
-Band tabBand[] = { { 3, 8700, 10100, 20, (char *) "FM1" },      
+
+Band tabBand[] = { { 3, 6400, 8800, 20, (char *) "FM0" },
+                   { 3, 8700, 10100, 20, (char *) "FM1" },      
                    { 3, 10100, 10900, 20, (char *) "FM2" },
                    { 20, 0,0,0, (char *) "MW1" },             
                    { 21, 0,0,0, (char *) "MW2" }, 
-                   { 25, 4600, 5200,5, (char *) "60m" },
-                   { 26, 5700, 6200,5, (char *) (char *) "49m"},
-                   { 27, 7100, 7600,5, (char *) "41m"},
-                   { 29, 9200, 9990,5, (char *) "31m"},
+                   { 25, 2300, 3200,  5, (char *) "90m"},
+                   { 25, 3200, 4200,  5, (char *) "80m"},
+                   { 25, 4600, 5200,  5, (char *) "60m" },
+                   { 26, 5700, 6200,  5, (char *) "49m"},
+                   { 27, 7100, 7600,  5, (char *) "41m"},
+                   { 29, 9200, 9990,  5, (char *) "31m"},
                    { 31, 11400,12200, 5, (char *) "25m"},
                    { 33, 13400,13990, 5, (char *) "22m"},
                    { 35, 15090,15700, 5, (char *) "19m"},
                    { 38, 17400,17990, 5, (char *) "16m"},
-                   { 40, 21400,21790, 5, (char *) "13m" } };
+                   { 40, 21400,21790, 5, (char *) "13m"},
+                   { 40, 24890,25100, 5, (char *) "12m"},
+                   { 40, 25600,26610, 5, (char *) "11m"},
+                   { 40, 27000,27700, 5, (char *) "11m"},
+                   { 40, 28000,28500, 5, (char *) "11m"} };
+                   
+           
 
 const int8_t lastBand = (sizeof tabBand / sizeof(Band)) - 1;
 int8_t bandIdx = 0;
@@ -133,10 +143,15 @@ void setup()
   pinMode(VOL_UP, INPUT_PULLUP);
   pinMode(VOL_DOWN, INPUT_PULLUP);
 
+  delay(200);
   display.begin(SSD1306_SWITCHCAPVCC, I2C_ADDRESS); // Address 0x3C for 128x32
-
-  // display.display();
+  display.clearDisplay();
+  display.display();
   display.setTextColor(SSD1306_WHITE);
+
+  display.setCursor(0,0);
+  display.print((char *)"PU2CLR\n\nRadio experiments");
+  display.display();
 
 
   display.clearDisplay();
