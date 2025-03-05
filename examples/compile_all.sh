@@ -41,16 +41,19 @@ arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./S
 arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./SI4844_01_OLED_V2 --output-dir ~/Downloads/hex/minicore/SI4844_01_OLED_V2 --warnings all
 arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./SI4844_02_LCD16x02 --output-dir ~/Downloads/hex/minicore/SI4844_02_LCD16x02  --warnings all
 arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./SI4844_03_TM1638_7SEG_DISPLAY --output-dir ~/Downloads/hex/minicore/7SEG  --warnings all
-arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto  ./SLIDE_SWITCH/SI4844_01_OLED_SLIDE_SWITCH  --output-dir ~/Downloads/hex/minicore/SLIDE_SWITCH_OLED  --warnings all
-arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto  ./SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH  --output-dir ~/Downloads/hex/minicore/SLIDE_SWITCH_LCD16x2  --warnings all
+arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./SLIDE_SWITCH/SI4844_01_OLED_SLIDE_SWITCH  --output-dir ~/Downloads/hex/minicore/SLIDE_SWITCH_OLED  --warnings all
+arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH  --output-dir ~/Downloads/hex/minicore/SLIDE_SWITCH_LCD16x2  --warnings all
 arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./SLIDE_SWITCH/SI4844_03_TM1637_CUSTM_BAND_SWITCH  --output-dir ~/Downloads/hex/minicore/SI4844_03_TM1637_CUSTM_BAND_SWITCH  
 arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./SLIDE_SWITCH/SI4844_03_TM1637_SLIDE_SWITCH  --output-dir ~/Downloads/hex/minicore/SI4844_03_TM1637_SLIDE_SWITCH  
+arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./SI4844_01_OLED_V3 --output-dir ~/Downloads/hex/minicore/SI4844_01_OLED_V3 --warnings all
+arduino-cli compile -b MiniCore:avr:328:bootloader=no_bootloader,LTO=Os_flto ./SI4844_01_OLED_V4 --output-dir ~/Downloads/hex/minicore/SI4844_01_OLED_V4 --warnings all
+
 
 
 echo "********************"
 echo "Arduino LGT8FX based board"
 echo "********************"
-arduino-cli compile -b lgt8fx:avr:328  ./SI4844_00_MINIMAL --output-dir ~/Downloads/hex/lgt/SI4844_00_MINIMAL --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./SI4844_00_MINIMAL --output-dir ~/Downloads/hex/lgt/SI4844_00_MINIMAL --warnings all
 arduino-cli compile -b lgt8fx:avr:328 ./SI4844_00_POC --output-dir ~/Downloads/hex/lgt/SI4844_00_POC  --warnings all
 arduino-cli compile -b lgt8fx:avr:328 ./SI4844_01_OLED --output-dir ~/Downloads/hex/lgt/SI4844_01_OLED --warnings all
 arduino-cli compile -b lgt8fx:avr:328 ./SI4844_02_LCD16x02 --output-dir ~/Downloads/hex/atmega/SI4844_02_LCD16x02  --warnings all
@@ -61,11 +64,10 @@ arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_BASS_TREBLE --output-dir ~/D
 arduino-cli compile -b lgt8fx:avr:328 ./TEST/SI4844_FIRMWARE --output-dir ~/Downloads/hex/lgt/SI4844_FIRMWARE  --warnings all
 arduino-cli compile -b lgt8fx:avr:328 ./SLIDE_SWITCH/SI4844_01_OLED_SLIDE_SWITCH  --output-dir ~/Downloads/hex/lgt/SLIDE_SWITCH_OLED  
 arduino-cli compile -b lgt8fx:avr:328 ./SLIDE_SWITCH/SI4844_02_LCD16x2_SLIDE_SWITCH  --output-dir ~/Downloads/hex/lgt/SLIDE_SWITCH_LCD16x2  --warnings all
-arduino-cli compile -b lgt8fx:avr:328  ./SLIDE_SWITCH/SI4844_03_TM1637_CUSTM_BAND_SWITCH  --output-dir ~/Downloads/hex/lgt/SI4844_03_TM1637_CUSTM_BAND_SWITCH  
+arduino-cli compile -b lgt8fx:avr:328 ./SLIDE_SWITCH/SI4844_03_TM1637_CUSTM_BAND_SWITCH  --output-dir ~/Downloads/hex/lgt/SI4844_03_TM1637_CUSTM_BAND_SWITCH  
 arduino-cli compile -b lgt8fx:avr:328 ./SLIDE_SWITCH/SI4844_03_TM1637_SLIDE_SWITCH  --output-dir ~/Downloads/hex/lgt/SI4844_03_TM1637_SLIDE_SWITCH  
-
-
-
+arduino-cli compile -b lgt8fx:avr:328 ./SI4844_01_OLED_V2 --output-dir ~/Downloads/hex/lgt/SI4844_01_OLED_V2 --warnings all
+arduino-cli compile -b lgt8fx:avr:328 ./SI4844_01_OLED_V4 --output-dir ~/Downloads/hex/lgt/SI4844_01_OLED_V4 --warnings all
 
 
 echo "********************"
@@ -85,7 +87,7 @@ arduino-cli compile --fqbn STMicroelectronics:stm32:GenF1:pnum=BLUEPILL_F103C8 .
 
 
 echo "********************"
-echo "SEEEDUINO"
+echo "SEEEDUINO - ARM Cortex-M0+"
 echo "********************"
 arduino-cli compile --fqbn Seeeduino:samd:seeed_XIAO_m0 ./SI4844_SEEEDUINO/SI4844_SEEEDUINO_OLED --output-dir ~/Downloads/hex/SEEEDUINO/SI4844_SEEDUINO_OLED 
 arduino-cli compile --fqbn Seeeduino:samd:seeed_XIAO_m0 ./SI4844_SEEEDUINO/SI4844_SEEEDUINO_TM1637 --output-dir ~/Downloads/hex/SEEEDUINO/SI4844_SEEEDUINO_TM1637  
