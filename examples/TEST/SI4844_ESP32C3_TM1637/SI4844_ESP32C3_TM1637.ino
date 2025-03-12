@@ -1,9 +1,18 @@
 /**
+ *  This Sketch was designed to be compiled and installed on the ESP32C3 (Super Mini). 
+ *  However, it can be easily adapted for another ESP32 model, as well as a different 
+ *  family of microcontrollers. Refer to the following table. It can guide you in making 
+ *  the connections between the Si48XX and the ESP32C3.
+ *
+ *  It is important to note that this project aimed at transforming receivers based on the Si4825 
+ *  (with an analog interface) into receivers with a digital interface using the Si4827. However, 
+ *  You can easily adapt it to an standalone project. 
+ *
  *  ESP32C3 and Si4827 pin connections
  *
- *  | SI4844 pin | ESP32C3 pin   |  Description                                       |
+ *  | SI4827 pin | ESP32C3 pin   |  Description                                       |
  *  | ---------  | ------------  | -------------------------------------------------  |
- *  |    1       |  GPIO2        | ESP32C3 interrupt pin                            |
+ *  |    1       |  GPIO2        | ESP32C3 interrupt pin                              |
  *  |    9       |  GPIO3        | RESET                                              |
  *  |   10       |  GPIO9 (SDA)  | I2C bus (Data)                                     |
  *  |   11       |  GPIO8 (SCL)  | I2C bus (Clock)                                    | 

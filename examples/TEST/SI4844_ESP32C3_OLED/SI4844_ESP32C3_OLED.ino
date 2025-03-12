@@ -1,27 +1,29 @@
 /**
- *  This sketch runs on Seeeduino devices.
+ *  This sketch runs on ESP32C3 devices.
  *  I2C OLED Display and buttons Example
  *
- *  ABOUT SEEEDUINO XIAO and EEPROM
- *    The Seeeduino XIAO does no have internal EEPROM.
- *    To provide a convenient way to store and retrieve the reciver useful data, this sketch uses a library emulated-EEPROM with flash memory
- *    See FlashStorage_SAMD Arduino library on https://github.com/khoih-prog/FlashStorage_SAMD
+ *  This Sketch was designed to be compiled and installed on the ESP32C3 (Super Mini). 
+ *  However, it can be easily adapted for another ESP32 model, as well as a different 
+ *  family of microcontrollers. Refer to the following table. It can guide you in making 
+ *  the connections between the Si48XX and the ESP32C3.
  *
-
+ *  It is important to note that this project aimed at transforming receivers based on the Si4825 
+ *  (with an analog interface) into receivers with a digital interface using the Si4827. However, 
+ *  You can easily adapt it to an standalone project. 
  *
- *  SEEEDUINO and SI4844 pin connections
+ *  ESP32C3 and SI4844 pin connections
  *
- *  | SI4844 pin | SEEEDUINO pin |  Description                                       |
+ *  | SI4827 pin | ESP32C3 pin   |  Description                                       |
  *  | ---------  | ------------  | -------------------------------------------------  |
- *  |    2       |  2            | SEEEDUINO interrupt pin                            |
- *  |   15       |  6            | RESET                                              |
- *  |   16       |  A4 (SDA)     | I2C bus (Data)                                     |
- *  |   17       |  A5 (SCL)     | I2C bus (Clock)                                    | 
+ *  |    1       |  GPIO2        | ESP32C3 interrupt pin                              |
+ *  |    9       |  GPIO3        | RESET                                              |
+ *  |   10       |  GPIO9 (SDA)  | I2C bus (Data)                                     |
+ *  |   11       |  GPIO8 (SCL)  | I2C bus (Clock)                                    | 
  *  | -----------| ------------- | ---------------------------------------------------|
  *  |  OLED      |               |                                                    |
  *  | -----------| ------------- | ---------------------------------------------------|                        
- *  |   SDA      |  A4           | It shares the I2C bus with the SI4844              |
- *  |   CLK      |  A5           | It shares the I2C bus with the SI4844              |       
+ *  |   SDA      |  GPIO9 (SDA)  | It shares the I2C bus with the SI4827              |
+ *  |   CLK      |  GPIO8 (SCL)  | It shares the I2C bus with the SI4827              |       
  *  | -----------| ------------- | ---------------------------------------------------|
  *  |Push Buttons|               |                                                    |                                                                     |
  *  | -----------| ------------- | ---------------------------------------------------| 
@@ -45,18 +47,17 @@
 #include "DSEG7_Classic_Regular_21.h"
 
 
-
 // OLED Diaplay constants
 #define I2C_ADDRESS 0x3C
 #define RST_PIN -1 // Define proper RST_PIN if required.
 
-// Arduino Pin (tested on pro mini)
-#define INTERRUPT_PIN 2
-#define RESET_PIN 6
 
-#define BAND_UP 7    // Next Band
-#define BAND_DOWN 8  // Previous Band
-#define VOL_UP 9    // Volume Volume Up
+#define INTERRUPT_PIN 2 // GPIO2
+#define RESET_PIN 3     // GPIO3
+
+#define BAND_UP 6    // GPIO6 - Next Band
+#define BAND_DOWN 5  // GPIO5 - Previous Band
+#define VOL_UP 7     // Volume Volume Up
 #define VOL_DOWN 10  // Volume Down
 
 #define MIN_ELAPSED_TIME 100
