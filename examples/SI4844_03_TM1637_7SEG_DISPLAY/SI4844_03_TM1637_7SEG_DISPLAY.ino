@@ -1,22 +1,20 @@
 /**
  *  This sketch was specially developed to work on a radio based on the Si44825 (Motobras RM-PFT73AC), which was converted into a radio based 
- *  on the Si4827. It is worth noting that the Si4827 is very similar to the Si4825 and offers an I2C interface for DSP control via a 
- *  microcontroller. In this experiment, the microcontroller used was the Seeeduino XIAO.
+ *  on the Si4827.  Considering that most commercial radios using the Si4825 have very similar implementations (architectures), this project 
+ *  can be applied to other commercial radios.
+ *  It is worth noting that the Si4827 is very similar to the Si4825 and offers an I2C interface for DSP control via a 
+ *  microcontroller. In this experiment, the microcontroller used was the Arduino Nano, Pro Mini, LGT8F328 or similar.
  *  The digital interface consists of a 6-digit 7-segment display based on the TM1637, which provides a nostalgic look similar to old radios 
  *  from the 70s and 80s. The bands are selected using two push buttons. Information about the current band is stored in non-volatile memory.
  *  This way, the receiver can start based on the last band used when the radio was last turned off. 
+
  *
- *  ABOUT SEEEDUINO XIAO and EEPROM
- *    The Seeeduino XIAO does no have internal EEPROM.
- *    To provide a convenient way to store and retrieve the reciver useful data, this sketch uses a library emulated-EEPROM with flash memory
- *    See FlashStorage_SAMD Arduino library on https://github.com/khoih-prog/FlashStorage_SAMD
+ *  Arduino and Si4827 pin connections
  *
- *  SEEEDUINO and Si4827 pin connections
- *
- *  | SI4844 pin | SEEEDUINO pin |  Description                                       |
+ *  | SI4827 pin | Arduino pin   |  Description                                       |
  *  | ---------  | ------------  | -------------------------------------------------  |
- *  |    1       |  D2           | SEEEDUINO interrupt pin                            |
- *  |    9       |  D12           | RESET                                              |
+ *  |    1       |  D2           | Arduino interrupt pin                              |
+ *  |    9       |  D12          | RESET                                              |
  *  |   10       |  A4/D4 (SDA)  | I2C bus (Data)                                     |
  *  |   11       |  A5/D5 (SCL)  | I2C bus (Clock)                                    | 
  *  | -----------| ------------- | ---------------------------------------------------|
