@@ -605,7 +605,8 @@ void SI4844::setBand(uint8_t bandIndex)
         this->setUserDefinedBand(bandIndex, bandNode->bottomFrequency, bandNode->topFrequency, bandNode->space);
     }
 
-    this->getAllReceiverInfo();
+    // this->getAllReceiverInfo();
+    this->waitDetectFrequency(); 
     this->setVolume(this->volume);
 }
 
@@ -712,7 +713,9 @@ void SI4844::setCustomBand(uint8_t bandIndex, uint16_t  botton, uint16_t  top, u
     waitInterrupt();
 
     delayMicroseconds(2500);
-    getAllReceiverInfo();
+    // getAllReceiverInfo();
+    this->waitDetectFrequency(); 
+
     delayMicroseconds(2500);
     this->setVolume(this->volume);
 
