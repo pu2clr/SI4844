@@ -202,7 +202,10 @@ void displayDial()
 {
   float f = rx.getFrequency(); 
 
-  display.showNumber(f / 1000., (rx.getStatusBandMode() == 0)? 2:3 );
+  if ( f < 2300.0)
+    display.showNumber(f, 0);
+  else
+    display.showNumber(f / 1000., (rx.getStatusBandMode() == 0)? 2:3 );
 
   digitalWrite(TUNE_INDICATOR, (rx.getStatusStationIndicator() != 0) ); 
  
