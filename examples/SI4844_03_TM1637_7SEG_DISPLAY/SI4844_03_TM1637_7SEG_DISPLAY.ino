@@ -116,7 +116,7 @@ typedef struct {
 
 */
 Band tabBand[] = { { 3, 6400, 8800, 20, (char *)"FM1", false },
-                   { 3, 8700, 10800, 20, (char *)"FM2", true },
+                   { 3, 8800, 10800, 20, (char *)"FM2", true },
                    { 20, 0, 0, 0, (char *)"MW1", true },
                    { 21, 0, 0, 0, (char *)"MW2", true },
                    { 25, 2300, 3200, 5, (char *)"90m", false },
@@ -175,6 +175,7 @@ void setup() {
   else
     rx.setVolume(60);
 
+  digitalWrite(SW_LNA_E, LOW);
 
   if (tabBand[bandIdx].botton != 0)
     rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);
@@ -182,7 +183,9 @@ void setup() {
     rx.setBand(tabBand[bandIdx].bandIdx);
 
   digitalWrite(DIAL_INDICATOR, tabBand[bandIdx].analogDial);  // Turn the LED ON or OFF if the current Band is shown on the Dial
-  digitalWrite(SW_LNA_E, bLNA);
+  
+  if (canIsetLna()) 
+    digitalWrite(SW_LNA_E, bLNA);
 
   display.clear();
   displayDial();
