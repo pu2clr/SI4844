@@ -53,6 +53,8 @@
 
 #define BAND_UP 8    // Next Band
 #define BAND_DOWN 7  // Previous Band
+#define BT_SW_LNA_E 9   // Enable or Disable RF Amp. for shortwave bands 
+#define SW_LNA_E 10
 
 #define MIN_ELAPSED_TIME 100
 
@@ -61,6 +63,8 @@ const uint8_t app_id = 27; // Useful to check the EEPROM content before processi
 const int eeprom_address = 0;
 
 long elapsedButton = millis();
+
+bool bLNA = false;
 
 /*
   The following band table can be adjusted according to the user's preferences or local conditions. 
@@ -139,6 +143,7 @@ void setup()
   pinMode(BAND_DOWN, INPUT_PULLUP);
   pinMode(DIAL_INDICATOR, OUTPUT);
   pinMode(TUNE_INDICATOR, OUTPUT);
+  pinMode(BT_SW_LNA_E,OUTPUT);
 
   delay(200); // Needed to make the OLED starts
   display.begin();
@@ -223,10 +228,35 @@ void setBand(byte cmd)
   else 
     rx.setBand(tabBand[bandIdx].bandIdx);  
 
+
+  if (canIsetLna())
+    digitalWrite(SW_LNA_E, bLNA);
+  else 
+    digitalWrite(SW_LNA_E, LOW);
+  
+
+
   digitalWrite(DIAL_INDICATOR, tabBand[bandIdx].analogDial); // Turn the LED ON or OFF if the current Band is shown on the Dial
 
   saveAllReceiverInformation();
   elapsedButton = millis();
+
+}
+
+
+// Checks if the LNA can be set
+bool canIsetLna() {
+  return (rx.getStatusBandMode() != 0 && rx.getFrequency() > 2300.0);
+}
+
+// Toggles LNA enable/disable for SW Bands. 
+void setSwLna() {
+
+ if ( canIsetLna() ) {
+    bLNA = !bLNA; 
+    digitalWrite(SW_LNA_E, bLNA);
+ } 
+
 
 }
 
@@ -238,6 +268,8 @@ void loop()
       setBand('+'); // goes to the next band. 
     else if (digitalRead(BAND_DOWN) == LOW )
       setBand('-'); // goes to the previous band. 
+    else if (digitalRead(BT_SW_LNA_E) == LOW ) 
+      setSwLna();
   }
 
   if (rx.hasStatusChanged())
