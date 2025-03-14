@@ -36,9 +36,9 @@
  *  | -----------| ------------- | ---------------------------------------------------| 
  *  |  LEDs      |               |                                                    |
  *  | -----------| ------------- | ---------------------------------------------------| 
- *  |  DIAL      |     3         | Indicates that the analog dial shows the current frequency, matching the one displayed on the screen |
- *  |  TUNE      |    10         | Indicates that the receiver is tuned in a valid channel |
- *  |  LNA EN    |     9         | Shares the same Arduino/LGT pin 9 to indicate that the LNA is enabled |
+ *  |  DIAL      |     3        | Indicates that the analog dial shows the current frequency, matching the one displayed on the screen |
+ *  |  TUNE      |     4         | Indicates that the receiver is tuned in a valid channel |
+ *  |  LNA EN    |    10         | Shares the same Arduino/LGT pin 9 to indicate that the LNA is enabled |
  *  Author: Ricardo Lima Caratti (PU2CLR)
  *  Feb, 2025
 */
@@ -52,18 +52,18 @@
 #define RESET_PIN 12
 
 
-#define DIAL_INDICATOR 4
-#define TUNE_INDICATOR 5
+#define DIAL_INDICATOR 3
+#define TUNE_INDICATOR 4
 
 #define TM1637_DIO 5
 #define TM1637_CLK 6
 
-#define BAND_UP 8      // Next Band
-#define BAND_DOWN 7    // Previous Band
+#define BAND_UP 7      // Next Band
+#define BAND_DOWN 8    // Previous Band
 #define BT_SW_LNA_E 9  // Enable or Disable RF Amp. for shortwave bands
 #define SW_LNA_E 10
 
-#define MIN_ELAPSED_TIME 100
+#define MIN_ELAPSED_TIME 150
 
 // EEPROM - Stroring control variables
 const uint8_t app_id = 27;  // Useful to check the EEPROM content before processing useful data
@@ -122,14 +122,14 @@ Band tabBand[] = { { 3, 6400, 8800, 20, (char *)"FM1", false },
                    { 25, 2300, 3200, 5, (char *)"90m", false },
                    { 25, 3200, 4200, 5, (char *)"80m", false },
                    { 25, 4750, 5050, 5, (char *)"60m", true },
-                   { 26, 5950, 6200, 5, (char *)"49m", true },
-                   { 27, 7000, 7600, 5, (char *)"41m", false },
-                   { 29, 9200, 9990, 5, (char *)"31m", true },
-                   { 31, 11600, 12200, 5, (char *)"25m", true },
-                   { 33, 13400, 13990, 5, (char *)"22m", false },
+                   { 26, 5600, 6400, 5, (char *)"49m", true },
+                   { 27, 6800, 7600, 5, (char *)"41m", true },
+                   { 29, 9200, 10000, 5, (char *)"31m", true },
+                   { 31, 11400, 12200, 5, (char *)"25m", false },
+                   { 33, 13400, 14000, 5, (char *)"22m", true },
                    { 35, 15000, 15900, 5, (char *)"19m", true },
-                   { 38, 17400, 17990, 5, (char *)"16m", false },
-                   { 40, 21400, 21790, 5, (char *)"13m", false },
+                   { 38, 17100, 18000, 5, (char *)"16m", true },
+                   { 40, 21200, 22000, 5, (char *)"13m", true },
                    { 40, 24890, 25100, 5, (char *)"12m", false },
                    { 40, 25600, 26610, 5, (char *)"11m", false },
                    { 40, 27000, 27700, 5, (char *)"11m", false },
@@ -147,9 +147,10 @@ SI4844 rx;
 void setup() {
   pinMode(BAND_UP, INPUT_PULLUP);
   pinMode(BAND_DOWN, INPUT_PULLUP);
+  pinMode(BT_SW_LNA_E, INPUT_PULLUP); 
   pinMode(DIAL_INDICATOR, OUTPUT);
   pinMode(TUNE_INDICATOR, OUTPUT);
-  pinMode(BT_SW_LNA_E, OUTPUT);
+  pinMode(SW_LNA_E, OUTPUT);
 
   delay(200);  // Needed to make the OLED starts
   display.begin();
@@ -181,6 +182,7 @@ void setup() {
     rx.setBand(tabBand[bandIdx].bandIdx);
 
   digitalWrite(DIAL_INDICATOR, tabBand[bandIdx].analogDial);  // Turn the LED ON or OFF if the current Band is shown on the Dial
+  digitalWrite(SW_LNA_E, bLNA);
 
   display.clear();
   displayDial();
@@ -194,11 +196,14 @@ void saveAllReceiverInformation() {
   EEPROM.update(eeprom_address, app_id);              // stores the app id;
   EEPROM.update(eeprom_address + 1, rx.getVolume());  // stores the current Volume
   EEPROM.update(eeprom_address + 2, bandIdx);         // Stores the current band index
+  EEPROM.update(eeprom_address + 3, bLNA);           // Stores the current band index
+
 }
 
 void readAllReceiverInformation() {
   rx.setVolume(EEPROM.read(eeprom_address + 1));  // Gets the stored volume;
   bandIdx = EEPROM.read(eeprom_address + 2);
+  bLNA = EEPROM.read(eeprom_address + 3);
 }
 
 
@@ -235,6 +240,7 @@ void setBand(byte cmd) {
   digitalWrite(DIAL_INDICATOR, tabBand[bandIdx].analogDial);  // Turn the LED ON or OFF if the current Band is shown on the Dial
 
   saveAllReceiverInformation();
+  displayDial();
   elapsedButton = millis();
 }
 
@@ -251,6 +257,7 @@ void setSwLna() {
     bLNA = !bLNA;
     digitalWrite(SW_LNA_E, bLNA);
   }
+  delay(MIN_ELAPSED_TIME);
 }
 
 void loop() {
