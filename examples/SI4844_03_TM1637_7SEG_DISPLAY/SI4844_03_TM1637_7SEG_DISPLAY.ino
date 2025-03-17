@@ -63,7 +63,7 @@
 #define BT_SW_LNA_E 9  // Enable or Disable RF Amp. for shortwave bands
 #define SW_LNA_E 10
 
-#define MIN_ELAPSED_TIME 150
+#define MIN_ELAPSED_TIME 250
 
 // EEPROM - Stroring control variables
 const uint8_t app_id = 27;  // Useful to check the EEPROM content before processing useful data
@@ -259,6 +259,7 @@ void setSwLna() {
   if (canIsetLna()) {
     bLNA = !bLNA;
     digitalWrite(SW_LNA_E, bLNA);
+    saveAllReceiverInformation();
   }
   delay(MIN_ELAPSED_TIME);
 }
