@@ -33,10 +33,10 @@
  *  | -----------| -------------| ---------------------------------------------------|
  *  |Push Buttons|                                                                   |                                                                     |
  *  | -----------| -------------| ---------------------------------------------------| 
- *  |  BAND_UP   |     8        |                                                    |                          
- *  |  BAND_DOWN |     9        |                                                    | 
- *  |  VOL_UP    |    10        |                                                    | 
- *  |  VOL_DOWN  |    11        |                                                    |   
+ *  |  BAND_UP   |     8        |  Next Band                                         |                          
+ *  |  BAND_DOWN |     9        |  Previous Band                                     | 
+ *  |  VOL_UP    |    10        |  Increase the audio volume                         | 
+ *  |  VOL_DOWN  |    11        |  Decrease the audio volume                         |   
  * 
  *  ATTENTION: Arduino Nano and Uno are 5V based board. Check the board voltage you are using
  *  If you are using the LGT8F328 see: https://blog.eletrogate.com/tutorial-pro-mini-evb-lgt8f328p-arduino-ide/
@@ -53,7 +53,7 @@
 
 #define BAND_UP     8 // Next Band
 #define BAND_DOWN   9 // Previous Band
-#define VOL_UP     10 // Volume Volume Up
+#define VOL_UP     10 // Volume Up
 #define VOL_DOWN   11 // Volume Down
 #define TOGGLE_VOL 14 
 
