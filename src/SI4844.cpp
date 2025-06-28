@@ -28,7 +28,7 @@
  * @details Handling interruptions.
  * @details This function simply captures the status change of the SI48XX via interruption.
  * @details Whenever the status of the ATDD changes, a hardware interrupt is triggered. For example, when you move the tuner
- * @details potenciometer, the ATDD sends a signal to the Arduino pin (INTERRUPT_PIN). The same is true when the ATDD is capturing 
+ * @details potentiometer, the ATDD sends a signal to the Arduino pin (INTERRUPT_PIN). The same is true when the ATDD is capturing 
  * @details mono FM signal and has switched to stereo. 
  * @details You can control the interrupt process via your sketch intead of this library. 
  * @see setStatusInterruptFromDevice, getStatusInterruptFromDevice, setup 
@@ -36,7 +36,7 @@
 #ifdef ESP8266    // if the controller is ESP8266, add IRAM_ATTR.
   IRAM_ATTR 
 #endif
-void interrupt_hundler()
+void interrupt_handler()
 {
    data_from_device = true;
 }
@@ -181,24 +181,24 @@ void SI4844::waitInterrupt(void)
  * @details function assumes that you are using a mechanical band selector.
  * @details Calling this library should be the first thing to do to control the SI48XX.
  * @details If interruptPin is -1, it means you will control interrupt in your sketch. 
- * @details In this case, you have to call interrupt_hundler() (see SI4844.h)   
+ * @details In this case, you have to call interrupt_handler() (see SI4844.h)   
  * @param resetPin      arduino pin used to reset the device
- * @param interruptPin  interruprPin arduino pin used to handle interrupt 
- * @param hightClockSpeed hight I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
+ * @param interruptPin  interrupt pin - arduino pin used to handle interrupt 
+ * @param highClockSpeed high I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
  */
-void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed )
+void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t highClockSpeed )
 {
     // UNDER CONSTRUCTION
     this->resetPin = resetPin;
     this->interruptPin = interruptPin;
 
-    setClockSpeed(hightClockSpeed);
+    setClockSpeed(highClockSpeed);
 
     // Arduino interrupt setup.
     // if interruptPin parameter is < 0, it means the interrupt is being controlled by the user of this library
     if (interruptPin != -1 ) {
         pinMode(interruptPin, INPUT);
-        attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_hundler, RISING);
+        attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_handler, RISING);
     }
 
     pinMode(resetPin, OUTPUT);
@@ -246,25 +246,25 @@ void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t high
  * @brief Initiates the SI4844 instance and connect the device (SI4844) to Arduino. 
  * @details Calling this library should be the first thing to do to control the SI4844.
  * @details If interruptPin is -1, it means you will control interrupt in your sketch. 
- * @details In this case, you have to call interrupt_hundler() (see SI4844.h)   
+ * @details In this case, you have to call interrupt_handler() (see SI4844.h)   
  * @param resetPin      arduino pin used to reset the device
- * @param interruptPin  interruprPin arduino pin used to handle interrupt 
+ * @param interruptPin  interrupt pin - arduino pin used to handle interrupt 
  * @param defaultBand   band that the radio should start. If -1 no band is selected and you must select one after starting. Default 0 = FM.
- * @param hightClockSpeed hight I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
+ * @param highClockSpeed high I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
  */
-void SI4844::setup(uint16_t resetPin, int interruptPin, int8_t defaultBand, uint32_t hightClockSpeed )
+void SI4844::setup(uint16_t resetPin, int interruptPin, int8_t defaultBand, uint32_t highClockSpeed )
 {
 
     this->resetPin = resetPin;
     this->interruptPin = interruptPin;
 
-    setClockSpeed(hightClockSpeed);
+    setClockSpeed(highClockSpeed);
 
     // Arduino interrupt setup.
     // if interruptPin parameter is < 0, it means the interrupt is being controlled by the user of this library
     if (interruptPin != -1 ) {
         pinMode(interruptPin, INPUT);
-        attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_hundler, RISING);
+        attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_handler, RISING);
     }
 
     pinMode(resetPin, OUTPUT);
@@ -328,9 +328,9 @@ void SI4844::debugDevice(uint16_t resetPin, uint16_t interruptPin, byte defaultB
     // Arduino interrupt setup.
     pinMode(interruptPin, INPUT);
 
-    attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_hundler, RISING);
-    // attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_hundler, RISING);
-    // attachInterrupt(0, interrupt_hundler, CHANGE);
+    attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_handler, RISING);
+    // attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_handler, RISING);
+    // attachInterrupt(0, interrupt_handler, CHANGE);
     
     // showFunc("So far so good 1");
     // delay(1000);

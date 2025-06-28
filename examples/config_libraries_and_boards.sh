@@ -1,7 +1,7 @@
 #!/bin/bash
 <<TodoBefore
 
-This script runs on Linux and MacOS and it is useful to install the basic enviroment to develop
+This script runs on Linux and MacOS and it is useful to install the basic environment to develop
 applications (receivers) using the PU2CLR Arduino Library.
 
 ATTENTION: Please, do not run it if you do not know what are you doing.
@@ -38,13 +38,14 @@ https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32
 https://raw.githubusercontent.com/nulllaborg/arduino_nulllab/master/package_nulllab_boards_index.json \
 https://www.pjrc.com/teensy/package_teensy_index.json
 
+arduino-cli config set network.connection_timeout 600s
 
 # Update the index of boards that can be installed
 arduino-cli core update-index
 
 echo "This may take several minutes or hours. Please wait!"
 echo "Installing the libraries used by the examples implemented in this Library"
-#uncomment the lines if you and to include more libraries 
+#uncomment the lines if you want to include more libraries 
 arduino-cli lib install "PU2CLR SI4844"
 arduino-cli lib install "Adafruit SSD1306"
 arduino-cli lib install "SSD1306Ascii"

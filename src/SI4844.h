@@ -274,7 +274,7 @@ typedef union {
  * @brief Interrupt status
  * @details This variable must be true every time an interruption occurs and then must return to the false every time an action resulting from the interruption is performed.
  * @details The variable below indicates a change of the ATDD status. When it occurs, it means the system needs to process some action (for example show on LCD this change).  
- * @see interrupt_hundler() function in SI44.cpp. 
+ * @see interrupt_handler() function in SI44.cpp. 
  */
 volatile static bool data_from_device;
 
@@ -309,7 +309,7 @@ private:
 
   /**
    * @ingroup BF
-   * @brief Sets hight clock speed to be used on I2C bus
+   * @brief Sets high clock speed to be used on I2C bus
    * @param clock (10000 = 10kHz; 50000 = 50kHz; 100000 = 100kHz ... )
    */
   inline void setClockSpeed(uint16_t clock) { this->clockSpeed = clock; }; 
@@ -322,7 +322,7 @@ private:
 
   /**
    * @ingroup BF
-   * @brief Sets I2C bus speed to hight previous defined speed
+   * @brief Sets I2C bus speed to high previous defined speed
    * @see setClockSpeed 
    */
   inline void setClockHigh() { Wire.setClock(this->clockSpeed); };
@@ -371,8 +371,8 @@ public :
   void sendCommand(uint8_t cmd, int parameter_size, const uint8_t *parameter);
   void getCommandResponse(int response_size, uint8_t *response);
 
-  void setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed = 50000);
-  void setup(uint16_t resetPin, int interruptPin, int8_t defaultBand = 0, uint32_t hightClockSpeed = 50000);
+  void setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t highClockSpeed = 50000);
+  void setup(uint16_t resetPin, int interruptPin, int8_t defaultBand = 0, uint32_t highClockSpeed = 50000);
   void debugDevice(uint16_t resetPin, uint16_t interruptPin, uint8_t defaultBand, void (*showFunc)(char *msg));
   void reset(void );
   void setBand(uint8_t newBand = 0);
