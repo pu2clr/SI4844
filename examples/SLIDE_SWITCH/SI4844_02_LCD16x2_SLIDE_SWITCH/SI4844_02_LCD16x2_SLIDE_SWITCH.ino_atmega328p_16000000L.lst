@@ -309,7 +309,7 @@ void SI4844::convertToChar(uint32_t value, char *strValue, uint8_t len, uint8_t 
 
 000001da <twi_readFrom.part.0.constprop.36>:
 twi_readFrom.part.0():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:160
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:160
  *          data: pointer to byte array
  *          length: number of bytes to read into array
  *          sendStop: Boolean indicating whether to send a stop at the end
@@ -317,7 +317,7 @@ twi_readFrom.part.0():
  */
 uint8_t twi_readFrom(uint8_t address, uint8_t* data, uint8_t length, uint8_t sendStop)
      1da:	98 2f       	mov	r25, r24
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:177
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:177
         twi_handleTimeout(twi_do_reset_on_timeout);
         return 0;
       }
@@ -327,22 +327,22 @@ uint8_t twi_readFrom(uint8_t address, uint8_t* data, uint8_t length, uint8_t sen
      1dc:	80 91 ca 02 	lds	r24, 0x02CA	; 0x8002ca <twi_state>
      1e0:	81 11       	cpse	r24, r1
      1e2:	fc cf       	rjmp	.-8      	; 0x1dc <twi_readFrom.part.0.constprop.36+0x2>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:181
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:181
       continue;
     }
   #endif
   twi_state = TWI_MRX;
      1e4:	81 e0       	ldi	r24, 0x01	; 1
      1e6:	80 93 ca 02 	sts	0x02CA, r24	; 0x8002ca <twi_state>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:182
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:182
   twi_sendStop = sendStop;
      1ea:	80 93 c9 02 	sts	0x02C9, r24	; 0x8002c9 <twi_sendStop>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:184
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:184
   // reset error state (0xFF.. no error occurred)
   twi_error = 0xFF;
      1ee:	2f ef       	ldi	r18, 0xFF	; 255
      1f0:	20 93 c8 02 	sts	0x02C8, r18	; 0x8002c8 <twi_error>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:187
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:187
 
   // initialize buffer iteration vars
   twi_masterBuffer = data;
@@ -350,15 +350,15 @@ uint8_t twi_readFrom(uint8_t address, uint8_t* data, uint8_t length, uint8_t sen
      1f6:	32 e0       	ldi	r19, 0x02	; 2
      1f8:	30 93 c7 02 	sts	0x02C7, r19	; 0x8002c7 <twi_masterBuffer+0x1>
      1fc:	20 93 c6 02 	sts	0x02C6, r18	; 0x8002c6 <twi_masterBuffer>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:188
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:188
   twi_masterBufferIndex = 0;
      200:	10 92 c5 02 	sts	0x02C5, r1	; 0x8002c5 <twi_masterBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:189
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:189
   twi_masterBufferLength = length-1;  // This is not intuitive, read on...
      204:	2f ef       	ldi	r18, 0xFF	; 255
      206:	26 0f       	add	r18, r22
      208:	20 93 c4 02 	sts	0x02C4, r18	; 0x8002c4 <twi_masterBufferLength>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:197
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:197
   // Therefore we must actually set NACK when the _next_ to last byte is
   // received, causing that NACK to be sent in response to receiving the last
   // expected byte of data.
@@ -366,19 +366,19 @@ uint8_t twi_readFrom(uint8_t address, uint8_t* data, uint8_t length, uint8_t sen
   // build sla+w, slave device address + w bit
   twi_slarw = TW_READ;
      20c:	80 93 c3 02 	sts	0x02C3, r24	; 0x8002c3 <twi_slarw>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:198
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:198
   twi_slarw |= address << 1;
      210:	80 91 c3 02 	lds	r24, 0x02C3	; 0x8002c3 <twi_slarw>
      214:	99 0f       	add	r25, r25
      216:	98 2b       	or	r25, r24
      218:	90 93 c3 02 	sts	0x02C3, r25	; 0x8002c3 <twi_slarw>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:200
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:200
 
   if (true == twi_inRepStart) {
      21c:	80 91 c2 02 	lds	r24, 0x02C2	; 0x8002c2 <twi_inRepStart>
      220:	81 30       	cpi	r24, 0x01	; 1
      222:	c9 f4       	brne	.+50     	; 0x256 <twi_readFrom.part.0.constprop.36+0x7c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:207
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:207
     // (@@@ we hope), and the TWI statemachine is just waiting for the address byte.
     // We need to remove ourselves from the repeated start state before we enable interrupts,
     // since the ISR is ASYNC, and we could get confused if we hit the ISR before cleaning
@@ -386,7 +386,7 @@ uint8_t twi_readFrom(uint8_t address, uint8_t* data, uint8_t length, uint8_t sen
     // repeated start that we sent ourselves, and that would really confuse things.
     twi_inRepStart = false; // Remember, we're dealing with an ASYNC ISR
      224:	10 92 c2 02 	sts	0x02C2, r1	; 0x8002c2 <twi_inRepStart>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:219
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:219
           return 0;
         }
       } while(TWCR & _BV(TWWC));
@@ -395,22 +395,22 @@ uint8_t twi_readFrom(uint8_t address, uint8_t* data, uint8_t length, uint8_t sen
         TWDR = twi_slarw;
      228:	80 91 c3 02 	lds	r24, 0x02C3	; 0x8002c3 <twi_slarw>
      22c:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__DATA_REGION_ORIGIN__+0x5b>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:220
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:220
       } while(TWCR & _BV(TWWC));
      230:	80 91 bc 00 	lds	r24, 0x00BC	; 0x8000bc <__DATA_REGION_ORIGIN__+0x5c>
      234:	83 fd       	sbrc	r24, 3
      236:	f8 cf       	rjmp	.-16     	; 0x228 <twi_readFrom.part.0.constprop.36+0x4e>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:222
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:222
     #endif
     TWCR = _BV(TWINT) | _BV(TWEA) | _BV(TWEN) | _BV(TWIE);  // enable INTs, but not START
      238:	85 ec       	ldi	r24, 0xC5	; 197
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:226
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:226
   }
   else
     // send start condition
     TWCR = _BV(TWEN) | _BV(TWIE) | _BV(TWEA) | _BV(TWINT) | _BV(TWSTA);
      23a:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__DATA_REGION_ORIGIN__+0x5c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:238
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:238
         twi_handleTimeout(twi_do_reset_on_timeout);
         return 0;
       }
@@ -420,7 +420,7 @@ uint8_t twi_readFrom(uint8_t address, uint8_t* data, uint8_t length, uint8_t sen
      23e:	80 91 ca 02 	lds	r24, 0x02CA	; 0x8002ca <twi_state>
      242:	81 30       	cpi	r24, 0x01	; 1
      244:	e1 f3       	breq	.-8      	; 0x23e <twi_readFrom.part.0.constprop.36+0x64>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:243
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:243
       continue;
     }
   #endif
@@ -429,16 +429,16 @@ uint8_t twi_readFrom(uint8_t address, uint8_t* data, uint8_t length, uint8_t sen
      246:	80 91 c5 02 	lds	r24, 0x02C5	; 0x8002c5 <twi_masterBufferIndex>
      24a:	86 17       	cp	r24, r22
      24c:	10 f4       	brcc	.+4      	; 0x252 <twi_readFrom.part.0.constprop.36+0x78>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:244
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:244
     length = twi_masterBufferIndex;
      24e:	60 91 c5 02 	lds	r22, 0x02C5	; 0x8002c5 <twi_masterBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:247
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:247
 
   return length;
 }
      252:	86 2f       	mov	r24, r22
      254:	08 95       	ret
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:226
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:226
     #endif
     TWCR = _BV(TWINT) | _BV(TWEA) | _BV(TWEN) | _BV(TWIE);  // enable INTs, but not START
   }
@@ -450,7 +450,7 @@ uint8_t twi_readFrom(uint8_t address, uint8_t* data, uint8_t length, uint8_t sen
 
 0000025a <TwoWire::endTransmission() [clone .constprop.28]>:
 endTransmission():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:225
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:225
 //  devices will behave oddly if they do not see a STOP.
 //
 uint8_t TwoWire::endTransmission(uint8_t sendStop)
@@ -458,7 +458,7 @@ uint8_t TwoWire::endTransmission(uint8_t sendStop)
   // transmit buffer (blocking)
   uint8_t ret = twi_writeTo(txAddress, txBuffer, txBufferLength, 1, sendStop);
      25a:	90 91 a1 02 	lds	r25, 0x02A1	; 0x8002a1 <TwoWire::txBufferLength>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:269
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:269
  */
 uint8_t twi_writeTo(uint8_t address, uint8_t* data, uint8_t length, uint8_t wait, uint8_t sendStop)
 {
@@ -467,7 +467,7 @@ uint8_t twi_writeTo(uint8_t address, uint8_t* data, uint8_t length, uint8_t wait
     return 1;
      25e:	81 e0       	ldi	r24, 0x01	; 1
 twi_writeTo():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:268
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:268
  *          5 .. timeout
  */
 uint8_t twi_writeTo(uint8_t address, uint8_t* data, uint8_t length, uint8_t wait, uint8_t sendStop)
@@ -477,7 +477,7 @@ uint8_t twi_writeTo(uint8_t address, uint8_t* data, uint8_t length, uint8_t wait
      260:	91 32       	cpi	r25, 0x21	; 33
      262:	08 f0       	brcs	.+2      	; 0x266 <TwoWire::endTransmission() [clone .constprop.28]+0xc>
      264:	43 c0       	rjmp	.+134    	; 0x2ec <TwoWire::endTransmission() [clone .constprop.28]+0x92>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:282
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:282
         twi_handleTimeout(twi_do_reset_on_timeout);
         return (5);
       }
@@ -488,10 +488,10 @@ uint8_t twi_writeTo(uint8_t address, uint8_t* data, uint8_t length, uint8_t wait
      26a:	81 11       	cpse	r24, r1
      26c:	fc cf       	rjmp	.-8      	; 0x266 <TwoWire::endTransmission() [clone .constprop.28]+0xc>
 endTransmission():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:225
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:225
      26e:	80 91 a0 02 	lds	r24, 0x02A0	; 0x8002a0 <TwoWire::txAddress>
 twi_writeTo():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:287
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:287
       continue;
     }
   #endif
@@ -499,16 +499,16 @@ twi_writeTo():
   twi_state = TWI_MTX;
      272:	22 e0       	ldi	r18, 0x02	; 2
      274:	20 93 ca 02 	sts	0x02CA, r18	; 0x8002ca <twi_state>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:288
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:288
   twi_sendStop = sendStop;
      278:	21 e0       	ldi	r18, 0x01	; 1
      27a:	20 93 c9 02 	sts	0x02C9, r18	; 0x8002c9 <twi_sendStop>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:290
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:290
   // reset error state (0xFF.. no error occurred)
   twi_error = 0xFF;
      27e:	2f ef       	ldi	r18, 0xFF	; 255
      280:	20 93 c8 02 	sts	0x02C8, r18	; 0x8002c8 <twi_error>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:293
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:293
 
   // initialize buffer iteration vars
   twi_masterBuffer = data;
@@ -516,24 +516,24 @@ twi_writeTo():
      286:	32 e0       	ldi	r19, 0x02	; 2
      288:	30 93 c7 02 	sts	0x02C7, r19	; 0x8002c7 <twi_masterBuffer+0x1>
      28c:	20 93 c6 02 	sts	0x02C6, r18	; 0x8002c6 <twi_masterBuffer>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:294
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:294
   twi_masterBufferIndex = 0;
      290:	10 92 c5 02 	sts	0x02C5, r1	; 0x8002c5 <twi_masterBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:295
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:295
   twi_masterBufferLength = length;
      294:	90 93 c4 02 	sts	0x02C4, r25	; 0x8002c4 <twi_masterBufferLength>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:298
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:298
 
   // build sla+w, slave device address + w bit
   twi_slarw = TW_WRITE;
      298:	10 92 c3 02 	sts	0x02C3, r1	; 0x8002c3 <twi_slarw>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:299
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:299
   twi_slarw |= address << 1;
      29c:	90 91 c3 02 	lds	r25, 0x02C3	; 0x8002c3 <twi_slarw>
      2a0:	88 0f       	add	r24, r24
      2a2:	89 2b       	or	r24, r25
      2a4:	80 93 c3 02 	sts	0x02C3, r24	; 0x8002c3 <twi_slarw>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:304
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:304
 
   // if we're in a repeated start, then we've already sent the START
   // in the ISR. Don't do it again.
@@ -542,7 +542,7 @@ twi_writeTo():
      2a8:	80 91 c2 02 	lds	r24, 0x02C2	; 0x8002c2 <twi_inRepStart>
      2ac:	81 30       	cpi	r24, 0x01	; 1
      2ae:	29 f5       	brne	.+74     	; 0x2fa <TwoWire::endTransmission() [clone .constprop.28]+0xa0>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:311
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:311
     // (@@@ we hope), and the TWI statemachine is just waiting for the address byte.
     // We need to remove ourselves from the repeated start state before we enable interrupts,
     // since the ISR is ASYNC, and we could get confused if we hit the ISR before cleaning
@@ -550,7 +550,7 @@ twi_writeTo():
     // repeated start that we sent ourselves, and that would really confuse things.
     twi_inRepStart = false; // Remember, we're dealing with an ASYNC ISR
      2b0:	10 92 c2 02 	sts	0x02C2, r1	; 0x8002c2 <twi_inRepStart>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:322
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:322
           return (5);
         }
       } while(TWCR & _BV(TWWC));
@@ -559,22 +559,22 @@ twi_writeTo():
         TWDR = twi_slarw;
      2b4:	80 91 c3 02 	lds	r24, 0x02C3	; 0x8002c3 <twi_slarw>
      2b8:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__DATA_REGION_ORIGIN__+0x5b>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:323
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:323
       } while(TWCR & _BV(TWWC));
      2bc:	80 91 bc 00 	lds	r24, 0x00BC	; 0x8000bc <__DATA_REGION_ORIGIN__+0x5c>
      2c0:	83 fd       	sbrc	r24, 3
      2c2:	f8 cf       	rjmp	.-16     	; 0x2b4 <TwoWire::endTransmission() [clone .constprop.28]+0x5a>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:325
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:325
     #endif
     TWCR = _BV(TWINT) | _BV(TWEA) | _BV(TWEN) | _BV(TWIE);  // enable INTs, but not START
      2c4:	85 ec       	ldi	r24, 0xC5	; 197
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:329
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:329
   }
   else
     // send start condition
     TWCR = _BV(TWINT) | _BV(TWEA) | _BV(TWEN) | _BV(TWIE) | _BV(TWSTA); // enable INTs
      2c6:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__DATA_REGION_ORIGIN__+0x5c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:341
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:341
         twi_handleTimeout(twi_do_reset_on_timeout);
         return (5);
       }
@@ -584,7 +584,7 @@ twi_writeTo():
      2ca:	80 91 ca 02 	lds	r24, 0x02CA	; 0x8002ca <twi_state>
      2ce:	82 30       	cpi	r24, 0x02	; 2
      2d0:	e1 f3       	breq	.-8      	; 0x2ca <TwoWire::endTransmission() [clone .constprop.28]+0x70>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:346
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:346
       continue;
     }
   #endif
@@ -593,36 +593,36 @@ twi_writeTo():
      2d2:	80 91 c8 02 	lds	r24, 0x02C8	; 0x8002c8 <twi_error>
      2d6:	8f 3f       	cpi	r24, 0xFF	; 255
      2d8:	91 f0       	breq	.+36     	; 0x2fe <TwoWire::endTransmission() [clone .constprop.28]+0xa4>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:348
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:348
     return 0; // success
   else if (twi_error == TW_MT_SLA_NACK)
      2da:	80 91 c8 02 	lds	r24, 0x02C8	; 0x8002c8 <twi_error>
      2de:	80 32       	cpi	r24, 0x20	; 32
      2e0:	81 f0       	breq	.+32     	; 0x302 <TwoWire::endTransmission() [clone .constprop.28]+0xa8>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:350
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:350
     return 2; // error: address send, nack received
   else if (twi_error == TW_MT_DATA_NACK)
      2e2:	80 91 c8 02 	lds	r24, 0x02C8	; 0x8002c8 <twi_error>
      2e6:	80 33       	cpi	r24, 0x30	; 48
      2e8:	71 f0       	breq	.+28     	; 0x306 <TwoWire::endTransmission() [clone .constprop.28]+0xac>
 endTransmission():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:353
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:353
     return 3; // error: data send, nack received
   else
     return 4; // other twi error
      2ea:	84 e0       	ldi	r24, 0x04	; 4
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:227
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:227
   // reset tx buffer iterator vars
   txBufferIndex = 0;
      2ec:	10 92 7f 02 	sts	0x027F, r1	; 0x80027f <TwoWire::txBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:228
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:228
   txBufferLength = 0;
      2f0:	10 92 a1 02 	sts	0x02A1, r1	; 0x8002a1 <TwoWire::txBufferLength>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:230
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:230
   // indicate that we are done transmitting
   transmitting = 0;
      2f4:	10 92 7e 02 	sts	0x027E, r1	; 0x80027e <TwoWire::transmitting>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:240
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:240
 //  definition, and expected behaviour, of endTransmission
 //
 uint8_t TwoWire::endTransmission(void)
@@ -631,7 +631,7 @@ uint8_t TwoWire::endTransmission(void)
 }
      2f8:	08 95       	ret
 twi_writeTo():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:329
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:329
     #endif
     TWCR = _BV(TWINT) | _BV(TWEA) | _BV(TWEN) | _BV(TWIE);  // enable INTs, but not START
   }
@@ -641,7 +641,7 @@ twi_writeTo():
      2fa:	85 ee       	ldi	r24, 0xE5	; 229
      2fc:	e4 cf       	rjmp	.-56     	; 0x2c6 <TwoWire::endTransmission() [clone .constprop.28]+0x6c>
 endTransmission():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:347
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:347
       continue;
     }
   #endif
@@ -650,12 +650,12 @@ endTransmission():
     return 0; // success
      2fe:	80 e0       	ldi	r24, 0x00	; 0
      300:	f5 cf       	rjmp	.-22     	; 0x2ec <TwoWire::endTransmission() [clone .constprop.28]+0x92>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:349
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:349
   else if (twi_error == TW_MT_SLA_NACK)
     return 2; // error: address send, nack received
      302:	82 e0       	ldi	r24, 0x02	; 2
      304:	f3 cf       	rjmp	.-26     	; 0x2ec <TwoWire::endTransmission() [clone .constprop.28]+0x92>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:351
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:351
   else if (twi_error == TW_MT_DATA_NACK)
     return 3; // error: data send, nack received
      306:	83 e0       	ldi	r24, 0x03	; 3
@@ -663,7 +663,7 @@ endTransmission():
 
 0000030a <digitalWrite>:
 digitalWrite():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:189
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:189
   }
 }
 
@@ -675,25 +675,25 @@ void digitalWrite(uint8_t pin, uint8_t val)
      30e:	e6 55       	subi	r30, 0x56	; 86
      310:	ff 4f       	sbci	r31, 0xFF	; 255
      312:	24 91       	lpm	r18, Z
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:190
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:190
   uint8_t bit = digitalPinToBitMask(pin);
      314:	fc 01       	movw	r30, r24
      316:	ed 56       	subi	r30, 0x6D	; 109
      318:	ff 4f       	sbci	r31, 0xFF	; 255
      31a:	34 91       	lpm	r19, Z
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:191
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:191
   uint8_t port = digitalPinToPort(pin);
      31c:	fc 01       	movw	r30, r24
      31e:	e4 58       	subi	r30, 0x84	; 132
      320:	ff 4f       	sbci	r31, 0xFF	; 255
      322:	e4 91       	lpm	r30, Z
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:194
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:194
   volatile uint8_t *out;
 
   if (port == NOT_A_PIN) return;
      324:	ee 23       	and	r30, r30
      326:	c9 f0       	breq	.+50     	; 0x35a <digitalWrite+0x50>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:198
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:198
 
   // If the pin that support PWM output, we need to turn it off
   // before doing a digital write.
@@ -701,7 +701,7 @@ void digitalWrite(uint8_t pin, uint8_t val)
      328:	22 23       	and	r18, r18
      32a:	39 f0       	breq	.+14     	; 0x33a <digitalWrite+0x30>
 turnOffPWM():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:77
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:77
 //
 //static inline void turnOffPWM(uint8_t timer) __attribute__ ((always_inline));
 //static inline void turnOffPWM(uint8_t timer)
@@ -716,7 +716,7 @@ static void turnOffPWM(uint8_t timer)
      336:	23 30       	cpi	r18, 0x03	; 3
      338:	79 f1       	breq	.+94     	; 0x398 <digitalWrite+0x8e>
 digitalWrite():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:200
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:200
 
   // If the pin that support PWM output, we need to turn it off
   // before doing a digital write.
@@ -730,19 +730,19 @@ digitalWrite():
      342:	ff 4f       	sbci	r31, 0xFF	; 255
      344:	a5 91       	lpm	r26, Z+
      346:	b4 91       	lpm	r27, Z
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:202
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:202
 
   uint8_t oldSREG = SREG;
      348:	8f b7       	in	r24, 0x3f	; 63
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:203
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:203
   cli();
      34a:	f8 94       	cli
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:206
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:206
 
   if (val == LOW) {
     *out &= ~bit;
      34c:	ec 91       	ld	r30, X
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:205
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:205
   out = portOutputRegister(port);
 
   uint8_t oldSREG = SREG;
@@ -751,24 +751,24 @@ digitalWrite():
   if (val == LOW) {
      34e:	61 11       	cpse	r22, r1
      350:	26 c0       	rjmp	.+76     	; 0x39e <digitalWrite+0x94>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:206
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:206
     *out &= ~bit;
      352:	30 95       	com	r19
      354:	3e 23       	and	r19, r30
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:208
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:208
   } else {
     *out |= bit;
      356:	3c 93       	st	X, r19
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:211
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:211
   }
 
   SREG = oldSREG;
      358:	8f bf       	out	0x3f, r24	; 63
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:212
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:212
 }
      35a:	08 95       	ret
 turnOffPWM():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:77
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:77
 //
 //static inline void turnOffPWM(uint8_t timer) __attribute__ ((always_inline));
 //static inline void turnOffPWM(uint8_t timer)
@@ -781,7 +781,7 @@ static void turnOffPWM(uint8_t timer)
      362:	91 f0       	breq	.+36     	; 0x388 <digitalWrite+0x7e>
      364:	25 30       	cpi	r18, 0x05	; 5
      366:	49 f7       	brne	.-46     	; 0x33a <digitalWrite+0x30>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:87
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:87
         TCCR1A &= ~_BV(COM1A1);
         break;
     #endif
@@ -791,7 +791,7 @@ static void turnOffPWM(uint8_t timer)
      368:	80 91 80 00 	lds	r24, 0x0080	; 0x800080 <__DATA_REGION_ORIGIN__+0x20>
      36c:	8f 7d       	andi	r24, 0xDF	; 223
      36e:	03 c0       	rjmp	.+6      	; 0x376 <digitalWrite+0x6c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:82
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:82
   switch (timer)
   {
     // Timer1
@@ -800,7 +800,7 @@ static void turnOffPWM(uint8_t timer)
         TCCR1A &= ~_BV(COM1A1);
      370:	80 91 80 00 	lds	r24, 0x0080	; 0x800080 <__DATA_REGION_ORIGIN__+0x20>
      374:	8f 77       	andi	r24, 0x7F	; 127
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:87
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:87
         break;
     #endif
     #if defined(TCCR1A) && defined(COM1B1)
@@ -808,7 +808,7 @@ static void turnOffPWM(uint8_t timer)
         TCCR1A &= ~_BV(COM1B1);
      376:	80 93 80 00 	sts	0x0080, r24	; 0x800080 <__DATA_REGION_ORIGIN__+0x20>
      37a:	df cf       	rjmp	.-66     	; 0x33a <digitalWrite+0x30>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:104
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:104
         TCCR2 &= ~_BV(COM21);
         break;
     #endif
@@ -817,7 +817,7 @@ static void turnOffPWM(uint8_t timer)
         TCCR2A &= ~_BV(COM2A1);
      37c:	80 91 b0 00 	lds	r24, 0x00B0	; 0x8000b0 <__DATA_REGION_ORIGIN__+0x50>
      380:	8f 77       	andi	r24, 0x7F	; 127
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:109
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:109
         break;
     #endif
     #if defined(TCCR2A) && defined(COM2B1)
@@ -828,7 +828,7 @@ static void turnOffPWM(uint8_t timer)
      388:	80 91 b0 00 	lds	r24, 0x00B0	; 0x8000b0 <__DATA_REGION_ORIGIN__+0x50>
      38c:	8f 7d       	andi	r24, 0xDF	; 223
      38e:	f9 cf       	rjmp	.-14     	; 0x382 <digitalWrite+0x78>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:176
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:176
         TCCR0 &= ~_BV(COM01);
         break;
     #endif
@@ -837,7 +837,7 @@ static void turnOffPWM(uint8_t timer)
         TCCR0A &= ~_BV(COM0A1);
      390:	84 b5       	in	r24, 0x24	; 36
      392:	8f 77       	andi	r24, 0x7F	; 127
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:181
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:181
         break;
     #endif
     #if defined(TCCR0A) && defined(COM0B1)
@@ -849,7 +849,7 @@ static void turnOffPWM(uint8_t timer)
      39a:	8f 7d       	andi	r24, 0xDF	; 223
      39c:	fb cf       	rjmp	.-10     	; 0x394 <digitalWrite+0x8a>
 digitalWrite():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:208
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:208
   cli();
 
   if (val == LOW) {
@@ -861,7 +861,7 @@ digitalWrite():
 
 000003a2 <pinMode>:
 pinMode():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:30
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:30
 #define ARDUINO_MAIN
 #include "wiring_private.h"
 #include "pins_arduino.h"
@@ -870,26 +870,26 @@ void pinMode(uint8_t pin, uint8_t mode)
 {
      3a2:	cf 93       	push	r28
      3a4:	df 93       	push	r29
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:31
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:31
   uint8_t bit = digitalPinToBitMask(pin);
      3a6:	90 e0       	ldi	r25, 0x00	; 0
      3a8:	fc 01       	movw	r30, r24
      3aa:	ed 56       	subi	r30, 0x6D	; 109
      3ac:	ff 4f       	sbci	r31, 0xFF	; 255
      3ae:	24 91       	lpm	r18, Z
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:32
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:32
   uint8_t port = digitalPinToPort(pin);
      3b0:	84 58       	subi	r24, 0x84	; 132
      3b2:	9f 4f       	sbci	r25, 0xFF	; 255
      3b4:	fc 01       	movw	r30, r24
      3b6:	84 91       	lpm	r24, Z
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:35
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:35
   volatile uint8_t *reg, *out;
 
   if (port == NOT_A_PIN) return;
      3b8:	88 23       	and	r24, r24
      3ba:	d1 f0       	breq	.+52     	; 0x3f0 <pinMode+0x4e>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:38
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:38
 
   // JWS: can I let the optimizer do this?
   reg = portModeRegister(port);
@@ -901,40 +901,40 @@ void pinMode(uint8_t pin, uint8_t mode)
      3c6:	ff 4f       	sbci	r31, 0xFF	; 255
      3c8:	a5 91       	lpm	r26, Z+
      3ca:	b4 91       	lpm	r27, Z
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:39
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:39
   out = portOutputRegister(port);
      3cc:	fc 01       	movw	r30, r24
      3ce:	ee 58       	subi	r30, 0x8E	; 142
      3d0:	ff 4f       	sbci	r31, 0xFF	; 255
      3d2:	c5 91       	lpm	r28, Z+
      3d4:	d4 91       	lpm	r29, Z
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:41
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:41
 
   if (mode == INPUT) { 
      3d6:	61 11       	cpse	r22, r1
      3d8:	0e c0       	rjmp	.+28     	; 0x3f6 <pinMode+0x54>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:42
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:42
     uint8_t oldSREG = SREG;
      3da:	9f b7       	in	r25, 0x3f	; 63
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:43
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:43
     cli();
      3dc:	f8 94       	cli
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:44
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:44
     *reg &= ~bit;
      3de:	8c 91       	ld	r24, X
      3e0:	e2 2f       	mov	r30, r18
      3e2:	e0 95       	com	r30
      3e4:	8e 23       	and	r24, r30
      3e6:	8c 93       	st	X, r24
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:45
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:45
     *out &= ~bit;
      3e8:	28 81       	ld	r18, Y
      3ea:	e2 23       	and	r30, r18
      3ec:	e8 83       	st	Y, r30
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:46
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:46
     SREG = oldSREG;
      3ee:	9f bf       	out	0x3f, r25	; 63
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:59
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:59
     uint8_t oldSREG = SREG;
     cli();
     *reg |= bit;
@@ -944,7 +944,7 @@ void pinMode(uint8_t pin, uint8_t mode)
      3f0:	df 91       	pop	r29
      3f2:	cf 91       	pop	r28
      3f4:	08 95       	ret
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:54
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:54
     cli();
     *reg &= ~bit;
     *out |= bit;
@@ -952,22 +952,22 @@ void pinMode(uint8_t pin, uint8_t mode)
   } else {
     uint8_t oldSREG = SREG;
      3f6:	8f b7       	in	r24, 0x3f	; 63
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:55
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:55
     cli();
      3f8:	f8 94       	cli
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:56
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:56
     *reg |= bit;
      3fa:	ec 91       	ld	r30, X
      3fc:	e2 2b       	or	r30, r18
      3fe:	ec 93       	st	X, r30
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring_digital.c:57
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring_digital.c:57
     SREG = oldSREG;
      400:	8f bf       	out	0x3f, r24	; 63
      402:	f6 cf       	rjmp	.-20     	; 0x3f0 <pinMode+0x4e>
 
 00000404 <delayMicroseconds>:
 delayMicroseconds():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:619
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:619
   us -= 7; // = 2 cycles
 
 #elif F_CPU >= 16000000L
@@ -977,7 +977,7 @@ delayMicroseconds():
      404:	81 30       	cpi	r24, 0x01	; 1
      406:	91 05       	cpc	r25, r1
      408:	39 f0       	breq	.+14     	; 0x418 <delayMicroseconds+0x14>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:624
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:624
 
   // the following loop takes 1/4 of a microsecond (4 cycles)
   // per iteration, so execute it four times for each microsecond of
@@ -987,14 +987,14 @@ delayMicroseconds():
      40c:	99 1f       	adc	r25, r25
      40e:	88 0f       	add	r24, r24
      410:	99 1f       	adc	r25, r25
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:629
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:629
 
   // account for the time taken in the preceeding commands.
   // we just burned 19 (21) cycles above, remove 5, (5*4=20)
   // to 2nd us is at least 8 so we can substract 5
   us -= 5; // = 2 cycles,
      412:	05 97       	sbiw	r24, 0x05	; 5
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:929
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:929
   us >>= 2; // us div 4, = 4 cycles
 
 #endif
@@ -1003,7 +1003,7 @@ delayMicroseconds():
   __asm__ __volatile__ (
      414:	01 97       	sbiw	r24, 0x01	; 1
      416:	f1 f7       	brne	.-4      	; 0x414 <delayMicroseconds+0x10>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:939
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:939
     "   brne 1b"                     // 2 cycles
     : /* no outputs */
     : "w" (us)
@@ -1014,7 +1014,7 @@ delayMicroseconds():
 
 0000041a <micros>:
 micros():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:237
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:237
   unsigned char f; // temporary storage for millis fraction counter
   unsigned char q = 0; // record whether an overflow is flagged
 #endif
@@ -1022,12 +1022,12 @@ micros():
   uint8_t t;
   uint8_t oldSREG = SREG;
      41a:	3f b7       	in	r19, 0x3f	; 63
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:240
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:240
 
   // Stop all interrupts
   cli();
      41c:	f8 94       	cli
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:247
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:247
 #ifdef CORRECT_EXACT_MICROS
   // combine exact millisec and 8usec counters
   m = timer0_millis;
@@ -1038,14 +1038,14 @@ micros():
      422:	90 91 78 02 	lds	r25, 0x0278	; 0x800278 <timer0_overflow_count+0x1>
      426:	a0 91 79 02 	lds	r26, 0x0279	; 0x800279 <timer0_overflow_count+0x2>
      42a:	b0 91 7a 02 	lds	r27, 0x027A	; 0x80027a <timer0_overflow_count+0x3>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:252
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:252
 #endif
 
   // TCNT0 : The Timer Counter Register
 #if defined(TCNT0)
   t = TCNT0;
      42e:	26 b5       	in	r18, 0x26	; 38
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:261
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:261
   #error TIMER 0 not defined
 #endif
 
@@ -1056,13 +1056,13 @@ micros():
      432:	05 c0       	rjmp	.+10     	; 0x43e <micros+0x24>
      434:	2f 3f       	cpi	r18, 0xFF	; 255
      436:	19 f0       	breq	.+6      	; 0x43e <micros+0x24>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:263
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:263
 #ifndef CORRECT_EXACT_MICROS
     m++;
      438:	01 96       	adiw	r24, 0x01	; 1
      43a:	a1 1d       	adc	r26, r1
      43c:	b1 1d       	adc	r27, r1
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:276
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:276
 #else
     q = 1;
 #endif
@@ -1070,7 +1070,7 @@ micros():
   // Restore SREG
   SREG = oldSREG;
      43e:	3f bf       	out	0x3f, r19	; 63
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:292
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:292
       ((t * MICROSECONDS_PER_TIMER0_OVERFLOW) >> 8);
   return q ? m + MICROSECONDS_PER_TIMER0_OVERFLOW : m;
 #elif 1
@@ -1094,7 +1094,7 @@ micros():
      45c:	99 1f       	adc	r25, r25
      45e:	4a 95       	dec	r20
      460:	d1 f7       	brne	.-12     	; 0x456 <micros+0x3c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:393
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:393
   // m & t are multiplied by 4 (since it was already multiplied by 256)
   // t is multiplied by 4
   return ((m << 8) + t) * (64 / clockCyclesPerMicrosecond());
@@ -1105,7 +1105,7 @@ micros():
 
 00000464 <delay>:
 delay():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:396
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:396
 
 void delay(unsigned long ms)
 {
@@ -1119,12 +1119,12 @@ void delay(unsigned long ms)
      472:	ff 92       	push	r15
      474:	4b 01       	movw	r8, r22
      476:	5c 01       	movw	r10, r24
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:397
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:397
   unsigned long start = micros();
      478:	0e 94 0d 02 	call	0x41a	; 0x41a <micros>
      47c:	6b 01       	movw	r12, r22
      47e:	7c 01       	movw	r14, r24
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:401
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:401
 
   while (ms > 0UL) {
     yield();
@@ -1139,14 +1139,14 @@ void delay(unsigned long ms)
      490:	81 05       	cpc	r24, r1
      492:	91 05       	cpc	r25, r1
      494:	a8 f3       	brcs	.-22     	; 0x480 <delay+0x1c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:402
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:402
       ms--;
      496:	21 e0       	ldi	r18, 0x01	; 1
      498:	82 1a       	sub	r8, r18
      49a:	91 08       	sbc	r9, r1
      49c:	a1 08       	sbc	r10, r1
      49e:	b1 08       	sbc	r11, r1
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:403
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:403
       start += 1000UL;
      4a0:	88 ee       	ldi	r24, 0xE8	; 232
      4a2:	c8 0e       	add	r12, r24
@@ -1154,7 +1154,7 @@ void delay(unsigned long ms)
      4a6:	d8 1e       	adc	r13, r24
      4a8:	e1 1c       	adc	r14, r1
      4aa:	f1 1c       	adc	r15, r1
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:401
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:401
 {
   unsigned long start = micros();
 
@@ -1166,7 +1166,7 @@ void delay(unsigned long ms)
      4b0:	a1 04       	cpc	r10, r1
      4b2:	b1 04       	cpc	r11, r1
      4b4:	29 f7       	brne	.-54     	; 0x480 <delay+0x1c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:406
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:406
       ms--;
       start += 1000UL;
     }
@@ -1182,13 +1182,13 @@ void delay(unsigned long ms)
      4c4:	8f 90       	pop	r8
      4c6:	08 95       	ret
 
-000004c8 <interrupt_hundler()>:
-interrupt_hundler():
+000004c8 <interrupt_handler()>:
+interrupt_handler():
 /Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:41
 #ifdef ESP8266    // if the controller is ESP8266, add IRAM_ATTR.
   IRAM_ATTR 
 #endif
-void interrupt_hundler()
+void interrupt_handler()
 {
    data_from_device = true;
      4c8:	81 e0       	ldi	r24, 0x01	; 1
@@ -1199,7 +1199,7 @@ void interrupt_hundler()
 
 000004d0 <nothing>:
 nothing():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WInterrupts.c:36
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WInterrupts.c:36
 
 #include "wiring_private.h"
 
@@ -1210,7 +1210,7 @@ static void nothing(void)
 
 000004d2 <Print::write(unsigned char const*, unsigned int)>:
 write():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/Print.cpp:35
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/Print.cpp:35
 
 // Public Methods //////////////////////////////////////////////////////////////
 
@@ -1236,13 +1236,13 @@ size_t Print::write(const uint8_t *buffer, size_t size)
      4f2:	5e 01       	movw	r10, r28
      4f4:	ae 18       	sub	r10, r14
      4f6:	bf 08       	sbc	r11, r15
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/Print.cpp:37
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/Print.cpp:37
   size_t n = 0;
   while (size--) {
      4f8:	c0 17       	cp	r28, r16
      4fa:	d1 07       	cpc	r29, r17
      4fc:	59 f0       	breq	.+22     	; 0x514 <Print::write(unsigned char const*, unsigned int)+0x42>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/Print.cpp:38
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/Print.cpp:38
     if (write(*buffer++)) n++;
      4fe:	69 91       	ld	r22, Y+
      500:	d6 01       	movw	r26, r12
@@ -1255,7 +1255,7 @@ size_t Print::write(const uint8_t *buffer, size_t size)
      50e:	09 95       	icall
      510:	89 2b       	or	r24, r25
      512:	79 f7       	brne	.-34     	; 0x4f2 <Print::write(unsigned char const*, unsigned int)+0x20>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/Print.cpp:42
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/Print.cpp:42
     else break;
   }
   return n;
@@ -1920,7 +1920,7 @@ inline size_t LiquidCrystal::write(uint8_t value) {
 
 000007ea <Print::flush()>:
 flush():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/Print.h:65
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/Print.h:65
 
     // default to zero, meaning "a single write may block"
     // should be overriden by subclasses with buffering
@@ -1931,7 +1931,7 @@ flush():
 
 000007ec <twi_stop>:
 twi_stop():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:436
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:436
  * Output   none
  */
 void twi_stop(void)
@@ -1940,7 +1940,7 @@ void twi_stop(void)
   TWCR = _BV(TWEN) | _BV(TWIE) | _BV(TWEA) | _BV(TWINT) | _BV(TWSTO);
      7ec:	85 ed       	ldi	r24, 0xD5	; 213
      7ee:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__DATA_REGION_ORIGIN__+0x5c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:456
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:456
           return;
         }
       }
@@ -1950,7 +1950,7 @@ void twi_stop(void)
      7f2:	80 91 bc 00 	lds	r24, 0x00BC	; 0x8000bc <__DATA_REGION_ORIGIN__+0x5c>
      7f6:	84 fd       	sbrc	r24, 4
      7f8:	fc cf       	rjmp	.-8      	; 0x7f2 <twi_stop+0x6>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:462
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:462
       continue;
     }
   #endif
@@ -1958,13 +1958,13 @@ void twi_stop(void)
   // update twi state
   twi_state = TWI_READY;
      7fa:	10 92 ca 02 	sts	0x02CA, r1	; 0x8002ca <twi_state>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:463
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:463
 }
      7fe:	08 95       	ret
 
 00000800 <twi_transmit>:
 twi_transmit():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:371
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:371
 uint8_t twi_transmit(const uint8_t* data, uint8_t length)
 {
   uint8_t i;
@@ -1978,7 +1978,7 @@ uint8_t twi_transmit(const uint8_t* data, uint8_t length)
      80a:	21 32       	cpi	r18, 0x21	; 33
      80c:	31 05       	cpc	r19, r1
      80e:	ec f4       	brge	.+58     	; 0x84a <twi_transmit+0x4a>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:376
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:376
     return 1;
   }
 
@@ -1990,10 +1990,10 @@ uint8_t twi_transmit(const uint8_t* data, uint8_t length)
      818:	80 e0       	ldi	r24, 0x00	; 0
      81a:	24 30       	cpi	r18, 0x04	; 4
      81c:	69 f0       	breq	.+26     	; 0x838 <twi_transmit+0x38>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:377
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:377
     return 2;
      81e:	82 e0       	ldi	r24, 0x02	; 2
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:387
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:387
     twi_txBuffer[twi_txBufferLength+i] = data[i];
   }
   twi_txBufferLength += length;
@@ -2001,7 +2001,7 @@ uint8_t twi_transmit(const uint8_t* data, uint8_t length)
   return 0;
 }
      820:	08 95       	ret
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:382
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:382
     return 2;
   }
 
@@ -2018,7 +2018,7 @@ uint8_t twi_transmit(const uint8_t* data, uint8_t length)
      832:	b1 1d       	adc	r27, r1
      834:	2c 93       	st	X, r18
      836:	01 96       	adiw	r24, 0x01	; 1
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:381
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:381
   if(TWI_STX != twi_state){
     return 2;
   }
@@ -2027,7 +2027,7 @@ uint8_t twi_transmit(const uint8_t* data, uint8_t length)
   for(i = 0; i < length; ++i){
      838:	86 17       	cp	r24, r22
      83a:	98 f3       	brcs	.-26     	; 0x822 <twi_transmit+0x22>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:384
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:384
     twi_txBuffer[twi_txBufferLength+i] = data[i];
   }
   twi_txBufferLength += length;
@@ -2036,7 +2036,7 @@ uint8_t twi_transmit(const uint8_t* data, uint8_t length)
      842:	60 93 4f 02 	sts	0x024F, r22	; 0x80024f <twi_txBufferLength>
      846:	80 e0       	ldi	r24, 0x00	; 0
      848:	08 95       	ret
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:372
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:372
 {
   uint8_t i;
 
@@ -2048,7 +2048,7 @@ uint8_t twi_transmit(const uint8_t* data, uint8_t length)
 
 0000084e <TwoWire::flush()>:
 flush():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:326
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:326
 }
 
 void TwoWire::flush(void)
@@ -2059,7 +2059,7 @@ void TwoWire::flush(void)
 
 00000850 <TwoWire::peek()>:
 peek():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:316
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:316
 // or after requestFrom(address, numBytes)
 int TwoWire::peek(void)
 {
@@ -2070,7 +2070,7 @@ int TwoWire::peek(void)
      854:	80 91 7c 02 	lds	r24, 0x027C	; 0x80027c <TwoWire::rxBufferLength>
      858:	e8 17       	cp	r30, r24
      85a:	30 f4       	brcc	.+12     	; 0x868 <TwoWire::peek()+0x18>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:317
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:317
     value = rxBuffer[rxBufferIndex];
      85c:	f0 e0       	ldi	r31, 0x00	; 0
      85e:	ee 55       	subi	r30, 0x5E	; 94
@@ -2078,7 +2078,7 @@ int TwoWire::peek(void)
      862:	80 81       	ld	r24, Z
      864:	90 e0       	ldi	r25, 0x00	; 0
      866:	08 95       	ret
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:314
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:314
 // must be called in:
 // slave rx event callback
 // or after requestFrom(address, numBytes)
@@ -2087,7 +2087,7 @@ int TwoWire::peek(void)
   int value = -1;
      868:	8f ef       	ldi	r24, 0xFF	; 255
      86a:	9f ef       	ldi	r25, 0xFF	; 255
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:321
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:321
   if(rxBufferIndex < rxBufferLength){
     value = rxBuffer[rxBufferIndex];
   }
@@ -2098,7 +2098,7 @@ int TwoWire::peek(void)
 
 0000086e <TwoWire::read()>:
 read():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:301
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:301
 int TwoWire::read(void)
 {
   int value = -1;
@@ -2107,7 +2107,7 @@ int TwoWire::read(void)
   if(rxBufferIndex < rxBufferLength){
      86e:	90 91 7d 02 	lds	r25, 0x027D	; 0x80027d <TwoWire::rxBufferIndex>
      872:	80 91 7c 02 	lds	r24, 0x027C	; 0x80027c <TwoWire::rxBufferLength>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:298
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:298
 // must be called in:
 // slave rx event callback
 // or after requestFrom(address, numBytes)
@@ -2116,13 +2116,13 @@ int TwoWire::read(void)
   int value = -1;
      876:	2f ef       	ldi	r18, 0xFF	; 255
      878:	3f ef       	ldi	r19, 0xFF	; 255
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:301
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:301
 
   // get each successive byte on each call
   if(rxBufferIndex < rxBufferLength){
      87a:	98 17       	cp	r25, r24
      87c:	48 f4       	brcc	.+18     	; 0x890 <TwoWire::read()+0x22>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:302
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:302
     value = rxBuffer[rxBufferIndex];
      87e:	e9 2f       	mov	r30, r25
      880:	f0 e0       	ldi	r31, 0x00	; 0
@@ -2130,11 +2130,11 @@ int TwoWire::read(void)
      884:	fd 4f       	sbci	r31, 0xFD	; 253
      886:	20 81       	ld	r18, Z
      888:	30 e0       	ldi	r19, 0x00	; 0
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:303
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:303
     ++rxBufferIndex;
      88a:	9f 5f       	subi	r25, 0xFF	; 255
      88c:	90 93 7d 02 	sts	0x027D, r25	; 0x80027d <TwoWire::rxBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:307
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:307
   }
 
   return value;
@@ -2144,7 +2144,7 @@ int TwoWire::read(void)
 
 00000894 <TwoWire::available()>:
 available():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:290
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:290
 // must be called in:
 // slave rx event callback
 // or after requestFrom(address, numBytes)
@@ -2153,7 +2153,7 @@ int TwoWire::available(void)
   return rxBufferLength - rxBufferIndex;
      894:	80 91 7c 02 	lds	r24, 0x027C	; 0x80027c <TwoWire::rxBufferLength>
      898:	90 91 7d 02 	lds	r25, 0x027D	; 0x80027d <TwoWire::rxBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:291
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:291
 }
      89c:	89 1b       	sub	r24, r25
      89e:	99 0b       	sbc	r25, r25
@@ -2161,7 +2161,7 @@ int TwoWire::available(void)
 
 000008a2 <TwoWire::write(unsigned char const*, unsigned int)>:
 write():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:271
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:271
 
 // must be called in:
 // slave tx event callback
@@ -2179,7 +2179,7 @@ size_t TwoWire::write(const uint8_t *data, size_t quantity)
      8b2:	7c 01       	movw	r14, r24
      8b4:	cb 01       	movw	r24, r22
      8b6:	8a 01       	movw	r16, r20
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:272
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:272
   if(transmitting){
      8b8:	20 91 7e 02 	lds	r18, 0x027E	; 0x80027e <TwoWire::transmitting>
      8bc:	22 23       	and	r18, r18
@@ -2188,13 +2188,13 @@ size_t TwoWire::write(const uint8_t *data, size_t quantity)
      8c2:	6b 01       	movw	r12, r22
      8c4:	c4 0e       	add	r12, r20
      8c6:	d5 1e       	adc	r13, r21
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:274
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:274
   // in master transmitter mode
     for(size_t i = 0; i < quantity; ++i){
      8c8:	cc 15       	cp	r28, r12
      8ca:	dd 05       	cpc	r29, r13
      8cc:	69 f0       	breq	.+26     	; 0x8e8 <TwoWire::write(unsigned char const*, unsigned int)+0x46>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:275
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:275
       write(data[i]);
      8ce:	69 91       	ld	r22, Y+
      8d0:	d7 01       	movw	r26, r14
@@ -2206,7 +2206,7 @@ size_t TwoWire::write(const uint8_t *data, size_t quantity)
      8dc:	c7 01       	movw	r24, r14
      8de:	09 95       	icall
      8e0:	f3 cf       	rjmp	.-26     	; 0x8c8 <TwoWire::write(unsigned char const*, unsigned int)+0x26>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:280
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:280
     }
   }else{
   // in slave send mode
@@ -2214,7 +2214,7 @@ size_t TwoWire::write(const uint8_t *data, size_t quantity)
     twi_transmit(data, quantity);
      8e2:	64 2f       	mov	r22, r20
      8e4:	0e 94 00 04 	call	0x800	; 0x800 <twi_transmit>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:283
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:283
   }
   return quantity;
 }
@@ -2230,7 +2230,7 @@ size_t TwoWire::write(const uint8_t *data, size_t quantity)
      8fa:	08 95       	ret
 
 000008fc <TwoWire::write(unsigned char)>:
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:246
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:246
 
 // must be called in:
 // slave tx event callback
@@ -2243,12 +2243,12 @@ size_t TwoWire::write(uint8_t data)
      902:	cd b7       	in	r28, 0x3d	; 61
      904:	de b7       	in	r29, 0x3e	; 62
      906:	69 83       	std	Y+1, r22	; 0x01
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:247
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:247
   if(transmitting){
      908:	20 91 7e 02 	lds	r18, 0x027E	; 0x80027e <TwoWire::transmitting>
      90c:	22 23       	and	r18, r18
      90e:	f9 f0       	breq	.+62     	; 0x94e <__stack+0x4f>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:250
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:250
   // in master transmitter mode
     // don't bother if buffer is full
     if(txBufferLength >= TWI_BUFFER_SIZE){
@@ -2256,7 +2256,7 @@ size_t TwoWire::write(uint8_t data)
      914:	20 32       	cpi	r18, 0x20	; 32
      916:	58 f0       	brcs	.+22     	; 0x92e <__stack+0x2f>
 _ZN5Print13setWriteErrorEi():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/Print.h:44
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/Print.h:44
   private:
     int write_error;
     size_t printNumber(unsigned long, uint8_t);
@@ -2269,12 +2269,12 @@ _ZN5Print13setWriteErrorEi():
      91e:	33 83       	std	Z+3, r19	; 0x03
      920:	22 83       	std	Z+2, r18	; 0x02
 write():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:252
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:252
       setWriteError();
       return 0;
      922:	90 e0       	ldi	r25, 0x00	; 0
      924:	80 e0       	ldi	r24, 0x00	; 0
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:265
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:265
   // in slave send mode
     // reply to master
     twi_transmit(&data, 1);
@@ -2285,7 +2285,7 @@ write():
      928:	df 91       	pop	r29
      92a:	cf 91       	pop	r28
      92c:	08 95       	ret
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:255
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:255
     if(txBufferLength >= TWI_BUFFER_SIZE){
       setWriteError();
       return 0;
@@ -2299,15 +2299,15 @@ write():
      938:	fd 4f       	sbci	r31, 0xFD	; 253
      93a:	99 81       	ldd	r25, Y+1	; 0x01
      93c:	90 83       	st	Z, r25
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:256
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:256
     ++txBufferIndex;
      93e:	8f 5f       	subi	r24, 0xFF	; 255
      940:	80 93 7f 02 	sts	0x027F, r24	; 0x80027f <TwoWire::txBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:258
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:258
     // update amount in buffer
     txBufferLength = txBufferIndex;
      944:	80 93 a1 02 	sts	0x02A1, r24	; 0x8002a1 <TwoWire::txBufferLength>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:264
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:264
   }else{
   // in slave send mode
     // reply to master
@@ -2317,7 +2317,7 @@ write():
      948:	81 e0       	ldi	r24, 0x01	; 1
      94a:	90 e0       	ldi	r25, 0x00	; 0
      94c:	ec cf       	rjmp	.-40     	; 0x926 <__stack+0x27>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:262
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:262
     // update amount in buffer
     txBufferLength = txBufferIndex;
   }else{
@@ -2331,7 +2331,7 @@ write():
      958:	f7 cf       	rjmp	.-18     	; 0x948 <__stack+0x49>
 
 0000095a <TwoWire::write(int) [clone .constprop.27]>:
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.h:87
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.h:87
     void onRequest( void (*)(void) );
 
     inline size_t write(unsigned long n) { return write((uint8_t)n); }
@@ -2345,7 +2345,7 @@ write():
 
 00000964 <Print::availableForWrite()>:
 availableForWrite():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/Print.h:63
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/Print.h:63
       return write((const uint8_t *)buffer, size);
     }
 
@@ -2386,7 +2386,7 @@ void SI4844::reset()
      974:	cf 93       	push	r28
      976:	df 93       	push	r29
 twi_setFrequency():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:142
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:142
  * Input    Clock frequency
  * Output   none
  */
@@ -2447,7 +2447,7 @@ reset():
 
 000009b6 <SI4844::getStatus() [clone .constprop.7]>:
 beginTransmission():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:196
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:196
 }
 
 void TwoWire::beginTransmission(uint8_t address)
@@ -2456,16 +2456,16 @@ void TwoWire::beginTransmission(uint8_t address)
   transmitting = 1;
      9b6:	81 e0       	ldi	r24, 0x01	; 1
      9b8:	80 93 7e 02 	sts	0x027E, r24	; 0x80027e <TwoWire::transmitting>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:198
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:198
   // set address of targeted slave
   txAddress = address;
      9bc:	81 e1       	ldi	r24, 0x11	; 17
      9be:	80 93 a0 02 	sts	0x02A0, r24	; 0x8002a0 <TwoWire::txAddress>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:200
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:200
   // reset tx buffer iterator vars
   txBufferIndex = 0;
      9c2:	10 92 7f 02 	sts	0x027F, r1	; 0x80027f <TwoWire::txBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:201
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:201
   txBufferLength = 0;
      9c6:	10 92 a1 02 	sts	0x02A1, r1	; 0x8002a1 <TwoWire::txBufferLength>
 getStatus():
@@ -2492,7 +2492,7 @@ twi_readFrom():
      9e0:	81 e1       	ldi	r24, 0x11	; 17
      9e2:	0e 94 ed 00 	call	0x1da	; 0x1da <twi_readFrom.part.0.constprop.36>
 requestFrom():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:120
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:120
     quantity = TWI_BUFFER_SIZE;
   }
   // perform blocking read into buffer
@@ -2500,7 +2500,7 @@ requestFrom():
   // set rx buffer iterator vars
   rxBufferIndex = 0;
      9e6:	10 92 7d 02 	sts	0x027D, r1	; 0x80027d <TwoWire::rxBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:121
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:121
   rxBufferLength = read;
      9ea:	80 93 7c 02 	sts	0x027C, r24	; 0x80027c <TwoWire::rxBufferLength>
 getStatus():
@@ -2536,7 +2536,7 @@ si4844_status_response *SI4844::getAllReceiverInfo()
      a06:	cf 93       	push	r28
      a08:	df 93       	push	r29
 twi_setFrequency():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:142
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:142
      a0a:	20 91 f0 02 	lds	r18, 0x02F0	; 0x8002f0 <rx+0x15>
      a0e:	30 91 f1 02 	lds	r19, 0x02F1	; 0x8002f1 <rx+0x16>
      a12:	40 91 f2 02 	lds	r20, 0x02F2	; 0x8002f2 <rx+0x17>
@@ -2556,7 +2556,7 @@ twi_setFrequency():
      a34:	27 95       	ror	r18
      a36:	20 93 b8 00 	sts	0x00B8, r18	; 0x8000b8 <__DATA_REGION_ORIGIN__+0x58>
 beginTransmission():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:196
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:196
 }
 
 void TwoWire::beginTransmission(uint8_t address)
@@ -2564,11 +2564,11 @@ void TwoWire::beginTransmission(uint8_t address)
   // indicate that we are transmitting
   transmitting = 1;
      a3a:	11 e0       	ldi	r17, 0x01	; 1
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:198
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:198
   // set address of targeted slave
   txAddress = address;
      a3c:	01 e1       	ldi	r16, 0x11	; 17
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:196
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:196
 }
 
 void TwoWire::beginTransmission(uint8_t address)
@@ -2576,15 +2576,15 @@ void TwoWire::beginTransmission(uint8_t address)
   // indicate that we are transmitting
   transmitting = 1;
      a3e:	10 93 7e 02 	sts	0x027E, r17	; 0x80027e <TwoWire::transmitting>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:198
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:198
   // set address of targeted slave
   txAddress = address;
      a42:	00 93 a0 02 	sts	0x02A0, r16	; 0x8002a0 <TwoWire::txAddress>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:200
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:200
   // reset tx buffer iterator vars
   txBufferIndex = 0;
      a46:	10 92 7f 02 	sts	0x027F, r1	; 0x80027f <TwoWire::txBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:201
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:201
   txBufferLength = 0;
      a4a:	10 92 a1 02 	sts	0x02A1, r1	; 0x8002a1 <TwoWire::txBufferLength>
 getAllReceiverInfo():
@@ -2611,7 +2611,7 @@ twi_readFrom():
      a64:	81 e1       	ldi	r24, 0x11	; 17
      a66:	0e 94 ed 00 	call	0x1da	; 0x1da <twi_readFrom.part.0.constprop.36>
 requestFrom():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:120
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:120
     quantity = TWI_BUFFER_SIZE;
   }
   // perform blocking read into buffer
@@ -2619,7 +2619,7 @@ requestFrom():
   // set rx buffer iterator vars
   rxBufferIndex = 0;
      a6a:	10 92 7d 02 	sts	0x027D, r1	; 0x80027d <TwoWire::rxBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:121
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:121
   rxBufferLength = read;
      a6e:	80 93 7c 02 	sts	0x027C, r24	; 0x80027c <TwoWire::rxBufferLength>
      a72:	cc ed       	ldi	r28, 0xDC	; 220
@@ -2910,7 +2910,7 @@ inline void SI4844::waitToSend()
      b9e:	cf 93       	push	r28
      ba0:	df 93       	push	r29
 beginTransmission():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:196
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:196
 }
 
 void TwoWire::beginTransmission(uint8_t address)
@@ -2918,7 +2918,7 @@ void TwoWire::beginTransmission(uint8_t address)
   // indicate that we are transmitting
   transmitting = 1;
      ba2:	d1 e0       	ldi	r29, 0x01	; 1
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:198
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:198
   // set address of targeted slave
   txAddress = address;
      ba4:	c1 e1       	ldi	r28, 0x11	; 17
@@ -2934,7 +2934,7 @@ bool SI4844::isClearToSend(void)
      ba8:	97 e0       	ldi	r25, 0x07	; 7
      baa:	0e 94 02 02 	call	0x404	; 0x404 <delayMicroseconds>
 beginTransmission():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:196
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:196
 }
 
 void TwoWire::beginTransmission(uint8_t address)
@@ -2942,15 +2942,15 @@ void TwoWire::beginTransmission(uint8_t address)
   // indicate that we are transmitting
   transmitting = 1;
      bae:	d0 93 7e 02 	sts	0x027E, r29	; 0x80027e <TwoWire::transmitting>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:198
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:198
   // set address of targeted slave
   txAddress = address;
      bb2:	c0 93 a0 02 	sts	0x02A0, r28	; 0x8002a0 <TwoWire::txAddress>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:200
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:200
   // reset tx buffer iterator vars
   txBufferIndex = 0;
      bb6:	10 92 7f 02 	sts	0x027F, r1	; 0x80027f <TwoWire::txBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:201
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:201
   txBufferLength = 0;
      bba:	10 92 a1 02 	sts	0x02A1, r1	; 0x8002a1 <TwoWire::txBufferLength>
 _ZN6SI484413isClearToSendEv.isra.4():
@@ -2973,7 +2973,7 @@ twi_readFrom():
      bd4:	81 e1       	ldi	r24, 0x11	; 17
      bd6:	0e 94 ed 00 	call	0x1da	; 0x1da <twi_readFrom.part.0.constprop.36>
 requestFrom():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:120
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:120
     quantity = TWI_BUFFER_SIZE;
   }
   // perform blocking read into buffer
@@ -2981,7 +2981,7 @@ requestFrom():
   // set rx buffer iterator vars
   rxBufferIndex = 0;
      bda:	10 92 7d 02 	sts	0x027D, r1	; 0x80027d <TwoWire::rxBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:121
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:121
   rxBufferLength = read;
      bde:	80 93 7c 02 	sts	0x027C, r24	; 0x80027c <TwoWire::rxBufferLength>
 _ZN6SI484413isClearToSendEv.isra.4():
@@ -3037,7 +3037,7 @@ setProperty():
     waitToSend();
      c00:	0e 94 cf 05 	call	0xb9e	; 0xb9e <SI4844::waitToSend() [clone .constprop.17]>
 beginTransmission():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:196
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:196
 }
 
 void TwoWire::beginTransmission(uint8_t address)
@@ -3046,16 +3046,16 @@ void TwoWire::beginTransmission(uint8_t address)
   transmitting = 1;
      c04:	81 e0       	ldi	r24, 0x01	; 1
      c06:	80 93 7e 02 	sts	0x027E, r24	; 0x80027e <TwoWire::transmitting>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:198
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:198
   // set address of targeted slave
   txAddress = address;
      c0a:	81 e1       	ldi	r24, 0x11	; 17
      c0c:	80 93 a0 02 	sts	0x02A0, r24	; 0x8002a0 <TwoWire::txAddress>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:200
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:200
   // reset tx buffer iterator vars
   txBufferIndex = 0;
      c10:	10 92 7f 02 	sts	0x027F, r1	; 0x80027f <TwoWire::txBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:201
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:201
   txBufferLength = 0;
      c14:	10 92 a1 02 	sts	0x02A1, r1	; 0x8002a1 <TwoWire::txBufferLength>
 setProperty():
@@ -3227,7 +3227,7 @@ void SI4844::setPredefinedBand(uint8_t bandIdx) {
     waitToSend();
      cde:	0e 94 cf 05 	call	0xb9e	; 0xb9e <SI4844::waitToSend() [clone .constprop.17]>
 beginTransmission():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:196
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:196
 }
 
 void TwoWire::beginTransmission(uint8_t address)
@@ -3236,16 +3236,16 @@ void TwoWire::beginTransmission(uint8_t address)
   transmitting = 1;
      ce2:	81 e0       	ldi	r24, 0x01	; 1
      ce4:	80 93 7e 02 	sts	0x027E, r24	; 0x80027e <TwoWire::transmitting>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:198
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:198
   // set address of targeted slave
   txAddress = address;
      ce8:	81 e1       	ldi	r24, 0x11	; 17
      cea:	80 93 a0 02 	sts	0x02A0, r24	; 0x8002a0 <TwoWire::txAddress>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:200
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:200
   // reset tx buffer iterator vars
   txBufferIndex = 0;
      cee:	10 92 7f 02 	sts	0x027F, r1	; 0x80027f <TwoWire::txBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:201
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:201
   txBufferLength = 0;
      cf2:	10 92 a1 02 	sts	0x02A1, r1	; 0x8002a1 <TwoWire::txBufferLength>
 setPredefinedBand():
@@ -3416,7 +3416,7 @@ void SI4844::setUserDefinedBand(int8_t bandIdx, uint32_t bottomFrequency, uint32
     waitToSend();
      da2:	0e 94 cf 05 	call	0xb9e	; 0xb9e <SI4844::waitToSend() [clone .constprop.17]>
 beginTransmission():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:196
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:196
 }
 
 void TwoWire::beginTransmission(uint8_t address)
@@ -3425,16 +3425,16 @@ void TwoWire::beginTransmission(uint8_t address)
   transmitting = 1;
      da6:	81 e0       	ldi	r24, 0x01	; 1
      da8:	80 93 7e 02 	sts	0x027E, r24	; 0x80027e <TwoWire::transmitting>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:198
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:198
   // set address of targeted slave
   txAddress = address;
      dac:	81 e1       	ldi	r24, 0x11	; 17
      dae:	80 93 a0 02 	sts	0x02A0, r24	; 0x8002a0 <TwoWire::txAddress>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:200
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:200
   // reset tx buffer iterator vars
   txBufferIndex = 0;
      db2:	10 92 7f 02 	sts	0x027F, r1	; 0x80027f <TwoWire::txBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:201
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:201
   txBufferLength = 0;
      db6:	10 92 a1 02 	sts	0x02A1, r1	; 0x8002a1 <TwoWire::txBufferLength>
 setUserDefinedBand():
@@ -3545,7 +3545,7 @@ setBandSlideSwitch():
 
 00000e34 <Print::print(char const*) [clone .constprop.38]>:
 write():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/Print.h:53
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/Print.h:53
     int getWriteError() { return write_error; }
     void clearWriteError() { setWriteError(0); }
 
@@ -3554,7 +3554,7 @@ write():
       if (str == NULL) return 0;
      e34:	00 97       	sbiw	r24, 0x00	; 0
      e36:	69 f0       	breq	.+26     	; 0xe52 <Print::print(char const*) [clone .constprop.38]+0x1e>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/Print.h:54
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/Print.h:54
       return write((const uint8_t *)str, strlen(str));
      e38:	fc 01       	movw	r30, r24
      e3a:	01 90       	ld	r0, Z+
@@ -3569,7 +3569,7 @@ write():
      e4c:	93 e0       	ldi	r25, 0x03	; 3
      e4e:	0c 94 69 02 	jmp	0x4d2	; 0x4d2 <Print::write(unsigned char const*, unsigned int)>
 print():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/Print.cpp:65
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/Print.cpp:65
 }
 
 size_t Print::print(const char str[])
@@ -3582,7 +3582,7 @@ size_t Print::print(const char str[])
 
 00000e58 <String::~String()>:
 __base_dtor ():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:124
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:124
   *this = dtostrf(value, (decimalPlaces + 2), decimalPlaces, buf);
 }
 
@@ -3594,16 +3594,16 @@ String::~String()
      e5c:	91 81       	ldd	r25, Z+1	; 0x01
      e5e:	00 97       	sbiw	r24, 0x00	; 0
      e60:	11 f0       	breq	.+4      	; 0xe66 <String::~String()+0xe>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:125
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:125
     free(buffer);
      e62:	0c 94 02 0e 	jmp	0x1c04	; 0x1c04 <free>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:126
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:126
 }
      e66:	08 95       	ret
 
 00000e68 <String::reserve(unsigned int)>:
 reserve():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:147
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:147
   buffer = NULL;
   capacity = len = 0;
 }
@@ -3615,7 +3615,7 @@ unsigned char String::reserve(unsigned int size)
      e6c:	cf 93       	push	r28
      e6e:	df 93       	push	r29
      e70:	ec 01       	movw	r28, r24
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:148
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:148
   if (buffer && capacity >= size) return 1;
      e72:	88 81       	ld	r24, Y
      e74:	99 81       	ldd	r25, Y+1	; 0x01
@@ -3626,11 +3626,11 @@ unsigned char String::reserve(unsigned int size)
      e7e:	26 17       	cp	r18, r22
      e80:	37 07       	cpc	r19, r23
      e82:	30 f0       	brcs	.+12     	; 0xe90 <String::reserve(unsigned int)+0x28>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:150
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:150
   if (changeBuffer(size)) {
     if (len == 0) buffer[0] = 0;
      e84:	81 e0       	ldi	r24, 0x01	; 1
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:154
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:154
     return 1;
   }
   return 0;
@@ -3642,7 +3642,7 @@ unsigned char String::reserve(unsigned int size)
      e8e:	08 95       	ret
      e90:	8b 01       	movw	r16, r22
 changeBuffer():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:158
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:158
 
 unsigned char String::changeBuffer(unsigned int maxStrLen)
 {
@@ -3650,20 +3650,20 @@ unsigned char String::changeBuffer(unsigned int maxStrLen)
      e92:	6f 5f       	subi	r22, 0xFF	; 255
      e94:	7f 4f       	sbci	r23, 0xFF	; 255
      e96:	0e 94 8b 0e 	call	0x1d16	; 0x1d16 <realloc>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:159
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:159
   if (newbuffer) {
      e9a:	00 97       	sbiw	r24, 0x00	; 0
      e9c:	59 f0       	breq	.+22     	; 0xeb4 <String::reserve(unsigned int)+0x4c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:160
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:160
     buffer = newbuffer;
      e9e:	99 83       	std	Y+1, r25	; 0x01
      ea0:	88 83       	st	Y, r24
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:161
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:161
     capacity = maxStrLen;
      ea2:	1b 83       	std	Y+3, r17	; 0x03
      ea4:	0a 83       	std	Y+2, r16	; 0x02
 reserve():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:150
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:150
 
 unsigned char String::reserve(unsigned int size)
 {
@@ -3677,7 +3677,7 @@ unsigned char String::reserve(unsigned int size)
      eae:	fc 01       	movw	r30, r24
      eb0:	10 82       	st	Z, r1
      eb2:	e8 cf       	rjmp	.-48     	; 0xe84 <String::reserve(unsigned int)+0x1c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:153
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:153
     return 1;
   }
   return 0;
@@ -3686,7 +3686,7 @@ unsigned char String::reserve(unsigned int size)
 
 00000eb8 <String::String(char const*)>:
 __base_ctor ():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:28
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:28
 
 /*********************************************/
 /*  Constructors                             */
@@ -3702,7 +3702,7 @@ String::String(const char *cstr)
      ec4:	ec 01       	movw	r28, r24
      ec6:	7b 01       	movw	r14, r22
 _ZN6String4initEv():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:134
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:134
 /*  Memory Management                        */
 /*********************************************/
 
@@ -3711,16 +3711,16 @@ inline void String::init(void)
   buffer = NULL;
      ec8:	19 82       	std	Y+1, r1	; 0x01
      eca:	18 82       	st	Y, r1
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:135
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:135
   capacity = 0;
      ecc:	1b 82       	std	Y+3, r1	; 0x03
      ece:	1a 82       	std	Y+2, r1	; 0x02
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:136
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:136
   len = 0;
      ed0:	1d 82       	std	Y+5, r1	; 0x05
      ed2:	1c 82       	std	Y+4, r1	; 0x04
 __base_ctor ():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:31
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:31
 /*********************************************/
 
 String::String(const char *cstr)
@@ -3736,7 +3736,7 @@ String::String(const char *cstr)
      ee0:	06 1b       	sub	r16, r22
      ee2:	17 0b       	sbc	r17, r23
 copy():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:173
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:173
 /*  Copy and Move                            */
 /*********************************************/
 
@@ -3750,7 +3750,7 @@ String & String::copy(const char *cstr, unsigned int length)
      eee:	81 11       	cpse	r24, r1
      ef0:	13 c0       	rjmp	.+38     	; 0xf18 <String::String(char const*)+0x60>
 invalidate():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:141
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:141
   len = 0;
 }
 
@@ -3762,18 +3762,18 @@ void String::invalidate(void)
      ef6:	19 f0       	breq	.+6      	; 0xefe <String::String(char const*)+0x46>
      ef8:	c9 01       	movw	r24, r18
      efa:	0e 94 02 0e 	call	0x1c04	; 0x1c04 <free>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:142
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:142
   buffer = NULL;
      efe:	19 82       	std	Y+1, r1	; 0x01
      f00:	18 82       	st	Y, r1
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:143
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:143
   capacity = len = 0;
      f02:	1d 82       	std	Y+5, r1	; 0x05
      f04:	1c 82       	std	Y+4, r1	; 0x04
      f06:	1b 82       	std	Y+3, r1	; 0x03
      f08:	1a 82       	std	Y+2, r1	; 0x02
 __base_ctor ():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:32
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:32
 
 String::String(const char *cstr)
 {
@@ -3788,7 +3788,7 @@ String::String(const char *cstr)
      f14:	ef 90       	pop	r14
      f16:	08 95       	ret
 copy():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:177
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:177
 {
   if (!reserve(length)) {
     invalidate();
@@ -3797,12 +3797,12 @@ copy():
   len = length;
      f18:	1d 83       	std	Y+5, r17	; 0x05
      f1a:	0c 83       	std	Y+4, r16	; 0x04
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:178
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:178
   strcpy(buffer, cstr);
      f1c:	b7 01       	movw	r22, r14
      f1e:	c9 01       	movw	r24, r18
 __base_ctor ():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:32
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:32
 
 String::String(const char *cstr)
 {
@@ -3816,7 +3816,7 @@ String::String(const char *cstr)
      f28:	ff 90       	pop	r15
      f2a:	ef 90       	pop	r14
 copy():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:178
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:178
   if (!reserve(length)) {
     invalidate();
     return *this;
@@ -3827,7 +3827,7 @@ copy():
 
 00000f30 <String::operator=(char const*) [clone .part.3]>:
 _ZN6StringaSEPKc.part.3():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:239
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:239
   if (this != &rval) move(rval);
   return *this;
 }
@@ -3842,7 +3842,7 @@ String & String::operator = (const char *cstr)
      f3a:	df 93       	push	r29
      f3c:	ec 01       	movw	r28, r24
      f3e:	7b 01       	movw	r14, r22
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:241
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:241
 {
   if (cstr) copy(cstr, strlen(cstr));
      f40:	fb 01       	movw	r30, r22
@@ -3854,7 +3854,7 @@ String & String::operator = (const char *cstr)
      f4c:	06 1b       	sub	r16, r22
      f4e:	17 0b       	sbc	r17, r23
 copy():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:173
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:173
 /*  Copy and Move                            */
 /*********************************************/
 
@@ -3868,7 +3868,7 @@ String & String::copy(const char *cstr, unsigned int length)
      f5a:	81 11       	cpse	r24, r1
      f5c:	13 c0       	rjmp	.+38     	; 0xf84 <String::operator=(char const*) [clone .part.3]+0x54>
 invalidate():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:141
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:141
   len = 0;
 }
 
@@ -3880,18 +3880,18 @@ void String::invalidate(void)
      f62:	19 f0       	breq	.+6      	; 0xf6a <String::operator=(char const*) [clone .part.3]+0x3a>
      f64:	c9 01       	movw	r24, r18
      f66:	0e 94 02 0e 	call	0x1c04	; 0x1c04 <free>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:142
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:142
   buffer = NULL;
      f6a:	19 82       	std	Y+1, r1	; 0x01
      f6c:	18 82       	st	Y, r1
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:143
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:143
   capacity = len = 0;
      f6e:	1d 82       	std	Y+5, r1	; 0x05
      f70:	1c 82       	std	Y+4, r1	; 0x04
      f72:	1b 82       	std	Y+3, r1	; 0x03
      f74:	1a 82       	std	Y+2, r1	; 0x02
 _ZN6StringaSEPKc.part.3():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:245
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:245
 {
   if (cstr) copy(cstr, strlen(cstr));
   else invalidate();
@@ -3906,7 +3906,7 @@ _ZN6StringaSEPKc.part.3():
      f80:	ef 90       	pop	r14
      f82:	08 95       	ret
 copy():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:177
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:177
 {
   if (!reserve(length)) {
     invalidate();
@@ -3915,12 +3915,12 @@ copy():
   len = length;
      f84:	1d 83       	std	Y+5, r17	; 0x05
      f86:	0c 83       	std	Y+4, r16	; 0x04
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:178
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:178
   strcpy(buffer, cstr);
      f88:	b7 01       	movw	r22, r14
      f8a:	c9 01       	movw	r24, r18
 _ZN6StringaSEPKc.part.3():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:245
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:245
 {
   if (cstr) copy(cstr, strlen(cstr));
   else invalidate();
@@ -3934,7 +3934,7 @@ _ZN6StringaSEPKc.part.3():
      f94:	ff 90       	pop	r15
      f96:	ef 90       	pop	r14
 copy():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WString.cpp:178
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WString.cpp:178
   if (!reserve(length)) {
     invalidate();
     return *this;
@@ -4106,7 +4106,7 @@ showStatus():
     1072:	ed 5d       	subi	r30, 0xDD	; 221
     1074:	fc 4f       	sbci	r31, 0xFC	; 252
 write():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/Print.h:58
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/Print.h:58
     }
     virtual size_t write(const uint8_t *buffer, size_t size);
     size_t write(const char *buffer, size_t size) {
@@ -4146,7 +4146,7 @@ showStatus():
     10a4:	8d e0       	ldi	r24, 0x0D	; 13
     10a6:	0e 94 e0 03 	call	0x7c0	; 0x7c0 <LiquidCrystal::setCursor(unsigned char, unsigned char) [clone .constprop.20]>
 write():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/Print.h:58
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/Print.h:58
     10aa:	4d 81       	ldd	r20, Y+5	; 0x05
     10ac:	5e 81       	ldd	r21, Y+6	; 0x06
     10ae:	69 81       	ldd	r22, Y+1	; 0x01
@@ -4357,7 +4357,7 @@ getFormattedFrequency():
 
 000011a2 <__vector_16>:
 __vector_16():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:159
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:159
 #if defined(__AVR_ATtiny24__) || defined(__AVR_ATtiny44__) || defined(__AVR_ATtiny84__)
 ISR(TIM0_OVF_vect)
 #else
@@ -4375,7 +4375,7 @@ ISR(TIMER0_OVF_vect)
     11b2:	9f 93       	push	r25
     11b4:	af 93       	push	r26
     11b6:	bf 93       	push	r27
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:167
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:167
   static unsigned char timer0_exact = 0;
 #endif
 
@@ -4386,15 +4386,15 @@ ISR(TIMER0_OVF_vect)
     11bc:	90 91 d8 02 	lds	r25, 0x02D8	; 0x8002d8 <timer0_millis+0x1>
     11c0:	a0 91 d9 02 	lds	r26, 0x02D9	; 0x8002d9 <timer0_millis+0x2>
     11c4:	b0 91 da 02 	lds	r27, 0x02DA	; 0x8002da <timer0_millis+0x3>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:168
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:168
   unsigned char f = timer0_fract;
     11c8:	30 91 76 02 	lds	r19, 0x0276	; 0x800276 <timer0_fract>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:170
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:170
 
   f += FRACT_INC FRACT_INC_PLUS;
     11cc:	23 e0       	ldi	r18, 0x03	; 3
     11ce:	23 0f       	add	r18, r19
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:200
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:200
     ++f;
   }
 #endif
@@ -4403,16 +4403,16 @@ ISR(TIMER0_OVF_vect)
   if (f >= FRACT_MAX) {
     11d0:	2d 37       	cpi	r18, 0x7D	; 125
     11d2:	68 f1       	brcs	.+90     	; 0x122e <__vector_16+0x8c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:201
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:201
     f -= FRACT_MAX;
     11d4:	26 e8       	ldi	r18, 0x86	; 134
     11d6:	23 0f       	add	r18, r19
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:202
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:202
     m += MILLIS_INC + 1;
     11d8:	02 96       	adiw	r24, 0x02	; 2
     11da:	a1 1d       	adc	r26, r1
     11dc:	b1 1d       	adc	r27, r1
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:208
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:208
   }
   else {
     m += MILLIS_INC;
@@ -4420,13 +4420,13 @@ ISR(TIMER0_OVF_vect)
 
   timer0_fract = f;
     11de:	20 93 76 02 	sts	0x0276, r18	; 0x800276 <timer0_fract>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:209
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:209
   timer0_millis = m;
     11e2:	80 93 d7 02 	sts	0x02D7, r24	; 0x8002d7 <timer0_millis>
     11e6:	90 93 d8 02 	sts	0x02D8, r25	; 0x8002d8 <timer0_millis+0x1>
     11ea:	a0 93 d9 02 	sts	0x02D9, r26	; 0x8002d9 <timer0_millis+0x2>
     11ee:	b0 93 da 02 	sts	0x02DA, r27	; 0x8002da <timer0_millis+0x3>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:211
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:211
 #ifndef CORRECT_EXACT_MICROS
   timer0_overflow_count++;
     11f2:	80 91 77 02 	lds	r24, 0x0277	; 0x800277 <timer0_overflow_count>
@@ -4440,7 +4440,7 @@ ISR(TIMER0_OVF_vect)
     120c:	90 93 78 02 	sts	0x0278, r25	; 0x800278 <timer0_overflow_count+0x1>
     1210:	a0 93 79 02 	sts	0x0279, r26	; 0x800279 <timer0_overflow_count+0x2>
     1214:	b0 93 7a 02 	sts	0x027A, r27	; 0x80027a <timer0_overflow_count+0x3>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:213
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:213
 #endif
 }
     1218:	bf 91       	pop	r27
@@ -4454,7 +4454,7 @@ ISR(TIMER0_OVF_vect)
     1228:	0f 90       	pop	r0
     122a:	1f 90       	pop	r1
     122c:	18 95       	reti
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:205
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:205
   if (f >= FRACT_MAX) {
     f -= FRACT_MAX;
     m += MILLIS_INC + 1;
@@ -4468,7 +4468,7 @@ ISR(TIMER0_OVF_vect)
 
 00001236 <__vector_2>:
 __vector_2():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WInterrupts.c:489
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WInterrupts.c:489
 || defined(__AVR_ATmega48PB__)  || defined(__AVR_ATmega88__)  || defined(__AVR_ATmega88P__)  \
 || defined(__AVR_ATmega88PB__)  || defined(__AVR_ATmega168__) || defined(__AVR_ATmega168P__) \
 || defined(__AVR_ATmega168PB__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega328P__) \
@@ -4515,7 +4515,7 @@ __vector_2():
 
 00001284 <__vector_1>:
 __vector_1():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WInterrupts.c:488
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WInterrupts.c:488
 #elif defined(__AVR_ATmega8__)  || defined(__AVR_ATmega48__)  || defined(__AVR_ATmega48P__)  \
 || defined(__AVR_ATmega48PB__)  || defined(__AVR_ATmega88__)  || defined(__AVR_ATmega88P__)  \
 || defined(__AVR_ATmega88PB__)  || defined(__AVR_ATmega168__) || defined(__AVR_ATmega168P__) \
@@ -4562,7 +4562,7 @@ __vector_1():
 
 000012d2 <__vector_24>:
 __vector_24():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:534
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:534
   }
   return(flag);
 }
@@ -4586,7 +4586,7 @@ ISR(TWI_vect)
     12ee:	bf 93       	push	r27
     12f0:	ef 93       	push	r30
     12f2:	ff 93       	push	r31
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:535
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:535
   switch(TW_STATUS){
     12f4:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <__DATA_REGION_ORIGIN__+0x59>
     12f8:	88 7f       	andi	r24, 0xF8	; 248
@@ -4608,7 +4608,7 @@ ISR(TWI_vect)
     1318:	88 30       	cpi	r24, 0x08	; 8
     131a:	09 f4       	brne	.+2      	; 0x131e <__vector_24+0x4c>
     131c:	92 c0       	rjmp	.+292    	; 0x1442 <__vector_24+0x170>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:696
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:696
     case TW_BUS_ERROR: // bus error, illegal stop/start
       twi_error = TW_BUS_ERROR;
       twi_stop();
@@ -4632,7 +4632,7 @@ ISR(TWI_vect)
     133a:	0f 90       	pop	r0
     133c:	1f 90       	pop	r1
     133e:	18 95       	reti
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:535
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:535
   return(flag);
 }
 
@@ -4644,7 +4644,7 @@ ISR(TWI_vect)
     1344:	86 c0       	rjmp	.+268    	; 0x1452 <__vector_24+0x180>
     1346:	80 32       	cpi	r24, 0x20	; 32
     1348:	51 f7       	brne	.-44     	; 0x131e <__vector_24+0x4c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:570
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:570
     case TW_MT_SLA_NACK:  // address sent, nack received
       twi_error = TW_MT_SLA_NACK;
       twi_stop();
@@ -4653,7 +4653,7 @@ ISR(TWI_vect)
       twi_error = TW_MT_DATA_NACK;
     134a:	80 93 c8 02 	sts	0x02C8, r24	; 0x8002c8 <twi_error>
     134e:	14 c0       	rjmp	.+40     	; 0x1378 <__vector_24+0xa6>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:535
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:535
   return(flag);
 }
 
@@ -4668,7 +4668,7 @@ ISR(TWI_vect)
     135a:	b9 f3       	breq	.-18     	; 0x134a <__vector_24+0x78>
     135c:	88 33       	cpi	r24, 0x38	; 56
     135e:	f9 f6       	brne	.-66     	; 0x131e <__vector_24+0x4c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:574
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:574
     case TW_MT_DATA_NACK: // data sent, nack received
       twi_error = TW_MT_DATA_NACK;
       twi_stop();
@@ -4677,7 +4677,7 @@ ISR(TWI_vect)
       twi_error = TW_MT_ARB_LOST;
     1360:	80 93 c8 02 	sts	0x02C8, r24	; 0x8002c8 <twi_error>
 twi_reply():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:421
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:421
  */
 void twi_reply(uint8_t ack)
 {
@@ -4687,7 +4687,7 @@ void twi_reply(uint8_t ack)
     1364:	85 ec       	ldi	r24, 0xC5	; 197
     1366:	ba c0       	rjmp	.+372    	; 0x14dc <__vector_24+0x20a>
 __vector_24():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:535
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:535
   return(flag);
 }
 
@@ -4702,7 +4702,7 @@ ISR(TWI_vect)
     1372:	9c c0       	rjmp	.+312    	; 0x14ac <__vector_24+0x1da>
     1374:	88 34       	cpi	r24, 0x48	; 72
     1376:	99 f6       	brne	.-90     	; 0x131e <__vector_24+0x4c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:693
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:693
     // All
     case TW_NO_INFO:   // no state information
       break;
@@ -4711,7 +4711,7 @@ ISR(TWI_vect)
       twi_stop();
     1378:	0e 94 f6 03 	call	0x7ec	; 0x7ec <twi_stop>
     137c:	d0 cf       	rjmp	.-96     	; 0x131e <__vector_24+0x4c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:535
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:535
   return(flag);
 }
 
@@ -4729,7 +4729,7 @@ ISR(TWI_vect)
     138e:	11 f0       	breq	.+4      	; 0x1394 <__vector_24+0xc2>
     1390:	80 37       	cpi	r24, 0x70	; 112
     1392:	29 f6       	brne	.-118    	; 0x131e <__vector_24+0x4c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:616
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:616
     case TW_SR_SLA_ACK:   // addressed, returned ack
     case TW_SR_GCALL_ACK: // addressed generally, returned ack
     case TW_SR_ARB_LOST_SLA_ACK:   // lost arbitration, returned ack
@@ -4738,12 +4738,12 @@ ISR(TWI_vect)
       twi_state = TWI_SRX;
     1394:	83 e0       	ldi	r24, 0x03	; 3
     1396:	80 93 ca 02 	sts	0x02CA, r24	; 0x8002ca <twi_state>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:618
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:618
       // indicate that rx buffer can be overwritten and ack
       twi_rxBufferIndex = 0;
     139a:	10 92 71 02 	sts	0x0271, r1	; 0x800271 <twi_rxBufferIndex>
     139e:	55 c0       	rjmp	.+170    	; 0x144a <__vector_24+0x178>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:535
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:535
   return(flag);
 }
 
@@ -4758,7 +4758,7 @@ ISR(TWI_vect)
     13aa:	80 38       	cpi	r24, 0x80	; 128
     13ac:	09 f0       	breq	.+2      	; 0x13b0 <__vector_24+0xde>
     13ae:	b7 cf       	rjmp	.-146    	; 0x131e <__vector_24+0x4c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:624
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:624
       twi_reply(1);
       break;
     case TW_SR_DATA_ACK:       // data received, returned ack
@@ -4769,7 +4769,7 @@ ISR(TWI_vect)
     13b4:	80 32       	cpi	r24, 0x20	; 32
     13b6:	08 f0       	brcs	.+2      	; 0x13ba <__vector_24+0xe8>
     13b8:	77 c0       	rjmp	.+238    	; 0x14a8 <__vector_24+0x1d6>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:626
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:626
         // put byte in buffer and ack
         twi_rxBuffer[twi_rxBufferIndex++] = TWDR;
     13ba:	e0 91 71 02 	lds	r30, 0x0271	; 0x800271 <twi_rxBufferIndex>
@@ -4782,7 +4782,7 @@ ISR(TWI_vect)
     13ce:	fd 4f       	sbci	r31, 0xFD	; 253
     13d0:	80 83       	st	Z, r24
     13d2:	3b c0       	rjmp	.+118    	; 0x144a <__vector_24+0x178>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:535
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:535
   return(flag);
 }
 
@@ -4798,7 +4798,7 @@ ISR(TWI_vect)
     13e0:	88 3a       	cpi	r24, 0xA8	; 168
     13e2:	09 f0       	breq	.+2      	; 0x13e6 <__vector_24+0x114>
     13e4:	9c cf       	rjmp	.-200    	; 0x131e <__vector_24+0x4c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:655
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:655
 
     // Slave Transmitter
     case TW_ST_SLA_ACK:          // addressed, returned ack
@@ -4807,36 +4807,36 @@ ISR(TWI_vect)
       twi_state = TWI_STX;
     13e6:	84 e0       	ldi	r24, 0x04	; 4
     13e8:	80 93 ca 02 	sts	0x02CA, r24	; 0x8002ca <twi_state>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:657
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:657
       // ready the tx buffer index for iteration
       twi_txBufferIndex = 0;
     13ec:	10 92 50 02 	sts	0x0250, r1	; 0x800250 <twi_txBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:659
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:659
       // set tx buffer length to be zero, to verify if user changes it
       twi_txBufferLength = 0;
     13f0:	10 92 4f 02 	sts	0x024F, r1	; 0x80024f <twi_txBufferLength>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:662
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:662
       // request for txBuffer to be filled and length to be set
       // note: user must call twi_transmit(bytes, length) to do this
       twi_onSlaveTransmit();
     13f4:	f0 e0       	ldi	r31, 0x00	; 0
     13f6:	e0 e0       	ldi	r30, 0x00	; 0
     13f8:	09 95       	icall
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:664
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:664
       // if they didn't change buffer & length, initialize it
       if(0 == twi_txBufferLength){
     13fa:	80 91 4f 02 	lds	r24, 0x024F	; 0x80024f <twi_txBufferLength>
     13fe:	81 11       	cpse	r24, r1
     1400:	0f c0       	rjmp	.+30     	; 0x1420 <__vector_24+0x14e>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:665
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:665
         twi_txBufferLength = 1;
     1402:	81 e0       	ldi	r24, 0x01	; 1
     1404:	80 93 4f 02 	sts	0x024F, r24	; 0x80024f <twi_txBufferLength>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:666
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:666
         twi_txBuffer[0] = 0x00;
     1408:	10 92 2f 02 	sts	0x022F, r1	; 0x80022f <twi_txBuffer>
     140c:	09 c0       	rjmp	.+18     	; 0x1420 <__vector_24+0x14e>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:535
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:535
   return(flag);
 }
 
@@ -4852,7 +4852,7 @@ ISR(TWI_vect)
     141a:	88 3b       	cpi	r24, 0xB8	; 184
     141c:	09 f0       	breq	.+2      	; 0x1420 <__vector_24+0x14e>
     141e:	7f cf       	rjmp	.-258    	; 0x131e <__vector_24+0x4c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:672
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:672
       }
       // transmit first byte from buffer, fall
       /* fall through */
@@ -4868,13 +4868,13 @@ ISR(TWI_vect)
     1430:	fd 4f       	sbci	r31, 0xFD	; 253
     1432:	80 81       	ld	r24, Z
     1434:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__DATA_REGION_ORIGIN__+0x5b>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:674
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:674
       // if there is more to send, ack, otherwise nack
       if(twi_txBufferIndex < twi_txBufferLength){
     1438:	90 91 50 02 	lds	r25, 0x0250	; 0x800250 <twi_txBufferIndex>
     143c:	80 91 4f 02 	lds	r24, 0x024F	; 0x80024f <twi_txBufferLength>
     1440:	31 c0       	rjmp	.+98     	; 0x14a4 <__vector_24+0x1d2>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:540
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:540
   switch(TW_STATUS){
     // All Master
     case TW_START:     // sent start condition
@@ -4882,7 +4882,7 @@ ISR(TWI_vect)
       // copy device address and r/w bit to output register and ack
       TWDR = twi_slarw;
     1442:	80 91 c3 02 	lds	r24, 0x02C3	; 0x8002c3 <twi_slarw>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:550
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:550
     case TW_MT_SLA_ACK:  // slave receiver acked address
     case TW_MT_DATA_ACK: // slave receiver acked data
       // if there is data to send, send it, otherwise stop
@@ -4891,7 +4891,7 @@ ISR(TWI_vect)
         TWDR = twi_masterBuffer[twi_masterBufferIndex++];
     1446:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__DATA_REGION_ORIGIN__+0x5b>
 twi_reply():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:421
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:421
  */
 void twi_reply(uint8_t ack)
 {
@@ -4899,13 +4899,13 @@ void twi_reply(uint8_t ack)
   if(ack){
     TWCR = _BV(TWEN) | _BV(TWIE) | _BV(TWINT) | _BV(TWEA);
     144a:	85 ec       	ldi	r24, 0xC5	; 197
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:423
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:423
   }else{
     TWCR = _BV(TWEN) | _BV(TWIE) | _BV(TWINT);
     144c:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__DATA_REGION_ORIGIN__+0x5c>
     1450:	66 cf       	rjmp	.-308    	; 0x131e <__vector_24+0x4c>
 __vector_24():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:548
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:548
 
     // Master Transmitter
     case TW_MT_SLA_ACK:  // slave receiver acked address
@@ -4916,7 +4916,7 @@ __vector_24():
     1456:	80 91 c4 02 	lds	r24, 0x02C4	; 0x8002c4 <twi_masterBufferLength>
     145a:	98 17       	cp	r25, r24
     145c:	b8 f5       	brcc	.+110    	; 0x14cc <__vector_24+0x1fa>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:550
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:550
         // copy data to output register and ack
         TWDR = twi_masterBuffer[twi_masterBufferIndex++];
     145e:	80 91 c6 02 	lds	r24, 0x02C6	; 0x8002c6 <twi_masterBuffer>
@@ -4930,7 +4930,7 @@ __vector_24():
     1476:	f1 1d       	adc	r31, r1
     1478:	80 81       	ld	r24, Z
     147a:	e5 cf       	rjmp	.-54     	; 0x1446 <__vector_24+0x174>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:581
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:581
       break;
 
     // Master Receiver
@@ -4948,14 +4948,14 @@ __vector_24():
     1496:	f3 2f       	mov	r31, r19
     1498:	f1 1d       	adc	r31, r1
     149a:	80 83       	st	Z, r24
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:585
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:585
       /* fall through */
     case TW_MR_SLA_ACK:  // address sent, ack received
       // ack if more bytes are expected, otherwise nack
       if(twi_masterBufferIndex < twi_masterBufferLength){
     149c:	90 91 c5 02 	lds	r25, 0x02C5	; 0x8002c5 <twi_masterBufferIndex>
     14a0:	80 91 c4 02 	lds	r24, 0x02C4	; 0x8002c4 <twi_masterBufferLength>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:674
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:674
       /* fall through */
     case TW_ST_DATA_ACK: // byte sent, ack returned
       // copy data to output register
@@ -4965,7 +4965,7 @@ __vector_24():
     14a4:	98 17       	cp	r25, r24
     14a6:	88 f2       	brcs	.-94     	; 0x144a <__vector_24+0x178>
 twi_reply():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:423
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:423
 {
   // transmit master read ready signal, with or without ack
   if(ack){
@@ -4975,7 +4975,7 @@ twi_reply():
     14a8:	85 e8       	ldi	r24, 0x85	; 133
     14aa:	d0 cf       	rjmp	.-96     	; 0x144c <__vector_24+0x17a>
 __vector_24():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:593
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:593
         twi_reply(0);
       }
       break;
@@ -4993,25 +4993,25 @@ __vector_24():
     14c6:	f3 2f       	mov	r31, r19
     14c8:	f1 1d       	adc	r31, r1
     14ca:	80 83       	st	Z, r24
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:594
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:594
   if (twi_sendStop)
     14cc:	80 91 c9 02 	lds	r24, 0x02C9	; 0x8002c9 <twi_sendStop>
     14d0:	81 11       	cpse	r24, r1
     14d2:	52 cf       	rjmp	.-348    	; 0x1378 <__vector_24+0xa6>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:597
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:597
           twi_stop();
   else {
     twi_inRepStart = true;  // we're going to send the START
     14d4:	81 e0       	ldi	r24, 0x01	; 1
     14d6:	80 93 c2 02 	sts	0x02C2, r24	; 0x8002c2 <twi_inRepStart>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:601
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:601
     // don't enable the interrupt. We'll generate the start, but we
     // avoid handling the interrupt until we're in the next transaction,
     // at the point where we would normally issue the start.
     TWCR = _BV(TWINT) | _BV(TWSTA)| _BV(TWEN) ;
     14da:	84 ea       	ldi	r24, 0xA4	; 164
 twi_reply():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:421
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:421
  */
 void twi_reply(uint8_t ack)
 {
@@ -5020,7 +5020,7 @@ void twi_reply(uint8_t ack)
     TWCR = _BV(TWEN) | _BV(TWIE) | _BV(TWINT) | _BV(TWEA);
     14dc:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__DATA_REGION_ORIGIN__+0x5c>
 __vector_24():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:685
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:685
     case TW_ST_DATA_NACK: // received nack, we are done
     case TW_ST_LAST_DATA: // received ack, but we are done already!
       // ack future responses
@@ -5030,7 +5030,7 @@ __vector_24():
     14e0:	10 92 ca 02 	sts	0x02CA, r1	; 0x8002ca <twi_state>
     14e4:	1c cf       	rjmp	.-456    	; 0x131e <__vector_24+0x4c>
 twi_releaseBus():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:474
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:474
  * Output   none
  */
 void twi_releaseBus(void)
@@ -5039,13 +5039,13 @@ void twi_releaseBus(void)
   TWCR = _BV(TWEN) | _BV(TWIE) | _BV(TWEA) | _BV(TWINT);
     14e6:	85 ec       	ldi	r24, 0xC5	; 197
     14e8:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__DATA_REGION_ORIGIN__+0x5c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:477
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:477
 
   // update twi state
   twi_state = TWI_READY;
     14ec:	10 92 ca 02 	sts	0x02CA, r1	; 0x8002ca <twi_state>
 __vector_24():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:637
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:637
       break;
     case TW_SR_STOP: // stop or repeated start condition received
       // ack future responses and leave slave receiver state
@@ -5055,14 +5055,14 @@ __vector_24():
     14f0:	80 91 71 02 	lds	r24, 0x0271	; 0x800271 <twi_rxBufferIndex>
     14f4:	80 32       	cpi	r24, 0x20	; 32
     14f6:	30 f4       	brcc	.+12     	; 0x1504 <__vector_24+0x232>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:638
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:638
         twi_rxBuffer[twi_rxBufferIndex] = '\0';
     14f8:	e0 91 71 02 	lds	r30, 0x0271	; 0x800271 <twi_rxBufferIndex>
     14fc:	f0 e0       	ldi	r31, 0x00	; 0
     14fe:	ef 5a       	subi	r30, 0xAF	; 175
     1500:	fd 4f       	sbci	r31, 0xFD	; 253
     1502:	10 82       	st	Z, r1
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:641
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:641
       }
       // callback to user defined callback
       twi_onSlaveReceive(twi_rxBuffer, twi_rxBufferIndex);
@@ -5073,12 +5073,12 @@ __vector_24():
     150e:	f0 e0       	ldi	r31, 0x00	; 0
     1510:	e0 e0       	ldi	r30, 0x00	; 0
     1512:	09 95       	icall
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:643
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:643
       // since we submit rx buffer to "wire" library, we can reset it
       twi_rxBufferIndex = 0;
     1514:	10 92 71 02 	sts	0x0271, r1	; 0x800271 <twi_rxBufferIndex>
     1518:	02 cf       	rjmp	.-508    	; 0x131e <__vector_24+0x4c>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/utility/twi.c:692
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/utility/twi.c:692
 
     // All
     case TW_NO_INFO:   // no state information
@@ -5394,7 +5394,7 @@ _GLOBAL__I_65535_0_SI4844_02_LCD16x2_SLIDE_SWITCH.ino.cpp.o.2504():
 
 000017de <main>:
 init():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:945
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:945
 
 void init()
 {
@@ -5402,7 +5402,7 @@ void init()
   // work there
   sei();
     17de:	78 94       	sei
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:957
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:957
 
   // On the ATmega168, timer 0 is also used for fast hardware pwm
   // (using phase-correct PWM would mean that timer 0 overflowed half as often
@@ -5412,7 +5412,7 @@ void init()
     17e0:	84 b5       	in	r24, 0x24	; 36
     17e2:	83 60       	ori	r24, 0x03	; 3
     17e4:	84 bd       	out	0x24, r24	; 36
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:972
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:972
   #if defined(WGM00) && defined(WGM01) // The ATmega8 doesn't have WGM00 and WGM01
     TCCR0 |= _BV(WGM01) | _BV(WGM00);
   #endif
@@ -5422,7 +5422,7 @@ void init()
     17e6:	85 b5       	in	r24, 0x25	; 37
     17e8:	83 60       	ori	r24, 0x03	; 3
     17ea:	85 bd       	out	0x25, r24	; 37
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:984
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:984
 
 // Enable timer 0 overflow interrupt
 #if defined(TIMSK) && defined(TOIE0)
@@ -5432,7 +5432,7 @@ void init()
     17ec:	80 91 6e 00 	lds	r24, 0x006E	; 0x80006e <__DATA_REGION_ORIGIN__+0xe>
     17f0:	81 60       	ori	r24, 0x01	; 1
     17f2:	80 93 6e 00 	sts	0x006E, r24	; 0x80006e <__DATA_REGION_ORIGIN__+0xe>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:995
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:995
 // this is better for motors as it ensures an even waveform
 // note, however, that fast pwm mode can achieve a frequency of up
 // 8 MHz (with a 16 MHz clock) at 50% duty cycle
@@ -5441,13 +5441,13 @@ void init()
   TCCR1B = _BV(CS11); // Set timer 1 prescale factor to 64
     17f6:	82 e0       	ldi	r24, 0x02	; 2
     17f8:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <__DATA_REGION_ORIGIN__+0x21>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:997
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:997
 #if F_CPU >= 8000000L
   TCCR1B |= _BV(CS10);
     17fc:	80 91 81 00 	lds	r24, 0x0081	; 0x800081 <__DATA_REGION_ORIGIN__+0x21>
     1800:	81 60       	ori	r24, 0x01	; 1
     1802:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <__DATA_REGION_ORIGIN__+0x21>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:1006
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:1006
 #if F_CPU >= 8000000L
   TCCR1 |= _BV(CS10);
 #endif
@@ -5457,7 +5457,7 @@ void init()
     1806:	80 91 80 00 	lds	r24, 0x0080	; 0x800080 <__DATA_REGION_ORIGIN__+0x20>
     180a:	81 60       	ori	r24, 0x01	; 1
     180c:	80 93 80 00 	sts	0x0080, r24	; 0x800080 <__DATA_REGION_ORIGIN__+0x20>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:1013
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:1013
 
 // Set timer 2 prescale factor to 64
 #if defined(TCCR2) && defined(CS22)
@@ -5467,7 +5467,7 @@ void init()
     1810:	80 91 b1 00 	lds	r24, 0x00B1	; 0x8000b1 <__DATA_REGION_ORIGIN__+0x51>
     1814:	84 60       	ori	r24, 0x04	; 4
     1816:	80 93 b1 00 	sts	0x00B1, r24	; 0x8000b1 <__DATA_REGION_ORIGIN__+0x51>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:1022
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:1022
 
 // Configure timer 2 for phase correct pwm (8-bit)
 #if defined(TCCR2) && defined(WGM20)
@@ -5477,7 +5477,7 @@ void init()
     181a:	80 91 b0 00 	lds	r24, 0x00B0	; 0x8000b0 <__DATA_REGION_ORIGIN__+0x50>
     181e:	81 60       	ori	r24, 0x01	; 1
     1820:	80 93 b0 00 	sts	0x00B0, r24	; 0x8000b0 <__DATA_REGION_ORIGIN__+0x50>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:1050
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:1050
 #endif
 
 #if defined(ADCSRA)
@@ -5486,7 +5486,7 @@ void init()
     ADCSRA = _BV(ADPS2) | _BV(ADPS1) | _BV(ADPS0) | _BV(ADEN);
     1824:	87 e8       	ldi	r24, 0x87	; 135
     1826:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__DATA_REGION_ORIGIN__+0x1a>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/wiring.c:1070
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/wiring.c:1070
   // here so they can be used as normal digital i/o; they will be
   // reconnected in Serial.begin()
 #if defined(UCSRB)
@@ -5512,9 +5512,9 @@ void setup() {
     1838:	0e 94 39 03 	call	0x672	; 0x672 <LiquidCrystal::begin(unsigned char, unsigned char, unsigned char) [clone .constprop.43]>
 setupSlideSwitch():
 /Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:192
- * @param hightClockSpeed hight I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
+ * @param highClockSpeed high I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
  */
-void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t hightClockSpeed )
+void SI4844::setupSlideSwitch(uint16_t resetPin, int interruptPin, uint32_t highClockSpeed )
 {
     // UNDER CONSTRUCTION
     this->resetPin = resetPin;
@@ -5532,7 +5532,7 @@ _ZN6SI484413setClockSpeedEj():
 /Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.h:315
   /**
    * @ingroup BF
-   * @brief Sets hight clock speed to be used on I2C bus
+   * @brief Sets high clock speed to be used on I2C bus
    * @param clock (10000 = 10kHz; 50000 = 50kHz; 100000 = 100kHz ... )
    */
   inline void setClockSpeed(uint16_t clock) { this->clockSpeed = clock; }; 
@@ -5546,7 +5546,7 @@ _ZN6SI484413setClockSpeedEj():
     1868:	b0 93 f3 02 	sts	0x02F3, r27	; 0x8002f3 <rx+0x18>
 setupSlideSwitch():
 /Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:200
-    setClockSpeed(hightClockSpeed);
+    setClockSpeed(highClockSpeed);
 
     // Arduino interrupt setup.
     // if interruptPin parameter is < 0, it means the interrupt is being controlled by the user of this library
@@ -5556,7 +5556,7 @@ setupSlideSwitch():
     186e:	82 e0       	ldi	r24, 0x02	; 2
     1870:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <pinMode>
 attachInterrupt():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WInterrupts.c:66
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WInterrupts.c:66
 
 void attachInterrupt(uint8_t interruptNum, void (*userFunc)(void), int mode)
 {
@@ -5567,7 +5567,7 @@ void attachInterrupt(uint8_t interruptNum, void (*userFunc)(void), int mode)
     1876:	92 e0       	ldi	r25, 0x02	; 2
     1878:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__data_start+0x1>
     187c:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__data_start>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WInterrupts.c:231
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WInterrupts.c:231
       #elif defined(__AVR_ATmega48__) || defined(__AVR_ATmega48P__)  || defined(__AVR_ATmega48PB__)  \
       || defined(__AVR_ATmega88__)    || defined(__AVR_ATmega88P__)  || defined(__AVR_ATmega88PB__)  \
       || defined(__AVR_ATmega168__)   || defined(__AVR_ATmega168P__) || defined(__AVR_ATmega168PB__) \
@@ -5577,12 +5577,12 @@ void attachInterrupt(uint8_t interruptNum, void (*userFunc)(void), int mode)
     1880:	80 91 69 00 	lds	r24, 0x0069	; 0x800069 <__DATA_REGION_ORIGIN__+0x9>
     1884:	83 60       	ori	r24, 0x03	; 3
     1886:	80 93 69 00 	sts	0x0069, r24	; 0x800069 <__DATA_REGION_ORIGIN__+0x9>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/WInterrupts.c:232
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/WInterrupts.c:232
           EIMSK |= (1 << INT0);
     188a:	e8 9a       	sbi	0x1d, 0	; 29
 setupSlideSwitch():
 /Users/rcaratti/Documents/Arduino/libraries/PU2CLR_SI4844/src/SI4844.cpp:204
-        attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_hundler, RISING);
+        attachInterrupt(digitalPinToInterrupt(interruptPin), interrupt_handler, RISING);
     }
 
     pinMode(resetPin, OUTPUT);
@@ -5661,7 +5661,7 @@ void SI4844::powerUp(void)
     waitToSend();
     18de:	0e 94 cf 05 	call	0xb9e	; 0xb9e <SI4844::waitToSend() [clone .constprop.17]>
 beginTransmission():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:196
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:196
 }
 
 void TwoWire::beginTransmission(uint8_t address)
@@ -5670,16 +5670,16 @@ void TwoWire::beginTransmission(uint8_t address)
   transmitting = 1;
     18e2:	81 e0       	ldi	r24, 0x01	; 1
     18e4:	80 93 7e 02 	sts	0x027E, r24	; 0x80027e <TwoWire::transmitting>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:198
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:198
   // set address of targeted slave
   txAddress = address;
     18e8:	81 e1       	ldi	r24, 0x11	; 17
     18ea:	80 93 a0 02 	sts	0x02A0, r24	; 0x8002a0 <TwoWire::txAddress>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:200
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:200
   // reset tx buffer iterator vars
   txBufferIndex = 0;
     18ee:	10 92 7f 02 	sts	0x027F, r1	; 0x80027f <TwoWire::txBufferIndex>
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/libraries/Wire/src/Wire.cpp:201
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/libraries/Wire/src/Wire.cpp:201
   txBufferLength = 0;
     18f2:	10 92 a1 02 	sts	0x02A1, r1	; 0x8002a1 <TwoWire::txBufferLength>
 powerUp():
@@ -5770,7 +5770,7 @@ setup():
   showStatus();
     1952:	0e 94 ce 07 	call	0xf9c	; 0xf9c <showStatus()>
 main():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/main.cpp:47
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/main.cpp:47
   
   setup();
     
@@ -5855,7 +5855,7 @@ loop():
     199c:	90 e0       	ldi	r25, 0x00	; 0
     199e:	0e 94 32 02 	call	0x464	; 0x464 <delay>
 main():
-/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.0.3/cores/MCUdude_corefiles/main.cpp:47
+/Users/rcaratti/Library/Arduino15/packages/MiniCore/hardware/avr/3.1.1/cores/MCUdude_corefiles/main.cpp:47
     19a2:	20 97       	sbiw	r28, 0x00	; 0
     19a4:	d9 f2       	breq	.-74     	; 0x195c <main+0x17e>
     19a6:	0e 94 00 00 	call	0	; 0x0 <__vectors>
