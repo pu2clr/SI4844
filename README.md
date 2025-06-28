@@ -38,7 +38,7 @@ I hold a Master's degree in Educational Technology from the Federal University o
 2. [Your support is important](https://pu2clr.github.io/SI4844/#your-support-is-important)
 3. [About the SI4844 Architecture](https://pu2clr.github.io/SI4844/#about-the-si4844-architecture)
 4. [Terminology](https://pu2clr.github.io/SI4844/#terminology)
-5. [Labrary Features](https://pu2clr.github.io/SI4844/#library-features)
+5. [Library Features](https://pu2clr.github.io/SI4844/#library-features)
 6. [Library Installation](https://pu2clr.github.io/SI4844/#library-installation)
 7. [Hardware Requirements and Setup](https://pu2clr.github.io/SI4844/#hardware-requirements-and-setup)
    * [Schematic](https://pu2clr.github.io/SI4844/#schematic)
@@ -95,7 +95,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE ARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 ## Your support is important.
@@ -104,7 +104,7 @@ If you would like to support this library development, consider joining this pro
 
 ## About the SI4844 Architecture 
 
-The Si4844 is an analog-tuned digital-display AM/FM/SW radio receiver. It has an analog-tune while frequency, band, and setero/mono information can be displayed on LCD. It works with a I2C protocol that allows a microcontroller send command and receive data.  Also, with a 100K variable resistor, you can simulate a dial mechanical tuning wheel found in old or traditional receiver. In this way, you will be able to offer a look similar to the old radios.
+The Si4844 is an analog-tuned digital-display AM/FM/SW radio receiver. It has an analog-tune while frequency, band, and stereo/mono information can be displayed on LCD. It works with an I2C protocol that allows a microcontroller to send commands and receive data. Also, with a 100K variable resistor, you can simulate a dial mechanical tuning wheel found in old or traditional receivers. In this way, you will be able to offer a look similar to the old radios.
 
 See more about SI4844 on [BROADCAST ANALOG TUNING DIGITAL DISPLAY AM/FM/SW RADIO RECEIVER](https://www.silabs.com/documents/public/data-sheets/Si4840-44-A10.pdf) 
 
@@ -186,8 +186,22 @@ The images below show that actions
 
 ![IDE 01](./extras/images/ide_03.png)
 
-
 You can also download this library or old version of it via this repository or via [Arduino Library List](https://www.arduinolibraries.info/libraries/pu2-clr-si4844).
+
+### Automated Setup Scripts
+
+For convenience, automated setup scripts are provided in the `examples` folder to install Arduino CLI along with all required libraries and board support:
+
+- **Linux/macOS**: `config_libraries_and_boards.sh`
+- **Windows**: `config_libraries_and_boards.bat` or `config_libraries_and_boards.ps1`
+
+These scripts will:
+- Install Arduino CLI
+- Configure board manager URLs for ESP32, STM32, ATtiny, LGT8F328, and other supported platforms
+- Install all required libraries (SI4844, display drivers, input handlers, etc.)
+- Install board support packages
+
+**Windows users**: See `WINDOWS_SETUP_README.md` in the examples folder for detailed instructions.
 
 
 ## Hardware Requirements and Setup

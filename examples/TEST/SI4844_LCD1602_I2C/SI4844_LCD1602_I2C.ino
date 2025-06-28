@@ -1,43 +1,36 @@
 /*
 
-  This sketch compiles on the Arduino Nano, Uno, Pro Mini, and LGT8F328 (LGT8Fx board manager), 
+  This sketch compiles on the Arduino Nano, Uno, Pro Mini, and LGT8F328 (LGT8Fx board manager),
   as well as on the ATmega328 standalone (MiniCore board manager).
 
-  
-  This sketch uses the EEPROM to store the last band used and the audio level. 
-  This way, the radio will start on the band you were using when it was last turned off. 
+
+  This sketch uses the EEPROM to store the last band used and the audio level.
+  This way, the radio will start on the band you were using when it was last turned off.
   To reset the EEPROM, turn on the radio while holding down the "Next Band (BAND_UP)" button.
 
   See user_manual.txt before operating the receiver.
 
-  Wire up on ATmega328 or Arduino Pro Mini or  Nano or  LGT8F328  and SI4844 and LCD16x02 
+  Wire up on ATmega328 or Arduino Pro Mini or  Nano or  LGT8F328  and SI4844 and LCD16x02
 
  *  | SI4844 pin |  Arduino pin |  Description                                       |
  *  | ---------  | ------------ | -------------------------------------------------  |
  *  |    2       |   2          | Arduino interrupt pin                              |
  *  |   15       |   12         | SI4844 RESET                                       |
  *  |   16       |  A4 (SDA)    | I2C bus (Data)                                     |
- *  |   17       |  A5 (SCL)    | I2C bus (Clock)                                    | 
+ *  |   17       |  A5 (SCL)    | I2C bus (Clock)                                    |
  *  | -----------| -------------| ---------------------------------------------------|
  *  |  LCD 16x02 |                                                                   |
- *  | -----------| -------------| ---------------------------------------------------|                        
- *  |      D4    |     D4       | Arduino Digital Pin 7                              |
- *  |      D5    |     D5       | Arduino Digital Pin 6                              | 
- *  |      D6    |     D6       | Arduino Digital pin 5                              |
- *  |      D7    |     D7       | Arduino Digital Pin 4                              | 
- *  |      RS    |     D3       | Arduino Digital Pin 3 for LCD RESET controle       | 
- *  |      E/ENA |     D13      | Arduino Digital Pin 13                             |
- *  |RW & VSS & K|     GND      |                                                    |
- *  | A & VDD    |    +Vcc      |                                                    |
- *  |      VO    |              | (see 5K tripot connection)                         |
+ *  | -----------| -------------| ---------------------------------------------------|
+ *  |  SDA       |  A4 (SDA)    |                                                    |
+ *  |  CLK       |  A5 (CLK)    |                                                    |
  *  | -----------| -------------| ---------------------------------------------------|
  *  |Push Buttons|                                                                   |                                                                     |
- *  | -----------| -------------| ---------------------------------------------------| 
- *  |  BAND_UP   |     8        |  Next Band                                         |                          
- *  |  BAND_DOWN |     9        |  Previous Band                                     | 
- *  |  VOL_UP    |    10        |  Increase the audio volume                         | 
- *  |  VOL_DOWN  |    11        |  Decrease the audio volume                         |   
- * 
+ *  | -----------| -------------| ---------------------------------------------------|
+ *  |  BAND_UP   |     8        |                                                    |
+ *  |  BAND_DOWN |     9        |                                                    |
+ *  |  VOL_UP    |    10        |                                                    |
+ *  |  VOL_DOWN  |    11        |                                                    |
+ *
  *  ATTENTION: Arduino Nano and Uno are 5V based board. Check the board voltage you are using
  *  If you are using the LGT8F328 see: https://blog.eletrogate.com/tutorial-pro-mini-evb-lgt8f328p-arduino-ide/
  *
@@ -45,7 +38,7 @@
 */
 
 #include <SI4844.h>
-#include <LiquidCrystal.h>
+#include <LiquidCrystal_I2C.h>
 #include <EEPROM.h>
 
 #define RESET_PIN 12
@@ -53,9 +46,9 @@
 
 #define BAND_UP     8 // Next Band
 #define BAND_DOWN   9 // Previous Band
-#define VOL_UP     10 // Volume Up
+#define VOL_UP     10 // Volume Volume Up
 #define VOL_DOWN   11 // Volume Down
-#define TOGGLE_VOL 14 
+#define TOGGLE_VOL 14
 
 // LCD 16x02 or LCD20x4 PINs
 #define LCD_D7 7
@@ -75,10 +68,10 @@ const uint8_t app_id = 44; // Useful to check the EEPROM content before processi
 const int eeprom_address = 0;
 
 /*
-  The following band table can be adjusted according to the user's preferences or local conditions. 
-  All bands on this receiver use a custom method rather than the standard SI48XX method. 
-  The FM band has been divided into two bands. 
-  There are two MW bands, allowing the receiver to be configured according to the regional band plan and regulations. 
+  The following band table can be adjusted according to the user's preferences or local conditions.
+  All bands on this receiver use a custom method rather than the standard SI48XX method.
+  The FM band has been divided into two bands.
+  There are two MW bands, allowing the receiver to be configured according to the regional band plan and regulations.
   Finally, the SW bands can be modified to provide a better experience for users.
 */
 
@@ -87,11 +80,11 @@ typedef struct {
   uint16_t botton;    // botton frequency (10350 = 103.5Mhz; 9775 = 9,775 kHz)
   uint16_t top;       // top
   uint8_t bandSpace;  // FM only (10 = 100 kHz; 20 = 200 kHz)
-  char *desc; 
+  char *desc;
 } Band;
 
 /*
-  To add, remove, or modify a band, simply update the table below. Each row corresponds to a specific band. 
+  To add, remove, or modify a band, simply update the table below. Each row corresponds to a specific band.
   Here's how the parameters are defined:
 
   1) First parameter: An internal value used by the SI474X to identify the band (see the Datasheet AN610 - Si48XX ATDD PROGRAMMING GUIDE page 17).
@@ -104,21 +97,21 @@ typedef struct {
   8) For SW: 5 corresponds to 5 kHz spacing.
   9) Fifth parameter: A descriptive name for the band, making it easier to identify.
 
-  In the following example, except for the MW1 and MW2 bands, all bands have been customized and do not follow the SI48XX device's internal defaults. 
-  Based on the datasheet "AN610 - Si48XX ATDD PROGRAMMING GUIDE" pages 17 and 18, you can select additional bands or configure them according to 
+  In the following example, except for the MW1 and MW2 bands, all bands have been customized and do not follow the SI48XX device's internal defaults.
+  Based on the datasheet "AN610 - Si48XX ATDD PROGRAMMING GUIDE" pages 17 and 18, you can select additional bands or configure them according to
   your preferences.
 
-  Note that in the following example, the FM bands have been configured to be narrower than those typically found in commercial receivers. 
-  This approach was adopted to enhance the tuning experience. By narrowing the bands, it became easier to tune a station using a 100K potentiometer, 
-  which offers only 180 degrees of rotation. Commercial receivers usually employ mechanical reduction systems, such as pulleys or gears, to improve 
-  the user experience by providing finer tuning control. Since this prototype lacks such mechanical aids, I chose to narrow the bands to compensate 
+  Note that in the following example, the FM bands have been configured to be narrower than those typically found in commercial receivers.
+  This approach was adopted to enhance the tuning experience. By narrowing the bands, it became easier to tune a station using a 100K potentiometer,
+  which offers only 180 degrees of rotation. Commercial receivers usually employ mechanical reduction systems, such as pulleys or gears, to improve
+  the user experience by providing finer tuning control. Since this prototype lacks such mechanical aids, I chose to narrow the bands to compensate
   and optimize usability.
 
 */
-Band tabBand[] = { { 3, 8700, 10100, 20, (char *) "FM1" },      
+Band tabBand[] = { { 3, 8700, 10100, 20, (char *) "FM1" },
                    { 3, 10100, 10900, 20, (char *) "FM2" },
-                   { 20, 0,0,0, (char *) "MW1" },             
-                   { 21, 0,0,0, (char *) "MW2" }, 
+                   { 20, 0,0,0, (char *) "MW1" },
+                   { 21, 0,0,0, (char *) "MW2" },
                    { 25, 4600, 5200,5, (char *) "60m" },
                    { 26, 5700, 6200,5, (char *) (char *) "49m"},
                    { 27, 7100, 7600,5, (char *) "41m"},
@@ -132,13 +125,13 @@ Band tabBand[] = { { 3, 8700, 10100, 20, (char *) "FM1" },
 const int8_t lastBand = (sizeof tabBand / sizeof(Band)) - 1;
 int8_t bandIdx = 0;
 
-char *stmo[] = {(char *) "Mo", (char *) "St"}; 
+char *stmo[] = {(char *) "Mo", (char *) "St"};
 
 extern uint8_t SmallFont[]; // Font Nokia
 extern uint8_t BigNumbers[];
 
 
-LiquidCrystal display(LCD_RS, LCD_E, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
+LiquidCrystal_I2C display(0x27, 20, 4);
 
 
 SI4844 rx;
@@ -165,8 +158,8 @@ void setup() {
   }
 
 
-  // Start the SI48XX device and link it to the MCU pins.  
-  // -1 means no band is selected here and 400000 means 400kHz I2C bus speed 
+  // Start the SI48XX device and link it to the MCU pins.
+  // -1 means no band is selected here and 400000 means 400kHz I2C bus speed
   rx.setup(RESET_PIN, INTERRUPT_PIN, -1, 400000);
 
   if (EEPROM.read(eeprom_address) == app_id)
@@ -174,12 +167,12 @@ void setup() {
   else
     rx.setVolume(48);
 
-  // Select the band. See tabBand array structure 
+  // Select the band. See tabBand array structure
   if ( tabBand[bandIdx].botton != 0)
     rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top,tabBand[bandIdx].bandSpace);
-  else 
-    rx.setBand(tabBand[bandIdx].bandIdx);  
-    
+  else
+    rx.setBand(tabBand[bandIdx].bandIdx);
+
   showStatus();
 
 }
@@ -244,11 +237,11 @@ void showStatus() {
   display.setCursor(13, 0);
   display.print(tabBand[bandIdx].desc);
 
-  if (rx.getFrequencyInteger() > 999) 
+  if (rx.getFrequencyInteger() > 999)
     mode = (char *) "MHZ";
   else
-    mode = (char *) "kHz";  
-  
+    mode = (char *) "kHz";
+
   display.setCursor(13, 1);
   display.print(mode);
 
@@ -258,7 +251,7 @@ void showStatus() {
   }
 
   if ( rx.getStatusStationIndicator() != 0) {
-      display.setCursor(7, 0); 
+      display.setCursor(7, 0);
       display.print((char *)"OK");
   }
 
@@ -279,9 +272,9 @@ void nextBand() {
   else
     bandIdx = 0;
 
-  if ( tabBand[bandIdx].botton == 0) 
+  if ( tabBand[bandIdx].botton == 0)
     rx.setBand(tabBand[bandIdx].bandIdx);
-  else    
+  else
     rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);
 
   delay(MINIMUM_DELAY);
@@ -295,10 +288,10 @@ void previousBand() {
   else
     bandIdx = lastBand;
 
-  if ( tabBand[bandIdx].botton == 0) 
+  if ( tabBand[bandIdx].botton == 0)
     rx.setBand(tabBand[bandIdx].bandIdx);
-  else    
-    rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);    
+  else
+    rx.setCustomBand(tabBand[bandIdx].bandIdx, tabBand[bandIdx].botton, tabBand[bandIdx].top, tabBand[bandIdx].bandSpace);
 
   delay(MINIMUM_DELAY);
   showStatus();
@@ -346,4 +339,3 @@ void loop() {
 
   delay(50);
 }
-

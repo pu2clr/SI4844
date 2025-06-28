@@ -370,7 +370,7 @@ _EnD_oF_dEf_TeXt_;
 Mutes the audio output.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-\iline 948 
+\iline 953 
 
 @param value value 0 = normal (no mute); 1 = Right side mute; 2; Left side mute; 3 = both side 
 _EnD_oF_dEf_TeXt_;
@@ -432,7 +432,7 @@ _EnD_oF_dEf_TeXt_;
 Up or down the sound volume level.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
- \xrefitem deprecated 1.\iline 768 
+ \xrefitem deprecated 1.\iline 773 
 
 @param command '+' up and '-' down 
 _EnD_oF_dEf_TeXt_;
@@ -550,7 +550,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga1d119d683bed417b108ef1ccf3a2d20c';
-        sec-mem-ref-line = '1070';
+        sec-mem-ref-line = '1075';
         sec-mem-ref-name = 'getFirmware';
     };
       sec-mem-referenceto = {
@@ -632,43 +632,33 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga0404927e7414a32125e32ff508bd450e';
-        sec-mem-ref-line = '1098';
+        sec-mem-ref-line = '1103';
         sec-mem-ref-name = 'getFrequency';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga0eafb7b0438fb9e70c91d368929c6aed';
-        sec-mem-ref-line = '1144';
+        sec-mem-ref-line = '1149';
         sec-mem-ref-name = 'getFrequencyInteger';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga7b7d5a9c3005db4a246ed7a585b94889';
-        sec-mem-ref-line = '1044';
+        sec-mem-ref-line = '1049';
         sec-mem-ref-name = 'getValidBandIndex';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga1b9e216739cd952c14c08815f492b723';
-        sec-mem-ref-line = '1204';
+        sec-mem-ref-line = '1209';
         sec-mem-ref-name = 'hasBandChanged';
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga7264a6caa7626678daef61d8f908d612';
-        sec-mem-ref-line = '1030';
+        sec-mem-ref-line = '1035';
         sec-mem-ref-name = 'isHostDetectionBandConfig';
     };
       sec-mem-referencedby = {
-        sec-mem-ref-id = '_s_i4844_8cpp_1gad91399d31b91e1b078d8f52a0cec4656';
-        sec-mem-ref-line = '593';
-        sec-mem-ref-name = 'setBand';
-    };
-      sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga11e6a2a47bb6ac3864f8c97c012c4e47';
-        sec-mem-ref-line = '625';
+        sec-mem-ref-line = '624';
         sec-mem-ref-name = 'setBandSlideSwitch';
-    };
-      sec-mem-referencedby = {
-        sec-mem-ref-id = '_s_i4844_8cpp_1ga5c766d254b0c261a93dfd817f11b712c';
-        sec-mem-ref-line = '672';
-        sec-mem-ref-name = 'setCustomBand';
     };
     }; /* sec-member */
     sec-member = {
@@ -1046,7 +1036,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
-        sec-mem-ref-line = '999';
+        sec-mem-ref-line = '1004';
         sec-mem-ref-name = 'getAllReceiverInfo';
     };
     }; /* sec-member */
@@ -1077,7 +1067,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
-        sec-mem-ref-line = '999';
+        sec-mem-ref-line = '1004';
         sec-mem-ref-name = 'getAllReceiverInfo';
     };
     }; /* sec-member */
@@ -1359,7 +1349,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
-        sec-mem-ref-line = '999';
+        sec-mem-ref-line = '1004';
         sec-mem-ref-name = 'getAllReceiverInfo';
     };
     }; /* sec-member */
@@ -1428,7 +1418,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
-        sec-mem-ref-line = '999';
+        sec-mem-ref-line = '1004';
         sec-mem-ref-name = 'getAllReceiverInfo';
     };
     }; /* sec-member */
@@ -1482,7 +1472,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
-        sec-mem-ref-line = '999';
+        sec-mem-ref-line = '1004';
         sec-mem-ref-name = 'getAllReceiverInfo';
     };
     }; /* sec-member */
@@ -1639,7 +1629,7 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referencedby = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga11e6a2a47bb6ac3864f8c97c012c4e47';
-        sec-mem-ref-line = '625';
+        sec-mem-ref-line = '624';
         sec-mem-ref-name = 'setBandSlideSwitch';
     };
       sec-mem-referencedby = {
@@ -1914,7 +1904,7 @@ _EnD_oF_dEf_TeXt_;
 Set audio mode.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-\iline 892 
+\iline 897 
 
 @see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 21
 
@@ -1959,7 +1949,7 @@ _EnD_oF_dEf_TeXt_;
 Mutes the audio output.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-\iline 959 
+\iline 964 
 
 @param bool on false = normal (no mute); true = mute 
 _EnD_oF_dEf_TeXt_;
@@ -2000,11 +1990,6 @@ _EnD_oF_dEf_TeXt_;
  \xrefitem todo 3.
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
-        sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
-        sec-mem-ref-line = '999';
-        sec-mem-ref-name = 'getAllReceiverInfo';
-    };
-      sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga683a81897fe79e6909817aab36622684';
         sec-mem-ref-line = '363';
         sec-mem-ref-name = 'reset';
@@ -2034,7 +2019,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
-        sec-mem-ref-line = '999';
+        sec-mem-ref-line = '1004';
         sec-mem-ref-name = 'getAllReceiverInfo';
     };
       sec-mem-referenceto = {
@@ -2069,7 +2054,7 @@ _EnD_oF_dEf_TeXt_;
 Set the sound volume level, bass and treble.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
-\iline 846 
+\iline 851 
 
 <table class="markdownTable">
   <tr class="markdownTableHead">    <th class="markdownTableHeadNone"> bass_treble \ilinebr </th>    <th class="markdownTableHeadNone"> Description \ilinebr </th>  </tr>
@@ -2256,11 +2241,6 @@ _EnD_oF_dEf_TeXt_;
 @param uni_am Universal AM Band. 0 = Disable universal AM band (default AFC range of 1.1 kHz); 1 = Enable universal AM band (wider AFC range in tuning); Applicable to Si4827 and Si4844B parts and AMRX mode only
 @param tvreq TV Audio Channel Frequency Display; 0 = Disable TV audio channel frequency display format; 1 = Enable TV audio channel frequency display format; Applicable to Si4827 and Si4844B parts and FMRX mode only
 _EnD_oF_dEf_TeXt_;
-      sec-mem-referenceto = {
-        sec-mem-ref-id = '_s_i4844_8cpp_1ga844135282d9d5d7ae5e735ecb70aa5dc';
-        sec-mem-ref-line = '999';
-        sec-mem-ref-name = 'getAllReceiverInfo';
-    };
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga683a81897fe79e6909817aab36622684';
         sec-mem-ref-line = '363';
@@ -2620,7 +2600,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga1d119d683bed417b108ef1ccf3a2d20c';
-        sec-mem-ref-line = '1070';
+        sec-mem-ref-line = '1075';
         sec-mem-ref-name = 'getFirmware';
     };
       sec-mem-referenceto = {
@@ -2678,7 +2658,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga3ddc72e37495309f61cfce89b4bce24d';
-        sec-mem-ref-line = '980';
+        sec-mem-ref-line = '985';
         sec-mem-ref-name = 'getStatus';
     };
       sec-mem-referenceto = {
@@ -2693,7 +2673,7 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga11e6a2a47bb6ac3864f8c97c012c4e47';
-        sec-mem-ref-line = '625';
+        sec-mem-ref-line = '624';
         sec-mem-ref-name = 'setBandSlideSwitch';
     };
     }; /* sec-member */

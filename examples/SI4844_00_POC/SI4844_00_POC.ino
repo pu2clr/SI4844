@@ -7,9 +7,9 @@
  *  | SI4844 pin |  Arduino pin |  Description                                       |
  *  | ---------  | ------------ | -------------------------------------------------  |
  *  |    2       |   2          | Arduino interrupt pin                              |
- *  |   15       |  12          | Regurlar arduino digital pin used to RESET control |
+ *  |   15       |  12          | Regular arduino digital pin used to RESET control |
  *  |   16       |  A4 (SDA)    | I2C bus (Data)                                     |
- *  |   17       |  A5 (SCL)    | I2C bus (Clocl)                                    |
+ *  |   17       |  A5 (SCL)    | I2C bus (Clock)                                    |
  * 
  *  ATTENTION: Arduino Nano and Uno are 5V based board. Check the board voltage you are using
  *  If you are using the LGT8F328 see: https://blog.eletrogate.com/tutorial-pro-mini-evb-lgt8f328p-arduino-ide/
@@ -41,7 +41,7 @@ void setup() {
   rx.setVolume(48);
   showStatus();
 }
-// Shows instruções
+// Shows instructions
 void instructions() {
   Serial.println(F("---------------------------------------------------"));
   Serial.println(F("Type F - FM; A - AM; 1 to 7 - SW1 to SW7"));
