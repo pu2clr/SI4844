@@ -100,19 +100,19 @@ $(document).ready(function(){initNavTree('_s_i4844_8cpp.html',''); initResizable
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac673bec28500b111088b013029979fcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_i4844_8cpp.html#ac673bec28500b111088b013029979fcc">interrupt_hundler</a> ()</td></tr>
-<tr class="memdesc:ac673bec28500b111088b013029979fcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Library handle interrupt.  <br /></td></tr>
-<tr class="separator:ac673bec28500b111088b013029979fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a1c681e5c6708134fe53f1e6d121798"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_i4844_8cpp.html#a3a1c681e5c6708134fe53f1e6d121798">interrupt_handler</a> ()</td></tr>
+<tr class="memdesc:a3a1c681e5c6708134fe53f1e6d121798"><td class="mdescLeft">&#160;</td><td class="mdescRight">Library handle interrupt.  <br /></td></tr>
+<tr class="separator:a3a1c681e5c6708134fe53f1e6d121798"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac673bec28500b111088b013029979fcc" name="ac673bec28500b111088b013029979fcc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac673bec28500b111088b013029979fcc">&#9670;&#160;</a></span>interrupt_hundler()</h2>
+<a id="a3a1c681e5c6708134fe53f1e6d121798" name="a3a1c681e5c6708134fe53f1e6d121798"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a1c681e5c6708134fe53f1e6d121798">&#9670;&#160;</a></span>interrupt_handler()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void interrupt_hundler </td>
+          <td class="memname">void interrupt_handler </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -124,7 +124,7 @@ Functions</h2></td></tr>
 <p>Handling interruptions.</p>
 <p>This function simply captures the status change of the SI48XX via interruption.</p>
 <p>Whenever the status of the ATDD changes, a hardware interrupt is triggered. For example, when you move the tuner</p>
-<p>potenciometer, the ATDD sends a signal to the Arduino pin (INTERRUPT_PIN). The same is true when the ATDD is capturing</p>
+<p>potentiometer, the ATDD sends a signal to the Arduino pin (INTERRUPT_PIN). The same is true when the ATDD is capturing</p>
 <p>mono FM signal and has switched to stereo.</p>
 <p>You can control the interrupt process via your sketch intead of this library. </p><dl class="section see"><dt>See also</dt><dd>setStatusInterruptFromDevice, getStatusInterruptFromDevice, setup </dd></dl>
 

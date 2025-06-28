@@ -805,7 +805,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-ref-name = 'debugDevice';
     };
       sec-mem-referencedby = {
-        sec-mem-ref-id = '_s_i4844_8cpp_1ga11a97916ce91dfb5ad6f49e5156219b1';
+        sec-mem-ref-id = '_s_i4844_8cpp_1gaff6ab12ce5f0d514cb8dec6efc7c5ed5';
         sec-mem-ref-line = '255';
         sec-mem-ref-name = 'setup';
     };
@@ -1146,7 +1146,7 @@ _EnD_oF_dEf_TeXt_;
 @return  pointer to a structure type si4844_device_status
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
-        sec-mem-ref-id = '_s_i4844_8cpp_1gaed9e80832b8f991bdce9235eae3a069c';
+        sec-mem-ref-id = '_s_i4844_8cpp_1gaf6b82a911092dbedb920147737c1d9a9';
         sec-mem-ref-line = '189';
         sec-mem-ref-name = 'setupSlideSwitch';
     };
@@ -1564,7 +1564,7 @@ _EnD_oF_dEf_TeXt_;
 @see Si48XX ATDD PROGRAMMING GUIDE; AN610; page 45
 _EnD_oF_dEf_TeXt_;
       sec-mem-referencedby = {
-        sec-mem-ref-id = '_s_i4844_8cpp_1gaed9e80832b8f991bdce9235eae3a069c';
+        sec-mem-ref-id = '_s_i4844_8cpp_1gaf6b82a911092dbedb920147737c1d9a9';
         sec-mem-ref-line = '189';
         sec-mem-ref-name = 'setupSlideSwitch';
     };
@@ -1638,12 +1638,12 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-ref-name = 'setCustomBand';
     };
       sec-mem-referencedby = {
-        sec-mem-ref-id = '_s_i4844_8cpp_1ga11a97916ce91dfb5ad6f49e5156219b1';
+        sec-mem-ref-id = '_s_i4844_8cpp_1gaff6ab12ce5f0d514cb8dec6efc7c5ed5';
         sec-mem-ref-line = '255';
         sec-mem-ref-name = 'setup';
     };
       sec-mem-referencedby = {
-        sec-mem-ref-id = '_s_i4844_8cpp_1gaed9e80832b8f991bdce9235eae3a069c';
+        sec-mem-ref-id = '_s_i4844_8cpp_1gaf6b82a911092dbedb920147737c1d9a9';
         sec-mem-ref-line = '189';
         sec-mem-ref-name = 'setupSlideSwitch';
     };
@@ -2028,7 +2028,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-ref-name = 'reset';
     };
       sec-mem-referencedby = {
-        sec-mem-ref-id = '_s_i4844_8cpp_1gaed9e80832b8f991bdce9235eae3a069c';
+        sec-mem-ref-id = '_s_i4844_8cpp_1gaf6b82a911092dbedb920147737c1d9a9';
         sec-mem-ref-line = '189';
         sec-mem-ref-name = 'setupSlideSwitch';
     };
@@ -2547,7 +2547,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
-      sec-mem-id   = 'group___g_b1_1ga11a97916ce91dfb5ad6f49e5156219b1';
+      sec-mem-id   = 'group___g_b1_1gaff6ab12ce5f0d514cb8dec6efc7c5ed5';
       sec-mem-virt = normal;
       sec-mem-prot = public;
       sec-mem-type = <<_EnD_oF_dEf_TeXt_
@@ -2579,7 +2579,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
 uint32_t
 _EnD_oF_dEf_TeXt_;
-        sec-mem-param-declname = 'hightClockSpeed';
+        sec-mem-param-declname = 'highClockSpeed';
         sec-mem-param-defval = <<_EnD_oF_dEf_TeXt_
 50000
 _EnD_oF_dEf_TeXt_;
@@ -2592,11 +2592,11 @@ _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
  Calling this library should be the first thing to do to control the SI4844.
 \ilinebr\ilinebr If interruptPin is -1, it means you will control interrupt in your sketch. 
-\ilinebr\ilinebr In this case, you have to call interrupt_hundler() (see SI4844.h)   <br>
+\ilinebr\ilinebr In this case, you have to call interrupt_handler() (see SI4844.h)   <br>
 @param resetPin      arduino pin used to reset the device
-@param interruptPin  interruprPin arduino pin used to handle interrupt 
+@param interruptPin  interrupt pin - arduino pin used to handle interrupt 
 @param defaultBand   band that the radio should start. If -1 no band is selected and you must select one after starting. Default 0 = FM.
-@param hightClockSpeed hight I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
+@param highClockSpeed high I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga1d119d683bed417b108ef1ccf3a2d20c';
@@ -2611,7 +2611,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
-      sec-mem-id   = 'group___g_b1_1gaed9e80832b8f991bdce9235eae3a069c';
+      sec-mem-id   = 'group___g_b1_1gaf6b82a911092dbedb920147737c1d9a9';
       sec-mem-virt = normal;
       sec-mem-prot = public;
       sec-mem-type = <<_EnD_oF_dEf_TeXt_
@@ -2634,7 +2634,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
 uint32_t
 _EnD_oF_dEf_TeXt_;
-        sec-mem-param-declname = 'hightClockSpeed';
+        sec-mem-param-declname = 'highClockSpeed';
         sec-mem-param-defval = <<_EnD_oF_dEf_TeXt_
 50000
 _EnD_oF_dEf_TeXt_;
@@ -2651,10 +2651,10 @@ _EnD_oF_dEf_TeXt_;
 \ilinebr\ilinebr function assumes that you are using a mechanical band selector.
 \ilinebr\ilinebr Calling this library should be the first thing to do to control the SI48XX.
 \ilinebr\ilinebr If interruptPin is -1, it means you will control interrupt in your sketch. 
-\ilinebr\ilinebr In this case, you have to call interrupt_hundler() (see SI4844.h)   <br>
+\ilinebr\ilinebr In this case, you have to call interrupt_handler() (see SI4844.h)   <br>
 @param resetPin      arduino pin used to reset the device
-@param interruptPin  interruprPin arduino pin used to handle interrupt 
-@param hightClockSpeed hight I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
+@param interruptPin  interrupt pin - arduino pin used to handle interrupt 
+@param highClockSpeed high I2C clock speed to be used by the system (optional - default 50000 - 50kHz).
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = '_s_i4844_8cpp_1ga3ddc72e37495309f61cfce89b4bce24d';
@@ -2789,7 +2789,7 @@ _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
       sec-mem-desc-line = '328';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-Sets I2C bus speed to hight previous defined speed.
+Sets I2C bus speed to high previous defined speed.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
 @see setClockSpeed 
@@ -2836,7 +2836,7 @@ _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.h';
       sec-mem-desc-line = '315';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
-Sets hight clock speed to be used on I2C bus.
+Sets high clock speed to be used on I2C bus.
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
 @param clock (10000 = 10kHz; 50000 = 50kHz; 100000 = 100kHz ... )
@@ -5286,13 +5286,13 @@ file = {
     func = {
     func-member = {
       func-mem-kind = 'function';
-      func-mem-id   = '_s_i4844_8cpp_1ac673bec28500b111088b013029979fcc';
+      func-mem-id   = '_s_i4844_8cpp_1a3a1c681e5c6708134fe53f1e6d121798';
       func-mem-virt = normal;
       func-mem-prot = public;
       func-mem-type = <<_EnD_oF_dEf_TeXt_
 void
 _EnD_oF_dEf_TeXt_;
-      func-mem-name = 'interrupt_hundler';
+      func-mem-name = 'interrupt_handler';
       func-mem-desc-file = '/Users/rcaratti/Desenvolvimento/eu/Arduino/DSP/si4844/SI4844/src/SI4844.cpp';
       func-mem-desc-line = '39';
       func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
@@ -5302,7 +5302,7 @@ _EnD_oF_dEf_TeXt_;
  Handling interruptions.
 \ilinebr\ilinebr This function simply captures the status change of the SI48XX via interruption.
 \ilinebr\ilinebr Whenever the status of the ATDD changes, a hardware interrupt is triggered. For example, when you move the tuner
-\ilinebr\ilinebr potenciometer, the ATDD sends a signal to the Arduino pin (INTERRUPT_PIN). The same is true when the ATDD is capturing 
+\ilinebr\ilinebr potentiometer, the ATDD sends a signal to the Arduino pin (INTERRUPT_PIN). The same is true when the ATDD is capturing 
 \ilinebr\ilinebr mono FM signal and has switched to stereo. 
 \ilinebr\ilinebr You can control the interrupt process via your sketch intead of this library. 
 @see setStatusInterruptFromDevice, getStatusInterruptFromDevice, setup 
@@ -5860,7 +5860,7 @@ _EnD_oF_dEf_TeXt_;
       var-mem-documentation = <<_EnD_oF_dEf_TeXt_
  This variable must be true every time an interruption occurs and then must return to the false every time an action resulting from the interruption is performed.
 \ilinebr\ilinebr The variable below indicates a change of the ATDD status. When it occurs, it means the system needs to process some action (for example show on LCD this change).  <br>
-@see interrupt_hundler() function in SI44.cpp. 
+@see interrupt_handler() function in SI44.cpp. 
 _EnD_oF_dEf_TeXt_;
     }; /* var-member */
     };

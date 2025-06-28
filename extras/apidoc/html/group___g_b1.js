@@ -55,8 +55,8 @@ var group___g_b1 =
     [ "SI4844::setFmSoftMuteSlope", "group___g_b1.html#ga26ac2207be432e5c4587793b3f8b4904", null ],
     [ "SI4844::setReferenceClockFrequency", "group___g_b1.html#ga43fab184f53c1f8191f769167934bfd1", null ],
     [ "SI4844::setReferenceClockPrescaler", "group___g_b1.html#gae0618088d11ae5e79193672554e39dad", null ],
-    [ "SI4844::setup", "group___g_b1.html#ga11a97916ce91dfb5ad6f49e5156219b1", null ],
-    [ "SI4844::setupSlideSwitch", "group___g_b1.html#gaed9e80832b8f991bdce9235eae3a069c", null ],
+    [ "SI4844::setup", "group___g_b1.html#gaff6ab12ce5f0d514cb8dec6efc7c5ed5", null ],
+    [ "SI4844::setupSlideSwitch", "group___g_b1.html#gaf6b82a911092dbedb920147737c1d9a9", null ],
     [ "SI4844::setVolume", "group___g_b1.html#ga65eab6c860e3e11c5d3726144dd3b73d", null ],
     [ "SI4844::volumeDown", "group___g_b1.html#gab6f68232b768a6c257940407c32be77f", null ],
     [ "SI4844::volumeUp", "group___g_b1.html#gab48b1d3c4c87d120de56d3195fa071cc", null ]
